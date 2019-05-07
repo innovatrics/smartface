@@ -1,0 +1,1 @@
+Dedicated branch for Github Pages https://innovatrics.github.io/smartface/
