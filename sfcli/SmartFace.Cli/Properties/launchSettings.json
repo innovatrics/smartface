@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "sfcli": {
+      "commandName": "Project",
+      "commandLineArgs": "--url http://localhost:8099 wlitem registerFromDir -w:watchlistExternalId1 -d:\"C:\\temp\\TestData\\Watchlists\\cliRegisterFromDir\""
+    }
+  }
+}
