@@ -1,10 +1,10 @@
-SmartFace is a high-performance, scalable, face recognition server platform able to process multiple real-time video streams in parallel. Leveraging Innovatrics’ industry-leading algorithm, SmartFace allows system integrators to easily incorporate face recognition into their solutions. https://www.innovatrics.com/face-recognition-solutions/
+SmartFace is a high-performance, scalable, face recognition server platform able to process multiple real-time video streams in parallel. Leveraging Innovatricsâ€™ industry-leading algorithm, SmartFace allows system integrators to easily incorporate face recognition into their solutions. https://www.innovatrics.com/face-recognition-solutions/
 
 # Integrating with SmartFace
 Any system can integrate with SmartFace by using API (OpenAPI/OData) and pub-sub notifications (ZeroMQ).
 
 For more information see:
-* [OpenAPI](https://innovatrics.github.io/smartface/) - Swagger UI
+* [OpenAPI](https://innovatrics.github.io/smartface/?url=https://raw.githubusercontent.com/innovatrics/smartface/master/api/swagger.json) - Swagger UI
 * [sfcli](sfcli) - You can use command line based user interface to interact with the Smart Face API and receive notifications.
 
 # Getting Started
