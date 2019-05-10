@@ -4,8 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using NetMQ;
 using NetMQ.Sockets;
+using SmartFace.Cli.ApiAbstraction;
 
-namespace SmartFace.Cli.Infrastructure.ApiClient.Notifications
+namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
     public delegate void NotificationReceived(string topic, string json);
     public delegate void ErrorOccured(Exception exception);
@@ -25,10 +26,10 @@ namespace SmartFace.Cli.Infrastructure.ApiClient.Notifications
 
         public event ErrorOccured OnError;
 
-        public ZeroMqNotificationReader(string host, int port)
+        public ZeroMqNotificationReader(IApiDefinition apiDefinition)
         {
-            _host = host;
-            _port = port;
+            _host = apiDefinition.Host;
+            _port = apiDefinition.ZeroMqPort;
         }
 
         public ZeroMqNotificationReader Init()

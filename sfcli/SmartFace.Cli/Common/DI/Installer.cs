@@ -79,6 +79,7 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IScopesRepository, ScopesRepository>()
                 .AddTransient<IGlobalConfigRepository, GlobalConfigRepository>()
                 .AddTransient<IApiProvider, ApiProvider>()
+                .AddTransient<ZeroMqNotificationReader>()
                 .AddTransient<INotificationReceiver, ZeroMqNotificationReceiver>()
                 .AddTransient<IWatchlistItemRegistrationManager, WatchlistItemRegistrationManager>()
                 .AddLogging(configure => configure.AddConsole())

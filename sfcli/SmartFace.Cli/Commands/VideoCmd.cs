@@ -4,7 +4,7 @@ using SmartFace.Cli.Common;
 
 namespace SmartFace.Cli.Commands
 {
-    [Command(Name = "video", Description = "Operations with video"),
+    [Command(Name = "video", Description = "View or edit properties of video configuration"),
     Subcommand(typeof(AddVideoCmd)),
     Subcommand(typeof(GetVideoCmd)),
     Subcommand(typeof(SetVideoCmd)),

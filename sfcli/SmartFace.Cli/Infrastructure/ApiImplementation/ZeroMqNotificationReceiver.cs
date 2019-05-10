@@ -3,8 +3,7 @@ using System.IO;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SmartFace.Cli.ApiAbstraction;
-using SmartFace.Cli.Infrastructure.ApiClient.Notifications;
+using SmartFace.Cli.Infrastructure.ApiImplementation;
 
 namespace SmartFace.Cli.Core.Domain.Notifications
 {
@@ -12,9 +11,9 @@ namespace SmartFace.Cli.Core.Domain.Notifications
     {
         private readonly ZeroMqNotificationReader _reader;
 
-        public ZeroMqNotificationReceiver(IApiDefinition apiDefinition, ILogger<ZeroMqNotificationReceiver> log)
+        public ZeroMqNotificationReceiver(ZeroMqNotificationReader reader, ILogger<ZeroMqNotificationReceiver> log)
         {
-            _reader = new ZeroMqNotificationReader(apiDefinition.Host, apiDefinition.ZeroMqPort);
+            _reader = reader;
             _reader.OnError += exception => log.LogError(exception, "Unexpected error during receiving notification");
         }
         public void Start(string topic, TextWriter output)

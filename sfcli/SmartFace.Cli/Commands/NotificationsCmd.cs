@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
-using Newtonsoft.Json;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.Notifications;
 using SmartFace.Cli.Infrastructure.ApiClient.Notifications;
@@ -14,6 +13,7 @@ namespace SmartFace.Cli.Commands
         [Required]
         [Option("-t|--topic", "Specify topic of notifications ["
                               + ZeroMqNotificationTopic.FACE_CREATED + ", "
+                              + ZeroMqNotificationTopic.FACE_EXTRACTED + ", "
                               + ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO + ", "
                               + ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE + ", "
                               + ZeroMqNotificationTopic.PERSON_COMPLETED + ", "
@@ -22,6 +22,7 @@ namespace SmartFace.Cli.Commands
                               + "]", CommandOptionType.SingleValue)]
         [AllowedValues(
             ZeroMqNotificationTopic.FACE_CREATED,
+            ZeroMqNotificationTopic.FACE_EXTRACTED,
             ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO,
             ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE,
             ZeroMqNotificationTopic.PERSON_COMPLETED,

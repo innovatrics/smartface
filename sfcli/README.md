@@ -92,7 +92,7 @@ Options:
   -x|--maxEyeDistance      Maximum count of pixels between eyes (detection on photo)
   -c|--faceConfidence      Face confidence threshold. For cpu detection algorithm around [450]. For gpu algorithm should be set around [8000]
   -a|--detectionAlgorithm  Specify type of algorithm used for face detection. Gpu algorithm is slow if you don't have GPU enabled. [CpuFast, CpuAccurate, Gpu]
-  -g|--gpu                 Enable/Disable GPU support. If CPU detection algorithm is used then is GPU card used only for extractions.
+  -g|--gpu                 Enable/Disable GPU support. If CPU detection algorithm is used then is GPU card used only for extractions [true, false]
   -?|-h|--help             Show help information
 
 ```
@@ -103,7 +103,7 @@ Command prints notifications of specific topic provided in option. Requires ctrl
 
 ```
 Options:
-  -t|--topic    Specify topic of notifications [faces.insert, grouping_progress.info, inputFiles.update, persons.completed, wlHits.match, wlHits.insert]
+  -t|--topic    Specify topic of notifications [faces.insert, faces.extracted, grouping_progress.info, inputFiles.update, persons.completed, wlHits.match, wlHits.insert]
   -?|-h|--help  Show help information
 ```
 
@@ -179,7 +179,7 @@ $ sfcli --url http://localhost:8099 softrestart
 
 #### video
 
-This command allow to create, update or view videoProcessor. VideoProcessor is domain entity which groups some data entities, workers and configs. That alows you to add live stream from IP camera and easily change processing properties.
+This command allow to create, update or view settings of videoProcessor. VideoProcessor is domain entity which groups some data entities, workers and configs. That alows you to add live stream from IP camera and easily change processing properties.
 
 NOTE: stream id is used as unique identifier of videoProcessor
 
@@ -230,7 +230,7 @@ Options:
 
 ##### video set
 
-Change properties of video processor.
+Change properties of videoProcessor.
 
 ```
 Options:
