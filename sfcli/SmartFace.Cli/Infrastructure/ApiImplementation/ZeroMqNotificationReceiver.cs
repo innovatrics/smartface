@@ -3,9 +3,9 @@ using System.IO;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SmartFace.Cli.Infrastructure.ApiImplementation;
+using SmartFace.Cli.Core.Domain.Notifications;
 
-namespace SmartFace.Cli.Core.Domain.Notifications
+namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
     public class ZeroMqNotificationReceiver : INotificationReceiver, IDisposable
     {
@@ -34,16 +34,11 @@ namespace SmartFace.Cli.Core.Domain.Notifications
             }
         }
 
-        private void ReleaseUnmanagedResources()
-        {
-        }
-
         protected virtual void Dispose(bool disposing)
         {
-            ReleaseUnmanagedResources();
             if (disposing)
             {
-                _reader?.Dispose();
+                //reader is injected and should not be disposed by us ...
             }
         }
 
