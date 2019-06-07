@@ -50,7 +50,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 !string.IsNullOrEmpty(data.FullName) ||
                 !string.IsNullOrEmpty(data.Note))
             {
-                var wlItem = Container.WatchlistItems.Single(wli => wli.ExternalId == data.ExternalId);
+                var wlItem = Container.WatchlistItems.Where(wli => wli.ExternalId == data.ExternalId).ToList().Single();
                 wlItem.DisplayName = data.DisplayName;
                 wlItem.FullName = data.FullName;
                 wlItem.Note = data.Note;
