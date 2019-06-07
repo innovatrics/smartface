@@ -30,7 +30,7 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
         public IList<VideoProcessor> ReadAll()
         {
             var resultList = new List<VideoProcessor>();
-            var streams = ApiProvider.Streams.Get().AsyncAwait();
+            var streams = ApiProvider.Streams.Get().AwaitSync();
             streams.ToList().ForEach(s => resultList.Add(ReadInternal(s)));
             return resultList;
         }
@@ -44,7 +44,7 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
 
         private StreamModel GetStreamById(long streamId)
         {
-            return ApiProvider.Streams.Get(streamId).AsyncAwait();
+            return ApiProvider.Streams.Get(streamId).AwaitSync();
         }
 
 
@@ -162,13 +162,13 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
             {
                 if (videoProcessor.Enabled.Value)
                 {
-                    ApiProvider.Workers.EnableWorker(videoWorker.Id).AsyncAwait();
-                    ApiProvider.Workers.EnableWorker(streamWorker.Id).AsyncAwait();
+                    ApiProvider.Workers.EnableWorker(videoWorker.Id).AwaitSync();
+                    ApiProvider.Workers.EnableWorker(streamWorker.Id).AwaitSync();
                 }
                 else
                 {
-                    ApiProvider.Workers.DisableWorker(videoWorker.Id).AsyncAwait();
-                    ApiProvider.Workers.DisableWorker(streamWorker.Id).AsyncAwait();
+                    ApiProvider.Workers.DisableWorker(videoWorker.Id).AwaitSync();
+                    ApiProvider.Workers.DisableWorker(streamWorker.Id).AwaitSync();
                 }
             }
 

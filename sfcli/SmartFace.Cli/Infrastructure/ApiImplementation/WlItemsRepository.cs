@@ -1,10 +1,15 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
 using System.Net;
+using Microsoft.OData.Client;
 using SmartFace.Api.Rpc;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Common.Utils;
 using SmartFace.Cli.Core.ApiAbstraction;
+using SmartFace.Cli.Infrastructure.ApiClient.Extensions;
 using SmartFace.ODataClient.Default;
+using SmartFace.ODataClient.SmartFace.Data.Models.Core;
 using RegisterWlItemData = SmartFace.Cli.Core.ApiAbstraction.Models.RegisterWlItemData;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
@@ -34,7 +39,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
             using (WatchlistItemsRpcClient client = new WatchlistItemsRpcClient(ApiDefinition.ApiUrl))
             {
-                var result = client.RegisterAsync(payload).AsyncAwait();
+                var result = client.RegisterAsync(payload).AwaitSync();
                 if (result.StatusCode != (int)HttpStatusCode.NoContent)
                 {
                     throw new ProcessingException($"Request end with status code {result.StatusCode}");
@@ -50,11 +55,17 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 !string.IsNullOrEmpty(data.FullName) ||
                 !string.IsNullOrEmpty(data.Note))
             {
-                var wlItem = Container.WatchlistItems.Where(wli => wli.ExternalId == data.ExternalId).ToList().Single();
-                wlItem.DisplayName = data.DisplayName;
-                wlItem.FullName = data.FullName;
-                wlItem.Note = data.Note;
-                Container.SaveChangesAsync().AsyncAwait();
+                var wlItem =
+                    ((DataServiceQuery<WlItem>)Container.WatchlistItems.Where(wli => wli.ExternalId == data.ExternalId)
+                    ).ExecuteAsync().AwaitSync().ToList().Single();
+
+                WlItemSingle wlItemSingle = Container.WatchlistItems.ByKey(wlItem.Id);
+                var patchDelta = new ExpandoObject() as IDictionary<string, object>;
+                patchDelta.Add(nameof(WlItem.DisplayName), data.DisplayName);
+                patchDelta.Add(nameof(WlItem.FullName), data.FullName);
+                patchDelta.Add(nameof(WlItem.Note), data.Note);
+
+                wlItemSingle.PatchPropertyAsync((ExpandoObject)patchDelta).Wait();
             }
         }
     }
