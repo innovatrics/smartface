@@ -29,7 +29,7 @@ namespace SmartFace.Cli.Commands.SubWlItem
 } 
 ]
 ", CommandOptionType.NoValue)]
-        public (bool HasValue, bool Value) UseMetaDataFile { get; }
+        public bool UseMetaDataFile { get; set; }
 
         public RegisterWlItemsFromDirCmd(IWatchlistItemRegistrationManager manager)
         {
@@ -38,7 +38,7 @@ namespace SmartFace.Cli.Commands.SubWlItem
 
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {
-            if (UseMetaDataFile.HasValue)
+            if (UseMetaDataFile)
             {
                 Manager.RegisterWlItemsExtendedFromDir(Directory, WatchlistExternalIds);
             }
