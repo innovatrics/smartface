@@ -7,7 +7,7 @@ using SmartFace.Cli.Core.Domain.WatchlistItem;
 
 namespace SmartFace.Cli.Commands.SubWlItem
 {
-    [Command(Name = "registerFromDir", Description = "Register WlItem entities from photos in directory in format {wlitem_externalId}_*.(jpeg|jpg|png) ")]
+    [Command(Name = "registerFromDir", Description = "Register WlItem entities from photos in directory in format {wlitem_externalId}.(jpeg|jpg|png) ")]
     public class RegisterWlItemsFromDirCmd
     {
         private IWatchlistItemRegistrationManager Manager { get; }
@@ -18,6 +18,19 @@ namespace SmartFace.Cli.Commands.SubWlItem
         [Option("-d|--dirToPhotos", "", CommandOptionType.SingleValue)]
         public string Directory { get; set; }
 
+        [Option("-m|--metaDataFile", @"Use this option when you can provide single json file in selected directory with meta data for WlItem. In this case could be use any name for photo file
+[
+{
+    ""ExternalId"": ""120"",
+    ""DisplayName"": ""Display name"",
+    ""FullName"": ""Full name"",
+    ""Note"": ""Example note"",
+    ""PhotoFiles"": [""file1.jpeg"", ""file2.jpeg""]
+} 
+]
+", CommandOptionType.NoValue)]
+        public (bool HasValue, bool Value) UseMetaDataFile { get; }
+
         public RegisterWlItemsFromDirCmd(IWatchlistItemRegistrationManager manager)
         {
             Manager = manager;
@@ -25,7 +38,14 @@ namespace SmartFace.Cli.Commands.SubWlItem
 
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {
-            Manager.RegisterWlItemsFromDir(Directory, WatchlistExternalIds);
+            if (UseMetaDataFile.HasValue)
+            {
+                Manager.RegisterWlItemsExtendedFromDir(Directory, WatchlistExternalIds);
+            }
+            else
+            {
+                Manager.RegisterWlItemsFromDir(Directory, WatchlistExternalIds);
+            }
             return Constants.EXIT_CODE_OK;
         }
     }

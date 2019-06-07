@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SmartFace.Cli.ApiAbstraction.Models.Configs
+﻿namespace SmartFace.Cli.Core.ApiAbstraction.Models.Configs
 {
     public enum DetectionAlgorithm
     {

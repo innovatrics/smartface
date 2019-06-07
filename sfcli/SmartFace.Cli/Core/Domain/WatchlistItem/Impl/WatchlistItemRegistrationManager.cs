@@ -4,36 +4,49 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Logging;
 using SmartFace.Cli.Common;
+using SmartFace.Cli.Core.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
+using SmartFace.Cli.Core.Domain.WatchlistItem.Model;
 
-namespace SmartFace.Cli.Core.Domain.WatchlistItem
+namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
 {
     public class WatchlistItemRegistrationManager : IWatchlistItemRegistrationManager
     {
         private ILogger<WatchlistItemRegistrationManager> Log { get; }
-        private IWlItemRepository Repository { get; }
 
-        public const string FILE_PATTERN = @"^([^_.]+)(_[^\.]*)*\.([jJ][pP][eE]?[gG]|[pP][nN][gG])$";
+        private IWlItemsRepository Repository { get; }
 
-        public WatchlistItemRegistrationManager(ILogger<WatchlistItemRegistrationManager> log, IWlItemRepository repository)
+        private RegisterWlItemExtendedJsonLoader Loader { get; }
+
+        public const string FILE_PATTERN = @"^([^.]+)\.([jJ][pP][eE]?[gG]|[pP][nN][gG])$";
+
+        public WatchlistItemRegistrationManager(ILogger<WatchlistItemRegistrationManager> log, IWlItemsRepository repository, RegisterWlItemExtendedJsonLoader loader)
         {
             Log = log;
             Repository = repository;
+            Loader = loader;
         }
 
-        public void RegisterWlItem(string wlItemExternalId, string[] watchlistExternalIds, string[] photoPaths)
+        public void RegisterWlItem(RegisterWlItemExtended registerWlItemExtended, string[] watchlistExternalIds)
         {
-            var data = new RegisterWlItemData { ExternalId = wlItemExternalId };
-
-            photoPaths.ToList().ForEach(p => data.ImageData.Add(new RegisterWlItemImageData
+            var data = new RegisterWlItemData
             {
-                Data = File.ReadAllBytes(p),
-                MIME = p.ToLower().EndsWith($".{Constants.PNG}") ? Constants.PNG_MIME_TYPE : Constants.JPEG_MIME_TYPE
+                ExternalId = registerWlItemExtended.ExternalId,
+                DisplayName = registerWlItemExtended.DisplayName,
+                FullName = registerWlItemExtended.FullName,
+                Note = registerWlItemExtended.Note
+            };
+
+            registerWlItemExtended.PhotoFiles.ToList().ForEach(pathToPhotoFile => data.ImageData.Add(new RegisterWlItemImageData
+            {
+                Data = File.ReadAllBytes(pathToPhotoFile),
+                MIME = pathToPhotoFile.ToLower().EndsWith($".{Constants.PNG}") ? Constants.PNG_MIME_TYPE : Constants.JPEG_MIME_TYPE
             }));
             watchlistExternalIds.ToList().ForEach(w => data.WatchlistExternalIds.Add(w));
 
             Repository.Register(data);
 
-            Log.LogInformation($"WlItem registered. [{wlItemExternalId}]");
+            Log.LogInformation($"WlItem registered. [{data.ExternalId}]");
         }
 
         public void RegisterWlItemsFromDir(string directory, string[] watchlistExternalIds)
@@ -59,7 +72,12 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem
             {
                 var externalId = group.Key;
                 var photoPaths = group.Select(photoWithExternalId => photoWithExternalId.PhotoPath).ToArray();
-                RegisterWlItem(externalId, watchlistExternalIds, photoPaths);
+                var registerWlItemExtended = new RegisterWlItemExtended
+                {
+                    ExternalId = externalId,
+                    PhotoFiles = photoPaths
+                };
+                RegisterWlItem(registerWlItemExtended, watchlistExternalIds);
             }
         }
 
@@ -80,21 +98,16 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem
             return new PhotoWithExternalId(isValid, eid, photoPath);
         }
 
-        private class PhotoWithExternalId
+        public void RegisterWlItemsExtendedFromDir(string directory, string[] watchlistExternalIds)
         {
-            public bool IsValid { get; }
+            var extendedData = Loader.GetRegisterWlItemExtendedData(directory);
 
-            public string ExternalId { get; }
+            Directory.SetCurrentDirectory(directory);
 
-            public string PhotoPath { get; }
-
-            public PhotoWithExternalId(bool isValid, string externalId, string photoPath)
+            foreach (var registerWlItemExtended in extendedData)
             {
-                IsValid = isValid;
-                ExternalId = externalId;
-                PhotoPath = photoPath;
+                RegisterWlItem(registerWlItemExtended, watchlistExternalIds);
             }
         }
-
     }
 }

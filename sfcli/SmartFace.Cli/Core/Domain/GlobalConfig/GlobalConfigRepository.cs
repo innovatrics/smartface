@@ -1,7 +1,7 @@
 using AutoMapper;
-using SmartFace.Cli.ApiAbstraction;
-using SmartFace.Cli.ApiAbstraction.Models;
-using SmartFace.Cli.ApiAbstraction.Models.Configs;
+using SmartFace.Cli.Core.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
+using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 
 namespace SmartFace.Cli.Core.Domain.GlobalConfig
 {

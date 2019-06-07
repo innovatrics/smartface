@@ -1,4 +1,4 @@
-using SmartFace.Cli.ApiAbstraction.Models;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.ODataClient.SmartFace.Data.Models.Core;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation

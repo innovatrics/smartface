@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using SmartFace.Cli.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.Domain.ImgExport;
 using SmartFace.Cli.Core.Domain.ImgExport.Impl;
 

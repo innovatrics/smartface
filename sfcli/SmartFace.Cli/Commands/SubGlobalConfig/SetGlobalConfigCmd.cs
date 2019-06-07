@@ -4,7 +4,7 @@ using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
-using SmartFace.Cli.ApiAbstraction.Models.Configs;
+using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Core.Domain.GlobalConfig;
 
 namespace SmartFace.Cli.Commands.SubGlobalConfig

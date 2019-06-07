@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NetMQ;
 using NetMQ.Sockets;
-using SmartFace.Cli.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {

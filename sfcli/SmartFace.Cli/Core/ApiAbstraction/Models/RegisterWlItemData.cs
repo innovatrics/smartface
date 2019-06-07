@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace SmartFace.Cli.Core.Domain.WatchlistItem
+namespace SmartFace.Cli.Core.ApiAbstraction.Models
 {
     public class RegisterWlItemImageData
     {
@@ -9,10 +9,16 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem
 
         public string MIME { get; set; }
     }
-    
+
     public class RegisterWlItemData
     {
         public string ExternalId { get; set; }
+
+        public string DisplayName { get; set; }
+       
+        public string FullName { get; set; }
+
+        public string Note { get; set; }
 
         public ICollection<RegisterWlItemImageData> ImageData { get; set; } = new Collection<RegisterWlItemImageData>();
 

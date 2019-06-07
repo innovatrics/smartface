@@ -1,13 +1,13 @@
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 
 namespace SmartFace.Cli.Core.ApiAbstraction
 {
-    public interface IStreamsRepository
+    public interface IWlItemsRepository
     {
-        Task<StreamModel> Get(long id);
-
-        Task<IEnumerable<StreamModel>> Get();
+        void Register(RegisterWlItemData data);
     }
 }

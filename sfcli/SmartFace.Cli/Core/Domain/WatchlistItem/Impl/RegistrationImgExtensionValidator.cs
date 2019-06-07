@@ -2,7 +2,7 @@
 using System.Linq;
 using SmartFace.Cli.Common;
 
-namespace SmartFace.Cli.Core.Domain.WatchlistItem
+namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
 {
     public class RegistrationImgExtensionValidator : ValidationAttribute
     {

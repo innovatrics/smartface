@@ -1,7 +1,7 @@
 ﻿using System;
 using McMaster.Extensions.CommandLineUtils;
-using SmartFace.Cli.ApiAbstraction;
 using SmartFace.Cli.Common;
+using SmartFace.Cli.Core.ApiAbstraction;
 
 namespace SmartFace.Cli.Commands
 {

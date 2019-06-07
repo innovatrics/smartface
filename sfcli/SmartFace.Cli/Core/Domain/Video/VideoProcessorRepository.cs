@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
-using SmartFace.Cli.ApiAbstraction;
-using SmartFace.Cli.ApiAbstraction.Models;
-using SmartFace.Cli.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Common.Utils;
+using SmartFace.Cli.Core.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
+using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 
 namespace SmartFace.Cli.Core.Domain.StreamProcessor
 {
