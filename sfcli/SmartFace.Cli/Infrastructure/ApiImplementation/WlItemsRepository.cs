@@ -65,7 +65,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 patchDelta.Add(nameof(WlItem.FullName), data.FullName);
                 patchDelta.Add(nameof(WlItem.Note), data.Note);
 
-                wlItemSingle.PatchPropertyAsync((ExpandoObject)patchDelta).Wait();
+                wlItemSingle.PatchPropertyAsync((ExpandoObject)patchDelta).AwaitSync();
             }
         }
     }
