@@ -1,6 +1,6 @@
-using SmartFace.Cli.ApiAbstraction;
-using SmartFace.Cli.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Common;
+using SmartFace.Cli.Core.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Infrastructure.ApiClient.Extensions;
 using SmartFace.ODataClient.Default;
 using SmartFace.ODataClient.Extensions;

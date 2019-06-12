@@ -3,12 +3,12 @@ using AutoMapper;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using SmartFace.Cli.ApiAbstraction;
-using SmartFace.Cli.ApiAbstraction.Models;
-using SmartFace.Cli.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Commands;
 using SmartFace.Cli.Common.DI.Factories;
 using SmartFace.Cli.Common.Utils;
+using SmartFace.Cli.Core.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
+using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Core.Domain.DataSelector;
 using SmartFace.Cli.Core.Domain.DataSelector.Impl;
 using SmartFace.Cli.Core.Domain.GlobalConfig;
@@ -16,6 +16,7 @@ using SmartFace.Cli.Core.Domain.ImgExport;
 using SmartFace.Cli.Core.Domain.Notifications;
 using SmartFace.Cli.Core.Domain.StreamProcessor;
 using SmartFace.Cli.Core.Domain.WatchlistItem;
+using SmartFace.Cli.Core.Domain.WatchlistItem.Impl;
 using SmartFace.Cli.Infrastructure.ApiImplementation;
 using SmartFace.ODataClient.Default;
 using SmartFace.ODataClient.SmartFace.Data.Models.Core;
@@ -68,7 +69,7 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IQueryDataSelector<WlHit>, WlHitODataSelector>()
                 .AddTransient<IQueryDataSelector<WlItem>, WlItemODataSelector>()
                 .AddTransient<IVideoProcessorRepository, VideoProcessorRepository>()
-                .AddTransient<IWlItemRepository, WlItemRepository>()
+                .AddTransient<IWlItemsRepository, WlItemsRepository>()
                 .AddTransient<IWorkersRepository, WorkersRepository>()
                 .AddTransient<ICamerasRepository, CamerasRepository>()
                 .AddTransient<IStreamsRepository, StreamsRepository>()
@@ -80,6 +81,7 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IGlobalConfigRepository, GlobalConfigRepository>()
                 .AddTransient<IApiProvider, ApiProvider>()
                 .AddTransient<ZeroMqNotificationReader>()
+                .AddTransient<RegisterWlItemExtendedJsonLoader>()
                 .AddTransient<INotificationReceiver, ZeroMqNotificationReceiver>()
                 .AddTransient<IWatchlistItemRegistrationManager, WatchlistItemRegistrationManager>()
                 .AddLogging(configure => configure.AddConsole())

@@ -1,7 +1,6 @@
-using SmartFace.Cli.ApiAbstraction.Models;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
 
-namespace SmartFace.Cli.ApiAbstraction
+namespace SmartFace.Cli.Core.ApiAbstraction
 {
     public interface IScopesRepository
     {

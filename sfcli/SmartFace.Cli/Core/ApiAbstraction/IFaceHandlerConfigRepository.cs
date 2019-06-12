@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SmartFace.Cli.ApiAbstraction.Models.Configs;
+﻿using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 
-namespace SmartFace.Cli.ApiAbstraction
+namespace SmartFace.Cli.Core.ApiAbstraction
 {
     public interface IFaceHandlerConfigRepository
     {

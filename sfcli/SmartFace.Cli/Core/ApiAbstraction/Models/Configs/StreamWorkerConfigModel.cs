@@ -1,4 +1,4 @@
-namespace SmartFace.Cli.ApiAbstraction.Models.Configs
+namespace SmartFace.Cli.Core.ApiAbstraction.Models.Configs
 {
     public class StreamWorkerConfigModel : IStreamWorkerConfig
     {

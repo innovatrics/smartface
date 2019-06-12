@@ -18,7 +18,7 @@ namespace SmartFace.Cli.Commands
 
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {
-            Container.Services.SoftRestart().ExecuteAsync().AsyncAwait();
+            Container.Services.SoftRestart().ExecuteAsync().AwaitSync();
             return Constants.EXIT_CODE_OK;
         }
     }

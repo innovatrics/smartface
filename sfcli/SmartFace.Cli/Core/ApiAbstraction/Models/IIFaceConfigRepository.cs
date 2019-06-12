@@ -1,6 +1,6 @@
-﻿using SmartFace.Cli.ApiAbstraction.Models.Configs;
+﻿using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 
-namespace SmartFace.Cli.ApiAbstraction.Models
+namespace SmartFace.Cli.Core.ApiAbstraction.Models
 {
     public interface IIFaceConfigRepository
     {

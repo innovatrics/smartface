@@ -1,6 +1,6 @@
-using SmartFace.Cli.ApiAbstraction.Models;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
 
-namespace SmartFace.Cli.ApiAbstraction
+namespace SmartFace.Cli.Core.ApiAbstraction
 {
     public interface ICamerasRepository
     {

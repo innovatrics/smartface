@@ -3,8 +3,9 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using NUnit.Framework;
 using SmartFace.Cli.Common.Utils;
+using Tests;
 
-namespace Tests.SfCliTests.Utils
+namespace SmartFace.CliTests.SfCliTests.Utils
 {
     public class ReflectionContext
     {

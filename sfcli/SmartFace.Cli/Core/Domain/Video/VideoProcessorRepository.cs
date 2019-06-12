@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
-using SmartFace.Cli.ApiAbstraction;
-using SmartFace.Cli.ApiAbstraction.Models;
-using SmartFace.Cli.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Common.Utils;
+using SmartFace.Cli.Core.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
+using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 
 namespace SmartFace.Cli.Core.Domain.StreamProcessor
 {
@@ -30,7 +30,7 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
         public IList<VideoProcessor> ReadAll()
         {
             var resultList = new List<VideoProcessor>();
-            var streams = ApiProvider.Streams.Get().AsyncAwait();
+            var streams = ApiProvider.Streams.Get().AwaitSync();
             streams.ToList().ForEach(s => resultList.Add(ReadInternal(s)));
             return resultList;
         }
@@ -44,7 +44,7 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
 
         private StreamModel GetStreamById(long streamId)
         {
-            return ApiProvider.Streams.Get(streamId).AsyncAwait();
+            return ApiProvider.Streams.Get(streamId).AwaitSync();
         }
 
 
@@ -162,13 +162,13 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
             {
                 if (videoProcessor.Enabled.Value)
                 {
-                    ApiProvider.Workers.EnableWorker(videoWorker.Id).AsyncAwait();
-                    ApiProvider.Workers.EnableWorker(streamWorker.Id).AsyncAwait();
+                    ApiProvider.Workers.EnableWorker(videoWorker.Id).AwaitSync();
+                    ApiProvider.Workers.EnableWorker(streamWorker.Id).AwaitSync();
                 }
                 else
                 {
-                    ApiProvider.Workers.DisableWorker(videoWorker.Id).AsyncAwait();
-                    ApiProvider.Workers.DisableWorker(streamWorker.Id).AsyncAwait();
+                    ApiProvider.Workers.DisableWorker(videoWorker.Id).AwaitSync();
+                    ApiProvider.Workers.DisableWorker(streamWorker.Id).AwaitSync();
                 }
             }
 

@@ -1,4 +1,4 @@
-using SmartFace.Cli.ApiAbstraction.Models.Configs;
+using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 
 namespace SmartFace.Cli.Core.Domain.GlobalConfig
 {

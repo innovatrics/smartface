@@ -153,13 +153,29 @@ This command will create/replace watchlist item with faces from photo files (fac
 
 ##### wlitem registerFromDir
 
-This command will register multiple wlitems from directory with photos. It will take all image files from given directory which name conforms with format  "{wlitem_externalId}_*.(jpeg|jpg|png)" and register photos for each externalId to wlitem.
-Example file name "ext123_example.jpeg". 
+This command will register multiple wlitems from directory with photos. It will take all image files from given directory which name conforms with format  "{wlitem_externalId}.(jpeg|jpg|png)" and register photos for each externalId as wlitem.
+Example file name "ext123.jpeg". 
+
+###### Option --metaDataFile
+If you need to fill additional data to wlitem like FullName, DisplayName or Note then use option -m. 
+WlItems will be registred from json file which contains array of objects, where each object represents data for wlitem.
+This json file is expected to be in specified directory (option --dirToPhotos). Name of json file is irrelevant. 
 
 ```
 Options:
   -w|--watchlistsExternalIds
   -d|--dirToPhotos
+  -m|--metaDataFile           Use this option when you can provide single json file in selected directory with meta data for WlItem. In this case could be use any name for photo file
+                              [
+                              {
+                                  "ExternalId": "120",
+                                  "DisplayName": "Display name",
+                                  "FullName": "Full name",
+                                  "Note": "Example note",
+                                  "PhotoFiles": ["file1.jpeg", "file2.jpeg"]
+                              }
+                              ]
+
   -?|-h|--help                Show help information
 ```
 

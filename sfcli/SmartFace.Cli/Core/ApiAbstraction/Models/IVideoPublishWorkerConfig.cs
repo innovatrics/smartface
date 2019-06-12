@@ -1,4 +1,4 @@
-namespace SmartFace.Cli.ApiAbstraction.Models
+namespace SmartFace.Cli.Core.ApiAbstraction.Models
 {
     public interface IVideoPublishWorkerConfig
     {

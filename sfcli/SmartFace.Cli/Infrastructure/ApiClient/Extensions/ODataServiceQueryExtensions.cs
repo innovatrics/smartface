@@ -1,16 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Dynamic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.OData.Client;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
+using SmartFace.Cli.Common.Utils;
 using SmartFace.ODataClient.Action;
 using SmartFace.ODataClient.Extensions;
 using SmartFace.ODataClient.Function;
 using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using Container = SmartFace.ODataClient.Default.Container;
 
 namespace SmartFace.Cli.Infrastructure.ApiClient.Extensions
 {
@@ -96,5 +102,28 @@ namespace SmartFace.Cli.Infrastructure.ApiClient.Extensions
             var query = service.AddQueryOption("$filter", idFilter);
             return query;
         }
+
+        public static async Task PatchPropertyAsync<TEntity>(this DataServiceQuerySingle<TEntity> singleQuery, ExpandoObject patchDelta) where TEntity : BaseEntityType
+        {
+            using (var client = new HttpClient())
+            {
+                var stringPayload = JsonConvert.SerializeObject(patchDelta);
+                var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+
+                var request = new HttpRequestMessage(new HttpMethod("PATCH"), $"{singleQuery.RequestUri.AbsoluteUri}")
+                {
+                    Content = httpContent
+                };
+
+                var response = await client.SendAsync(request);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new ServerException(response);
+                }
+            }
+        }
+
+
     }
 }
