@@ -160,8 +160,6 @@ Example file name "ext123.jpeg".
 If you need to fill additional data to wlitem like FullName, DisplayName or Note then use option -m. 
 WlItems will be registred from json file which contains array of objects, where each object represents data for wlitem.
 This json file is expected to be in specified directory (option --dirToPhotos). Name of json file is irrelevant. 
-Remember to escape directory separator. 
-For example "c:\\\path\\\to\\\data"
 
 ```
 Options:
