@@ -60,9 +60,9 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
             var validPhotos = new List<PhotoWithExternalId>();
             foreach (var file in files)
             {
-                var photoWithId = GetPhotoWithExternalId(file);
-                if (photoWithId.IsValid)
+                if (TryGetExternalIdFromPhotoFile(file, out string externalId))
                 {
+                    var photoWithId = new PhotoWithExternalId(externalId, file);
                     validPhotos.Add(photoWithId);
                 }
             }
@@ -81,9 +81,9 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
             }
         }
 
-        private static PhotoWithExternalId GetPhotoWithExternalId(string photoPath)
+        private static bool TryGetExternalIdFromPhotoFile(string photoPath, out string eid)
         {
-            string eid = string.Empty;
+            eid = string.Empty;
             bool isValid = false;
             Regex regex = new Regex(FILE_PATTERN);
             var file = Path.GetFileName(photoPath);
@@ -95,7 +95,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
                 eid = match.Groups[1].Value;
             }
 
-            return new PhotoWithExternalId(isValid, eid, photoPath);
+            return isValid;
         }
 
         public void RegisterWlItemsExtendedFromDir(string directory, string[] watchlistExternalIds)
