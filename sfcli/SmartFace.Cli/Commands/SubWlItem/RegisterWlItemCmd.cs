@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.WatchlistItem;
@@ -11,9 +12,11 @@ namespace SmartFace.Cli.Commands.SubWlItem
     {
         private IWatchlistItemRegistrationManager Manager { get; }
 
+        [Required]
         [Option("-e|--externalId", "", CommandOptionType.SingleValue)]
         public string ExternalId { get; set; }
 
+        [Required]
         [Option("-w|--watchlistsExternalIds", "", CommandOptionType.MultipleValue)]
         public string[] WatchlistExternalIds { get; set; }
 
@@ -33,8 +36,9 @@ namespace SmartFace.Cli.Commands.SubWlItem
             {
                 ExternalId = ExternalId,
                 PhotoFiles = Photos,
+                WatchlistExternalIds = WatchlistExternalIds
             };
-            Manager.RegisterWlItem(data, WatchlistExternalIds);
+            Manager.RegisterWlItem(data);
             return Constants.EXIT_CODE_OK;
         }
 
