@@ -1,6 +1,7 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.WatchlistItem;
@@ -12,9 +13,11 @@ namespace SmartFace.Cli.Commands.SubWlItem
     {
         private IWatchlistItemRegistrationManager Manager { get; }
         
+        [Required]
         [Option("-w|--watchlistsExternalIds", "", CommandOptionType.MultipleValue)]
         public string[] WatchlistExternalIds { get; set; }
         
+        [Required]
         [Option("-d|--dirToPhotos", "", CommandOptionType.SingleValue)]
         public string Directory { get; set; }
 
@@ -31,6 +34,9 @@ namespace SmartFace.Cli.Commands.SubWlItem
 ", CommandOptionType.NoValue)]
         public bool UseMetaDataFile { get; set; }
 
+        [Option("-p|--parallel", "Max degree of parallelism, default value is 1", CommandOptionType.SingleValue)]
+        public int MaxDegreeOfParallelism { get; set; } = 1;
+
         public RegisterWlItemsFromDirCmd(IWatchlistItemRegistrationManager manager)
         {
             Manager = manager;
@@ -40,11 +46,11 @@ namespace SmartFace.Cli.Commands.SubWlItem
         {
             if (UseMetaDataFile)
             {
-                Manager.RegisterWlItemsExtendedFromDir(Directory, WatchlistExternalIds);
+                Manager.RegisterWlItemsExtendedFromDir(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             else
             {
-                Manager.RegisterWlItemsFromDir(Directory, WatchlistExternalIds);
+                Manager.RegisterWlItemsFromDir(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             return Constants.EXIT_CODE_OK;
         }

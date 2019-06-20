@@ -80,7 +80,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistItem
             testContext.CreateDataFile(photoFileName);
         };
 
-        private when _register = testContext => testContext.Manager.RegisterWlItemsExtendedFromDir(testContext.Dir, new[] {"Wl"});
+        private when _register = testContext => testContext.Manager.RegisterWlItemsExtendedFromDir(testContext.Dir, new[] {"Wl"}, 1);
 
         private then _photoWithRelativePathFound = testContext =>
         {
@@ -103,7 +103,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistItem
             testContext.CreateDataFile(absolutePathToPhotoFile.Replace(@"\", @"\\"));
         };
 
-        private when _register = testContext => testContext.Manager.RegisterWlItemsExtendedFromDir(testContext.Dir, new[] {"Wl"});
+        private when _register = testContext => testContext.Manager.RegisterWlItemsExtendedFromDir(testContext.Dir, new[] {"Wl"}, 1);
 
         private then _photoWithAbsolutePathFound = testContext =>
         {
