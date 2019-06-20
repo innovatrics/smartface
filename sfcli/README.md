@@ -175,7 +175,7 @@ Options:
                                   "PhotoFiles": ["file1.jpeg", "file2.jpeg"]
                               }
                               ]
-
+  -p|--parallel               Max degree of parallelism, default value is 1
   -?|-h|--help                Show help information
 ```
 
