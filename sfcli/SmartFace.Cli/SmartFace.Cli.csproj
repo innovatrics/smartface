@@ -5,8 +5,9 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
         <RootNamespace>SmartFace.Cli</RootNamespace>
-        <Version>3.3.0</Version>
+        <Version>3.4.0</Version>
         <AssemblyName>sfcli</AssemblyName>
+        <AssemblyVersion>3.4.0.0</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
