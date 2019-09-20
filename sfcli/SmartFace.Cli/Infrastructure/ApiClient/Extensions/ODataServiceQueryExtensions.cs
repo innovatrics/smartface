@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.OData.Client;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
-using SmartFace.Cli.Common.Utils;
+using Newtonsoft.Json.Linq;
+using SmartFace.Cli.Infrastructure.ApiClient.Models;
 using SmartFace.ODataClient.Action;
 using SmartFace.ODataClient.Extensions;
 using SmartFace.ODataClient.Function;
 using SmartFace.ODataClient.SmartFace.Data.Models.Core;
-using Container = SmartFace.ODataClient.Default.Container;
 
 namespace SmartFace.Cli.Infrastructure.ApiClient.Extensions
 {
@@ -65,6 +62,35 @@ namespace SmartFace.Cli.Infrastructure.ApiClient.Extensions
                 new BodyOperationParameter("Value", propertyValue)).GetAwaiter().GetResult().Single();
 
             return config;
+        }
+
+        public static IList<Config> SetConfigValuesEx(this DataServiceQuery<Config> service, UpdateConfigValuesDescriptor updateConfigValuesDescriptor)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = service.Context.BaseUri;
+
+                var settings = new JsonSerializerSettings
+                {
+                    Converters = new List<JsonConverter> { new StringEnumConverter { CamelCaseText = false } }
+                };
+
+                var requestUriPath = service.SetConfigValues(null).RequestUri.PathAndQuery;
+                var stringPayload = JsonConvert.SerializeObject(updateConfigValuesDescriptor, settings);
+                var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+                var responseMessage = client.PostAsync(requestUriPath, httpContent).Result;
+
+                if (!responseMessage.IsSuccessStatusCode)
+                {
+                    throw new ServerException(responseMessage);
+                }
+
+                var responseJson = responseMessage.Content.ReadAsStringAsync().Result;
+                var valueObject = JObject.Parse(responseJson);
+                var updatedConfigs = valueObject.SelectToken("value").ToObject<IList<Config>>();
+
+                return updatedConfigs;
+            }
         }
 
         public static TEntity Create<TEntity>(this DataServiceQuery<TEntity> service, INotifyPropertyChanged dataObject)
