@@ -117,8 +117,8 @@ namespace SmartFace.Cli.Core.Domain.DataSelector.Impl
                 "System.Linq.Queryable",
                 "System.Collections.Generic",
                 "Microsoft.OData.Client",
-                "SmartFace.Cli.Domain.DataSelector",
-                "SmartFace.Cli.Domain.DataSelector.Impl",
+                "SmartFace.Cli.Core.Domain.DataSelector",
+                "SmartFace.Cli.Core.Domain.DataSelector.Impl",
                 "SmartFace.ODataClient.SmartFace.Data.Models.Core"
             }).AddReferences(Assemblies);
             return scriptOptions;
