@@ -18,7 +18,8 @@ namespace SmartFace.Cli.Commands
                               + ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE + ", "
                               + ZeroMqNotificationTopic.PERSON_COMPLETED + ", "
                               + ZeroMqNotificationTopic.WATCHLIST_ITEM_HIT + ", "
-                              + ZeroMqNotificationTopic.WATCHLIST_ITEM_INSERTED
+                              + ZeroMqNotificationTopic.WATCHLIST_ITEM_INSERTED + ", "
+                              + ZeroMqNotificationTopic.HEARTBEAT
                               + "]", CommandOptionType.SingleValue)]
         [AllowedValues(
             ZeroMqNotificationTopic.FACE_CREATED,
@@ -27,7 +28,8 @@ namespace SmartFace.Cli.Commands
             ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE,
             ZeroMqNotificationTopic.PERSON_COMPLETED,
             ZeroMqNotificationTopic.WATCHLIST_ITEM_HIT,
-            ZeroMqNotificationTopic.WATCHLIST_ITEM_INSERTED
+            ZeroMqNotificationTopic.WATCHLIST_ITEM_INSERTED,
+            ZeroMqNotificationTopic.HEARTBEAT
         , IgnoreCase = false)]
         public string Topic { get; set; }
 

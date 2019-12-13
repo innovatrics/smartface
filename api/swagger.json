@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "3_3_0_0",
+        "version": "3_4_0_0",
         "title": "SmartFace"
     },
     "host": "localhost:8099",
@@ -75,6 +75,9 @@
                     },
                     "400": {
                         "description": "Exactly one face expected on single photo"
+                    },
+                    "408": {
+                        "description": "Detection or Extraction timed out"
                     }
                 }
             }
@@ -216,6 +219,9 @@
                     },
                     "400": {
                         "description": "At least one face expected on a photo"
+                    },
+                    "408": {
+                        "description": "Detection, Extraction or Match timed out"
                     }
                 }
             }
@@ -323,6 +329,9 @@
                         "schema": {
                             "$ref": "#/definitions/Camera"
                         }
+                    },
+                    "409": {
+                        "description": "Camera limit was reached"
                     }
                 },
                 "deprecated": false
@@ -559,6 +568,28 @@
                         "required": true,
                         "type": "string"
                     }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/odata/Configs/Function.GetConstants()": {
+            "get": {
+                "tags": [
+                    "Configs"
+                ],
+                "summary": "Gets configuration constants.",
+                "operationId": "Configs_GetConstants",
+                "consumes": [],
+                "produces": [
+                    "application/json"
                 ],
                 "responses": {
                     "200": {
@@ -952,6 +983,9 @@
                     },
                     "404": {
                         "description": "Face does not exist."
+                    },
+                    "409": {
+                        "description": "Face linked to a WlItem."
                     }
                 },
                 "deprecated": false
@@ -1772,6 +1806,9 @@
                         "schema": {
                             "$ref": "#/definitions/InputFile"
                         }
+                    },
+                    "409": {
+                        "description": "InputFile limit was reached"
                     }
                 },
                 "deprecated": false
@@ -2043,6 +2080,9 @@
                     },
                     "404": {
                         "description": "Person does not exist."
+                    },
+                    "409": {
+                        "description": "Person linked to a WlItem."
                     }
                 },
                 "deprecated": false
@@ -2655,6 +2695,9 @@
                     },
                     "404": {
                         "description": "Not found"
+                    },
+                    "409": {
+                        "description": "Cameras or InputFiles still exists, Watchlist scope exists or some photos are still processing"
                     }
                 },
                 "deprecated": false
@@ -4421,6 +4464,8 @@
                 },
                 "MaxResultCount": {
                     "format": "int32",
+                    "maximum": 1000,
+                    "minimum": 1,
                     "type": "integer"
                 }
             }
@@ -4772,6 +4817,135 @@
                 }
             }
         },
+        "Person": {
+            "required": [
+                "ScopeId",
+                "CreatedAt",
+                "TimeAppeared",
+                "Id"
+            ],
+            "type": "object",
+            "properties": {
+                "ScopeId": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "CreatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "UpdatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "TimeAppeared": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "TimeDisappeared": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "StreamId": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "Id": {
+                    "format": "int64",
+                    "type": "integer"
+                }
+            }
+        },
+        "Photo": {
+            "required": [
+                "State",
+                "ScopeId",
+                "CreatedAt",
+                "Id"
+            ],
+            "type": "object",
+            "properties": {
+                "ImageUrl": {
+                    "type": "string"
+                },
+                "State": {
+                    "enum": [
+                        "New",
+                        "Processing",
+                        "Processed",
+                        "Error"
+                    ],
+                    "type": "string"
+                },
+                "ScopeId": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "StreamId": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "ImageDataId": {
+                    "format": "uuid",
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
+                },
+                "CreatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "UpdatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "ReceivedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "Id": {
+                    "format": "int64",
+                    "type": "integer"
+                }
+            }
+        },
+        "Scope": {
+            "required": [
+                "Id",
+                "Type",
+                "CreatedAt"
+            ],
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "format": "int64",
+                    "type": "integer",
+                    "readOnly": true
+                },
+                "Description": {
+                    "type": "string",
+                    "example": "New description"
+                },
+                "Type": {
+                    "enum": [
+                        "Event",
+                        "Location",
+                        "Watchlist"
+                    ],
+                    "type": "string",
+                    "readOnly": true
+                },
+                "CreatedAt": {
+                    "format": "date-time",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "UpdatedAt": {
+                    "format": "date-time",
+                    "type": "string",
+                    "readOnly": true
+                }
+            }
+        },
         "Face": {
             "required": [
                 "PersonId",
@@ -4787,10 +4961,21 @@
                 "CropRightBottomX",
                 "CropRightBottomY",
                 "PhotoId",
-                "Id"
+                "Id",
+                "FaceAreaChange"
             ],
             "type": "object",
             "properties": {
+                "ImageUrl": {
+                    "type": "string"
+                },
+                "GenderFormatted": {
+                    "enum": [
+                        "Male",
+                        "Female"
+                    ],
+                    "type": "string"
+                },
                 "PersonId": {
                     "format": "int64",
                     "type": "integer"
@@ -4893,114 +5078,29 @@
                     "format": "int64",
                     "type": "integer"
                 },
-                "ImageUrl": {
-                    "type": "string"
+                "FaceArea": {
+                    "format": "double",
+                    "type": "number"
                 },
-                "GenderFormatted": {
-                    "enum": [
-                        "Male",
-                        "Female"
-                    ],
-                    "type": "string"
+                "FaceOrder": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "FacesOnFrameCount": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "FaceAreaChange": {
+                    "format": "double",
+                    "type": "number"
                 }
             }
         },
-        "Person": {
-            "required": [
-                "ScopeId",
-                "CreatedAt",
-                "TimeAppeared",
-                "Id"
-            ],
-            "type": "object",
-            "properties": {
-                "ScopeId": {
-                    "format": "int64",
-                    "type": "integer"
-                },
-                "CreatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "UpdatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "TimeAppeared": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "TimeDisappeared": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "StreamId": {
-                    "format": "int64",
-                    "type": "integer"
-                },
-                "Id": {
-                    "format": "int64",
-                    "type": "integer"
-                }
-            }
-        },
-        "Photo": {
-            "required": [
-                "State",
-                "ScopeId",
-                "CreatedAt",
-                "Id"
-            ],
-            "type": "object",
-            "properties": {
-                "State": {
-                    "enum": [
-                        "New",
-                        "Processing",
-                        "Processed",
-                        "Error"
-                    ],
-                    "type": "string"
-                },
-                "ScopeId": {
-                    "format": "int64",
-                    "type": "integer"
-                },
-                "StreamId": {
-                    "format": "int64",
-                    "type": "integer"
-                },
-                "ImageDataId": {
-                    "format": "uuid",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "CreatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "UpdatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "ReceivedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "Id": {
-                    "format": "int64",
-                    "type": "integer"
-                },
-                "ImageUrl": {
-                    "type": "string"
-                }
-            }
-        },
-        "Scope": {
+        "WlItem": {
             "required": [
                 "Id",
-                "Type",
-                "CreatedAt"
+                "CreatedAt",
+                "PersonId"
             ],
             "type": "object",
             "properties": {
@@ -5009,18 +5109,21 @@
                     "type": "integer",
                     "readOnly": true
                 },
-                "Description": {
+                "ExternalId": {
                     "type": "string",
-                    "example": "New description"
+                    "example": "120"
                 },
-                "Type": {
-                    "enum": [
-                        "Event",
-                        "Location",
-                        "Watchlist"
-                    ],
+                "DisplayName": {
                     "type": "string",
-                    "readOnly": true
+                    "example": "Watchlist name"
+                },
+                "FullName": {
+                    "type": "string",
+                    "example": "Watchlist full name"
+                },
+                "Note": {
+                    "type": "string",
+                    "example": "Example note"
                 },
                 "CreatedAt": {
                     "format": "date-time",
@@ -5031,48 +5134,11 @@
                     "format": "date-time",
                     "type": "string",
                     "readOnly": true
-                }
-            }
-        },
-        "FaceAttribute": {
-            "required": [
-                "FaceId",
-                "FaceAttributeType",
-                "Value",
-                "CreatedAt",
-                "Id"
-            ],
-            "type": "object",
-            "properties": {
-                "FaceId": {
+                },
+                "PersonId": {
                     "format": "int64",
-                    "type": "integer"
-                },
-                "FaceAttributeType": {
-                    "enum": [
-                        "Age",
-                        "Gender"
-                    ],
-                    "type": "string"
-                },
-                "Value": {
-                    "format": "double",
-                    "type": "number"
-                },
-                "CreatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "UpdatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "Id": {
-                    "format": "int64",
-                    "type": "integer"
-                },
-                "ValueFormatted": {
-                    "type": "string"
+                    "type": "integer",
+                    "readOnly": true
                 }
             }
         },
@@ -5121,52 +5187,6 @@
                     "example": true
                 },
                 "BestFaceId": {
-                    "format": "int64",
-                    "type": "integer",
-                    "readOnly": true
-                }
-            }
-        },
-        "WlItem": {
-            "required": [
-                "Id",
-                "CreatedAt",
-                "PersonId"
-            ],
-            "type": "object",
-            "properties": {
-                "Id": {
-                    "format": "int64",
-                    "type": "integer",
-                    "readOnly": true
-                },
-                "ExternalId": {
-                    "type": "string",
-                    "example": "120"
-                },
-                "DisplayName": {
-                    "type": "string",
-                    "example": "Watchlist name"
-                },
-                "FullName": {
-                    "type": "string",
-                    "example": "Watchlist full name"
-                },
-                "Note": {
-                    "type": "string",
-                    "example": "Example note"
-                },
-                "CreatedAt": {
-                    "format": "date-time",
-                    "type": "string",
-                    "readOnly": true
-                },
-                "UpdatedAt": {
-                    "format": "date-time",
-                    "type": "string",
-                    "readOnly": true
-                },
-                "PersonId": {
                     "format": "int64",
                     "type": "integer",
                     "readOnly": true
@@ -5222,6 +5242,48 @@
                 "NextIterationTimeStamp": {
                     "format": "date-time",
                     "type": "string"
+                }
+            }
+        },
+        "FaceAttribute": {
+            "required": [
+                "FaceId",
+                "FaceAttributeType",
+                "Value",
+                "CreatedAt",
+                "Id"
+            ],
+            "type": "object",
+            "properties": {
+                "ValueFormatted": {
+                    "type": "string"
+                },
+                "FaceId": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "FaceAttributeType": {
+                    "enum": [
+                        "Age",
+                        "Gender"
+                    ],
+                    "type": "string"
+                },
+                "Value": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "CreatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "UpdatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "Id": {
+                    "format": "int64",
+                    "type": "integer"
                 }
             }
         },
@@ -5337,6 +5399,147 @@
                 "UpdatedAt": {
                     "format": "date-time",
                     "type": "string"
+                }
+            }
+        },
+        "ConfigurationConstants": {
+            "required": [],
+            "type": "object",
+            "properties": {
+                "Min_GroupingStep": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "GroupingStrategy": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "readOnly": true
+                },
+                "Min_GroupingThreshold": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Max_GroupingThreshold": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MaxPhotosCount": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MaxImageDataAge": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_CleanupStart": {
+                    "type": "string"
+                },
+                "Min_CleanupAmount": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_ImageQuality": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Max_ImageQuality": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "FaceDetectionSpeedAccuracyMode": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "readOnly": true
+                },
+                "Min_FaceDetectionConfidenceThreshold": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Max_FaceDetectionConfidenceThreshold": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Max_FaceDetectionConfidenceThresholdAccurateServer": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MatchThreshold": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Max_MatchThreshold": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MinEyeDistance": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MaxFaces": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_ThreadNum": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ThreadManagementMode": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "readOnly": true
+                },
+                "Min_ExtractorFaceHandlerNum": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_FaceDiscoveryFrequency": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_FaceExtractionFrequency": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MaxTrackingFaces": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_Mpeg1VideoBitRate": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_PreviewAutoShutdownSeconds": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_PreviewBufferSegments": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_PreviewMaxDimension": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_PreviewVideoSegmentSeconds": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_TrackMinEyeDistance": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "TrackMotionOptimization": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "readOnly": true
                 }
             }
         },
@@ -5787,7 +5990,8 @@
                 "PersonId",
                 "WatchlistFullName",
                 "WatchlistDisplayName",
-                "FaceId"
+                "FaceId",
+                "FaceAreaChange"
             ],
             "type": "object",
             "properties": {
@@ -5844,6 +6048,26 @@
                 "FaceId": {
                     "format": "int64",
                     "type": "integer"
+                },
+                "PhotoId": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "FaceArea": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "FaceOrder": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "FacesOnFrameCount": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "FaceAreaChange": {
+                    "format": "double",
+                    "type": "number"
                 }
             }
         },
