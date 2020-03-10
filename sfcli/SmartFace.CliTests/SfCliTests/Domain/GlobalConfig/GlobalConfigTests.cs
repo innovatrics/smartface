@@ -100,7 +100,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.GlobalConfig
     
     public class SetGlobalConfig_FaceHandler_DetectionAlgorithm : Scenario<GlobalConfigContext>
     {
-        private given _algorithm_gpu = _ => _.Config = new SmartFace.Cli.Core.Domain.GlobalConfig.GlobalConfig{ DetectionAlgorithm = DetectionAlgorithm.Gpu };
+        private given _algorithm_gpu = _ => _.Config = new SmartFace.Cli.Core.Domain.GlobalConfig.GlobalConfig{ DetectionAlgorithm = DetectionAlgorithm.Balanced };
 
         private when _set_config = _ => _.Repository.Set(_.Config);
 
