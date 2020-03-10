@@ -2,9 +2,9 @@
 {
     public enum DetectionAlgorithm
     {
-        CpuFast,
-        CpuAccurate,
-        Gpu
+        Fast,
+        Accurate,
+        Balanced
     }
 
     public class FaceHandlerConfigModel

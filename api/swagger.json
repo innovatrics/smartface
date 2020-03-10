@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "3_4_0_0",
+        "version": "3_6_0_0",
         "title": "SmartFace"
     },
     "host": "localhost:8099",
@@ -12,6 +12,52 @@
     "consumes": [],
     "produces": [],
     "paths": {
+        "/rpc/Groupings/Trigger": {
+            "post": {
+                "tags": [
+                    "Rpc/Groupings"
+                ],
+                "summary": "Trigger grouping",
+                "operationId": "GroupingsRpc_TriggerAsync",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                    "application/octet-stream"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                    "application/octet-stream"
+                ],
+                "parameters": [
+                    {
+                        "name": "Payload",
+                        "in": "body",
+                        "description": "JSON with scope id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TriggerGrouping"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Grouping successfully triggered."
+                    },
+                    "400": {
+                        "description": "Scope id of type Event is required."
+                    }
+                }
+            }
+        },
         "/rpc/License/Check": {
             "get": {
                 "tags": [
@@ -4200,7 +4246,8 @@
                                         "VideoPublishWorker",
                                         "DbCleanupWorker",
                                         "StillPictureDatabaseWorker",
-                                        "StreamDataDbWorker"
+                                        "StreamDataDbWorker",
+                                        "WatchlistAutoLearnWorker"
                                     ],
                                     "type": "string"
                                 }
@@ -4314,6 +4361,18 @@
         }
     },
     "definitions": {
+        "TriggerGrouping": {
+            "required": [
+                "ScopeId"
+            ],
+            "type": "object",
+            "properties": {
+                "ScopeId": {
+                    "format": "int64",
+                    "type": "integer"
+                }
+            }
+        },
         "LicenseCheckResponse": {
             "required": [
                 "Licenses",
@@ -4683,7 +4742,8 @@
                         "VideoPublishWorker",
                         "DbCleanupWorker",
                         "StillPictureDatabaseWorker",
-                        "StreamDataDbWorker"
+                        "StreamDataDbWorker",
+                        "WatchlistAutoLearnWorker"
                     ],
                     "type": "string"
                 },
@@ -4861,7 +4921,8 @@
                 "State",
                 "ScopeId",
                 "CreatedAt",
-                "Id"
+                "Id",
+                "PositionInMs"
             ],
             "type": "object",
             "properties": {
@@ -4903,6 +4964,10 @@
                     "type": "string"
                 },
                 "Id": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "PositionInMs": {
                     "format": "int64",
                     "type": "integer"
                 }
@@ -4962,6 +5027,7 @@
                 "CropRightBottomY",
                 "PhotoId",
                 "Id",
+                "Type",
                 "FaceAreaChange"
             ],
             "type": "object",
@@ -5066,6 +5132,13 @@
                     "format": "int64",
                     "type": "integer"
                 },
+                "Type": {
+                    "enum": [
+                        "Regular",
+                        "AutoLearn"
+                    ],
+                    "type": "string"
+                },
                 "Age": {
                     "format": "double",
                     "type": "number"
@@ -5093,52 +5166,6 @@
                 "FaceAreaChange": {
                     "format": "double",
                     "type": "number"
-                }
-            }
-        },
-        "WlItem": {
-            "required": [
-                "Id",
-                "CreatedAt",
-                "PersonId"
-            ],
-            "type": "object",
-            "properties": {
-                "Id": {
-                    "format": "int64",
-                    "type": "integer",
-                    "readOnly": true
-                },
-                "ExternalId": {
-                    "type": "string",
-                    "example": "120"
-                },
-                "DisplayName": {
-                    "type": "string",
-                    "example": "Watchlist name"
-                },
-                "FullName": {
-                    "type": "string",
-                    "example": "Watchlist full name"
-                },
-                "Note": {
-                    "type": "string",
-                    "example": "Example note"
-                },
-                "CreatedAt": {
-                    "format": "date-time",
-                    "type": "string",
-                    "readOnly": true
-                },
-                "UpdatedAt": {
-                    "format": "date-time",
-                    "type": "string",
-                    "readOnly": true
-                },
-                "PersonId": {
-                    "format": "int64",
-                    "type": "integer",
-                    "readOnly": true
                 }
             }
         },
@@ -5187,6 +5214,52 @@
                     "example": true
                 },
                 "BestFaceId": {
+                    "format": "int64",
+                    "type": "integer",
+                    "readOnly": true
+                }
+            }
+        },
+        "WlItem": {
+            "required": [
+                "Id",
+                "CreatedAt",
+                "PersonId"
+            ],
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "format": "int64",
+                    "type": "integer",
+                    "readOnly": true
+                },
+                "ExternalId": {
+                    "type": "string",
+                    "example": "120"
+                },
+                "DisplayName": {
+                    "type": "string",
+                    "example": "Watchlist name"
+                },
+                "FullName": {
+                    "type": "string",
+                    "example": "Watchlist full name"
+                },
+                "Note": {
+                    "type": "string",
+                    "example": "Example note"
+                },
+                "CreatedAt": {
+                    "format": "date-time",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "UpdatedAt": {
+                    "format": "date-time",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "PersonId": {
                     "format": "int64",
                     "type": "integer",
                     "readOnly": true
@@ -5436,9 +5509,26 @@
                 "Min_CleanupStart": {
                     "type": "string"
                 },
+                "Max_CleanupStart": {
+                    "type": "string"
+                },
                 "Min_CleanupAmount": {
                     "format": "int32",
                     "type": "integer"
+                },
+                "Min_SelectionThreshold": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MaxAutoLearnFacesCount": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_ExecutionStartTime": {
+                    "type": "string"
+                },
+                "Max_ExecutionStartTime": {
+                    "type": "string"
                 },
                 "Min_ImageQuality": {
                     "format": "int32",
@@ -5463,10 +5553,6 @@
                     "format": "int32",
                     "type": "integer"
                 },
-                "Max_FaceDetectionConfidenceThresholdAccurateServer": {
-                    "format": "int32",
-                    "type": "integer"
-                },
                 "Min_MatchThreshold": {
                     "format": "int32",
                     "type": "integer"
@@ -5475,7 +5561,15 @@
                     "format": "int32",
                     "type": "integer"
                 },
-                "Min_MinEyeDistance": {
+                "Min_MinAccurateEyeDistance": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MinBalancedEyeDistance": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Min_MinFastEyeDistance": {
                     "format": "int32",
                     "type": "integer"
                 },
