@@ -42,8 +42,8 @@ namespace SmartFace.Cli.Common
             ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO,
             ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE,
             ZeroMqNotificationTopic.PERSON_COMPLETED,
-            ZeroMqNotificationTopic.WATCHLIST_ITEM_HIT,
-            ZeroMqNotificationTopic.WATCHLIST_ITEM_INSERTED
+            ZeroMqNotificationTopic.MATCH_RESULT,
+            ZeroMqNotificationTopic.MATCH_RESULT_INSERTED
         };
     }
 }

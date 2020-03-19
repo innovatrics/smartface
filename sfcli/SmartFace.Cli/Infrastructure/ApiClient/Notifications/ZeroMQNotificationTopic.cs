@@ -7,8 +7,8 @@
         public const string INPUT_FILE_STATE_UPDATE = "inputFiles.update";
         public const string PERSON_COMPLETED = "persons.completed";
         public const string GROUPING_PROGRESS_INFO = "grouping_progress.info";
-        public const string WATCHLIST_ITEM_HIT = "wlHits.match";
-        public const string WATCHLIST_ITEM_INSERTED = "wlHits.insert";
+        public const string MATCH_RESULT = "matchResults";
+        public const string MATCH_RESULT_INSERTED = "matchResults.insert";
         public const string HEARTBEAT = "heartbeat";
 
         public static string[] GetAll()
@@ -20,8 +20,8 @@
                 INPUT_FILE_STATE_UPDATE,
                 PERSON_COMPLETED,
                 GROUPING_PROGRESS_INFO,
-                WATCHLIST_ITEM_HIT,
-                WATCHLIST_ITEM_INSERTED,
+                MATCH_RESULT,
+                MATCH_RESULT_INSERTED,
                 HEARTBEAT
             };
         }
