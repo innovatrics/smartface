@@ -7,7 +7,7 @@ using SmartFace.Cli.Common;
 namespace SmartFace.Cli.Commands
 {
     [Command(Name = "query", Description = "Select entities using Language Integrated Query (LINQ)"),
-     Subcommand(typeof(FromWlHits)),
+     Subcommand(typeof(FromMatchResults)),
      Subcommand(typeof(FromFaces)),
      Subcommand(typeof(FromScopes)),
      Subcommand(typeof(FromGroupings)),

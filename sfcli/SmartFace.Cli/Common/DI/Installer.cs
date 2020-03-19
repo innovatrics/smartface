@@ -66,7 +66,7 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IQueryDataSelector<Photo>, PhotoODataSelector>()
                 .AddTransient<IQueryDataSelector<Scope>, ScopeODataSelector>()
                 .AddTransient<IQueryDataSelector<Watchlist>, WatchlistODataSelector>()
-                .AddTransient<IQueryDataSelector<WlHit>, WlHitODataSelector>()
+                .AddTransient<IQueryDataSelector<MatchResult>, MatchResultODataSelector>()
                 .AddTransient<IQueryDataSelector<WlItem>, WlItemODataSelector>()
                 .AddTransient<IVideoProcessorRepository, VideoProcessorRepository>()
                 .AddTransient<IWlItemsRepository, WlItemsRepository>()

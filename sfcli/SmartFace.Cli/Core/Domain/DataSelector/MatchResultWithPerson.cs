@@ -2,11 +2,11 @@
 
 namespace SmartFace.Cli.Core.Domain.DataSelector
 {
-    public class WlHitWithPerson : WlHit
+    public class MatchResultWithPerson : MatchResult
     {
         public Person Person { get; }
 
-        public WlHitWithPerson(Person person)
+        public MatchResultWithPerson(Person person)
         {
             Person = person;
         }
