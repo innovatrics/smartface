@@ -17,8 +17,8 @@ namespace SmartFace.Cli.Commands
                               + ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO + ", "
                               + ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE + ", "
                               + ZeroMqNotificationTopic.PERSON_COMPLETED + ", "
-                              + ZeroMqNotificationTopic.MATCH_RESULT + ", "
-                              + ZeroMqNotificationTopic.MATCH_RESULT_INSERTED + ", "
+                              + ZeroMqNotificationTopic.MATCH_RESULT_MATCH + ", "
+                              + ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED + ", "
                               + ZeroMqNotificationTopic.HEARTBEAT
                               + "]", CommandOptionType.SingleValue)]
         [AllowedValues(
@@ -27,8 +27,8 @@ namespace SmartFace.Cli.Commands
             ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO,
             ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE,
             ZeroMqNotificationTopic.PERSON_COMPLETED,
-            ZeroMqNotificationTopic.MATCH_RESULT,
-            ZeroMqNotificationTopic.MATCH_RESULT_INSERTED,
+            ZeroMqNotificationTopic.MATCH_RESULT_MATCH,
+            ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED,
             ZeroMqNotificationTopic.HEARTBEAT
         , IgnoreCase = false)]
         public string Topic { get; set; }

@@ -7,8 +7,8 @@
         public const string INPUT_FILE_STATE_UPDATE = "inputFiles.update";
         public const string PERSON_COMPLETED = "persons.completed";
         public const string GROUPING_PROGRESS_INFO = "grouping_progress.info";
-        public const string MATCH_RESULT = "matchResults";
-        public const string MATCH_RESULT_INSERTED = "matchResults.insert";
+        public const string MATCH_RESULT_MATCH = "matchResults.match";
+        public const string MATCH_RESULT_MATCH_INSERTED = "matchResults.match.insert";
         public const string HEARTBEAT = "heartbeat";
 
         public static string[] GetAll()
@@ -20,8 +20,8 @@
                 INPUT_FILE_STATE_UPDATE,
                 PERSON_COMPLETED,
                 GROUPING_PROGRESS_INFO,
-                MATCH_RESULT,
-                MATCH_RESULT_INSERTED,
+                MATCH_RESULT_MATCH,
+                MATCH_RESULT_MATCH_INSERTED,
                 HEARTBEAT
             };
         }
