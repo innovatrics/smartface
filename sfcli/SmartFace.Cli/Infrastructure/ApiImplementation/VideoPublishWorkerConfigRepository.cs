@@ -20,7 +20,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         public VideoPublishWorkerConfigModel Get(long videoWorkerId)
         {
-            var videoConfig = Container.Configs.GetConfigValuesEx(Constants.ConfigName_VideoPublishWorkerConfig, $"{videoWorkerId}");
+            var videoConfig = Container.Configs.GetConfigValuesEx(Constants.CONFIG_NAME_VIDEO_PUBLISH_WORKER_CONFIG, $"{videoWorkerId}");
             return new VideoPublishWorkerConfigModel
             {
                 VideoSource = (string)videoConfig[VideoSource]
@@ -31,7 +31,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         {
             if (configModel.VideoSource != null)
             {
-                Container.Configs.SetConfigValueEx(Constants.ConfigName_VideoPublishWorkerConfig, $"{videoWorkerId}", VideoSource, configModel.VideoSource);
+                Container.Configs.SetConfigValueEx(Constants.CONFIG_NAME_VIDEO_PUBLISH_WORKER_CONFIG, $"{videoWorkerId}", VideoSource, configModel.VideoSource);
             }
         }
     }

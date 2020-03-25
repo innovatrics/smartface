@@ -15,7 +15,7 @@ namespace SmartFace.Cli.Commands
     {
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {
-            console.WriteLine(Constants.HELP_SPECIFY_SUBCMD);
+            console.WriteLine(Constants.HELP_SPECIFY_SUB_CMD);
             return Constants.EXIT_CODE_OK;
         }
     }

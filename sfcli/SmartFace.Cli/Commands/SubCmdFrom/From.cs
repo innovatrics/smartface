@@ -46,7 +46,7 @@ namespace SmartFace.Cli.Commands.SubCmdFrom
             }
             catch (ProcessingException e)
             {
-                throw new ProcessingException($"{e.Message} Use argument {Constants.ArgumentUrl} or set environment variable {Constants.EnvironmentUrl}.");
+                throw new ProcessingException($"{e.Message} Use argument {Constants.ARGUMENT_URL} or set environment variable {Constants.ENVIRONMENT_URL}.");
             }
             Parent.Execute(console, entities);
         }

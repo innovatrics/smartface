@@ -8,22 +8,8 @@
         public const string PERSON_COMPLETED = "persons.completed";
         public const string GROUPING_PROGRESS_INFO = "grouping_progress.info";
         public const string MATCH_RESULT_MATCH = "matchResults.match";
+        public const string MATCH_RESULT_NO_MATCH = "matchResults.nomatch";
         public const string MATCH_RESULT_MATCH_INSERTED = "matchResults.match.insert";
         public const string HEARTBEAT = "heartbeat";
-
-        public static string[] GetAll()
-        {
-            return new[]
-            {
-                FACE_CREATED,
-                FACE_EXTRACTED,
-                INPUT_FILE_STATE_UPDATE,
-                PERSON_COMPLETED,
-                GROUPING_PROGRESS_INFO,
-                MATCH_RESULT_MATCH,
-                MATCH_RESULT_MATCH_INSERTED,
-                HEARTBEAT
-            };
-        }
     }    
 }

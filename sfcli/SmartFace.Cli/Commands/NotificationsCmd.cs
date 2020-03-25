@@ -18,6 +18,7 @@ namespace SmartFace.Cli.Commands
                               + ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE + ", "
                               + ZeroMqNotificationTopic.PERSON_COMPLETED + ", "
                               + ZeroMqNotificationTopic.MATCH_RESULT_MATCH + ", "
+                              + ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH + ", "
                               + ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED + ", "
                               + ZeroMqNotificationTopic.HEARTBEAT
                               + "]", CommandOptionType.SingleValue)]
@@ -28,6 +29,7 @@ namespace SmartFace.Cli.Commands
             ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE,
             ZeroMqNotificationTopic.PERSON_COMPLETED,
             ZeroMqNotificationTopic.MATCH_RESULT_MATCH,
+            ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH,
             ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED,
             ZeroMqNotificationTopic.HEARTBEAT
         , IgnoreCase = false)]

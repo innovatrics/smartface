@@ -30,7 +30,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         public IFaceConfigModel Get(IFaceConfigKey key)
         {
             var apiKey = GetApiKey(key);
-            var config = Container.Configs.GetConfigValuesEx(Constants.ConfigName_IFaceConfig, apiKey);
+            var config = Container.Configs.GetConfigValuesEx(Constants.CONFIG_NAME_I_FACE_CONFIG, apiKey);
             return new IFaceConfigModel
             {
                 GpuEnabled = (bool)config[PROP_GPU_ENABLED]
@@ -40,7 +40,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         public void Set(IFaceConfigKey key, IFaceConfigModel configModel)
         {
             var apiKey = GetApiKey(key);
-            Container.Configs.SetConfigValueEx(Constants.ConfigName_IFaceConfig, apiKey, PROP_GPU_ENABLED, configModel.GpuEnabled);
+            Container.Configs.SetConfigValueEx(Constants.CONFIG_NAME_I_FACE_CONFIG, apiKey, PROP_GPU_ENABLED, configModel.GpuEnabled);
         }
 
         private static string GetApiKey(IFaceConfigKey domainKey)
