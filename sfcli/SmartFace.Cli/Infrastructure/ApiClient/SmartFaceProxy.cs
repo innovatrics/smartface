@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 3/19/2020 12:26:30 PM
+// Generation date: 3/29/2020 2:02:39 PM
 namespace SmartFace.ODataClient.SmartFace.Data.Models.Core
 {
     /// <summary>
@@ -7459,139 +7459,6 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Responses
         }
     }
     /// <summary>
-    /// There are no comments for ScopeState in the schema.
-    /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeState")]
-    public partial class ScopeState : global::System.ComponentModel.INotifyPropertyChanged
-    {
-        /// <summary>
-        /// Create a new ScopeState object.
-        /// </summary>
-        /// <param name="scopeId">Initial value of ScopeId.</param>
-        /// <param name="numNewPhotos">Initial value of NumNewPhotos.</param>
-        /// <param name="numUnprocPhotos">Initial value of NumUnprocPhotos.</param>
-        /// <param name="status">Initial value of Status.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static ScopeState CreateScopeState(long scopeId, int numNewPhotos, int numUnprocPhotos, global::SmartFace.ODataClient.SmartFace.Workers.PhotoProcessing.ProgressInfo.ProgressStatus status)
-        {
-            ScopeState scopeState = new ScopeState();
-            scopeState.ScopeId = scopeId;
-            scopeState.NumNewPhotos = numNewPhotos;
-            scopeState.NumUnprocPhotos = numUnprocPhotos;
-            scopeState.Status = status;
-            return scopeState;
-        }
-        /// <summary>
-        /// There are no comments for Property ScopeId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
-        public long ScopeId
-        {
-            get
-            {
-                return this._ScopeId;
-            }
-            set
-            {
-                this.OnScopeIdChanging(value);
-                this._ScopeId = value;
-                this.OnScopeIdChanged();
-                this.OnPropertyChanged("ScopeId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _ScopeId;
-        partial void OnScopeIdChanging(long value);
-        partial void OnScopeIdChanged();
-        /// <summary>
-        /// There are no comments for Property NumNewPhotos in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("NumNewPhotos")]
-        public int NumNewPhotos
-        {
-            get
-            {
-                return this._NumNewPhotos;
-            }
-            set
-            {
-                this.OnNumNewPhotosChanging(value);
-                this._NumNewPhotos = value;
-                this.OnNumNewPhotosChanged();
-                this.OnPropertyChanged("NumNewPhotos");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private int _NumNewPhotos;
-        partial void OnNumNewPhotosChanging(int value);
-        partial void OnNumNewPhotosChanged();
-        /// <summary>
-        /// There are no comments for Property NumUnprocPhotos in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("NumUnprocPhotos")]
-        public int NumUnprocPhotos
-        {
-            get
-            {
-                return this._NumUnprocPhotos;
-            }
-            set
-            {
-                this.OnNumUnprocPhotosChanging(value);
-                this._NumUnprocPhotos = value;
-                this.OnNumUnprocPhotosChanged();
-                this.OnPropertyChanged("NumUnprocPhotos");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private int _NumUnprocPhotos;
-        partial void OnNumUnprocPhotosChanging(int value);
-        partial void OnNumUnprocPhotosChanged();
-        /// <summary>
-        /// There are no comments for Property Status in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Status")]
-        public global::SmartFace.ODataClient.SmartFace.Workers.PhotoProcessing.ProgressInfo.ProgressStatus Status
-        {
-            get
-            {
-                return this._Status;
-            }
-            set
-            {
-                this.OnStatusChanging(value);
-                this._Status = value;
-                this.OnStatusChanged();
-                this.OnPropertyChanged("Status");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::SmartFace.ODataClient.SmartFace.Workers.PhotoProcessing.ProgressInfo.ProgressStatus _Status;
-        partial void OnStatusChanging(global::SmartFace.ODataClient.SmartFace.Workers.PhotoProcessing.ProgressInfo.ProgressStatus value);
-        partial void OnStatusChanged();
-        /// <summary>
-        /// This event is raised when the value of the property is changed
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// The value of the property is changed
-        /// </summary>
-        /// <param name="property">property name</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        protected virtual void OnPropertyChanged(string property)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new global::System.ComponentModel.PropertyChangedEventArgs(property));
-            }
-        }
-    }
-    /// <summary>
     /// There are no comments for BulkResponseData in the schema.
     /// </summary>
     [global::Microsoft.OData.Client.OriginalNameAttribute("BulkResponseData")]
@@ -7729,89 +7596,6 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Responses
 }
 namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Requests
 {
-    /// <summary>
-    /// There are no comments for PhotoData in the schema.
-    /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("PhotoData")]
-    public partial class PhotoData : global::System.ComponentModel.INotifyPropertyChanged
-    {
-        /// <summary>
-        /// Create a new PhotoData object.
-        /// </summary>
-        /// <param name="data">Initial value of Data.</param>
-        /// <param name="scopeId">Initial value of ScopeId.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static PhotoData CreatePhotoData(byte[] data, long scopeId)
-        {
-            PhotoData photoData = new PhotoData();
-            photoData.Data = data;
-            photoData.ScopeId = scopeId;
-            return photoData;
-        }
-        /// <summary>
-        /// There are no comments for Property Data in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Data")]
-        public byte[] Data
-        {
-            get
-            {
-                return this._Data;
-            }
-            set
-            {
-                this.OnDataChanging(value);
-                this._Data = value;
-                this.OnDataChanged();
-                this.OnPropertyChanged("Data");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private byte[] _Data;
-        partial void OnDataChanging(byte[] value);
-        partial void OnDataChanged();
-        /// <summary>
-        /// There are no comments for Property ScopeId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
-        public long ScopeId
-        {
-            get
-            {
-                return this._ScopeId;
-            }
-            set
-            {
-                this.OnScopeIdChanging(value);
-                this._ScopeId = value;
-                this.OnScopeIdChanged();
-                this.OnPropertyChanged("ScopeId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _ScopeId;
-        partial void OnScopeIdChanging(long value);
-        partial void OnScopeIdChanged();
-        /// <summary>
-        /// This event is raised when the value of the property is changed
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// The value of the property is changed
-        /// </summary>
-        /// <param name="property">property name</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        protected virtual void OnPropertyChanged(string property)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new global::System.ComponentModel.PropertyChangedEventArgs(property));
-            }
-        }
-    }
     /// <summary>
     /// There are no comments for ScopeData in the schema.
     /// </summary>
@@ -9445,20 +9229,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         NoMatch = 1
     }
 }
-namespace SmartFace.ODataClient.SmartFace.Workers.PhotoProcessing.ProgressInfo
-{
-    /// <summary>
-    /// There are no comments for ProgressStatus in the schema.
-    /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("ProgressStatus")]
-    public enum ProgressStatus
-    {
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Processing")]
-        Processing = 1,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Ready")]
-        Ready = 2
-    }
-}
 namespace SmartFace.ODataClient.SmartFace.WebApi.Enums
 {
     /// <summary>
@@ -9480,19 +9250,6 @@ namespace SmartFace.ODataClient.Function
     /// </summary>
     public static class ExtensionMethods
     {
-        /// <summary>
-        /// There are no comments for GetStatus in the schema.
-        /// </summary>
-        [global::Microsoft.OData.Client.OriginalNameAttribute("GetStatus")]
-        public static global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.ScopeState> GetStatus(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Data.Models.Core.Scope> source, long key)
-        {
-            if (!source.IsComposable)
-            {
-                throw new global::System.NotSupportedException("The previous function is not composable.");
-            }
-
-            return source.CreateFunctionQuerySingle<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.ScopeState>("Function.GetStatus", false, new global::Microsoft.OData.Client.UriOperationParameter("key", key));
-        }
         /// <summary>
         /// There are no comments for GetConfigValues in the schema.
         /// </summary>
@@ -9783,12 +9540,7 @@ namespace SmartFace.ODataClient.Default
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         protected global::System.Type ResolveTypeFromName(string typeName)
         {
-            global::System.Type resolvedType = this.DefaultResolveType(typeName, "SmartFace.Workers.PhotoProcessing.ProgressInfo", "SmartFace.ODataClient.SmartFace.Workers.PhotoProcessing.ProgressInfo");
-            if ((resolvedType != null))
-            {
-                return resolvedType;
-            }
-            resolvedType = this.DefaultResolveType(typeName, "SmartFace.Domain.DataAccess.Models.Core.Enums", "SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums");
+            global::System.Type resolvedType = this.DefaultResolveType(typeName, "SmartFace.Domain.DataAccess.Models.Core.Enums", "SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums");
             if ((resolvedType != null))
             {
                 return resolvedType;
@@ -9859,14 +9611,6 @@ namespace SmartFace.ODataClient.Default
         protected string ResolveNameFromType(global::System.Type clientType)
         {
             global::Microsoft.OData.Client.OriginalNameAttribute originalNameAttribute = (global::Microsoft.OData.Client.OriginalNameAttribute)global::System.Linq.Enumerable.SingleOrDefault(global::Microsoft.OData.Client.Utility.GetCustomAttributes(clientType, typeof(global::Microsoft.OData.Client.OriginalNameAttribute), true));
-            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.Workers.PhotoProcessing.ProgressInfo", global::System.StringComparison.Ordinal))
-            {
-                if (originalNameAttribute != null)
-                {
-                    return string.Concat("SmartFace.Workers.PhotoProcessing.ProgressInfo.", originalNameAttribute.OriginalName);
-                }
-                return string.Concat("SmartFace.Workers.PhotoProcessing.ProgressInfo.", clientType.Name);
-            }
             if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
@@ -10816,22 +10560,12 @@ namespace SmartFace.ODataClient.Default
       <ComplexType Name=""ConfigData"">
         <Property Name=""PropertyName"" Type=""Edm.String"" />
       </ComplexType>
-      <ComplexType Name=""ScopeState"">
-        <Property Name=""ScopeId"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Property Name=""NumNewPhotos"" Type=""Edm.Int32"" Nullable=""false"" />
-        <Property Name=""NumUnprocPhotos"" Type=""Edm.Int32"" Nullable=""false"" />
-        <Property Name=""Status"" Type=""SmartFace.Workers.PhotoProcessing.ProgressInfo.ProgressStatus"" Nullable=""false"" />
-      </ComplexType>
       <ComplexType Name=""BulkResponseData"">
         <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
         <Property Name=""OpResult"" Type=""SmartFace.WebApi.Enums.OperationResult"" Nullable=""false"" />
       </ComplexType>
     </Schema>
     <Schema Namespace=""SmartFace.WebApi.Models.Requests"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
-      <ComplexType Name=""PhotoData"">
-        <Property Name=""Data"" Type=""Edm.Binary"" Nullable=""false"" />
-        <Property Name=""ScopeId"" Type=""Edm.Int64"" Nullable=""false"" />
-      </ComplexType>
       <ComplexType Name=""ScopeData"">
         <Property Name=""Type"" Type=""SmartFace.Data.Models.Core.ScopeType"" Nullable=""false"" />
         <Property Name=""Description"" Type=""Edm.String"" />
@@ -10923,12 +10657,6 @@ namespace SmartFace.ODataClient.Default
         <Member Name=""NoMatch"" Value=""1"" />
       </EnumType>
     </Schema>
-    <Schema Namespace=""SmartFace.Workers.PhotoProcessing.ProgressInfo"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
-      <EnumType Name=""ProgressStatus"">
-        <Member Name=""Processing"" Value=""1"" />
-        <Member Name=""Ready"" Value=""2"" />
-      </EnumType>
-    </Schema>
     <Schema Namespace=""SmartFace.WebApi.Enums"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
       <EnumType Name=""OperationResult"">
         <Member Name=""NotFound"" Value=""0"" />
@@ -10936,11 +10664,6 @@ namespace SmartFace.ODataClient.Default
       </EnumType>
     </Schema>
     <Schema Namespace=""Function"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
-      <Function Name=""GetStatus"" IsBound=""true"">
-        <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Data.Models.Core.Scope)"" />
-        <Parameter Name=""key"" Type=""Edm.Int64"" Nullable=""false"" />
-        <ReturnType Type=""SmartFace.WebApi.Models.Responses.ScopeState"" />
-      </Function>
       <Function Name=""GetConfigValues"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Data.Models.Core.Config)"" />
         <Parameter Name=""name"" Type=""Edm.String"" />
