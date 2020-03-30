@@ -90,9 +90,9 @@ Change config properties
 Options:
   -i|--minEyeDistance      Minimum count of pixels between eyes (detection on photo)
   -x|--maxEyeDistance      Maximum count of pixels between eyes (detection on photo)
-  -c|--faceConfidence      Face confidence threshold. For cpu detection algorithm around [450]. For gpu algorithm should be set around [8000]
-  -a|--detectionAlgorithm  Specify type of algorithm used for face detection. Gpu algorithm is slow if you don't have GPU enabled. [CpuFast, CpuAccurate, Gpu]
-  -g|--gpu                 Enable/Disable GPU support. If CPU detection algorithm is used then is GPU card used only for extractions [true, false]
+  -c|--faceConfidence      Face confidence threshold. Should be set to around [450]
+  -a|--detectionAlgorithm  Specify type of algorithm used for face detection. Accurate algorithm is slow if you don't have GPU enabled. [Fast, Balanced, Accurate]
+  -g|--gpu                 Enable/Disable GPU support. If CPU detection algorithm is used then is GPU card used only for extractions.
   -?|-h|--help             Show help information
 
 ```

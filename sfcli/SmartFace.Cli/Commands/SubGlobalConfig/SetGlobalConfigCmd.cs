@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
 using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Core.Domain.GlobalConfig;
 
@@ -12,9 +11,9 @@ namespace SmartFace.Cli.Commands.SubGlobalConfig
     [Command(Name = "set", Description = "Edit properties of GlobalConfig")]
     public class SetGlobalConfigCmd
     {
-        private const string CpuFast = "CpuFast";
-        private const string CpuAccurate = "CpuAccurate";
-        private const string Gpu = "Gpu";
+        private const string Fast = "Fast";
+        private const string Balanced = "Balanced";
+        private const string Accurate = "Accurate";
         private IGlobalConfigRepository Repository { get; }
 
         [Option("-i|--minEyeDistance", "Minimum count of pixels between eyes (detection on photo)", CommandOptionType.SingleValue)]
@@ -23,14 +22,14 @@ namespace SmartFace.Cli.Commands.SubGlobalConfig
         [Option("-x|--maxEyeDistance", "Maximum count of pixels between eyes (detection on photo)", CommandOptionType.SingleValue)]
         public (bool HasValue, long Value) MaxEyeDistance { get; }
 
-        [Option("-c|--faceConfidence", "Face confidence threshold. For cpu detection algorithm around [450]. For gpu algorithm should be set around [7000]", CommandOptionType.SingleValue)]
+        [Option("-c|--faceConfidence", "Face confidence threshold. Should be set to around [450]", CommandOptionType.SingleValue)]
         public (bool HasValue, long Value) FaceConfidence { get; }
 
-        [Option("-a|--detectionAlgorithm", "Specify type of algorithm used for face detection. " + Gpu + " algorithm is slow if you don't have GPU enabled. ["
-            + CpuFast + ", "
-            + CpuAccurate + ", "
-            + Gpu + "]", CommandOptionType.SingleValue)]
-        [AllowedValues(CpuFast, CpuAccurate, Gpu, IgnoreCase = false)]
+        [Option("-a|--detectionAlgorithm", "Specify type of algorithm used for face detection. " + Accurate + " algorithm is slow if you don't have GPU enabled. ["
+            + Fast + ", "
+            + Balanced + ", "
+            + Accurate + "]", CommandOptionType.SingleValue)]
+        [AllowedValues(Fast, Balanced, Accurate, IgnoreCase = false)]
         public (bool HasValue, string Value) DetectAlgorithm { get; }
 
         [Option("-g|--gpu", "Enable/Disable GPU support. If CPU detection algorithm is used then is GPU card used only for extractions.", CommandOptionType.SingleValue)]

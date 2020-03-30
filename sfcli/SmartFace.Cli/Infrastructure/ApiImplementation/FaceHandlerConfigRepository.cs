@@ -1,14 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Infrastructure.ApiClient.Extensions;
 using SmartFace.Cli.Infrastructure.ApiClient.Models;
-using SmartFace.ODataClient.Action;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.Extensions;
-using UpdateConfigValueData = SmartFace.ODataClient.SmartFace.WebApi.Models.Requests.UpdateConfigValueData;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
@@ -22,9 +18,9 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         private static readonly (DetectionAlgorithm DomainType, string ApiName)[] DetectionAlgorithmMapping =
             {
-                (DetectionAlgorithm.CpuFast, "fast"),
-                (DetectionAlgorithm.CpuAccurate, "accurate"),
-                (DetectionAlgorithm.Gpu, "accurate_server")
+                (DetectionAlgorithm.Fast, "fast"),
+                (DetectionAlgorithm.Accurate, "accurate"),
+                (DetectionAlgorithm.Balanced, "balanced")
             };
 
         private Container Container { get; }
@@ -50,25 +46,25 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         public void Set(FaceHandlerConfigModel configModel)
         {
             Container.Configs.SetConfigValuesEx(UpdateConfigValuesDescriptor.Create(
-                new ApiClient.Models.UpdateConfigValueData()
+                new UpdateConfigValueData
                 {
                     Name = Constants.ConfigName_FaceHandlerConfig,
                     Context = CONTEXT,
                     Property = PROP_DETECTION_MIN_EYE_DISTANCE,
                     Value = configModel.DetectionMinEyeDistance
-                }, new ApiClient.Models.UpdateConfigValueData()
+                }, new UpdateConfigValueData
                 {
                     Name = Constants.ConfigName_FaceHandlerConfig,
                     Context = CONTEXT,
                     Property = PROP_DETECTION_MAX_EYE_DISTANCE,
                     Value = configModel.DetectionMaxEyeDistance
-                }, new ApiClient.Models.UpdateConfigValueData()
+                }, new UpdateConfigValueData
                 {
                     Name = Constants.ConfigName_FaceHandlerConfig,
                     Context = CONTEXT,
                     Property = PROP_FACE_CONFIDENCE_THRESHOLD,
                     Value = configModel.FaceConfidenceThreshold
-                }, new ApiClient.Models.UpdateConfigValueData()
+                }, new UpdateConfigValueData
                 {
                     Name = Constants.ConfigName_FaceHandlerConfig,
                     Context = CONTEXT,
