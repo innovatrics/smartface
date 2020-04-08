@@ -16,6 +16,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             _reader = reader;
             _reader.OnError += exception => log.LogError(exception, "Unexpected error during receiving notification");
         }
+
         public void Start(string topic, TextWriter output)
         {
             if (!_reader.Initialized)

@@ -19,7 +19,7 @@ namespace SmartFace.Cli.Commands
             {
                 if (string.IsNullOrEmpty(Url))
                 {
-                    return Environment.GetEnvironmentVariable(Constants.EnvironmentUrl);
+                    return Environment.GetEnvironmentVariable(Constants.ENVIRONMENT_URL);
                 }
 
                 return Url;

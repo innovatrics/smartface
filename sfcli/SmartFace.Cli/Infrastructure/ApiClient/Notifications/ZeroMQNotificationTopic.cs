@@ -7,23 +7,9 @@
         public const string INPUT_FILE_STATE_UPDATE = "inputFiles.update";
         public const string PERSON_COMPLETED = "persons.completed";
         public const string GROUPING_PROGRESS_INFO = "grouping_progress.info";
-        public const string WATCHLIST_ITEM_HIT = "wlHits.match";
-        public const string WATCHLIST_ITEM_INSERTED = "wlHits.insert";
+        public const string MATCH_RESULT_MATCH = "matchResults.match";
+        public const string MATCH_RESULT_NO_MATCH = "matchResults.nomatch";
+        public const string MATCH_RESULT_MATCH_INSERTED = "matchResults.match.insert";
         public const string HEARTBEAT = "heartbeat";
-
-        public static string[] GetAll()
-        {
-            return new[]
-            {
-                FACE_CREATED,
-                FACE_EXTRACTED,
-                INPUT_FILE_STATE_UPDATE,
-                PERSON_COMPLETED,
-                GROUPING_PROGRESS_INFO,
-                WATCHLIST_ITEM_HIT,
-                WATCHLIST_ITEM_INSERTED,
-                HEARTBEAT
-            };
-        }
     }    
 }

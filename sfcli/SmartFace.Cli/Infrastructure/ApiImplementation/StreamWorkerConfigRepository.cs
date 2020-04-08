@@ -23,7 +23,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         public StreamWorkerConfigModel Get(long streamWorkerId)
         {
-            var streamConfig = Container.Configs.GetConfigValuesEx(Constants.ConfigName_StreamWorkerConfig, $"{streamWorkerId}");
+            var streamConfig = Container.Configs.GetConfigValuesEx(Constants.CONFIG_NAME_STREAM_WORKER_CONFIG, $"{streamWorkerId}");
 
             return new StreamWorkerConfigModel
             {
@@ -46,7 +46,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             if (propertyValue.HasValue)
             {
                 Container.Configs.SetConfigValueEx(
-                    Constants.ConfigName_StreamWorkerConfig,
+                    Constants.CONFIG_NAME_STREAM_WORKER_CONFIG,
                     $"{streamWorkerId}",
                     propertyName,
                     propertyValue);

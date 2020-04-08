@@ -33,7 +33,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         public FaceHandlerConfigModel Get()
         {
-            var config = Container.Configs.GetConfigValuesEx(Constants.ConfigName_FaceHandlerConfig, CONTEXT);
+            var config = Container.Configs.GetConfigValuesEx(Constants.CONFIG_NAME_FACE_HANDLER_CONFIG, CONTEXT);
             return new FaceHandlerConfigModel
             {
                 DetectionMinEyeDistance = (long)config[PROP_DETECTION_MIN_EYE_DISTANCE],
@@ -48,25 +48,25 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             Container.Configs.SetConfigValuesEx(UpdateConfigValuesDescriptor.Create(
                 new UpdateConfigValueData
                 {
-                    Name = Constants.ConfigName_FaceHandlerConfig,
+                    Name = Constants.CONFIG_NAME_FACE_HANDLER_CONFIG,
                     Context = CONTEXT,
                     Property = PROP_DETECTION_MIN_EYE_DISTANCE,
                     Value = configModel.DetectionMinEyeDistance
                 }, new UpdateConfigValueData
                 {
-                    Name = Constants.ConfigName_FaceHandlerConfig,
+                    Name = Constants.CONFIG_NAME_FACE_HANDLER_CONFIG,
                     Context = CONTEXT,
                     Property = PROP_DETECTION_MAX_EYE_DISTANCE,
                     Value = configModel.DetectionMaxEyeDistance
                 }, new UpdateConfigValueData
                 {
-                    Name = Constants.ConfigName_FaceHandlerConfig,
+                    Name = Constants.CONFIG_NAME_FACE_HANDLER_CONFIG,
                     Context = CONTEXT,
                     Property = PROP_FACE_CONFIDENCE_THRESHOLD,
                     Value = configModel.FaceConfidenceThreshold
                 }, new UpdateConfigValueData
                 {
-                    Name = Constants.ConfigName_FaceHandlerConfig,
+                    Name = Constants.CONFIG_NAME_FACE_HANDLER_CONFIG,
                     Context = CONTEXT,
                     Property = PROP_DETECTION_ALGORITHM,
                     Value = GetDetectionAlgorithmName(configModel.DetectionAlgorithm)
