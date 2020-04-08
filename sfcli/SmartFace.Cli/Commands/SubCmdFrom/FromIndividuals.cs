@@ -4,10 +4,10 @@ using SmartFace.ODataClient.SmartFace.Data.Models.Core;
 
 namespace SmartFace.Cli.Commands.SubCmdFrom
 {
-    [Command(Name = "identities", Description = "Query Identity entities")]
-    public class FromIdentities : From<Identity>
+    [Command(Name = "individuals", Description = "Query Individual entities")]
+    public class FromIndividuals : From<Identity>
     {
-        public FromIdentities(IQueryDataSelector<Identity> selector) : base(selector)
+        public FromIndividuals(IQueryDataSelector<Identity> selector) : base(selector)
         {
         }
     }
