@@ -861,7 +861,7 @@ public class CodeGenerationContext
                 HttpWebResponse webResponse = e.Response as HttpWebResponse;
                 if (webResponse != null && webResponse.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    throw new WebException("Failed to access the metadata document. The OData service requires authentication for accessing it. Please download the metadata, store it into a local file, and set the value of “MetadataDocumentUri” in the .odata.config file to the file path. After that, run custom tool again to generate the OData Client code.");
+                    throw new WebException("Failed to access the metadata document. The OData service requires authentication for accessing it. Please download the metadata, store it into a local file, and set the value of ï¿½MetadataDocumentUriï¿½ in the .odata.config file to the file path. After that, run custom tool again to generate the OData Client code.");
                 }
                 else
                 {

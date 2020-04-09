@@ -10,7 +10,7 @@ namespace SmartFace.Cli.Commands.SubCmdFrom
     public class ExportImage
     {
         [Required]
-        [Option("-f|--format",Description = "Define placeholders for file name builder. Use property name in braces. For example \"personId_{Person.Faces.Id}\" will result as file \"personId_3244.jpeg\"")]
+        [Option("-f|--format",Description = "Define placeholders for file name builder. Use property name in braces. For example \"trackletId_{Tracklet.Faces.Id}\" will result as file \"trackletId_3244.jpeg\"")]
         public string Format { get; }
 
         [Required]
@@ -18,7 +18,7 @@ namespace SmartFace.Cli.Commands.SubCmdFrom
         public string DestinationFolder { get; }
 
         [Required]
-        [Option("-i|--imageUrlProp", Description = "Property path to image url on given object. E.g. \"Person.Faces.ImageUrl\" or \"Photo.ImageUrl\"")]
+        [Option("-i|--imageUrlProp", Description = "Property path to image url on given object. E.g. \"Tracklet.Faces.ImageUrl\" or \"Photo.ImageUrl\"")]
         public string ImageUrlProperty { get; }
 
         [Option("-t|--timeout", Description = "Length of time, in milliseconds, before the request times out")]
