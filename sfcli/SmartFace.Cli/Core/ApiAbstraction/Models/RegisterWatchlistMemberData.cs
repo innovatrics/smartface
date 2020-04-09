@@ -3,14 +3,14 @@ using System.Collections.ObjectModel;
 
 namespace SmartFace.Cli.Core.ApiAbstraction.Models
 {
-    public class RegisterWlItemImageData
+    public class RegisterWatchlistMemberImageData
     {
         public byte[] Data { get; set; }
 
         public string MIME { get; set; }
     }
 
-    public class RegisterWlItemData
+    public class RegisterWatchlistMemberData
     {
         public string ExternalId { get; set; }
 
@@ -20,7 +20,7 @@ namespace SmartFace.Cli.Core.ApiAbstraction.Models
 
         public string Note { get; set; }
 
-        public ICollection<RegisterWlItemImageData> ImageData { get; set; } = new Collection<RegisterWlItemImageData>();
+        public ICollection<RegisterWatchlistMemberImageData> ImageData { get; set; } = new Collection<RegisterWatchlistMemberImageData>();
 
         public ICollection<string> WatchlistExternalIds { get; set; } = new Collection<string>();
     }

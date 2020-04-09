@@ -13,7 +13,7 @@ namespace SmartFace.Cli.Commands
      Subcommand(typeof(FromGroupings)),
      Subcommand(typeof(FromIndividuals)),
      Subcommand(typeof(FromWatchlists)),
-     Subcommand(typeof(FromWlItems)),
+     Subcommand(typeof(FromWatchlistMembers)),
     ]
     public class QueryCmd
     {

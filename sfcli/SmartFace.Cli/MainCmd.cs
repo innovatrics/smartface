@@ -15,7 +15,7 @@ namespace SmartFace.Cli
     [Command(Name = "sfcli", Description = "CLI for SmartFace instance"),
      Subcommand(typeof(QueryCmd)),
      Subcommand(typeof(VideoCmd)),
-     Subcommand(typeof(WlItemCmd)),
+     Subcommand(typeof(WatchlistMemberCmd)),
      Subcommand(typeof(SoftRestartCmd)),
      Subcommand(typeof(NotificationsCmd)),
      Subcommand(typeof(GlobalConfigCmd)),

@@ -9,35 +9,35 @@ using NUnit.Framework;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
-using SmartFace.Cli.Core.Domain.WatchlistItem.Impl;
+using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
 using Tests;
 
-namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistItem
+namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
 {
     public class RegisterExtendedTestContext
     {
-        public ILogger<WatchlistItemRegistrationManager> Logger { get; }
+        public ILogger<WatchlistMemberRegistrationManager> Logger { get; }
 
-        public WatchlistItemRegistrationManager Manager { get; }
+        public WatchlistMemberRegistrationManager Manager { get; }
 
-        public IWlItemsRepository Repository { get; }
+        public IWatchlistMembersRepository Repository { get; }
 
-        public List<RegisterWlItemData> RegisteredData { get; } = new List<RegisterWlItemData>();
+        public List<RegisterWatchlistMemberData> RegisteredData { get; } = new List<RegisterWatchlistMemberData>();
 
         public string Dir { get; }
 
         public RegisterExtendedTestContext()
         {
-            var logger = Substitute.For<ILogger<WatchlistItemRegistrationManager>>();
+            var logger = Substitute.For<ILogger<WatchlistMemberRegistrationManager>>();
             Logger = logger;
-            Repository = Substitute.For<IWlItemsRepository>();
-            var loaderLogger = Substitute.For<ILogger<RegisterWlItemExtendedJsonLoader>>();
-            var loader = new RegisterWlItemExtendedJsonLoader(loaderLogger);
-            Manager = new WatchlistItemRegistrationManager(logger, Repository, loader);
+            Repository = Substitute.For<IWatchlistMembersRepository>();
+            var loaderLogger = Substitute.For<ILogger<RegisterWatchlistMemberExtendedJsonLoader>>();
+            var loader = new RegisterWatchlistMemberExtendedJsonLoader(loaderLogger);
+            Manager = new WatchlistMemberRegistrationManager(logger, Repository, loader);
             Dir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             Directory.CreateDirectory(Dir);
 
-            Repository.WhenForAnyArgs(r => r.Register(null)).Do(info => RegisteredData.Add(info.Arg<RegisterWlItemData>()));
+            Repository.WhenForAnyArgs(r => r.Register(null)).Do(info => RegisteredData.Add(info.Arg<RegisterWatchlistMemberData>()));
         }
 
         public string GetFileContent(string filePath)
@@ -71,7 +71,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistItem
         }
     }
 
-    public class WatchlistItemRegistration_RelativePhotoPath : Scenario<RegisterExtendedTestContext>
+    public class WatchlistMemberRegistration_RelativePhotoPath : Scenario<RegisterExtendedTestContext>
     {
         private given _files = testContext =>
         {
@@ -80,7 +80,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistItem
             testContext.CreateDataFile(photoFileName);
         };
 
-        private when _register = testContext => testContext.Manager.RegisterWlItemsExtendedFromDir(testContext.Dir, new[] {"Wl"}, 1);
+        private when _register = testContext => testContext.Manager.RegisterWatchlistMembersExtendedFromDir(testContext.Dir, new[] {"Wl"}, 1);
 
         private then _photoWithRelativePathFound = testContext =>
         {
@@ -94,7 +94,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistItem
         };
     }
 
-    public class WatchlistItemRegistration_AbsolutePhotoPath : Scenario<RegisterExtendedTestContext>
+    public class WatchlistMemberRegistration_AbsolutePhotoPath : Scenario<RegisterExtendedTestContext>
     {
         private given _files = testContext =>
         {
@@ -103,7 +103,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistItem
             testContext.CreateDataFile(absolutePathToPhotoFile.Replace(@"\", @"\\"));
         };
 
-        private when _register = testContext => testContext.Manager.RegisterWlItemsExtendedFromDir(testContext.Dir, new[] {"Wl"}, 1);
+        private when _register = testContext => testContext.Manager.RegisterWatchlistMembersExtendedFromDir(testContext.Dir, new[] {"Wl"}, 1);
 
         private then _photoWithAbsolutePathFound = testContext =>
         {

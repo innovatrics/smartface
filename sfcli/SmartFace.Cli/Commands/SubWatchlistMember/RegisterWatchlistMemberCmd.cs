@@ -1,16 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Common;
-using SmartFace.Cli.Core.Domain.WatchlistItem;
-using SmartFace.Cli.Core.Domain.WatchlistItem.Impl;
-using SmartFace.Cli.Core.Domain.WatchlistItem.Model;
+using SmartFace.Cli.Core.Domain.WatchlistMember;
+using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
+using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
 
-namespace SmartFace.Cli.Commands.SubWlItem
+namespace SmartFace.Cli.Commands.SubWatchlistMember
 {
-    [Command(Name = "register", Description = "Register single watchlist item")]
-    public class RegisterWlItemCmd
+    [Command(Name = "register", Description = "Register single watchlist member")]
+    public class RegisterWatchlistMemberCmd
     {
-        private IWatchlistItemRegistrationManager Manager { get; }
+        private IWatchlistMemberRegistrationManager Manager { get; }
 
         [Required]
         [Option("-e|--externalId", "", CommandOptionType.SingleValue)]
@@ -25,20 +25,20 @@ namespace SmartFace.Cli.Commands.SubWlItem
         [Option("-p|--photos <FILE>", "", CommandOptionType.MultipleValue)]
         public string[] Photos { get; set; }
 
-        public RegisterWlItemCmd(IWatchlistItemRegistrationManager manager)
+        public RegisterWatchlistMemberCmd(IWatchlistMemberRegistrationManager manager)
         {
             Manager = manager;
         }
 
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {
-            var data = new RegisterWlItemExtended
+            var data = new RegisterWatchlistMemberExtended
             {
                 ExternalId = ExternalId,
                 PhotoFiles = Photos,
                 WatchlistExternalIds = WatchlistExternalIds
             };
-            Manager.RegisterWlItem(data);
+            Manager.RegisterWatchlistMember(data);
             return Constants.EXIT_CODE_OK;
         }
 

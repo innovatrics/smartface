@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SmartFace.Cli.Core.Domain.WatchlistItem.Model
+﻿namespace SmartFace.Cli.Core.Domain.WatchlistMember.Model
 {
         public class PhotoWithExternalId
         {
