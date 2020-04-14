@@ -28,6 +28,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         public void Register(RegisterWatchlistMemberData data)
         {
+            //TODO use new API to work with watchlist members
             Api.Rpc.RegisterWlItemData payload = new Api.Rpc.RegisterWlItemData();
             data.ImageData.ToList().ForEach(imgData => payload.ImageData.Add(new Api.Rpc.RegisterWlItemImageData
             {
