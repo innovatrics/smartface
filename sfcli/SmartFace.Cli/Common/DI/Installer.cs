@@ -19,7 +19,7 @@ using SmartFace.Cli.Core.Domain.WatchlistMember;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
 using SmartFace.Cli.Infrastructure.ApiImplementation;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Common.DI
 {
@@ -59,15 +59,15 @@ namespace SmartFace.Cli.Common.DI
                 .AddSingleton<IMapper, Mapper>(serviceProvider => ConfigureAutoMapper())
                 .AddSingleton<IImageDownloaderFactory, ImageDownloaderFactory>()
                 .AddSingleton<IExportFileResolverFactory, ExportFileResolverFactory>()
-                .AddTransient<IQueryDataSelector<Face>, FaceODataSelector>()
+                .AddTransient<IQueryDataSelector<VisualObject>, FaceODataSelector>()
                 .AddTransient<IQueryDataSelector<Camera>, CameraODataSelector>()
                 .AddTransient<IQueryDataSelector<Grouping>, GroupingODataSelector>()
-                .AddTransient<IQueryDataSelector<Identity>, IndividualODataSelector>()
+                .AddTransient<IQueryDataSelector<Individual>, IndividualODataSelector>()
                 .AddTransient<IQueryDataSelector<Photo>, PhotoODataSelector>()
                 .AddTransient<IQueryDataSelector<Scope>, ScopeODataSelector>()
                 .AddTransient<IQueryDataSelector<Watchlist>, WatchlistODataSelector>()
                 .AddTransient<IQueryDataSelector<MatchResult>, MatchResultODataSelector>()
-                .AddTransient<IQueryDataSelector<WlItem>, WatchlistMemberODataSelector>()
+                .AddTransient<IQueryDataSelector<WatchlistMember>, WatchlistMemberODataSelector>()
                 .AddTransient<IVideoProcessorRepository, VideoProcessorRepository>()
                 .AddTransient<IWatchlistMembersRepository, WatchlistMembersRepository>()
                 .AddTransient<IWorkersRepository, WorkersRepository>()

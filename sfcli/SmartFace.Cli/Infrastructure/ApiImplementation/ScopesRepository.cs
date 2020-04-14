@@ -2,8 +2,7 @@ using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.Cli.Infrastructure.ApiClient.Extensions;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.Extensions;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums;
 using SmartFace.ODataClient.SmartFace.WebApi.Models.Requests;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation

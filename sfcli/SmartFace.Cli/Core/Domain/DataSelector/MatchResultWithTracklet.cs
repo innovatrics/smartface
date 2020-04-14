@@ -1,12 +1,12 @@
-﻿using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+﻿using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Core.Domain.DataSelector
 {
     public class MatchResultWithTracklet : MatchResult
     {
-        public Person Tracklet { get; }
+        public Tracklet Tracklet { get; }
 
-        public MatchResultWithTracklet(Person tracklet)
+        public MatchResultWithTracklet(Tracklet tracklet)
         {
             Tracklet = tracklet;
         }

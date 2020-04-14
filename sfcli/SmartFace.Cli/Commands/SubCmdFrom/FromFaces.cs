@@ -1,13 +1,13 @@
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Core.Domain.DataSelector;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Commands.SubCmdFrom
 {
     [Command(Name = "faces", Description = "Query Face entities")]
-    public class FromFaces : From<Face>
+    public class FromFaces : From<VisualObject>
     {
-        public FromFaces(IQueryDataSelector<Face> selector) : base(selector)
+        public FromFaces(IQueryDataSelector<VisualObject> selector) : base(selector)
         {
         }
     }

@@ -1,11 +1,10 @@
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
 
 namespace SmartFace.Cli.Core.Domain.DataSelector.Impl
 {
-    public class WatchlistMemberODataSelector : ODataSelector<WlItem>, IQueryDataSelector<WlItem>
+    public class WatchlistMemberODataSelector : ODataSelector<ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember>, IQueryDataSelector<ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember>
     {
-        public WatchlistMemberODataSelector(Container container) : base(container.WatchlistItems)
+        public WatchlistMemberODataSelector(Container container) : base(container.WatchlistMembers)
         {
         }
     }

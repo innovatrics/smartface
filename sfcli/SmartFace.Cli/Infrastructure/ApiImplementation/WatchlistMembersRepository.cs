@@ -10,7 +10,7 @@ using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.Cli.Infrastructure.ApiClient.Extensions;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
@@ -56,14 +56,14 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 !string.IsNullOrEmpty(data.Note))
             {
                 var watchlistMember =
-                    ((DataServiceQuery<WlItem>)Container.WatchlistItems.Where(wlm => wlm.ExternalId == data.ExternalId)
+                    ((DataServiceQuery<WatchlistMember>)Container.WatchlistMembers.Where(wlm => wlm.ExternalId == data.ExternalId)
                     ).ExecuteAsync().AwaitSync().ToList().Single();
 
-                WlItemSingle watchlistMemberSingle = Container.WatchlistItems.ByKey(watchlistMember.Id);
+                WatchlistMemberSingle watchlistMemberSingle = Container.WatchlistMembers.ByKey(watchlistMember.Id);
                 var patchDelta = new ExpandoObject() as IDictionary<string, object>;
-                patchDelta.Add(nameof(WlItem.DisplayName), data.DisplayName);
-                patchDelta.Add(nameof(WlItem.FullName), data.FullName);
-                patchDelta.Add(nameof(WlItem.Note), data.Note);
+                patchDelta.Add(nameof(WatchlistMember.DisplayName), data.DisplayName);
+                patchDelta.Add(nameof(WatchlistMember.FullName), data.FullName);
+                patchDelta.Add(nameof(WatchlistMember.Note), data.Note);
 
                 watchlistMemberSingle.PatchPropertyAsync((ExpandoObject)patchDelta).AwaitSync();
             }

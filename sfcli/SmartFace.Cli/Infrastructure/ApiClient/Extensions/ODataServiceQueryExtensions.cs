@@ -13,7 +13,7 @@ using SmartFace.Cli.Infrastructure.ApiClient.Models;
 using SmartFace.ODataClient.Action;
 using SmartFace.ODataClient.Extensions;
 using SmartFace.ODataClient.Function;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Infrastructure.ApiClient.Extensions
 {

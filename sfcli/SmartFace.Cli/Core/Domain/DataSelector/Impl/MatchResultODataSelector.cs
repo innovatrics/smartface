@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.OData.Client;
 using SmartFace.Cli.Common.Utils;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Core.Domain.DataSelector.Impl
 {
@@ -42,21 +42,21 @@ namespace SmartFace.Cli.Core.Domain.DataSelector.Impl
             var matchResultWithTracklets = new ConcurrentBag<MatchResultWithTracklet>();
             Parallel.ForEach(entities, (matchResult) =>
             {
-                DataServiceQuery<Person> baseQuery;
+                DataServiceQuery<Tracklet> baseQuery;
                 if (ALLOWED_EXPAND_TRACKLET.Equals(expandProperty, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    baseQuery = Api.Persons;
+                    baseQuery = Api.Tracklets;
                 }
                 else if (ALLOWED_EXPAND_FACES.Equals(expandProperty, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    baseQuery = Api.Persons.Expand(p => p.Faces);
+                    baseQuery = Api.Tracklets.Expand(p => p.Faces);
                 }
                 else
                 {
                     throw new NotSupportedException();
                 }
 
-                var query = (DataServiceQuery<Person>)baseQuery.Where(p => p.Id == matchResult.PersonId);
+                var query = (DataServiceQuery<Tracklet>)baseQuery.Where(p => p.Id == matchResult.TrackletId);
                 var tracklet = query.ExecuteAsync().Result.SingleOrDefault();
                 var matchResultWithTracklet = new MatchResultWithTracklet(tracklet);
                 matchResult.CopyProperties(matchResultWithTracklet);
