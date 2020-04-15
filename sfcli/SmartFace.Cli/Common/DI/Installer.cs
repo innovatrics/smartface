@@ -59,7 +59,7 @@ namespace SmartFace.Cli.Common.DI
                 .AddSingleton<IMapper, Mapper>(serviceProvider => ConfigureAutoMapper())
                 .AddSingleton<IImageDownloaderFactory, ImageDownloaderFactory>()
                 .AddSingleton<IExportFileResolverFactory, ExportFileResolverFactory>()
-                .AddTransient<IQueryDataSelector<VisualObject>, FaceODataSelector>()
+                .AddTransient<IQueryDataSelector<Face>, FaceODataSelector>()
                 .AddTransient<IQueryDataSelector<Camera>, CameraODataSelector>()
                 .AddTransient<IQueryDataSelector<Grouping>, GroupingODataSelector>()
                 .AddTransient<IQueryDataSelector<Individual>, IndividualODataSelector>()
