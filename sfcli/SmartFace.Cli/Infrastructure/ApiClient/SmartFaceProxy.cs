@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 15. 4. 2020 11:08:05
+// Generation date: 17. 4. 2020 12:21:33
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -80,11 +80,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _Tracklets;
         /// <summary>
-        /// There are no comments for Photos in the schema.
+        /// There are no comments for Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
@@ -92,15 +92,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Photos == null))
+                if ((this._Frames == null))
                 {
-                    this._Photos = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>(GetPath("Photos"));
+                    this._Frames = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(GetPath("Frames"));
                 }
-                return this._Photos;
+                return this._Frames;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames;
         /// <summary>
         /// There are no comments for Streams in the schema.
         /// </summary>
@@ -333,28 +333,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTrackletsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> value);
         partial void OnTrackletsChanged();
         /// <summary>
-        /// There are no comments for Property Photos in the schema.
+        /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
-                return this._Photos;
+                return this._Frames;
             }
             set
             {
-                this.OnPhotosChanging(value);
-                this._Photos = value;
-                this.OnPhotosChanged();
-                this.OnPropertyChanged("Photos");
+                this.OnFramesChanging(value);
+                this._Frames = value;
+                this.OnFramesChanged();
+                this.OnPropertyChanged("Frames");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnPhotosChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> value);
-        partial void OnPhotosChanged();
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnFramesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> value);
+        partial void OnFramesChanged();
         /// <summary>
         /// There are no comments for Property Streams in the schema.
         /// </summary>
@@ -420,27 +420,27 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
     }
     /// <summary>
-    /// There are no comments for PhotoSingle in the schema.
+    /// There are no comments for FrameSingle in the schema.
     /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("PhotoSingle")]
-    public partial class PhotoSingle : global::Microsoft.OData.Client.DataServiceQuerySingle<Photo>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("FrameSingle")]
+    public partial class FrameSingle : global::Microsoft.OData.Client.DataServiceQuerySingle<Frame>
     {
         /// <summary>
-        /// Initialize a new PhotoSingle object.
+        /// Initialize a new FrameSingle object.
         /// </summary>
-        public PhotoSingle(global::Microsoft.OData.Client.DataServiceContext context, string path)
+        public FrameSingle(global::Microsoft.OData.Client.DataServiceContext context, string path)
             : base(context, path) {}
 
         /// <summary>
-        /// Initialize a new PhotoSingle object.
+        /// Initialize a new FrameSingle object.
         /// </summary>
-        public PhotoSingle(global::Microsoft.OData.Client.DataServiceContext context, string path, bool isComposable)
+        public FrameSingle(global::Microsoft.OData.Client.DataServiceContext context, string path, bool isComposable)
             : base(context, path, isComposable) {}
 
         /// <summary>
-        /// Initialize a new PhotoSingle object.
+        /// Initialize a new FrameSingle object.
         /// </summary>
-        public PhotoSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<Photo> query)
+        public FrameSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<Frame> query)
             : base(query) {}
 
         /// <summary>
@@ -533,38 +533,38 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _Individuals;
     }
     /// <summary>
-    /// There are no comments for Photo in the schema.
+    /// There are no comments for Frame in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
     /// </KeyProperties>
     [global::Microsoft.OData.Client.Key("Id")]
-    [global::Microsoft.OData.Client.OriginalNameAttribute("Photo")]
-    public partial class Photo : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
+    [global::Microsoft.OData.Client.OriginalNameAttribute("Frame")]
+    public partial class Frame : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
     {
         /// <summary>
-        /// Create a new Photo object.
+        /// Create a new Frame object.
         /// </summary>
         /// <param name="state">Initial value of State.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="positionInMs">Initial value of PositionInMs.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static Photo CreatePhoto(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.PhotoState state, global::System.DateTimeOffset createdAt, long ID, long positionInMs)
+        public static Frame CreateFrame(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState state, global::System.DateTimeOffset createdAt, long ID, long positionInMs)
         {
-            Photo photo = new Photo();
-            photo.State = state;
-            photo.CreatedAt = createdAt;
-            photo.Id = ID;
-            photo.PositionInMs = positionInMs;
-            return photo;
+            Frame frame = new Frame();
+            frame.State = state;
+            frame.CreatedAt = createdAt;
+            frame.Id = ID;
+            frame.PositionInMs = positionInMs;
+            return frame;
         }
         /// <summary>
         /// There are no comments for Property State in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("State")]
-        public global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.PhotoState State
+        public global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState State
         {
             get
             {
@@ -579,8 +579,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.PhotoState _State;
-        partial void OnStateChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.PhotoState value);
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState _State;
+        partial void OnStateChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState value);
         partial void OnStateChanged();
         /// <summary>
         /// There are no comments for Property ScopeId in the schema.
@@ -1356,11 +1356,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _Tracklets;
         /// <summary>
-        /// There are no comments for Photos in the schema.
+        /// There are no comments for Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
@@ -1368,15 +1368,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Photos == null))
+                if ((this._Frames == null))
                 {
-                    this._Photos = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>(GetPath("Photos"));
+                    this._Frames = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(GetPath("Frames"));
                 }
-                return this._Photos;
+                return this._Frames;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames;
     }
     /// <summary>
     /// There are no comments for Individual in the schema.
@@ -1682,28 +1682,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTrackletsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> value);
         partial void OnTrackletsChanged();
         /// <summary>
-        /// There are no comments for Property Photos in the schema.
+        /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
-                return this._Photos;
+                return this._Frames;
             }
             set
             {
-                this.OnPhotosChanging(value);
-                this._Photos = value;
-                this.OnPhotosChanged();
-                this.OnPropertyChanged("Photos");
+                this.OnFramesChanging(value);
+                this._Frames = value;
+                this.OnFramesChanged();
+                this.OnPropertyChanged("Frames");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnPhotosChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> value);
-        partial void OnPhotosChanged();
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnFramesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> value);
+        partial void OnFramesChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -1791,11 +1791,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle _Tracklet;
         /// <summary>
-        /// There are no comments for Photo in the schema.
+        /// There are no comments for Frame in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photo")]
-        public global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle Photo
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frame")]
+        public global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle Frame
         {
             get
             {
@@ -1803,15 +1803,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Photo == null))
+                if ((this._Frame == null))
                 {
-                    this._Photo = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle(this.Context, GetPath("Photo"));
+                    this._Frame = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(this.Context, GetPath("Frame"));
                 }
-                return this._Photo;
+                return this._Frame;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle _Photo;
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle _Frame;
         /// <summary>
         /// There are no comments for BestForIndividuals in the schema.
         /// </summary>
@@ -1879,11 +1879,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _Individuals;
         /// <summary>
-        /// There are no comments for Photos in the schema.
+        /// There are no comments for Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
@@ -1891,15 +1891,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Photos == null))
+                if ((this._Frames == null))
                 {
-                    this._Photos = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>(GetPath("Photos"));
+                    this._Frames = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(GetPath("Frames"));
                 }
-                return this._Photos;
+                return this._Frames;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames;
     }
     /// <summary>
     /// There are no comments for Face in the schema.
@@ -2399,28 +2399,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnRightEyeYChanging(global::System.Nullable<double> value);
         partial void OnRightEyeYChanged();
         /// <summary>
-        /// There are no comments for Property PhotoId in the schema.
+        /// There are no comments for Property FrameId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("PhotoId")]
-        public global::System.Nullable<long> PhotoId
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
+        public global::System.Nullable<long> FrameId
         {
             get
             {
-                return this._PhotoId;
+                return this._FrameId;
             }
             set
             {
-                this.OnPhotoIdChanging(value);
-                this._PhotoId = value;
-                this.OnPhotoIdChanged();
-                this.OnPropertyChanged("PhotoId");
+                this.OnFrameIdChanging(value);
+                this._FrameId = value;
+                this.OnFrameIdChanged();
+                this.OnPropertyChanged("FrameId");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _PhotoId;
-        partial void OnPhotoIdChanging(global::System.Nullable<long> value);
-        partial void OnPhotoIdChanged();
+        private global::System.Nullable<long> _FrameId;
+        partial void OnFrameIdChanging(global::System.Nullable<long> value);
+        partial void OnFrameIdChanged();
         /// <summary>
         /// There are no comments for Property Id in the schema.
         /// </summary>
@@ -2698,28 +2698,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTrackletChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet value);
         partial void OnTrackletChanged();
         /// <summary>
-        /// There are no comments for Property Photo in the schema.
+        /// There are no comments for Property Frame in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photo")]
-        public global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo Photo
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frame")]
+        public global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame Frame
         {
             get
             {
-                return this._Photo;
+                return this._Frame;
             }
             set
             {
-                this.OnPhotoChanging(value);
-                this._Photo = value;
-                this.OnPhotoChanged();
-                this.OnPropertyChanged("Photo");
+                this.OnFrameChanging(value);
+                this._Frame = value;
+                this.OnFrameChanged();
+                this.OnPropertyChanged("Frame");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo _Photo;
-        partial void OnPhotoChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo value);
-        partial void OnPhotoChanged();
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame _Frame;
+        partial void OnFrameChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame value);
+        partial void OnFrameChanged();
         /// <summary>
         /// There are no comments for Property BestForIndividuals in the schema.
         /// </summary>
@@ -2790,28 +2790,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnIndividualsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> value);
         partial void OnIndividualsChanged();
         /// <summary>
-        /// There are no comments for Property Photos in the schema.
+        /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
-                return this._Photos;
+                return this._Frames;
             }
             set
             {
-                this.OnPhotosChanging(value);
-                this._Photos = value;
-                this.OnPhotosChanged();
-                this.OnPropertyChanged("Photos");
+                this.OnFramesChanging(value);
+                this._Frames = value;
+                this.OnFramesChanged();
+                this.OnPropertyChanged("Frames");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnPhotosChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> value);
-        partial void OnPhotosChanged();
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnFramesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> value);
+        partial void OnFramesChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -3397,11 +3397,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _Tracklets;
         /// <summary>
-        /// There are no comments for Photos in the schema.
+        /// There are no comments for Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
@@ -3409,15 +3409,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Photos == null))
+                if ((this._Frames == null))
                 {
-                    this._Photos = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>(GetPath("Photos"));
+                    this._Frames = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(GetPath("Frames"));
                 }
-                return this._Photos;
+                return this._Frames;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames;
         /// <summary>
         /// There are no comments for Scope in the schema.
         /// </summary>
@@ -3695,28 +3695,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTrackletsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> value);
         partial void OnTrackletsChanged();
         /// <summary>
-        /// There are no comments for Property Photos in the schema.
+        /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
-                return this._Photos;
+                return this._Frames;
             }
             set
             {
-                this.OnPhotosChanging(value);
-                this._Photos = value;
-                this.OnPhotosChanged();
-                this.OnPropertyChanged("Photos");
+                this.OnFramesChanging(value);
+                this._Frames = value;
+                this.OnFramesChanged();
+                this.OnPropertyChanged("Frames");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnPhotosChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> value);
-        partial void OnPhotosChanged();
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnFramesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> value);
+        partial void OnFramesChanged();
         /// <summary>
         /// There are no comments for Property Scope in the schema.
         /// </summary>
@@ -6487,28 +6487,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnVisualObjectIdChanging(long value);
         partial void OnVisualObjectIdChanged();
         /// <summary>
-        /// There are no comments for Property PhotoId in the schema.
+        /// There are no comments for Property FrameId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("PhotoId")]
-        public global::System.Nullable<long> PhotoId
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
+        public global::System.Nullable<long> FrameId
         {
             get
             {
-                return this._PhotoId;
+                return this._FrameId;
             }
             set
             {
-                this.OnPhotoIdChanging(value);
-                this._PhotoId = value;
-                this.OnPhotoIdChanged();
-                this.OnPropertyChanged("PhotoId");
+                this.OnFrameIdChanging(value);
+                this._FrameId = value;
+                this.OnFrameIdChanged();
+                this.OnPropertyChanged("FrameId");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _PhotoId;
-        partial void OnPhotoIdChanging(global::System.Nullable<long> value);
-        partial void OnPhotoIdChanged();
+        private global::System.Nullable<long> _FrameId;
+        partial void OnFrameIdChanging(global::System.Nullable<long> value);
+        partial void OnFrameIdChanged();
         /// <summary>
         /// There are no comments for Property FaceArea in the schema.
         /// </summary>
@@ -6648,27 +6648,27 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> source, global::System.Collections.Generic.Dictionary<string, object> keys)
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> source, global::System.Collections.Generic.Dictionary<string, object> keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> source,
             long id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PhotoSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle specified by key from an entity set
@@ -8084,7 +8084,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// <param name="min_GroupingStep">Initial value of Min_GroupingStep.</param>
         /// <param name="min_GroupingThreshold">Initial value of Min_GroupingThreshold.</param>
         /// <param name="max_GroupingThreshold">Initial value of Max_GroupingThreshold.</param>
-        /// <param name="min_MaxPhotosCount">Initial value of Min_MaxPhotosCount.</param>
+        /// <param name="min_MaxFramesCount">Initial value of Min_MaxFramesCount.</param>
         /// <param name="min_MaxImageDataAge">Initial value of Min_MaxImageDataAge.</param>
         /// <param name="min_CleanupAmount">Initial value of Min_CleanupAmount.</param>
         /// <param name="min_SelectionThreshold">Initial value of Min_SelectionThreshold.</param>
@@ -8114,7 +8114,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         public static ConfigurationConstants CreateConfigurationConstants(int min_GroupingStep, 
                     int min_GroupingThreshold, 
                     int max_GroupingThreshold, 
-                    int min_MaxPhotosCount, 
+                    int min_MaxFramesCount, 
                     int min_MaxImageDataAge, 
                     int min_CleanupAmount, 
                     int min_SelectionThreshold, 
@@ -8145,7 +8145,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
             configurationConstants.Min_GroupingStep = min_GroupingStep;
             configurationConstants.Min_GroupingThreshold = min_GroupingThreshold;
             configurationConstants.Max_GroupingThreshold = max_GroupingThreshold;
-            configurationConstants.Min_MaxPhotosCount = min_MaxPhotosCount;
+            configurationConstants.Min_MaxFramesCount = min_MaxFramesCount;
             configurationConstants.Min_MaxImageDataAge = min_MaxImageDataAge;
             configurationConstants.Min_CleanupAmount = min_CleanupAmount;
             configurationConstants.Min_SelectionThreshold = min_SelectionThreshold;
@@ -8266,28 +8266,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         partial void OnMax_GroupingThresholdChanging(int value);
         partial void OnMax_GroupingThresholdChanged();
         /// <summary>
-        /// There are no comments for Property Min_MaxPhotosCount in the schema.
+        /// There are no comments for Property Min_MaxFramesCount in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxPhotosCount")]
-        public int Min_MaxPhotosCount
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxFramesCount")]
+        public int Min_MaxFramesCount
         {
             get
             {
-                return this._Min_MaxPhotosCount;
+                return this._Min_MaxFramesCount;
             }
             set
             {
-                this.OnMin_MaxPhotosCountChanging(value);
-                this._Min_MaxPhotosCount = value;
-                this.OnMin_MaxPhotosCountChanged();
-                this.OnPropertyChanged("Min_MaxPhotosCount");
+                this.OnMin_MaxFramesCountChanging(value);
+                this._Min_MaxFramesCount = value;
+                this.OnMin_MaxFramesCountChanged();
+                this.OnPropertyChanged("Min_MaxFramesCount");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private int _Min_MaxPhotosCount;
-        partial void OnMin_MaxPhotosCountChanging(int value);
-        partial void OnMin_MaxPhotosCountChanged();
+        private int _Min_MaxFramesCount;
+        partial void OnMin_MaxFramesCountChanging(int value);
+        partial void OnMin_MaxFramesCountChanged();
         /// <summary>
         /// There are no comments for Property Min_MaxImageDataAge in the schema.
         /// </summary>
@@ -9186,10 +9186,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Error = 3
     }
     /// <summary>
-    /// There are no comments for PhotoState in the schema.
+    /// There are no comments for FrameState in the schema.
     /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("PhotoState")]
-    public enum PhotoState
+    [global::Microsoft.OData.Client.OriginalNameAttribute("FrameState")]
+    public enum FrameState
     {
         [global::Microsoft.OData.Client.OriginalNameAttribute("New")]
         New = 0,
@@ -9454,7 +9454,7 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for BulkDelete in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("BulkDelete")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.BulkResponseData> BulkDelete(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> source, global::System.Collections.Generic.ICollection<long> Ids)
+        public static global::Microsoft.OData.Client.DataServiceActionQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.BulkResponseData> BulkDelete(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> source, global::System.Collections.Generic.ICollection<long> Ids)
         {
             if (!source.IsComposable)
             {
@@ -9712,23 +9712,23 @@ namespace SmartFace.ODataClient.Default
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope> _Scopes;
         /// <summary>
-        /// There are no comments for Photos in the schema.
+        /// There are no comments for Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Photos")]
-        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> Photos
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
             get
             {
-                if ((this._Photos == null))
+                if ((this._Frames == null))
                 {
-                    this._Photos = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo>("Photos");
+                    this._Frames = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>("Frames");
                 }
-                return this._Photos;
+                return this._Frames;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo> _Photos;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames;
         /// <summary>
         /// There are no comments for Groupings in the schema.
         /// </summary>
@@ -10026,12 +10026,12 @@ namespace SmartFace.ODataClient.Default
             base.AddObject("Scopes", scope);
         }
         /// <summary>
-        /// There are no comments for Photos in the schema.
+        /// There are no comments for Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public void AddToPhotos(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Photo photo)
+        public void AddToFrames(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame frame)
         {
-            base.AddObject("Photos", photo);
+            base.AddObject("Frames", frame);
         }
         /// <summary>
         /// There are no comments for Groupings in the schema.
@@ -10181,15 +10181,15 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
         <NavigationProperty Name=""Groupings"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Grouping)"" />
         <NavigationProperty Name=""Tracklets"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Tracklet)"" />
-        <NavigationProperty Name=""Photos"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Photo)"" />
+        <NavigationProperty Name=""Frames"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)"" />
         <NavigationProperty Name=""Streams"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Stream)"" />
         <NavigationProperty Name=""Individuals"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)"" />
       </EntityType>
-      <EntityType Name=""Photo"">
+      <EntityType Name=""Frame"">
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""State"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.PhotoState"" Nullable=""false"" />
+        <Property Name=""State"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState"" Nullable=""false"" />
         <Property Name=""ScopeId"" Type=""Edm.Int64"" />
         <Property Name=""StreamId"" Type=""Edm.Int64"" />
         <Property Name=""ImageDataId"" Type=""Edm.Guid"" />
@@ -10243,7 +10243,7 @@ namespace SmartFace.ODataClient.Default
         <NavigationProperty Name=""BestFace"" Type=""SmartFace.Domain.DataAccess.Models.Core.Face"" />
         <NavigationProperty Name=""Faces"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Face)"" />
         <NavigationProperty Name=""Tracklets"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Tracklet)"" />
-        <NavigationProperty Name=""Photos"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Photo)"" />
+        <NavigationProperty Name=""Frames"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)"" />
       </EntityType>
       <EntityType Name=""Face"">
         <Key>
@@ -10268,7 +10268,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""LeftEyeY"" Type=""Edm.Double"" />
         <Property Name=""RightEyeX"" Type=""Edm.Double"" />
         <Property Name=""RightEyeY"" Type=""Edm.Double"" />
-        <Property Name=""PhotoId"" Type=""Edm.Int64"" />
+        <Property Name=""FrameId"" Type=""Edm.Int64"" />
         <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
         <Property Name=""Type"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType"" Nullable=""false"" />
         <Property Name=""Age"" Type=""Edm.Double"" />
@@ -10283,15 +10283,15 @@ namespace SmartFace.ODataClient.Default
         <NavigationProperty Name=""Tracklet"" Type=""SmartFace.Domain.DataAccess.Models.Core.Tracklet"">
           <ReferentialConstraint Property=""TrackletId"" ReferencedProperty=""Id"" />
         </NavigationProperty>
-        <NavigationProperty Name=""Photo"" Type=""SmartFace.Domain.DataAccess.Models.Core.Photo"">
-          <ReferentialConstraint Property=""PhotoId"" ReferencedProperty=""Id"" />
+        <NavigationProperty Name=""Frame"" Type=""SmartFace.Domain.DataAccess.Models.Core.Frame"">
+          <ReferentialConstraint Property=""FrameId"" ReferencedProperty=""Id"" />
         </NavigationProperty>
         <NavigationProperty Name=""BestForIndividuals"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)"" />
         <NavigationProperty Name=""Stream"" Type=""SmartFace.Domain.DataAccess.Models.Core.Stream"">
           <ReferentialConstraint Property=""StreamId"" ReferencedProperty=""Id"" />
         </NavigationProperty>
         <NavigationProperty Name=""Individuals"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)"" />
-        <NavigationProperty Name=""Photos"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Photo)"" />
+        <NavigationProperty Name=""Frames"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)"" />
       </EntityType>
       <EntityType Name=""Tracklet"">
         <Key>
@@ -10328,7 +10328,7 @@ namespace SmartFace.ODataClient.Default
         <NavigationProperty Name=""Faces"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Face)"" />
         <NavigationProperty Name=""InputFiles"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.InputFile)"" />
         <NavigationProperty Name=""Tracklets"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Tracklet)"" />
-        <NavigationProperty Name=""Photos"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Photo)"" />
+        <NavigationProperty Name=""Frames"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)"" />
         <NavigationProperty Name=""Scope"" Type=""SmartFace.Domain.DataAccess.Models.Core.Scope"">
           <ReferentialConstraint Property=""ScopeId"" ReferencedProperty=""Id"" />
         </NavigationProperty>
@@ -10468,7 +10468,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""WatchlistDisplayName"" Type=""Edm.String"" />
         <Property Name=""WatchlistExternalId"" Type=""Edm.String"" />
         <Property Name=""VisualObjectId"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Property Name=""PhotoId"" Type=""Edm.Int64"" />
+        <Property Name=""FrameId"" Type=""Edm.Int64"" />
         <Property Name=""FaceArea"" Type=""Edm.Double"" />
         <Property Name=""FaceOrder"" Type=""Edm.Int32"" />
         <Property Name=""FacesOnFrameCount"" Type=""Edm.Int32"" />
@@ -10537,7 +10537,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""GroupingStrategy"" Type=""Collection(Edm.String)"" />
         <Property Name=""Min_GroupingThreshold"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""Max_GroupingThreshold"" Type=""Edm.Int32"" Nullable=""false"" />
-        <Property Name=""Min_MaxPhotosCount"" Type=""Edm.Int32"" Nullable=""false"" />
+        <Property Name=""Min_MaxFramesCount"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""Min_MaxImageDataAge"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""Min_CleanupStart"" Type=""Edm.String"" />
         <Property Name=""Max_CleanupStart"" Type=""Edm.String"" />
@@ -10622,7 +10622,7 @@ namespace SmartFace.ODataClient.Default
         <Member Name=""Processed"" Value=""2"" />
         <Member Name=""Error"" Value=""3"" />
       </EnumType>
-      <EnumType Name=""PhotoState"">
+      <EnumType Name=""FrameState"">
         <Member Name=""New"" Value=""0"" />
         <Member Name=""Processing"" Value=""1"" />
         <Member Name=""Processed"" Value=""2"" />
@@ -10725,7 +10725,7 @@ namespace SmartFace.ODataClient.Default
         <Parameter Name=""WatchlistId"" Type=""Edm.Int64"" Nullable=""false"" />
       </Action>
       <Action Name=""BulkDelete"" IsBound=""true"">
-        <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Photo)"" />
+        <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)"" />
         <Parameter Name=""Ids"" Type=""Collection(Edm.Int64)"" Nullable=""false"" />
         <ReturnType Type=""Collection(SmartFace.WebApi.Models.Responses.BulkResponseData)"" />
       </Action>
@@ -10755,13 +10755,13 @@ namespace SmartFace.ODataClient.Default
     <Schema Namespace=""Default"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
       <EntityContainer Name=""Container"">
         <EntitySet Name=""Scopes"" EntityType=""SmartFace.Domain.DataAccess.Models.Core.Scope"">
+          <NavigationPropertyBinding Path=""Frames"" Target=""Frames"" />
           <NavigationPropertyBinding Path=""Groupings"" Target=""Groupings"" />
           <NavigationPropertyBinding Path=""Individuals"" Target=""Individuals"" />
-          <NavigationPropertyBinding Path=""Photos"" Target=""Photos"" />
           <NavigationPropertyBinding Path=""Streams"" Target=""Streams"" />
           <NavigationPropertyBinding Path=""Tracklets"" Target=""Tracklets"" />
         </EntitySet>
-        <EntitySet Name=""Photos"" EntityType=""SmartFace.Domain.DataAccess.Models.Core.Photo"">
+        <EntitySet Name=""Frames"" EntityType=""SmartFace.Domain.DataAccess.Models.Core.Frame"">
           <NavigationPropertyBinding Path=""Faces"" Target=""Faces"" />
           <NavigationPropertyBinding Path=""Individuals"" Target=""Individuals"" />
           <NavigationPropertyBinding Path=""Scope"" Target=""Scopes"" />
@@ -10774,16 +10774,16 @@ namespace SmartFace.ODataClient.Default
         <EntitySet Name=""Individuals"" EntityType=""SmartFace.Domain.DataAccess.Models.Core.Individual"">
           <NavigationPropertyBinding Path=""BestFace"" Target=""Faces"" />
           <NavigationPropertyBinding Path=""Faces"" Target=""Faces"" />
+          <NavigationPropertyBinding Path=""Frames"" Target=""Frames"" />
           <NavigationPropertyBinding Path=""Grouping"" Target=""Groupings"" />
-          <NavigationPropertyBinding Path=""Photos"" Target=""Photos"" />
           <NavigationPropertyBinding Path=""Tracklets"" Target=""Tracklets"" />
         </EntitySet>
         <EntitySet Name=""Faces"" EntityType=""SmartFace.Domain.DataAccess.Models.Core.Face"">
           <NavigationPropertyBinding Path=""BestForIndividuals"" Target=""Individuals"" />
           <NavigationPropertyBinding Path=""FaceAttributes"" Target=""FaceAttributes"" />
+          <NavigationPropertyBinding Path=""Frame"" Target=""Frames"" />
+          <NavigationPropertyBinding Path=""Frames"" Target=""Frames"" />
           <NavigationPropertyBinding Path=""Individuals"" Target=""Individuals"" />
-          <NavigationPropertyBinding Path=""Photo"" Target=""Photos"" />
-          <NavigationPropertyBinding Path=""Photos"" Target=""Photos"" />
           <NavigationPropertyBinding Path=""Stream"" Target=""Streams"" />
           <NavigationPropertyBinding Path=""Tracklet"" Target=""Tracklets"" />
         </EntitySet>
@@ -10797,8 +10797,8 @@ namespace SmartFace.ODataClient.Default
         <EntitySet Name=""Streams"" EntityType=""SmartFace.Domain.DataAccess.Models.Core.Stream"">
           <NavigationPropertyBinding Path=""Cameras"" Target=""Cameras"" />
           <NavigationPropertyBinding Path=""Faces"" Target=""Faces"" />
+          <NavigationPropertyBinding Path=""Frames"" Target=""Frames"" />
           <NavigationPropertyBinding Path=""InputFiles"" Target=""InputFiles"" />
-          <NavigationPropertyBinding Path=""Photos"" Target=""Photos"" />
           <NavigationPropertyBinding Path=""Scope"" Target=""Scopes"" />
           <NavigationPropertyBinding Path=""Tracklets"" Target=""Tracklets"" />
         </EntitySet>
