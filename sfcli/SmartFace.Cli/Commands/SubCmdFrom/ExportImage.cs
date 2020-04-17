@@ -18,7 +18,7 @@ namespace SmartFace.Cli.Commands.SubCmdFrom
         public string DestinationFolder { get; }
 
         [Required]
-        [Option("-i|--imageUrlProp", Description = "Property path to image url on given object. E.g. \"Tracklet.Faces.ImageUrl\" or \"Photo.ImageUrl\"")]
+        [Option("-i|--imageUrlProp", Description = "Property path to image url on given object. E.g. \"Tracklet.Faces.ImageUrl\" or \"Frame.ImageUrl\"")]
         public string ImageUrlProperty { get; }
 
         [Option("-t|--timeout", Description = "Length of time, in milliseconds, before the request times out")]
