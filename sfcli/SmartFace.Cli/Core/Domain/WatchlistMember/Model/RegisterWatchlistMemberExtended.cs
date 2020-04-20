@@ -1,6 +1,6 @@
-﻿namespace SmartFace.Cli.Core.Domain.WatchlistItem.Model
+﻿namespace SmartFace.Cli.Core.Domain.WatchlistMember.Model
 {
-    public class RegisterWlItemExtended
+    public class RegisterWatchlistMemberExtended
     {
         public string ExternalId { get; set; }
         public string DisplayName { get; set; }

@@ -7,27 +7,28 @@ using SmartFace.Api.Rpc;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Common.Utils;
 using SmartFace.Cli.Core.ApiAbstraction;
+using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.Cli.Infrastructure.ApiClient.Extensions;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
-using RegisterWlItemData = SmartFace.Cli.Core.ApiAbstraction.Models.RegisterWlItemData;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
-    public class WlItemsRepository : IWlItemsRepository
+    public class WatchlistMembersRepository : IWatchlistMembersRepository
     {
         private Container Container { get; }
 
         private IApiDefinition ApiDefinition { get; }
 
-        public WlItemsRepository(Container container, IApiDefinition apiDefinition)
+        public WatchlistMembersRepository(Container container, IApiDefinition apiDefinition)
         {
             Container = container;
             ApiDefinition = apiDefinition;
         }
 
-        public void Register(RegisterWlItemData data)
+        public void Register(RegisterWatchlistMemberData data)
         {
+            //TODO use new API to work with watchlist members
             Api.Rpc.RegisterWlItemData payload = new Api.Rpc.RegisterWlItemData();
             data.ImageData.ToList().ForEach(imgData => payload.ImageData.Add(new Api.Rpc.RegisterWlItemImageData
             {
@@ -49,23 +50,23 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             PatchExtendedData(data);
         }
 
-        private void PatchExtendedData(RegisterWlItemData data)
+        private void PatchExtendedData(RegisterWatchlistMemberData data)
         {
             if (!string.IsNullOrEmpty(data.DisplayName) ||
                 !string.IsNullOrEmpty(data.FullName) ||
                 !string.IsNullOrEmpty(data.Note))
             {
-                var wlItem =
-                    ((DataServiceQuery<WlItem>)Container.WatchlistItems.Where(wli => wli.ExternalId == data.ExternalId)
+                var watchlistMember =
+                    ((DataServiceQuery<WatchlistMember>)Container.WatchlistMembers.Where(wlm => wlm.ExternalId == data.ExternalId)
                     ).ExecuteAsync().AwaitSync().ToList().Single();
 
-                WlItemSingle wlItemSingle = Container.WatchlistItems.ByKey(wlItem.Id);
+                WatchlistMemberSingle watchlistMemberSingle = Container.WatchlistMembers.ByKey(watchlistMember.Id);
                 var patchDelta = new ExpandoObject() as IDictionary<string, object>;
-                patchDelta.Add(nameof(WlItem.DisplayName), data.DisplayName);
-                patchDelta.Add(nameof(WlItem.FullName), data.FullName);
-                patchDelta.Add(nameof(WlItem.Note), data.Note);
+                patchDelta.Add(nameof(WatchlistMember.DisplayName), data.DisplayName);
+                patchDelta.Add(nameof(WatchlistMember.FullName), data.FullName);
+                patchDelta.Add(nameof(WatchlistMember.Note), data.Note);
 
-                wlItemSingle.PatchPropertyAsync((ExpandoObject)patchDelta).AwaitSync();
+                watchlistMemberSingle.PatchPropertyAsync((ExpandoObject)patchDelta).AwaitSync();
             }
         }
     }

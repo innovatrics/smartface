@@ -6,8 +6,8 @@ using SmartFace.Cli.Core.ApiAbstraction.Models;
 
 namespace SmartFace.Cli.Core.ApiAbstraction
 {
-    public interface IWlItemsRepository
+    public interface IWatchlistMembersRepository
     {
-        void Register(RegisterWlItemData data);
+        void Register(RegisterWatchlistMemberData data);
     }
 }

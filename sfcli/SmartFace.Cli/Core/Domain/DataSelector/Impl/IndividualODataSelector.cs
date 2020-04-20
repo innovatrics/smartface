@@ -3,9 +3,9 @@ using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Core.Domain.DataSelector.Impl
 {
-    public class CameraODataSelector : ODataSelector<Camera>, IQueryDataSelector<Camera>
+    public class IndividualODataSelector : ODataSelector<Individual>, IQueryDataSelector<Individual>
     {
-        public CameraODataSelector(Container container) : base(container.Cameras)
+        public IndividualODataSelector(Container container) : base(container.Individuals)
         {
         }
     }

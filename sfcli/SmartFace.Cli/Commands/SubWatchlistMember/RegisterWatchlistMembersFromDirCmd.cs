@@ -1,17 +1,14 @@
-﻿using McMaster.Extensions.CommandLineUtils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Common;
-using SmartFace.Cli.Core.Domain.WatchlistItem;
+using SmartFace.Cli.Core.Domain.WatchlistMember;
 
-namespace SmartFace.Cli.Commands.SubWlItem
+namespace SmartFace.Cli.Commands.SubWatchlistMember
 {
-    [Command(Name = "registerFromDir", Description = "Register WlItem entities from photos in directory in format {wlitem_externalId}.(jpeg|jpg|png) ")]
-    public class RegisterWlItemsFromDirCmd
+    [Command(Name = "registerFromDir", Description = "Register WatchlistMember entities from photos in directory in format {watchlistmember_externalId}.(jpeg|jpg|png) ")]
+    public class RegisterWatchlistMembersFromDirCmd
     {
-        private IWatchlistItemRegistrationManager Manager { get; }
+        private IWatchlistMemberRegistrationManager Manager { get; }
         
         [Required]
         [Option("-w|--watchlistsExternalIds", "", CommandOptionType.MultipleValue)]
@@ -21,7 +18,7 @@ namespace SmartFace.Cli.Commands.SubWlItem
         [Option("-d|--dirToPhotos", "", CommandOptionType.SingleValue)]
         public string Directory { get; set; }
 
-        [Option("-m|--metaDataFile", @"Use this option when you can provide single json file in selected directory with meta data for WlItem. In this case could be use any name for photo file
+        [Option("-m|--metaDataFile", @"Use this option when you can provide single json file in selected directory with meta data for WatchlistMember. In this case could be use any name for photo file
 [
 {
     ""ExternalId"": ""120"",
@@ -37,7 +34,7 @@ namespace SmartFace.Cli.Commands.SubWlItem
         [Option("-p|--parallel", "Max degree of parallelism, default value is 1", CommandOptionType.SingleValue)]
         public int MaxDegreeOfParallelism { get; set; } = 1;
 
-        public RegisterWlItemsFromDirCmd(IWatchlistItemRegistrationManager manager)
+        public RegisterWatchlistMembersFromDirCmd(IWatchlistMemberRegistrationManager manager)
         {
             Manager = manager;
         }
@@ -46,11 +43,11 @@ namespace SmartFace.Cli.Commands.SubWlItem
         {
             if (UseMetaDataFile)
             {
-                Manager.RegisterWlItemsExtendedFromDir(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                Manager.RegisterWatchlistMembersExtendedFromDir(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             else
             {
-                Manager.RegisterWlItemsFromDir(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                Manager.RegisterWatchlistMembersFromDir(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             return Constants.EXIT_CODE_OK;
         }

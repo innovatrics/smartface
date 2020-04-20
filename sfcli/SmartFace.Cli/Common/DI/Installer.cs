@@ -15,11 +15,11 @@ using SmartFace.Cli.Core.Domain.GlobalConfig;
 using SmartFace.Cli.Core.Domain.ImgExport;
 using SmartFace.Cli.Core.Domain.Notifications;
 using SmartFace.Cli.Core.Domain.StreamProcessor;
-using SmartFace.Cli.Core.Domain.WatchlistItem;
-using SmartFace.Cli.Core.Domain.WatchlistItem.Impl;
+using SmartFace.Cli.Core.Domain.WatchlistMember;
+using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
 using SmartFace.Cli.Infrastructure.ApiImplementation;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Common.DI
 {
@@ -62,14 +62,14 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IQueryDataSelector<Face>, FaceODataSelector>()
                 .AddTransient<IQueryDataSelector<Camera>, CameraODataSelector>()
                 .AddTransient<IQueryDataSelector<Grouping>, GroupingODataSelector>()
-                .AddTransient<IQueryDataSelector<Identity>, IdentityODataSelector>()
-                .AddTransient<IQueryDataSelector<Photo>, PhotoODataSelector>()
+                .AddTransient<IQueryDataSelector<Individual>, IndividualODataSelector>()
+                .AddTransient<IQueryDataSelector<Frame>, FrameODataSelector>()
                 .AddTransient<IQueryDataSelector<Scope>, ScopeODataSelector>()
                 .AddTransient<IQueryDataSelector<Watchlist>, WatchlistODataSelector>()
                 .AddTransient<IQueryDataSelector<MatchResult>, MatchResultODataSelector>()
-                .AddTransient<IQueryDataSelector<WlItem>, WlItemODataSelector>()
+                .AddTransient<IQueryDataSelector<WatchlistMember>, WatchlistMemberODataSelector>()
                 .AddTransient<IVideoProcessorRepository, VideoProcessorRepository>()
-                .AddTransient<IWlItemsRepository, WlItemsRepository>()
+                .AddTransient<IWatchlistMembersRepository, WatchlistMembersRepository>()
                 .AddTransient<IWorkersRepository, WorkersRepository>()
                 .AddTransient<ICamerasRepository, CamerasRepository>()
                 .AddTransient<IStreamsRepository, StreamsRepository>()
@@ -81,9 +81,9 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IGlobalConfigRepository, GlobalConfigRepository>()
                 .AddTransient<IApiProvider, ApiProvider>()
                 .AddTransient<ZeroMqNotificationReader>()
-                .AddTransient<RegisterWlItemExtendedJsonLoader>()
+                .AddTransient<RegisterWatchlistMemberExtendedJsonLoader>()
                 .AddTransient<INotificationReceiver, ZeroMqNotificationReceiver>()
-                .AddTransient<IWatchlistItemRegistrationManager, WatchlistItemRegistrationManager>()
+                .AddTransient<IWatchlistMemberRegistrationManager, WatchlistMemberRegistrationManager>()
                 .AddLogging(configure => configure.AddConsole())
                 .BuildServiceProvider();
             return services;

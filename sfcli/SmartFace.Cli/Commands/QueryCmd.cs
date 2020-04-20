@@ -11,9 +11,9 @@ namespace SmartFace.Cli.Commands
      Subcommand(typeof(FromFaces)),
      Subcommand(typeof(FromScopes)),
      Subcommand(typeof(FromGroupings)),
-     Subcommand(typeof(FromIdentities)),
+     Subcommand(typeof(FromIndividuals)),
      Subcommand(typeof(FromWatchlists)),
-     Subcommand(typeof(FromWlItems)),
+     Subcommand(typeof(FromWatchlistMembers)),
     ]
     public class QueryCmd
     {

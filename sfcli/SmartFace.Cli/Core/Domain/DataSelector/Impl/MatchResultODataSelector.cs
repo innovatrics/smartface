@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using Microsoft.OData.Client;
 using SmartFace.Cli.Common.Utils;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Core.Domain.DataSelector.Impl
 {
     public class MatchResultODataSelector : ODataSelector<MatchResult>, IQueryDataSelector<MatchResult>
     {
-        private const string ALLOWED_EXPAND_PERSON = "Person";
-        private const string ALLOWED_EXPAND_FACES = "Person($expand=Faces)";
+        private const string ALLOWED_EXPAND_TRACKLET = "Tracklet";
+        private const string ALLOWED_EXPAND_FACES = "Tracklet($expand=Faces)";
 
         private Container Api { get; }
 
@@ -39,31 +39,31 @@ namespace SmartFace.Cli.Core.Domain.DataSelector.Impl
 
             entities = (IEnumerable<MatchResult>)base.Execute(condition, expandProperty, string.Empty, string.Empty);
 
-            var matchResultWithPersons = new ConcurrentBag<MatchResultWithPerson>();
+            var matchResultWithTracklets = new ConcurrentBag<MatchResultWithTracklet>();
             Parallel.ForEach(entities, (matchResult) =>
             {
-                DataServiceQuery<Person> baseQuery;
-                if (ALLOWED_EXPAND_PERSON.Equals(expandProperty, StringComparison.InvariantCultureIgnoreCase))
+                DataServiceQuery<Tracklet> baseQuery;
+                if (ALLOWED_EXPAND_TRACKLET.Equals(expandProperty, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    baseQuery = Api.Persons;
+                    baseQuery = Api.Tracklets;
                 }
                 else if (ALLOWED_EXPAND_FACES.Equals(expandProperty, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    baseQuery = Api.Persons.Expand(p => p.Faces);
+                    baseQuery = Api.Tracklets.Expand(p => p.Faces);
                 }
                 else
                 {
                     throw new NotSupportedException();
                 }
 
-                var query = (DataServiceQuery<Person>)baseQuery.Where(p => p.Id == matchResult.PersonId);
-                var person = query.ExecuteAsync().Result.SingleOrDefault();
-                var matchResultWithPerson = new MatchResultWithPerson(person);
-                matchResult.CopyProperties(matchResultWithPerson);
-                matchResultWithPersons.Add(matchResultWithPerson);
+                var query = (DataServiceQuery<Tracklet>)baseQuery.Where(p => p.Id == matchResult.TrackletId);
+                var tracklet = query.ExecuteAsync().Result.SingleOrDefault();
+                var matchResultWithTracklet = new MatchResultWithTracklet(tracklet);
+                matchResult.CopyProperties(matchResultWithTracklet);
+                matchResultWithTracklets.Add(matchResultWithTracklet);
             });
 
-            var res = LocalQuery<MatchResultWithPerson>(linq, linqSelectExpression, matchResultWithPersons);
+            var res = LocalQuery<MatchResultWithTracklet>(linq, linqSelectExpression, matchResultWithTracklets);
             return res;
         }
     }

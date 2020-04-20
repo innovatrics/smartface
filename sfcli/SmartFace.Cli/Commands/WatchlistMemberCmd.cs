@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using McMaster.Extensions.CommandLineUtils;
-using SmartFace.Cli.Commands.SubWlItem;
+using SmartFace.Cli.Commands.SubWatchlistMember;
 using SmartFace.Cli.Common;
 
 namespace SmartFace.Cli.Commands
 {
-    [Command(Name = "wlitem", Description = "Operations with watchlist item"),
-    Subcommand(typeof(RegisterWlItemCmd)),
-    Subcommand(typeof(RegisterWlItemsFromDirCmd)),
+    [Command(Name = "watchlistmember", Description = "Operations with watchlist member"),
+    Subcommand(typeof(RegisterWatchlistMemberCmd)),
+    Subcommand(typeof(RegisterWatchlistMembersFromDirCmd)),
     ]
-    public class WlItemCmd
+    public class WatchlistMemberCmd
     {
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {

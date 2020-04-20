@@ -9,39 +9,39 @@ using SmartFace.Cli.Common;
 using SmartFace.Cli.Common.Utils;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
-using SmartFace.Cli.Core.Domain.WatchlistItem.Model;
+using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
 
-namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
+namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 {
-    public class WatchlistItemRegistrationManager : IWatchlistItemRegistrationManager
+    public class WatchlistMemberRegistrationManager : IWatchlistMemberRegistrationManager
     {
-        private ILogger<WatchlistItemRegistrationManager> Log { get; }
+        private ILogger<WatchlistMemberRegistrationManager> Log { get; }
 
-        private IWlItemsRepository Repository { get; }
+        private IWatchlistMembersRepository Repository { get; }
 
-        private RegisterWlItemExtendedJsonLoader Loader { get; }
+        private RegisterWatchlistMemberExtendedJsonLoader Loader { get; }
 
         public const string FILE_PATTERN = @"^([^.]+)\.([jJ][pP][eE]?[gG]|[pP][nN][gG])$";
 
-        public WatchlistItemRegistrationManager(ILogger<WatchlistItemRegistrationManager> log, IWlItemsRepository repository, RegisterWlItemExtendedJsonLoader loader)
+        public WatchlistMemberRegistrationManager(ILogger<WatchlistMemberRegistrationManager> log, IWatchlistMembersRepository repository, RegisterWatchlistMemberExtendedJsonLoader loader)
         {
             Log = log;
             Repository = repository;
             Loader = loader;
         }
 
-        public void RegisterWlItem(RegisterWlItemExtended registerWlItemExtended)
+        public void RegisterWatchlistMember(RegisterWatchlistMemberExtended registerWatchlistMemberExtended)
         {
-            var data = new RegisterWlItemData
+            var data = new RegisterWatchlistMemberData
             {
-                ExternalId = registerWlItemExtended.ExternalId,
-                DisplayName = registerWlItemExtended.DisplayName,
-                FullName = registerWlItemExtended.FullName,
-                Note = registerWlItemExtended.Note,
-                WatchlistExternalIds = registerWlItemExtended.WatchlistExternalIds
+                ExternalId = registerWatchlistMemberExtended.ExternalId,
+                DisplayName = registerWatchlistMemberExtended.DisplayName,
+                FullName = registerWatchlistMemberExtended.FullName,
+                Note = registerWatchlistMemberExtended.Note,
+                WatchlistExternalIds = registerWatchlistMemberExtended.WatchlistExternalIds
             };
 
-            registerWlItemExtended.PhotoFiles.ToList().ForEach(pathToPhotoFile => data.ImageData.Add(new RegisterWlItemImageData
+            registerWatchlistMemberExtended.PhotoFiles.ToList().ForEach(pathToPhotoFile => data.ImageData.Add(new RegisterWatchlistMemberImageData
             {
                 Data = File.ReadAllBytes(pathToPhotoFile),
                 MIME = pathToPhotoFile.ToLower().EndsWith($".{Constants.PNG}") ? Constants.PNG_MIME_TYPE : Constants.JPEG_MIME_TYPE
@@ -49,10 +49,10 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
 
             Repository.Register(data);
 
-            Log.LogInformation($"WlItem registered. [{data.ExternalId}]");
+            Log.LogInformation($"WatchlistMember registered. [{data.ExternalId}]");
         }
 
-        public void RegisterWlItemsFromDir(string directory, string[] watchlistExternalIds, int maxDegreeOfParallelism)
+        public void RegisterWatchlistMembersFromDir(string directory, string[] watchlistExternalIds, int maxDegreeOfParallelism)
         {
             if (!Directory.Exists(directory))
             {
@@ -61,19 +61,19 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
 
             var groupedPhotos = GetPhotosGroupedByExternalId(directory);
 
-            var extendedData = new List<RegisterWlItemExtended>();
+            var extendedData = new List<RegisterWatchlistMemberExtended>();
 
             foreach (var group in groupedPhotos)
             {
                 var externalId = group.Key;
                 var photoPaths = group.Select(photoWithExternalId => photoWithExternalId.PhotoPath).ToArray();
-                var registerWlItemExtended = new RegisterWlItemExtended
+                var registerWatchlistMemberExtended = new RegisterWatchlistMemberExtended
                 {
                     ExternalId = externalId,
                     PhotoFiles = photoPaths,
                     WatchlistExternalIds = watchlistExternalIds
                 };
-                extendedData.Add(registerWlItemExtended);
+                extendedData.Add(registerWatchlistMemberExtended);
             }
 
             var actionBlock = CreateRegisterActionBlock(maxDegreeOfParallelism);
@@ -117,9 +117,9 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
             return isValid;
         }
 
-        public void RegisterWlItemsExtendedFromDir(string directory, string[] watchlistExternalIds, int maxDegreeOfParallelism)
+        public void RegisterWatchlistMembersExtendedFromDir(string directory, string[] watchlistExternalIds, int maxDegreeOfParallelism)
         {
-            var extendedData = Loader.GetRegisterWlItemExtendedData(directory);
+            var extendedData = Loader.GetRegisterWatchlistMemberExtendedData(directory);
             extendedData.ToList().ForEach(data => data.WatchlistExternalIds = watchlistExternalIds);
 
             Directory.SetCurrentDirectory(directory);
@@ -131,35 +131,35 @@ namespace SmartFace.Cli.Core.Domain.WatchlistItem.Impl
             WaitForRegistrationCompletion(actionBlock);
         }
 
-        private static void WaitForRegistrationCompletion(ActionBlock<RegisterWlItemExtended> actionBlock)
+        private static void WaitForRegistrationCompletion(ActionBlock<RegisterWatchlistMemberExtended> actionBlock)
         {
             actionBlock.Complete();
             actionBlock.Completion.AwaitSync();
         }
 
-        private void PostDataToActionBlock(IEnumerable<RegisterWlItemExtended> extendedData, ActionBlock<RegisterWlItemExtended> actionBlock)
+        private void PostDataToActionBlock(IEnumerable<RegisterWatchlistMemberExtended> extendedData, ActionBlock<RegisterWatchlistMemberExtended> actionBlock)
         {
-            foreach (var registerWlItemExtended in extendedData)
+            foreach (var registerWatchlistMemberExtended in extendedData)
             {
-                var posted = actionBlock.Post(registerWlItemExtended);
+                var posted = actionBlock.Post(registerWatchlistMemberExtended);
                 if (!posted)
                 {
-                    Log.LogError($"Unable to process item with external id [{registerWlItemExtended.ExternalId}]");
+                    Log.LogError($"Unable to process member with external id [{registerWatchlistMemberExtended.ExternalId}]");
                 }
             }
         }
 
-        private ActionBlock<RegisterWlItemExtended> CreateRegisterActionBlock(int maxDegreeOfParallelism)
+        private ActionBlock<RegisterWatchlistMemberExtended> CreateRegisterActionBlock(int maxDegreeOfParallelism)
         {
-            var actionBlock = new ActionBlock<RegisterWlItemExtended>(data =>
+            var actionBlock = new ActionBlock<RegisterWatchlistMemberExtended>(data =>
                 {
                     try
                     {
-                        RegisterWlItem(data);
+                        RegisterWatchlistMember(data);
                     }
                     catch (Exception e)
                     {
-                        Log.LogError($"Register item with externalId [{data.ExternalId}] failed", e);
+                        Log.LogError($"Register member with externalId [{data.ExternalId}] failed", e);
                     }
                 },
                 new ExecutionDataflowBlockOptions
