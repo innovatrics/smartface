@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 23. 4. 2020 14:59:54
+// Generation date: 23. 4. 2020 16:12:16
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -6068,7 +6068,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="score">Initial value of Score.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="trackletId">Initial value of TrackletId.</param>
-        /// <param name="faceId">Initial value of FaceId.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         public static MatchResult CreateMatchResult(long ID, 
@@ -6079,7 +6078,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     int score, 
                     global::System.DateTimeOffset createdAt, 
                     global::System.Guid trackletId, 
-                    global::System.Guid faceId, 
                     double faceAreaChange)
         {
             MatchResult matchResult = new MatchResult();
@@ -6091,7 +6089,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             matchResult.Score = score;
             matchResult.CreatedAt = createdAt;
             matchResult.TrackletId = trackletId;
-            matchResult.FaceId = faceId;
             matchResult.FaceAreaChange = faceAreaChange;
             return matchResult;
         }
@@ -6445,7 +6442,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceId")]
-        public global::System.Guid FaceId
+        public global::System.Nullable<global::System.Guid> FaceId
         {
             get
             {
@@ -6460,8 +6457,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Guid _FaceId;
-        partial void OnFaceIdChanging(global::System.Guid value);
+        private global::System.Nullable<global::System.Guid> _FaceId;
+        partial void OnFaceIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnFaceIdChanged();
         /// <summary>
         /// There are no comments for Property FrameId in the schema.
@@ -10443,7 +10440,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""WatchlistFullName"" Type=""Edm.String"" />
         <Property Name=""WatchlistDisplayName"" Type=""Edm.String"" />
         <Property Name=""WatchlistExternalId"" Type=""Edm.String"" />
-        <Property Name=""FaceId"" Type=""Edm.Guid"" Nullable=""false"" />
+        <Property Name=""FaceId"" Type=""Edm.Guid"" />
         <Property Name=""FrameId"" Type=""Edm.Guid"" />
         <Property Name=""FaceArea"" Type=""Edm.Double"" />
         <Property Name=""FaceOrder"" Type=""Edm.Int32"" />
