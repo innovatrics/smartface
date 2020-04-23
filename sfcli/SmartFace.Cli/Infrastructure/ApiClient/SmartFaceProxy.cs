@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 23. 4. 2020 11:46:56
+// Generation date: 23. 4. 2020 12:09:55
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -1133,29 +1133,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private bool _IsDefault;
         partial void OnIsDefaultChanging(bool value);
         partial void OnIsDefaultChanged();
-        /// <summary>
-        /// There are no comments for Property LastProcessedTrackletId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("LastProcessedTrackletId")]
-        public global::System.Nullable<global::System.Guid> LastProcessedTrackletId
-        {
-            get
-            {
-                return this._LastProcessedTrackletId;
-            }
-            set
-            {
-                this.OnLastProcessedTrackletIdChanging(value);
-                this._LastProcessedTrackletId = value;
-                this.OnLastProcessedTrackletIdChanged();
-                this.OnPropertyChanged("LastProcessedTrackletId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<global::System.Guid> _LastProcessedTrackletId;
-        partial void OnLastProcessedTrackletIdChanging(global::System.Nullable<global::System.Guid> value);
-        partial void OnLastProcessedTrackletIdChanged();
         /// <summary>
         /// There are no comments for Property NextIterationTimeStamp in the schema.
         /// </summary>
@@ -10218,7 +10195,6 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""ProcessedAt"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""State"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.GroupingState"" Nullable=""false"" />
         <Property Name=""IsDefault"" Type=""Edm.Boolean"" Nullable=""false"" />
-        <Property Name=""LastProcessedTrackletId"" Type=""Edm.Guid"" />
         <Property Name=""NextIterationTimeStamp"" Type=""Edm.DateTimeOffset"" />
         <NavigationProperty Name=""Scope"" Type=""SmartFace.Domain.DataAccess.Models.Core.Scope"">
           <ReferentialConstraint Property=""ScopeId"" ReferencedProperty=""Id"" />
