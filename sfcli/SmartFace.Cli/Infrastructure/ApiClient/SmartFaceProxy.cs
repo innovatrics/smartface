@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 17. 4. 2020 12:21:33
+// Generation date: 23. 4. 2020 11:46:56
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -550,7 +550,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="positionInMs">Initial value of PositionInMs.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static Frame CreateFrame(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState state, global::System.DateTimeOffset createdAt, long ID, long positionInMs)
+        public static Frame CreateFrame(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState state, global::System.DateTimeOffset createdAt, global::System.Guid ID, long positionInMs)
         {
             Frame frame = new Frame();
             frame.State = state;
@@ -725,7 +725,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -740,8 +740,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property PositionInMs in the schema.
@@ -1138,7 +1138,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("LastProcessedTrackletId")]
-        public global::System.Nullable<long> LastProcessedTrackletId
+        public global::System.Nullable<global::System.Guid> LastProcessedTrackletId
         {
             get
             {
@@ -1153,8 +1153,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _LastProcessedTrackletId;
-        partial void OnLastProcessedTrackletIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _LastProcessedTrackletId;
+        partial void OnLastProcessedTrackletIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnLastProcessedTrackletIdChanged();
         /// <summary>
         /// There are no comments for Property NextIterationTimeStamp in the schema.
@@ -1396,7 +1396,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="hidden">Initial value of Hidden.</param>
         /// <param name="bestFaceId">Initial value of BestFaceId.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static Individual CreateIndividual(long ID, global::System.DateTimeOffset createdAt, bool hidden, long bestFaceId)
+        public static Individual CreateIndividual(long ID, global::System.DateTimeOffset createdAt, bool hidden, global::System.Guid bestFaceId)
         {
             Individual individual = new Individual();
             individual.Id = ID;
@@ -1571,7 +1571,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("BestFaceId")]
-        public long BestFaceId
+        public global::System.Guid BestFaceId
         {
             get
             {
@@ -1586,8 +1586,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _BestFaceId;
-        partial void OnBestFaceIdChanging(long value);
+        private global::System.Guid _BestFaceId;
+        partial void OnBestFaceIdChanging(global::System.Guid value);
         partial void OnBestFaceIdChanged();
         /// <summary>
         /// There are no comments for Property Grouping in the schema.
@@ -1940,7 +1940,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     double cropLeftBottomY, 
                     double cropRightBottomX, 
                     double cropRightBottomY, 
-                    long ID, 
+                    global::System.Guid ID, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType type, 
                     double faceAreaChange)
         {
@@ -1966,7 +1966,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
-        public global::System.Nullable<long> TrackletId
+        public global::System.Nullable<global::System.Guid> TrackletId
         {
             get
             {
@@ -1981,8 +1981,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _TrackletId;
-        partial void OnTrackletIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _TrackletId;
+        partial void OnTrackletIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnTrackletIdChanged();
         /// <summary>
         /// There are no comments for Property Quality in the schema.
@@ -2403,7 +2403,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
-        public global::System.Nullable<long> FrameId
+        public global::System.Nullable<global::System.Guid> FrameId
         {
             get
             {
@@ -2418,15 +2418,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _FrameId;
-        partial void OnFrameIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _FrameId;
+        partial void OnFrameIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnFrameIdChanged();
         /// <summary>
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -2441,8 +2441,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property Type in the schema.
@@ -2982,7 +2982,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="timeAppeared">Initial value of TimeAppeared.</param>
         /// <param name="ID">Initial value of Id.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static Tracklet CreateTracklet(global::System.DateTimeOffset createdAt, global::System.DateTimeOffset timeAppeared, long ID)
+        public static Tracklet CreateTracklet(global::System.DateTimeOffset createdAt, global::System.DateTimeOffset timeAppeared, global::System.Guid ID)
         {
             Tracklet tracklet = new Tracklet();
             tracklet.CreatedAt = createdAt;
@@ -3133,7 +3133,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -3148,8 +3148,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property Scope in the schema.
@@ -3837,7 +3837,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceId")]
-        public global::System.Nullable<long> FaceId
+        public global::System.Nullable<global::System.Guid> FaceId
         {
             get
             {
@@ -3852,8 +3852,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _FaceId;
-        partial void OnFaceIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _FaceId;
+        partial void OnFaceIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnFaceIdChanged();
         /// <summary>
         /// There are no comments for Property FaceAttributeType in the schema.
@@ -5963,7 +5963,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
-        public global::System.Nullable<long> TrackletId
+        public global::System.Nullable<global::System.Guid> TrackletId
         {
             get
             {
@@ -5978,8 +5978,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _TrackletId;
-        partial void OnTrackletIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _TrackletId;
+        partial void OnTrackletIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnTrackletIdChanged();
         /// <summary>
         /// There are no comments for Property Tracklet in the schema.
@@ -6101,8 +6101,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     long streamId, 
                     int score, 
                     global::System.DateTimeOffset createdAt, 
-                    long trackletId, 
-                    long visualObjectId, 
+                    global::System.Guid trackletId, 
+                    global::System.Guid visualObjectId, 
                     double faceAreaChange)
         {
             MatchResult matchResult = new MatchResult();
@@ -6330,7 +6330,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
-        public long TrackletId
+        public global::System.Guid TrackletId
         {
             get
             {
@@ -6345,8 +6345,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _TrackletId;
-        partial void OnTrackletIdChanging(long value);
+        private global::System.Guid _TrackletId;
+        partial void OnTrackletIdChanging(global::System.Guid value);
         partial void OnTrackletIdChanged();
         /// <summary>
         /// There are no comments for Property WatchlistMemberFullName in the schema.
@@ -6468,7 +6468,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("VisualObjectId")]
-        public long VisualObjectId
+        public global::System.Guid VisualObjectId
         {
             get
             {
@@ -6483,15 +6483,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _VisualObjectId;
-        partial void OnVisualObjectIdChanging(long value);
+        private global::System.Guid _VisualObjectId;
+        partial void OnVisualObjectIdChanging(global::System.Guid value);
         partial void OnVisualObjectIdChanged();
         /// <summary>
         /// There are no comments for Property FrameId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
-        public global::System.Nullable<long> FrameId
+        public global::System.Nullable<global::System.Guid> FrameId
         {
             get
             {
@@ -6506,8 +6506,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _FrameId;
-        partial void OnFrameIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _FrameId;
+        partial void OnFrameIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnFrameIdChanged();
         /// <summary>
         /// There are no comments for Property FaceArea in the schema.
@@ -6662,7 +6662,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6731,7 +6731,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6754,7 +6754,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -7353,7 +7353,7 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Responses
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="opResult">Initial value of OpResult.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static BulkResponseData CreateBulkResponseData(long ID, global::SmartFace.ODataClient.SmartFace.WebApi.Enums.OperationResult opResult)
+        public static BulkResponseData CreateBulkResponseData(global::System.Guid ID, global::SmartFace.ODataClient.SmartFace.WebApi.Enums.OperationResult opResult)
         {
             BulkResponseData bulkResponseData = new BulkResponseData();
             bulkResponseData.Id = ID;
@@ -7365,7 +7365,7 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Responses
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -7380,8 +7380,8 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Responses
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property OpResult in the schema.
@@ -9454,7 +9454,7 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for BulkDelete in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("BulkDelete")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.BulkResponseData> BulkDelete(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> source, global::System.Collections.Generic.ICollection<long> Ids)
+        public static global::Microsoft.OData.Client.DataServiceActionQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.BulkResponseData> BulkDelete(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> source, global::System.Collections.Generic.ICollection<global::System.Guid> Ids)
         {
             if (!source.IsComposable)
             {
@@ -9467,7 +9467,7 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for Split in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("Split")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<long> Split(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, long IndividualId, global::System.Collections.Generic.ICollection<long> TrackletIds)
+        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<long> Split(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, long IndividualId, global::System.Collections.Generic.ICollection<global::System.Guid> TrackletIds)
         {
             if (!source.IsComposable)
             {
@@ -10196,7 +10196,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""ReceivedAt"" Type=""Edm.DateTimeOffset"" />
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""PositionInMs"" Type=""Edm.Int64"" Nullable=""false"" />
         <NavigationProperty Name=""Scope"" Type=""SmartFace.Domain.DataAccess.Models.Core.Scope"">
           <ReferentialConstraint Property=""ScopeId"" ReferencedProperty=""Id"" />
@@ -10218,7 +10218,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""ProcessedAt"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""State"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.GroupingState"" Nullable=""false"" />
         <Property Name=""IsDefault"" Type=""Edm.Boolean"" Nullable=""false"" />
-        <Property Name=""LastProcessedTrackletId"" Type=""Edm.Int64"" />
+        <Property Name=""LastProcessedTrackletId"" Type=""Edm.Guid"" />
         <Property Name=""NextIterationTimeStamp"" Type=""Edm.DateTimeOffset"" />
         <NavigationProperty Name=""Scope"" Type=""SmartFace.Domain.DataAccess.Models.Core.Scope"">
           <ReferentialConstraint Property=""ScopeId"" ReferencedProperty=""Id"" />
@@ -10236,7 +10236,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""EntranceTime"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""ExitTime"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""Hidden"" Type=""Edm.Boolean"" Nullable=""false"" />
-        <Property Name=""BestFaceId"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""BestFaceId"" Type=""Edm.Guid"" Nullable=""false"" />
         <NavigationProperty Name=""Grouping"" Type=""SmartFace.Domain.DataAccess.Models.Core.Grouping"">
           <ReferentialConstraint Property=""GroupingId"" ReferencedProperty=""Id"" />
         </NavigationProperty>
@@ -10249,7 +10249,7 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""TrackletId"" Type=""Edm.Int64"" />
+        <Property Name=""TrackletId"" Type=""Edm.Guid"" />
         <Property Name=""Quality"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""State"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState"" Nullable=""false"" />
         <Property Name=""ImageDataId"" Type=""Edm.Guid"" />
@@ -10268,8 +10268,8 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""LeftEyeY"" Type=""Edm.Double"" />
         <Property Name=""RightEyeX"" Type=""Edm.Double"" />
         <Property Name=""RightEyeY"" Type=""Edm.Double"" />
-        <Property Name=""FrameId"" Type=""Edm.Int64"" />
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""FrameId"" Type=""Edm.Guid"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""Type"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType"" Nullable=""false"" />
         <Property Name=""Age"" Type=""Edm.Double"" />
         <Property Name=""Gender"" Type=""Edm.Double"" />
@@ -10303,7 +10303,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""TimeAppeared"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""TimeDisappeared"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""StreamId"" Type=""Edm.Int64"" />
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <NavigationProperty Name=""Scope"" Type=""SmartFace.Domain.DataAccess.Models.Core.Scope"">
           <ReferentialConstraint Property=""ScopeId"" ReferencedProperty=""Id"" />
         </NavigationProperty>
@@ -10337,7 +10337,7 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""FaceId"" Type=""Edm.Int64"" />
+        <Property Name=""FaceId"" Type=""Edm.Guid"" />
         <Property Name=""FaceAttributeType"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.FaceAttributeType"" Nullable=""false"" />
         <Property Name=""Value"" Type=""Edm.Double"" Nullable=""false"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
@@ -10442,7 +10442,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""Note"" Type=""Edm.String"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
-        <Property Name=""TrackletId"" Type=""Edm.Int64"" />
+        <Property Name=""TrackletId"" Type=""Edm.Guid"" />
         <NavigationProperty Name=""Tracklet"" Type=""SmartFace.Domain.DataAccess.Models.Core.Tracklet"">
           <ReferentialConstraint Property=""TrackletId"" ReferencedProperty=""Id"" />
         </NavigationProperty>
@@ -10461,14 +10461,14 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""Score"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
-        <Property Name=""TrackletId"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""TrackletId"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""WatchlistMemberFullName"" Type=""Edm.String"" />
         <Property Name=""WatchlistMemberDisplayName"" Type=""Edm.String"" />
         <Property Name=""WatchlistFullName"" Type=""Edm.String"" />
         <Property Name=""WatchlistDisplayName"" Type=""Edm.String"" />
         <Property Name=""WatchlistExternalId"" Type=""Edm.String"" />
-        <Property Name=""VisualObjectId"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Property Name=""FrameId"" Type=""Edm.Int64"" />
+        <Property Name=""VisualObjectId"" Type=""Edm.Guid"" Nullable=""false"" />
+        <Property Name=""FrameId"" Type=""Edm.Guid"" />
         <Property Name=""FaceArea"" Type=""Edm.Double"" />
         <Property Name=""FaceOrder"" Type=""Edm.Int32"" />
         <Property Name=""FacesOnFrameCount"" Type=""Edm.Int32"" />
@@ -10497,7 +10497,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""PropertyName"" Type=""Edm.String"" />
       </ComplexType>
       <ComplexType Name=""BulkResponseData"">
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""OpResult"" Type=""SmartFace.WebApi.Enums.OperationResult"" Nullable=""false"" />
       </ComplexType>
     </Schema>
@@ -10726,13 +10726,13 @@ namespace SmartFace.ODataClient.Default
       </Action>
       <Action Name=""BulkDelete"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)"" />
-        <Parameter Name=""Ids"" Type=""Collection(Edm.Int64)"" Nullable=""false"" />
+        <Parameter Name=""Ids"" Type=""Collection(Edm.Guid)"" Nullable=""false"" />
         <ReturnType Type=""Collection(SmartFace.WebApi.Models.Responses.BulkResponseData)"" />
       </Action>
       <Action Name=""Split"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)"" />
         <Parameter Name=""IndividualId"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Parameter Name=""TrackletIds"" Type=""Collection(Edm.Int64)"" Nullable=""false"" />
+        <Parameter Name=""TrackletIds"" Type=""Collection(Edm.Guid)"" Nullable=""false"" />
         <ReturnType Type=""Edm.Int64"" Nullable=""false"" />
       </Action>
       <Action Name=""Merge"" IsBound=""true"">
