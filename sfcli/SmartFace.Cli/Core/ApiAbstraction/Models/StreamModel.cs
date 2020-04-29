@@ -1,10 +1,12 @@
+using System;
+
 namespace SmartFace.Cli.Core.ApiAbstraction.Models
 {
     public class StreamModel
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         
-        public long ScopeId { get; set; }
+        public Guid ScopeId { get; set; }
         
         public StreamType Type { get; set; }
         

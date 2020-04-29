@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
@@ -10,7 +11,7 @@ namespace SmartFace.Cli.Commands.SubVideo
     {
         [Required]
         [Option("-s|--streamId", "Identifier of stream to edit", CommandOptionType.SingleValue)]
-        public long StreamId { get; }
+        public Guid StreamId { get; }
         
         private IVideoProcessorRepository Repository { get; }
         

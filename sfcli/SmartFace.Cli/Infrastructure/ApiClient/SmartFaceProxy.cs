@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 23. 4. 2020 16:12:16
+// Generation date: 29. 4. 2020 10:55:20
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -163,7 +163,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="type">Initial value of Type.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static Scope CreateScope(long ID, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.ScopeType type, global::System.DateTimeOffset createdAt)
+        public static Scope CreateScope(global::System.Guid ID, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.ScopeType type, global::System.DateTimeOffset createdAt)
         {
             Scope scope = new Scope();
             scope.Id = ID;
@@ -176,7 +176,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -191,8 +191,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property Description in the schema.
@@ -587,7 +587,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
-        public global::System.Nullable<long> ScopeId
+        public global::System.Nullable<global::System.Guid> ScopeId
         {
             get
             {
@@ -602,15 +602,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _ScopeId;
-        partial void OnScopeIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _ScopeId;
+        partial void OnScopeIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnScopeIdChanged();
         /// <summary>
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public global::System.Nullable<long> StreamId
+        public global::System.Nullable<global::System.Guid> StreamId
         {
             get
             {
@@ -625,8 +625,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _StreamId;
-        partial void OnStreamIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _StreamId;
+        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnStreamIdChanged();
         /// <summary>
         /// There are no comments for Property ImageDataId in the schema.
@@ -1000,7 +1000,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
-        public global::System.Nullable<long> ScopeId
+        public global::System.Nullable<global::System.Guid> ScopeId
         {
             get
             {
@@ -1015,8 +1015,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _ScopeId;
-        partial void OnScopeIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _ScopeId;
+        partial void OnScopeIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnScopeIdChanged();
         /// <summary>
         /// There are no comments for Property CreatedAt in the schema.
@@ -1373,7 +1373,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="hidden">Initial value of Hidden.</param>
         /// <param name="bestFaceId">Initial value of BestFaceId.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static Individual CreateIndividual(long ID, global::System.DateTimeOffset createdAt, bool hidden, global::System.Guid bestFaceId)
+        public static Individual CreateIndividual(global::System.Guid ID, global::System.DateTimeOffset createdAt, bool hidden, global::System.Guid bestFaceId)
         {
             Individual individual = new Individual();
             individual.Id = ID;
@@ -1387,7 +1387,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -1402,8 +1402,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property GroupingId in the schema.
@@ -2495,7 +2495,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public global::System.Nullable<long> StreamId
+        public global::System.Nullable<global::System.Guid> StreamId
         {
             get
             {
@@ -2510,8 +2510,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _StreamId;
-        partial void OnStreamIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _StreamId;
+        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnStreamIdChanged();
         /// <summary>
         /// There are no comments for Property FaceArea in the schema.
@@ -2972,7 +2972,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
-        public global::System.Nullable<long> ScopeId
+        public global::System.Nullable<global::System.Guid> ScopeId
         {
             get
             {
@@ -2987,8 +2987,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _ScopeId;
-        partial void OnScopeIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _ScopeId;
+        partial void OnScopeIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnScopeIdChanged();
         /// <summary>
         /// There are no comments for Property CreatedAt in the schema.
@@ -3087,7 +3087,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public global::System.Nullable<long> StreamId
+        public global::System.Nullable<global::System.Guid> StreamId
         {
             get
             {
@@ -3102,8 +3102,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _StreamId;
-        partial void OnStreamIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _StreamId;
+        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnStreamIdChanged();
         /// <summary>
         /// There are no comments for Property Id in the schema.
@@ -3434,7 +3434,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static Stream CreateStream(long ID, global::System.DateTimeOffset createdAt)
+        public static Stream CreateStream(global::System.Guid ID, global::System.DateTimeOffset createdAt)
         {
             Stream stream = new Stream();
             stream.Id = ID;
@@ -3446,7 +3446,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -3461,15 +3461,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property ScopeId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
-        public global::System.Nullable<long> ScopeId
+        public global::System.Nullable<global::System.Guid> ScopeId
         {
             get
             {
@@ -3484,8 +3484,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _ScopeId;
-        partial void OnScopeIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _ScopeId;
+        partial void OnScopeIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnScopeIdChanged();
         /// <summary>
         /// There are no comments for Property CreatedAt in the schema.
@@ -4843,7 +4843,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public global::System.Nullable<long> StreamId
+        public global::System.Nullable<global::System.Guid> StreamId
         {
             get
             {
@@ -4858,8 +4858,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _StreamId;
-        partial void OnStreamIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _StreamId;
+        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnStreamIdChanged();
         /// <summary>
         /// There are no comments for Property StreamWorkerId in the schema.
@@ -5188,7 +5188,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public global::System.Nullable<long> StreamId
+        public global::System.Nullable<global::System.Guid> StreamId
         {
             get
             {
@@ -5203,8 +5203,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private global::System.Nullable<long> _StreamId;
-        partial void OnStreamIdChanging(global::System.Nullable<long> value);
+        private global::System.Nullable<global::System.Guid> _StreamId;
+        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnStreamIdChanged();
         /// <summary>
         /// There are no comments for Property StreamWorkerId in the schema.
@@ -5472,7 +5472,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="threshold">Initial value of Threshold.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static Watchlist CreateWatchlist(long ID, global::System.DateTimeOffset createdAt, int threshold)
+        public static Watchlist CreateWatchlist(global::System.Guid ID, global::System.DateTimeOffset createdAt, int threshold)
         {
             Watchlist watchlist = new Watchlist();
             watchlist.Id = ID;
@@ -5485,7 +5485,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -5500,8 +5500,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property DisplayName in the schema.
@@ -5767,7 +5767,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static WatchlistMember CreateWatchlistMember(long ID, global::System.DateTimeOffset createdAt)
+        public static WatchlistMember CreateWatchlistMember(global::System.Guid ID, global::System.DateTimeOffset createdAt)
         {
             WatchlistMember watchlistMember = new WatchlistMember();
             watchlistMember.Id = ID;
@@ -5779,7 +5779,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -5794,8 +5794,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property ExternalId in the schema.
@@ -6070,11 +6070,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="trackletId">Initial value of TrackletId.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static MatchResult CreateMatchResult(long ID, 
+        public static MatchResult CreateMatchResult(global::System.Guid ID, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType type, 
-                    long watchlistId, 
-                    long watchlistMemberId, 
-                    long streamId, 
+                    global::System.Guid watchlistId, 
+                    global::System.Guid watchlistMemberId, 
+                    global::System.Guid streamId, 
                     int score, 
                     global::System.DateTimeOffset createdAt, 
                     global::System.Guid trackletId, 
@@ -6097,7 +6097,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public long Id
+        public global::System.Guid Id
         {
             get
             {
@@ -6112,8 +6112,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property Type in the schema.
@@ -6143,7 +6143,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistId")]
-        public long WatchlistId
+        public global::System.Guid WatchlistId
         {
             get
             {
@@ -6158,15 +6158,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _WatchlistId;
-        partial void OnWatchlistIdChanging(long value);
+        private global::System.Guid _WatchlistId;
+        partial void OnWatchlistIdChanging(global::System.Guid value);
         partial void OnWatchlistIdChanged();
         /// <summary>
         /// There are no comments for Property WatchlistMemberId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMemberId")]
-        public long WatchlistMemberId
+        public global::System.Guid WatchlistMemberId
         {
             get
             {
@@ -6181,8 +6181,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _WatchlistMemberId;
-        partial void OnWatchlistMemberIdChanging(long value);
+        private global::System.Guid _WatchlistMemberId;
+        partial void OnWatchlistMemberIdChanging(global::System.Guid value);
         partial void OnWatchlistMemberIdChanged();
         /// <summary>
         /// There are no comments for Property WatchlistMemberExternalId in the schema.
@@ -6212,7 +6212,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public long StreamId
+        public global::System.Guid StreamId
         {
             get
             {
@@ -6227,8 +6227,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _StreamId;
-        partial void OnStreamIdChanging(long value);
+        private global::System.Guid _StreamId;
+        partial void OnStreamIdChanging(global::System.Guid value);
         partial void OnStreamIdChanged();
         /// <summary>
         /// There are no comments for Property Score in the schema.
@@ -6613,7 +6613,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6682,7 +6682,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6751,7 +6751,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6915,7 +6915,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6938,7 +6938,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6961,7 +6961,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -7547,7 +7547,7 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Requests
         /// <param name="videoSource">Initial value of VideoSource.</param>
         /// <param name="enable">Initial value of Enable.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        public static StreamSourceData CreateStreamSourceData(long scopeId, string videoSource, bool enable)
+        public static StreamSourceData CreateStreamSourceData(global::System.Guid scopeId, string videoSource, bool enable)
         {
             StreamSourceData streamSourceData = new StreamSourceData();
             streamSourceData.ScopeId = scopeId;
@@ -7560,7 +7560,7 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Requests
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
-        public long ScopeId
+        public global::System.Guid ScopeId
         {
             get
             {
@@ -7575,8 +7575,8 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Requests
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.4.4")]
-        private long _ScopeId;
-        partial void OnScopeIdChanging(long value);
+        private global::System.Guid _ScopeId;
+        partial void OnScopeIdChanging(global::System.Guid value);
         partial void OnScopeIdChanged();
         /// <summary>
         /// There are no comments for Property VideoSource in the schema.
@@ -9400,7 +9400,7 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for LinkToWatchlist in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("LinkToWatchlist")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuery LinkToWatchlist(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> source, global::System.Collections.Generic.ICollection<long> WatchlistMemberIds, long WatchlistId)
+        public static global::Microsoft.OData.Client.DataServiceActionQuery LinkToWatchlist(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> source, global::System.Collections.Generic.ICollection<global::System.Guid> WatchlistMemberIds, global::System.Guid WatchlistId)
         {
             if (!source.IsComposable)
             {
@@ -9414,7 +9414,7 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for UnlinkFromWatchlist in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("UnlinkFromWatchlist")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuery UnlinkFromWatchlist(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> source, global::System.Collections.Generic.ICollection<long> WatchlistMemberIds, long WatchlistId)
+        public static global::Microsoft.OData.Client.DataServiceActionQuery UnlinkFromWatchlist(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> source, global::System.Collections.Generic.ICollection<global::System.Guid> WatchlistMemberIds, global::System.Guid WatchlistId)
         {
             if (!source.IsComposable)
             {
@@ -9441,34 +9441,34 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for Split in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("Split")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<long> Split(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, long IndividualId, global::System.Collections.Generic.ICollection<global::System.Guid> TrackletIds)
+        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::System.Guid> Split(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, global::System.Guid IndividualId, global::System.Collections.Generic.ICollection<global::System.Guid> TrackletIds)
         {
             if (!source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<long>(source.Context, source.AppendRequestUri("Action.Split"), new global::Microsoft.OData.Client.BodyOperationParameter("IndividualId", IndividualId),
+            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::System.Guid>(source.Context, source.AppendRequestUri("Action.Split"), new global::Microsoft.OData.Client.BodyOperationParameter("IndividualId", IndividualId),
                     new global::Microsoft.OData.Client.BodyOperationParameter("TrackletIds", TrackletIds));
         }
         /// <summary>
         /// There are no comments for Merge in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("Merge")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<long> Merge(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, global::System.Collections.Generic.ICollection<long> Ids)
+        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::System.Guid> Merge(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, global::System.Collections.Generic.ICollection<global::System.Guid> Ids)
         {
             if (!source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<long>(source.Context, source.AppendRequestUri("Action.Merge"), new global::Microsoft.OData.Client.BodyOperationParameter("Ids", Ids));
+            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::System.Guid>(source.Context, source.AppendRequestUri("Action.Merge"), new global::Microsoft.OData.Client.BodyOperationParameter("Ids", Ids));
         }
         /// <summary>
         /// There are no comments for Search in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("Search")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Search(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, global::System.Nullable<long> ScopeId, global::System.Nullable<long> GroupingId, byte[] Data)
+        public static global::Microsoft.OData.Client.DataServiceActionQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Search(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, global::System.Nullable<global::System.Guid> ScopeId, global::System.Nullable<long> GroupingId, byte[] Data)
         {
             if (!source.IsComposable)
             {
@@ -10148,7 +10148,7 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""Description"" Type=""Edm.String"" />
         <Property Name=""Type"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.ScopeType"" Nullable=""false"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
@@ -10164,8 +10164,8 @@ namespace SmartFace.ODataClient.Default
           <PropertyRef Name=""Id"" />
         </Key>
         <Property Name=""State"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState"" Nullable=""false"" />
-        <Property Name=""ScopeId"" Type=""Edm.Int64"" />
-        <Property Name=""StreamId"" Type=""Edm.Int64"" />
+        <Property Name=""ScopeId"" Type=""Edm.Guid"" />
+        <Property Name=""StreamId"" Type=""Edm.Guid"" />
         <Property Name=""ImageDataId"" Type=""Edm.Guid"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
@@ -10186,7 +10186,7 @@ namespace SmartFace.ODataClient.Default
           <PropertyRef Name=""Id"" />
         </Key>
         <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Property Name=""ScopeId"" Type=""Edm.Int64"" />
+        <Property Name=""ScopeId"" Type=""Edm.Guid"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""ProcessedAt"" Type=""Edm.DateTimeOffset"" />
@@ -10202,7 +10202,7 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""GroupingId"" Type=""Edm.Int64"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
@@ -10246,7 +10246,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""Type"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType"" Nullable=""false"" />
         <Property Name=""Age"" Type=""Edm.Double"" />
         <Property Name=""Gender"" Type=""Edm.Double"" />
-        <Property Name=""StreamId"" Type=""Edm.Int64"" />
+        <Property Name=""StreamId"" Type=""Edm.Guid"" />
         <Property Name=""FaceArea"" Type=""Edm.Double"" />
         <Property Name=""FaceOrder"" Type=""Edm.Int32"" />
         <Property Name=""FacesOnFrameCount"" Type=""Edm.Int32"" />
@@ -10270,12 +10270,12 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""ScopeId"" Type=""Edm.Int64"" />
+        <Property Name=""ScopeId"" Type=""Edm.Guid"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""TimeAppeared"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""TimeDisappeared"" Type=""Edm.DateTimeOffset"" />
-        <Property Name=""StreamId"" Type=""Edm.Int64"" />
+        <Property Name=""StreamId"" Type=""Edm.Guid"" />
         <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <NavigationProperty Name=""Scope"" Type=""SmartFace.Domain.DataAccess.Models.Core.Scope"">
           <ReferentialConstraint Property=""ScopeId"" ReferencedProperty=""Id"" />
@@ -10291,8 +10291,8 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Property Name=""ScopeId"" Type=""Edm.Int64"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
+        <Property Name=""ScopeId"" Type=""Edm.Guid"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
         <Property Name=""Description"" Type=""Edm.String"" />
@@ -10363,7 +10363,7 @@ namespace SmartFace.ODataClient.Default
           <PropertyRef Name=""Id"" />
         </Key>
         <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Property Name=""StreamId"" Type=""Edm.Int64"" />
+        <Property Name=""StreamId"" Type=""Edm.Guid"" />
         <Property Name=""StreamWorkerId"" Type=""Edm.Int64"" Nullable=""false"" />
         <Property Name=""VideoPublishWorkerId"" Type=""Edm.Int64"" Nullable=""false"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
@@ -10379,7 +10379,7 @@ namespace SmartFace.ODataClient.Default
           <PropertyRef Name=""Id"" />
         </Key>
         <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Property Name=""StreamId"" Type=""Edm.Int64"" />
+        <Property Name=""StreamId"" Type=""Edm.Guid"" />
         <Property Name=""StreamWorkerId"" Type=""Edm.Int64"" Nullable=""false"" />
         <Property Name=""VideoPublishWorkerId"" Type=""Edm.Int64"" Nullable=""false"" />
         <Property Name=""State"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState"" Nullable=""false"" />
@@ -10395,7 +10395,7 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""DisplayName"" Type=""Edm.String"" />
         <Property Name=""FullName"" Type=""Edm.String"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
@@ -10408,7 +10408,7 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""ExternalId"" Type=""Edm.String"" />
         <Property Name=""DisplayName"" Type=""Edm.String"" />
         <Property Name=""FullName"" Type=""Edm.String"" />
@@ -10425,12 +10425,12 @@ namespace SmartFace.ODataClient.Default
         <Key>
           <PropertyRef Name=""Id"" />
         </Key>
-        <Property Name=""Id"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""Id"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""Type"" Type=""SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType"" Nullable=""false"" />
-        <Property Name=""WatchlistId"" Type=""Edm.Int64"" Nullable=""false"" />
-        <Property Name=""WatchlistMemberId"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""WatchlistId"" Type=""Edm.Guid"" Nullable=""false"" />
+        <Property Name=""WatchlistMemberId"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""WatchlistMemberExternalId"" Type=""Edm.String"" />
-        <Property Name=""StreamId"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""StreamId"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""Score"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""CreatedAt"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
         <Property Name=""UpdatedAt"" Type=""Edm.DateTimeOffset"" />
@@ -10480,7 +10480,7 @@ namespace SmartFace.ODataClient.Default
         <Property Name=""Description"" Type=""Edm.String"" />
       </ComplexType>
       <ComplexType Name=""StreamSourceData"">
-        <Property Name=""ScopeId"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Property Name=""ScopeId"" Type=""Edm.Guid"" Nullable=""false"" />
         <Property Name=""VideoSource"" Type=""Edm.String"" Nullable=""false"" />
         <Property Name=""Enable"" Type=""Edm.Boolean"" Nullable=""false"" />
         <Property Name=""StreamName"" Type=""Edm.String"" />
@@ -10689,13 +10689,13 @@ namespace SmartFace.ODataClient.Default
       </Action>
       <Action Name=""LinkToWatchlist"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.WatchlistMember)"" />
-        <Parameter Name=""WatchlistMemberIds"" Type=""Collection(Edm.Int64)"" Nullable=""false"" />
-        <Parameter Name=""WatchlistId"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Parameter Name=""WatchlistMemberIds"" Type=""Collection(Edm.Guid)"" Nullable=""false"" />
+        <Parameter Name=""WatchlistId"" Type=""Edm.Guid"" Nullable=""false"" />
       </Action>
       <Action Name=""UnlinkFromWatchlist"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.WatchlistMember)"" />
-        <Parameter Name=""WatchlistMemberIds"" Type=""Collection(Edm.Int64)"" Nullable=""false"" />
-        <Parameter Name=""WatchlistId"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Parameter Name=""WatchlistMemberIds"" Type=""Collection(Edm.Guid)"" Nullable=""false"" />
+        <Parameter Name=""WatchlistId"" Type=""Edm.Guid"" Nullable=""false"" />
       </Action>
       <Action Name=""BulkDelete"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)"" />
@@ -10704,18 +10704,18 @@ namespace SmartFace.ODataClient.Default
       </Action>
       <Action Name=""Split"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)"" />
-        <Parameter Name=""IndividualId"" Type=""Edm.Int64"" Nullable=""false"" />
+        <Parameter Name=""IndividualId"" Type=""Edm.Guid"" Nullable=""false"" />
         <Parameter Name=""TrackletIds"" Type=""Collection(Edm.Guid)"" Nullable=""false"" />
-        <ReturnType Type=""Edm.Int64"" Nullable=""false"" />
+        <ReturnType Type=""Edm.Guid"" Nullable=""false"" />
       </Action>
       <Action Name=""Merge"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)"" />
-        <Parameter Name=""Ids"" Type=""Collection(Edm.Int64)"" Nullable=""false"" />
-        <ReturnType Type=""Edm.Int64"" Nullable=""false"" />
+        <Parameter Name=""Ids"" Type=""Collection(Edm.Guid)"" Nullable=""false"" />
+        <ReturnType Type=""Edm.Guid"" Nullable=""false"" />
       </Action>
       <Action Name=""Search"" IsBound=""true"">
         <Parameter Name=""bindingParameter"" Type=""Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)"" />
-        <Parameter Name=""ScopeId"" Type=""Edm.Int64"">
+        <Parameter Name=""ScopeId"" Type=""Edm.Guid"">
           <Annotation Term=""Org.OData.Core.V1.OptionalParameter"" />
         </Parameter>
         <Parameter Name=""GroupingId"" Type=""Edm.Int64"">

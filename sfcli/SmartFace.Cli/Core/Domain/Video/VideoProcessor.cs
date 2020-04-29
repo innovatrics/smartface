@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
@@ -6,9 +7,9 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
 {
     public class VideoProcessor : IVideoPublishWorkerConfig, IStreamWorkerConfig
     {
-        public long StreamId { get; set; }
+        public Guid StreamId { get; set; }
         
-        public long? ScopeId { get; set; }
+        public Guid? ScopeId { get; set; }
         
         public string VideoSource { get; set; }
         

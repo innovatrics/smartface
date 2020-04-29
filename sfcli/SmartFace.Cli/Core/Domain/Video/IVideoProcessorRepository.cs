@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 
 namespace SmartFace.Cli.Core.Domain.StreamProcessor
 {
     public interface IVideoProcessorRepository
     {
-        VideoProcessor Read(long id);
+        VideoProcessor Read(Guid id);
 
         IList<VideoProcessor> ReadAll();
 
