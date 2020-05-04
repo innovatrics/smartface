@@ -1,3 +1,4 @@
+using System;
 using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
 using SmartFace.Cli.Common;
@@ -16,7 +17,7 @@ namespace SmartFace.Cli.Commands.SubVideo
         private IVideoProcessorRepository Repository { get; }
 
         [Option("--scopeId", "Scope where stream will be created. If empty, new scope will be created.", CommandOptionType.SingleOrNoValue)]
-        public (bool HasValue, long Value) ScopeId { get; }
+        public (bool HasValue, string Value) ScopeId { get; }
 
         protected virtual void OnExecute(IConsole console)
         {
@@ -29,7 +30,7 @@ namespace SmartFace.Cli.Commands.SubVideo
 
             if (ScopeId.HasValue)
             {
-                streamProcessor.ScopeId = ScopeId.Value;
+                streamProcessor.ScopeId = Guid.Parse(ScopeId.Value);
             }
 
             SetBaseParameters(streamProcessor);

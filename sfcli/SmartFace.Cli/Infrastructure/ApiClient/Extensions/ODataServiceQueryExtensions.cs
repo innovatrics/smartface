@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
@@ -121,7 +122,7 @@ namespace SmartFace.Cli.Infrastructure.ApiClient.Extensions
             }
         }
 
-        public static DataServiceQuery<TEntity> WhereIdIn<TEntity>(this DataServiceQuery<TEntity> service, IEnumerable<long> entityIds)
+        public static DataServiceQuery<TEntity> WhereIdIn<TEntity>(this DataServiceQuery<TEntity> service, IEnumerable<Guid> entityIds)
         {
             var idFilterList = entityIds.Select(id => $"(Id eq {id})");
             var idFilter = string.Join(" or ", idFilterList);

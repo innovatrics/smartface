@@ -35,14 +35,14 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
             return resultList;
         }
 
-        public VideoProcessor Read(long id)
+        public VideoProcessor Read(Guid id)
         {
             var stream = GetStreamById(id);
             return ReadInternal(stream);
         }
 
 
-        private StreamModel GetStreamById(long streamId)
+        private StreamModel GetStreamById(Guid streamId)
         {
             return ApiProvider.Streams.Get(streamId).AwaitSync();
         }
@@ -102,7 +102,7 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
         public VideoProcessor Add(VideoProcessor videoProcessor)
         {
             bool createScope = false;
-            if (videoProcessor.StreamId != 0)
+            if (videoProcessor.StreamId != Guid.Empty)
             {
                 throw new ProcessingException($"Unable to set readonly property {nameof(videoProcessor.StreamId)}");
             }

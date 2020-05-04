@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             return query;
         }
         
-        public async Task<StreamModel> Get(long id)
+        public async Task<StreamModel> Get(Guid id)
         {
             var streams = await BuildQuery().WhereIdIn(new[] {id}).ExecuteAsync();
             return StreamModelFromStream(streams.Single());
