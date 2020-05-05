@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Common;
@@ -20,6 +19,7 @@ namespace SmartFace.Cli.Commands
                               + ZeroMqNotificationTopic.MATCH_RESULT_MATCH + ", "
                               + ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH + ", "
                               + ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED + ", "
+                              + ZeroMqNotificationTopic.LIVENESS_RESULT + ", "
                               + ZeroMqNotificationTopic.HEARTBEAT
                               + "]", CommandOptionType.SingleValue)]
         [AllowedValues(
@@ -31,6 +31,7 @@ namespace SmartFace.Cli.Commands
             ZeroMqNotificationTopic.MATCH_RESULT_MATCH,
             ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH,
             ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED,
+            ZeroMqNotificationTopic.LIVENESS_RESULT,
             ZeroMqNotificationTopic.HEARTBEAT
         , IgnoreCase = false)]
         public string Topic { get; set; }
