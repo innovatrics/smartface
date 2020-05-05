@@ -10,6 +10,7 @@
         public const string MATCH_RESULT_MATCH = "matchResults.match";
         public const string MATCH_RESULT_NO_MATCH = "matchResults.nomatch";
         public const string MATCH_RESULT_MATCH_INSERTED = "matchResults.match.insert";
+        public const string LIVENESS_RESULT = "liveness.result";
         public const string HEARTBEAT = "heartbeat";
     }    
 }
