@@ -1,5 +1,3 @@
-using SmartFace.Cli.Infrastructure.ApiClient.Notifications;
-
 namespace SmartFace.Cli.Common
 {
     public static class Constants
@@ -22,16 +20,5 @@ namespace SmartFace.Cli.Common
         public const string PNG = "png";
         public const string JPEG_MIME_TYPE = "image/" + JPEG;
         public const string PNG_MIME_TYPE = "image/" + PNG;
-
-        public static readonly string[] ZeroMqTopics = new[]
-        {
-            ZeroMqNotificationTopic.FACE_CREATED,
-            ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO,
-            ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE,
-            ZeroMqNotificationTopic.TRACKLET_COMPLETED,
-            ZeroMqNotificationTopic.MATCH_RESULT_MATCH,
-            ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH,
-            ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED
-        };
     }
 }
