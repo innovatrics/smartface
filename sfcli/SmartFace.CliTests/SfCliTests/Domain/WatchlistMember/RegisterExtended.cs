@@ -37,7 +37,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             Dir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             Directory.CreateDirectory(Dir);
 
-            Repository.WhenForAnyArgs(r => r.Register(null)).Do(info => RegisteredData.Add(info.Arg<RegisterWatchlistMemberData>()));
+            Repository.WhenForAnyArgs(r => r.RegisterAsync(null)).Do(info => RegisteredData.Add(info.Arg<RegisterWatchlistMemberData>()));
         }
 
         public string GetFileContent(string filePath)
@@ -80,7 +80,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             testContext.CreateDataFile(photoFileName);
         };
 
-        private when _register = testContext => testContext.Manager.RegisterWatchlistMembersExtendedFromDir(testContext.Dir, new[] {"Wl"}, 1);
+        private whenAsync _register = testContext => testContext.Manager.RegisterWatchlistMembersExtendedFromDirAsync(testContext.Dir, new[] {"Wl"}, 1);
 
         private then _photoWithRelativePathFound = testContext =>
         {
@@ -103,7 +103,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             testContext.CreateDataFile(absolutePathToPhotoFile.Replace(@"\", @"\\"));
         };
 
-        private when _register = testContext => testContext.Manager.RegisterWatchlistMembersExtendedFromDir(testContext.Dir, new[] {"Wl"}, 1);
+        private whenAsync _register = testContext => testContext.Manager.RegisterWatchlistMembersExtendedFromDirAsync(testContext.Dir, new[] {"Wl"}, 1);
 
         private then _photoWithAbsolutePathFound = testContext =>
         {

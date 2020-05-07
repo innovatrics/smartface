@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.WatchlistMember;
@@ -39,15 +40,15 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
             Manager = manager;
         }
 
-        protected virtual int OnExecute(CommandLineApplication app, IConsole console)
+        protected virtual async Task<int> OnExecuteAsync(CommandLineApplication app, IConsole console)
         {
             if (UseMetaDataFile)
             {
-                Manager.RegisterWatchlistMembersExtendedFromDir(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                await Manager.RegisterWatchlistMembersExtendedFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             else
             {
-                Manager.RegisterWatchlistMembersFromDir(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                await Manager.RegisterWatchlistMembersFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             return Constants.EXIT_CODE_OK;
         }

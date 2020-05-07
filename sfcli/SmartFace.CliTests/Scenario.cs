@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Tests
@@ -8,10 +9,11 @@ namespace Tests
     {
         protected delegate void given(T context);
         protected delegate void when(T context);
+        protected delegate Task whenAsync(T context);
         protected delegate void then(T context);
 
         [Test]
-        public void RunScenario()
+        public async Task RunScenario()
         {
             var context = new T();
 
@@ -19,6 +21,8 @@ namespace Tests
             
             fields[typeof(given)].ToList().ForEach(x => ((given)x.GetValue(this)).Invoke(context));
             fields[typeof(when)].ToList().ForEach(x => ((when)x.GetValue(this)).Invoke(context));
+            var whenAsyncTasks = fields[typeof(whenAsync)].Select(wa => ((whenAsync)wa.GetValue(this)).Invoke(context));
+            await Task.WhenAll(whenAsyncTasks);
             fields[typeof(then)].ToList().ForEach(x => ((then)x.GetValue(this)).Invoke(context));
         }
     }

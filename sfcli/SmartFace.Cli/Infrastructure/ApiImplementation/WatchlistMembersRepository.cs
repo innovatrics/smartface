@@ -1,73 +1,61 @@
-﻿using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Net;
-using Microsoft.OData.Client;
-using SmartFace.Api.Rpc;
-using SmartFace.Cli.Common;
-using SmartFace.Cli.Common.Utils;
+﻿using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using ManagementApi;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
-using SmartFace.Cli.Infrastructure.ApiClient.Extensions;
-using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
     public class WatchlistMembersRepository : IWatchlistMembersRepository
     {
-        private Container Container { get; }
-
         private IApiDefinition ApiDefinition { get; }
 
-        public WatchlistMembersRepository(Container container, IApiDefinition apiDefinition)
+        public WatchlistMembersRepository(IApiDefinition apiDefinition)
         {
-            Container = container;
             ApiDefinition = apiDefinition;
         }
 
-        public void Register(RegisterWatchlistMemberData data)
+        public async Task RegisterAsync(RegisterWatchlistMemberData data)
         {
-            //TODO use new API to work with watchlist members
-            Api.Rpc.RegisterWlItemData payload = new Api.Rpc.RegisterWlItemData();
-            data.ImageData.ToList().ForEach(imgData => payload.ImageData.Add(new Api.Rpc.RegisterWlItemImageData
+            RegisterWlMemberData payload = new RegisterWlMemberData
             {
-                Data = imgData.Data,
-                MIME = imgData.MIME
-            }));
-            data.WatchlistExternalIds.ToList().ForEach(wl => payload.WatchlistExternalIds.Add(wl));
-            payload.ExternalId = data.ExternalId;
-
-            using (WatchlistItemsRpcClient client = new WatchlistItemsRpcClient(ApiDefinition.ApiUrl))
-            {
-                var result = client.RegisterAsync(payload).AwaitSync();
-                if (result.StatusCode != (int)HttpStatusCode.NoContent)
+                ImageData = data.ImageData.Select(imgData => new ImageData
                 {
-                    throw new ProcessingException($"Request end with status code {result.StatusCode}");
-                }
-            }
+                    Data = imgData.Data,
+                    Mime = imgData.MIME
+                }).ToList(),
+                WatchlistExternalIds = data.WatchlistExternalIds,
+                ExternalId = data.ExternalId
+            };
 
-            PatchExtendedData(data);
+            using var httpClient = new HttpClient();
+            var client = new WatchlistMembersClient(ApiDefinition.ApiUrl, httpClient);
+            var watchlistMember = await client.RegisterAsync(payload);
+
+            await UpdateExtendedDataAsync(data, new V1Client(ApiDefinition.ApiUrl, httpClient), watchlistMember);
         }
 
-        private void PatchExtendedData(RegisterWatchlistMemberData data)
+        private Task UpdateExtendedDataAsync(RegisterWatchlistMemberData data, V1Client client, WatchlistMemberWithRelatedData newMember)
         {
             if (!string.IsNullOrEmpty(data.DisplayName) ||
                 !string.IsNullOrEmpty(data.FullName) ||
                 !string.IsNullOrEmpty(data.Note))
             {
-                var watchlistMember =
-                    ((DataServiceQuery<WatchlistMember>)Container.WatchlistMembers.Where(wlm => wlm.ExternalId == data.ExternalId)
-                    ).ExecuteAsync().AwaitSync().ToList().Single();
+                var payload = new WatchlistMemberUpdateData
+                {
+                    Id = newMember.Id,
+                    ExternalId = newMember.ExternalId,
 
-                WatchlistMemberSingle watchlistMemberSingle = Container.WatchlistMembers.ByKey(watchlistMember.Id);
-                var patchDelta = new ExpandoObject() as IDictionary<string, object>;
-                patchDelta.Add(nameof(WatchlistMember.DisplayName), data.DisplayName);
-                patchDelta.Add(nameof(WatchlistMember.FullName), data.FullName);
-                patchDelta.Add(nameof(WatchlistMember.Note), data.Note);
+                    DisplayName = data.DisplayName,
+                    FullName = data.FullName,
+                    Note = data.Note
+                };
 
-                watchlistMemberSingle.PatchPropertyAsync((ExpandoObject)patchDelta).AwaitSync();
+                return client.WatchlistMembersPutAsync(payload);
             }
+
+            return Task.CompletedTask;
         }
     }
 }

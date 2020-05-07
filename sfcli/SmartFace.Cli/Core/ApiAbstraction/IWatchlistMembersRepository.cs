@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 
 namespace SmartFace.Cli.Core.ApiAbstraction
 {
     public interface IWatchlistMembersRepository
     {
-        void Register(RegisterWatchlistMemberData data);
+        Task RegisterAsync(RegisterWatchlistMemberData data);
     }
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.WatchlistMember;
@@ -30,7 +31,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
             Manager = manager;
         }
 
-        protected virtual int OnExecute(CommandLineApplication app, IConsole console)
+        protected virtual async Task<int> OnExecuteAsync(CommandLineApplication app, IConsole console)
         {
             var data = new RegisterWatchlistMemberExtended
             {
@@ -38,7 +39,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
                 PhotoFiles = Photos,
                 WatchlistExternalIds = WatchlistExternalIds
             };
-            Manager.RegisterWatchlistMember(data);
+            await Manager.RegisterWatchlistMemberAsync(data);
             return Constants.EXIT_CODE_OK;
         }
 

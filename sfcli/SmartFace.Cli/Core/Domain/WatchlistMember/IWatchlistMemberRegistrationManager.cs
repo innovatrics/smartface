@@ -1,13 +1,16 @@
-﻿using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
+﻿using System.Threading.Tasks;
+using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
 
 namespace SmartFace.Cli.Core.Domain.WatchlistMember
 {
     public interface IWatchlistMemberRegistrationManager
     {
-        void RegisterWatchlistMember(RegisterWatchlistMemberExtended registerWatchlistMemberExtended);
+        Task RegisterWatchlistMemberAsync(RegisterWatchlistMemberExtended registerWatchlistMemberExtended);
 
-        void RegisterWatchlistMembersFromDir(string directory, string[] watchlistExternalIds, int maxDegreeOfParallelism);
+        Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistExternalIds,
+            int maxDegreeOfParallelism);
 
-        void RegisterWatchlistMembersExtendedFromDir(string directory, string[] watchlistExternalIds, int maxDegreeOfParallelism);
+        Task RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistExternalIds,
+            int maxDegreeOfParallelism);
     }
 }
