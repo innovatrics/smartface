@@ -20,11 +20,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         
         public IVideoPublishWorkerConfigRepository VideoPublishWorkerConfigs { get; }
 
-        public IFaceHandlerConfigRepository FaceHandlerConfigs { get; }
-
-        public IIFaceConfigRepository IFaceConfigs { get; }
-
-        public ApiProvider(Container container, IWorkersRepository workers, IStreamsRepository streams, IScopesRepository scopes, ICamerasRepository cameras, IStreamWorkerConfigRepository streamWorkerConfigs, IVideoPublishWorkerConfigRepository videoPublishWorkerConfigs, IFaceHandlerConfigRepository faceHandlerConfigs, IIFaceConfigRepository faceConfigs)
+        public ApiProvider(Container container, IWorkersRepository workers, IStreamsRepository streams, IScopesRepository scopes, ICamerasRepository cameras, IStreamWorkerConfigRepository streamWorkerConfigs, IVideoPublishWorkerConfigRepository videoPublishWorkerConfigs)
         {
             Container = container;
             Workers = workers;
@@ -33,8 +29,6 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             Cameras = cameras;
             StreamWorkerConfigs = streamWorkerConfigs;
             VideoPublishWorkerConfigs = videoPublishWorkerConfigs;
-            FaceHandlerConfigs = faceHandlerConfigs;
-            IFaceConfigs = faceConfigs;
         }
         
         public void ClearTrackingEntities()

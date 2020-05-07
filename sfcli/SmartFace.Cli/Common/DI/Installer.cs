@@ -7,11 +7,9 @@ using SmartFace.Cli.Commands;
 using SmartFace.Cli.Common.DI.Factories;
 using SmartFace.Cli.Common.Utils;
 using SmartFace.Cli.Core.ApiAbstraction;
-using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Core.Domain.DataSelector;
 using SmartFace.Cli.Core.Domain.DataSelector.Impl;
-using SmartFace.Cli.Core.Domain.GlobalConfig;
 using SmartFace.Cli.Core.Domain.ImgExport;
 using SmartFace.Cli.Core.Domain.Notifications;
 using SmartFace.Cli.Core.Domain.StreamProcessor;
@@ -75,10 +73,7 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IStreamsRepository, StreamsRepository>()
                 .AddTransient<IVideoPublishWorkerConfigRepository, VideoPublishWorkerConfigRepository>()
                 .AddTransient<IStreamWorkerConfigRepository, StreamWorkerConfigRepository>()
-                .AddTransient<IFaceHandlerConfigRepository, FaceHandlerConfigRepository>()
-                .AddTransient<IIFaceConfigRepository, IFaceConfigRepository>()
                 .AddTransient<IScopesRepository, ScopesRepository>()
-                .AddTransient<IGlobalConfigRepository, GlobalConfigRepository>()
                 .AddTransient<IApiProvider, ApiProvider>()
                 .AddTransient<ZeroMqNotificationReader>()
                 .AddTransient<RegisterWatchlistMemberExtendedJsonLoader>()
@@ -95,8 +90,6 @@ namespace SmartFace.Cli.Common.DI
             {
                 cfg.CreateMap<StreamWorkerConfigModel, VideoProcessor>();
                 cfg.CreateMap<VideoPublishWorkerConfigModel, VideoProcessor>();
-                cfg.CreateMap<FaceHandlerConfigModel, GlobalConfig>();
-                cfg.CreateMap<IFaceConfigModel, GlobalConfig>();
             });
             return new Mapper(config);
         }

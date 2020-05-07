@@ -16,10 +16,6 @@ namespace SmartFace.Cli.Core.ApiAbstraction
         
         IVideoPublishWorkerConfigRepository VideoPublishWorkerConfigs { get; }
 
-        IFaceHandlerConfigRepository FaceHandlerConfigs { get; }
-        
-        IIFaceConfigRepository IFaceConfigs { get; }
-
         void ClearTrackingEntities();
     }
 
