@@ -36,7 +36,7 @@ namespace SmartFace.Cli.Common.DI
 
                     if (basicArgumentSolverApp.IsShowingInformation)
                     {
-                        cli.ThrowOnUnexpectedArgument = false;
+                        cli.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
                     }
 
                     return cli;

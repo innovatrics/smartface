@@ -10,7 +10,7 @@ namespace SmartFace.Cli.Commands.SubVideo
     {
 
         [Option("-s|--streamId", "Identifier of stream to edit", CommandOptionType.SingleValue)]
-        public (bool HasValue, string Value) StreamId { get; }
+        public (bool HasValue, Guid Value) StreamId { get; }
         
         private IVideoProcessorRepository Repository { get; }
         
@@ -21,7 +21,7 @@ namespace SmartFace.Cli.Commands.SubVideo
         
         protected virtual void OnExecute(IConsole console)
         {
-            object result = StreamId.HasValue ? (object) Repository.Read(Guid.Parse(StreamId.Value)) : Repository.ReadAll();
+            object result = StreamId.HasValue ? (object) Repository.Read(StreamId.Value) : Repository.ReadAll();
             var resultOutput = JsonConvert.SerializeObject(result, Formatting.Indented);
             console.WriteLine(resultOutput);
         }

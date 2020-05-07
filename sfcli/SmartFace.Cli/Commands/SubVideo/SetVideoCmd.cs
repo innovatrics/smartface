@@ -11,7 +11,7 @@ namespace SmartFace.Cli.Commands.SubVideo
     {
         [Required]
         [Option("-s|--streamId", "Identifier of stream to edit", CommandOptionType.SingleValue)]
-        public string StreamId { get; }
+        public Guid StreamId { get; }
         
         private IVideoProcessorRepository Repository { get; }
         
@@ -22,7 +22,7 @@ namespace SmartFace.Cli.Commands.SubVideo
         
         protected virtual void OnExecute(IConsole console)
         {
-            var streamProcessor = Repository.Read(Guid.Parse(StreamId));
+            var streamProcessor = Repository.Read(StreamId);
 
             SetBaseParameters(streamProcessor);
 
