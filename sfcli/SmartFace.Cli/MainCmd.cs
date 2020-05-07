@@ -16,7 +16,6 @@ namespace SmartFace.Cli
      Subcommand(typeof(QueryCmd)),
      Subcommand(typeof(VideoCmd)),
      Subcommand(typeof(WatchlistMemberCmd)),
-     Subcommand(typeof(SoftRestartCmd)),
      Subcommand(typeof(NotificationsCmd)),
     ]
     public class MainCmd : BasicArgumentSolverCmd
