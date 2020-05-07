@@ -48,7 +48,7 @@ namespace SmartFace.Cli.Common.DI
                 {
                     var apiDefinition = provider.GetService<IApiDefinition>();
                     if (basicArgumentSolverApp.IsShowingInformation ||
-                        string.IsNullOrEmpty(apiDefinition.ApiUrl))
+                        string.IsNullOrEmpty(apiDefinition.Host))
                     {
                         //dummy container
                         return new Container(null);

@@ -8,34 +8,37 @@ namespace SmartFace.Cli.Commands
     [Command(Name = "sfcli", Description = "CLI for SmartFace instance")]
     public class BasicArgumentSolverCmd : IApiDefinition
     {
-        [Option("-u|--url","SmartFace API Url (e.g. \"http://smartfaceserver:8099\")", CommandOptionType.SingleValue)]
-        protected string Url { get; set; } = "http://localhost:8099";
+        private string _host = "localhost";
 
-        public int ZeroMqPort { get; } = 2406;
-
-        public string ApiUrl
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(Url))
-                {
-                    return Environment.GetEnvironmentVariable(Constants.ENVIRONMENT_URL);
-                }
-
-                return Url;
-            }
-        }
-
-        public string ODataUrl => $"{ApiUrl.TrimEnd('/')}/odata";
-
+        [Option("-h|--host",
+            "SmartFace host (e.g. \"smartfaceserver\"). Defaults to \"localhost\". Can be overridden by environment variable " +
+            Constants.ENVIRONMENT_HOST,
+            CommandOptionType.SingleValue)]
         public string Host
         {
-            get
-            {
-                Uri uri = new Uri(ApiUrl);
-                return uri.Host;
-            }
+            get => Environment.GetEnvironmentVariable(Constants.ENVIRONMENT_HOST) ?? _host;
+            set => _host = value;
         }
+
+        public string Protocol { get; set; } = "http";
+
+        [Option("-rp|--restPort",
+            "Port under which the Rest API runs on the provided host. Defaults to 8098",
+            CommandOptionType.SingleValue)]
+        public int RestApiPort { get; set; } = 8098;
+
+        [Option("-op|--odataPort",
+            "Port under which the OData API runs on the provided host. Defaults to 8099",
+            CommandOptionType.SingleValue)]
+        public int ODataPort { get; set; } = 8099;
+
+        public int ZeroMqPort => 2406;
+
+        public string ApiUrl => $"{Protocol}://{Host}:{RestApiPort}";
+
+        public string OdataBaseUrl => $"{Protocol}://{Host}:{ODataPort}";
+
+        public string ODataUrl => $"{OdataBaseUrl}/odata";
 
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {
