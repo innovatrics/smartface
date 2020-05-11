@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
@@ -10,6 +11,10 @@ namespace SmartFace.Cli.Commands.SubCamera
     [Command(Name = "add", Description = "Create new camera")]
     public class AddCameraCmd : BaseCameraModifyingCmd
     {
+        [Required]
+        [Option("-n|--name", "Name of the new camera", CommandOptionType.SingleValue)]
+        public string Name { get; }
+
         public AddCameraCmd(ICamerasRepository repository)
         {
             Repository = repository;
@@ -24,7 +29,15 @@ namespace SmartFace.Cli.Commands.SubCamera
                 throw new ProcessingException("VideoSource is required property.");
             }
 
-            var cameraRequestData = new CameraRequestData();
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                throw new ProcessingException($"{nameof(Name)} is required property.");
+            }
+
+            var cameraRequestData = new CameraRequestData
+            {
+                Name = Name
+            };
             
             SetBaseParameters(cameraRequestData);
 
