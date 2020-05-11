@@ -6,6 +6,7 @@ using ManagementApi;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
+using SmartFace.Cli.Core.Domain;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
@@ -72,11 +73,34 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? updatedCamera.FaceDetectorConfig.MaxFaceSize;
             updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? updatedCamera.FaceDetectorConfig.MinFaceSize;
 
-            //TODO resources
-            //updatedCamera.TemplateGeneratorResourceId = updateData.TemplateGeneratorResourceId ?? updatedCamera.TemplateGeneratorResourceId;
-            //updatedCamera.FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? updatedCamera.FaceDetectorResourceId;
+            //TODO when the API takes the resources as string, maybe just forward them, no mapping needed
+            updatedCamera.TemplateGeneratorResourceId = MapTemplateResourceId(updateData.TemplateGeneratorResourceId) ?? updatedCamera.TemplateGeneratorResourceId;
+            updatedCamera.FaceDetectorResourceId = MapFaceDetectorResourceId(updateData.FaceDetectorResourceId) ?? updatedCamera.FaceDetectorResourceId;
 
             return updatedCamera;
+        }
+
+        private static FaceDetectorResource? MapFaceDetectorResourceId(string resourceId)
+        {
+            return resourceId switch
+            {
+                ResourceIds.FaceDetector.ACCURATE_CPU => FaceDetectorResource.AccurateCpu,
+                ResourceIds.FaceDetector.ACCURATE_GPU => FaceDetectorResource.AccurateGpu,
+                ResourceIds.FaceDetector.BALANCED_CPU => FaceDetectorResource.BalancedCpu,
+                ResourceIds.FaceDetector.BALANCED_GPU => FaceDetectorResource.BalancedGpu,
+                ResourceIds.FaceDetector.FAST => FaceDetectorResource.Fast,
+                _ => null
+            };
+        }
+
+        private static TemplateGeneratorResource? MapTemplateResourceId(string resourceId)
+        {
+            return resourceId switch
+            {
+                ResourceIds.TemplateGenerator.WILD_CPU => TemplateGeneratorResource.WildCpu,
+                ResourceIds.TemplateGenerator.WILD_GPU => TemplateGeneratorResource.WildGpu,
+                _ => null
+            };
         }
 
         public void Dispose()

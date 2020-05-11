@@ -23,6 +23,12 @@ namespace SmartFace.Cli.Commands.SubCamera
         [Option("-p|--mpeg1PreviewPort", "Port to processed stream MPEG1 preview", CommandOptionType.SingleValue)]
         public (bool HasValue, int Value) MPEG1PreviewPort { get; }
 
+        [Option("-tg|--templateGeneratorResource", "Template generator resource id for the camera", CommandOptionType.SingleValue)]
+        public (bool HasValue, string Value) TemplateGeneratorResourceId { get; }
+
+        [Option("-fd|--faceDetectorResource", "Face detector resource for the camera", CommandOptionType.SingleValue)]
+        public (bool HasValue, string Value) FaceDetectorResourceId { get; }
+
         protected void SetBaseParameters(CameraRequestData cameraRequestData)
         {
             if (VideoSource.HasValue)
@@ -53,6 +59,16 @@ namespace SmartFace.Cli.Commands.SubCamera
             if (MPEG1PreviewPort.HasValue)
             {
                 cameraRequestData.MPEG1PreviewPort = MPEG1PreviewPort.Value;
+            }
+
+            if (TemplateGeneratorResourceId.HasValue)
+            {
+                cameraRequestData.TemplateGeneratorResourceId = TemplateGeneratorResourceId.Value;
+            }
+
+            if (FaceDetectorResourceId.HasValue)
+            {
+                cameraRequestData.FaceDetectorResourceId = FaceDetectorResourceId.Value;
             }
         }
     }
