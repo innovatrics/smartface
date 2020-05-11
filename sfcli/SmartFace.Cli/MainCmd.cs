@@ -14,7 +14,7 @@ namespace SmartFace.Cli
 {
     [Command(Name = "sfcli", Description = "CLI for SmartFace instance"),
      Subcommand(typeof(QueryCmd)),
-     Subcommand(typeof(VideoCmd)),
+     Subcommand(typeof(CameraCmd)),
      Subcommand(typeof(WatchlistMemberCmd)),
      Subcommand(typeof(NotificationsCmd)),
     ]

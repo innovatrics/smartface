@@ -1,5 +1,5 @@
 using System;
-using AutoMapper;
+using System.Net.Http;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -7,12 +7,10 @@ using SmartFace.Cli.Commands;
 using SmartFace.Cli.Common.DI.Factories;
 using SmartFace.Cli.Common.Utils;
 using SmartFace.Cli.Core.ApiAbstraction;
-using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Core.Domain.DataSelector;
 using SmartFace.Cli.Core.Domain.DataSelector.Impl;
 using SmartFace.Cli.Core.Domain.ImgExport;
 using SmartFace.Cli.Core.Domain.Notifications;
-using SmartFace.Cli.Core.Domain.StreamProcessor;
 using SmartFace.Cli.Core.Domain.WatchlistMember;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
 using SmartFace.Cli.Infrastructure.ApiImplementation;
@@ -54,7 +52,7 @@ namespace SmartFace.Cli.Common.DI
 
                     return new Container(new Uri(apiDefinition.ODataUrl));
                 })
-                .AddSingleton<IMapper, Mapper>(serviceProvider => ConfigureAutoMapper())
+                .AddTransient<HttpClient>()
                 .AddSingleton<IImageDownloaderFactory, ImageDownloaderFactory>()
                 .AddSingleton<IExportFileResolverFactory, ExportFileResolverFactory>()
                 .AddTransient<IQueryDataSelector<Face>, FaceODataSelector>()
@@ -66,15 +64,8 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IQueryDataSelector<Watchlist>, WatchlistODataSelector>()
                 .AddTransient<IQueryDataSelector<MatchResult>, MatchResultODataSelector>()
                 .AddTransient<IQueryDataSelector<WatchlistMember>, WatchlistMemberODataSelector>()
-                .AddTransient<IVideoProcessorRepository, VideoProcessorRepository>()
-                .AddTransient<IWatchlistMembersRepository, WatchlistMembersRepository>()
-                .AddTransient<IWorkersRepository, WorkersRepository>()
                 .AddTransient<ICamerasRepository, CamerasRepository>()
-                .AddTransient<IStreamsRepository, StreamsRepository>()
-                .AddTransient<IVideoPublishWorkerConfigRepository, VideoPublishWorkerConfigRepository>()
-                .AddTransient<IStreamWorkerConfigRepository, StreamWorkerConfigRepository>()
-                .AddTransient<IScopesRepository, ScopesRepository>()
-                .AddTransient<IApiProvider, ApiProvider>()
+                .AddTransient<IWatchlistMembersRepository, WatchlistMembersRepository>()
                 .AddTransient<ZeroMqNotificationReader>()
                 .AddTransient<RegisterWatchlistMemberExtendedJsonLoader>()
                 .AddTransient<INotificationReceiver, ZeroMqNotificationReceiver>()
@@ -82,16 +73,6 @@ namespace SmartFace.Cli.Common.DI
                 .AddLogging(configure => configure.AddConsole())
                 .BuildServiceProvider();
             return services;
-        }
-
-        public static Mapper ConfigureAutoMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<StreamWorkerConfigModel, VideoProcessor>();
-                cfg.CreateMap<VideoPublishWorkerConfigModel, VideoProcessor>();
-            });
-            return new Mapper(config);
         }
     }
 }

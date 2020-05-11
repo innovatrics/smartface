@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using ManagementApi;
@@ -7,13 +8,17 @@ using SmartFace.Cli.Core.ApiAbstraction.Models;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
-    public class WatchlistMembersRepository : IWatchlistMembersRepository
+    public class WatchlistMembersRepository : IWatchlistMembersRepository, IDisposable
     {
-        private IApiDefinition ApiDefinition { get; }
+        private readonly HttpClient _httpClient;
+        private readonly V1Client _v1Client;
+        private readonly WatchlistMembersClient _watchlistMembersClient;
 
-        public WatchlistMembersRepository(IApiDefinition apiDefinition)
+        public WatchlistMembersRepository(IApiDefinition apiDefinition, HttpClient httpClient)
         {
-            ApiDefinition = apiDefinition;
+            _httpClient = httpClient;
+            _v1Client = new V1Client(apiDefinition.ApiUrl, _httpClient);
+            _watchlistMembersClient = new WatchlistMembersClient(apiDefinition.ApiUrl, _httpClient);
         }
 
         public async Task RegisterAsync(RegisterWatchlistMemberData data)
@@ -29,14 +34,12 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 ExternalId = data.ExternalId
             };
 
-            using var httpClient = new HttpClient();
-            var client = new WatchlistMembersClient(ApiDefinition.ApiUrl, httpClient);
-            var watchlistMember = await client.RegisterAsync(payload);
+            var watchlistMember = await _watchlistMembersClient.RegisterAsync(payload);
 
-            await UpdateExtendedDataAsync(data, new V1Client(ApiDefinition.ApiUrl, httpClient), watchlistMember);
+            await UpdateExtendedDataAsync(data, watchlistMember);
         }
 
-        private Task UpdateExtendedDataAsync(RegisterWatchlistMemberData data, V1Client client, WatchlistMemberWithRelatedData newMember)
+        private Task UpdateExtendedDataAsync(RegisterWatchlistMemberData data, WatchlistMemberWithRelatedData newMember)
         {
             if (!string.IsNullOrEmpty(data.DisplayName) ||
                 !string.IsNullOrEmpty(data.FullName) ||
@@ -52,10 +55,15 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                     Note = data.Note
                 };
 
-                return client.WatchlistMembersPutAsync(payload);
+                return _v1Client.WatchlistMembersPutAsync(payload);
             }
 
             return Task.CompletedTask;
+        }
+
+        public void Dispose()
+        {
+            _httpClient?.Dispose();
         }
     }
 }

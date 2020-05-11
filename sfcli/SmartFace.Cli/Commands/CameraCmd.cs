@@ -1,15 +1,15 @@
 using McMaster.Extensions.CommandLineUtils;
-using SmartFace.Cli.Commands.SubVideo;
+using SmartFace.Cli.Commands.SubCamera;
 using SmartFace.Cli.Common;
 
 namespace SmartFace.Cli.Commands
 {
-    [Command(Name = "video", Description = "View or edit properties of video configuration"),
-    Subcommand(typeof(AddVideoCmd)),
-    Subcommand(typeof(GetVideoCmd)),
-    Subcommand(typeof(SetVideoCmd)),
+    [Command(Name = "camera", Description = "View or edit properties of camera configuration"),
+    Subcommand(typeof(AddCameraCmd)),
+    Subcommand(typeof(GetCameraCmd)),
+    Subcommand(typeof(SetCameraCmd)),
     ]
-    public class VideoCmd
+    public class CameraCmd
     {
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {

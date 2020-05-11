@@ -4,38 +4,19 @@ using System.Linq;
 using System.Text;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
-using NUnit.Framework;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
-using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
-using Tests;
+using Xunit;
 
 namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
 {
-    public class JsonLoaderContext
+    public class JsonLoaderTests
     {
-        public ILogger<RegisterWatchlistMemberExtendedJsonLoader> Logger { get; }
-
-        public RegisterWatchlistMemberExtendedJsonLoader Loader { get; }
-
-        public string Dir { get; }
-
-        public RegisterWatchlistMemberExtended[] SerializedData { get; set; }
-
-        public JsonLoaderContext()
+        [Fact]
+        public void WatchlistMemberRegistration_LoadJson()
         {
-            var logger = Substitute.For<ILogger<RegisterWatchlistMemberExtendedJsonLoader>>();
-            Logger = logger;
-            Loader = new RegisterWatchlistMemberExtendedJsonLoader(logger);
-            Dir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
-            Directory.CreateDirectory(Dir);
-        }
+            var dir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            Directory.CreateDirectory(dir);
 
-    }
-
-    public class WatchlistMemberRegistration_LoadJson : Scenario<JsonLoaderContext>
-    {
-        private given _jsonFile = testContext =>
-        {
             string content = @"
 [
 {
@@ -54,21 +35,22 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
 } 
 ]
 ";
-            string fileName = Path.Combine(testContext.Dir, "file_with_inconsistent_case_in_extension.JsoN");
+            string fileName = Path.Combine(dir, "file_with_inconsistent_case_in_extension.JsoN");
             File.WriteAllText(fileName, content, Encoding.UTF8);
-        };
 
-        private when _load = testContext => testContext.SerializedData = testContext.Loader.GetRegisterWatchlistMemberExtendedData(testContext.Dir);
+            var logger = Substitute.For<ILogger<RegisterWatchlistMemberExtendedJsonLoader>>();
+            var loader = new RegisterWatchlistMemberExtendedJsonLoader(logger);
 
-        private then _thereAreTwoMembers = testContext => Assert.AreEqual(2, testContext.SerializedData.Length);
-        private then _memberWithExternalId120LoadedCorrectly = testContext =>
-        {
-            var member = testContext.SerializedData.Single(itm => itm.ExternalId == "120");
-            Assert.AreEqual("Display name", member.DisplayName);
-            Assert.AreEqual("Full name", member.FullName);
-            Assert.AreEqual("Example note", member.Note);
-            Assert.AreEqual("file1.jpeg", member.PhotoFiles.First());
-            Assert.AreEqual("file2.jpeg", member.PhotoFiles.Last());
-        };
+            var serializeData = loader.GetRegisterWatchlistMemberExtendedData(dir);
+
+            Assert.Equal(2, serializeData.Length);
+
+            var member = serializeData.Single(itm => itm.ExternalId == "120");
+            Assert.Equal("Display name", member.DisplayName);
+            Assert.Equal("Full name", member.FullName);
+            Assert.Equal("Example note", member.Note);
+            Assert.Equal("file1.jpeg", member.PhotoFiles.First());
+            Assert.Equal("file2.jpeg", member.PhotoFiles.Last());
+        }
     }
 }
