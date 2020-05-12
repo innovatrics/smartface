@@ -9,7 +9,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
     [Command(Name = "registerFromDir", Description = "Register WatchlistMember entities from photos in directory in format {watchlistmember_externalId}.(jpeg|jpg|png) ")]
     public class RegisterWatchlistMembersFromDirCmd
     {
-        private IWatchlistMemberRegistrationManager Manager { get; }
+        private readonly IWatchlistMemberRegistrationManager _registrationManager;
         
         [Required]
         [Option("-w|--watchlistsExternalIds", "", CommandOptionType.MultipleValue)]
@@ -35,20 +35,20 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         [Option("-p|--parallel", "Max degree of parallelism, default value is 1", CommandOptionType.SingleValue)]
         public int MaxDegreeOfParallelism { get; set; } = 1;
 
-        public RegisterWatchlistMembersFromDirCmd(IWatchlistMemberRegistrationManager manager)
+        public RegisterWatchlistMembersFromDirCmd(IWatchlistMemberRegistrationManager registrationManager)
         {
-            Manager = manager;
+            _registrationManager = registrationManager;
         }
 
         protected virtual async Task<int> OnExecuteAsync(CommandLineApplication app, IConsole console)
         {
             if (UseMetaDataFile)
             {
-                await Manager.RegisterWatchlistMembersExtendedFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                await _registrationManager.RegisterWatchlistMembersExtendedFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             else
             {
-                await Manager.RegisterWatchlistMembersFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             return Constants.EXIT_CODE_OK;
         }

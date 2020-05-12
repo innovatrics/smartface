@@ -11,7 +11,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
     [Command(Name = "register", Description = "Register single watchlist member")]
     public class RegisterWatchlistMemberCmd
     {
-        private IWatchlistMemberRegistrationManager Manager { get; }
+        private readonly IWatchlistMemberRegistrationManager _registrationManager;
 
         [Required]
         [Option("-e|--externalId", "", CommandOptionType.SingleValue)]
@@ -26,9 +26,9 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         [Option("-p|--photos <FILE>", "", CommandOptionType.MultipleValue)]
         public string[] Photos { get; set; }
 
-        public RegisterWatchlistMemberCmd(IWatchlistMemberRegistrationManager manager)
+        public RegisterWatchlistMemberCmd(IWatchlistMemberRegistrationManager registrationManager)
         {
-            Manager = manager;
+            _registrationManager = registrationManager;
         }
 
         protected virtual async Task<int> OnExecuteAsync(CommandLineApplication app, IConsole console)
@@ -39,7 +39,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
                 PhotoFiles = Photos,
                 WatchlistExternalIds = WatchlistExternalIds
             };
-            await Manager.RegisterWatchlistMemberAsync(data);
+            await _registrationManager.RegisterWatchlistMemberAsync(data);
             return Constants.EXIT_CODE_OK;
         }
 

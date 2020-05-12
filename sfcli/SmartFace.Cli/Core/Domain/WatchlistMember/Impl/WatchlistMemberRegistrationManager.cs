@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using Microsoft.Extensions.Logging;
 using SmartFace.Cli.Common;
-using SmartFace.Cli.Common.Utils;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
