@@ -82,6 +82,11 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         private static FaceDetectorResource? MapFaceDetectorResourceId(string resourceId)
         {
+            if (string.IsNullOrEmpty(resourceId))
+            {
+                return null;
+            }
+
             return resourceId switch
             {
                 ResourceIds.FaceDetector.ACCURATE_CPU => FaceDetectorResource.AccurateCpu,
@@ -89,17 +94,22 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 ResourceIds.FaceDetector.BALANCED_CPU => FaceDetectorResource.BalancedCpu,
                 ResourceIds.FaceDetector.BALANCED_GPU => FaceDetectorResource.BalancedGpu,
                 ResourceIds.FaceDetector.FAST => FaceDetectorResource.Fast,
-                _ => null
+                _ => throw new ProcessingException($"{resourceId} is not a valid {nameof(ResourceIds.FaceDetector)} resource")
             };
         }
 
         private static TemplateGeneratorResource? MapTemplateResourceId(string resourceId)
         {
+            if (string.IsNullOrEmpty(resourceId))
+            {
+                return null;
+            }
+
             return resourceId switch
             {
                 ResourceIds.TemplateGenerator.WILD_CPU => TemplateGeneratorResource.WildCpu,
                 ResourceIds.TemplateGenerator.WILD_GPU => TemplateGeneratorResource.WildGpu,
-                _ => null
+                _ => throw new ProcessingException($"{resourceId} is not a valid {nameof(ResourceIds.TemplateGenerator)} resource")
             };
         }
 
