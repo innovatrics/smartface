@@ -30,7 +30,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             Loader = loader;
         }
 
-        public Task RegisterWatchlistMemberAsync(RegisterWatchlistMemberExtended registerWatchlistMemberExtended)
+        public async Task RegisterWatchlistMemberAsync(RegisterWatchlistMemberExtended registerWatchlistMemberExtended)
         {
             var data = new RegisterWatchlistMemberData
             {
@@ -47,7 +47,8 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 MIME = pathToPhotoFile.ToLower().EndsWith($".{Constants.PNG}") ? Constants.PNG_MIME_TYPE : Constants.JPEG_MIME_TYPE
             }));
 
-            return Repository.RegisterAsync(data).ContinueWith(_ => Log.LogInformation($"WatchlistMember registered. [{data.ExternalId}]"));
+            await Repository.RegisterAsync(data);
+            Log.LogInformation($"WatchlistMember registered. [{data.ExternalId}]");
         }
 
         public Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistExternalIds,
