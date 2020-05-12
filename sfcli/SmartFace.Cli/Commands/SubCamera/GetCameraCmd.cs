@@ -9,8 +9,8 @@ namespace SmartFace.Cli.Commands.SubCamera
     [Command(Name = "get", Description = "Read properties of camera")]
     public class GetCameraCmd
     {
-        [Option("-s|--streamId", "Id of camera to get. If empty, all cameras will be fetched.", CommandOptionType.SingleValue)]
-        public (bool HasValue, Guid Value) StreamId { get; }
+        [Option("-i|--id", "Id of camera to get. If empty, all cameras will be fetched.", CommandOptionType.SingleValue)]
+        public (bool HasValue, Guid Value) CameraId { get; }
         
         private ICamerasRepository Repository { get; }
         
@@ -23,9 +23,9 @@ namespace SmartFace.Cli.Commands.SubCamera
         {
             object result;
 
-            if (StreamId.HasValue)
+            if (CameraId.HasValue)
             {
-                result = await Repository.GetCameraAsync(StreamId.Value);
+                result = await Repository.GetCameraAsync(CameraId.Value);
             }
             else
             {

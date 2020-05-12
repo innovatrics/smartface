@@ -12,8 +12,8 @@ namespace SmartFace.Cli.Commands.SubCamera
     public class SetCameraCmd : BaseCameraModifyingCmd
     {
         [Required]
-        [Option("-s|--streamId", "[Required] Identifier of camera to edit", CommandOptionType.SingleValue)]
-        public Guid StreamId { get; }
+        [Option("-i|--id", "[Required] Identifier of camera to edit", CommandOptionType.SingleValue)]
+        public Guid CameraId { get; }
 
         [Option("-n|--name", "Name of the camera", CommandOptionType.SingleValue)]
         public override (bool HasValue, string Value) Name { get; }
@@ -34,7 +34,7 @@ namespace SmartFace.Cli.Commands.SubCamera
 
             SetBaseParameters(dataToUpdate);
 
-            var updatedCamera = await Repository.UpdateCameraAsync(StreamId, dataToUpdate);
+            var updatedCamera = await Repository.UpdateCameraAsync(CameraId, dataToUpdate);
 
             var resultOutput = JsonConvert.SerializeObject(updatedCamera, Formatting.Indented);
             console.WriteLine(resultOutput);

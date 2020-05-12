@@ -8,7 +8,7 @@ namespace SmartFace.Cli.Commands.SubCamera
         [Option("-e|--enabled", "Whether the stream is processed or not", CommandOptionType.SingleValue)]
         public (bool HasValue, bool Value) Enabled { get; }
         
-        [Option("-i|--minFaceSize", "Minimum count of pixels between eyes", CommandOptionType.SingleValue)]
+        [Option("-m|--minFaceSize", "Minimum count of pixels between eyes", CommandOptionType.SingleValue)]
         public (bool HasValue, int Value) TrackMinFaceSize { get; }
         
         [Option("-x|--maxFaceSize", "Maximum count of pixels between eyes", CommandOptionType.SingleValue)]

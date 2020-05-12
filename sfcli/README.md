@@ -20,7 +20,7 @@ Will list all existing camera processors.
 ##### Options:
 Option are supported in long form prepended by double dash:
 ```
-sfcli camera get --streamId 2976ac85-f570-4bec-9561-ce5b2ec1d234
+sfcli camera get --id 2976ac85-f570-4bec-9561-ce5b2ec1d234
 ```
 as well in short form.
 ```
@@ -166,7 +166,7 @@ sfcli --host localhost watchlistmember registerFromDir -w:fingera -d:"d:\Fingera
 
 This command allow to create, update or view settings of a camera. Camera is domain entity which groups some data entities, workers and configs. That allows you to add live stream from IP camera and easily change processing properties.
 
-NOTE: stream id is used as unique identifier of a camera
+NOTE: camera id is a unique identifier of a camera
 
 ```
 Options:
@@ -195,7 +195,7 @@ Options:
   -n|--name                        [Required] Name of the new camera.
   -v|--videoSource                 [Required] Url to video E.g. rtsp://server.example.org:8080/test.sdp
   -e|--enabled                     Whether the stream is processed or not
-  -i|--minFaceSize                 Minimum count of pixels between eyes
+  -m|--minFaceSize                 Minimum count of pixels between eyes
   -x|--maxFaceSize                 Maximum count of pixels between eyes
   -r|--redetectionTime             Time between face re-detections in milliseconds
   -p|--mpeg1PreviewPort            Port to processed stream MPEG1 preview
@@ -206,11 +206,11 @@ Options:
 
 ##### camera get
 
-Read properties of a camera. If stream id is not provided then all cameras are listed.
+Read properties of a camera. If id is not provided then all cameras are listed.
 
 ```
 Options:
-  -s|--streamId  Id of camera to get. If empty, all cameras will be fetched.
+  -i|--id  Id of camera to get. If empty, all cameras will be fetched.
   -?|-h|--help   Show help information
 ```
 
@@ -220,11 +220,11 @@ Change properties of a camera. StreamId is required. Only filled properties will
 
 ```
 Options:
-  -s|--streamId                    [Required] Identifier of camera to edit
+  -i|--id                    [Required] Identifier of camera to edit
   -n|--name                        Name of the camera
   -v|--videoSource                 Url to video E.g. rtsp://server.example.org:8080/test.sdp
   -e|--enabled                     Whether the stream is processed or not
-  -i|--minFaceSize                 Minimum count of pixels between eyes
+  -m|--minFaceSize                 Minimum count of pixels between eyes
   -x|--maxFaceSize                 Maximum count of pixels between eyes
   -r|--redetectionTime             Time between face re-detections in milliseconds
   -p|--mpeg1PreviewPort            Port to processed stream MPEG1 preview
