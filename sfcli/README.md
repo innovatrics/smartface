@@ -10,42 +10,45 @@ sfcli command [subcommand] [option1, option2, ...]
 ```
 
 ##### Example:
-Command "video" with subcommand "get" with no options
+Command "camera" with subcommand "get" with no options
 ```
- sfcli video get 
+ sfcli camera get 
 ```
 
-Will list all existing video processors. 
+Will list all existing camera processors. 
 
 ##### Options:
 Option are supported in long form prepended by double dash:
 ```
-sfcli video get --streamId 34
+sfcli camera get --streamId 2976ac85-f570-4bec-9561-ce5b2ec1d234
 ```
 as well in short form.
 ```
-sfcli video get -s:34
-sfcli video get -s=34
-sfcli video get -s 34
+sfcli camera get -s:2976ac85-f570-4bec-9561-ce5b2ec1d234
+sfcli camera get -s=2976ac85-f570-4bec-9561-ce5b2ec1d234
+sfcli camera get -s 2976ac85-f570-4bec-9561-ce5b2ec1d234
 ```
 
-### API destination
+### API location
 
 ##### HTTP
 
-Target HTTP API destination must defined by "--url" option. Value should be address of SmartFace HTTP endpoint with apropriate port.
+Target HTTP API location can be defined by "--host" option. Default value is "localhost".
 
 ```sh
-$ sfcli --url http://localhost:8099/
+$ sfcli --host localhost
 ```
 
-Example video command with defined url option:
+Example camera command with defined host option:
 
 ```sh
-$ sfcli --url http://localhost:8099/ video get
+$ sfcli --host localhost camera get
 ```
 
-Target instance could be defined also in global variable "sfcli_url"
+Default port for OData API is 8099, and for REST API is 8098. To change these ports, set the "-op|--odataPort" or "-rp|--restPort" respectively.
+The final Api address is constructed as "http://{host}:{port}".
+
+The host can overridden by setting "sfcli_host" environment variable.
 
 ##### ZeroMQ
 Smartface notifications are published via ZeroMQ, sfcli utility uses non configurable default smartface port 2406. 
@@ -55,46 +58,17 @@ For more info about notifications please see command "notifications".
 
 ```
 Options:
-  -u|--url        SmartFace API Url (e.g. "http://smartfaceserver:8099")
-  -?|-h|--help    Show help information
+  --host           SmartFace host (e.g. "smartfaceserver"). Defaults to "localhost". Can be overridden by environment
+                   variable sfcli_host
+  -rp|--restPort   Port under which the Rest API runs on the provided host. Defaults to 8098
+  -op|--odataPort  Port under which the OData API runs on the provided host. Defaults to 8099
+  -?|-h|--help     Show help information
 
 Commands:
-  globalconfig     View or edit global smartface settings
+  camera           View or edit properties of camera configuration
   notifications    Receive and print notifications to console
   query            Select entities using Language Integrated Query (LINQ)
-  softRestart      Apply changes
-  video            View or edit properties of video configuration
   watchlistmember  Operations with watchlist member
-```
-
-#### globalconfig
-
-```
-Options:
-  -?|-h|--help  Show help information
-
-Commands:
-  get           Read properties of GlobalConfig
-  set           Edit properties of GlobalConfig
-```
-
-##### globalconfig get
-
-Print current config properties.
-
-##### globalconfig set
-
-Change config properties
-
-```
-Options:
-  -i|--minEyeDistance      Minimum count of pixels between eyes (detection on photo)
-  -x|--maxEyeDistance      Maximum count of pixels between eyes (detection on photo)
-  -c|--faceConfidence      Face confidence threshold. Should be set to around [450]
-  -a|--detectionAlgorithm  Specify type of algorithm used for face detection. Accurate algorithm is slow if you don't have GPU enabled. [Fast, Balanced, Accurate]
-  -g|--gpu                 Enable/Disable GPU support. If CPU detection algorithm is used then is GPU card used only for extractions.
-  -?|-h|--help             Show help information
-
 ```
 
 #### notifications
@@ -103,13 +77,15 @@ Command prints notifications of specific topic provided in option. Requires ctrl
 
 ```
 Options:
-  -t|--topic    Specify topic of notifications [faces.insert, faces.extracted, grouping_progress.info, inputFiles.update, tracklets.completed, matchResults.match, matchResults.nomatch, matchResults.match.insert, heartbeat]
+  -t|--topic    Specify topic of notifications [faces.insert, faces.extracted, grouping_progress.info,
+                inputFiles.update, tracklets.completed, matchResults.match, matchResults.nomatch,
+                matchResults.match.insert, liveness.result, heartbeat]
   -?|-h|--help  Show help information
 ```
 
 Example:
 ```sh
-$ sfcli --url http://localhost:8099 notifications -t:matchResults.match.insert
+$ sfcli --host localhost notifications -t:matchResults.match.insert
 ```
 
 #### watchlistmember
@@ -122,7 +98,8 @@ Options:
 
 Commands:
   register         Register single watchlist member
-  registerFromDir  Register WatchlistMember entities from photos in directory in format {watchlistmember_externalId}.(jpeg|jpg|png)
+  registerFromDir  Register WatchlistMember entities from photos in directory in format
+                   {watchlistmember_externalId}.(jpeg|jpg|png)
 ```
 
 ##### watchlistmember register
@@ -147,7 +124,7 @@ Options:
 
 Example:
 ```sh
-$ sfcli --url http://localhost:8099 watchlistmember register -e:external_wlMember_id -w:123 -w:567 -p:face1.jpg -p:face2.jpg
+$ sfcli --host localhost watchlistmember register -e:external_wlMember_id -w:123 -w:567 -p:face1.jpg -p:face2.jpg
 ```
 This command will create/replace watchlist member with faces from photo files (face1.jpg, face2.jpg) and link this watchlist member to watchlists with external ids (123, 567).
 
@@ -182,81 +159,76 @@ Options:
 
 Example:
 ```sh
-sfcli --url http://localhost:8099 watchlistmember registerFromDir -w:fingera -d:"d:\Fingera Registration Photo"
+sfcli --host localhost watchlistmember registerFromDir -w:fingera -d:"d:\Fingera Registration Photo"
 ```
 
-#### softrestart
+#### camera
 
-When config values are changed, they are not reflected immediately. To load changed configurations of you need to call softrestart command.
+This command allow to create, update or view settings of a camera. Camera is domain entity which groups some data entities, workers and configs. That allows you to add live stream from IP camera and easily change processing properties.
 
-Example:
-```sh
-$ sfcli --url http://localhost:8099 softrestart
-```
-
-#### video
-
-This command allow to create, update or view settings of videoProcessor. VideoProcessor is domain entity which groups some data entities, workers and configs. That alows you to add live stream from IP camera and easily change processing properties.
-
-NOTE: stream id is used as unique identifier of videoProcessor
+NOTE: stream id is used as unique identifier of a camera
 
 ```
 Options:
   -?|-h|--help  Show help information
 
 Commands:
-  add           Create new video
-  get           Read properties of video
-  set           Edit properties of video
-
+  add           Create new camera
+  get           Read properties of camera
+  set           Edit properties of a camera
 ```
-Example (create videoProcessor):
+Example (create camera):
 ```sh
-$ sfcli --url http://localhost:8099 video add -v:c:\temp\wafs.mp4
+$ sfcli --host localhost camera add -v:c:\temp\wafs.mp4
 ```
-Example (start videoProcessor):
+Example (start camera):
 ```sh
-$ sfcli --url http://localhost:8099 video set -e:true -s:1
+$ sfcli --host localhost camera set -e:true -s:2976ac85-f570-4bec-9561-ce5b2ec1d234
 ```
 
-##### video add
+##### camera add
 
-Create video processor. If scope id is not provided then new scope will be created.
+Create a camera. Name and VideoSource options are required
 
 ```
 Options:
-  --scopeId              Scope where stream will be created. If empty, new scope will be created.
-  -v|--videoSource       Url to video E.g. rtsp://server.example.org:8080/test.sdp
-  -e|--enabled           Whether the stream is processed or not
-  -i|--minEyeDistance    Minimum count of pixels between eyes
-  -x|--maxEyeDistance    Maximum count of pixels between eyes
-  -d|--faceDiscovery     Time between face re-detections in milliseconds
-  -p|--mjpegPreviewPort  Port to processed stream MJPEG preview
-  -?|-h|--help           Show help information
+  -n|--name                        [Required] Name of the new camera.
+  -v|--videoSource                 [Required] Url to video E.g. rtsp://server.example.org:8080/test.sdp
+  -e|--enabled                     Whether the stream is processed or not
+  -i|--minFaceSize                 Minimum count of pixels between eyes
+  -x|--maxFaceSize                 Maximum count of pixels between eyes
+  -r|--redetectionTime             Time between face re-detections in milliseconds
+  -p|--mpeg1PreviewPort            Port to processed stream MPEG1 preview
+  -tg|--templateGeneratorResource  Template generator resource id for the camera
+  -fd|--faceDetectorResource       Face detector resource for the camera
+  -?|-h|--help                     Show help information
 ```
 
-##### video get
+##### camera get
 
-Read properties of videoProcessor. If stream id is not provided then all videoProcessors are listed.
+Read properties of a camera. If stream id is not provided then all cameras are listed.
 
 ```
 Options:
-  -s|--streamId  Identifier of stream to edit
+  -s|--streamId  Id of camera to get. If empty, all cameras will be fetched.
   -?|-h|--help   Show help information
 ```
 
-##### video set
+##### camera set
 
-Change properties of videoProcessor.
+Change properties of a camera. StreamId is required. Only filled properties will be changed on the camera.
 
 ```
 Options:
-  -s|--streamId          Identifier of stream to edit
-  -v|--videoSource       Url to video E.g. rtsp://server.example.org:8080/test.sdp
-  -e|--enabled           Whether the stream is processed or not
-  -i|--minEyeDistance    Minimum count of pixels between eyes
-  -x|--maxEyeDistance    Maximum count of pixels between eyes
-  -d|--faceDiscovery     Time between face re-detections in milliseconds
-  -p|--mjpegPreviewPort  Port to processed stream MJPEG preview
-  -?|-h|--help           Show help information
+  -s|--streamId                    [Required] Identifier of camera to edit
+  -n|--name                        Name of the camera
+  -v|--videoSource                 Url to video E.g. rtsp://server.example.org:8080/test.sdp
+  -e|--enabled                     Whether the stream is processed or not
+  -i|--minFaceSize                 Minimum count of pixels between eyes
+  -x|--maxFaceSize                 Maximum count of pixels between eyes
+  -r|--redetectionTime             Time between face re-detections in milliseconds
+  -p|--mpeg1PreviewPort            Port to processed stream MPEG1 preview
+  -tg|--templateGeneratorResource  Template generator resource id for the camera
+  -fd|--faceDetectorResource       Face detector resource for the camera
+  -?|-h|--help                     Show help information
 ```

@@ -3,11 +3,8 @@ using SmartFace.Cli.Core.ApiAbstraction.Models;
 
 namespace SmartFace.Cli.Commands.SubCamera
 {
-    public class BaseCameraModifyingCmd
-    {
-        [Option("-v|--videoSource", "Url to video E.g. rtsp://server.example.org:8080/test.sdp", CommandOptionType.SingleValue)]
-        public (bool HasValue, string Value) VideoSource { get; }
-        
+    public abstract class BaseCameraModifyingCmd
+    {   
         [Option("-e|--enabled", "Whether the stream is processed or not", CommandOptionType.SingleValue)]
         public (bool HasValue, bool Value) Enabled { get; }
         
@@ -28,6 +25,9 @@ namespace SmartFace.Cli.Commands.SubCamera
 
         [Option("-fd|--faceDetectorResource", "Face detector resource for the camera", CommandOptionType.SingleValue)]
         public (bool HasValue, string Value) FaceDetectorResourceId { get; }
+
+        public abstract (bool HasValue, string Value) Name { get; }
+        public abstract (bool HasValue, string Value) VideoSource { get; }
 
         protected void SetBaseParameters(CameraRequestData cameraRequestData)
         {
@@ -69,6 +69,11 @@ namespace SmartFace.Cli.Commands.SubCamera
             if (FaceDetectorResourceId.HasValue)
             {
                 cameraRequestData.FaceDetectorResourceId = FaceDetectorResourceId.Value;
+            }
+
+            if (Name.HasValue)
+            {
+                cameraRequestData.Name = Name.Value;
             }
         }
     }

@@ -12,8 +12,12 @@ namespace SmartFace.Cli.Commands.SubCamera
     public class AddCameraCmd : BaseCameraModifyingCmd
     {
         [Required]
-        [Option("-n|--name", "Name of the new camera", CommandOptionType.SingleValue)]
-        public string Name { get; }
+        [Option("-n|--name", "[Required] Name of the new camera.", CommandOptionType.SingleValue)]
+        public override (bool HasValue, string Value) Name { get; }
+
+        [Required]
+        [Option("-v|--videoSource", "[Required] Url to video E.g. rtsp://server.example.org:8080/test.sdp", CommandOptionType.SingleValue)]
+        public override (bool HasValue, string Value) VideoSource { get; }
 
         public AddCameraCmd(ICamerasRepository repository)
         {
@@ -29,15 +33,12 @@ namespace SmartFace.Cli.Commands.SubCamera
                 throw new ProcessingException("VideoSource is required property.");
             }
 
-            if (string.IsNullOrWhiteSpace(Name))
+            if (!Name.HasValue)
             {
                 throw new ProcessingException($"{nameof(Name)} is required property.");
             }
 
-            var cameraRequestData = new CameraRequestData
-            {
-                Name = Name
-            };
+            var cameraRequestData = new CameraRequestData();
             
             SetBaseParameters(cameraRequestData);
 

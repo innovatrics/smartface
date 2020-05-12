@@ -12,11 +12,14 @@ namespace SmartFace.Cli.Commands.SubCamera
     public class SetCameraCmd : BaseCameraModifyingCmd
     {
         [Required]
-        [Option("-s|--streamId", "Identifier of camera to edit", CommandOptionType.SingleValue)]
+        [Option("-s|--streamId", "[Required] Identifier of camera to edit", CommandOptionType.SingleValue)]
         public Guid StreamId { get; }
 
         [Option("-n|--name", "Name of the camera", CommandOptionType.SingleValue)]
-        public (bool HasValue, string Value) Name { get; }
+        public override (bool HasValue, string Value) Name { get; }
+
+        [Option("-v|--videoSource", "Url to video E.g. rtsp://server.example.org:8080/test.sdp", CommandOptionType.SingleValue)]
+        public override (bool HasValue, string Value) VideoSource { get; }
 
         private ICamerasRepository Repository { get; }
         
@@ -30,11 +33,6 @@ namespace SmartFace.Cli.Commands.SubCamera
             var dataToUpdate = new CameraRequestData();
 
             SetBaseParameters(dataToUpdate);
-
-            if (Name.HasValue)
-            {
-                dataToUpdate.Name = Name.Value;
-            }
 
             var updatedCamera = await Repository.UpdateCameraAsync(StreamId, dataToUpdate);
 

@@ -10,7 +10,7 @@ namespace SmartFace.Cli.Commands
     {
         private string _host = "localhost";
 
-        [Option("-h|--host",
+        [Option("--host",
             "SmartFace host (e.g. \"smartfaceserver\"). Defaults to \"localhost\". Can be overridden by environment variable " +
             Constants.ENVIRONMENT_HOST,
             CommandOptionType.SingleValue)]
