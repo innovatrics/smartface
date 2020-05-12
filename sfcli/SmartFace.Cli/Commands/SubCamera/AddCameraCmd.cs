@@ -28,16 +28,6 @@ namespace SmartFace.Cli.Commands.SubCamera
 
         protected virtual async Task OnExecuteAsync(IConsole console)
         {
-            if (!VideoSource.HasValue)
-            {
-                throw new ProcessingException("VideoSource is required property.");
-            }
-
-            if (!Name.HasValue)
-            {
-                throw new ProcessingException($"{nameof(Name)} is required property.");
-            }
-
             var cameraRequestData = new CameraRequestData();
             
             SetBaseParameters(cameraRequestData);
