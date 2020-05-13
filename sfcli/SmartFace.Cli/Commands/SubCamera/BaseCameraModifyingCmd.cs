@@ -27,13 +27,13 @@ namespace SmartFace.Cli.Commands.SubCamera
         public (bool HasValue, string Value) FaceDetectorResourceId { get; }
 
         public abstract (bool HasValue, string Value) Name { get; }
-        public abstract (bool HasValue, string Value) VideoSource { get; }
+        public abstract (bool HasValue, string Value) Source { get; }
 
         protected void SetBaseParameters(CameraRequestData cameraRequestData)
         {
-            if (VideoSource.HasValue)
+            if (Source.HasValue)
             {
-                cameraRequestData.Source = VideoSource.Value;
+                cameraRequestData.Source = Source.Value;
             }
             
             if (Enabled.HasValue)

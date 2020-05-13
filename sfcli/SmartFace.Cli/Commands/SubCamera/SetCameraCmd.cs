@@ -18,8 +18,8 @@ namespace SmartFace.Cli.Commands.SubCamera
         [Option("-n|--name", "Name of the camera", CommandOptionType.SingleValue)]
         public override (bool HasValue, string Value) Name { get; }
 
-        [Option("-v|--videoSource", "Url to video E.g. rtsp://server.example.org:8080/test.sdp", CommandOptionType.SingleValue)]
-        public override (bool HasValue, string Value) VideoSource { get; }
+        [Option("-s|--source", "Url to video E.g. rtsp://server.example.org:8080/test.sdp", CommandOptionType.SingleValue)]
+        public override (bool HasValue, string Value) Source { get; }
 
         private ICamerasRepository Repository { get; }
         

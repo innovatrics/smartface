@@ -24,9 +24,9 @@ sfcli camera get --id 2976ac85-f570-4bec-9561-ce5b2ec1d234
 ```
 as well in short form.
 ```
-sfcli camera get -s:2976ac85-f570-4bec-9561-ce5b2ec1d234
-sfcli camera get -s=2976ac85-f570-4bec-9561-ce5b2ec1d234
-sfcli camera get -s 2976ac85-f570-4bec-9561-ce5b2ec1d234
+sfcli camera get -i:2976ac85-f570-4bec-9561-ce5b2ec1d234
+sfcli camera get -i=2976ac85-f570-4bec-9561-ce5b2ec1d234
+sfcli camera get -i 2976ac85-f570-4bec-9561-ce5b2ec1d234
 ```
 
 ### API location
@@ -182,21 +182,21 @@ Commands:
 ```
 Example (create camera):
 ```sh
-$ sfcli --host localhost camera add -v:c:\temp\wafs.mp4
+$ sfcli --host localhost camera add -s:c:\temp\wafs.mp4
 ```
 Example (start camera):
 ```sh
-$ sfcli --host localhost camera set -e:true -s:2976ac85-f570-4bec-9561-ce5b2ec1d234
+$ sfcli --host localhost camera set -e:true -i:2976ac85-f570-4bec-9561-ce5b2ec1d234
 ```
 
 ##### camera add
 
-Create a camera. `--name` and `--videoSource` options are required.
+Create a camera. `--name` and `--source` options are required.
 
 ```
 Options:
   -n|--name                        [Required] Name of the new camera.
-  -v|--videoSource                 [Required] Url to video E.g. rtsp://server.example.org:8080/test.sdp
+  -s|--source                      [Required] Url to video E.g. rtsp://server.example.org:8080/test.sdp
   -e|--enabled                     Whether the stream is processed or not
   -m|--minFaceSize                 Minimum count of pixels between eyes
   -x|--maxFaceSize                 Maximum count of pixels between eyes
@@ -223,9 +223,9 @@ Change properties of a camera. `--id` is required. Only filled properties will b
 
 ```
 Options:
-  -i|--id                    [Required] Identifier of camera to edit
+  -i|--id                          [Required] Identifier of camera to edit
   -n|--name                        Name of the camera
-  -v|--videoSource                 Url to video E.g. rtsp://server.example.org:8080/test.sdp
+  -s|--source                      Url to video E.g. rtsp://server.example.org:8080/test.sdp
   -e|--enabled                     Whether the stream is processed or not
   -m|--minFaceSize                 Minimum count of pixels between eyes
   -x|--maxFaceSize                 Maximum count of pixels between eyes
