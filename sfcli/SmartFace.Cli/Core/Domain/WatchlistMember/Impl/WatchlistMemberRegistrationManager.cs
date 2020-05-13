@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using ManagementApi;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
@@ -54,7 +55,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             return result;
         }
 
-        public async Task<List<WatchlistMemberWithRelatedData>> RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistExternalIds,
+        public Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistExternalIds,
             int maxDegreeOfParallelism)
         {
             if (!Directory.Exists(directory))
@@ -79,32 +80,26 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 extendedData.Add(registerWatchlistMemberExtended);
             }
 
-            var results = new List<WatchlistMemberWithRelatedData>();
+            var (sourceBlock, destinationBlock) = CreateProcessingBlocks(maxDegreeOfParallelism);
 
-            var actionBlock = CreateRegisterActionBlock(maxDegreeOfParallelism, results);
+            PostDataToSourceBlock(extendedData, sourceBlock);
 
-            PostDataToActionBlock(extendedData, actionBlock);
-
-            await WaitForRegistrationCompletionAsync(actionBlock);
-            return results;
+            return WaitForRegistrationCompletionAsync(sourceBlock, destinationBlock);
         }
 
-        public async Task<List<WatchlistMemberWithRelatedData>> RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistExternalIds,
+        public Task RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistExternalIds,
             int maxDegreeOfParallelism)
         {
             var extendedData = Loader.GetRegisterWatchlistMemberExtendedData(directory);
             extendedData.ToList().ForEach(data => data.WatchlistExternalIds = watchlistExternalIds);
 
             Directory.SetCurrentDirectory(directory);
+            
+            var (sourceBlock, destinationBlock) = CreateProcessingBlocks(maxDegreeOfParallelism);
 
-            var results = new List<WatchlistMemberWithRelatedData>();
+            PostDataToSourceBlock(extendedData, sourceBlock);
 
-            var actionBlock = CreateRegisterActionBlock(maxDegreeOfParallelism, results);
-
-            PostDataToActionBlock(extendedData, actionBlock);
-
-            await WaitForRegistrationCompletionAsync(actionBlock);
-            return results;
+            return WaitForRegistrationCompletionAsync(sourceBlock, destinationBlock);
         }
 
         private static IEnumerable<IGrouping<string, PhotoWithExternalId>> GetPhotosGroupedByExternalId(string directory)
@@ -141,49 +136,65 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             return isValid;
         }
 
-        private static Task WaitForRegistrationCompletionAsync(ActionBlock<RegisterWatchlistMemberExtended> actionBlock)
+        private static Task WaitForRegistrationCompletionAsync(
+            TransformBlock<RegisterWatchlistMemberExtended, WatchlistMemberWithRelatedData> sourceBlock,
+            ActionBlock<WatchlistMemberWithRelatedData> destinationBlock)
         {
-            actionBlock.Complete();
-            return actionBlock.Completion;
+            sourceBlock.Complete();
+            return destinationBlock.Completion;
         }
 
-        private void PostDataToActionBlock(IEnumerable<RegisterWatchlistMemberExtended> extendedData, ActionBlock<RegisterWatchlistMemberExtended> actionBlock)
+        private void PostDataToSourceBlock(IEnumerable<RegisterWatchlistMemberExtended> extendedData,
+            TransformBlock<RegisterWatchlistMemberExtended, WatchlistMemberWithRelatedData> sourceBlock)
         {
             foreach (var registerWatchlistMemberExtended in extendedData)
             {
-                var posted = actionBlock.Post(registerWatchlistMemberExtended);
+                var posted = sourceBlock.Post(registerWatchlistMemberExtended);
                 if (!posted)
                 {
-                    Log.LogError($"Unable to process member with external id [{registerWatchlistMemberExtended.ExternalId}]");
+                    Log.LogError(
+                        $"Unable to process member with external id [{registerWatchlistMemberExtended.ExternalId}]");
                 }
             }
         }
 
-        private ActionBlock<RegisterWatchlistMemberExtended> CreateRegisterActionBlock(
-            int maxDegreeOfParallelism, List<WatchlistMemberWithRelatedData> results)
+        private (TransformBlock<RegisterWatchlistMemberExtended, WatchlistMemberWithRelatedData> sourceBlock,
+            ActionBlock<WatchlistMemberWithRelatedData> destinationBlock) CreateProcessingBlocks(
+                int maxDegreeOfParallelism)
         {
-            var actionBlock = new ActionBlock<RegisterWatchlistMemberExtended>(
+            var transformBlock = new TransformBlock<RegisterWatchlistMemberExtended, WatchlistMemberWithRelatedData>(
                 async data =>
                 {
                     try
                     {
-                        var newMember = await RegisterWatchlistMemberAsync(data);
-                        lock (results)
-                        {
-                            results.Add(newMember);
-                        }
+                        return await RegisterWatchlistMemberAsync(data);
                     }
                     catch (Exception e)
                     {
                         Log.LogError($"Register member with externalId [{data.ExternalId}] failed", e);
+                        return null;
                     }
                 },
                 new ExecutionDataflowBlockOptions
                 {
                     EnsureOrdered = true,
                     MaxDegreeOfParallelism = maxDegreeOfParallelism
+
                 });
-            return actionBlock;
+
+            var actionBlock = new ActionBlock<WatchlistMemberWithRelatedData>(
+                data => Log.LogInformation(JsonConvert.SerializeObject(data, Formatting.Indented)),
+                new ExecutionDataflowBlockOptions
+                {
+                    MaxDegreeOfParallelism = 1
+                });
+
+            transformBlock.LinkTo(actionBlock, new DataflowLinkOptions
+            {
+                PropagateCompletion = true
+            });
+
+            return (transformBlock, actionBlock);
         }
     }
 }
