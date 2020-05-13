@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
+using Newtonsoft.Json;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.WatchlistMember;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
@@ -39,7 +40,11 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
                 PhotoFiles = Photos,
                 WatchlistExternalIds = WatchlistExternalIds
             };
-            await _registrationManager.RegisterWatchlistMemberAsync(data);
+            var result = await _registrationManager.RegisterWatchlistMemberAsync(data);
+
+            var resultOutput = JsonConvert.SerializeObject(result, Formatting.Indented);
+            console.WriteLine(resultOutput);
+
             return Constants.EXIT_CODE_OK;
         }
 

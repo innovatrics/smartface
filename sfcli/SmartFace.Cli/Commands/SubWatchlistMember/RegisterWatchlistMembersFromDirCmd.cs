@@ -1,6 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using ManagementApi;
 using McMaster.Extensions.CommandLineUtils;
+using Newtonsoft.Json;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.WatchlistMember;
 
@@ -42,14 +45,19 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
 
         protected virtual async Task<int> OnExecuteAsync(CommandLineApplication app, IConsole console)
         {
+            List<WatchlistMemberWithRelatedData> results;
             if (UseMetaDataFile)
             {
-                await _registrationManager.RegisterWatchlistMembersExtendedFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                results = await _registrationManager.RegisterWatchlistMembersExtendedFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
             else
             {
-                await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                results = await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
             }
+
+            var resultOutput = JsonConvert.SerializeObject(results, Formatting.Indented);
+            console.WriteLine(resultOutput);
+
             return Constants.EXIT_CODE_OK;
         }
     }

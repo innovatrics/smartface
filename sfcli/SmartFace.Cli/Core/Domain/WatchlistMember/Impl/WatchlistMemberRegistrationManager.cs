@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
+using ManagementApi;
 using Microsoft.Extensions.Logging;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.ApiAbstraction;
@@ -30,7 +31,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             Loader = loader;
         }
 
-        public async Task RegisterWatchlistMemberAsync(RegisterWatchlistMemberExtended registerWatchlistMemberExtended)
+        public async Task<WatchlistMemberWithRelatedData> RegisterWatchlistMemberAsync(RegisterWatchlistMemberExtended registerWatchlistMemberExtended)
         {
             var data = new RegisterWatchlistMemberData
             {
@@ -47,11 +48,13 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 MIME = pathToPhotoFile.ToLower().EndsWith($".{Constants.PNG}") ? Constants.PNG_MIME_TYPE : Constants.JPEG_MIME_TYPE
             }));
 
-            await Repository.RegisterAsync(data);
+            var result = await Repository.RegisterAsync(data);
             Log.LogInformation($"WatchlistMember registered. [{data.ExternalId}]");
+
+            return result;
         }
 
-        public Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistExternalIds,
+        public async Task<List<WatchlistMemberWithRelatedData>> RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistExternalIds,
             int maxDegreeOfParallelism)
         {
             if (!Directory.Exists(directory))
@@ -76,14 +79,17 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 extendedData.Add(registerWatchlistMemberExtended);
             }
 
-            var actionBlock = CreateRegisterActionBlock(maxDegreeOfParallelism);
+            var results = new List<WatchlistMemberWithRelatedData>();
+
+            var actionBlock = CreateRegisterActionBlock(maxDegreeOfParallelism, results);
 
             PostDataToActionBlock(extendedData, actionBlock);
 
-            return WaitForRegistrationCompletionAsync(actionBlock);
+            await WaitForRegistrationCompletionAsync(actionBlock);
+            return results;
         }
 
-        public Task RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistExternalIds,
+        public async Task<List<WatchlistMemberWithRelatedData>> RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistExternalIds,
             int maxDegreeOfParallelism)
         {
             var extendedData = Loader.GetRegisterWatchlistMemberExtendedData(directory);
@@ -91,11 +97,14 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 
             Directory.SetCurrentDirectory(directory);
 
-            var actionBlock = CreateRegisterActionBlock(maxDegreeOfParallelism);
+            var results = new List<WatchlistMemberWithRelatedData>();
+
+            var actionBlock = CreateRegisterActionBlock(maxDegreeOfParallelism, results);
 
             PostDataToActionBlock(extendedData, actionBlock);
 
-            return WaitForRegistrationCompletionAsync(actionBlock);
+            await WaitForRegistrationCompletionAsync(actionBlock);
+            return results;
         }
 
         private static IEnumerable<IGrouping<string, PhotoWithExternalId>> GetPhotosGroupedByExternalId(string directory)
@@ -150,13 +159,19 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             }
         }
 
-        private ActionBlock<RegisterWatchlistMemberExtended> CreateRegisterActionBlock(int maxDegreeOfParallelism)
+        private ActionBlock<RegisterWatchlistMemberExtended> CreateRegisterActionBlock(
+            int maxDegreeOfParallelism, List<WatchlistMemberWithRelatedData> results)
         {
-            var actionBlock = new ActionBlock<RegisterWatchlistMemberExtended>(async data =>
+            var actionBlock = new ActionBlock<RegisterWatchlistMemberExtended>(
+                async data =>
                 {
                     try
                     {
-                        await RegisterWatchlistMemberAsync(data);
+                        var newMember = await RegisterWatchlistMemberAsync(data);
+                        lock (results)
+                        {
+                            results.Add(newMember);
+                        }
                     }
                     catch (Exception e)
                     {

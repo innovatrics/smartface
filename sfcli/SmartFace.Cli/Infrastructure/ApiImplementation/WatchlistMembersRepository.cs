@@ -21,7 +21,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             _watchlistMembersClient = new WatchlistMembersClient(apiDefinition.ApiUrl, _httpClient);
         }
 
-        public async Task RegisterAsync(RegisterWatchlistMemberData data)
+        public async Task<WatchlistMemberWithRelatedData> RegisterAsync(RegisterWatchlistMemberData data)
         {
             RegisterWlMemberData payload = new RegisterWlMemberData
             {
@@ -36,10 +36,11 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
             var watchlistMember = await _watchlistMembersClient.RegisterAsync(payload);
 
-            await UpdateExtendedDataAsync(data, watchlistMember);
+            return await UpdateExtendedDataAsync(data, watchlistMember);
         }
 
-        private Task UpdateExtendedDataAsync(RegisterWatchlistMemberData data, WatchlistMemberWithRelatedData newMember)
+        private async Task<WatchlistMemberWithRelatedData> UpdateExtendedDataAsync(RegisterWatchlistMemberData data,
+            WatchlistMemberWithRelatedData newMember)
         {
             if (!string.IsNullOrEmpty(data.DisplayName) ||
                 !string.IsNullOrEmpty(data.FullName) ||
@@ -55,10 +56,14 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                     Note = data.Note
                 };
 
-                return _v1Client.WatchlistMembersPutAsync(payload);
+                var updatedWatchlistMember = await _v1Client.WatchlistMembersPutAsync(payload);
+
+                newMember.DisplayName = updatedWatchlistMember.DisplayName;
+                newMember.FullName = updatedWatchlistMember.FullName;
+                newMember.Note = updatedWatchlistMember.Note;
             }
 
-            return Task.CompletedTask;
+            return newMember;
         }
 
         public void Dispose()
