@@ -23,10 +23,14 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         public async Task<Camera> CreateCameraAsync(CameraRequestData cameraRequestData)
         {
-            if (cameraRequestData.Enabled.HasValue && cameraRequestData.Enabled.Value && string.IsNullOrEmpty(cameraRequestData.Source))
+            if (string.IsNullOrEmpty(cameraRequestData.Source))
             {
-                throw new ProcessingException(
-                    $"Unable to enable {nameof(CameraRequestData)}, {nameof(cameraRequestData.Source)} is empty");
+                throw new ArgumentNullException(nameof(cameraRequestData.Source));
+            }
+
+            if (string.IsNullOrEmpty(cameraRequestData.Name))
+            {
+                throw new ArgumentNullException(nameof(cameraRequestData.Name));
             }
 
             var emptyCamera = new Camera
