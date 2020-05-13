@@ -20,6 +20,9 @@ namespace SmartFace.Cli.Commands
             set => _host = value;
         }
 
+        [Option("--protocol",
+            "Protocol under which to communicate with SmartFace APIs (e.g. \"http\" or \"https\"). Defaults to \"http\".",
+            CommandOptionType.SingleValue)]
         public string Protocol { get; set; } = "http";
 
         [Option("-rp|--restPort",

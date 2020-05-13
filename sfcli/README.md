@@ -10,7 +10,7 @@ sfcli command [subcommand] [option1, option2, ...]
 ```
 
 ##### Example:
-Command "camera" with subcommand "get" with no options
+Command `camera` with subcommand `get` with no options
 ```
  sfcli camera get 
 ```
@@ -33,7 +33,7 @@ sfcli camera get -s 2976ac85-f570-4bec-9561-ce5b2ec1d234
 
 ##### HTTP
 
-Target HTTP API location can be defined by "--host" option. Default value is "localhost".
+Target HTTP API location can be defined by `--host` option. Default value is `localhost`.
 
 ```sh
 $ sfcli --host localhost
@@ -45,14 +45,17 @@ Example camera command with defined host option:
 $ sfcli --host localhost camera get
 ```
 
-Default port for OData API is 8099, and for REST API is 8098. To change these ports, set the "-op|--odataPort" or "-rp|--restPort" respectively.
-The final Api address is constructed as "http://{host}:{port}".
+Default port for OData API is 8099, and for REST API is 8098. To change these ports, set the `--odataPort` or `--restPort` respectively.
 
-The host can overridden by setting "sfcli_host" environment variable.
+Default protocol used for communicating with APIs is `http`. To change the protocol, set the `--protocol` option.
+
+The final Api address is constructed as `{protocol}://{host}:{port}`.
+
+The host can overridden by setting `sfcli_host` environment variable.
 
 ##### ZeroMQ
 Smartface notifications are published via ZeroMQ, sfcli utility uses non configurable default smartface port 2406. 
-For more info about notifications please see command "notifications".
+For more info about notifications please see command `notifications`.
 
 ### Commands
 
@@ -134,9 +137,9 @@ This command will register multiple watchlist members from directory with photos
 Example file name "ext123.jpeg". 
 
 ###### Option --metaDataFile
-If you need to fill additional data to watchlist member like FullName, DisplayName or Note then use option -m. 
+If you need to fill additional data to watchlist member like FullName, DisplayName or Note then use option `-m`. 
 WatchlistMember will be registred from json file which contains array of objects, where each object represents data for watchlist member.
-This json file is expected to be in specified directory (option --dirToPhotos). Name of json file is irrelevant. 
+This json file is expected to be in specified directory (option `--dirToPhotos`). Name of json file is irrelevant. 
 
 ```
 Options:
@@ -188,7 +191,7 @@ $ sfcli --host localhost camera set -e:true -s:2976ac85-f570-4bec-9561-ce5b2ec1d
 
 ##### camera add
 
-Create a camera. Name and VideoSource options are required
+Create a camera. `--name` and `--videoSource` options are required.
 
 ```
 Options:
@@ -206,7 +209,7 @@ Options:
 
 ##### camera get
 
-Read properties of a camera. If id is not provided then all cameras are listed.
+Read properties of a camera. If `--id` option is not provided then all cameras are listed.
 
 ```
 Options:
@@ -216,7 +219,7 @@ Options:
 
 ##### camera set
 
-Change properties of a camera. StreamId is required. Only filled properties will be changed on the camera.
+Change properties of a camera. `--id` is required. Only filled properties will be changed on the camera.
 
 ```
 Options:
