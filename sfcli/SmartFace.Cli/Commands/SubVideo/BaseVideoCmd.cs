@@ -20,9 +20,6 @@ namespace SmartFace.Cli.Commands.SubVideo
         
         [Option("-d|--faceDiscovery", "Time between face re-detections in milliseconds", CommandOptionType.SingleValue)]
         public (bool HasValue, long Value) FaceDiscoveryFrequence { get; }
-        
-        [Option("-p|--mjpegPreviewPort", "Port to processed stream MJPEG preview", CommandOptionType.SingleValue)]
-        public (bool HasValue, long Value) MjpegPreviewPort { get; }
 
         protected void SetBaseParameters(VideoProcessor videoProcessor)
         {
@@ -49,11 +46,6 @@ namespace SmartFace.Cli.Commands.SubVideo
             if (FaceDiscoveryFrequence.HasValue)
             {
                 videoProcessor.FaceDiscoveryFrequence = FaceDiscoveryFrequence.Value;
-            }
-
-            if (MjpegPreviewPort.HasValue)
-            {
-                videoProcessor.MjpegPreviewPort = MjpegPreviewPort.Value;
             }
         }
     }

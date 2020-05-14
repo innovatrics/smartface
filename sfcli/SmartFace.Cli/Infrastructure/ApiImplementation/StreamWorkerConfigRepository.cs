@@ -13,7 +13,6 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         private const string TrackMaxEyeDistance = "TrackMaxEyeDistance";
         private const string TrackMinEyeDistance = "TrackMinEyeDistance";
-        private const string MjpegVisualizerPort = "MJPEGPreviewPort";
         private const string FaceDiscoveryFrequence = "FaceDiscoveryFrequence";
 
         public StreamWorkerConfigRepository(Container container)
@@ -29,8 +28,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             {
                 TrackMaxEyeDistance = (long)streamConfig[TrackMaxEyeDistance],
                 TrackMinEyeDistance = (long)streamConfig[TrackMinEyeDistance],
-                FaceDiscoveryFrequence = (long)streamConfig[FaceDiscoveryFrequence],
-                MjpegPreviewPort = (long)streamConfig[MjpegVisualizerPort],
+                FaceDiscoveryFrequence = (long)streamConfig[FaceDiscoveryFrequence]
             };
         }
 
@@ -39,7 +37,6 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             SetStreamWorkerConfig(streamWorkerId, TrackMinEyeDistance, configModel.TrackMinEyeDistance);
             SetStreamWorkerConfig(streamWorkerId, TrackMaxEyeDistance, configModel.TrackMaxEyeDistance);
             SetStreamWorkerConfig(streamWorkerId, FaceDiscoveryFrequence, configModel.FaceDiscoveryFrequence);
-            SetStreamWorkerConfig(streamWorkerId, MjpegVisualizerPort, configModel.MjpegPreviewPort);
         }
         private void SetStreamWorkerConfig(long streamWorkerId, string propertyName, long? propertyValue)
         {

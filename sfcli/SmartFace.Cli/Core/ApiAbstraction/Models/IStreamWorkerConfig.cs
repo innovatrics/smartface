@@ -6,8 +6,6 @@ namespace SmartFace.Cli.Core.ApiAbstraction.Models
         
         long? TrackMaxEyeDistance { get; set; }
         
-        long? MjpegPreviewPort { get; set; }
-        
         long? FaceDiscoveryFrequence { get; set; }
     }
 }

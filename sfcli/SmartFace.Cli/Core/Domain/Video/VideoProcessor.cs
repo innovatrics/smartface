@@ -18,9 +18,7 @@ namespace SmartFace.Cli.Core.Domain.StreamProcessor
         public long? TrackMinEyeDistance { get; set; }
         
         public long? TrackMaxEyeDistance { get; set; }
-        
-        public long? MjpegPreviewPort { get; set; }
-        
+
         public long? FaceDiscoveryFrequence { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]
