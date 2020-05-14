@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
+using Newtonsoft.Json;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.WatchlistMember;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
@@ -10,7 +12,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
     [Command(Name = "register", Description = "Register single watchlist member")]
     public class RegisterWatchlistMemberCmd
     {
-        private IWatchlistMemberRegistrationManager Manager { get; }
+        private readonly IWatchlistMemberRegistrationManager _registrationManager;
 
         [Required]
         [Option("-e|--externalId", "", CommandOptionType.SingleValue)]
@@ -25,12 +27,12 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         [Option("-p|--photos <FILE>", "", CommandOptionType.MultipleValue)]
         public string[] Photos { get; set; }
 
-        public RegisterWatchlistMemberCmd(IWatchlistMemberRegistrationManager manager)
+        public RegisterWatchlistMemberCmd(IWatchlistMemberRegistrationManager registrationManager)
         {
-            Manager = manager;
+            _registrationManager = registrationManager;
         }
 
-        protected virtual int OnExecute(CommandLineApplication app, IConsole console)
+        protected virtual async Task<int> OnExecuteAsync(CommandLineApplication app, IConsole console)
         {
             var data = new RegisterWatchlistMemberExtended
             {
@@ -38,7 +40,11 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
                 PhotoFiles = Photos,
                 WatchlistExternalIds = WatchlistExternalIds
             };
-            Manager.RegisterWatchlistMember(data);
+            var result = await _registrationManager.RegisterWatchlistMemberAsync(data);
+
+            var resultOutput = JsonConvert.SerializeObject(result, Formatting.Indented);
+            console.WriteLine(resultOutput);
+
             return Constants.EXIT_CODE_OK;
         }
 

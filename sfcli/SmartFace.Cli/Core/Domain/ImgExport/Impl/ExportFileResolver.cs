@@ -43,7 +43,7 @@ namespace SmartFace.Cli.Core.Domain.ImgExport.Impl
         {
             var regex = new Regex(@"(?<=\{)[^}]*(?=\})");
             var matchCollection = regex.Matches(format);
-            var formatProperties = matchCollection.Select(mc => mc.Groups.First().Value).ToArray();
+            var formatProperties = matchCollection.Select(mc => mc.Groups.First<Group>().Value).ToArray();
             return formatProperties;
         }
 
