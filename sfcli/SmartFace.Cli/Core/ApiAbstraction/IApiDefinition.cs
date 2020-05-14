@@ -6,5 +6,6 @@ namespace SmartFace.Cli.Core.ApiAbstraction
         string Host { get; }
         string ApiUrl { get; }
         string ODataUrl { get; }
+        string OdataBaseUrl { get; }
     }
 }

@@ -55,7 +55,5 @@ namespace SmartFace.Cli.Core.Domain.ImgExport.Impl
                 Log.LogInformation("done");
             }
         }
-
-
     }
 }

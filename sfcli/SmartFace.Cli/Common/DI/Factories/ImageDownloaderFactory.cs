@@ -23,7 +23,7 @@ namespace SmartFace.Cli.Common.DI.Factories
         {
             return new ImageDownloader(
                 ServiceProvider.GetService<ILogger<ImageDownloader>>(),
-                ApiDefinition.ApiUrl, requestTimeout, destinationFolder);
+                ApiDefinition.OdataBaseUrl, requestTimeout, destinationFolder);
         }
 
         public void Release(IImageDownloader instance)

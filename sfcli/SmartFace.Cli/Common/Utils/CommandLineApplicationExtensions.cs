@@ -14,7 +14,7 @@ namespace SmartFace.Cli.Common.Utils
         {
             app.Conventions.UseConstructorInjection();
             app.Conventions.UseDefaultConventions();
-            app.ThrowOnUnexpectedArgument = false;
+            app.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
             app.DisableHelpOption();
         }
 
