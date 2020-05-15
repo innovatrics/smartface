@@ -2,19 +2,23 @@
 {
     public static class ResourceIds
     {
-        public static class TemplateGenerator
+        public class TemplateGeneratorResourceId
         {
-            public const string WILD_CPU = "WildCpu";
-            public const string WILD_GPU = "WildGpu";
+            public const string BALANCED_CPU = "balanced_cpu";
+            public const string BALANCED_GPU = "balanced_gpu";
+
+            public static readonly string Default = BALANCED_CPU;
         }
 
-        public static class FaceDetector
+        public class FaceDetectorResourceId
         {
-            public const string ACCURATE_CPU = "AccurateCpu";
-            public const string ACCURATE_GPU = "AccurateGpu";
-            public const string BALANCED_CPU = "BalancedCpu";
-            public const string BALANCED_GPU = "BalancedGpu";
-            public const string FAST = "Fast";
+            public const string FAST = "fast";
+            public const string BALANCED_CPU = "balanced_cpu";
+            public const string BALANCED_GPU = "balanced_gpu";
+            public const string ACCURATE_CPU = "accurate_cpu";
+            public const string ACCURATE_GPU = "accurate_gpu";
+
+            public static readonly string Default = FAST;
         }
     }
 }

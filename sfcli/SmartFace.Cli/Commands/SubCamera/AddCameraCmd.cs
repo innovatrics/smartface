@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
-using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 
