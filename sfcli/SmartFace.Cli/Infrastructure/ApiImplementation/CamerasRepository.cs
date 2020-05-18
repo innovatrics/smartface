@@ -66,17 +66,17 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         {
             var updatedCamera = originalCamera;
 
-            updatedCamera.Name = updateData.Name ?? updatedCamera.Name;
-            updatedCamera.Source = updateData.Source ?? updatedCamera.Source;
-            updatedCamera.Enabled = updateData.Enabled ?? updatedCamera.Enabled;
-            updatedCamera.MpeG1PreviewPort = updateData.MPEG1PreviewPort ?? updatedCamera.MpeG1PreviewPort;
-            updatedCamera.RedetectionTime = updateData.RedetectionTime ?? updatedCamera.RedetectionTime;
+            updatedCamera.Name = updateData.Name ?? originalCamera.Name;
+            updatedCamera.Source = updateData.Source ?? originalCamera.Source;
+            updatedCamera.Enabled = updateData.Enabled ?? originalCamera.Enabled;
+            updatedCamera.MpeG1PreviewPort = updateData.MPEG1PreviewPort ?? originalCamera.MpeG1PreviewPort;
+            updatedCamera.RedetectionTime = updateData.RedetectionTime ?? originalCamera.RedetectionTime;
 
-            updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? updatedCamera.FaceDetectorConfig.MaxFaceSize;
-            updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? updatedCamera.FaceDetectorConfig.MinFaceSize;
+            updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;
+            updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? originalCamera.FaceDetectorConfig.MinFaceSize;
 
-            updatedCamera.TemplateGeneratorResourceId = updateData.TemplateGeneratorResourceId;
-            updatedCamera.FaceDetectorResourceId = updateData.FaceDetectorResourceId;
+            updatedCamera.TemplateGeneratorResourceId = updateData.TemplateGeneratorResourceId ?? originalCamera.TemplateGeneratorResourceId;
+            updatedCamera.FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId;
 
             return updatedCamera;
         }
