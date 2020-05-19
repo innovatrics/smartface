@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 18. 5. 2020 15:25:09
+// Generation date: 5/19/2020 9:20:29 AM
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -6652,7 +6652,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
     }
 }
-namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Responses
+namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
 {
     /// <summary>
     /// There are no comments for PingSingle in the schema.
@@ -6915,31 +6915,31 @@ namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Responses
     public static class ExtensionMethods
     {
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.Ping as global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.PingSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping as global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.PingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.Ping> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        public static global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping> source, global::System.Collections.Generic.IDictionary<string, object> keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.PingSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.Ping as global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.PingSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping as global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.PingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.Ping> source,
+        public static global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping> source,
             int id)
         {
             global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.PingSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
     }
 }
-namespace SmartFace.ODataClient.SmartFace.WebApi.Models.Requests
+namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests
 {
     /// <summary>
     /// There are no comments for UpdateConfigValueData in the schema.
@@ -8300,7 +8300,7 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for SetConfigValues in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("SetConfigValues")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> SetConfigValues(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, global::System.Collections.Generic.ICollection<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Requests.UpdateConfigValueData> ConfigValues)
+        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> SetConfigValues(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, global::System.Collections.Generic.ICollection<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests.UpdateConfigValueData> ConfigValues)
         {
             if (!source.IsComposable)
             {
@@ -8369,17 +8369,17 @@ namespace SmartFace.ODataClient.Default
             {
                 return resolvedType;
             }
+            resolvedType = this.DefaultResolveType(typeName, "SmartFace.ODataApi.Models.Responses", "SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses");
+            if ((resolvedType != null))
+            {
+                return resolvedType;
+            }
             resolvedType = this.DefaultResolveType(typeName, "SmartFace.Domain.DataAccess.Models", "SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models");
             if ((resolvedType != null))
             {
                 return resolvedType;
             }
-            resolvedType = this.DefaultResolveType(typeName, "SmartFace.WebApi.Models.Responses", "SmartFace.ODataClient.SmartFace.WebApi.Models.Responses");
-            if ((resolvedType != null))
-            {
-                return resolvedType;
-            }
-            resolvedType = this.DefaultResolveType(typeName, "SmartFace.WebApi.Models.Requests", "SmartFace.ODataClient.SmartFace.WebApi.Models.Requests");
+            resolvedType = this.DefaultResolveType(typeName, "SmartFace.ODataApi.Models.Requests", "SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests");
             if ((resolvedType != null))
             {
                 return resolvedType;
@@ -8439,6 +8439,14 @@ namespace SmartFace.ODataClient.Default
                 }
                 return string.Concat("SmartFace.Domain.DataAccess.Models.Core.", clientType.Name);
             }
+            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses", global::System.StringComparison.Ordinal))
+            {
+                if (originalNameAttribute != null)
+                {
+                    return string.Concat("SmartFace.ODataApi.Models.Responses.", originalNameAttribute.OriginalName);
+                }
+                return string.Concat("SmartFace.ODataApi.Models.Responses.", clientType.Name);
+            }
             if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
@@ -8447,21 +8455,13 @@ namespace SmartFace.ODataClient.Default
                 }
                 return string.Concat("SmartFace.Domain.DataAccess.Models.", clientType.Name);
             }
-            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.WebApi.Models.Responses", global::System.StringComparison.Ordinal))
+            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
                 {
-                    return string.Concat("SmartFace.WebApi.Models.Responses.", originalNameAttribute.OriginalName);
+                    return string.Concat("SmartFace.ODataApi.Models.Requests.", originalNameAttribute.OriginalName);
                 }
-                return string.Concat("SmartFace.WebApi.Models.Responses.", clientType.Name);
-            }
-            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.WebApi.Models.Requests", global::System.StringComparison.Ordinal))
-            {
-                if (originalNameAttribute != null)
-                {
-                    return string.Concat("SmartFace.WebApi.Models.Requests.", originalNameAttribute.OriginalName);
-                }
-                return string.Concat("SmartFace.WebApi.Models.Requests.", clientType.Name);
+                return string.Concat("SmartFace.ODataApi.Models.Requests.", clientType.Name);
             }
             if (clientType.Namespace.Equals("SmartFace.ODataClient.Microsoft.AspNetCore.Mvc", global::System.StringComparison.Ordinal))
             {
@@ -8628,19 +8628,19 @@ namespace SmartFace.ODataClient.Default
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Ping")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.Ping> Ping
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping> Ping
         {
             get
             {
                 if ((this._Ping == null))
                 {
-                    this._Ping = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.Ping>("Ping");
+                    this._Ping = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping>("Ping");
                 }
                 return this._Ping;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.Ping> _Ping;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping> _Ping;
         /// <summary>
         /// There are no comments for Configs in the schema.
         /// </summary>
@@ -8845,7 +8845,7 @@ namespace SmartFace.ODataClient.Default
         /// There are no comments for Ping in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public virtual void AddToPing(global::SmartFace.ODataClient.SmartFace.WebApi.Models.Responses.Ping ping)
+        public virtual void AddToPing(global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping ping)
         {
             base.AddObject("Ping", ping);
         }
@@ -8920,7 +8920,7 @@ namespace SmartFace.ODataClient.Default
             private static global::Microsoft.OData.Edm.IEdmModel ParsedModel = LoadModelFromString();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-            private const string filePath = @"Csdl.xml";
+            private const string filePath = @"SmartFaceProxyCsdl.xml";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
             public static global::Microsoft.OData.Edm.IEdmModel GetInstance()
