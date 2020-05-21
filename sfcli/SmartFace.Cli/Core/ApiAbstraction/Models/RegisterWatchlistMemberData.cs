@@ -6,8 +6,6 @@ namespace SmartFace.Cli.Core.ApiAbstraction.Models
     public class RegisterWatchlistMemberImageData
     {
         public byte[] Data { get; set; }
-
-        public string MIME { get; set; }
     }
 
     public class RegisterWatchlistMemberData

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 5/21/2020 9:02:05 AM
+// Generation date: 5/21/2020 9:17:11 AM
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>

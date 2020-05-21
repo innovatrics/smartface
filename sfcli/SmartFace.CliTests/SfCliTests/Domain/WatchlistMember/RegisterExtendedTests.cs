@@ -50,7 +50,6 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             Assert.Equal("120", registered.ExternalId);
             Assert.Single(registered.ImageData);
             var imageData = registered.ImageData.Single();
-            Assert.Equal(Constants.JPEG_MIME_TYPE, imageData.MIME);
             Assert.Equal("relativePhoto.jpeg", Encoding.UTF8.GetString(imageData.Data));
         }
 
@@ -69,7 +68,6 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             Assert.Equal("120", registered.ExternalId);
             Assert.Single(registered.ImageData);
             var imageData = registered.ImageData.Single();
-            Assert.Equal(Constants.JPEG_MIME_TYPE, imageData.MIME);
             Assert.Equal("absolutePhoto.jpeg", Encoding.UTF8.GetString(imageData.Data));
         }
 

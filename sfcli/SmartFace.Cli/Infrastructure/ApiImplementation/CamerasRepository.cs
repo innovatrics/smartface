@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using ManagementApi;
-using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
-using SmartFace.Cli.Core.Domain;
 
 namespace SmartFace.Cli.Infrastructure.ApiImplementation
 {
@@ -68,53 +66,19 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         {
             var updatedCamera = originalCamera;
 
-            updatedCamera.Name = updateData.Name ?? updatedCamera.Name;
-            updatedCamera.Source = updateData.Source ?? updatedCamera.Source;
-            updatedCamera.Enabled = updateData.Enabled ?? updatedCamera.Enabled;
-            updatedCamera.MpeG1PreviewPort = updateData.MPEG1PreviewPort ?? updatedCamera.MpeG1PreviewPort;
-            updatedCamera.RedetectionTime = updateData.RedetectionTime ?? updatedCamera.RedetectionTime;
+            updatedCamera.Name = updateData.Name ?? originalCamera.Name;
+            updatedCamera.Source = updateData.Source ?? originalCamera.Source;
+            updatedCamera.Enabled = updateData.Enabled ?? originalCamera.Enabled;
+            updatedCamera.MpeG1PreviewPort = updateData.MPEG1PreviewPort ?? originalCamera.MpeG1PreviewPort;
+            updatedCamera.RedetectionTime = updateData.RedetectionTime ?? originalCamera.RedetectionTime;
 
-            updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? updatedCamera.FaceDetectorConfig.MaxFaceSize;
-            updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? updatedCamera.FaceDetectorConfig.MinFaceSize;
+            updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;
+            updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? originalCamera.FaceDetectorConfig.MinFaceSize;
 
-            //TODO when the API takes the resources as string, maybe just forward them, no mapping needed
-            updatedCamera.TemplateGeneratorResourceId = MapTemplateResourceId(updateData.TemplateGeneratorResourceId) ?? updatedCamera.TemplateGeneratorResourceId;
-            updatedCamera.FaceDetectorResourceId = MapFaceDetectorResourceId(updateData.FaceDetectorResourceId) ?? updatedCamera.FaceDetectorResourceId;
+            updatedCamera.TemplateGeneratorResourceId = updateData.TemplateGeneratorResourceId ?? originalCamera.TemplateGeneratorResourceId;
+            updatedCamera.FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId;
 
             return updatedCamera;
-        }
-
-        private static FaceDetectorResource? MapFaceDetectorResourceId(string resourceId)
-        {
-            if (string.IsNullOrEmpty(resourceId))
-            {
-                return null;
-            }
-
-            return resourceId switch
-            {
-                ResourceIds.FaceDetector.ACCURATE_CPU => FaceDetectorResource.AccurateCpu,
-                ResourceIds.FaceDetector.ACCURATE_GPU => FaceDetectorResource.AccurateGpu,
-                ResourceIds.FaceDetector.BALANCED_CPU => FaceDetectorResource.BalancedCpu,
-                ResourceIds.FaceDetector.BALANCED_GPU => FaceDetectorResource.BalancedGpu,
-                ResourceIds.FaceDetector.FAST => FaceDetectorResource.Fast,
-                _ => throw new ProcessingException($"{resourceId} is not a valid {nameof(ResourceIds.FaceDetector)} resource")
-            };
-        }
-
-        private static TemplateGeneratorResource? MapTemplateResourceId(string resourceId)
-        {
-            if (string.IsNullOrEmpty(resourceId))
-            {
-                return null;
-            }
-
-            return resourceId switch
-            {
-                ResourceIds.TemplateGenerator.WILD_CPU => TemplateGeneratorResource.WildCpu,
-                ResourceIds.TemplateGenerator.WILD_GPU => TemplateGeneratorResource.WildGpu,
-                _ => throw new ProcessingException($"{resourceId} is not a valid {nameof(ResourceIds.TemplateGenerator)} resource")
-            };
         }
 
         public void Dispose()
