@@ -20,10 +20,10 @@ namespace SmartFace.Cli.Commands.SubCamera
         [Option("-p|--mpeg1PreviewPort", "Port to processed stream MPEG1 preview", CommandOptionType.SingleValue)]
         public (bool HasValue, int Value) MPEG1PreviewPort { get; }
 
-        [Option("-tg|--templateGeneratorResource", "Template generator resource id for the camera", CommandOptionType.SingleValue)]
+        [Option("-tg|--templateGeneratorResourceId", "Template generator resource id for the camera", CommandOptionType.SingleValue)]
         public (bool HasValue, string Value) TemplateGeneratorResourceId { get; }
 
-        [Option("-fd|--faceDetectorResource", "Face detector resource for the camera", CommandOptionType.SingleValue)]
+        [Option("-fd|--faceDetectorResourceId", "Face detector resource id for the camera", CommandOptionType.SingleValue)]
         public (bool HasValue, string Value) FaceDetectorResourceId { get; }
 
         public abstract (bool HasValue, string Value) Name { get; }

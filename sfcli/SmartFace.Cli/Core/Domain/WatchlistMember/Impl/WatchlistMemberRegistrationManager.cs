@@ -45,8 +45,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 
             registerWatchlistMemberExtended.PhotoFiles.ToList().ForEach(pathToPhotoFile => data.ImageData.Add(new RegisterWatchlistMemberImageData
             {
-                Data = File.ReadAllBytes(pathToPhotoFile),
-                MIME = pathToPhotoFile.ToLower().EndsWith($".{Constants.PNG}") ? Constants.PNG_MIME_TYPE : Constants.JPEG_MIME_TYPE
+                Data = File.ReadAllBytes(pathToPhotoFile)
             }));
 
             var result = await Repository.RegisterAsync(data);

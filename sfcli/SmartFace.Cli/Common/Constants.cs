@@ -13,7 +13,5 @@ namespace SmartFace.Cli.Common
         public const string JPEG = "jpeg";
         public const string JPG = "jpg";
         public const string PNG = "png";
-        public const string JPEG_MIME_TYPE = "image/" + JPEG;
-        public const string PNG_MIME_TYPE = "image/" + PNG;
     }
 }

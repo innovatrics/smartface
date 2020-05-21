@@ -23,12 +23,11 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         public async Task<WatchlistMemberWithRelatedData> RegisterAsync(RegisterWatchlistMemberData data)
         {
-            RegisterWlMemberData payload = new RegisterWlMemberData
+            var payload = new RegisterWlMemberData
             {
                 ImageData = data.ImageData.Select(imgData => new ImageData
                 {
-                    Data = imgData.Data,
-                    Mime = imgData.MIME
+                    Data = imgData.Data
                 }).ToList(),
                 WatchlistExternalIds = data.WatchlistExternalIds,
                 ExternalId = data.ExternalId
