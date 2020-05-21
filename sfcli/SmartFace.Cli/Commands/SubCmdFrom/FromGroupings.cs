@@ -5,9 +5,9 @@ using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 namespace SmartFace.Cli.Commands.SubCmdFrom
 {
     [Command(Name = "groupings", Description = "Query Camera entities")]
-    public class FromGroupings : From<Grouping>
+    public class FromGroupings : From<GroupingMetadata>
     {
-        public FromGroupings(IQueryDataSelector<Grouping> selector) : base(selector)
+        public FromGroupings(IQueryDataSelector<GroupingMetadata> selector) : base(selector)
         {
         }
     }

@@ -14,7 +14,7 @@ namespace SmartFace.Cli.Commands
                               + ZeroMqNotificationTopic.FACE_CREATED + ", "
                               + ZeroMqNotificationTopic.FACE_EXTRACTED + ", "
                               + ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO + ", "
-                              + ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE + ", "
+                              + ZeroMqNotificationTopic.VIDEO_RECORD_STATE_UPDATE + ", "
                               + ZeroMqNotificationTopic.TRACKLET_COMPLETED + ", "
                               + ZeroMqNotificationTopic.MATCH_RESULT_MATCH + ", "
                               + ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH + ", "
@@ -26,7 +26,7 @@ namespace SmartFace.Cli.Commands
             ZeroMqNotificationTopic.FACE_CREATED,
             ZeroMqNotificationTopic.FACE_EXTRACTED,
             ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO,
-            ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE,
+            ZeroMqNotificationTopic.VIDEO_RECORD_STATE_UPDATE,
             ZeroMqNotificationTopic.TRACKLET_COMPLETED,
             ZeroMqNotificationTopic.MATCH_RESULT_MATCH,
             ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH,

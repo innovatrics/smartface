@@ -4,7 +4,7 @@
     {
         public const string FACE_CREATED = "faces.insert";
         public const string FACE_EXTRACTED = "faces.extracted";
-        public const string INPUT_FILE_STATE_UPDATE = "inputFiles.update";
+        public const string VIDEO_RECORD_STATE_UPDATE = "videoRecords.update";
         public const string TRACKLET_COMPLETED = "tracklets.completed";
         public const string GROUPING_PROGRESS_INFO = "grouping_progress.info";
         public const string MATCH_RESULT_MATCH = "matchResults.match";
