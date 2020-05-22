@@ -31,13 +31,24 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 throw new ArgumentNullException(nameof(cameraRequestData.Name));
             }
 
-            var emptyCamera = new Camera
+            var newCameraPayload = new VideoDefinitionCreateRequest
             {
-                FaceDetectorConfig = new FaceDetectorConfig()
+                Name = cameraRequestData.Name,
+                Enabled = cameraRequestData.Enabled,
+                Source = cameraRequestData.Source,
+                MpeG1PreviewPort = cameraRequestData.MPEG1PreviewPort,
+                RedetectionTime = cameraRequestData.RedetectionTime,
+
+                FaceDetectorResourceId = cameraRequestData.FaceDetectorResourceId,
+                TemplateGeneratorResourceId = cameraRequestData.TemplateGeneratorResourceId,
+
+                FaceDetectorConfig = new FaceDetectorConfigCreateRequest
+                {
+                    MaxFaceSize = cameraRequestData.TrackMaxFaceSize,
+                    MinFaceSize = cameraRequestData.TrackMinFaceSize
+                }
             };
 
-            var newCameraPayload = UpdateCameraData(emptyCamera, cameraRequestData);
-            
             var newCamera = await _setupClient.CamerasPostAsync(newCameraPayload);
 
             return newCamera;
