@@ -11,11 +11,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Infrastructure\ApiClient\SmartFaceProxyCsdl.xml" />
+      <None Remove="Connected Services\SmartFaceProxy\SmartFaceProxyCsdl.xml" />
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="Infrastructure\ApiClient\SmartFaceProxyCsdl.xml" />
+      <EmbeddedResource Include="Connected Services\SmartFaceProxy\SmartFaceProxyCsdl.xml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -25,6 +25,9 @@
       <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.3" />
       <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.3" />
       <PackageReference Include="Microsoft.OData.Client" Version="7.6.4" />
+      <PackageReference Include="Microsoft.OData.Core" Version="7.6.4" />
+      <PackageReference Include="Microsoft.OData.Edm" Version="7.6.4" />
+      <PackageReference Include="Microsoft.Spatial" Version="7.6.4" />
       <PackageReference Include="NetMQ" Version="4.0.0.207" />
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
       <PackageReference Include="System.Linq.Dynamic.Core" Version="1.1.0" />

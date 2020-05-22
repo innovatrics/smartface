@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 5/19/2020 9:20:29 AM
+// Generation date: 5/21/2020 9:17:11 AM
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -36,11 +36,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             : base(query) {}
 
         /// <summary>
-        /// There are no comments for Groupings in the schema.
+        /// There are no comments for GroupingMetadata in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Groupings")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> Groupings
+        [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadata")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> GroupingMetadata
         {
             get
             {
@@ -48,15 +48,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Groupings == null))
+                if ((this._GroupingMetadata == null))
                 {
-                    this._Groupings = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping>(GetPath("Groupings"));
+                    this._GroupingMetadata = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata>(GetPath("GroupingMetadata"));
                 }
-                return this._Groupings;
+                return this._GroupingMetadata;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> _Groupings;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> _GroupingMetadata;
         /// <summary>
         /// There are no comments for Tracklets in the schema.
         /// </summary>
@@ -287,28 +287,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnUpdatedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
         partial void OnUpdatedAtChanged();
         /// <summary>
-        /// There are no comments for Property Groupings in the schema.
+        /// There are no comments for Property GroupingMetadata in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Groupings")]
-        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> Groupings
+        [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadata")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> GroupingMetadata
         {
             get
             {
-                return this._Groupings;
+                return this._GroupingMetadata;
             }
             set
             {
-                this.OnGroupingsChanging(value);
-                this._Groupings = value;
-                this.OnGroupingsChanged();
-                this.OnPropertyChanged("Groupings");
+                this.OnGroupingMetadataChanging(value);
+                this._GroupingMetadata = value;
+                this.OnGroupingMetadataChanged();
+                this.OnPropertyChanged("GroupingMetadata");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> _Groupings = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnGroupingsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> value);
-        partial void OnGroupingsChanged();
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> _GroupingMetadata = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnGroupingMetadataChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> value);
+        partial void OnGroupingMetadataChanged();
         /// <summary>
         /// There are no comments for Property Tracklets in the schema.
         /// </summary>
@@ -877,27 +877,27 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
     }
     /// <summary>
-    /// There are no comments for GroupingSingle in the schema.
+    /// There are no comments for GroupingMetadataSingle in the schema.
     /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingSingle")]
-    public partial class GroupingSingle : global::Microsoft.OData.Client.DataServiceQuerySingle<Grouping>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadataSingle")]
+    public partial class GroupingMetadataSingle : global::Microsoft.OData.Client.DataServiceQuerySingle<GroupingMetadata>
     {
         /// <summary>
-        /// Initialize a new GroupingSingle object.
+        /// Initialize a new GroupingMetadataSingle object.
         /// </summary>
-        public GroupingSingle(global::Microsoft.OData.Client.DataServiceContext context, string path)
+        public GroupingMetadataSingle(global::Microsoft.OData.Client.DataServiceContext context, string path)
             : base(context, path) {}
 
         /// <summary>
-        /// Initialize a new GroupingSingle object.
+        /// Initialize a new GroupingMetadataSingle object.
         /// </summary>
-        public GroupingSingle(global::Microsoft.OData.Client.DataServiceContext context, string path, bool isComposable)
+        public GroupingMetadataSingle(global::Microsoft.OData.Client.DataServiceContext context, string path, bool isComposable)
             : base(context, path, isComposable) {}
 
         /// <summary>
-        /// Initialize a new GroupingSingle object.
+        /// Initialize a new GroupingMetadataSingle object.
         /// </summary>
-        public GroupingSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<Grouping> query)
+        public GroupingMetadataSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<GroupingMetadata> query)
             : base(query) {}
 
         /// <summary>
@@ -946,31 +946,31 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _Individuals;
     }
     /// <summary>
-    /// There are no comments for Grouping in the schema.
+    /// There are no comments for GroupingMetadata in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
     /// </KeyProperties>
     [global::Microsoft.OData.Client.Key("Id")]
-    [global::Microsoft.OData.Client.OriginalNameAttribute("Grouping")]
-    public partial class Grouping : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
+    [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadata")]
+    public partial class GroupingMetadata : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
     {
         /// <summary>
-        /// Create a new Grouping object.
+        /// Create a new GroupingMetadata object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="state">Initial value of State.</param>
         /// <param name="isDefault">Initial value of IsDefault.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static Grouping CreateGrouping(long ID, global::System.DateTimeOffset createdAt, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.GroupingState state, bool isDefault)
+        public static GroupingMetadata CreateGroupingMetadata(long ID, global::System.DateTimeOffset createdAt, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.GroupingState state, bool isDefault)
         {
-            Grouping grouping = new Grouping();
-            grouping.Id = ID;
-            grouping.CreatedAt = createdAt;
-            grouping.State = state;
-            grouping.IsDefault = isDefault;
-            return grouping;
+            GroupingMetadata groupingMetadata = new GroupingMetadata();
+            groupingMetadata.Id = ID;
+            groupingMetadata.CreatedAt = createdAt;
+            groupingMetadata.State = state;
+            groupingMetadata.IsDefault = isDefault;
+            return groupingMetadata;
         }
         /// <summary>
         /// There are no comments for Property Id in the schema.
@@ -1245,11 +1245,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             : base(query) {}
 
         /// <summary>
-        /// There are no comments for Grouping in the schema.
+        /// There are no comments for GroupingMetadata in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Grouping")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle Grouping
+        [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadata")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle GroupingMetadata
         {
             get
             {
@@ -1257,15 +1257,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Grouping == null))
+                if ((this._GroupingMetadata == null))
                 {
-                    this._Grouping = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle(this.Context, GetPath("Grouping"));
+                    this._GroupingMetadata = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle(this.Context, GetPath("GroupingMetadata"));
                 }
-                return this._Grouping;
+                return this._GroupingMetadata;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle _Grouping;
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle _GroupingMetadata;
         /// <summary>
         /// There are no comments for BestFace in the schema.
         /// </summary>
@@ -1406,28 +1406,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
-        /// There are no comments for Property GroupingId in the schema.
+        /// There are no comments for Property GroupingMetadataId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingId")]
-        public virtual global::System.Nullable<long> GroupingId
+        [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadataId")]
+        public virtual global::System.Nullable<long> GroupingMetadataId
         {
             get
             {
-                return this._GroupingId;
+                return this._GroupingMetadataId;
             }
             set
             {
-                this.OnGroupingIdChanging(value);
-                this._GroupingId = value;
-                this.OnGroupingIdChanged();
-                this.OnPropertyChanged("GroupingId");
+                this.OnGroupingMetadataIdChanging(value);
+                this._GroupingMetadataId = value;
+                this.OnGroupingMetadataIdChanged();
+                this.OnPropertyChanged("GroupingMetadataId");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<long> _GroupingId;
-        partial void OnGroupingIdChanging(global::System.Nullable<long> value);
-        partial void OnGroupingIdChanged();
+        private global::System.Nullable<long> _GroupingMetadataId;
+        partial void OnGroupingMetadataIdChanging(global::System.Nullable<long> value);
+        partial void OnGroupingMetadataIdChanged();
         /// <summary>
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
@@ -1567,28 +1567,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnBestFaceIdChanging(global::System.Guid value);
         partial void OnBestFaceIdChanged();
         /// <summary>
-        /// There are no comments for Property Grouping in the schema.
+        /// There are no comments for Property GroupingMetadata in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Grouping")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping Grouping
+        [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadata")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata GroupingMetadata
         {
             get
             {
-                return this._Grouping;
+                return this._GroupingMetadata;
             }
             set
             {
-                this.OnGroupingChanging(value);
-                this._Grouping = value;
-                this.OnGroupingChanged();
-                this.OnPropertyChanged("Grouping");
+                this.OnGroupingMetadataChanging(value);
+                this._GroupingMetadata = value;
+                this.OnGroupingMetadataChanged();
+                this.OnPropertyChanged("GroupingMetadata");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping _Grouping;
-        partial void OnGroupingChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping value);
-        partial void OnGroupingChanged();
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata _GroupingMetadata;
+        partial void OnGroupingMetadataChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata value);
+        partial void OnGroupingMetadataChanged();
         /// <summary>
         /// There are no comments for Property BestFace in the schema.
         /// </summary>
@@ -3285,11 +3285,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> _Faces;
         /// <summary>
-        /// There are no comments for InputFiles in the schema.
+        /// There are no comments for VideoRecords in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("InputFiles")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> InputFiles
+        [global::Microsoft.OData.Client.OriginalNameAttribute("VideoRecords")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> VideoRecords
         {
             get
             {
@@ -3297,15 +3297,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._InputFiles == null))
+                if ((this._VideoRecords == null))
                 {
-                    this._InputFiles = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile>(GetPath("InputFiles"));
+                    this._VideoRecords = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord>(GetPath("VideoRecords"));
                 }
-                return this._InputFiles;
+                return this._VideoRecords;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> _InputFiles;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> _VideoRecords;
         /// <summary>
         /// There are no comments for Tracklets in the schema.
         /// </summary>
@@ -3606,28 +3606,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnFacesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> value);
         partial void OnFacesChanged();
         /// <summary>
-        /// There are no comments for Property InputFiles in the schema.
+        /// There are no comments for Property VideoRecords in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("InputFiles")]
-        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> InputFiles
+        [global::Microsoft.OData.Client.OriginalNameAttribute("VideoRecords")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> VideoRecords
         {
             get
             {
-                return this._InputFiles;
+                return this._VideoRecords;
             }
             set
             {
-                this.OnInputFilesChanging(value);
-                this._InputFiles = value;
-                this.OnInputFilesChanged();
-                this.OnPropertyChanged("InputFiles");
+                this.OnVideoRecordsChanging(value);
+                this._VideoRecords = value;
+                this.OnVideoRecordsChanged();
+                this.OnPropertyChanged("VideoRecords");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> _InputFiles = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnInputFilesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> value);
-        partial void OnInputFilesChanged();
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> _VideoRecords = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnVideoRecordsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> value);
+        partial void OnVideoRecordsChanged();
         /// <summary>
         /// There are no comments for Property Tracklets in the schema.
         /// </summary>
@@ -4510,7 +4510,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="videoPublishWorkerId">Initial value of VideoPublishWorkerId.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static Camera CreateCamera(long ID, long streamWorkerId, long videoPublishWorkerId, global::System.DateTimeOffset createdAt)
+        public static Camera CreateCamera(global::System.Guid ID, long streamWorkerId, long videoPublishWorkerId, global::System.DateTimeOffset createdAt)
         {
             Camera camera = new Camera();
             camera.Id = ID;
@@ -4524,7 +4524,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public virtual long Id
+        public virtual global::System.Guid Id
         {
             get
             {
@@ -4539,8 +4539,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property StreamId in the schema.
@@ -4745,27 +4745,27 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
     }
     /// <summary>
-    /// There are no comments for InputFileSingle in the schema.
+    /// There are no comments for VideoRecordSingle in the schema.
     /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("InputFileSingle")]
-    public partial class InputFileSingle : global::Microsoft.OData.Client.DataServiceQuerySingle<InputFile>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("VideoRecordSingle")]
+    public partial class VideoRecordSingle : global::Microsoft.OData.Client.DataServiceQuerySingle<VideoRecord>
     {
         /// <summary>
-        /// Initialize a new InputFileSingle object.
+        /// Initialize a new VideoRecordSingle object.
         /// </summary>
-        public InputFileSingle(global::Microsoft.OData.Client.DataServiceContext context, string path)
+        public VideoRecordSingle(global::Microsoft.OData.Client.DataServiceContext context, string path)
             : base(context, path) {}
 
         /// <summary>
-        /// Initialize a new InputFileSingle object.
+        /// Initialize a new VideoRecordSingle object.
         /// </summary>
-        public InputFileSingle(global::Microsoft.OData.Client.DataServiceContext context, string path, bool isComposable)
+        public VideoRecordSingle(global::Microsoft.OData.Client.DataServiceContext context, string path, bool isComposable)
             : base(context, path, isComposable) {}
 
         /// <summary>
-        /// Initialize a new InputFileSingle object.
+        /// Initialize a new VideoRecordSingle object.
         /// </summary>
-        public InputFileSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<InputFile> query)
+        public VideoRecordSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<VideoRecord> query)
             : base(query) {}
 
         /// <summary>
@@ -4836,17 +4836,17 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle _Stream;
     }
     /// <summary>
-    /// There are no comments for InputFile in the schema.
+    /// There are no comments for VideoRecord in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
     /// </KeyProperties>
     [global::Microsoft.OData.Client.Key("Id")]
-    [global::Microsoft.OData.Client.OriginalNameAttribute("InputFile")]
-    public partial class InputFile : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
+    [global::Microsoft.OData.Client.OriginalNameAttribute("VideoRecord")]
+    public partial class VideoRecord : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
     {
         /// <summary>
-        /// Create a new InputFile object.
+        /// Create a new VideoRecord object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="streamWorkerId">Initial value of StreamWorkerId.</param>
@@ -4854,22 +4854,22 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="state">Initial value of State.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static InputFile CreateInputFile(long ID, long streamWorkerId, long videoPublishWorkerId, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState state, global::System.DateTimeOffset createdAt)
+        public static VideoRecord CreateVideoRecord(global::System.Guid ID, long streamWorkerId, long videoPublishWorkerId, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState state, global::System.DateTimeOffset createdAt)
         {
-            InputFile inputFile = new InputFile();
-            inputFile.Id = ID;
-            inputFile.StreamWorkerId = streamWorkerId;
-            inputFile.VideoPublishWorkerId = videoPublishWorkerId;
-            inputFile.State = state;
-            inputFile.CreatedAt = createdAt;
-            return inputFile;
+            VideoRecord videoRecord = new VideoRecord();
+            videoRecord.Id = ID;
+            videoRecord.StreamWorkerId = streamWorkerId;
+            videoRecord.VideoPublishWorkerId = videoPublishWorkerId;
+            videoRecord.State = state;
+            videoRecord.CreatedAt = createdAt;
+            return videoRecord;
         }
         /// <summary>
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public virtual long Id
+        public virtual global::System.Guid Id
         {
             get
             {
@@ -4884,8 +4884,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private long _Id;
-        partial void OnIdChanging(long value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property StreamId in the schema.
@@ -6349,27 +6349,27 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> source, global::System.Collections.Generic.IDictionary<string, object> keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> source,
             long id)
         {
             global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle specified by key from an entity set
@@ -6550,7 +6550,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera> source,
-            long id)
+            global::System.Guid id)
         {
             global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6559,27 +6559,27 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFileSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFileSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> source, global::System.Collections.Generic.IDictionary<string, object> keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFileSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFileSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFileSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> source,
-            long id)
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> source,
+            global::System.Guid id)
         {
             global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFileSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle specified by key from an entity set
@@ -8534,23 +8534,23 @@ namespace SmartFace.ODataClient.Default
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames;
         /// <summary>
-        /// There are no comments for Groupings in the schema.
+        /// There are no comments for GroupingMetadata in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Groupings")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> Groupings
+        [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadata")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> GroupingMetadata
         {
             get
             {
-                if ((this._Groupings == null))
+                if ((this._GroupingMetadata == null))
                 {
-                    this._Groupings = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping>("Groupings");
+                    this._GroupingMetadata = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata>("GroupingMetadata");
                 }
-                return this._Groupings;
+                return this._GroupingMetadata;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping> _Groupings;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> _GroupingMetadata;
         /// <summary>
         /// There are no comments for Individuals in the schema.
         /// </summary>
@@ -8714,23 +8714,23 @@ namespace SmartFace.ODataClient.Default
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera> _Cameras;
         /// <summary>
-        /// There are no comments for InputFiles in the schema.
+        /// There are no comments for VideoRecords in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("InputFiles")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> InputFiles
+        [global::Microsoft.OData.Client.OriginalNameAttribute("VideoRecords")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> VideoRecords
         {
             get
             {
-                if ((this._InputFiles == null))
+                if ((this._VideoRecords == null))
                 {
-                    this._InputFiles = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile>("InputFiles");
+                    this._VideoRecords = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord>("VideoRecords");
                 }
-                return this._InputFiles;
+                return this._VideoRecords;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile> _InputFiles;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> _VideoRecords;
         /// <summary>
         /// There are no comments for Watchlists in the schema.
         /// </summary>
@@ -8802,12 +8802,12 @@ namespace SmartFace.ODataClient.Default
             base.AddObject("Frames", frame);
         }
         /// <summary>
-        /// There are no comments for Groupings in the schema.
+        /// There are no comments for GroupingMetadata in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public virtual void AddToGroupings(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Grouping grouping)
+        public virtual void AddToGroupingMetadata(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata groupingMetadata)
         {
-            base.AddObject("Groupings", grouping);
+            base.AddObject("GroupingMetadata", groupingMetadata);
         }
         /// <summary>
         /// There are no comments for Individuals in the schema.
@@ -8882,12 +8882,12 @@ namespace SmartFace.ODataClient.Default
             base.AddObject("Cameras", camera);
         }
         /// <summary>
-        /// There are no comments for InputFiles in the schema.
+        /// There are no comments for VideoRecords in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public virtual void AddToInputFiles(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.InputFile inputFile)
+        public virtual void AddToVideoRecords(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord videoRecord)
         {
-            base.AddObject("InputFiles", inputFile);
+            base.AddObject("VideoRecords", videoRecord);
         }
         /// <summary>
         /// There are no comments for Watchlists in the schema.

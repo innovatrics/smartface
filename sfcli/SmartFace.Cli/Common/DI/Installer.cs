@@ -57,7 +57,7 @@ namespace SmartFace.Cli.Common.DI
                 .AddSingleton<IExportFileResolverFactory, ExportFileResolverFactory>()
                 .AddTransient<IQueryDataSelector<Face>, FaceODataSelector>()
                 .AddTransient<IQueryDataSelector<Camera>, CameraODataSelector>()
-                .AddTransient<IQueryDataSelector<Grouping>, GroupingODataSelector>()
+                .AddTransient<IQueryDataSelector<GroupingMetadata>, GroupingODataSelector>()
                 .AddTransient<IQueryDataSelector<Individual>, IndividualODataSelector>()
                 .AddTransient<IQueryDataSelector<Frame>, FrameODataSelector>()
                 .AddTransient<IQueryDataSelector<Scope>, ScopeODataSelector>()
