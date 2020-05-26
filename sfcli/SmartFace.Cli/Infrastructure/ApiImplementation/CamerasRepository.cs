@@ -31,7 +31,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 throw new ArgumentNullException(nameof(cameraRequestData.Name));
             }
 
-            var newCameraPayload = new VideoDefinitionCreateRequest
+            var newCameraPayload = new CameraCreateRequest
             {
                 Name = cameraRequestData.Name,
                 Enabled = cameraRequestData.Enabled,
