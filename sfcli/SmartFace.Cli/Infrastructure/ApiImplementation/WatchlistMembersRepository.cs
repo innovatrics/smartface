@@ -23,7 +23,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         public async Task<WatchlistMemberWithRelatedData> RegisterAsync(RegisterWatchlistMemberData data)
         {
-            var payload = new RegisterWlMemberData
+            var payload = new RegisterWatchlistMemberRequest
             {
                 ImageData = data.ImageData.Select(imgData => new ImageData
                 {
@@ -45,7 +45,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 !string.IsNullOrEmpty(data.FullName) ||
                 !string.IsNullOrEmpty(data.Note))
             {
-                var payload = new WatchlistMemberUpdateData
+                var payload = new WatchlistMemberUpdateRequest
                 {
                     Id = newMember.Id,
                     ExternalId = newMember.ExternalId,

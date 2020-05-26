@@ -221,17 +221,12 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
-        <Property Name="StreamId" Type="Edm.Guid" />
-        <Property Name="StreamWorkerId" Type="Edm.Int64" Nullable="false" />
-        <Property Name="VideoPublishWorkerId" Type="Edm.Int64" Nullable="false" />
         <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState" Nullable="false" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <NavigationProperty Name="StreamWorker" Type="SmartFace.Domain.DataAccess.Models.Core.Worker" />
         <NavigationProperty Name="VideoPublishWorker" Type="SmartFace.Domain.DataAccess.Models.Core.Worker" />
-        <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream">
-          <ReferentialConstraint Property="StreamId" ReferencedProperty="Id" />
-        </NavigationProperty>
+        <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream" />
       </EntityType>
       <EntityType Name="Watchlist">
         <Key>

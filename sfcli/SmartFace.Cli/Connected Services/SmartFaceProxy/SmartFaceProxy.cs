@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 5/21/2020 9:17:11 AM
+// Generation date: 5/21/2020 9:48:58 AM
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -4849,17 +4849,13 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// Create a new VideoRecord object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="streamWorkerId">Initial value of StreamWorkerId.</param>
-        /// <param name="videoPublishWorkerId">Initial value of VideoPublishWorkerId.</param>
         /// <param name="state">Initial value of State.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static VideoRecord CreateVideoRecord(global::System.Guid ID, long streamWorkerId, long videoPublishWorkerId, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState state, global::System.DateTimeOffset createdAt)
+        public static VideoRecord CreateVideoRecord(global::System.Guid ID, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState state, global::System.DateTimeOffset createdAt)
         {
             VideoRecord videoRecord = new VideoRecord();
             videoRecord.Id = ID;
-            videoRecord.StreamWorkerId = streamWorkerId;
-            videoRecord.VideoPublishWorkerId = videoPublishWorkerId;
             videoRecord.State = state;
             videoRecord.CreatedAt = createdAt;
             return videoRecord;
@@ -4887,75 +4883,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Guid _Id;
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
-        /// <summary>
-        /// There are no comments for Property StreamId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public virtual global::System.Nullable<global::System.Guid> StreamId
-        {
-            get
-            {
-                return this._StreamId;
-            }
-            set
-            {
-                this.OnStreamIdChanging(value);
-                this._StreamId = value;
-                this.OnStreamIdChanged();
-                this.OnPropertyChanged("StreamId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<global::System.Guid> _StreamId;
-        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
-        partial void OnStreamIdChanged();
-        /// <summary>
-        /// There are no comments for Property StreamWorkerId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("StreamWorkerId")]
-        public virtual long StreamWorkerId
-        {
-            get
-            {
-                return this._StreamWorkerId;
-            }
-            set
-            {
-                this.OnStreamWorkerIdChanging(value);
-                this._StreamWorkerId = value;
-                this.OnStreamWorkerIdChanged();
-                this.OnPropertyChanged("StreamWorkerId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private long _StreamWorkerId;
-        partial void OnStreamWorkerIdChanging(long value);
-        partial void OnStreamWorkerIdChanged();
-        /// <summary>
-        /// There are no comments for Property VideoPublishWorkerId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("VideoPublishWorkerId")]
-        public virtual long VideoPublishWorkerId
-        {
-            get
-            {
-                return this._VideoPublishWorkerId;
-            }
-            set
-            {
-                this.OnVideoPublishWorkerIdChanging(value);
-                this._VideoPublishWorkerId = value;
-                this.OnVideoPublishWorkerIdChanged();
-                this.OnPropertyChanged("VideoPublishWorkerId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private long _VideoPublishWorkerId;
-        partial void OnVideoPublishWorkerIdChanging(long value);
-        partial void OnVideoPublishWorkerIdChanged();
         /// <summary>
         /// There are no comments for Property State in the schema.
         /// </summary>
