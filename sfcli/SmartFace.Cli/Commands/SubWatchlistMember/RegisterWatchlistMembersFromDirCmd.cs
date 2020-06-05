@@ -6,14 +6,14 @@ using SmartFace.Cli.Core.Domain.WatchlistMember;
 
 namespace SmartFace.Cli.Commands.SubWatchlistMember
 {
-    [Command(Name = "registerFromDir", Description = "Register WatchlistMember entities from photos in directory in format {watchlistmember_externalId}.(jpeg|jpg|png) ")]
+    [Command(Name = "registerFromDir", Description = "Register WatchlistMember entities from photos in directory in format {watchlistmember_id}.(jpeg|jpg|png) ")]
     public class RegisterWatchlistMembersFromDirCmd
     {
         private readonly IWatchlistMemberRegistrationManager _registrationManager;
         
         [Required]
-        [Option("-w|--watchlistsExternalIds", "", CommandOptionType.MultipleValue)]
-        public string[] WatchlistExternalIds { get; set; }
+        [Option("-w|--watchlistIds", "", CommandOptionType.MultipleValue)]
+        public string[] WatchlistIds { get; set; }
         
         [Required]
         [Option("-d|--dirToPhotos", "", CommandOptionType.SingleValue)]
@@ -22,7 +22,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         [Option("-m|--metaDataFile", @"Use this option when you can provide single json file in selected directory with meta data for WatchlistMember. In this case could be use any name for photo file
 [
 {
-    ""ExternalId"": ""120"",
+    ""Id"": ""120"",
     ""DisplayName"": ""Display name"",
     ""FullName"": ""Full name"",
     ""Note"": ""Example note"",
@@ -44,11 +44,11 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         {
             if (UseMetaDataFile)
             {
-                await _registrationManager.RegisterWatchlistMembersExtendedFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                await _registrationManager.RegisterWatchlistMembersExtendedFromDirAsync(Directory, WatchlistIds, MaxDegreeOfParallelism);
             }
             else
             {
-                await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, WatchlistExternalIds, MaxDegreeOfParallelism);
+                await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, WatchlistIds, MaxDegreeOfParallelism);
             }
 
             return Constants.EXIT_CODE_OK;

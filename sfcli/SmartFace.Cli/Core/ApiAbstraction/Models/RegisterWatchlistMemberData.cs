@@ -10,7 +10,7 @@ namespace SmartFace.Cli.Core.ApiAbstraction.Models
 
     public class RegisterWatchlistMemberData
     {
-        public string ExternalId { get; set; }
+        public string Id { get; set; }
 
         public string DisplayName { get; set; }
        
@@ -20,6 +20,6 @@ namespace SmartFace.Cli.Core.ApiAbstraction.Models
 
         public ICollection<RegisterWatchlistMemberImageData> ImageData { get; set; } = new Collection<RegisterWatchlistMemberImageData>();
 
-        public ICollection<string> WatchlistExternalIds { get; set; } = new Collection<string>();
+        public ICollection<string> WatchlistIds { get; set; } = new Collection<string>();
     }
 }

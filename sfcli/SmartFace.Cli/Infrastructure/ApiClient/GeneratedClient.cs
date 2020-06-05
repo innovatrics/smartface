@@ -2906,7 +2906,7 @@ namespace ManagementApi
         }
     
         /// <summary>Creates a new watchlist.</summary>
-        /// <param name="body">Request containing watchlist name, threshold and external id.</param>
+        /// <param name="body">Request containing watchlist name and threshold.</param>
         /// <returns>Watchlist was created successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<Watchlist> WatchlistsPostAsync(WatchlistCreateRequest body)
@@ -2916,7 +2916,7 @@ namespace ManagementApi
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Creates a new watchlist.</summary>
-        /// <param name="body">Request containing watchlist name, threshold and external id.</param>
+        /// <param name="body">Request containing watchlist name and threshold.</param>
         /// <returns>Watchlist was created successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<Watchlist> WatchlistsPostAsync(WatchlistCreateRequest body, System.Threading.CancellationToken cancellationToken)
@@ -2991,8 +2991,8 @@ namespace ManagementApi
             }
         }
     
-        /// <summary>Updates the specified watchlist.</summary>
-        /// <param name="body">Request containing updated watchlist properties.</param>
+        /// <summary>Upserts the watchlist.</summary>
+        /// <param name="body">Request containing watchlist properties.</param>
         /// <returns>Watchlist was updated successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<Watchlist> WatchlistsPutAsync(WatchlistUpsertRequest body)
@@ -3001,8 +3001,8 @@ namespace ManagementApi
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Updates the specified watchlist.</summary>
-        /// <param name="body">Request containing updated watchlist properties.</param>
+        /// <summary>Upserts the watchlist.</summary>
+        /// <param name="body">Request containing watchlist properties.</param>
         /// <returns>Watchlist was updated successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<Watchlist> WatchlistsPutAsync(WatchlistUpsertRequest body, System.Threading.CancellationToken cancellationToken)
@@ -3045,16 +3045,16 @@ namespace ManagementApi
                             return objectResponse_.Object;
                         }
                         else
+                        if (status_ == "201") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Watchlist>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
                         if (status_ == "400") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
                             throw new ApiException<ProblemDetails>("The sent request was not valid.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == "404") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
-                            throw new ApiException<ProblemDetails>("The watchlist was not found.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -3413,7 +3413,7 @@ namespace ManagementApi
             }
         }
     
-        /// <summary>Updates the specified watchlist member.</summary>
+        /// <summary>Upserts the watchlist member.</summary>
         /// <param name="body">Request specifying which watchlist member should be updated and how to update it.</param>
         /// <returns>Watchlist member was updated successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -3423,7 +3423,7 @@ namespace ManagementApi
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Updates the specified watchlist member.</summary>
+        /// <summary>Upserts the watchlist member.</summary>
         /// <param name="body">Request specifying which watchlist member should be updated and how to update it.</param>
         /// <returns>Watchlist member was updated successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -3471,12 +3471,6 @@ namespace ManagementApi
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
                             throw new ApiException<ProblemDetails>("The sent request was not valid.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == "404") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
-                            throw new ApiException<ProblemDetails>("The watchlist member with given id was not found.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -6980,7 +6974,7 @@ namespace ManagementApi
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
-                            throw new ApiException<ProblemDetails>("Watchlists with specified ids (or external ids) were not found.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            throw new ApiException<ProblemDetails>("Watchlists with specified ids were not found.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -9226,12 +9220,12 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Always)]
         public int Score { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watchlistMemberId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("watchlistMemberInternalId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.Guid WatchlistMemberId { get; set; }
+        public System.Guid WatchlistMemberInternalId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("externalId", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string ExternalId { get; set; }
+        [Newtonsoft.Json.JsonProperty("watchlistMemberId", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string WatchlistMemberId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.AllowNull)]
         public string DisplayName { get; set; }
@@ -9239,9 +9233,9 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("fullName", Required = Newtonsoft.Json.Required.AllowNull)]
         public string FullName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watchlistId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("watchlistInternalId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.Guid WatchlistId { get; set; }
+        public System.Guid WatchlistInternalId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("watchlistDisplayName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -9251,8 +9245,8 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string WatchlistFullName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watchlistExternalId", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string WatchlistExternalId { get; set; }
+        [Newtonsoft.Json.JsonProperty("watchlistId", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string WatchlistId { get; set; }
     
     
     }

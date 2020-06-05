@@ -20,14 +20,14 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             string content = @"
 [
 {
-  ""ExternalId"": ""120"",
+  ""Id"": ""120"",
     ""DisplayName"": ""Display name"",
     ""FullName"": ""Full name"",
     ""Note"": ""Example note"",
     ""PhotoFiles"": [""file1.jpeg"", ""file2.jpeg""]
 }, 
 {
-  ""ExternalId"": ""121"",
+  ""Id"": ""121"",
     ""DisplayName"": ""Display name2"",
     ""FullName"": ""Full name2"",
     ""Note"": ""Example note2"",
@@ -45,7 +45,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
 
             Assert.Equal(2, serializeData.Length);
 
-            var member = serializeData.Single(itm => itm.ExternalId == "120");
+            var member = serializeData.Single(itm => itm.Id == "120");
             Assert.Equal("Display name", member.DisplayName);
             Assert.Equal("Full name", member.FullName);
             Assert.Equal("Example note", member.Note);

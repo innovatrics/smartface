@@ -29,8 +29,8 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 {
                     Data = imgData.Data
                 }).ToList(),
-                WatchlistIds = data.WatchlistExternalIds,
-                Id = data.ExternalId
+                WatchlistIds = data.WatchlistIds,
+                Id = data.Id
             };
 
             var watchlistMember = await _watchlistMembersClient.RegisterAsync(payload);
