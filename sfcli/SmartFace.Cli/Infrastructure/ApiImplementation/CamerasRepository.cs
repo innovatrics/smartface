@@ -11,12 +11,12 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
     public class CamerasRepository : ICamerasRepository, IDisposable
     {
         private readonly HttpClient _httpClient;
-        private readonly SetupClient _setupClient;
+        private readonly V1Client _setupClient;
 
         public CamerasRepository(IApiDefinition apiDefinition, HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _setupClient = new SetupClient(apiDefinition.ApiUrl, _httpClient);
+            _setupClient = new V1Client(apiDefinition.ApiUrl, _httpClient);
         }
 
         public async Task<Camera> CreateCameraAsync(CameraRequestData cameraRequestData)
