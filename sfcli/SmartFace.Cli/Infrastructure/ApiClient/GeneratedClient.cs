@@ -7885,7 +7885,7 @@ namespace ManagementApi
 
         /// <summary>Adds a specified face to a given watchlist member.</summary>
         /// <param name="id">The watchlist member id.</param>
-        /// <param name="body">Request specifying face id and watchlist member id.</param>
+        /// <param name="body">Request specifying face id to add.</param>
         /// <returns>The face was successfully added to the watchlist member.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task AddFaceFromSystemAsync(System.Guid id, FaceWatchlistMemberLinkingRequest body)
@@ -7896,7 +7896,7 @@ namespace ManagementApi
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Adds a specified face to a given watchlist member.</summary>
         /// <param name="id">The watchlist member id.</param>
-        /// <param name="body">Request specifying face id and watchlist member id.</param>
+        /// <param name="body">Request specifying face id to add.</param>
         /// <returns>The face was successfully added to the watchlist member.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task AddFaceFromSystemAsync(System.Guid id, FaceWatchlistMemberLinkingRequest body, System.Threading.CancellationToken cancellationToken)
@@ -7985,10 +7985,10 @@ namespace ManagementApi
 
         /// <summary>Removes a face from a watchlist member.</summary>
         /// <param name="id">The watchlist member id.</param>
-        /// <param name="body">Request specifying face id and watchlist member id.</param>
+        /// <param name="body">Request specifying face id to remove.</param>
         /// <returns>The face was successfully added to the watchlist member.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task RemoveFaceAsync(System.Guid id, FaceWatchlistMemberLinkingRequest body)
+        public System.Threading.Tasks.Task RemoveFaceAsync(System.Guid id, FaceWatchlistMemberRemoveRequest body)
         {
             return RemoveFaceAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -7996,10 +7996,10 @@ namespace ManagementApi
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Removes a face from a watchlist member.</summary>
         /// <param name="id">The watchlist member id.</param>
-        /// <param name="body">Request specifying face id and watchlist member id.</param>
+        /// <param name="body">Request specifying face id to remove.</param>
         /// <returns>The face was successfully added to the watchlist member.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task RemoveFaceAsync(System.Guid id, FaceWatchlistMemberLinkingRequest body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task RemoveFaceAsync(System.Guid id, FaceWatchlistMemberRemoveRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -9633,6 +9633,16 @@ namespace ManagementApi
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.18.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FaceWatchlistMemberLinkingRequest
+    {
+        [Newtonsoft.Json.JsonProperty("faceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.Guid FaceId { get; set; }
+
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.18.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FaceWatchlistMemberRemoveRequest
     {
         [Newtonsoft.Json.JsonProperty("faceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
