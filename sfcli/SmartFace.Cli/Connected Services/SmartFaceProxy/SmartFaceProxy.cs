@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 5. 6. 2020 10:36:01
+// Generation date: 5. 6. 2020 17:43:45
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -5647,8 +5647,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="type">Initial value of Type.</param>
-        /// <param name="watchlistInternalId">Initial value of WatchlistInternalId.</param>
-        /// <param name="watchlistMemberInternalId">Initial value of WatchlistMemberInternalId.</param>
         /// <param name="streamId">Initial value of StreamId.</param>
         /// <param name="score">Initial value of Score.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
@@ -5657,8 +5655,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static MatchResult CreateMatchResult(global::System.Guid ID, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType type, 
-                    global::System.Guid watchlistInternalId, 
-                    global::System.Guid watchlistMemberInternalId, 
                     global::System.Guid streamId, 
                     int score, 
                     global::System.DateTimeOffset createdAt, 
@@ -5668,8 +5664,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             MatchResult matchResult = new MatchResult();
             matchResult.Id = ID;
             matchResult.Type = type;
-            matchResult.WatchlistInternalId = watchlistInternalId;
-            matchResult.WatchlistMemberInternalId = watchlistMemberInternalId;
             matchResult.StreamId = streamId;
             matchResult.Score = score;
             matchResult.CreatedAt = createdAt;
@@ -5723,52 +5717,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType _Type;
         partial void OnTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType value);
         partial void OnTypeChanged();
-        /// <summary>
-        /// There are no comments for Property WatchlistInternalId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistInternalId")]
-        public virtual global::System.Guid WatchlistInternalId
-        {
-            get
-            {
-                return this._WatchlistInternalId;
-            }
-            set
-            {
-                this.OnWatchlistInternalIdChanging(value);
-                this._WatchlistInternalId = value;
-                this.OnWatchlistInternalIdChanged();
-                this.OnPropertyChanged("WatchlistInternalId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _WatchlistInternalId;
-        partial void OnWatchlistInternalIdChanging(global::System.Guid value);
-        partial void OnWatchlistInternalIdChanged();
-        /// <summary>
-        /// There are no comments for Property WatchlistMemberInternalId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMemberInternalId")]
-        public virtual global::System.Guid WatchlistMemberInternalId
-        {
-            get
-            {
-                return this._WatchlistMemberInternalId;
-            }
-            set
-            {
-                this.OnWatchlistMemberInternalIdChanging(value);
-                this._WatchlistMemberInternalId = value;
-                this.OnWatchlistMemberInternalIdChanged();
-                this.OnPropertyChanged("WatchlistMemberInternalId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _WatchlistMemberInternalId;
-        partial void OnWatchlistMemberInternalIdChanging(global::System.Guid value);
-        partial void OnWatchlistMemberInternalIdChanged();
         /// <summary>
         /// There are no comments for Property WatchlistMemberId in the schema.
         /// </summary>

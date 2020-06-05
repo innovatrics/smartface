@@ -3045,12 +3045,6 @@ namespace ManagementApi
                             return objectResponse_.Object;
                         }
                         else
-                        if (status_ == "201") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<Watchlist>(response_, headers_).ConfigureAwait(false);
-                            return objectResponse_.Object;
-                        }
-                        else
                         if (status_ == "400") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
@@ -9220,10 +9214,6 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Always)]
         public int Score { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watchlistMemberInternalId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.Guid WatchlistMemberInternalId { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("watchlistMemberId", Required = Newtonsoft.Json.Required.AllowNull)]
         public string WatchlistMemberId { get; set; }
     
@@ -9232,10 +9222,6 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("fullName", Required = Newtonsoft.Json.Required.AllowNull)]
         public string FullName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("watchlistInternalId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.Guid WatchlistInternalId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("watchlistDisplayName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]

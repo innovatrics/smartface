@@ -262,8 +262,6 @@
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType" Nullable="false" />
-        <Property Name="WatchlistInternalId" Type="Edm.Guid" Nullable="false" />
-        <Property Name="WatchlistMemberInternalId" Type="Edm.Guid" Nullable="false" />
         <Property Name="WatchlistMemberId" Type="Edm.String" />
         <Property Name="StreamId" Type="Edm.Guid" Nullable="false" />
         <Property Name="Score" Type="Edm.Int32" Nullable="false" />
