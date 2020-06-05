@@ -29,8 +29,8 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 {
                     Data = imgData.Data
                 }).ToList(),
-                WatchlistExternalIds = data.WatchlistExternalIds,
-                ExternalId = data.ExternalId
+                WatchlistIds = data.WatchlistExternalIds,
+                Id = data.ExternalId
             };
 
             var watchlistMember = await _watchlistMembersClient.RegisterAsync(payload);
@@ -45,10 +45,9 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 !string.IsNullOrEmpty(data.FullName) ||
                 !string.IsNullOrEmpty(data.Note))
             {
-                var payload = new WatchlistMemberUpdateRequest
+                var payload = new WatchlistMemberUpsertRequest
                 {
                     Id = newMember.Id,
-                    ExternalId = newMember.ExternalId,
 
                     DisplayName = data.DisplayName,
                     FullName = data.FullName,

@@ -20,6 +20,7 @@
         <Key>
           <PropertyRef Name="Id" />
         </Key>
+        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState" Nullable="false" />
         <Property Name="ScopeId" Type="Edm.Guid" />
         <Property Name="StreamId" Type="Edm.Guid" />
@@ -27,7 +28,6 @@
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="ReceivedAt" Type="Edm.DateTimeOffset" />
-        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="PositionInMs" Type="Edm.Int64" Nullable="false" />
         <NavigationProperty Name="Scope" Type="SmartFace.Domain.DataAccess.Models.Core.Scope">
           <ReferentialConstraint Property="ScopeId" ReferencedProperty="Id" />
@@ -79,6 +79,7 @@
         <Key>
           <PropertyRef Name="Id" />
         </Key>
+        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="TrackletId" Type="Edm.Guid" />
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
@@ -99,7 +100,6 @@
         <Property Name="RightEyeX" Type="Edm.Double" />
         <Property Name="RightEyeY" Type="Edm.Double" />
         <Property Name="FrameId" Type="Edm.Guid" />
-        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
         <Property Name="Age" Type="Edm.Double" />
         <Property Name="Gender" Type="Edm.Double" />
@@ -126,12 +126,12 @@
         <Key>
           <PropertyRef Name="Id" />
         </Key>
+        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="ScopeId" Type="Edm.Guid" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="TimeAppeared" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="TimeDisappeared" Type="Edm.DateTimeOffset" />
-        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="StreamId" Type="Edm.Guid" />
         <NavigationProperty Name="Scope" Type="SmartFace.Domain.DataAccess.Models.Core.Scope">
           <ReferentialConstraint Property="ScopeId" ReferencedProperty="Id" />
@@ -232,21 +232,19 @@
         <Key>
           <PropertyRef Name="Id" />
         </Key>
-        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="Id" Type="Edm.String" Nullable="false" />
         <Property Name="DisplayName" Type="Edm.String" />
         <Property Name="FullName" Type="Edm.String" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="Threshold" Type="Edm.Int32" Nullable="false" />
-        <Property Name="ExternalId" Type="Edm.String" />
         <NavigationProperty Name="WatchlistMembers" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.WatchlistMember)" />
       </EntityType>
       <EntityType Name="WatchlistMember">
         <Key>
           <PropertyRef Name="Id" />
         </Key>
-        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
-        <Property Name="ExternalId" Type="Edm.String" />
+        <Property Name="Id" Type="Edm.String" Nullable="false" />
         <Property Name="DisplayName" Type="Edm.String" />
         <Property Name="FullName" Type="Edm.String" />
         <Property Name="Note" Type="Edm.String" />
@@ -264,9 +262,9 @@
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType" Nullable="false" />
-        <Property Name="WatchlistId" Type="Edm.Guid" Nullable="false" />
-        <Property Name="WatchlistMemberId" Type="Edm.Guid" Nullable="false" />
-        <Property Name="WatchlistMemberExternalId" Type="Edm.String" />
+        <Property Name="WatchlistInternalId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="WatchlistMemberInternalId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="WatchlistMemberId" Type="Edm.String" />
         <Property Name="StreamId" Type="Edm.Guid" Nullable="false" />
         <Property Name="Score" Type="Edm.Int32" Nullable="false" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
@@ -276,7 +274,7 @@
         <Property Name="WatchlistMemberDisplayName" Type="Edm.String" />
         <Property Name="WatchlistFullName" Type="Edm.String" />
         <Property Name="WatchlistDisplayName" Type="Edm.String" />
-        <Property Name="WatchlistExternalId" Type="Edm.String" />
+        <Property Name="WatchlistId" Type="Edm.String" />
         <Property Name="FaceId" Type="Edm.Guid" />
         <Property Name="FrameId" Type="Edm.Guid" />
         <Property Name="FaceArea" Type="Edm.Double" />

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 5/21/2020 9:48:58 AM
+// Generation date: 5. 6. 2020 10:36:01
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -545,20 +545,43 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <summary>
         /// Create a new Frame object.
         /// </summary>
+        /// <param name="ID">Initial value of Id.</param>
         /// <param name="state">Initial value of State.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
-        /// <param name="ID">Initial value of Id.</param>
         /// <param name="positionInMs">Initial value of PositionInMs.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static Frame CreateFrame(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState state, global::System.DateTimeOffset createdAt, global::System.Guid ID, long positionInMs)
+        public static Frame CreateFrame(global::System.Guid ID, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState state, global::System.DateTimeOffset createdAt, long positionInMs)
         {
             Frame frame = new Frame();
+            frame.Id = ID;
             frame.State = state;
             frame.CreatedAt = createdAt;
-            frame.Id = ID;
             frame.PositionInMs = positionInMs;
             return frame;
         }
+        /// <summary>
+        /// There are no comments for Property Id in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        public virtual global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                this.OnIdChanging(value);
+                this._Id = value;
+                this.OnIdChanged();
+                this.OnPropertyChanged("Id");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property State in the schema.
         /// </summary>
@@ -720,29 +743,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<global::System.DateTimeOffset> _ReceivedAt;
         partial void OnReceivedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
         partial void OnReceivedAtChanged();
-        /// <summary>
-        /// There are no comments for Property Id in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public virtual global::System.Guid Id
-        {
-            get
-            {
-                return this._Id;
-            }
-            set
-            {
-                this.OnIdChanging(value);
-                this._Id = value;
-                this.OnIdChanged();
-                this.OnPropertyChanged("Id");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property PositionInMs in the schema.
         /// </summary>
@@ -1869,6 +1869,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <summary>
         /// Create a new Face object.
         /// </summary>
+        /// <param name="ID">Initial value of Id.</param>
         /// <param name="quality">Initial value of Quality.</param>
         /// <param name="state">Initial value of State.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
@@ -1880,11 +1881,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="cropLeftBottomY">Initial value of CropLeftBottomY.</param>
         /// <param name="cropRightBottomX">Initial value of CropRightBottomX.</param>
         /// <param name="cropRightBottomY">Initial value of CropRightBottomY.</param>
-        /// <param name="ID">Initial value of Id.</param>
         /// <param name="type">Initial value of Type.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static Face CreateFace(int quality, 
+        public static Face CreateFace(global::System.Guid ID, 
+                    int quality, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState state, 
                     global::System.DateTimeOffset createdAt, 
                     double cropLeftTopX, 
@@ -1895,11 +1896,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     double cropLeftBottomY, 
                     double cropRightBottomX, 
                     double cropRightBottomY, 
-                    global::System.Guid ID, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType type, 
                     double faceAreaChange)
         {
             Face face = new Face();
+            face.Id = ID;
             face.Quality = quality;
             face.State = state;
             face.CreatedAt = createdAt;
@@ -1911,11 +1912,33 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             face.CropLeftBottomY = cropLeftBottomY;
             face.CropRightBottomX = cropRightBottomX;
             face.CropRightBottomY = cropRightBottomY;
-            face.Id = ID;
             face.Type = type;
             face.FaceAreaChange = faceAreaChange;
             return face;
         }
+        /// <summary>
+        /// There are no comments for Property Id in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        public virtual global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                this.OnIdChanging(value);
+                this._Id = value;
+                this.OnIdChanged();
+                this.OnPropertyChanged("Id");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property TrackletId in the schema.
         /// </summary>
@@ -2376,29 +2399,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<global::System.Guid> _FrameId;
         partial void OnFrameIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnFrameIdChanged();
-        /// <summary>
-        /// There are no comments for Property Id in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public virtual global::System.Guid Id
-        {
-            get
-            {
-                return this._Id;
-            }
-            set
-            {
-                this.OnIdChanging(value);
-                this._Id = value;
-                this.OnIdChanged();
-                this.OnPropertyChanged("Id");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property Type in the schema.
         /// </summary>
@@ -2910,18 +2910,41 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <summary>
         /// Create a new Tracklet object.
         /// </summary>
+        /// <param name="ID">Initial value of Id.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="timeAppeared">Initial value of TimeAppeared.</param>
-        /// <param name="ID">Initial value of Id.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static Tracklet CreateTracklet(global::System.DateTimeOffset createdAt, global::System.DateTimeOffset timeAppeared, global::System.Guid ID)
+        public static Tracklet CreateTracklet(global::System.Guid ID, global::System.DateTimeOffset createdAt, global::System.DateTimeOffset timeAppeared)
         {
             Tracklet tracklet = new Tracklet();
+            tracklet.Id = ID;
             tracklet.CreatedAt = createdAt;
             tracklet.TimeAppeared = timeAppeared;
-            tracklet.Id = ID;
             return tracklet;
         }
+        /// <summary>
+        /// There are no comments for Property Id in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        public virtual global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                this.OnIdChanging(value);
+                this._Id = value;
+                this.OnIdChanged();
+                this.OnPropertyChanged("Id");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property ScopeId in the schema.
         /// </summary>
@@ -3037,29 +3060,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<global::System.DateTimeOffset> _TimeDisappeared;
         partial void OnTimeDisappearedChanging(global::System.Nullable<global::System.DateTimeOffset> value);
         partial void OnTimeDisappearedChanged();
-        /// <summary>
-        /// There are no comments for Property Id in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public virtual global::System.Guid Id
-        {
-            get
-            {
-                return this._Id;
-            }
-            set
-            {
-                this.OnIdChanging(value);
-                this._Id = value;
-                this.OnIdChanged();
-                this.OnPropertyChanged("Id");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
@@ -5103,7 +5103,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="threshold">Initial value of Threshold.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static Watchlist CreateWatchlist(global::System.Guid ID, global::System.DateTimeOffset createdAt, int threshold)
+        public static Watchlist CreateWatchlist(string ID, global::System.DateTimeOffset createdAt, int threshold)
         {
             Watchlist watchlist = new Watchlist();
             watchlist.Id = ID;
@@ -5116,7 +5116,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public virtual global::System.Guid Id
+        public virtual string Id
         {
             get
             {
@@ -5131,8 +5131,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
+        private string _Id;
+        partial void OnIdChanging(string value);
         partial void OnIdChanged();
         /// <summary>
         /// There are no comments for Property DisplayName in the schema.
@@ -5249,29 +5249,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private int _Threshold;
         partial void OnThresholdChanging(int value);
         partial void OnThresholdChanged();
-        /// <summary>
-        /// There are no comments for Property ExternalId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ExternalId")]
-        public virtual string ExternalId
-        {
-            get
-            {
-                return this._ExternalId;
-            }
-            set
-            {
-                this.OnExternalIdChanging(value);
-                this._ExternalId = value;
-                this.OnExternalIdChanged();
-                this.OnPropertyChanged("ExternalId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private string _ExternalId;
-        partial void OnExternalIdChanging(string value);
-        partial void OnExternalIdChanged();
         /// <summary>
         /// There are no comments for Property WatchlistMembers in the schema.
         /// </summary>
@@ -5398,7 +5375,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static WatchlistMember CreateWatchlistMember(global::System.Guid ID, global::System.DateTimeOffset createdAt)
+        public static WatchlistMember CreateWatchlistMember(string ID, global::System.DateTimeOffset createdAt)
         {
             WatchlistMember watchlistMember = new WatchlistMember();
             watchlistMember.Id = ID;
@@ -5410,7 +5387,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public virtual global::System.Guid Id
+        public virtual string Id
         {
             get
             {
@@ -5425,32 +5402,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
+        private string _Id;
+        partial void OnIdChanging(string value);
         partial void OnIdChanged();
-        /// <summary>
-        /// There are no comments for Property ExternalId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ExternalId")]
-        public virtual string ExternalId
-        {
-            get
-            {
-                return this._ExternalId;
-            }
-            set
-            {
-                this.OnExternalIdChanging(value);
-                this._ExternalId = value;
-                this.OnExternalIdChanged();
-                this.OnPropertyChanged("ExternalId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private string _ExternalId;
-        partial void OnExternalIdChanging(string value);
-        partial void OnExternalIdChanged();
         /// <summary>
         /// There are no comments for Property DisplayName in the schema.
         /// </summary>
@@ -5693,8 +5647,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="type">Initial value of Type.</param>
-        /// <param name="watchlistId">Initial value of WatchlistId.</param>
-        /// <param name="watchlistMemberId">Initial value of WatchlistMemberId.</param>
+        /// <param name="watchlistInternalId">Initial value of WatchlistInternalId.</param>
+        /// <param name="watchlistMemberInternalId">Initial value of WatchlistMemberInternalId.</param>
         /// <param name="streamId">Initial value of StreamId.</param>
         /// <param name="score">Initial value of Score.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
@@ -5703,8 +5657,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static MatchResult CreateMatchResult(global::System.Guid ID, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType type, 
-                    global::System.Guid watchlistId, 
-                    global::System.Guid watchlistMemberId, 
+                    global::System.Guid watchlistInternalId, 
+                    global::System.Guid watchlistMemberInternalId, 
                     global::System.Guid streamId, 
                     int score, 
                     global::System.DateTimeOffset createdAt, 
@@ -5714,8 +5668,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             MatchResult matchResult = new MatchResult();
             matchResult.Id = ID;
             matchResult.Type = type;
-            matchResult.WatchlistId = watchlistId;
-            matchResult.WatchlistMemberId = watchlistMemberId;
+            matchResult.WatchlistInternalId = watchlistInternalId;
+            matchResult.WatchlistMemberInternalId = watchlistMemberInternalId;
             matchResult.StreamId = streamId;
             matchResult.Score = score;
             matchResult.CreatedAt = createdAt;
@@ -5770,34 +5724,57 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType value);
         partial void OnTypeChanged();
         /// <summary>
-        /// There are no comments for Property WatchlistId in the schema.
+        /// There are no comments for Property WatchlistInternalId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistId")]
-        public virtual global::System.Guid WatchlistId
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistInternalId")]
+        public virtual global::System.Guid WatchlistInternalId
         {
             get
             {
-                return this._WatchlistId;
+                return this._WatchlistInternalId;
             }
             set
             {
-                this.OnWatchlistIdChanging(value);
-                this._WatchlistId = value;
-                this.OnWatchlistIdChanged();
-                this.OnPropertyChanged("WatchlistId");
+                this.OnWatchlistInternalIdChanging(value);
+                this._WatchlistInternalId = value;
+                this.OnWatchlistInternalIdChanged();
+                this.OnPropertyChanged("WatchlistInternalId");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _WatchlistId;
-        partial void OnWatchlistIdChanging(global::System.Guid value);
-        partial void OnWatchlistIdChanged();
+        private global::System.Guid _WatchlistInternalId;
+        partial void OnWatchlistInternalIdChanging(global::System.Guid value);
+        partial void OnWatchlistInternalIdChanged();
+        /// <summary>
+        /// There are no comments for Property WatchlistMemberInternalId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMemberInternalId")]
+        public virtual global::System.Guid WatchlistMemberInternalId
+        {
+            get
+            {
+                return this._WatchlistMemberInternalId;
+            }
+            set
+            {
+                this.OnWatchlistMemberInternalIdChanging(value);
+                this._WatchlistMemberInternalId = value;
+                this.OnWatchlistMemberInternalIdChanged();
+                this.OnPropertyChanged("WatchlistMemberInternalId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Guid _WatchlistMemberInternalId;
+        partial void OnWatchlistMemberInternalIdChanging(global::System.Guid value);
+        partial void OnWatchlistMemberInternalIdChanged();
         /// <summary>
         /// There are no comments for Property WatchlistMemberId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMemberId")]
-        public virtual global::System.Guid WatchlistMemberId
+        public virtual string WatchlistMemberId
         {
             get
             {
@@ -5812,32 +5789,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _WatchlistMemberId;
-        partial void OnWatchlistMemberIdChanging(global::System.Guid value);
+        private string _WatchlistMemberId;
+        partial void OnWatchlistMemberIdChanging(string value);
         partial void OnWatchlistMemberIdChanged();
-        /// <summary>
-        /// There are no comments for Property WatchlistMemberExternalId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMemberExternalId")]
-        public virtual string WatchlistMemberExternalId
-        {
-            get
-            {
-                return this._WatchlistMemberExternalId;
-            }
-            set
-            {
-                this.OnWatchlistMemberExternalIdChanging(value);
-                this._WatchlistMemberExternalId = value;
-                this.OnWatchlistMemberExternalIdChanged();
-                this.OnPropertyChanged("WatchlistMemberExternalId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private string _WatchlistMemberExternalId;
-        partial void OnWatchlistMemberExternalIdChanging(string value);
-        partial void OnWatchlistMemberExternalIdChanged();
         /// <summary>
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
@@ -6046,28 +6000,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnWatchlistDisplayNameChanging(string value);
         partial void OnWatchlistDisplayNameChanged();
         /// <summary>
-        /// There are no comments for Property WatchlistExternalId in the schema.
+        /// There are no comments for Property WatchlistId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistExternalId")]
-        public virtual string WatchlistExternalId
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistId")]
+        public virtual string WatchlistId
         {
             get
             {
-                return this._WatchlistExternalId;
+                return this._WatchlistId;
             }
             set
             {
-                this.OnWatchlistExternalIdChanging(value);
-                this._WatchlistExternalId = value;
-                this.OnWatchlistExternalIdChanged();
-                this.OnPropertyChanged("WatchlistExternalId");
+                this.OnWatchlistIdChanging(value);
+                this._WatchlistId = value;
+                this.OnWatchlistIdChanged();
+                this.OnPropertyChanged("WatchlistId");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private string _WatchlistExternalId;
-        partial void OnWatchlistExternalIdChanging(string value);
-        partial void OnWatchlistExternalIdChanged();
+        private string _WatchlistId;
+        partial void OnWatchlistIdChanging(string value);
+        partial void OnWatchlistIdChanged();
         /// <summary>
         /// There are no comments for Property FaceId in the schema.
         /// </summary>
@@ -6523,7 +6477,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> source,
-            global::System.Guid id)
+            string id)
         {
             global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
@@ -6546,7 +6500,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="source">source entity set</param>
         /// <param name="id">The value of id</param>
         public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> source,
-            global::System.Guid id)
+            string id)
         {
             global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
