@@ -7710,23 +7710,29 @@ namespace ManagementApi
         }
     
         /// <summary>Adds a specified face to a given watchlist member.</summary>
-        /// <param name="body">Request specifying face id and watchlist member id.</param>
+        /// <param name="id">The watchlist member id.</param>
+        /// <param name="body">Request specifying face id to add.</param>
         /// <returns>The face was successfully added to the watchlist member.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task AddExistingFaceAsync(FaceWatchlistMemberLinkingRequest body)
+        public System.Threading.Tasks.Task AddFaceFromSystemAsync(string id, FaceWatchlistMemberLinkingRequest body)
         {
-            return AddExistingFaceAsync(body, System.Threading.CancellationToken.None);
+            return AddFaceFromSystemAsync(id, body, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Adds a specified face to a given watchlist member.</summary>
-        /// <param name="body">Request specifying face id and watchlist member id.</param>
+        /// <param name="id">The watchlist member id.</param>
+        /// <param name="body">Request specifying face id to add.</param>
         /// <returns>The face was successfully added to the watchlist member.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task AddExistingFaceAsync(FaceWatchlistMemberLinkingRequest body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task AddFaceFromSystemAsync(string id, FaceWatchlistMemberLinkingRequest body, System.Threading.CancellationToken cancellationToken)
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/AddExistingFace");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/{id}/AddFaceFromSystem");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -7804,23 +7810,29 @@ namespace ManagementApi
         }
     
         /// <summary>Removes a face from a watchlist member.</summary>
-        /// <param name="body">Request specifying face id and watchlist member id.</param>
+        /// <param name="id">The watchlist member id.</param>
+        /// <param name="body">Request specifying face id to remove.</param>
         /// <returns>The face was successfully added to the watchlist member.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task RemoveFaceAsync(FaceWatchlistMemberLinkingRequest body)
+        public System.Threading.Tasks.Task RemoveFaceAsync(string id, FaceWatchlistMemberRemoveRequest body)
         {
-            return RemoveFaceAsync(body, System.Threading.CancellationToken.None);
+            return RemoveFaceAsync(id, body, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Removes a face from a watchlist member.</summary>
-        /// <param name="body">Request specifying face id and watchlist member id.</param>
+        /// <param name="id">The watchlist member id.</param>
+        /// <param name="body">Request specifying face id to remove.</param>
         /// <returns>The face was successfully added to the watchlist member.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task RemoveFaceAsync(FaceWatchlistMemberLinkingRequest body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task RemoveFaceAsync(string id, FaceWatchlistMemberRemoveRequest body, System.Threading.CancellationToken cancellationToken)
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/RemoveFace");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/{id}/RemoveFace");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -9418,9 +9430,15 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.Guid FaceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watchlistMemberId", Required = Newtonsoft.Json.Required.Always)]
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.18.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FaceWatchlistMemberRemoveRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("faceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WatchlistMemberId { get; set; }
+        public System.Guid FaceId { get; set; }
     
     
     }
