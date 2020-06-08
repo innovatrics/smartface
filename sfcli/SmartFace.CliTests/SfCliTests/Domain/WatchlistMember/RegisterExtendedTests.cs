@@ -47,7 +47,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
 
             Assert.Single(RegisteredData);
             var registered = RegisteredData.Single();
-            Assert.Equal("120", registered.ExternalId);
+            Assert.Equal("120", registered.Id);
             Assert.Single(registered.ImageData);
             var imageData = registered.ImageData.Single();
             Assert.Equal("relativePhoto.jpeg", Encoding.UTF8.GetString(imageData.Data));
@@ -65,7 +65,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
 
             Assert.Single(RegisteredData);
             var registered = RegisteredData.Single();
-            Assert.Equal("120", registered.ExternalId);
+            Assert.Equal("120", registered.Id);
             Assert.Single(registered.ImageData);
             var imageData = registered.ImageData.Single();
             Assert.Equal("absolutePhoto.jpeg", Encoding.UTF8.GetString(imageData.Data));
@@ -90,7 +90,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             string content = @"
 [
 {
-  ""ExternalId"": ""120"",
+  ""Id"": ""120"",
     ""DisplayName"": ""Display name"",
     ""FullName"": ""Full name"",
     ""Note"": ""Example note"",

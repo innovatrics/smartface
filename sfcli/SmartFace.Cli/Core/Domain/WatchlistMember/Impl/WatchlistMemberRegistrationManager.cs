@@ -36,11 +36,11 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
         {
             var data = new RegisterWatchlistMemberData
             {
-                ExternalId = registerWatchlistMemberExtended.ExternalId,
+                Id = registerWatchlistMemberExtended.Id,
                 DisplayName = registerWatchlistMemberExtended.DisplayName,
                 FullName = registerWatchlistMemberExtended.FullName,
                 Note = registerWatchlistMemberExtended.Note,
-                WatchlistExternalIds = registerWatchlistMemberExtended.WatchlistExternalIds
+                WatchlistIds = registerWatchlistMemberExtended.WatchlistIds
             };
 
             registerWatchlistMemberExtended.PhotoFiles.ToList().ForEach(pathToPhotoFile => data.ImageData.Add(new RegisterWatchlistMemberImageData
@@ -49,12 +49,12 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             }));
 
             var result = await Repository.RegisterAsync(data);
-            Log.LogInformation($"WatchlistMember registered. [{data.ExternalId}]");
+            Log.LogInformation($"WatchlistMember registered. [{data.Id}]");
 
             return result;
         }
 
-        public Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistExternalIds,
+        public Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistIds,
             int maxDegreeOfParallelism)
         {
             if (!Directory.Exists(directory))
@@ -62,19 +62,19 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 throw new ProcessingException($"Directory does not exists {directory}");
             }
 
-            var groupedPhotos = GetPhotosGroupedByExternalId(directory);
+            var groupedPhotos = GetPhotosGroupedById(directory);
 
             var extendedData = new List<RegisterWatchlistMemberExtended>();
 
             foreach (var group in groupedPhotos)
             {
-                var externalId = group.Key;
-                var photoPaths = group.Select(photoWithExternalId => photoWithExternalId.PhotoPath).ToArray();
+                var id = group.Key;
+                var photoPaths = group.Select(photoWithId => photoWithId.PhotoPath).ToArray();
                 var registerWatchlistMemberExtended = new RegisterWatchlistMemberExtended
                 {
-                    ExternalId = externalId,
+                    Id = id,
                     PhotoFiles = photoPaths,
-                    WatchlistExternalIds = watchlistExternalIds
+                    WatchlistIds = watchlistIds
                 };
                 extendedData.Add(registerWatchlistMemberExtended);
             }
@@ -86,11 +86,11 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             return WaitForRegistrationCompletionAsync(sourceBlock, destinationBlock);
         }
 
-        public Task RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistExternalIds,
+        public Task RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistIds,
             int maxDegreeOfParallelism)
         {
             var extendedData = Loader.GetRegisterWatchlistMemberExtendedData(directory);
-            extendedData.ToList().ForEach(data => data.WatchlistExternalIds = watchlistExternalIds);
+            extendedData.ToList().ForEach(data => data.WatchlistIds = watchlistIds);
 
             Directory.SetCurrentDirectory(directory);
             
@@ -101,26 +101,26 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             return WaitForRegistrationCompletionAsync(sourceBlock, destinationBlock);
         }
 
-        private static IEnumerable<IGrouping<string, PhotoWithExternalId>> GetPhotosGroupedByExternalId(string directory)
+        private static IEnumerable<IGrouping<string, PhotoWithId>> GetPhotosGroupedById(string directory)
         {
             var files = Directory.GetFiles(directory);
-            var validPhotos = new List<PhotoWithExternalId>();
+            var validPhotos = new List<PhotoWithId>();
             foreach (var file in files)
             {
-                if (TryGetExternalIdFromPhotoFile(file, out string externalId))
+                if (TryGetIdFromPhotoFile(file, out string id))
                 {
-                    var photoWithId = new PhotoWithExternalId(externalId, file);
+                    var photoWithId = new PhotoWithId(id, file);
                     validPhotos.Add(photoWithId);
                 }
             }
 
-            var groupedPhotos = validPhotos.GroupBy(p => p.ExternalId);
+            var groupedPhotos = validPhotos.GroupBy(p => p.Id);
             return groupedPhotos;
         }
 
-        private static bool TryGetExternalIdFromPhotoFile(string photoPath, out string eid)
+        private static bool TryGetIdFromPhotoFile(string photoPath, out string id)
         {
-            eid = string.Empty;
+            id = string.Empty;
             bool isValid = false;
             Regex regex = new Regex(FILE_PATTERN);
             var file = Path.GetFileName(photoPath);
@@ -129,7 +129,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             if (match.Success)
             {
                 isValid = true;
-                eid = match.Groups[1].Value;
+                id = match.Groups[1].Value;
             }
 
             return isValid;
@@ -152,7 +152,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 if (!posted)
                 {
                     Log.LogError(
-                        $"Unable to process member with external id [{registerWatchlistMemberExtended.ExternalId}]");
+                        $"Unable to process member with id [{registerWatchlistMemberExtended.Id}]");
                 }
             }
         }
@@ -170,7 +170,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                     }
                     catch (Exception e)
                     {
-                        Log.LogError($"Register member with externalId [{data.ExternalId}] failed", e);
+                        Log.LogError($"Register member with id [{data.Id}] failed", e);
                         return null;
                     }
                 },

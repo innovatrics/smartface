@@ -8,10 +8,10 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember
     {
         Task<WatchlistMemberWithRelatedData> RegisterWatchlistMemberAsync(RegisterWatchlistMemberExtended registerWatchlistMemberExtended);
 
-        Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistExternalIds,
+        Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistIds,
             int maxDegreeOfParallelism);
 
-        Task RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistExternalIds,
+        Task RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistIds,
             int maxDegreeOfParallelism);
     }
 }

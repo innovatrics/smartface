@@ -15,12 +15,12 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         private readonly IWatchlistMemberRegistrationManager _registrationManager;
 
         [Required]
-        [Option("-e|--externalId", "", CommandOptionType.SingleValue)]
-        public string ExternalId { get; set; }
+        [Option("-i|--id", "", CommandOptionType.SingleValue)]
+        public string Id { get; set; }
 
         [Required]
-        [Option("-w|--watchlistsExternalIds", "", CommandOptionType.MultipleValue)]
-        public string[] WatchlistExternalIds { get; set; }
+        [Option("-w|--watchlistIds", "", CommandOptionType.MultipleValue)]
+        public string[] WatchlistIds { get; set; }
 
         [RegistrationImgExtensionValidator]
         [FileExists]
@@ -36,9 +36,9 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         {
             var data = new RegisterWatchlistMemberExtended
             {
-                ExternalId = ExternalId,
+                Id = Id,
                 PhotoFiles = Photos,
-                WatchlistExternalIds = WatchlistExternalIds
+                WatchlistIds = WatchlistIds
             };
             var result = await _registrationManager.RegisterWatchlistMemberAsync(data);
 
