@@ -7,19 +7,19 @@ using SmartFace.Cli.Common;
 namespace SmartFace.Cli.Commands
 {
     [Command(Name = "query", Description = "Select entities using Language Integrated Query (LINQ)"),
-     Subcommand(typeof(FromWlHits)),
+     Subcommand(typeof(FromMatchResults)),
      Subcommand(typeof(FromFaces)),
      Subcommand(typeof(FromScopes)),
      Subcommand(typeof(FromGroupings)),
-     Subcommand(typeof(FromIdentities)),
+     Subcommand(typeof(FromIndividuals)),
      Subcommand(typeof(FromWatchlists)),
-     Subcommand(typeof(FromWlItems)),
+     Subcommand(typeof(FromWatchlistMembers)),
     ]
     public class QueryCmd
     {
         protected virtual int OnExecute(CommandLineApplication app, IConsole console)
         {
-            console.WriteLine(Constants.HELP_SPECIFY_SUBCMD);
+            console.WriteLine(Constants.HELP_SPECIFY_SUB_CMD);
             return Constants.EXIT_CODE_OK;
         }
 

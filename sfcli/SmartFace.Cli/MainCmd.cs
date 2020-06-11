@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Reflection;
+using ManagementApi;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using SmartFace.Api.Rpc;
 using SmartFace.Cli.Commands;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Common.DI;
@@ -14,11 +14,9 @@ namespace SmartFace.Cli
 {
     [Command(Name = "sfcli", Description = "CLI for SmartFace instance"),
      Subcommand(typeof(QueryCmd)),
-     Subcommand(typeof(VideoCmd)),
-     Subcommand(typeof(WlItemCmd)),
-     Subcommand(typeof(SoftRestartCmd)),
+     Subcommand(typeof(CameraCmd)),
+     Subcommand(typeof(WatchlistMemberCmd)),
      Subcommand(typeof(NotificationsCmd)),
-     Subcommand(typeof(GlobalConfigCmd)),
     ]
     public class MainCmd : BasicArgumentSolverCmd
     {
@@ -31,7 +29,6 @@ namespace SmartFace.Cli
 
         public static int Main(string[] args)
         {
-
             try
             {
                 return Execute(args);
@@ -45,20 +42,18 @@ namespace SmartFace.Cli
 
         private static int Execute(string[] args)
         {
-            using (var services = Installer.Configure(args))
-            {
-                var app = services.GetService<CommandLineApplication<MainCmd>>();
+            using var services = Installer.Configure(args);
+            var app = services.GetService<CommandLineApplication<MainCmd>>();
 
-                try
-                {
-                    app.Configure(services);
-                    return app.Execute(args);
-                }
-                catch (Exception e)
-                {
-                    HandleException(e, app);
-                    return Constants.EXIT_CODE_GENERAL_ERROR;
-                }
+            try
+            {
+                app.Configure(services);
+                return app.Execute(args);
+            }
+            catch (Exception e)
+            {
+                HandleException(e, app);
+                return Constants.EXIT_CODE_GENERAL_ERROR;
             }
         }
 
@@ -67,7 +62,7 @@ namespace SmartFace.Cli
             switch (e)
             {
                 case CommandParsingException _:
-                case SwaggerException _:
+                case ApiException _:
                 case ProcessingException _:
                     commandLineApplication.Model.Log.LogError(e.Message);
                     break;

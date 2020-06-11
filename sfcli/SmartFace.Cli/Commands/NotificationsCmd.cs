@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Common;
@@ -15,20 +14,24 @@ namespace SmartFace.Cli.Commands
                               + ZeroMqNotificationTopic.FACE_CREATED + ", "
                               + ZeroMqNotificationTopic.FACE_EXTRACTED + ", "
                               + ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO + ", "
-                              + ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE + ", "
-                              + ZeroMqNotificationTopic.PERSON_COMPLETED + ", "
-                              + ZeroMqNotificationTopic.WATCHLIST_ITEM_HIT + ", "
-                              + ZeroMqNotificationTopic.WATCHLIST_ITEM_INSERTED + ", "
+                              + ZeroMqNotificationTopic.VIDEO_RECORD_STATE_UPDATE + ", "
+                              + ZeroMqNotificationTopic.TRACKLET_COMPLETED + ", "
+                              + ZeroMqNotificationTopic.MATCH_RESULT_MATCH + ", "
+                              + ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH + ", "
+                              + ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED + ", "
+                              + ZeroMqNotificationTopic.LIVENESS_RESULT + ", "
                               + ZeroMqNotificationTopic.HEARTBEAT
                               + "]", CommandOptionType.SingleValue)]
         [AllowedValues(
             ZeroMqNotificationTopic.FACE_CREATED,
             ZeroMqNotificationTopic.FACE_EXTRACTED,
             ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO,
-            ZeroMqNotificationTopic.INPUT_FILE_STATE_UPDATE,
-            ZeroMqNotificationTopic.PERSON_COMPLETED,
-            ZeroMqNotificationTopic.WATCHLIST_ITEM_HIT,
-            ZeroMqNotificationTopic.WATCHLIST_ITEM_INSERTED,
+            ZeroMqNotificationTopic.VIDEO_RECORD_STATE_UPDATE,
+            ZeroMqNotificationTopic.TRACKLET_COMPLETED,
+            ZeroMqNotificationTopic.MATCH_RESULT_MATCH,
+            ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH,
+            ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED,
+            ZeroMqNotificationTopic.LIVENESS_RESULT,
             ZeroMqNotificationTopic.HEARTBEAT
         , IgnoreCase = false)]
         public string Topic { get; set; }

@@ -13,13 +13,13 @@ namespace SmartFace.Cli.Commands.SubCmdFrom
         [Option("-c|--condition", "Return only those elements for which the expression is true. Expression for the query is in C# language. Use name of entity in singular form as base object. E.g. ...from faces --condition \"face.Id == 42\"", CommandOptionType.SingleValue)]
         public string Condition { get; } = string.Empty;
 
-        [Option("-m|--map", "Projects each element of a sequence into a new form. Use name of entity in singular form as base object. E.g. ...from faces --map \"{ Id = face.Id, PersonId = face.PersonId, FormattedDt = face.CreatedAt.ToString(\"yyyyMMdd_HHmmss.ffff\"), face.ImageUrl}", CommandOptionType.SingleValue)]
+        [Option("-m|--map", "Projects each element of a sequence into a new form. Use name of entity in singular form as base object. E.g. ...from faces --map \"{ Id = face.Id, TrackletId = face.TrackletId, FormattedDt = face.CreatedAt.ToString(\"yyyyMMdd_HHmmss.ffff\"), face.ImageUrl}", CommandOptionType.SingleValue)]
         public string Map { get; } = string.Empty;
 
-        [Option("-l|--linq", "Linq query (cannot be combined with --map option). E.g. ...from faces --linq Select(f => new { f.Id, f.PersonId, FormattedDt = f.CreatedAt.ToString(\"yyyyMMdd_HHmmss.ffff\"), f.ImageUrl})", CommandOptionType.SingleValue)]
+        [Option("-l|--linq", "Linq query (cannot be combined with --map option). E.g. ...from faces --linq Select(f => new { f.Id, f.TrackletId, FormattedDt = f.CreatedAt.ToString(\"yyyyMMdd_HHmmss.ffff\"), f.ImageUrl})", CommandOptionType.SingleValue)]
         public string Linq { get; } = string.Empty;
 
-        [Option("-e|--expand", "The property for expand. E.g. ....from faces --expand Person", CommandOptionType.SingleValue)]
+        [Option("-e|--expand", "The property for expand. E.g. ....from faces --expand Tracklet", CommandOptionType.SingleValue)]
         public string ExpandProperty { get; } = string.Empty;
 
         protected QueryCmd Parent { get; set; }
@@ -46,7 +46,7 @@ namespace SmartFace.Cli.Commands.SubCmdFrom
             }
             catch (ProcessingException e)
             {
-                throw new ProcessingException($"{e.Message} Use argument {Constants.ArgumentUrl} or set environment variable {Constants.EnvironmentUrl}.");
+                throw new ProcessingException($"{e.Message} Use argument {Constants.ARGUMENT_HOST} or set environment variable {Constants.ENVIRONMENT_HOST}.");
             }
             Parent.Execute(console, entities);
         }

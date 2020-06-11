@@ -1,5 +1,5 @@
 using System;
-using AutoMapper;
+using System.Net.Http;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -7,19 +7,15 @@ using SmartFace.Cli.Commands;
 using SmartFace.Cli.Common.DI.Factories;
 using SmartFace.Cli.Common.Utils;
 using SmartFace.Cli.Core.ApiAbstraction;
-using SmartFace.Cli.Core.ApiAbstraction.Models;
-using SmartFace.Cli.Core.ApiAbstraction.Models.Configs;
 using SmartFace.Cli.Core.Domain.DataSelector;
 using SmartFace.Cli.Core.Domain.DataSelector.Impl;
-using SmartFace.Cli.Core.Domain.GlobalConfig;
 using SmartFace.Cli.Core.Domain.ImgExport;
 using SmartFace.Cli.Core.Domain.Notifications;
-using SmartFace.Cli.Core.Domain.StreamProcessor;
-using SmartFace.Cli.Core.Domain.WatchlistItem;
-using SmartFace.Cli.Core.Domain.WatchlistItem.Impl;
+using SmartFace.Cli.Core.Domain.WatchlistMember;
+using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
 using SmartFace.Cli.Infrastructure.ApiImplementation;
 using SmartFace.ODataClient.Default;
-using SmartFace.ODataClient.SmartFace.Data.Models.Core;
+using SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core;
 
 namespace SmartFace.Cli.Common.DI
 {
@@ -38,7 +34,7 @@ namespace SmartFace.Cli.Common.DI
 
                     if (basicArgumentSolverApp.IsShowingInformation)
                     {
-                        cli.ThrowOnUnexpectedArgument = false;
+                        cli.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
                     }
 
                     return cli;
@@ -48,7 +44,7 @@ namespace SmartFace.Cli.Common.DI
                 {
                     var apiDefinition = provider.GetService<IApiDefinition>();
                     if (basicArgumentSolverApp.IsShowingInformation ||
-                        string.IsNullOrEmpty(apiDefinition.ApiUrl))
+                        string.IsNullOrEmpty(apiDefinition.Host))
                     {
                         //dummy container
                         return new Container(null);
@@ -56,49 +52,27 @@ namespace SmartFace.Cli.Common.DI
 
                     return new Container(new Uri(apiDefinition.ODataUrl));
                 })
-                .AddSingleton<IMapper, Mapper>(serviceProvider => ConfigureAutoMapper())
+                .AddTransient<HttpClient>()
                 .AddSingleton<IImageDownloaderFactory, ImageDownloaderFactory>()
                 .AddSingleton<IExportFileResolverFactory, ExportFileResolverFactory>()
                 .AddTransient<IQueryDataSelector<Face>, FaceODataSelector>()
                 .AddTransient<IQueryDataSelector<Camera>, CameraODataSelector>()
-                .AddTransient<IQueryDataSelector<Grouping>, GroupingODataSelector>()
-                .AddTransient<IQueryDataSelector<Identity>, IdentityODataSelector>()
-                .AddTransient<IQueryDataSelector<Photo>, PhotoODataSelector>()
+                .AddTransient<IQueryDataSelector<GroupingMetadata>, GroupingODataSelector>()
+                .AddTransient<IQueryDataSelector<Individual>, IndividualODataSelector>()
+                .AddTransient<IQueryDataSelector<Frame>, FrameODataSelector>()
                 .AddTransient<IQueryDataSelector<Scope>, ScopeODataSelector>()
                 .AddTransient<IQueryDataSelector<Watchlist>, WatchlistODataSelector>()
-                .AddTransient<IQueryDataSelector<WlHit>, WlHitODataSelector>()
-                .AddTransient<IQueryDataSelector<WlItem>, WlItemODataSelector>()
-                .AddTransient<IVideoProcessorRepository, VideoProcessorRepository>()
-                .AddTransient<IWlItemsRepository, WlItemsRepository>()
-                .AddTransient<IWorkersRepository, WorkersRepository>()
+                .AddTransient<IQueryDataSelector<MatchResult>, MatchResultODataSelector>()
+                .AddTransient<IQueryDataSelector<WatchlistMember>, WatchlistMemberODataSelector>()
                 .AddTransient<ICamerasRepository, CamerasRepository>()
-                .AddTransient<IStreamsRepository, StreamsRepository>()
-                .AddTransient<IVideoPublishWorkerConfigRepository, VideoPublishWorkerConfigRepository>()
-                .AddTransient<IStreamWorkerConfigRepository, StreamWorkerConfigRepository>()
-                .AddTransient<IFaceHandlerConfigRepository, FaceHandlerConfigRepository>()
-                .AddTransient<IIFaceConfigRepository, IFaceConfigRepository>()
-                .AddTransient<IScopesRepository, ScopesRepository>()
-                .AddTransient<IGlobalConfigRepository, GlobalConfigRepository>()
-                .AddTransient<IApiProvider, ApiProvider>()
+                .AddTransient<IWatchlistMembersRepository, WatchlistMembersRepository>()
                 .AddTransient<ZeroMqNotificationReader>()
-                .AddTransient<RegisterWlItemExtendedJsonLoader>()
+                .AddTransient<RegisterWatchlistMemberExtendedJsonLoader>()
                 .AddTransient<INotificationReceiver, ZeroMqNotificationReceiver>()
-                .AddTransient<IWatchlistItemRegistrationManager, WatchlistItemRegistrationManager>()
+                .AddTransient<IWatchlistMemberRegistrationManager, WatchlistMemberRegistrationManager>()
                 .AddLogging(configure => configure.AddConsole())
                 .BuildServiceProvider();
             return services;
-        }
-
-        public static Mapper ConfigureAutoMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<StreamWorkerConfigModel, VideoProcessor>();
-                cfg.CreateMap<VideoPublishWorkerConfigModel, VideoProcessor>();
-                cfg.CreateMap<FaceHandlerConfigModel, GlobalConfig>();
-                cfg.CreateMap<IFaceConfigModel, GlobalConfig>();
-            });
-            return new Mapper(config);
         }
     }
 }

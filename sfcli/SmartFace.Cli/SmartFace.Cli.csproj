@@ -2,47 +2,45 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
         <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
         <RootNamespace>SmartFace.Cli</RootNamespace>
-        <Version>3.4.0</Version>
+        <Version>4.0.0</Version>
         <AssemblyName>sfcli</AssemblyName>
-        <AssemblyVersion>3.4.0.0</AssemblyVersion>
+        <AssemblyVersion>4.0.0.0</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AutoMapper" Version="8.0.0" />
-      <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.1" />
-      <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="2.10.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
-      <PackageReference Include="Microsoft.OData.Client" Version="7.5.2" />
-      <PackageReference Include="NetMQ" Version="4.0.0.1" />
-      <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-      <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.9" />
+      <None Remove="Connected Services\SmartFaceProxy\SmartFaceProxyCsdl.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Connected Services\SmartFaceProxy\SmartFaceProxyCsdl.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="3.0.0" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.5.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.3" />
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.3" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.3" />
+      <PackageReference Include="Microsoft.OData.Client" Version="7.6.4" />
+      <PackageReference Include="Microsoft.OData.Core" Version="7.6.4" />
+      <PackageReference Include="Microsoft.OData.Edm" Version="7.6.4" />
+      <PackageReference Include="Microsoft.Spatial" Version="7.6.4" />
+      <PackageReference Include="NetMQ" Version="4.0.0.207" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+      <PackageReference Include="System.Linq.Dynamic.Core" Version="1.1.0" />
     </ItemGroup>
 
     <ItemGroup>
       <None Update="ApiClient\SmartFaceProxy.tt">
         <Generator>TextTemplatingFileGenerator</Generator>
       </None>
-      <None Update="Infrastructure\ApiClient\SmartFaceProxy.tt">
-        <Generator>TextTemplatingFileGenerator</Generator>
-        <LastGenOutput>SmartFaceProxy.cs</LastGenOutput>
-      </None>
     </ItemGroup>
 
     <ItemGroup>
       <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Infrastructure\ApiClient\SmartFaceProxy.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>SmartFaceProxy.tt</DependentUpon>
-      </Compile>
     </ItemGroup>
 
 </Project>
