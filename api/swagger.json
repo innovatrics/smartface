@@ -3174,22 +3174,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/VideoRecord"
+                "$ref": "#/components/schemas/VideoRecordUpdateRequest"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/VideoRecord"
+                "$ref": "#/components/schemas/VideoRecordUpdateRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/VideoRecord"
+                "$ref": "#/components/schemas/VideoRecordUpdateRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/VideoRecord"
+                "$ref": "#/components/schemas/VideoRecordUpdateRequest"
               }
             }
           }
@@ -3805,7 +3805,7 @@
           "Watchlist"
         ],
         "summary": "Searches the specified watchlists for matches with the given image.",
-        "description": "Supported value for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> is <code>cpu</code> which is used by default.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
         "requestBody": {
           "description": "Request containing searching image and ids of watchlists to be searched.",
           "content": {
@@ -4333,7 +4333,7 @@
           "WatchlistMember"
         ],
         "summary": "Registers a watchlist member.",
-        "description": "Supported value for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> is <code>cpu</code> which is used by default.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
         "requestBody": {
           "description": "Request specifying watchlist member register details.",
           "content": {
@@ -5923,6 +5923,102 @@
           "assemblyLastModifiedTime": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecordUpdateRequest": {
+        "required": [
+          "enabled",
+          "faceDetectorConfig",
+          "faceDetectorResourceId",
+          "faceSaveStrategy",
+          "id",
+          "imageQuality",
+          "maskImagePath",
+          "mpeG1PreviewEnabled",
+          "mpeG1PreviewPort",
+          "mpeG1VideoBitrate",
+          "name",
+          "previewMaxDimension",
+          "redetectionTime",
+          "saveFrameImageData",
+          "source",
+          "templateGenerationTime",
+          "templateGeneratorResourceId",
+          "trackMotionOptimization"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "faceDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaceDetectorConfig"
+              }
+            ]
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "redetectionTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "templateGenerationTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trackMotionOptimization": {
+            "type": "string"
+          },
+          "faceSaveStrategy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaceSaveStrategy"
+              }
+            ]
+          },
+          "maskImagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveFrameImageData": {
+            "type": "boolean"
+          },
+          "imageQuality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mpeG1PreviewEnabled": {
+            "type": "boolean"
+          },
+          "mpeG1PreviewPort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mpeG1VideoBitrate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "previewMaxDimension": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
