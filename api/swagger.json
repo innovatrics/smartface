@@ -4460,7 +4460,84 @@
             }
           },
           "409": {
-            "description": "Conflict",
+            "description": "There was a conflict adding the specified face to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/AddNewFace": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Adds a specified face to a given watchlist member.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The image with face to add with configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created face which was added to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Face"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The watchlist member were not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4470,7 +4547,14 @@
             }
           },
           "408": {
-            "description": "There was a conflict adding the specified face to the watchlist member."
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -6680,6 +6764,35 @@
           "faceId": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddNewFaceRequest": {
+        "required": [
+          "imageData"
+        ],
+        "type": "object",
+        "properties": {
+          "imageData": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ImageData"
+              }
+            ]
+          },
+          "faceDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaceDetectorConfig"
+              }
+            ]
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
           }
         },
         "additionalProperties": false
