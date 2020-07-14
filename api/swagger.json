@@ -4677,6 +4677,7 @@
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
+          "serviceName",
           "source",
           "templateGenerationTime",
           "templateGeneratorResourceId",
@@ -4684,6 +4685,9 @@
         ],
         "type": "object",
         "properties": {
+          "serviceName": {
+            "type": "string"
+          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -4826,6 +4830,9 @@
         ],
         "type": "object",
         "properties": {
+          "serviceName": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
