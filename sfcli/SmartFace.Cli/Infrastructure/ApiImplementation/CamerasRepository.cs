@@ -73,21 +73,34 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             return _setupClient.CamerasGetAsync();
         }
 
-        private Camera UpdateCameraData(Camera originalCamera, CameraRequestData updateData)
+        private CameraUpdateRequest UpdateCameraData(Camera originalCamera, CameraRequestData updateData)
         {
-            var updatedCamera = originalCamera;
+            var updatedCamera = new CameraUpdateRequest
+            {
+                Id = originalCamera.Id,
+                FaceDetectorConfig = originalCamera.FaceDetectorConfig,
+                FaceSaveStrategy = originalCamera.FaceSaveStrategy,
+                ImageQuality = originalCamera.ImageQuality,
+                TrackMotionOptimization = originalCamera.TrackMotionOptimization,
+                MaskImagePath = originalCamera.MaskImagePath,
+                TemplateGenerationTime = originalCamera.TemplateGenerationTime,
+                PreviewMaxDimension = originalCamera.PreviewMaxDimension,
+                MpeG1PreviewEnabled = originalCamera.MpeG1PreviewEnabled,
+                MpeG1VideoBitrate = originalCamera.MpeG1VideoBitrate,
+                SaveFrameImageData = originalCamera.SaveFrameImageData,
 
-            updatedCamera.Name = updateData.Name ?? originalCamera.Name;
-            updatedCamera.Source = updateData.Source ?? originalCamera.Source;
-            updatedCamera.Enabled = updateData.Enabled ?? originalCamera.Enabled;
-            updatedCamera.MpeG1PreviewPort = updateData.MPEG1PreviewPort ?? originalCamera.MpeG1PreviewPort;
-            updatedCamera.RedetectionTime = updateData.RedetectionTime ?? originalCamera.RedetectionTime;
+                Name = updateData.Name ?? originalCamera.Name,
+                Source = updateData.Source ?? originalCamera.Source,
+                Enabled = updateData.Enabled ?? originalCamera.Enabled,
+                MpeG1PreviewPort = updateData.MPEG1PreviewPort ?? originalCamera.MpeG1PreviewPort,
+                RedetectionTime = updateData.RedetectionTime ?? originalCamera.RedetectionTime,
+                TemplateGeneratorResourceId =
+                    updateData.TemplateGeneratorResourceId ?? originalCamera.TemplateGeneratorResourceId,
+                FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId
+            };
 
             updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;
             updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? originalCamera.FaceDetectorConfig.MinFaceSize;
-
-            updatedCamera.TemplateGeneratorResourceId = updateData.TemplateGeneratorResourceId ?? originalCamera.TemplateGeneratorResourceId;
-            updatedCamera.FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId;
 
             return updatedCamera;
         }
