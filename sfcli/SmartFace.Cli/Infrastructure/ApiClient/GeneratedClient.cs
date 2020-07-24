@@ -279,7 +279,7 @@ namespace ManagementApi
         /// <param name="body">New camera configuration.</param>
         /// <returns>Returns the newly updated camera.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Camera> CamerasPutAsync(Camera body)
+        public System.Threading.Tasks.Task<Camera> CamerasPutAsync(CameraUpdateRequest body)
         {
             return CamerasPutAsync(body, System.Threading.CancellationToken.None);
         }
@@ -289,7 +289,7 @@ namespace ManagementApi
         /// <param name="body">New camera configuration.</param>
         /// <returns>Returns the newly updated camera.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Camera> CamerasPutAsync(Camera body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Camera> CamerasPutAsync(CameraUpdateRequest body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/Cameras");
@@ -8541,6 +8541,75 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class CameraUpdateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.Guid Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("source", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Source { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool Enabled { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
+    
+        [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string FaceDetectorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
+        public int RedetectionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("templateGenerationTime", Required = Newtonsoft.Json.Required.Always)]
+        public int TemplateGenerationTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string TrackMotionOptimization { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public FaceSaveStrategy FaceSaveStrategy { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maskImagePath", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string MaskImagePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("saveFrameImageData", Required = Newtonsoft.Json.Required.Always)]
+        public bool SaveFrameImageData { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("imageQuality", Required = Newtonsoft.Json.Required.Always)]
+        public int ImageQuality { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("mpeG1PreviewEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool MpeG1PreviewEnabled { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("mpeG1PreviewPort", Required = Newtonsoft.Json.Required.Always)]
+        public int MpeG1PreviewPort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("mpeG1VideoBitrate", Required = Newtonsoft.Json.Required.Always)]
+        public int MpeG1VideoBitrate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("previewMaxDimension", Required = Newtonsoft.Json.Required.Always)]
+        public int PreviewMaxDimension { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FaceDetectorConfigCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8561,7 +8630,7 @@ namespace ManagementApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CameraCreateRequest 
     {
-        [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
