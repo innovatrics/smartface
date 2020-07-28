@@ -107,28 +107,28 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code> and for remote detection <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/Camera"
+                "$ref": "#/components/schemas/CameraUpdateRequest"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Camera"
+                "$ref": "#/components/schemas/CameraUpdateRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Camera"
+                "$ref": "#/components/schemas/CameraUpdateRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Camera"
+                "$ref": "#/components/schemas/CameraUpdateRequest"
               }
             }
           }
@@ -171,7 +171,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code> and for remote detection <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -3168,7 +3168,7 @@
           "VideoRecord"
         ],
         "summary": "Updates the specified video record with given values.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code> and for remote detection <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
         "requestBody": {
           "description": "New video record values.",
           "content": {
@@ -3232,7 +3232,7 @@
           "VideoRecord"
         ],
         "summary": "Creates a video record.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code> and for remote detection <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
         "requestBody": {
           "description": "Request specifying video record properties.",
           "content": {
@@ -4460,7 +4460,84 @@
             }
           },
           "409": {
-            "description": "Conflict",
+            "description": "There was a conflict adding the specified face to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/AddNewFace": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Adds a specified face to a given watchlist member.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The image with face to add with configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created face which was added to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Face"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The watchlist member were not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4470,7 +4547,14 @@
             }
           },
           "408": {
-            "description": "There was a conflict adding the specified face to the watchlist member."
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -4593,6 +4677,7 @@
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
+          "serviceName",
           "source",
           "templateGenerationTime",
           "templateGeneratorResourceId",
@@ -4600,6 +4685,9 @@
         ],
         "type": "object",
         "properties": {
+          "serviceName": {
+            "type": "string"
+          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -4709,6 +4797,102 @@
         },
         "additionalProperties": false
       },
+      "CameraUpdateRequest": {
+        "required": [
+          "enabled",
+          "faceDetectorConfig",
+          "faceDetectorResourceId",
+          "faceSaveStrategy",
+          "id",
+          "imageQuality",
+          "maskImagePath",
+          "mpeG1PreviewEnabled",
+          "mpeG1PreviewPort",
+          "mpeG1VideoBitrate",
+          "name",
+          "previewMaxDimension",
+          "redetectionTime",
+          "saveFrameImageData",
+          "source",
+          "templateGenerationTime",
+          "templateGeneratorResourceId",
+          "trackMotionOptimization"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "faceDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaceDetectorConfig"
+              }
+            ]
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "redetectionTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "templateGenerationTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trackMotionOptimization": {
+            "type": "string"
+          },
+          "faceSaveStrategy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaceSaveStrategy"
+              }
+            ]
+          },
+          "maskImagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveFrameImageData": {
+            "type": "boolean"
+          },
+          "imageQuality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mpeG1PreviewEnabled": {
+            "type": "boolean"
+          },
+          "mpeG1PreviewPort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mpeG1VideoBitrate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "previewMaxDimension": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "FaceDetectorConfigCreateRequest": {
         "type": "object",
         "properties": {
@@ -4742,6 +4926,10 @@
         ],
         "type": "object",
         "properties": {
+          "serviceName": {
+            "type": "string",
+            "nullable": true
+          },
           "name": {
             "type": "string"
           },
@@ -6680,6 +6868,35 @@
           "faceId": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddNewFaceRequest": {
+        "required": [
+          "imageData"
+        ],
+        "type": "object",
+        "properties": {
+          "imageData": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ImageData"
+              }
+            ]
+          },
+          "faceDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaceDetectorConfig"
+              }
+            ]
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
           }
         },
         "additionalProperties": false
