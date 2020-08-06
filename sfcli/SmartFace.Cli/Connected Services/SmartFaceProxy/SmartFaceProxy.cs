@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 5. 6. 2020 17:43:45
+// Generation date: 05-Aug-20 15:58:29
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -2031,6 +2031,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<global::System.Guid> _ImageDataId;
         partial void OnImageDataIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnImageDataIdChanged();
+        /// <summary>
+        /// There are no comments for Property TemplateVersion in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TemplateVersion")]
+        public virtual string TemplateVersion
+        {
+            get
+            {
+                return this._TemplateVersion;
+            }
+            set
+            {
+                this.OnTemplateVersionChanging(value);
+                this._TemplateVersion = value;
+                this.OnTemplateVersionChanged();
+                this.OnPropertyChanged("TemplateVersion");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private string _TemplateVersion;
+        partial void OnTemplateVersionChanging(string value);
+        partial void OnTemplateVersionChanged();
         /// <summary>
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
