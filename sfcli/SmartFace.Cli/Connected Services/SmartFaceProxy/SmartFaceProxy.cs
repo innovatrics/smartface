@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 5. 6. 2020 17:43:45
+// Generation date: 10. 8. 2020 12:45:26
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -2468,6 +2468,52 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<double> _Gender;
         partial void OnGenderChanging(global::System.Nullable<double> value);
         partial void OnGenderChanged();
+        /// <summary>
+        /// There are no comments for Property FaceMaskConfidence in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskConfidence")]
+        public virtual global::System.Nullable<double> FaceMaskConfidence
+        {
+            get
+            {
+                return this._FaceMaskConfidence;
+            }
+            set
+            {
+                this.OnFaceMaskConfidenceChanging(value);
+                this._FaceMaskConfidence = value;
+                this.OnFaceMaskConfidenceChanged();
+                this.OnPropertyChanged("FaceMaskConfidence");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _FaceMaskConfidence;
+        partial void OnFaceMaskConfidenceChanging(global::System.Nullable<double> value);
+        partial void OnFaceMaskConfidenceChanged();
+        /// <summary>
+        /// There are no comments for Property NoseTipConfidence in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NoseTipConfidence")]
+        public virtual global::System.Nullable<double> NoseTipConfidence
+        {
+            get
+            {
+                return this._NoseTipConfidence;
+            }
+            set
+            {
+                this.OnNoseTipConfidenceChanging(value);
+                this._NoseTipConfidence = value;
+                this.OnNoseTipConfidenceChanged();
+                this.OnPropertyChanged("NoseTipConfidence");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _NoseTipConfidence;
+        partial void OnNoseTipConfidenceChanging(global::System.Nullable<double> value);
+        partial void OnNoseTipConfidenceChanged();
         /// <summary>
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
@@ -6108,6 +6154,52 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private double _FaceAreaChange;
         partial void OnFaceAreaChangeChanging(double value);
         partial void OnFaceAreaChangeChanged();
+        /// <summary>
+        /// There are no comments for Property FaceMaskConfidence in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskConfidence")]
+        public virtual global::System.Nullable<double> FaceMaskConfidence
+        {
+            get
+            {
+                return this._FaceMaskConfidence;
+            }
+            set
+            {
+                this.OnFaceMaskConfidenceChanging(value);
+                this._FaceMaskConfidence = value;
+                this.OnFaceMaskConfidenceChanged();
+                this.OnPropertyChanged("FaceMaskConfidence");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _FaceMaskConfidence;
+        partial void OnFaceMaskConfidenceChanging(global::System.Nullable<double> value);
+        partial void OnFaceMaskConfidenceChanged();
+        /// <summary>
+        /// There are no comments for Property NoseTipConfidence in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NoseTipConfidence")]
+        public virtual global::System.Nullable<double> NoseTipConfidence
+        {
+            get
+            {
+                return this._NoseTipConfidence;
+            }
+            set
+            {
+                this.OnNoseTipConfidenceChanging(value);
+                this._NoseTipConfidence = value;
+                this.OnNoseTipConfidenceChanged();
+                this.OnPropertyChanged("NoseTipConfidence");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _NoseTipConfidence;
+        partial void OnNoseTipConfidenceChanging(global::System.Nullable<double> value);
+        partial void OnNoseTipConfidenceChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>

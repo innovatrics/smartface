@@ -8441,6 +8441,12 @@ namespace ManagementApi
         [System.Runtime.Serialization.EnumMember(Value = @"BestFace")]
         BestFace = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"FirstFace, BestFace")]
+        FirstFace__BestFace = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"MatchedOnly")]
+        MatchedOnly = 4,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
@@ -8911,6 +8917,12 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("gender", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? Gender { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? FaceMaskConfidence { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noseTipConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NoseTipConfidence { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceArea", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? FaceArea { get; set; }
@@ -9853,6 +9865,12 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public GenderType Gender { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? FaceMaskConfidence { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noseTipConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NoseTipConfidence { get; set; }
     
         [Newtonsoft.Json.JsonProperty("matchResults", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]

@@ -103,6 +103,8 @@
         <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
         <Property Name="Age" Type="Edm.Double" />
         <Property Name="Gender" Type="Edm.Double" />
+        <Property Name="FaceMaskConfidence" Type="Edm.Double" />
+        <Property Name="NoseTipConfidence" Type="Edm.Double" />
         <Property Name="StreamId" Type="Edm.Guid" />
         <Property Name="FaceArea" Type="Edm.Double" />
         <Property Name="FaceOrder" Type="Edm.Int32" />
@@ -279,6 +281,8 @@
         <Property Name="FaceOrder" Type="Edm.Int32" />
         <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
         <Property Name="FaceAreaChange" Type="Edm.Double" Nullable="false" />
+        <Property Name="FaceMaskConfidence" Type="Edm.Double" />
+        <Property Name="NoseTipConfidence" Type="Edm.Double" />
       </EntityType>
     </Schema>
     <Schema Namespace="SmartFace.ODataApi.Models.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">
