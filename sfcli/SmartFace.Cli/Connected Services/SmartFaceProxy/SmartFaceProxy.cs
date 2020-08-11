@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 10. 8. 2020 12:45:26
+// Generation date: 11. 8. 2020 12:28:29
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -1882,6 +1882,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="cropRightBottomX">Initial value of CropRightBottomX.</param>
         /// <param name="cropRightBottomY">Initial value of CropRightBottomY.</param>
         /// <param name="type">Initial value of Type.</param>
+        /// <param name="faceMaskType">Initial value of FaceMaskType.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Face CreateFace(global::System.Guid ID, 
@@ -1897,6 +1898,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     double cropRightBottomX, 
                     double cropRightBottomY, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType type, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType faceMaskType, 
                     double faceAreaChange)
         {
             Face face = new Face();
@@ -1913,6 +1915,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             face.CropRightBottomX = cropRightBottomX;
             face.CropRightBottomY = cropRightBottomY;
             face.Type = type;
+            face.FaceMaskType = faceMaskType;
             face.FaceAreaChange = faceAreaChange;
             return face;
         }
@@ -2514,6 +2517,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<double> _NoseTipConfidence;
         partial void OnNoseTipConfidenceChanging(global::System.Nullable<double> value);
         partial void OnNoseTipConfidenceChanged();
+        /// <summary>
+        /// There are no comments for Property FaceMaskType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskType")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType FaceMaskType
+        {
+            get
+            {
+                return this._FaceMaskType;
+            }
+            set
+            {
+                this.OnFaceMaskTypeChanging(value);
+                this._FaceMaskType = value;
+                this.OnFaceMaskTypeChanged();
+                this.OnPropertyChanged("FaceMaskType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType _FaceMaskType;
+        partial void OnFaceMaskTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType value);
+        partial void OnFaceMaskTypeChanged();
         /// <summary>
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
@@ -5698,6 +5724,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="trackletId">Initial value of TrackletId.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
+        /// <param name="faceMaskType">Initial value of FaceMaskType.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static MatchResult CreateMatchResult(global::System.Guid ID, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType type, 
@@ -5705,7 +5732,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     int score, 
                     global::System.DateTimeOffset createdAt, 
                     global::System.Guid trackletId, 
-                    double faceAreaChange)
+                    double faceAreaChange, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType faceMaskType)
         {
             MatchResult matchResult = new MatchResult();
             matchResult.Id = ID;
@@ -5715,6 +5743,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             matchResult.CreatedAt = createdAt;
             matchResult.TrackletId = trackletId;
             matchResult.FaceAreaChange = faceAreaChange;
+            matchResult.FaceMaskType = faceMaskType;
             return matchResult;
         }
         /// <summary>
@@ -6200,6 +6229,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<double> _NoseTipConfidence;
         partial void OnNoseTipConfidenceChanging(global::System.Nullable<double> value);
         partial void OnNoseTipConfidenceChanged();
+        /// <summary>
+        /// There are no comments for Property FaceMaskType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskType")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType FaceMaskType
+        {
+            get
+            {
+                return this._FaceMaskType;
+            }
+            set
+            {
+                this.OnFaceMaskTypeChanging(value);
+                this._FaceMaskType = value;
+                this.OnFaceMaskTypeChanged();
+                this.OnPropertyChanged("FaceMaskType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType _FaceMaskType;
+        partial void OnFaceMaskTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType value);
+        partial void OnFaceMaskTypeChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -8027,6 +8079,19 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Regular = 0,
         [global::Microsoft.OData.Client.OriginalNameAttribute("AutoLearn")]
         AutoLearn = 1
+    }
+    /// <summary>
+    /// There are no comments for FaceMaskType in the schema.
+    /// </summary>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskType")]
+    public enum FaceMaskType
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Unknown")]
+        Unknown = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Mask")]
+        Mask = 1,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NoMask")]
+        NoMask = 2
     }
     /// <summary>
     /// There are no comments for WorkerType in the schema.

@@ -8847,6 +8847,20 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public enum FaceMaskType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Unknown")]
+        Unknown = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Mask")]
+        Mask = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"NoMask")]
+        NoMask = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Face 
     {
         [Newtonsoft.Json.JsonProperty("trackletId", Required = Newtonsoft.Json.Required.Always)]
@@ -8923,6 +8937,11 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("noseTipConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? NoseTipConfidence { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public FaceMaskType FaceMaskType { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceArea", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? FaceArea { get; set; }
@@ -9871,6 +9890,11 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("noseTipConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? NoseTipConfidence { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public FaceMaskType FaceMaskType { get; set; }
     
         [Newtonsoft.Json.JsonProperty("matchResults", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
