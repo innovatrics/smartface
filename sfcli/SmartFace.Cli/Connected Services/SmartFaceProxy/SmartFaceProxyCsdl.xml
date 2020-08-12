@@ -105,7 +105,7 @@
         <Property Name="Gender" Type="Edm.Double" />
         <Property Name="FaceMaskConfidence" Type="Edm.Double" />
         <Property Name="NoseTipConfidence" Type="Edm.Double" />
-        <Property Name="FaceMaskType" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType" Nullable="false" />
+        <Property Name="FaceMaskStatus" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus" Nullable="false" />
         <Property Name="StreamId" Type="Edm.Guid" />
         <Property Name="FaceArea" Type="Edm.Double" />
         <Property Name="FaceOrder" Type="Edm.Int32" />
@@ -284,7 +284,7 @@
         <Property Name="FaceAreaChange" Type="Edm.Double" Nullable="false" />
         <Property Name="FaceMaskConfidence" Type="Edm.Double" />
         <Property Name="NoseTipConfidence" Type="Edm.Double" />
-        <Property Name="FaceMaskType" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskType" Nullable="false" />
+        <Property Name="FaceMaskStatus" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus" Nullable="false" />
       </EntityType>
     </Schema>
     <Schema Namespace="SmartFace.ODataApi.Models.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -377,7 +377,7 @@
         <Member Name="Regular" Value="0" />
         <Member Name="AutoLearn" Value="1" />
       </EnumType>
-      <EnumType Name="FaceMaskType">
+      <EnumType Name="FaceMaskStatus">
         <Member Name="Unknown" Value="0" />
         <Member Name="Mask" Value="1" />
         <Member Name="NoMask" Value="2" />

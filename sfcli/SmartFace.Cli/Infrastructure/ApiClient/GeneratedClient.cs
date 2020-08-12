@@ -8847,7 +8847,7 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
-    public enum FaceMaskType
+    public enum FaceMaskStatus
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Unknown")]
         Unknown = 0,
@@ -8938,10 +8938,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("noseTipConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? NoseTipConfidence { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("faceMaskType", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("faceMaskStatus", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public FaceMaskType FaceMaskType { get; set; }
+        public FaceMaskStatus FaceMaskStatus { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceArea", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? FaceArea { get; set; }
@@ -9891,10 +9891,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("noseTipConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? NoseTipConfidence { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("faceMaskType", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("faceMaskStatus", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public FaceMaskType FaceMaskType { get; set; }
+        public FaceMaskStatus FaceMaskStatus { get; set; }
     
         [Newtonsoft.Json.JsonProperty("matchResults", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
