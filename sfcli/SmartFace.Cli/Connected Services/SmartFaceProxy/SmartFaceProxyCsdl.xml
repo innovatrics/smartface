@@ -84,6 +84,7 @@
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
+        <Property Name="TemplateVersion" Type="Edm.String" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="ProcessedAt" Type="Edm.DateTimeOffset" />
