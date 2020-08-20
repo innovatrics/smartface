@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "API",
-    "version": "v1"
+    "title": "SmartFace REST API",
+    "version": "4.2.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -4657,7 +4657,9 @@
         "enum": [
           "All",
           "FirstFace",
-          "BestFace"
+          "BestFace",
+          "FirstFace, BestFace",
+          "MatchedOnly"
         ],
         "type": "string"
       },
@@ -5204,6 +5206,14 @@
         ],
         "type": "string"
       },
+      "FaceMaskStatus": {
+        "enum": [
+          "Unknown",
+          "Mask",
+          "NoMask"
+        ],
+        "type": "string"
+      },
       "Face": {
         "required": [
           "age",
@@ -5218,6 +5228,8 @@
           "cropRightTopY",
           "faceArea",
           "faceAreaChange",
+          "faceMaskConfidence",
+          "faceMaskStatus",
           "faceOrder",
           "facesOnFrameCount",
           "frameId",
@@ -5226,6 +5238,7 @@
           "imageDataId",
           "leftEyeX",
           "leftEyeY",
+          "noseTipConfidence",
           "processedAt",
           "quality",
           "rightEyeX",
@@ -5334,6 +5347,23 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "faceMaskConfidence": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "noseTipConfidence": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "faceMaskStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaceMaskStatus"
+              }
+            ]
           },
           "faceArea": {
             "type": "number",
@@ -6610,10 +6640,13 @@
           "cropRightBottomY",
           "cropRightTopX",
           "cropRightTopY",
+          "faceMaskConfidence",
+          "faceMaskStatus",
           "gender",
           "leftEyeX",
           "leftEyeY",
           "matchResults",
+          "noseTipConfidence",
           "quality",
           "rightEyeX",
           "rightEyeY"
@@ -6684,6 +6717,23 @@
             "allOf": [
               {
                 "$ref": "#/components/schemas/GenderType"
+              }
+            ]
+          },
+          "faceMaskConfidence": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "noseTipConfidence": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "faceMaskStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaceMaskStatus"
               }
             ]
           },
