@@ -2813,6 +2813,256 @@ namespace ManagementApi
             }
         }
     
+        /// <summary>Retrieves the visual object by its Id.</summary>
+        /// <param name="id">Id of the visual object.</param>
+        /// <returns>Returns the found visual object.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<VisualObject> VisualObjectsGetAsync(System.Guid id)
+        {
+            return VisualObjectsGetAsync(id, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Retrieves the visual object by its Id.</summary>
+        /// <param name="id">Id of the visual object.</param>
+        /// <returns>Returns the found visual object.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VisualObject> VisualObjectsGetAsync(System.Guid id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/VisualObjects/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VisualObject>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            throw new ApiException<ProblemDetails>("The visual object with given Id was not found.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(VisualObject);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Deletes the visual object by its Id.</summary>
+        /// <param name="id">Id of the visual object to delete.</param>
+        /// <returns>The visual object with given Id was deleted successfully.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task VisualObjectsDeleteAsync(System.Guid id)
+        {
+            return VisualObjectsDeleteAsync(id, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Deletes the visual object by its Id.</summary>
+        /// <param name="id">Id of the visual object to delete.</param>
+        /// <returns>The visual object with given Id was deleted successfully.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task VisualObjectsDeleteAsync(System.Guid id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/VisualObjects/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "204") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            throw new ApiException<ProblemDetails>("The visual object with given Id was not found.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Retrieves visual objects as a paged collection.</summary>
+        /// <returns>Returns the found visual objects.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<VisualObjectPagedCollection> VisualObjectsGetAsync(bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount)
+        {
+            return VisualObjectsGetAsync(ascending, pageNumber, pageSize, showTotalCount, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Retrieves visual objects as a paged collection.</summary>
+        /// <returns>Returns the found visual objects.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<VisualObjectPagedCollection> VisualObjectsGetAsync(bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount, System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/VisualObjects?");
+            if (ascending != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("Ascending") + "=").Append(System.Uri.EscapeDataString(ConvertToString(ascending, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (pageNumber != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("PageNumber") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageNumber, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (pageSize != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("PageSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (showTotalCount != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("ShowTotalCount") + "=").Append(System.Uri.EscapeDataString(ConvertToString(showTotalCount, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<VisualObjectPagedCollection>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            throw new ApiException<ProblemDetails>("The sent request was not valid.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(VisualObjectPagedCollection);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
         /// <summary>Retrieves the watchlists as a paged collection.</summary>
         /// <returns>Returns the found watchlists.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -8483,6 +8733,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string ObjectDetectorResourceId { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
     
@@ -8576,6 +8830,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string ObjectDetectorResourceId { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
     
@@ -8658,6 +8916,9 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ObjectDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? RedetectionTime { get; set; }
@@ -9304,6 +9565,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string ObjectDetectorResourceId { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
     
@@ -9524,6 +9789,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string ObjectDetectorResourceId { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
     
@@ -9586,6 +9855,9 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateGeneratorResourceId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ObjectDetectorResourceId { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? RedetectionTime { get; set; }
     
@@ -9619,6 +9891,177 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("previewMaxDimension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? PreviewMaxDimension { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public enum VisualObjectType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Face")]
+        Face = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Pedestrian")]
+        Pedestrian = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FaceAttributes 
+    {
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Always)]
+        public int Quality { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public FaceState State { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("leftEyeX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? LeftEyeX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("leftEyeY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? LeftEyeY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rightEyeX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? RightEyeX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rightEyeY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? RightEyeY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public FaceType Type { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("age", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? Age { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("gender", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? Gender { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? FaceMaskConfidence { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noseTipConfidence", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NoseTipConfidence { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskStatus", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public FaceMaskStatus FaceMaskStatus { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceAreaChange", Required = Newtonsoft.Json.Required.Always)]
+        public double FaceAreaChange { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class PedestrianAttributes 
+    {
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class VisualObject 
+    {
+        [Newtonsoft.Json.JsonProperty("objectType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public VisualObjectType ObjectType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("trackletId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.Guid TrackletId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("frameId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.Guid FrameId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("streamId", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.Guid? StreamId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("imageDataId", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.Guid? ImageDataId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("processedAt", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.DateTimeOffset? ProcessedAt { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropLeftTopX", Required = Newtonsoft.Json.Required.Always)]
+        public double CropLeftTopX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropLeftTopY", Required = Newtonsoft.Json.Required.Always)]
+        public double CropLeftTopY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropRightTopX", Required = Newtonsoft.Json.Required.Always)]
+        public double CropRightTopX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropRightTopY", Required = Newtonsoft.Json.Required.Always)]
+        public double CropRightTopY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropLeftBottomX", Required = Newtonsoft.Json.Required.Always)]
+        public double CropLeftBottomX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropLeftBottomY", Required = Newtonsoft.Json.Required.Always)]
+        public double CropLeftBottomY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropRightBottomX", Required = Newtonsoft.Json.Required.Always)]
+        public double CropRightBottomX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropRightBottomY", Required = Newtonsoft.Json.Required.Always)]
+        public double CropRightBottomY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("areaOnFrame", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AreaOnFrame { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("objectOrderOnFrameForType", Required = Newtonsoft.Json.Required.AllowNull)]
+        public int? ObjectOrderOnFrameForType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("objectsOnFrameCountForType", Required = Newtonsoft.Json.Required.AllowNull)]
+        public int? ObjectsOnFrameCountForType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceAttributes", Required = Newtonsoft.Json.Required.AllowNull)]
+        public FaceAttributes FaceAttributes { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pedestrianAttributes", Required = Newtonsoft.Json.Required.AllowNull)]
+        public PedestrianAttributes PedestrianAttributes { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.Guid Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTimeOffset CreatedAt { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.DateTimeOffset? UpdatedAt { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class VisualObjectPagedCollection 
+    {
+        [Newtonsoft.Json.JsonProperty("totalItemsCount", Required = Newtonsoft.Json.Required.AllowNull)]
+        public int? TotalItemsCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<VisualObject> Items { get; set; } = new System.Collections.ObjectModel.Collection<VisualObject>();
+    
+        [Newtonsoft.Json.JsonProperty("pageSize", Required = Newtonsoft.Json.Required.Always)]
+        public int PageSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageNumber", Required = Newtonsoft.Json.Required.Always)]
+        public int PageNumber { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("previousPage", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string PreviousPage { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nextPage", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string NextPage { get; set; }
     
     
     }
