@@ -41,6 +41,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
                 FaceDetectorResourceId = cameraRequestData.FaceDetectorResourceId,
                 TemplateGeneratorResourceId = cameraRequestData.TemplateGeneratorResourceId,
+                ObjectDetectorResourceId = cameraRequestData.ObjectDetectorResourceId,
 
                 FaceDetectorConfig = new FaceDetectorConfigCreateRequest
                 {
@@ -96,7 +97,8 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 RedetectionTime = updateData.RedetectionTime ?? originalCamera.RedetectionTime,
                 TemplateGeneratorResourceId =
                     updateData.TemplateGeneratorResourceId ?? originalCamera.TemplateGeneratorResourceId,
-                FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId
+                FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId,
+                ObjectDetectorResourceId = updateData.ObjectDetectorResourceId ?? originalCamera.ObjectDetectorResourceId
             };
 
             updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;

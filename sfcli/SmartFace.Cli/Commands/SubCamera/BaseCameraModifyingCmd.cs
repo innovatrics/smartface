@@ -26,6 +26,9 @@ namespace SmartFace.Cli.Commands.SubCamera
         [Option("-fd|--faceDetectorResourceId", "Face detector resource id for the camera", CommandOptionType.SingleValue)]
         public (bool HasValue, string Value) FaceDetectorResourceId { get; }
 
+        [Option("-od|--objectDetectorResourceId", "Object detector resource id for the camera", CommandOptionType.SingleValue)]
+        public (bool HasValue, string Value) ObjectDetectorResourceId { get; }
+
         public abstract (bool HasValue, string Value) Name { get; }
         public abstract (bool HasValue, string Value) Source { get; }
 
@@ -69,6 +72,11 @@ namespace SmartFace.Cli.Commands.SubCamera
             if (FaceDetectorResourceId.HasValue)
             {
                 cameraRequestData.FaceDetectorResourceId = FaceDetectorResourceId.Value;
+            }
+
+            if (ObjectDetectorResourceId.HasValue)
+            {
+                cameraRequestData.ObjectDetectorResourceId = ObjectDetectorResourceId.Value;
             }
 
             if (Name.HasValue)
