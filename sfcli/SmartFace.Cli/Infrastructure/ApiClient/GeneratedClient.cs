@@ -2972,18 +2972,20 @@ namespace ManagementApi
         }
     
         /// <summary>Retrieves visual objects as a paged collection.</summary>
+        /// <param name="objectTypes">Object types to include in the results. If empty all object types will be returned.</param>
         /// <returns>Returns the found visual objects.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<VisualObjectPagedCollection> VisualObjectsGetAsync(bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount)
+        public System.Threading.Tasks.Task<VisualObjectPagedCollection> VisualObjectsGetAsync(bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount, System.Collections.Generic.IEnumerable<VisualObjectType> objectTypes)
         {
-            return VisualObjectsGetAsync(ascending, pageNumber, pageSize, showTotalCount, System.Threading.CancellationToken.None);
+            return VisualObjectsGetAsync(ascending, pageNumber, pageSize, showTotalCount, objectTypes, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Retrieves visual objects as a paged collection.</summary>
+        /// <param name="objectTypes">Object types to include in the results. If empty all object types will be returned.</param>
         /// <returns>Returns the found visual objects.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<VisualObjectPagedCollection> VisualObjectsGetAsync(bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<VisualObjectPagedCollection> VisualObjectsGetAsync(bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount, System.Collections.Generic.IEnumerable<VisualObjectType> objectTypes, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/VisualObjects?");
@@ -3002,6 +3004,10 @@ namespace ManagementApi
             if (showTotalCount != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("ShowTotalCount") + "=").Append(System.Uri.EscapeDataString(ConvertToString(showTotalCount, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (objectTypes != null) 
+            {
+                foreach (var item_ in objectTypes) { urlBuilder_.Append(System.Uri.EscapeDataString("objectTypes") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             }
             urlBuilder_.Length--;
     
