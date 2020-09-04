@@ -8686,6 +8686,24 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ObjectDetectorConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("minObjectSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinObjectSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxObjectSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxObjectSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxObjects", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxObjects { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ConfidenceThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public enum FaceSaveStrategy
     {
         [System.Runtime.Serialization.EnumMember(Value = @"All")]
@@ -8730,6 +8748,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
+    
+        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ObjectDetectorConfig ObjectDetectorConfig { get; set; } = new ObjectDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -8828,6 +8850,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
+        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ObjectDetectorConfig ObjectDetectorConfig { get; set; } = new ObjectDetectorConfig();
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string FaceDetectorResourceId { get; set; }
@@ -8898,6 +8924,24 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ObjectDetectorConfigCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("minObjectSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinObjectSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxObjectSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxObjectSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxObjects", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxObjects { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ConfidenceThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CameraCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8916,6 +8960,9 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ObjectDetectorConfigCreateRequest ObjectDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FaceDetectorResourceId { get; set; }
@@ -9563,6 +9610,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
+        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ObjectDetectorConfig ObjectDetectorConfig { get; set; } = new ObjectDetectorConfig();
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string FaceDetectorResourceId { get; set; }
@@ -9787,6 +9838,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
+        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ObjectDetectorConfig ObjectDetectorConfig { get; set; } = new ObjectDetectorConfig();
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string FaceDetectorResourceId { get; set; }
@@ -9854,6 +9909,9 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ObjectDetectorConfigCreateRequest ObjectDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FaceDetectorResourceId { get; set; }
