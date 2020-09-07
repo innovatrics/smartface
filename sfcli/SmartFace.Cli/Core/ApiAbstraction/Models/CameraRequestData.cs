@@ -12,5 +12,7 @@
         public string FaceDetectorResourceId { get; set; }
         public string TemplateGeneratorResourceId { get; set; }
         public string ObjectDetectorResourceId { get; set; }
+        public int? MinObjectSize { get; set; }
+        public int? MaxObjectSize { get; set; }
     }
 }

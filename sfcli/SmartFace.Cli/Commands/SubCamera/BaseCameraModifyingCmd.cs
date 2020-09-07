@@ -29,6 +29,12 @@ namespace SmartFace.Cli.Commands.SubCamera
         [Option("-od|--objectDetectorResourceId", "Object detector resource id for the camera", CommandOptionType.SingleValue)]
         public (bool HasValue, string Value) ObjectDetectorResourceId { get; }
 
+        [Option("-mo|--minObjectSize", "Minimum size of detected object in pixels", CommandOptionType.SingleValue)]
+        public (bool HasValue, int Value) MinObjectSize { get; }
+        
+        [Option("-xo|--maxObjectSize", "Maximum size of detected object in pixels", CommandOptionType.SingleValue)]
+        public (bool HasValue, int Value) MaxObjectSize { get; }
+        
         public abstract (bool HasValue, string Value) Name { get; }
         public abstract (bool HasValue, string Value) Source { get; }
 
@@ -77,6 +83,16 @@ namespace SmartFace.Cli.Commands.SubCamera
             if (ObjectDetectorResourceId.HasValue)
             {
                 cameraRequestData.ObjectDetectorResourceId = ObjectDetectorResourceId.Value;
+            }
+
+            if (MinObjectSize.HasValue)
+            {
+                cameraRequestData.MinObjectSize = MinObjectSize.Value;
+            }
+
+            if (MaxObjectSize.HasValue)
+            {
+                cameraRequestData.MaxObjectSize = MaxObjectSize.Value;
             }
 
             if (Name.HasValue)

@@ -47,6 +47,11 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 {
                     MaxFaceSize = cameraRequestData.TrackMaxFaceSize,
                     MinFaceSize = cameraRequestData.TrackMinFaceSize
+                },
+                ObjectDetectorConfig = new ObjectDetectorConfigCreateRequest
+                {
+                    MaxObjectSize = cameraRequestData.MaxObjectSize,
+                    MinObjectSize = cameraRequestData.MinObjectSize
                 }
             };
 
@@ -103,6 +108,9 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
             updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;
             updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? originalCamera.FaceDetectorConfig.MinFaceSize;
+            
+            updatedCamera.ObjectDetectorConfig.MaxObjectSize = updateData.MaxObjectSize ?? originalCamera.ObjectDetectorConfig.MaxObjectSize;
+            updatedCamera.ObjectDetectorConfig.MinObjectSize = updateData.MinObjectSize ?? originalCamera.ObjectDetectorConfig.MinObjectSize;
 
             return updatedCamera;
         }
