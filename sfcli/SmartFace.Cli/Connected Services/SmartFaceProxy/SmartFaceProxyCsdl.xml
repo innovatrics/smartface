@@ -103,12 +103,10 @@
       </EntityType>
       <EntityType Name="Face" BaseType="SmartFace.Domain.DataAccess.Models.Core.VisualObject">
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
-        <Property Name="FaceState" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
         <Property Name="LeftEyeX" Type="Edm.Double" />
         <Property Name="LeftEyeY" Type="Edm.Double" />
         <Property Name="RightEyeX" Type="Edm.Double" />
         <Property Name="RightEyeY" Type="Edm.Double" />
-        <Property Name="FaceType" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
         <Property Name="Age" Type="Edm.Double" />
         <Property Name="Gender" Type="Edm.Double" />
         <Property Name="FaceMaskConfidence" Type="Edm.Double" />
@@ -118,6 +116,8 @@
         <Property Name="FaceArea" Type="Edm.Double" />
         <Property Name="FaceOrder" Type="Edm.Int32" />
         <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
+        <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
+        <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
         <Property Name="GenderFormatted" Type="SmartFace.Domain.DataAccess.Models.GenderType" />
         <NavigationProperty Name="BestForIndividuals" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)" />
         <NavigationProperty Name="Tracklet" Type="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
@@ -363,6 +363,7 @@
         <Property Name="Min_FaceDiscoveryFrequency" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_FaceExtractionFrequency" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_MaxTrackingFaces" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Min_MaxTrackingObjects" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_Mpeg1VideoBitRate" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_PreviewAutoShutdownSeconds" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_PreviewBufferSegments" Type="Edm.Int32" Nullable="false" />
@@ -387,6 +388,11 @@
         <Member Name="Pending" Value="2" />
         <Member Name="Error" Value="3" />
       </EnumType>
+      <EnumType Name="FaceMaskStatus">
+        <Member Name="Unknown" Value="0" />
+        <Member Name="Mask" Value="1" />
+        <Member Name="NoMask" Value="2" />
+      </EnumType>
       <EnumType Name="FaceState">
         <Member Name="New" Value="0" />
         <Member Name="Extracting" Value="1" />
@@ -396,11 +402,6 @@
       <EnumType Name="FaceType">
         <Member Name="Regular" Value="0" />
         <Member Name="AutoLearn" Value="1" />
-      </EnumType>
-      <EnumType Name="FaceMaskStatus">
-        <Member Name="Unknown" Value="0" />
-        <Member Name="Mask" Value="1" />
-        <Member Name="NoMask" Value="2" />
       </EnumType>
       <EnumType Name="FrameState">
         <Member Name="New" Value="0" />

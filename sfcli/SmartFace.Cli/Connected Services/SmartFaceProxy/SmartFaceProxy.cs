@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 28. 8. 2020 14:19:35
+// Generation date: 7. 9. 2020 12:50:49
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -2441,10 +2441,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="frameId">Initial value of FrameId.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="quality">Initial value of Quality.</param>
-        /// <param name="faceState">Initial value of FaceState.</param>
-        /// <param name="faceType">Initial value of FaceType.</param>
         /// <param name="faceMaskStatus">Initial value of FaceMaskStatus.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
+        /// <param name="state">Initial value of State.</param>
+        /// <param name="type">Initial value of Type.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Face CreateFace(global::System.Guid ID, 
                     int objectType, 
@@ -2460,10 +2460,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     global::System.Guid frameId, 
                     global::System.DateTimeOffset createdAt, 
                     int quality, 
-                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState faceState, 
-                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType faceType, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus faceMaskStatus, 
-                    double faceAreaChange)
+                    double faceAreaChange, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState state, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType type)
         {
             Face face = new Face();
             face.Id = ID;
@@ -2480,10 +2480,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             face.FrameId = frameId;
             face.CreatedAt = createdAt;
             face.Quality = quality;
-            face.FaceState = faceState;
-            face.FaceType = faceType;
             face.FaceMaskStatus = faceMaskStatus;
             face.FaceAreaChange = faceAreaChange;
+            face.State = state;
+            face.Type = type;
             return face;
         }
         /// <summary>
@@ -2509,29 +2509,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private int _Quality;
         partial void OnQualityChanging(int value);
         partial void OnQualityChanged();
-        /// <summary>
-        /// There are no comments for Property FaceState in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceState")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState FaceState
-        {
-            get
-            {
-                return this._FaceState;
-            }
-            set
-            {
-                this.OnFaceStateChanging(value);
-                this._FaceState = value;
-                this.OnFaceStateChanged();
-                this.OnPropertyChanged("FaceState");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState _FaceState;
-        partial void OnFaceStateChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState value);
-        partial void OnFaceStateChanged();
         /// <summary>
         /// There are no comments for Property LeftEyeX in the schema.
         /// </summary>
@@ -2624,29 +2601,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<double> _RightEyeY;
         partial void OnRightEyeYChanging(global::System.Nullable<double> value);
         partial void OnRightEyeYChanged();
-        /// <summary>
-        /// There are no comments for Property FaceType in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceType")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType FaceType
-        {
-            get
-            {
-                return this._FaceType;
-            }
-            set
-            {
-                this.OnFaceTypeChanging(value);
-                this._FaceType = value;
-                this.OnFaceTypeChanged();
-                this.OnPropertyChanged("FaceType");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType _FaceType;
-        partial void OnFaceTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType value);
-        partial void OnFaceTypeChanged();
         /// <summary>
         /// There are no comments for Property Age in the schema.
         /// </summary>
@@ -2854,6 +2808,52 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<int> _FacesOnFrameCount;
         partial void OnFacesOnFrameCountChanging(global::System.Nullable<int> value);
         partial void OnFacesOnFrameCountChanged();
+        /// <summary>
+        /// There are no comments for Property State in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("State")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState State
+        {
+            get
+            {
+                return this._State;
+            }
+            set
+            {
+                this.OnStateChanging(value);
+                this._State = value;
+                this.OnStateChanged();
+                this.OnPropertyChanged("State");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState _State;
+        partial void OnStateChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState value);
+        partial void OnStateChanged();
+        /// <summary>
+        /// There are no comments for Property Type in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Type")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType Type
+        {
+            get
+            {
+                return this._Type;
+            }
+            set
+            {
+                this.OnTypeChanging(value);
+                this._Type = value;
+                this.OnTypeChanged();
+                this.OnPropertyChanged("Type");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType _Type;
+        partial void OnTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType value);
+        partial void OnTypeChanged();
         /// <summary>
         /// There are no comments for Property GenderFormatted in the schema.
         /// </summary>
@@ -7636,6 +7636,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// <param name="min_FaceDiscoveryFrequency">Initial value of Min_FaceDiscoveryFrequency.</param>
         /// <param name="min_FaceExtractionFrequency">Initial value of Min_FaceExtractionFrequency.</param>
         /// <param name="min_MaxTrackingFaces">Initial value of Min_MaxTrackingFaces.</param>
+        /// <param name="min_MaxTrackingObjects">Initial value of Min_MaxTrackingObjects.</param>
         /// <param name="min_Mpeg1VideoBitRate">Initial value of Min_Mpeg1VideoBitRate.</param>
         /// <param name="min_PreviewAutoShutdownSeconds">Initial value of Min_PreviewAutoShutdownSeconds.</param>
         /// <param name="min_PreviewBufferSegments">Initial value of Min_PreviewBufferSegments.</param>
@@ -7665,6 +7666,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
                     int min_FaceDiscoveryFrequency, 
                     int min_FaceExtractionFrequency, 
                     int min_MaxTrackingFaces, 
+                    int min_MaxTrackingObjects, 
                     int min_Mpeg1VideoBitRate, 
                     int min_PreviewAutoShutdownSeconds, 
                     int min_PreviewBufferSegments, 
@@ -7695,6 +7697,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
             configurationConstants.Min_FaceDiscoveryFrequency = min_FaceDiscoveryFrequency;
             configurationConstants.Min_FaceExtractionFrequency = min_FaceExtractionFrequency;
             configurationConstants.Min_MaxTrackingFaces = min_MaxTrackingFaces;
+            configurationConstants.Min_MaxTrackingObjects = min_MaxTrackingObjects;
             configurationConstants.Min_Mpeg1VideoBitRate = min_Mpeg1VideoBitRate;
             configurationConstants.Min_PreviewAutoShutdownSeconds = min_PreviewAutoShutdownSeconds;
             configurationConstants.Min_PreviewBufferSegments = min_PreviewBufferSegments;
@@ -8393,6 +8396,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         partial void OnMin_MaxTrackingFacesChanging(int value);
         partial void OnMin_MaxTrackingFacesChanged();
         /// <summary>
+        /// There are no comments for Property Min_MaxTrackingObjects in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxTrackingObjects")]
+        public virtual int Min_MaxTrackingObjects
+        {
+            get
+            {
+                return this._Min_MaxTrackingObjects;
+            }
+            set
+            {
+                this.OnMin_MaxTrackingObjectsChanging(value);
+                this._Min_MaxTrackingObjects = value;
+                this.OnMin_MaxTrackingObjectsChanged();
+                this.OnPropertyChanged("Min_MaxTrackingObjects");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Min_MaxTrackingObjects;
+        partial void OnMin_MaxTrackingObjectsChanging(int value);
+        partial void OnMin_MaxTrackingObjectsChanged();
+        /// <summary>
         /// There are no comments for Property Min_Mpeg1VideoBitRate in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -8609,6 +8635,19 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Error = 3
     }
     /// <summary>
+    /// There are no comments for FaceMaskStatus in the schema.
+    /// </summary>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskStatus")]
+    public enum FaceMaskStatus
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Unknown")]
+        Unknown = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Mask")]
+        Mask = 1,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NoMask")]
+        NoMask = 2
+    }
+    /// <summary>
     /// There are no comments for FaceState in the schema.
     /// </summary>
     [global::Microsoft.OData.Client.OriginalNameAttribute("FaceState")]
@@ -8633,19 +8672,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Regular = 0,
         [global::Microsoft.OData.Client.OriginalNameAttribute("AutoLearn")]
         AutoLearn = 1
-    }
-    /// <summary>
-    /// There are no comments for FaceMaskStatus in the schema.
-    /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskStatus")]
-    public enum FaceMaskStatus
-    {
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Unknown")]
-        Unknown = 0,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Mask")]
-        Mask = 1,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("NoMask")]
-        NoMask = 2
     }
     /// <summary>
     /// There are no comments for FrameState in the schema.
