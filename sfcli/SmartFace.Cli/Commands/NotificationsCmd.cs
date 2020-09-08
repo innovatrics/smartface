@@ -20,7 +20,8 @@ namespace SmartFace.Cli.Commands
                               + ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH + ", "
                               + ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED + ", "
                               + ZeroMqNotificationTopic.LIVENESS_RESULT + ", "
-                              + ZeroMqNotificationTopic.HEARTBEAT
+                              + ZeroMqNotificationTopic.HEARTBEAT  + ", "
+                              + ZeroMqNotificationTopic.VISUAL_OBJECT_VISUAL_OBJECTS_PEDESTRIAN_INSERT
                               + "]", CommandOptionType.SingleValue)]
         [AllowedValues(
             ZeroMqNotificationTopic.FACE_CREATED,
@@ -32,7 +33,8 @@ namespace SmartFace.Cli.Commands
             ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH,
             ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED,
             ZeroMqNotificationTopic.LIVENESS_RESULT,
-            ZeroMqNotificationTopic.HEARTBEAT
+            ZeroMqNotificationTopic.HEARTBEAT,
+            ZeroMqNotificationTopic.VISUAL_OBJECT_VISUAL_OBJECTS_PEDESTRIAN_INSERT
         , IgnoreCase = false)]
         public string Topic { get; set; }
 
