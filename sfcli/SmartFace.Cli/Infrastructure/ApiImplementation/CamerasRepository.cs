@@ -41,17 +41,17 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
                 FaceDetectorResourceId = cameraRequestData.FaceDetectorResourceId,
                 TemplateGeneratorResourceId = cameraRequestData.TemplateGeneratorResourceId,
-                ObjectDetectorResourceId = cameraRequestData.ObjectDetectorResourceId,
+                PedestrianDetectorResourceId = cameraRequestData.PedestrianDetectorResourceId,
 
                 FaceDetectorConfig = new FaceDetectorConfigCreateRequest
                 {
                     MaxFaceSize = cameraRequestData.TrackMaxFaceSize,
                     MinFaceSize = cameraRequestData.TrackMinFaceSize
                 },
-                ObjectDetectorConfig = new ObjectDetectorConfigCreateRequest
+                PedestrianDetectorConfig = new PedestrianDetectorConfigCreateRequest
                 {
-                    MaxObjectSize = cameraRequestData.MaxObjectSize,
-                    MinObjectSize = cameraRequestData.MinObjectSize
+                    MaxPedestrianSize = cameraRequestData.MaxPedestrianSize,
+                    MinPedestrianSize = cameraRequestData.MinPedestrianSize
                 }
             };
 
@@ -103,14 +103,14 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 TemplateGeneratorResourceId =
                     updateData.TemplateGeneratorResourceId ?? originalCamera.TemplateGeneratorResourceId,
                 FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId,
-                ObjectDetectorResourceId = updateData.ObjectDetectorResourceId ?? originalCamera.ObjectDetectorResourceId
+                PedestrianDetectorResourceId = updateData.PedestrianDetectorResourceId ?? originalCamera.PedestrianDetectorResourceId
             };
 
             updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;
             updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? originalCamera.FaceDetectorConfig.MinFaceSize;
             
-            updatedCamera.ObjectDetectorConfig.MaxObjectSize = updateData.MaxObjectSize ?? originalCamera.ObjectDetectorConfig.MaxObjectSize;
-            updatedCamera.ObjectDetectorConfig.MinObjectSize = updateData.MinObjectSize ?? originalCamera.ObjectDetectorConfig.MinObjectSize;
+            updatedCamera.PedestrianDetectorConfig.MaxPedestrianSize = updateData.MaxPedestrianSize ?? originalCamera.PedestrianDetectorConfig.MaxPedestrianSize;
+            updatedCamera.PedestrianDetectorConfig.MinPedestrianSize = updateData.MinPedestrianSize ?? originalCamera.PedestrianDetectorConfig.MinPedestrianSize;
 
             return updatedCamera;
         }

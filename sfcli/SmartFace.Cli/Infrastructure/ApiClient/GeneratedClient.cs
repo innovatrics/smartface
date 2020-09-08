@@ -8686,16 +8686,16 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class ObjectDetectorConfig 
+    public partial class PedestrianDetectorConfig 
     {
-        [Newtonsoft.Json.JsonProperty("minObjectSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinObjectSize { get; set; }
+        [Newtonsoft.Json.JsonProperty("minPedestrianSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float? MinPedestrianSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxObjectSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxObjectSize { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxPedestrianSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float? MaxPedestrianSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxObjects", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxObjects { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxPedestrians", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxPedestrians { get; set; }
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? ConfidenceThreshold { get; set; }
@@ -8749,9 +8749,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public ObjectDetectorConfig ObjectDetectorConfig { get; set; } = new ObjectDetectorConfig();
+        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -8761,9 +8761,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ObjectDetectorResourceId { get; set; }
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
@@ -8850,9 +8850,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public ObjectDetectorConfig ObjectDetectorConfig { get; set; } = new ObjectDetectorConfig();
+        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -8862,9 +8862,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ObjectDetectorResourceId { get; set; }
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
@@ -8924,16 +8924,16 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class ObjectDetectorConfigCreateRequest 
+    public partial class PedestrianDetectorConfigCreateRequest 
     {
-        [Newtonsoft.Json.JsonProperty("minObjectSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinObjectSize { get; set; }
+        [Newtonsoft.Json.JsonProperty("minPedestrianSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float? MinPedestrianSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxObjectSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxObjectSize { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxPedestrianSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float? MaxPedestrianSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxObjects", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxObjects { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxPedestrians", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxPedestrians { get; set; }
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? ConfidenceThreshold { get; set; }
@@ -8961,8 +8961,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ObjectDetectorConfigCreateRequest ObjectDetectorConfig { get; set; }
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PedestrianDetectorConfigCreateRequest PedestrianDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FaceDetectorResourceId { get; set; }
@@ -8970,8 +8970,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateGeneratorResourceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ObjectDetectorResourceId { get; set; }
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? RedetectionTime { get; set; }
@@ -9610,9 +9610,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public ObjectDetectorConfig ObjectDetectorConfig { get; set; } = new ObjectDetectorConfig();
+        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -9622,9 +9622,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ObjectDetectorResourceId { get; set; }
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
@@ -9838,9 +9838,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public ObjectDetectorConfig ObjectDetectorConfig { get; set; } = new ObjectDetectorConfig();
+        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -9850,9 +9850,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ObjectDetectorResourceId { get; set; }
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
@@ -9910,8 +9910,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ObjectDetectorConfigCreateRequest ObjectDetectorConfig { get; set; }
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PedestrianDetectorConfigCreateRequest PedestrianDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FaceDetectorResourceId { get; set; }
@@ -9919,8 +9919,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateGeneratorResourceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("objectDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ObjectDetectorResourceId { get; set; }
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? RedetectionTime { get; set; }
@@ -10022,12 +10022,6 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class PedestrianAttributes 
-    {
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VisualObject 
     {
         [Newtonsoft.Json.JsonProperty("objectType", Required = Newtonsoft.Json.Required.Always)]
@@ -10087,9 +10081,6 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceAttributes", Required = Newtonsoft.Json.Required.AllowNull)]
         public FaceAttributes FaceAttributes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pedestrianAttributes", Required = Newtonsoft.Json.Required.AllowNull)]
-        public PedestrianAttributes PedestrianAttributes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]

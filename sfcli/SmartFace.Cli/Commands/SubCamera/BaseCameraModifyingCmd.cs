@@ -26,14 +26,14 @@ namespace SmartFace.Cli.Commands.SubCamera
         [Option("-fd|--faceDetectorResourceId", "Face detector resource id for the camera", CommandOptionType.SingleValue)]
         public (bool HasValue, string Value) FaceDetectorResourceId { get; }
 
-        [Option("-od|--objectDetectorResourceId", "Object detector resource id for the camera", CommandOptionType.SingleValue)]
-        public (bool HasValue, string Value) ObjectDetectorResourceId { get; }
+        [Option("-pd|--pedestrianDetectorResourceId", "Pedestrian detector resource id for the camera", CommandOptionType.SingleValue)]
+        public (bool HasValue, string Value) PedestrianDetectorResourceId { get; }
 
-        [Option("-mo|--minObjectSize", "Minimum size of detected object in pixels", CommandOptionType.SingleValue)]
-        public (bool HasValue, int Value) MinObjectSize { get; }
+        [Option("-mp|--minPedestrianSize", "Minimum size of detected pedestrian in pixels (if >= 1) or relative (if > 0 && < 1)", CommandOptionType.SingleValue)]
+        public (bool HasValue, float Value) MinPedestrianSize { get; }
         
-        [Option("-xo|--maxObjectSize", "Maximum size of detected object in pixels", CommandOptionType.SingleValue)]
-        public (bool HasValue, int Value) MaxObjectSize { get; }
+        [Option("-xp|--maxPedestrianSize", "Maximum size of detected pedestrian in pixels (if >= 1) or relative (if > 0 && < 1)", CommandOptionType.SingleValue)]
+        public (bool HasValue, float Value) MaxPedestrianSize { get; }
         
         public abstract (bool HasValue, string Value) Name { get; }
         public abstract (bool HasValue, string Value) Source { get; }
@@ -80,19 +80,19 @@ namespace SmartFace.Cli.Commands.SubCamera
                 cameraRequestData.FaceDetectorResourceId = FaceDetectorResourceId.Value;
             }
 
-            if (ObjectDetectorResourceId.HasValue)
+            if (PedestrianDetectorResourceId.HasValue)
             {
-                cameraRequestData.ObjectDetectorResourceId = ObjectDetectorResourceId.Value;
+                cameraRequestData.PedestrianDetectorResourceId = PedestrianDetectorResourceId.Value;
             }
 
-            if (MinObjectSize.HasValue)
+            if (MinPedestrianSize.HasValue)
             {
-                cameraRequestData.MinObjectSize = MinObjectSize.Value;
+                cameraRequestData.MinPedestrianSize = MinPedestrianSize.Value;
             }
 
-            if (MaxObjectSize.HasValue)
+            if (MaxPedestrianSize.HasValue)
             {
-                cameraRequestData.MaxObjectSize = MaxObjectSize.Value;
+                cameraRequestData.MaxPedestrianSize = MaxPedestrianSize.Value;
             }
 
             if (Name.HasValue)
