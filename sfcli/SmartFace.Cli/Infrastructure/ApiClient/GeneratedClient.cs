@@ -9973,9 +9973,6 @@ namespace ManagementApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class FaceAttributes 
     {
-        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Always)]
-        public int Quality { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -10045,6 +10042,9 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("processedAt", Required = Newtonsoft.Json.Required.AllowNull)]
         public System.DateTimeOffset? ProcessedAt { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Always)]
+        public int Quality { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cropLeftTopX", Required = Newtonsoft.Json.Required.Always)]
         public double CropLeftTopX { get; set; }

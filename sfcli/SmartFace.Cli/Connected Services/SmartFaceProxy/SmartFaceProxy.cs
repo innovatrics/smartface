@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 8. 9. 2020 9:44:54
+// Generation date: 8. 9. 2020 13:18:48
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -1849,6 +1849,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnImageDataIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnImageDataIdChanged();
         /// <summary>
+        /// There are no comments for Property Quality in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Quality")]
+        public virtual int Quality
+        {
+            get
+            {
+                return this._Quality;
+            }
+            set
+            {
+                this.OnQualityChanging(value);
+                this._Quality = value;
+                this.OnQualityChanged();
+                this.OnPropertyChanged("Quality");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Quality;
+        partial void OnQualityChanging(int value);
+        partial void OnQualityChanged();
+        /// <summary>
         /// There are no comments for Property CropLeftTopX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -2429,6 +2452,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="objectType">Initial value of ObjectType.</param>
+        /// <param name="quality">Initial value of Quality.</param>
         /// <param name="cropLeftTopX">Initial value of CropLeftTopX.</param>
         /// <param name="cropLeftTopY">Initial value of CropLeftTopY.</param>
         /// <param name="cropRightTopX">Initial value of CropRightTopX.</param>
@@ -2440,7 +2464,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="trackletId">Initial value of TrackletId.</param>
         /// <param name="frameId">Initial value of FrameId.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
-        /// <param name="quality">Initial value of Quality.</param>
         /// <param name="faceMaskStatus">Initial value of FaceMaskStatus.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         /// <param name="state">Initial value of State.</param>
@@ -2448,6 +2471,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Face CreateFace(global::System.Guid ID, 
                     int objectType, 
+                    int quality, 
                     double cropLeftTopX, 
                     double cropLeftTopY, 
                     double cropRightTopX, 
@@ -2459,7 +2483,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     global::System.Guid trackletId, 
                     global::System.Guid frameId, 
                     global::System.DateTimeOffset createdAt, 
-                    int quality, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus faceMaskStatus, 
                     double faceAreaChange, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState state, 
@@ -2468,6 +2491,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             Face face = new Face();
             face.Id = ID;
             face.ObjectType = objectType;
+            face.Quality = quality;
             face.CropLeftTopX = cropLeftTopX;
             face.CropLeftTopY = cropLeftTopY;
             face.CropRightTopX = cropRightTopX;
@@ -2479,36 +2503,12 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             face.TrackletId = trackletId;
             face.FrameId = frameId;
             face.CreatedAt = createdAt;
-            face.Quality = quality;
             face.FaceMaskStatus = faceMaskStatus;
             face.FaceAreaChange = faceAreaChange;
             face.State = state;
             face.Type = type;
             return face;
         }
-        /// <summary>
-        /// There are no comments for Property Quality in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Quality")]
-        public virtual int Quality
-        {
-            get
-            {
-                return this._Quality;
-            }
-            set
-            {
-                this.OnQualityChanging(value);
-                this._Quality = value;
-                this.OnQualityChanged();
-                this.OnPropertyChanged("Quality");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private int _Quality;
-        partial void OnQualityChanging(int value);
-        partial void OnQualityChanged();
         /// <summary>
         /// There are no comments for Property LeftEyeX in the schema.
         /// </summary>
@@ -3122,6 +3122,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="objectType">Initial value of ObjectType.</param>
+        /// <param name="quality">Initial value of Quality.</param>
         /// <param name="cropLeftTopX">Initial value of CropLeftTopX.</param>
         /// <param name="cropLeftTopY">Initial value of CropLeftTopY.</param>
         /// <param name="cropRightTopX">Initial value of CropRightTopX.</param>
@@ -3136,6 +3137,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Pedestrian CreatePedestrian(global::System.Guid ID, 
                     int objectType, 
+                    int quality, 
                     double cropLeftTopX, 
                     double cropLeftTopY, 
                     double cropRightTopX, 
@@ -3151,6 +3153,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             Pedestrian pedestrian = new Pedestrian();
             pedestrian.Id = ID;
             pedestrian.ObjectType = objectType;
+            pedestrian.Quality = quality;
             pedestrian.CropLeftTopX = cropLeftTopX;
             pedestrian.CropLeftTopY = cropLeftTopY;
             pedestrian.CropRightTopX = cropRightTopX;

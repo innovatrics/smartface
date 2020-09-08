@@ -83,6 +83,7 @@
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="ObjectType" Type="Edm.Int32" Nullable="false" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
+        <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CropLeftTopX" Type="Edm.Double" Nullable="false" />
         <Property Name="CropLeftTopY" Type="Edm.Double" Nullable="false" />
         <Property Name="CropRightTopX" Type="Edm.Double" Nullable="false" />
@@ -102,7 +103,6 @@
         <Property Name="ProcessedAt" Type="Edm.DateTimeOffset" />
       </EntityType>
       <EntityType Name="Face" BaseType="SmartFace.Domain.DataAccess.Models.Core.VisualObject">
-        <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="LeftEyeX" Type="Edm.Double" />
         <Property Name="LeftEyeY" Type="Edm.Double" />
         <Property Name="RightEyeX" Type="Edm.Double" />
