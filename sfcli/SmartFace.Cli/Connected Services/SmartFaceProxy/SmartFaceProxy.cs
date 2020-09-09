@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 8. 9. 2020 13:18:48
+// Generation date: 9. 9. 2020 12:06:40
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -1745,542 +1745,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
     }
     /// <summary>
-    /// There are no comments for VisualObjectSingle in the schema.
-    /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("VisualObjectSingle")]
-    public partial class VisualObjectSingle : global::Microsoft.OData.Client.DataServiceQuerySingle<VisualObject>
-    {
-        /// <summary>
-        /// Initialize a new VisualObjectSingle object.
-        /// </summary>
-        public VisualObjectSingle(global::Microsoft.OData.Client.DataServiceContext context, string path)
-            : base(context, path) {}
-
-        /// <summary>
-        /// Initialize a new VisualObjectSingle object.
-        /// </summary>
-        public VisualObjectSingle(global::Microsoft.OData.Client.DataServiceContext context, string path, bool isComposable)
-            : base(context, path, isComposable) {}
-
-        /// <summary>
-        /// Initialize a new VisualObjectSingle object.
-        /// </summary>
-        public VisualObjectSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<VisualObject> query)
-            : base(query) {}
-
-    }
-    /// <summary>
-    /// There are no comments for VisualObject in the schema.
-    /// </summary>
-    /// <KeyProperties>
-    /// Id
-    /// </KeyProperties>
-    [global::Microsoft.OData.Client.Key("Id")]
-    [global::Microsoft.OData.Client.OriginalNameAttribute("VisualObject")]
-    public abstract partial class VisualObject : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
-    {
-        /// <summary>
-        /// There are no comments for Property Id in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
-        public virtual global::System.Guid Id
-        {
-            get
-            {
-                return this._Id;
-            }
-            set
-            {
-                this.OnIdChanging(value);
-                this._Id = value;
-                this.OnIdChanged();
-                this.OnPropertyChanged("Id");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-        /// <summary>
-        /// There are no comments for Property ObjectType in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectType")]
-        public virtual int ObjectType
-        {
-            get
-            {
-                return this._ObjectType;
-            }
-            set
-            {
-                this.OnObjectTypeChanging(value);
-                this._ObjectType = value;
-                this.OnObjectTypeChanged();
-                this.OnPropertyChanged("ObjectType");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private int _ObjectType;
-        partial void OnObjectTypeChanging(int value);
-        partial void OnObjectTypeChanged();
-        /// <summary>
-        /// There are no comments for Property ImageDataId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ImageDataId")]
-        public virtual global::System.Nullable<global::System.Guid> ImageDataId
-        {
-            get
-            {
-                return this._ImageDataId;
-            }
-            set
-            {
-                this.OnImageDataIdChanging(value);
-                this._ImageDataId = value;
-                this.OnImageDataIdChanged();
-                this.OnPropertyChanged("ImageDataId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<global::System.Guid> _ImageDataId;
-        partial void OnImageDataIdChanging(global::System.Nullable<global::System.Guid> value);
-        partial void OnImageDataIdChanged();
-        /// <summary>
-        /// There are no comments for Property Quality in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Quality")]
-        public virtual int Quality
-        {
-            get
-            {
-                return this._Quality;
-            }
-            set
-            {
-                this.OnQualityChanging(value);
-                this._Quality = value;
-                this.OnQualityChanged();
-                this.OnPropertyChanged("Quality");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private int _Quality;
-        partial void OnQualityChanging(int value);
-        partial void OnQualityChanged();
-        /// <summary>
-        /// There are no comments for Property CropLeftTopX in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopX")]
-        public virtual double CropLeftTopX
-        {
-            get
-            {
-                return this._CropLeftTopX;
-            }
-            set
-            {
-                this.OnCropLeftTopXChanging(value);
-                this._CropLeftTopX = value;
-                this.OnCropLeftTopXChanged();
-                this.OnPropertyChanged("CropLeftTopX");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _CropLeftTopX;
-        partial void OnCropLeftTopXChanging(double value);
-        partial void OnCropLeftTopXChanged();
-        /// <summary>
-        /// There are no comments for Property CropLeftTopY in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopY")]
-        public virtual double CropLeftTopY
-        {
-            get
-            {
-                return this._CropLeftTopY;
-            }
-            set
-            {
-                this.OnCropLeftTopYChanging(value);
-                this._CropLeftTopY = value;
-                this.OnCropLeftTopYChanged();
-                this.OnPropertyChanged("CropLeftTopY");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _CropLeftTopY;
-        partial void OnCropLeftTopYChanging(double value);
-        partial void OnCropLeftTopYChanged();
-        /// <summary>
-        /// There are no comments for Property CropRightTopX in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopX")]
-        public virtual double CropRightTopX
-        {
-            get
-            {
-                return this._CropRightTopX;
-            }
-            set
-            {
-                this.OnCropRightTopXChanging(value);
-                this._CropRightTopX = value;
-                this.OnCropRightTopXChanged();
-                this.OnPropertyChanged("CropRightTopX");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _CropRightTopX;
-        partial void OnCropRightTopXChanging(double value);
-        partial void OnCropRightTopXChanged();
-        /// <summary>
-        /// There are no comments for Property CropRightTopY in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopY")]
-        public virtual double CropRightTopY
-        {
-            get
-            {
-                return this._CropRightTopY;
-            }
-            set
-            {
-                this.OnCropRightTopYChanging(value);
-                this._CropRightTopY = value;
-                this.OnCropRightTopYChanged();
-                this.OnPropertyChanged("CropRightTopY");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _CropRightTopY;
-        partial void OnCropRightTopYChanging(double value);
-        partial void OnCropRightTopYChanged();
-        /// <summary>
-        /// There are no comments for Property CropLeftBottomX in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomX")]
-        public virtual double CropLeftBottomX
-        {
-            get
-            {
-                return this._CropLeftBottomX;
-            }
-            set
-            {
-                this.OnCropLeftBottomXChanging(value);
-                this._CropLeftBottomX = value;
-                this.OnCropLeftBottomXChanged();
-                this.OnPropertyChanged("CropLeftBottomX");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _CropLeftBottomX;
-        partial void OnCropLeftBottomXChanging(double value);
-        partial void OnCropLeftBottomXChanged();
-        /// <summary>
-        /// There are no comments for Property CropLeftBottomY in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomY")]
-        public virtual double CropLeftBottomY
-        {
-            get
-            {
-                return this._CropLeftBottomY;
-            }
-            set
-            {
-                this.OnCropLeftBottomYChanging(value);
-                this._CropLeftBottomY = value;
-                this.OnCropLeftBottomYChanged();
-                this.OnPropertyChanged("CropLeftBottomY");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _CropLeftBottomY;
-        partial void OnCropLeftBottomYChanging(double value);
-        partial void OnCropLeftBottomYChanged();
-        /// <summary>
-        /// There are no comments for Property CropRightBottomX in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomX")]
-        public virtual double CropRightBottomX
-        {
-            get
-            {
-                return this._CropRightBottomX;
-            }
-            set
-            {
-                this.OnCropRightBottomXChanging(value);
-                this._CropRightBottomX = value;
-                this.OnCropRightBottomXChanged();
-                this.OnPropertyChanged("CropRightBottomX");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _CropRightBottomX;
-        partial void OnCropRightBottomXChanging(double value);
-        partial void OnCropRightBottomXChanged();
-        /// <summary>
-        /// There are no comments for Property CropRightBottomY in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomY")]
-        public virtual double CropRightBottomY
-        {
-            get
-            {
-                return this._CropRightBottomY;
-            }
-            set
-            {
-                this.OnCropRightBottomYChanging(value);
-                this._CropRightBottomY = value;
-                this.OnCropRightBottomYChanged();
-                this.OnPropertyChanged("CropRightBottomY");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _CropRightBottomY;
-        partial void OnCropRightBottomYChanging(double value);
-        partial void OnCropRightBottomYChanged();
-        /// <summary>
-        /// There are no comments for Property AreaOnFrame in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("AreaOnFrame")]
-        public virtual global::System.Nullable<double> AreaOnFrame
-        {
-            get
-            {
-                return this._AreaOnFrame;
-            }
-            set
-            {
-                this.OnAreaOnFrameChanging(value);
-                this._AreaOnFrame = value;
-                this.OnAreaOnFrameChanged();
-                this.OnPropertyChanged("AreaOnFrame");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _AreaOnFrame;
-        partial void OnAreaOnFrameChanging(global::System.Nullable<double> value);
-        partial void OnAreaOnFrameChanged();
-        /// <summary>
-        /// There are no comments for Property ObjectOrderOnFrameForType in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectOrderOnFrameForType")]
-        public virtual global::System.Nullable<int> ObjectOrderOnFrameForType
-        {
-            get
-            {
-                return this._ObjectOrderOnFrameForType;
-            }
-            set
-            {
-                this.OnObjectOrderOnFrameForTypeChanging(value);
-                this._ObjectOrderOnFrameForType = value;
-                this.OnObjectOrderOnFrameForTypeChanged();
-                this.OnPropertyChanged("ObjectOrderOnFrameForType");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<int> _ObjectOrderOnFrameForType;
-        partial void OnObjectOrderOnFrameForTypeChanging(global::System.Nullable<int> value);
-        partial void OnObjectOrderOnFrameForTypeChanged();
-        /// <summary>
-        /// There are no comments for Property ObjectsOnFrameCountForType in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectsOnFrameCountForType")]
-        public virtual global::System.Nullable<int> ObjectsOnFrameCountForType
-        {
-            get
-            {
-                return this._ObjectsOnFrameCountForType;
-            }
-            set
-            {
-                this.OnObjectsOnFrameCountForTypeChanging(value);
-                this._ObjectsOnFrameCountForType = value;
-                this.OnObjectsOnFrameCountForTypeChanged();
-                this.OnPropertyChanged("ObjectsOnFrameCountForType");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<int> _ObjectsOnFrameCountForType;
-        partial void OnObjectsOnFrameCountForTypeChanging(global::System.Nullable<int> value);
-        partial void OnObjectsOnFrameCountForTypeChanged();
-        /// <summary>
-        /// There are no comments for Property TrackletId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
-        public virtual global::System.Guid TrackletId
-        {
-            get
-            {
-                return this._TrackletId;
-            }
-            set
-            {
-                this.OnTrackletIdChanging(value);
-                this._TrackletId = value;
-                this.OnTrackletIdChanged();
-                this.OnPropertyChanged("TrackletId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _TrackletId;
-        partial void OnTrackletIdChanging(global::System.Guid value);
-        partial void OnTrackletIdChanged();
-        /// <summary>
-        /// There are no comments for Property FrameId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
-        public virtual global::System.Guid FrameId
-        {
-            get
-            {
-                return this._FrameId;
-            }
-            set
-            {
-                this.OnFrameIdChanging(value);
-                this._FrameId = value;
-                this.OnFrameIdChanged();
-                this.OnPropertyChanged("FrameId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _FrameId;
-        partial void OnFrameIdChanging(global::System.Guid value);
-        partial void OnFrameIdChanged();
-        /// <summary>
-        /// There are no comments for Property StreamId in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public virtual global::System.Nullable<global::System.Guid> StreamId
-        {
-            get
-            {
-                return this._StreamId;
-            }
-            set
-            {
-                this.OnStreamIdChanging(value);
-                this._StreamId = value;
-                this.OnStreamIdChanged();
-                this.OnPropertyChanged("StreamId");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<global::System.Guid> _StreamId;
-        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
-        partial void OnStreamIdChanged();
-        /// <summary>
-        /// There are no comments for Property UpdatedAt in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
-        public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
-        {
-            get
-            {
-                return this._UpdatedAt;
-            }
-            set
-            {
-                this.OnUpdatedAtChanging(value);
-                this._UpdatedAt = value;
-                this.OnUpdatedAtChanged();
-                this.OnPropertyChanged("UpdatedAt");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<global::System.DateTimeOffset> _UpdatedAt;
-        partial void OnUpdatedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
-        partial void OnUpdatedAtChanged();
-        /// <summary>
-        /// There are no comments for Property CreatedAt in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
-        public virtual global::System.DateTimeOffset CreatedAt
-        {
-            get
-            {
-                return this._CreatedAt;
-            }
-            set
-            {
-                this.OnCreatedAtChanging(value);
-                this._CreatedAt = value;
-                this.OnCreatedAtChanged();
-                this.OnPropertyChanged("CreatedAt");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.DateTimeOffset _CreatedAt;
-        partial void OnCreatedAtChanging(global::System.DateTimeOffset value);
-        partial void OnCreatedAtChanged();
-        /// <summary>
-        /// There are no comments for Property ProcessedAt in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ProcessedAt")]
-        public virtual global::System.Nullable<global::System.DateTimeOffset> ProcessedAt
-        {
-            get
-            {
-                return this._ProcessedAt;
-            }
-            set
-            {
-                this.OnProcessedAtChanging(value);
-                this._ProcessedAt = value;
-                this.OnProcessedAtChanged();
-                this.OnPropertyChanged("ProcessedAt");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<global::System.DateTimeOffset> _ProcessedAt;
-        partial void OnProcessedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
-        partial void OnProcessedAtChanged();
-        /// <summary>
-        /// This event is raised when the value of the property is changed
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// The value of the property is changed
-        /// </summary>
-        /// <param name="property">property name</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        protected virtual void OnPropertyChanged(string property)
-        {
-            if ((this.PropertyChanged != null))
-            {
-                this.PropertyChanged(this, new global::System.ComponentModel.PropertyChangedEventArgs(property));
-            }
-        }
-    }
-    /// <summary>
     /// There are no comments for FaceSingle in the schema.
     /// </summary>
     [global::Microsoft.OData.Client.OriginalNameAttribute("FaceSingle")]
@@ -2445,13 +1909,17 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
     /// </KeyProperties>
     [global::Microsoft.OData.Client.Key("Id")]
     [global::Microsoft.OData.Client.OriginalNameAttribute("Face")]
-    public partial class Face : VisualObject
+    public partial class Face : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
     {
         /// <summary>
         /// Create a new Face object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="objectType">Initial value of ObjectType.</param>
+        /// <param name="faceMaskStatus">Initial value of FaceMaskStatus.</param>
+        /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
+        /// <param name="state">Initial value of State.</param>
+        /// <param name="type">Initial value of Type.</param>
         /// <param name="quality">Initial value of Quality.</param>
         /// <param name="cropLeftTopX">Initial value of CropLeftTopX.</param>
         /// <param name="cropLeftTopY">Initial value of CropLeftTopY.</param>
@@ -2461,16 +1929,14 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="cropLeftBottomY">Initial value of CropLeftBottomY.</param>
         /// <param name="cropRightBottomX">Initial value of CropRightBottomX.</param>
         /// <param name="cropRightBottomY">Initial value of CropRightBottomY.</param>
-        /// <param name="trackletId">Initial value of TrackletId.</param>
-        /// <param name="frameId">Initial value of FrameId.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
-        /// <param name="faceMaskStatus">Initial value of FaceMaskStatus.</param>
-        /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
-        /// <param name="state">Initial value of State.</param>
-        /// <param name="type">Initial value of Type.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Face CreateFace(global::System.Guid ID, 
                     int objectType, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus faceMaskStatus, 
+                    double faceAreaChange, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState state, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType type, 
                     int quality, 
                     double cropLeftTopX, 
                     double cropLeftTopY, 
@@ -2480,17 +1946,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     double cropLeftBottomY, 
                     double cropRightBottomX, 
                     double cropRightBottomY, 
-                    global::System.Guid trackletId, 
-                    global::System.Guid frameId, 
-                    global::System.DateTimeOffset createdAt, 
-                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus faceMaskStatus, 
-                    double faceAreaChange, 
-                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState state, 
-                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType type)
+                    global::System.DateTimeOffset createdAt)
         {
             Face face = new Face();
             face.Id = ID;
             face.ObjectType = objectType;
+            face.FaceMaskStatus = faceMaskStatus;
+            face.FaceAreaChange = faceAreaChange;
+            face.State = state;
+            face.Type = type;
             face.Quality = quality;
             face.CropLeftTopX = cropLeftTopX;
             face.CropLeftTopY = cropLeftTopY;
@@ -2500,15 +1964,55 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             face.CropLeftBottomY = cropLeftBottomY;
             face.CropRightBottomX = cropRightBottomX;
             face.CropRightBottomY = cropRightBottomY;
-            face.TrackletId = trackletId;
-            face.FrameId = frameId;
             face.CreatedAt = createdAt;
-            face.FaceMaskStatus = faceMaskStatus;
-            face.FaceAreaChange = faceAreaChange;
-            face.State = state;
-            face.Type = type;
             return face;
         }
+        /// <summary>
+        /// There are no comments for Property Id in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        public virtual global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                this.OnIdChanging(value);
+                this._Id = value;
+                this.OnIdChanged();
+                this.OnPropertyChanged("Id");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+        /// <summary>
+        /// There are no comments for Property ObjectType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectType")]
+        public virtual int ObjectType
+        {
+            get
+            {
+                return this._ObjectType;
+            }
+            set
+            {
+                this.OnObjectTypeChanging(value);
+                this._ObjectType = value;
+                this.OnObjectTypeChanged();
+                this.OnPropertyChanged("ObjectType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _ObjectType;
+        partial void OnObjectTypeChanging(int value);
+        partial void OnObjectTypeChanged();
         /// <summary>
         /// There are no comments for Property LeftEyeX in the schema.
         /// </summary>
@@ -2878,6 +2382,374 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnGenderFormattedChanging(global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.GenderType> value);
         partial void OnGenderFormattedChanged();
         /// <summary>
+        /// There are no comments for Property ImageDataId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ImageDataId")]
+        public virtual global::System.Nullable<global::System.Guid> ImageDataId
+        {
+            get
+            {
+                return this._ImageDataId;
+            }
+            set
+            {
+                this.OnImageDataIdChanging(value);
+                this._ImageDataId = value;
+                this.OnImageDataIdChanged();
+                this.OnPropertyChanged("ImageDataId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.Guid> _ImageDataId;
+        partial void OnImageDataIdChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnImageDataIdChanged();
+        /// <summary>
+        /// There are no comments for Property Quality in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Quality")]
+        public virtual int Quality
+        {
+            get
+            {
+                return this._Quality;
+            }
+            set
+            {
+                this.OnQualityChanging(value);
+                this._Quality = value;
+                this.OnQualityChanged();
+                this.OnPropertyChanged("Quality");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Quality;
+        partial void OnQualityChanging(int value);
+        partial void OnQualityChanged();
+        /// <summary>
+        /// There are no comments for Property CropLeftTopX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopX")]
+        public virtual double CropLeftTopX
+        {
+            get
+            {
+                return this._CropLeftTopX;
+            }
+            set
+            {
+                this.OnCropLeftTopXChanging(value);
+                this._CropLeftTopX = value;
+                this.OnCropLeftTopXChanged();
+                this.OnPropertyChanged("CropLeftTopX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropLeftTopX;
+        partial void OnCropLeftTopXChanging(double value);
+        partial void OnCropLeftTopXChanged();
+        /// <summary>
+        /// There are no comments for Property CropLeftTopY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopY")]
+        public virtual double CropLeftTopY
+        {
+            get
+            {
+                return this._CropLeftTopY;
+            }
+            set
+            {
+                this.OnCropLeftTopYChanging(value);
+                this._CropLeftTopY = value;
+                this.OnCropLeftTopYChanged();
+                this.OnPropertyChanged("CropLeftTopY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropLeftTopY;
+        partial void OnCropLeftTopYChanging(double value);
+        partial void OnCropLeftTopYChanged();
+        /// <summary>
+        /// There are no comments for Property CropRightTopX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopX")]
+        public virtual double CropRightTopX
+        {
+            get
+            {
+                return this._CropRightTopX;
+            }
+            set
+            {
+                this.OnCropRightTopXChanging(value);
+                this._CropRightTopX = value;
+                this.OnCropRightTopXChanged();
+                this.OnPropertyChanged("CropRightTopX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropRightTopX;
+        partial void OnCropRightTopXChanging(double value);
+        partial void OnCropRightTopXChanged();
+        /// <summary>
+        /// There are no comments for Property CropRightTopY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopY")]
+        public virtual double CropRightTopY
+        {
+            get
+            {
+                return this._CropRightTopY;
+            }
+            set
+            {
+                this.OnCropRightTopYChanging(value);
+                this._CropRightTopY = value;
+                this.OnCropRightTopYChanged();
+                this.OnPropertyChanged("CropRightTopY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropRightTopY;
+        partial void OnCropRightTopYChanging(double value);
+        partial void OnCropRightTopYChanged();
+        /// <summary>
+        /// There are no comments for Property CropLeftBottomX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomX")]
+        public virtual double CropLeftBottomX
+        {
+            get
+            {
+                return this._CropLeftBottomX;
+            }
+            set
+            {
+                this.OnCropLeftBottomXChanging(value);
+                this._CropLeftBottomX = value;
+                this.OnCropLeftBottomXChanged();
+                this.OnPropertyChanged("CropLeftBottomX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropLeftBottomX;
+        partial void OnCropLeftBottomXChanging(double value);
+        partial void OnCropLeftBottomXChanged();
+        /// <summary>
+        /// There are no comments for Property CropLeftBottomY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomY")]
+        public virtual double CropLeftBottomY
+        {
+            get
+            {
+                return this._CropLeftBottomY;
+            }
+            set
+            {
+                this.OnCropLeftBottomYChanging(value);
+                this._CropLeftBottomY = value;
+                this.OnCropLeftBottomYChanged();
+                this.OnPropertyChanged("CropLeftBottomY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropLeftBottomY;
+        partial void OnCropLeftBottomYChanging(double value);
+        partial void OnCropLeftBottomYChanged();
+        /// <summary>
+        /// There are no comments for Property CropRightBottomX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomX")]
+        public virtual double CropRightBottomX
+        {
+            get
+            {
+                return this._CropRightBottomX;
+            }
+            set
+            {
+                this.OnCropRightBottomXChanging(value);
+                this._CropRightBottomX = value;
+                this.OnCropRightBottomXChanged();
+                this.OnPropertyChanged("CropRightBottomX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropRightBottomX;
+        partial void OnCropRightBottomXChanging(double value);
+        partial void OnCropRightBottomXChanged();
+        /// <summary>
+        /// There are no comments for Property CropRightBottomY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomY")]
+        public virtual double CropRightBottomY
+        {
+            get
+            {
+                return this._CropRightBottomY;
+            }
+            set
+            {
+                this.OnCropRightBottomYChanging(value);
+                this._CropRightBottomY = value;
+                this.OnCropRightBottomYChanged();
+                this.OnPropertyChanged("CropRightBottomY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropRightBottomY;
+        partial void OnCropRightBottomYChanging(double value);
+        partial void OnCropRightBottomYChanged();
+        /// <summary>
+        /// There are no comments for Property TrackletId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
+        public virtual global::System.Nullable<global::System.Guid> TrackletId
+        {
+            get
+            {
+                return this._TrackletId;
+            }
+            set
+            {
+                this.OnTrackletIdChanging(value);
+                this._TrackletId = value;
+                this.OnTrackletIdChanged();
+                this.OnPropertyChanged("TrackletId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.Guid> _TrackletId;
+        partial void OnTrackletIdChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnTrackletIdChanged();
+        /// <summary>
+        /// There are no comments for Property FrameId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
+        public virtual global::System.Nullable<global::System.Guid> FrameId
+        {
+            get
+            {
+                return this._FrameId;
+            }
+            set
+            {
+                this.OnFrameIdChanging(value);
+                this._FrameId = value;
+                this.OnFrameIdChanged();
+                this.OnPropertyChanged("FrameId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.Guid> _FrameId;
+        partial void OnFrameIdChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnFrameIdChanged();
+        /// <summary>
+        /// There are no comments for Property StreamId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
+        public virtual global::System.Nullable<global::System.Guid> StreamId
+        {
+            get
+            {
+                return this._StreamId;
+            }
+            set
+            {
+                this.OnStreamIdChanging(value);
+                this._StreamId = value;
+                this.OnStreamIdChanged();
+                this.OnPropertyChanged("StreamId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.Guid> _StreamId;
+        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnStreamIdChanged();
+        /// <summary>
+        /// There are no comments for Property UpdatedAt in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
+        public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
+        {
+            get
+            {
+                return this._UpdatedAt;
+            }
+            set
+            {
+                this.OnUpdatedAtChanging(value);
+                this._UpdatedAt = value;
+                this.OnUpdatedAtChanged();
+                this.OnPropertyChanged("UpdatedAt");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.DateTimeOffset> _UpdatedAt;
+        partial void OnUpdatedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
+        partial void OnUpdatedAtChanged();
+        /// <summary>
+        /// There are no comments for Property CreatedAt in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        public virtual global::System.DateTimeOffset CreatedAt
+        {
+            get
+            {
+                return this._CreatedAt;
+            }
+            set
+            {
+                this.OnCreatedAtChanging(value);
+                this._CreatedAt = value;
+                this.OnCreatedAtChanged();
+                this.OnPropertyChanged("CreatedAt");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.DateTimeOffset _CreatedAt;
+        partial void OnCreatedAtChanging(global::System.DateTimeOffset value);
+        partial void OnCreatedAtChanged();
+        /// <summary>
+        /// There are no comments for Property ProcessedAt in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ProcessedAt")]
+        public virtual global::System.Nullable<global::System.DateTimeOffset> ProcessedAt
+        {
+            get
+            {
+                return this._ProcessedAt;
+            }
+            set
+            {
+                this.OnProcessedAtChanging(value);
+                this._ProcessedAt = value;
+                this.OnProcessedAtChanged();
+                this.OnPropertyChanged("ProcessedAt");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.DateTimeOffset> _ProcessedAt;
+        partial void OnProcessedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
+        partial void OnProcessedAtChanged();
+        /// <summary>
         /// There are no comments for Property BestForIndividuals in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -3015,6 +2887,23 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(null, global::Microsoft.OData.Client.TrackingMode.None);
         partial void OnFramesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> value);
         partial void OnFramesChanged();
+        /// <summary>
+        /// This event is raised when the value of the property is changed
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// The value of the property is changed
+        /// </summary>
+        /// <param name="property">property name</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        protected virtual void OnPropertyChanged(string property)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new global::System.ComponentModel.PropertyChangedEventArgs(property));
+            }
+        }
     }
     /// <summary>
     /// There are no comments for PedestrianSingle in the schema.
@@ -3106,6 +2995,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle _Stream;
+        /// <summary>
+        /// There are no comments for Frames in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Frames == null))
+                {
+                    this._Frames = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(GetPath("Frames"));
+                }
+                return this._Frames;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames;
     }
     /// <summary>
     /// There are no comments for Pedestrian in the schema.
@@ -3115,7 +3026,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
     /// </KeyProperties>
     [global::Microsoft.OData.Client.Key("Id")]
     [global::Microsoft.OData.Client.OriginalNameAttribute("Pedestrian")]
-    public partial class Pedestrian : VisualObject
+    public partial class Pedestrian : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
     {
         /// <summary>
         /// Create a new Pedestrian object.
@@ -3131,8 +3042,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="cropLeftBottomY">Initial value of CropLeftBottomY.</param>
         /// <param name="cropRightBottomX">Initial value of CropRightBottomX.</param>
         /// <param name="cropRightBottomY">Initial value of CropRightBottomY.</param>
-        /// <param name="trackletId">Initial value of TrackletId.</param>
-        /// <param name="frameId">Initial value of FrameId.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Pedestrian CreatePedestrian(global::System.Guid ID, 
@@ -3146,8 +3055,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     double cropLeftBottomY, 
                     double cropRightBottomX, 
                     double cropRightBottomY, 
-                    global::System.Guid trackletId, 
-                    global::System.Guid frameId, 
                     global::System.DateTimeOffset createdAt)
         {
             Pedestrian pedestrian = new Pedestrian();
@@ -3162,11 +3069,492 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             pedestrian.CropLeftBottomY = cropLeftBottomY;
             pedestrian.CropRightBottomX = cropRightBottomX;
             pedestrian.CropRightBottomY = cropRightBottomY;
-            pedestrian.TrackletId = trackletId;
-            pedestrian.FrameId = frameId;
             pedestrian.CreatedAt = createdAt;
             return pedestrian;
         }
+        /// <summary>
+        /// There are no comments for Property Id in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        public virtual global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                this.OnIdChanging(value);
+                this._Id = value;
+                this.OnIdChanged();
+                this.OnPropertyChanged("Id");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+        /// <summary>
+        /// There are no comments for Property ObjectType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectType")]
+        public virtual int ObjectType
+        {
+            get
+            {
+                return this._ObjectType;
+            }
+            set
+            {
+                this.OnObjectTypeChanging(value);
+                this._ObjectType = value;
+                this.OnObjectTypeChanged();
+                this.OnPropertyChanged("ObjectType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _ObjectType;
+        partial void OnObjectTypeChanging(int value);
+        partial void OnObjectTypeChanged();
+        /// <summary>
+        /// There are no comments for Property ImageDataId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ImageDataId")]
+        public virtual global::System.Nullable<global::System.Guid> ImageDataId
+        {
+            get
+            {
+                return this._ImageDataId;
+            }
+            set
+            {
+                this.OnImageDataIdChanging(value);
+                this._ImageDataId = value;
+                this.OnImageDataIdChanged();
+                this.OnPropertyChanged("ImageDataId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.Guid> _ImageDataId;
+        partial void OnImageDataIdChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnImageDataIdChanged();
+        /// <summary>
+        /// There are no comments for Property Quality in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Quality")]
+        public virtual int Quality
+        {
+            get
+            {
+                return this._Quality;
+            }
+            set
+            {
+                this.OnQualityChanging(value);
+                this._Quality = value;
+                this.OnQualityChanged();
+                this.OnPropertyChanged("Quality");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Quality;
+        partial void OnQualityChanging(int value);
+        partial void OnQualityChanged();
+        /// <summary>
+        /// There are no comments for Property CropLeftTopX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopX")]
+        public virtual double CropLeftTopX
+        {
+            get
+            {
+                return this._CropLeftTopX;
+            }
+            set
+            {
+                this.OnCropLeftTopXChanging(value);
+                this._CropLeftTopX = value;
+                this.OnCropLeftTopXChanged();
+                this.OnPropertyChanged("CropLeftTopX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropLeftTopX;
+        partial void OnCropLeftTopXChanging(double value);
+        partial void OnCropLeftTopXChanged();
+        /// <summary>
+        /// There are no comments for Property CropLeftTopY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopY")]
+        public virtual double CropLeftTopY
+        {
+            get
+            {
+                return this._CropLeftTopY;
+            }
+            set
+            {
+                this.OnCropLeftTopYChanging(value);
+                this._CropLeftTopY = value;
+                this.OnCropLeftTopYChanged();
+                this.OnPropertyChanged("CropLeftTopY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropLeftTopY;
+        partial void OnCropLeftTopYChanging(double value);
+        partial void OnCropLeftTopYChanged();
+        /// <summary>
+        /// There are no comments for Property CropRightTopX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopX")]
+        public virtual double CropRightTopX
+        {
+            get
+            {
+                return this._CropRightTopX;
+            }
+            set
+            {
+                this.OnCropRightTopXChanging(value);
+                this._CropRightTopX = value;
+                this.OnCropRightTopXChanged();
+                this.OnPropertyChanged("CropRightTopX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropRightTopX;
+        partial void OnCropRightTopXChanging(double value);
+        partial void OnCropRightTopXChanged();
+        /// <summary>
+        /// There are no comments for Property CropRightTopY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopY")]
+        public virtual double CropRightTopY
+        {
+            get
+            {
+                return this._CropRightTopY;
+            }
+            set
+            {
+                this.OnCropRightTopYChanging(value);
+                this._CropRightTopY = value;
+                this.OnCropRightTopYChanged();
+                this.OnPropertyChanged("CropRightTopY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropRightTopY;
+        partial void OnCropRightTopYChanging(double value);
+        partial void OnCropRightTopYChanged();
+        /// <summary>
+        /// There are no comments for Property CropLeftBottomX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomX")]
+        public virtual double CropLeftBottomX
+        {
+            get
+            {
+                return this._CropLeftBottomX;
+            }
+            set
+            {
+                this.OnCropLeftBottomXChanging(value);
+                this._CropLeftBottomX = value;
+                this.OnCropLeftBottomXChanged();
+                this.OnPropertyChanged("CropLeftBottomX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropLeftBottomX;
+        partial void OnCropLeftBottomXChanging(double value);
+        partial void OnCropLeftBottomXChanged();
+        /// <summary>
+        /// There are no comments for Property CropLeftBottomY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomY")]
+        public virtual double CropLeftBottomY
+        {
+            get
+            {
+                return this._CropLeftBottomY;
+            }
+            set
+            {
+                this.OnCropLeftBottomYChanging(value);
+                this._CropLeftBottomY = value;
+                this.OnCropLeftBottomYChanged();
+                this.OnPropertyChanged("CropLeftBottomY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropLeftBottomY;
+        partial void OnCropLeftBottomYChanging(double value);
+        partial void OnCropLeftBottomYChanged();
+        /// <summary>
+        /// There are no comments for Property CropRightBottomX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomX")]
+        public virtual double CropRightBottomX
+        {
+            get
+            {
+                return this._CropRightBottomX;
+            }
+            set
+            {
+                this.OnCropRightBottomXChanging(value);
+                this._CropRightBottomX = value;
+                this.OnCropRightBottomXChanged();
+                this.OnPropertyChanged("CropRightBottomX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropRightBottomX;
+        partial void OnCropRightBottomXChanging(double value);
+        partial void OnCropRightBottomXChanged();
+        /// <summary>
+        /// There are no comments for Property CropRightBottomY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomY")]
+        public virtual double CropRightBottomY
+        {
+            get
+            {
+                return this._CropRightBottomY;
+            }
+            set
+            {
+                this.OnCropRightBottomYChanging(value);
+                this._CropRightBottomY = value;
+                this.OnCropRightBottomYChanged();
+                this.OnPropertyChanged("CropRightBottomY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _CropRightBottomY;
+        partial void OnCropRightBottomYChanging(double value);
+        partial void OnCropRightBottomYChanged();
+        /// <summary>
+        /// There are no comments for Property AreaOnFrame in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("AreaOnFrame")]
+        public virtual global::System.Nullable<double> AreaOnFrame
+        {
+            get
+            {
+                return this._AreaOnFrame;
+            }
+            set
+            {
+                this.OnAreaOnFrameChanging(value);
+                this._AreaOnFrame = value;
+                this.OnAreaOnFrameChanged();
+                this.OnPropertyChanged("AreaOnFrame");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _AreaOnFrame;
+        partial void OnAreaOnFrameChanging(global::System.Nullable<double> value);
+        partial void OnAreaOnFrameChanged();
+        /// <summary>
+        /// There are no comments for Property ObjectOrderOnFrameForType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectOrderOnFrameForType")]
+        public virtual global::System.Nullable<int> ObjectOrderOnFrameForType
+        {
+            get
+            {
+                return this._ObjectOrderOnFrameForType;
+            }
+            set
+            {
+                this.OnObjectOrderOnFrameForTypeChanging(value);
+                this._ObjectOrderOnFrameForType = value;
+                this.OnObjectOrderOnFrameForTypeChanged();
+                this.OnPropertyChanged("ObjectOrderOnFrameForType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<int> _ObjectOrderOnFrameForType;
+        partial void OnObjectOrderOnFrameForTypeChanging(global::System.Nullable<int> value);
+        partial void OnObjectOrderOnFrameForTypeChanged();
+        /// <summary>
+        /// There are no comments for Property ObjectsOnFrameCountForType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectsOnFrameCountForType")]
+        public virtual global::System.Nullable<int> ObjectsOnFrameCountForType
+        {
+            get
+            {
+                return this._ObjectsOnFrameCountForType;
+            }
+            set
+            {
+                this.OnObjectsOnFrameCountForTypeChanging(value);
+                this._ObjectsOnFrameCountForType = value;
+                this.OnObjectsOnFrameCountForTypeChanged();
+                this.OnPropertyChanged("ObjectsOnFrameCountForType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<int> _ObjectsOnFrameCountForType;
+        partial void OnObjectsOnFrameCountForTypeChanging(global::System.Nullable<int> value);
+        partial void OnObjectsOnFrameCountForTypeChanged();
+        /// <summary>
+        /// There are no comments for Property TrackletId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
+        public virtual global::System.Nullable<global::System.Guid> TrackletId
+        {
+            get
+            {
+                return this._TrackletId;
+            }
+            set
+            {
+                this.OnTrackletIdChanging(value);
+                this._TrackletId = value;
+                this.OnTrackletIdChanged();
+                this.OnPropertyChanged("TrackletId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.Guid> _TrackletId;
+        partial void OnTrackletIdChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnTrackletIdChanged();
+        /// <summary>
+        /// There are no comments for Property FrameId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
+        public virtual global::System.Nullable<global::System.Guid> FrameId
+        {
+            get
+            {
+                return this._FrameId;
+            }
+            set
+            {
+                this.OnFrameIdChanging(value);
+                this._FrameId = value;
+                this.OnFrameIdChanged();
+                this.OnPropertyChanged("FrameId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.Guid> _FrameId;
+        partial void OnFrameIdChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnFrameIdChanged();
+        /// <summary>
+        /// There are no comments for Property StreamId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
+        public virtual global::System.Nullable<global::System.Guid> StreamId
+        {
+            get
+            {
+                return this._StreamId;
+            }
+            set
+            {
+                this.OnStreamIdChanging(value);
+                this._StreamId = value;
+                this.OnStreamIdChanged();
+                this.OnPropertyChanged("StreamId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.Guid> _StreamId;
+        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnStreamIdChanged();
+        /// <summary>
+        /// There are no comments for Property UpdatedAt in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
+        public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
+        {
+            get
+            {
+                return this._UpdatedAt;
+            }
+            set
+            {
+                this.OnUpdatedAtChanging(value);
+                this._UpdatedAt = value;
+                this.OnUpdatedAtChanged();
+                this.OnPropertyChanged("UpdatedAt");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.DateTimeOffset> _UpdatedAt;
+        partial void OnUpdatedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
+        partial void OnUpdatedAtChanged();
+        /// <summary>
+        /// There are no comments for Property CreatedAt in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        public virtual global::System.DateTimeOffset CreatedAt
+        {
+            get
+            {
+                return this._CreatedAt;
+            }
+            set
+            {
+                this.OnCreatedAtChanging(value);
+                this._CreatedAt = value;
+                this.OnCreatedAtChanged();
+                this.OnPropertyChanged("CreatedAt");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.DateTimeOffset _CreatedAt;
+        partial void OnCreatedAtChanging(global::System.DateTimeOffset value);
+        partial void OnCreatedAtChanged();
+        /// <summary>
+        /// There are no comments for Property ProcessedAt in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ProcessedAt")]
+        public virtual global::System.Nullable<global::System.DateTimeOffset> ProcessedAt
+        {
+            get
+            {
+                return this._ProcessedAt;
+            }
+            set
+            {
+                this.OnProcessedAtChanging(value);
+                this._ProcessedAt = value;
+                this.OnProcessedAtChanged();
+                this.OnPropertyChanged("ProcessedAt");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::System.DateTimeOffset> _ProcessedAt;
+        partial void OnProcessedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
+        partial void OnProcessedAtChanged();
         /// <summary>
         /// There are no comments for Property Tracklet in the schema.
         /// </summary>
@@ -3236,6 +3624,46 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream _Stream;
         partial void OnStreamChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream value);
         partial void OnStreamChanged();
+        /// <summary>
+        /// There are no comments for Property Frames in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
+        {
+            get
+            {
+                return this._Frames;
+            }
+            set
+            {
+                this.OnFramesChanging(value);
+                this._Frames = value;
+                this.OnFramesChanged();
+                this.OnPropertyChanged("Frames");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _Frames = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnFramesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> value);
+        partial void OnFramesChanged();
+        /// <summary>
+        /// This event is raised when the value of the property is changed
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// The value of the property is changed
+        /// </summary>
+        /// <param name="property">property name</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        protected virtual void OnPropertyChanged(string property)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new global::System.ComponentModel.PropertyChangedEventArgs(property));
+            }
+        }
     }
     /// <summary>
     /// There are no comments for TrackletSingle in the schema.
@@ -6861,29 +7289,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObjectSingle specified by key from an entity set
-        /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObjectSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject> source, global::System.Collections.Generic.IDictionary<string, object> keys)
-        {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObjectSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
-        }
-        /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObjectSingle specified by key from an entity set
-        /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObjectSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject> source,
-            global::System.Guid id)
-        {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
-            {
-                { "Id", id }
-            };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObjectSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
-        }
-        /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
@@ -6907,15 +7312,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Cast an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject to its derived type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face
-        /// </summary>
-        /// <param name="source">source entity</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle CastToFace(this global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject> source)
-        {
-            global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> query = source.CastTo<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face>();
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle(source.Context, query.GetPath(null));
-        }
-        /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
@@ -6937,15 +7333,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 { "Id", id }
             };
             return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
-        }
-        /// <summary>
-        /// Cast an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject to its derived type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian
-        /// </summary>
-        /// <param name="source">source entity</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle CastToPedestrian(this global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject> source)
-        {
-            global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> query = source.CastTo<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian>();
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle(source.Context, query.GetPath(null));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle specified by key from an entity set
@@ -9064,11 +9451,7 @@ namespace SmartFace.ODataClient.Default
                 }
                 return string.Concat("Action.", clientType.Name);
             }
-            if (originalNameAttribute != null)
-            {
-                return clientType.Namespace + "." + originalNameAttribute.OriginalName;
-            }
-            return clientType.FullName;
+            return null;
         }
         /// <summary>
         /// There are no comments for Scopes in the schema.
@@ -9214,24 +9597,6 @@ namespace SmartFace.ODataClient.Default
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream> _Streams;
-        /// <summary>
-        /// There are no comments for VisualObjects in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("VisualObjects")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject> VisualObjects
-        {
-            get
-            {
-                if ((this._VisualObjects == null))
-                {
-                    this._VisualObjects = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject>("VisualObjects");
-                }
-                return this._VisualObjects;
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject> _VisualObjects;
         /// <summary>
         /// There are no comments for Ping in the schema.
         /// </summary>
@@ -9457,14 +9822,6 @@ namespace SmartFace.ODataClient.Default
         public virtual void AddToStreams(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream stream)
         {
             base.AddObject("Streams", stream);
-        }
-        /// <summary>
-        /// There are no comments for VisualObjects in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public virtual void AddToVisualObjects(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VisualObject visualObject)
-        {
-            base.AddObject("VisualObjects", visualObject);
         }
         /// <summary>
         /// There are no comments for Ping in the schema.

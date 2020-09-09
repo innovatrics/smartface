@@ -76,7 +76,58 @@
         <NavigationProperty Name="Tracklets" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Tracklet)" />
         <NavigationProperty Name="Frames" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)" />
       </EntityType>
-      <EntityType Name="VisualObject" Abstract="true">
+      <EntityType Name="Face">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="ObjectType" Type="Edm.Int32" Nullable="false" />
+        <Property Name="LeftEyeX" Type="Edm.Double" />
+        <Property Name="LeftEyeY" Type="Edm.Double" />
+        <Property Name="RightEyeX" Type="Edm.Double" />
+        <Property Name="RightEyeY" Type="Edm.Double" />
+        <Property Name="Age" Type="Edm.Double" />
+        <Property Name="Gender" Type="Edm.Double" />
+        <Property Name="FaceMaskConfidence" Type="Edm.Double" />
+        <Property Name="NoseTipConfidence" Type="Edm.Double" />
+        <Property Name="FaceMaskStatus" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus" Nullable="false" />
+        <Property Name="FaceAreaChange" Type="Edm.Double" Nullable="false" />
+        <Property Name="FaceArea" Type="Edm.Double" />
+        <Property Name="FaceOrder" Type="Edm.Int32" />
+        <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
+        <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
+        <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
+        <Property Name="GenderFormatted" Type="SmartFace.Domain.DataAccess.Models.GenderType" />
+        <Property Name="ImageDataId" Type="Edm.Guid" />
+        <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CropLeftTopX" Type="Edm.Double" Nullable="false" />
+        <Property Name="CropLeftTopY" Type="Edm.Double" Nullable="false" />
+        <Property Name="CropRightTopX" Type="Edm.Double" Nullable="false" />
+        <Property Name="CropRightTopY" Type="Edm.Double" Nullable="false" />
+        <Property Name="CropLeftBottomX" Type="Edm.Double" Nullable="false" />
+        <Property Name="CropLeftBottomY" Type="Edm.Double" Nullable="false" />
+        <Property Name="CropRightBottomX" Type="Edm.Double" Nullable="false" />
+        <Property Name="CropRightBottomY" Type="Edm.Double" Nullable="false" />
+        <Property Name="TrackletId" Type="Edm.Guid" />
+        <Property Name="FrameId" Type="Edm.Guid" />
+        <Property Name="StreamId" Type="Edm.Guid" />
+        <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
+        <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="ProcessedAt" Type="Edm.DateTimeOffset" />
+        <NavigationProperty Name="BestForIndividuals" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)" />
+        <NavigationProperty Name="Tracklet" Type="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
+          <ReferentialConstraint Property="TrackletId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Frame" Type="SmartFace.Domain.DataAccess.Models.Core.Frame">
+          <ReferentialConstraint Property="FrameId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream">
+          <ReferentialConstraint Property="StreamId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Individuals" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)" />
+        <NavigationProperty Name="Frames" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)" />
+      </EntityType>
+      <EntityType Name="Pedestrian">
         <Key>
           <PropertyRef Name="Id" />
         </Key>
@@ -95,31 +146,12 @@
         <Property Name="AreaOnFrame" Type="Edm.Double" />
         <Property Name="ObjectOrderOnFrameForType" Type="Edm.Int32" />
         <Property Name="ObjectsOnFrameCountForType" Type="Edm.Int32" />
-        <Property Name="TrackletId" Type="Edm.Guid" Nullable="false" />
-        <Property Name="FrameId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="TrackletId" Type="Edm.Guid" />
+        <Property Name="FrameId" Type="Edm.Guid" />
         <Property Name="StreamId" Type="Edm.Guid" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="ProcessedAt" Type="Edm.DateTimeOffset" />
-      </EntityType>
-      <EntityType Name="Face" BaseType="SmartFace.Domain.DataAccess.Models.Core.VisualObject">
-        <Property Name="LeftEyeX" Type="Edm.Double" />
-        <Property Name="LeftEyeY" Type="Edm.Double" />
-        <Property Name="RightEyeX" Type="Edm.Double" />
-        <Property Name="RightEyeY" Type="Edm.Double" />
-        <Property Name="Age" Type="Edm.Double" />
-        <Property Name="Gender" Type="Edm.Double" />
-        <Property Name="FaceMaskConfidence" Type="Edm.Double" />
-        <Property Name="NoseTipConfidence" Type="Edm.Double" />
-        <Property Name="FaceMaskStatus" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus" Nullable="false" />
-        <Property Name="FaceAreaChange" Type="Edm.Double" Nullable="false" />
-        <Property Name="FaceArea" Type="Edm.Double" />
-        <Property Name="FaceOrder" Type="Edm.Int32" />
-        <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
-        <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
-        <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
-        <Property Name="GenderFormatted" Type="SmartFace.Domain.DataAccess.Models.GenderType" />
-        <NavigationProperty Name="BestForIndividuals" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)" />
         <NavigationProperty Name="Tracklet" Type="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
           <ReferentialConstraint Property="TrackletId" ReferencedProperty="Id" />
         </NavigationProperty>
@@ -129,19 +161,7 @@
         <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream">
           <ReferentialConstraint Property="StreamId" ReferencedProperty="Id" />
         </NavigationProperty>
-        <NavigationProperty Name="Individuals" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)" />
         <NavigationProperty Name="Frames" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)" />
-      </EntityType>
-      <EntityType Name="Pedestrian" BaseType="SmartFace.Domain.DataAccess.Models.Core.VisualObject">
-        <NavigationProperty Name="Tracklet" Type="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
-          <ReferentialConstraint Property="TrackletId" ReferencedProperty="Id" />
-        </NavigationProperty>
-        <NavigationProperty Name="Frame" Type="SmartFace.Domain.DataAccess.Models.Core.Frame">
-          <ReferentialConstraint Property="FrameId" ReferencedProperty="Id" />
-        </NavigationProperty>
-        <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream">
-          <ReferentialConstraint Property="StreamId" ReferencedProperty="Id" />
-        </NavigationProperty>
       </EntityType>
       <EntityType Name="Tracklet">
         <Key>
@@ -525,6 +545,7 @@
         </EntitySet>
         <EntitySet Name="Pedestrians" EntityType="SmartFace.Domain.DataAccess.Models.Core.Pedestrian">
           <NavigationPropertyBinding Path="Frame" Target="Frames" />
+          <NavigationPropertyBinding Path="Frames" Target="Frames" />
           <NavigationPropertyBinding Path="Stream" Target="Streams" />
           <NavigationPropertyBinding Path="Tracklet" Target="Tracklets" />
         </EntitySet>
@@ -544,15 +565,6 @@
           <NavigationPropertyBinding Path="Scope" Target="Scopes" />
           <NavigationPropertyBinding Path="Tracklets" Target="Tracklets" />
           <NavigationPropertyBinding Path="VideoRecords" Target="VideoRecords" />
-        </EntitySet>
-        <EntitySet Name="VisualObjects" EntityType="SmartFace.Domain.DataAccess.Models.Core.VisualObject">
-          <NavigationPropertyBinding Path="SmartFace.Domain.DataAccess.Models.Core.Face/BestForIndividuals" Target="Individuals" />
-          <NavigationPropertyBinding Path="SmartFace.Domain.DataAccess.Models.Core.Face/Frame" Target="Frames" />
-          <NavigationPropertyBinding Path="SmartFace.Domain.DataAccess.Models.Core.Face/Stream" Target="Streams" />
-          <NavigationPropertyBinding Path="SmartFace.Domain.DataAccess.Models.Core.Face/Tracklet" Target="Tracklets" />
-          <NavigationPropertyBinding Path="SmartFace.Domain.DataAccess.Models.Core.Pedestrian/Frame" Target="Frames" />
-          <NavigationPropertyBinding Path="SmartFace.Domain.DataAccess.Models.Core.Pedestrian/Stream" Target="Streams" />
-          <NavigationPropertyBinding Path="SmartFace.Domain.DataAccess.Models.Core.Pedestrian/Tracklet" Target="Tracklets" />
         </EntitySet>
         <EntitySet Name="Ping" EntityType="SmartFace.ODataApi.Models.Responses.Ping" />
         <EntitySet Name="Configs" EntityType="SmartFace.Domain.DataAccess.Models.Core.Config" />
