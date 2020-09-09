@@ -5,7 +5,7 @@ namespace SmartFace.Cli.Core.Domain.DataSelector.Impl
 {
     public class PedestrianODataSelector : ODataSelector<Pedestrian>, IQueryDataSelector<Pedestrian>
     {
-        protected PedestrianODataSelector(Container container) : base(container.Pedestrians)
+        public PedestrianODataSelector(Container container) : base(container.Pedestrians)
         {
         }
     }
