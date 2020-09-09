@@ -64,6 +64,7 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<IQueryDataSelector<Watchlist>, WatchlistODataSelector>()
                 .AddTransient<IQueryDataSelector<MatchResult>, MatchResultODataSelector>()
                 .AddTransient<IQueryDataSelector<WatchlistMember>, WatchlistMemberODataSelector>()
+                .AddTransient<IQueryDataSelector<Pedestrian>, PedestrianODataSelector>()
                 .AddTransient<ICamerasRepository, CamerasRepository>()
                 .AddTransient<IWatchlistMembersRepository, WatchlistMembersRepository>()
                 .AddTransient<ZeroMqNotificationReader>()
