@@ -29,10 +29,10 @@ namespace SmartFace.Cli.Commands.SubCamera
         [Option("-pd|--pedestrianDetectorResourceId", "Pedestrian detector resource id for the camera", CommandOptionType.SingleValue)]
         public (bool HasValue, string Value) PedestrianDetectorResourceId { get; }
 
-        [Option("-mp|--minPedestrianSize", "Minimum size of detected pedestrian in pixels (if >= 1) or relative (if > 0 && < 1)", CommandOptionType.SingleValue)]
+        [Option("-mp|--minPedestrianSize", "Minimum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)", CommandOptionType.SingleValue)]
         public (bool HasValue, float Value) MinPedestrianSize { get; }
         
-        [Option("-xp|--maxPedestrianSize", "Maximum size of detected pedestrian in pixels (if >= 1) or relative (if > 0 && < 1)", CommandOptionType.SingleValue)]
+        [Option("-xp|--maxPedestrianSize", "Maximum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)", CommandOptionType.SingleValue)]
         public (bool HasValue, float Value) MaxPedestrianSize { get; }
         
         public abstract (bool HasValue, string Value) Name { get; }
