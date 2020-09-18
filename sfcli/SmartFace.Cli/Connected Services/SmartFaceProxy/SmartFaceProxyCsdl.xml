@@ -81,7 +81,7 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
-        <Property Name="ObjectType" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TemplateQuality" Type="Edm.Int32" />
         <Property Name="LeftEyeX" Type="Edm.Double" />
         <Property Name="LeftEyeY" Type="Edm.Double" />
         <Property Name="RightEyeX" Type="Edm.Double" />
@@ -97,6 +97,12 @@
         <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
         <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
         <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
+        <Property Name="Yaw" Type="Edm.Double" />
+        <Property Name="YawAngle" Type="Edm.Double" />
+        <Property Name="Pitch" Type="Edm.Double" />
+        <Property Name="PitchAngle" Type="Edm.Double" />
+        <Property Name="Roll" Type="Edm.Double" />
+        <Property Name="RollAngle" Type="Edm.Double" />
         <Property Name="GenderFormatted" Type="SmartFace.Domain.DataAccess.Models.GenderType" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
@@ -132,7 +138,6 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
-        <Property Name="ObjectType" Type="Edm.Int32" Nullable="false" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CropLeftTopX" Type="Edm.Double" Nullable="false" />

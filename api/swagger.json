@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.2.0.0"
+    "version": "4.3.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code> and for remote detection <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -171,7 +171,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code> and for remote detection <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -1790,6 +1790,148 @@
         }
       }
     },
+    "/api/v1/Pedestrians/{id}": {
+      "get": {
+        "tags": [
+          "Pedestrian"
+        ],
+        "summary": "Retrieves the pedestrian by its Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the pedestrian.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the found pedestrian.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pedestrian"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The pedestrian with given Id was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pedestrian"
+        ],
+        "summary": "Deletes the pedestrian by its Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the pedestrian to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The pedestrian with given Id was deleted successfully."
+          },
+          "404": {
+            "description": "The pedestrian with given Id was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Pedestrians": {
+      "get": {
+        "tags": [
+          "Pedestrian"
+        ],
+        "summary": "Retrieves pedestrians as a paged collection.",
+        "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
+        "parameters": [
+          {
+            "name": "Ascending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ShowTotalCount",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the found pedestrians.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PedestrianPagedCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/RecordGroupings/{groupingId}": {
       "get": {
         "tags": [
@@ -3168,7 +3310,7 @@
           "VideoRecord"
         ],
         "summary": "Updates the specified video record with given values.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code> and for remote detection <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "New video record values.",
           "content": {
@@ -3232,7 +3374,7 @@
           "VideoRecord"
         ],
         "summary": "Creates a video record.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code> and for remote detection <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "Request specifying video record properties.",
           "content": {
@@ -4653,6 +4795,28 @@
         },
         "additionalProperties": false
       },
+      "PedestrianDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minPedestrianSize": {
+            "type": "number",
+            "format": "float"
+          },
+          "maxPedestrianSize": {
+            "type": "number",
+            "format": "float"
+          },
+          "maxPedestrians": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "FaceSaveStrategy": {
         "enum": [
           "All",
@@ -4676,6 +4840,8 @@
           "mpeG1PreviewPort",
           "mpeG1VideoBitrate",
           "name",
+          "pedestrianDetectorConfig",
+          "pedestrianDetectorResourceId",
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
@@ -4710,10 +4876,20 @@
               }
             ]
           },
+          "pedestrianDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PedestrianDetectorConfig"
+              }
+            ]
+          },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "pedestrianDetectorResourceId": {
             "type": "string"
           },
           "redetectionTime": {
@@ -4812,6 +4988,8 @@
           "mpeG1PreviewPort",
           "mpeG1VideoBitrate",
           "name",
+          "pedestrianDetectorConfig",
+          "pedestrianDetectorResourceId",
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
@@ -4842,10 +5020,20 @@
               }
             ]
           },
+          "pedestrianDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PedestrianDetectorConfig"
+              }
+            ]
+          },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "pedestrianDetectorResourceId": {
             "type": "string"
           },
           "redetectionTime": {
@@ -4921,6 +5109,32 @@
         },
         "additionalProperties": false
       },
+      "PedestrianDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "minPedestrianSize": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "maxPedestrianSize": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "maxPedestrians": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CameraCreateRequest": {
         "required": [
           "name",
@@ -4950,11 +5164,23 @@
             ],
             "nullable": true
           },
+          "pedestrianDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PedestrianDetectorConfigCreateRequest"
+              }
+            ],
+            "nullable": true
+          },
           "faceDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
           "templateGeneratorResourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "pedestrianDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
@@ -5239,14 +5465,21 @@
           "leftEyeX",
           "leftEyeY",
           "noseTipConfidence",
+          "pitch",
+          "pitchAngle",
           "processedAt",
           "quality",
           "rightEyeX",
           "rightEyeY",
+          "roll",
+          "rollAngle",
           "state",
+          "templateQuality",
           "trackletId",
           "type",
-          "updatedAt"
+          "updatedAt",
+          "yaw",
+          "yawAngle"
         ],
         "type": "object",
         "properties": {
@@ -5257,6 +5490,11 @@
           "quality": {
             "type": "integer",
             "format": "int32"
+          },
+          "templateQuality": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           },
           "state": {
             "allOf": [
@@ -5383,6 +5621,36 @@
           "faceAreaChange": {
             "type": "number",
             "format": "double"
+          },
+          "yaw": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "yawAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pitch": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pitchAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "roll": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rollAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           },
           "id": {
             "type": "string",
@@ -5758,6 +6026,162 @@
         },
         "additionalProperties": false
       },
+      "Pedestrian": {
+        "required": [
+          "areaOnFrame",
+          "createdAt",
+          "cropLeftBottomX",
+          "cropLeftBottomY",
+          "cropLeftTopX",
+          "cropLeftTopY",
+          "cropRightBottomX",
+          "cropRightBottomY",
+          "cropRightTopX",
+          "cropRightTopY",
+          "frameId",
+          "id",
+          "imageDataId",
+          "objectOrderOnFrameForType",
+          "objectsOnFrameCountForType",
+          "processedAt",
+          "quality",
+          "streamId",
+          "trackletId",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "trackletId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "frameId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "streamId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "imageDataId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "processedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "quality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cropLeftTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "areaOnFrame": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "objectOrderOnFrameForType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "objectsOnFrameCountForType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PedestrianPagedCollection": {
+        "required": [
+          "items",
+          "nextPage",
+          "pageNumber",
+          "pageSize",
+          "previousPage",
+          "totalItemsCount"
+        ],
+        "type": "object",
+        "properties": {
+          "totalItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pedestrian"
+            }
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RecordGroupingConfig": {
         "required": [
           "threshold"
@@ -5848,6 +6272,8 @@
           "mpeG1PreviewPort",
           "mpeG1VideoBitrate",
           "name",
+          "pedestrianDetectorConfig",
+          "pedestrianDetectorResourceId",
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
@@ -5886,10 +6312,20 @@
               }
             ]
           },
+          "pedestrianDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PedestrianDetectorConfig"
+              }
+            ]
+          },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "pedestrianDetectorResourceId": {
             "type": "string"
           },
           "redetectionTime": {
@@ -6158,6 +6594,8 @@
           "mpeG1PreviewPort",
           "mpeG1VideoBitrate",
           "name",
+          "pedestrianDetectorConfig",
+          "pedestrianDetectorResourceId",
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
@@ -6188,10 +6626,20 @@
               }
             ]
           },
+          "pedestrianDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PedestrianDetectorConfig"
+              }
+            ]
+          },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "pedestrianDetectorResourceId": {
             "type": "string"
           },
           "redetectionTime": {
@@ -6266,11 +6714,23 @@
             ],
             "nullable": true
           },
+          "pedestrianDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PedestrianDetectorConfigCreateRequest"
+              }
+            ],
+            "nullable": true
+          },
           "faceDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
           "templateGeneratorResourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "pedestrianDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
