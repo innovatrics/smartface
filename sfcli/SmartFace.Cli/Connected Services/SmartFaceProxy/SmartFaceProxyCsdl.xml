@@ -97,11 +97,8 @@
         <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
         <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
         <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
-        <Property Name="Yaw" Type="Edm.Double" />
         <Property Name="YawAngle" Type="Edm.Double" />
-        <Property Name="Pitch" Type="Edm.Double" />
         <Property Name="PitchAngle" Type="Edm.Double" />
-        <Property Name="Roll" Type="Edm.Double" />
         <Property Name="RollAngle" Type="Edm.Double" />
         <Property Name="GenderFormatted" Type="SmartFace.Domain.DataAccess.Models.GenderType" />
         <Property Name="ImageDataId" Type="Edm.Guid" />

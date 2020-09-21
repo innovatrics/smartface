@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.3.0.0"
+    "version": "4.4.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -5465,20 +5465,17 @@
           "leftEyeX",
           "leftEyeY",
           "noseTipConfidence",
-          "pitch",
           "pitchAngle",
           "processedAt",
           "quality",
           "rightEyeX",
           "rightEyeY",
-          "roll",
           "rollAngle",
           "state",
           "templateQuality",
           "trackletId",
           "type",
           "updatedAt",
-          "yaw",
           "yawAngle"
         ],
         "type": "object",
@@ -5622,27 +5619,12 @@
             "type": "number",
             "format": "double"
           },
-          "yaw": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
           "yawAngle": {
             "type": "number",
             "format": "double",
             "nullable": true
           },
-          "pitch": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
           "pitchAngle": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "roll": {
             "type": "number",
             "format": "double",
             "nullable": true

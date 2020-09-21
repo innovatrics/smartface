@@ -10196,20 +10196,11 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("faceAreaChange", Required = Newtonsoft.Json.Required.Always)]
         public double FaceAreaChange { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("yaw", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Yaw { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("yawAngle", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? YawAngle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pitch", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Pitch { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("pitchAngle", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? PitchAngle { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("roll", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Roll { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rollAngle", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? RollAngle { get; set; }

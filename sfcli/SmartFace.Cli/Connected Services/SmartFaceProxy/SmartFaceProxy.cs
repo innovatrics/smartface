@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 18. 9. 2020 13:39:49
+// Generation date: 21. 9. 2020 12:43:46
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -2356,29 +2356,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType value);
         partial void OnTypeChanged();
         /// <summary>
-        /// There are no comments for Property Yaw in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Yaw")]
-        public virtual global::System.Nullable<double> Yaw
-        {
-            get
-            {
-                return this._Yaw;
-            }
-            set
-            {
-                this.OnYawChanging(value);
-                this._Yaw = value;
-                this.OnYawChanged();
-                this.OnPropertyChanged("Yaw");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _Yaw;
-        partial void OnYawChanging(global::System.Nullable<double> value);
-        partial void OnYawChanged();
-        /// <summary>
         /// There are no comments for Property YawAngle in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -2402,29 +2379,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnYawAngleChanging(global::System.Nullable<double> value);
         partial void OnYawAngleChanged();
         /// <summary>
-        /// There are no comments for Property Pitch in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Pitch")]
-        public virtual global::System.Nullable<double> Pitch
-        {
-            get
-            {
-                return this._Pitch;
-            }
-            set
-            {
-                this.OnPitchChanging(value);
-                this._Pitch = value;
-                this.OnPitchChanged();
-                this.OnPropertyChanged("Pitch");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _Pitch;
-        partial void OnPitchChanging(global::System.Nullable<double> value);
-        partial void OnPitchChanged();
-        /// <summary>
         /// There are no comments for Property PitchAngle in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -2447,29 +2401,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<double> _PitchAngle;
         partial void OnPitchAngleChanging(global::System.Nullable<double> value);
         partial void OnPitchAngleChanged();
-        /// <summary>
-        /// There are no comments for Property Roll in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Roll")]
-        public virtual global::System.Nullable<double> Roll
-        {
-            get
-            {
-                return this._Roll;
-            }
-            set
-            {
-                this.OnRollChanging(value);
-                this._Roll = value;
-                this.OnRollChanged();
-                this.OnPropertyChanged("Roll");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _Roll;
-        partial void OnRollChanging(global::System.Nullable<double> value);
-        partial void OnRollChanged();
         /// <summary>
         /// There are no comments for Property RollAngle in the schema.
         /// </summary>
