@@ -12,5 +12,6 @@
         public const string MATCH_RESULT_MATCH_INSERTED = "matchResults.match.insert";
         public const string LIVENESS_RESULT = "liveness.result";
         public const string HEARTBEAT = "heartbeat";
+        public const string PEDESTRIANS_INSERTED = "pedestrians.insert";
     }    
 }
