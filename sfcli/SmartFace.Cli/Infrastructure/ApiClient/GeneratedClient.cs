@@ -1696,6 +1696,256 @@ namespace ManagementApi
             }
         }
     
+        /// <summary>Retrieves the pedestrian by its Id.</summary>
+        /// <param name="id">Id of the pedestrian.</param>
+        /// <returns>Returns the found pedestrian.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<Pedestrian> PedestriansGetAsync(System.Guid id)
+        {
+            return PedestriansGetAsync(id, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Retrieves the pedestrian by its Id.</summary>
+        /// <param name="id">Id of the pedestrian.</param>
+        /// <returns>Returns the found pedestrian.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Pedestrian> PedestriansGetAsync(System.Guid id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/Pedestrians/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Pedestrian>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            throw new ApiException<ProblemDetails>("The pedestrian with given Id was not found.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(Pedestrian);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Deletes the pedestrian by its Id.</summary>
+        /// <param name="id">Id of the pedestrian to delete.</param>
+        /// <returns>The pedestrian with given Id was deleted successfully.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task PedestriansDeleteAsync(System.Guid id)
+        {
+            return PedestriansDeleteAsync(id, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Deletes the pedestrian by its Id.</summary>
+        /// <param name="id">Id of the pedestrian to delete.</param>
+        /// <returns>The pedestrian with given Id was deleted successfully.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task PedestriansDeleteAsync(System.Guid id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/Pedestrians/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "204") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            throw new ApiException<ProblemDetails>("The pedestrian with given Id was not found.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Retrieves pedestrians as a paged collection.</summary>
+        /// <returns>Returns the found pedestrians.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<PedestrianPagedCollection> PedestriansGetAsync(bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount)
+        {
+            return PedestriansGetAsync(ascending, pageNumber, pageSize, showTotalCount, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Retrieves pedestrians as a paged collection.</summary>
+        /// <returns>Returns the found pedestrians.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<PedestrianPagedCollection> PedestriansGetAsync(bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount, System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/Pedestrians?");
+            if (ascending != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("Ascending") + "=").Append(System.Uri.EscapeDataString(ConvertToString(ascending, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (pageNumber != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("PageNumber") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageNumber, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (pageSize != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("PageSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (showTotalCount != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("ShowTotalCount") + "=").Append(System.Uri.EscapeDataString(ConvertToString(showTotalCount, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PedestrianPagedCollection>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            throw new ApiException<ProblemDetails>("The sent request was not valid.", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(PedestrianPagedCollection);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
         /// <summary>Retrieves a record grouping by its id.</summary>
         /// <param name="groupingId">Id of the record grouping.</param>
         /// <returns>Returns the found record grouping.</returns>
@@ -8430,6 +8680,24 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class PedestrianDetectorConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("minPedestrianSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float? MinPedestrianSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxPedestrianSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float? MaxPedestrianSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxPedestrians", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxPedestrians { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ConfidenceThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public enum FaceSaveStrategy
     {
         [System.Runtime.Serialization.EnumMember(Value = @"All")]
@@ -8475,6 +8743,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string FaceDetectorResourceId { get; set; }
@@ -8482,6 +8754,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
@@ -8568,6 +8844,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string FaceDetectorResourceId { get; set; }
@@ -8575,6 +8855,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
@@ -8634,6 +8918,24 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class PedestrianDetectorConfigCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("minPedestrianSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float? MinPedestrianSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxPedestrianSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float? MaxPedestrianSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxPedestrians", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxPedestrians { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ConfidenceThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class CameraCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8653,11 +8955,17 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PedestrianDetectorConfigCreateRequest PedestrianDetectorConfig { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FaceDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? RedetectionTime { get; set; }
@@ -9206,6 +9514,101 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class Pedestrian 
+    {
+        [Newtonsoft.Json.JsonProperty("trackletId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.Guid TrackletId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("frameId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.Guid FrameId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("streamId", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.Guid? StreamId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("imageDataId", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.Guid? ImageDataId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("processedAt", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.DateTimeOffset? ProcessedAt { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Always)]
+        public int Quality { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropLeftTopX", Required = Newtonsoft.Json.Required.Always)]
+        public double CropLeftTopX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropLeftTopY", Required = Newtonsoft.Json.Required.Always)]
+        public double CropLeftTopY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropRightTopX", Required = Newtonsoft.Json.Required.Always)]
+        public double CropRightTopX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropRightTopY", Required = Newtonsoft.Json.Required.Always)]
+        public double CropRightTopY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropLeftBottomX", Required = Newtonsoft.Json.Required.Always)]
+        public double CropLeftBottomX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropLeftBottomY", Required = Newtonsoft.Json.Required.Always)]
+        public double CropLeftBottomY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropRightBottomX", Required = Newtonsoft.Json.Required.Always)]
+        public double CropRightBottomX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cropRightBottomY", Required = Newtonsoft.Json.Required.Always)]
+        public double CropRightBottomY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("areaOnFrame", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AreaOnFrame { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("objectOrderOnFrameForType", Required = Newtonsoft.Json.Required.AllowNull)]
+        public int? ObjectOrderOnFrameForType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("objectsOnFrameCountForType", Required = Newtonsoft.Json.Required.AllowNull)]
+        public int? ObjectsOnFrameCountForType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.Guid Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("createdAt", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTimeOffset CreatedAt { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updatedAt", Required = Newtonsoft.Json.Required.AllowNull)]
+        public System.DateTimeOffset? UpdatedAt { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class PedestrianPagedCollection 
+    {
+        [Newtonsoft.Json.JsonProperty("totalItemsCount", Required = Newtonsoft.Json.Required.AllowNull)]
+        public int? TotalItemsCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<Pedestrian> Items { get; set; } = new System.Collections.ObjectModel.Collection<Pedestrian>();
+    
+        [Newtonsoft.Json.JsonProperty("pageSize", Required = Newtonsoft.Json.Required.Always)]
+        public int PageSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageNumber", Required = Newtonsoft.Json.Required.Always)]
+        public int PageNumber { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("previousPage", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string PreviousPage { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nextPage", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string NextPage { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class RecordGroupingConfig 
     {
         [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.Always)]
@@ -9296,6 +9699,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string FaceDetectorResourceId { get; set; }
@@ -9303,6 +9710,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
@@ -9516,6 +9927,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
     
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string FaceDetectorResourceId { get; set; }
@@ -9523,6 +9938,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
         public int RedetectionTime { get; set; }
@@ -9580,11 +9999,17 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PedestrianDetectorConfigCreateRequest PedestrianDetectorConfig { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FaceDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PedestrianDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? RedetectionTime { get; set; }

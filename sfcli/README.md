@@ -196,16 +196,19 @@ Create a camera. `--name` and `--source` options are required.
 
 ```
 Options:
-  -n|--name                        [Required] Name of the new camera.
-  -s|--source                      [Required] Url to video E.g. rtsp://server.example.org:8080/test.sdp
-  -e|--enabled                     Whether the stream is processed or not
-  -m|--minFaceSize                 Minimum count of pixels between eyes
-  -x|--maxFaceSize                 Maximum count of pixels between eyes
-  -r|--redetectionTime             Time between face re-detections in milliseconds
-  -p|--mpeg1PreviewPort            Port to processed stream MPEG1 preview
-  -tg|--templateGeneratorResource  Template generator resource id for the camera
-  -fd|--faceDetectorResource       Face detector resource for the camera
-  -?|-h|--help                     Show help information
+  -n|--name                           [Required] Name of the new camera.
+  -s|--source                         [Required] Url to video E.g. rtsp://server.example.org:8080/test.sdp
+  -e|--enabled                        Whether the stream is processed or not
+  -m|--minFaceSize                    Minimum count of pixels between eyes
+  -x|--maxFaceSize                    Maximum count of pixels between eyes
+  -r|--redetectionTime                Time between face re-detections in milliseconds
+  -p|--mpeg1PreviewPort               Port to processed stream MPEG1 preview
+  -tg|--templateGeneratorResourceId   Template generator resource id for the camera
+  -fd|--faceDetectorResourceId        Face detector resource id for the camera
+  -pd|--pedestrianDetectorResourceId  Pedestrian detector resource id for the camera
+  -mp|--minPedestrianSize             Minimum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)
+  -xp|--maxPedestrianSize             Maximum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)
+  -?|-h|--help                        Show help information
 ```
 
 ##### camera get
@@ -224,15 +227,18 @@ Change properties of a camera. `--id` is required. Only filled properties will b
 
 ```
 Options:
-  -i|--id                          [Required] Identifier of camera to edit
-  -n|--name                        Name of the camera
-  -s|--source                      Url to video E.g. rtsp://server.example.org:8080/test.sdp
-  -e|--enabled                     Whether the stream is processed or not
-  -m|--minFaceSize                 Minimum count of pixels between eyes
-  -x|--maxFaceSize                 Maximum count of pixels between eyes
-  -r|--redetectionTime             Time between face re-detections in milliseconds
-  -p|--mpeg1PreviewPort            Port to processed stream MPEG1 preview
-  -tg|--templateGeneratorResource  Template generator resource id for the camera
-  -fd|--faceDetectorResource       Face detector resource for the camera
-  -?|-h|--help                     Show help information
+  -i|--id                             [Required] Identifier of camera to edit
+  -n|--name                           Name of the camera
+  -s|--source                         Url to video E.g. rtsp://server.example.org:8080/test.sdp
+  -e|--enabled                        Whether the stream is processed or not
+  -m|--minFaceSize                    Minimum count of pixels between eyes
+  -x|--maxFaceSize                    Maximum count of pixels between eyes
+  -r|--redetectionTime                Time between face re-detections in milliseconds
+  -p|--mpeg1PreviewPort               Port to processed stream MPEG1 preview
+  -tg|--templateGeneratorResourceId   Template generator resource id for the camera
+  -fd|--faceDetectorResourceId        Face detector resource id for the camera
+  -pd|--pedestrianDetectorResourceId  Pedestrian detector resource id for the camera
+  -mp|--minPedestrianSize             Minimum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)
+  -xp|--maxPedestrianSize             Maximum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)
+  -?|-h|--help                        Show help information
 ```

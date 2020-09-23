@@ -11,5 +11,8 @@
         public int? RedetectionTime { get; set; }
         public string FaceDetectorResourceId { get; set; }
         public string TemplateGeneratorResourceId { get; set; }
+        public string PedestrianDetectorResourceId { get; set; }
+        public float? MinPedestrianSize { get; set; }
+        public float? MaxPedestrianSize { get; set; }
     }
 }
