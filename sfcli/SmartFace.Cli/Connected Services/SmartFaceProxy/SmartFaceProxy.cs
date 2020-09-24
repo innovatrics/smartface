@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 21. 9. 2020 12:43:46
+// Generation date: 24. 9. 2020 12:47:07
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -8072,6 +8072,14 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// <param name="min_PreviewBufferSegments">Initial value of Min_PreviewBufferSegments.</param>
         /// <param name="min_PreviewMaxDimension">Initial value of Min_PreviewMaxDimension.</param>
         /// <param name="min_PreviewVideoSegmentSeconds">Initial value of Min_PreviewVideoSegmentSeconds.</param>
+        /// <param name="min_MinPedestrianSize">Initial value of Min_MinPedestrianSize.</param>
+        /// <param name="max_MinPedestrianSize">Initial value of Max_MinPedestrianSize.</param>
+        /// <param name="min_MaxPedestrianSize">Initial value of Min_MaxPedestrianSize.</param>
+        /// <param name="max_MaxPedestrianSize">Initial value of Max_MaxPedestrianSize.</param>
+        /// <param name="min_MaxPedestrians">Initial value of Min_MaxPedestrians.</param>
+        /// <param name="max_MaxPedestrians">Initial value of Max_MaxPedestrians.</param>
+        /// <param name="min_PedestrianConfidenceThreshold">Initial value of Min_PedestrianConfidenceThreshold.</param>
+        /// <param name="max_PedestrianConfidenceThreshold">Initial value of Max_PedestrianConfidenceThreshold.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static ConfigurationConstants CreateConfigurationConstants(int min_GroupingStep, 
                     int min_GroupingThreshold, 
@@ -8101,7 +8109,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
                     int min_PreviewAutoShutdownSeconds, 
                     int min_PreviewBufferSegments, 
                     int min_PreviewMaxDimension, 
-                    int min_PreviewVideoSegmentSeconds)
+                    int min_PreviewVideoSegmentSeconds, 
+                    int min_MinPedestrianSize, 
+                    int max_MinPedestrianSize, 
+                    int min_MaxPedestrianSize, 
+                    int max_MaxPedestrianSize, 
+                    int min_MaxPedestrians, 
+                    int max_MaxPedestrians, 
+                    int min_PedestrianConfidenceThreshold, 
+                    int max_PedestrianConfidenceThreshold)
         {
             ConfigurationConstants configurationConstants = new ConfigurationConstants();
             configurationConstants.Min_GroupingStep = min_GroupingStep;
@@ -8133,6 +8149,14 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
             configurationConstants.Min_PreviewBufferSegments = min_PreviewBufferSegments;
             configurationConstants.Min_PreviewMaxDimension = min_PreviewMaxDimension;
             configurationConstants.Min_PreviewVideoSegmentSeconds = min_PreviewVideoSegmentSeconds;
+            configurationConstants.Min_MinPedestrianSize = min_MinPedestrianSize;
+            configurationConstants.Max_MinPedestrianSize = max_MinPedestrianSize;
+            configurationConstants.Min_MaxPedestrianSize = min_MaxPedestrianSize;
+            configurationConstants.Max_MaxPedestrianSize = max_MaxPedestrianSize;
+            configurationConstants.Min_MaxPedestrians = min_MaxPedestrians;
+            configurationConstants.Max_MaxPedestrians = max_MaxPedestrians;
+            configurationConstants.Min_PedestrianConfidenceThreshold = min_PedestrianConfidenceThreshold;
+            configurationConstants.Max_PedestrianConfidenceThreshold = max_PedestrianConfidenceThreshold;
             return configurationConstants;
         }
         /// <summary>
@@ -8986,6 +9010,190 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         private global::System.Collections.ObjectModel.ObservableCollection<string> _TrackMotionOptimization = new global::System.Collections.ObjectModel.ObservableCollection<string>();
         partial void OnTrackMotionOptimizationChanging(global::System.Collections.ObjectModel.ObservableCollection<string> value);
         partial void OnTrackMotionOptimizationChanged();
+        /// <summary>
+        /// There are no comments for Property Min_MinPedestrianSize in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MinPedestrianSize")]
+        public virtual int Min_MinPedestrianSize
+        {
+            get
+            {
+                return this._Min_MinPedestrianSize;
+            }
+            set
+            {
+                this.OnMin_MinPedestrianSizeChanging(value);
+                this._Min_MinPedestrianSize = value;
+                this.OnMin_MinPedestrianSizeChanged();
+                this.OnPropertyChanged("Min_MinPedestrianSize");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Min_MinPedestrianSize;
+        partial void OnMin_MinPedestrianSizeChanging(int value);
+        partial void OnMin_MinPedestrianSizeChanged();
+        /// <summary>
+        /// There are no comments for Property Max_MinPedestrianSize in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MinPedestrianSize")]
+        public virtual int Max_MinPedestrianSize
+        {
+            get
+            {
+                return this._Max_MinPedestrianSize;
+            }
+            set
+            {
+                this.OnMax_MinPedestrianSizeChanging(value);
+                this._Max_MinPedestrianSize = value;
+                this.OnMax_MinPedestrianSizeChanged();
+                this.OnPropertyChanged("Max_MinPedestrianSize");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Max_MinPedestrianSize;
+        partial void OnMax_MinPedestrianSizeChanging(int value);
+        partial void OnMax_MinPedestrianSizeChanged();
+        /// <summary>
+        /// There are no comments for Property Min_MaxPedestrianSize in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxPedestrianSize")]
+        public virtual int Min_MaxPedestrianSize
+        {
+            get
+            {
+                return this._Min_MaxPedestrianSize;
+            }
+            set
+            {
+                this.OnMin_MaxPedestrianSizeChanging(value);
+                this._Min_MaxPedestrianSize = value;
+                this.OnMin_MaxPedestrianSizeChanged();
+                this.OnPropertyChanged("Min_MaxPedestrianSize");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Min_MaxPedestrianSize;
+        partial void OnMin_MaxPedestrianSizeChanging(int value);
+        partial void OnMin_MaxPedestrianSizeChanged();
+        /// <summary>
+        /// There are no comments for Property Max_MaxPedestrianSize in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MaxPedestrianSize")]
+        public virtual int Max_MaxPedestrianSize
+        {
+            get
+            {
+                return this._Max_MaxPedestrianSize;
+            }
+            set
+            {
+                this.OnMax_MaxPedestrianSizeChanging(value);
+                this._Max_MaxPedestrianSize = value;
+                this.OnMax_MaxPedestrianSizeChanged();
+                this.OnPropertyChanged("Max_MaxPedestrianSize");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Max_MaxPedestrianSize;
+        partial void OnMax_MaxPedestrianSizeChanging(int value);
+        partial void OnMax_MaxPedestrianSizeChanged();
+        /// <summary>
+        /// There are no comments for Property Min_MaxPedestrians in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxPedestrians")]
+        public virtual int Min_MaxPedestrians
+        {
+            get
+            {
+                return this._Min_MaxPedestrians;
+            }
+            set
+            {
+                this.OnMin_MaxPedestriansChanging(value);
+                this._Min_MaxPedestrians = value;
+                this.OnMin_MaxPedestriansChanged();
+                this.OnPropertyChanged("Min_MaxPedestrians");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Min_MaxPedestrians;
+        partial void OnMin_MaxPedestriansChanging(int value);
+        partial void OnMin_MaxPedestriansChanged();
+        /// <summary>
+        /// There are no comments for Property Max_MaxPedestrians in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MaxPedestrians")]
+        public virtual int Max_MaxPedestrians
+        {
+            get
+            {
+                return this._Max_MaxPedestrians;
+            }
+            set
+            {
+                this.OnMax_MaxPedestriansChanging(value);
+                this._Max_MaxPedestrians = value;
+                this.OnMax_MaxPedestriansChanged();
+                this.OnPropertyChanged("Max_MaxPedestrians");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Max_MaxPedestrians;
+        partial void OnMax_MaxPedestriansChanging(int value);
+        partial void OnMax_MaxPedestriansChanged();
+        /// <summary>
+        /// There are no comments for Property Min_PedestrianConfidenceThreshold in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_PedestrianConfidenceThreshold")]
+        public virtual int Min_PedestrianConfidenceThreshold
+        {
+            get
+            {
+                return this._Min_PedestrianConfidenceThreshold;
+            }
+            set
+            {
+                this.OnMin_PedestrianConfidenceThresholdChanging(value);
+                this._Min_PedestrianConfidenceThreshold = value;
+                this.OnMin_PedestrianConfidenceThresholdChanged();
+                this.OnPropertyChanged("Min_PedestrianConfidenceThreshold");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Min_PedestrianConfidenceThreshold;
+        partial void OnMin_PedestrianConfidenceThresholdChanging(int value);
+        partial void OnMin_PedestrianConfidenceThresholdChanged();
+        /// <summary>
+        /// There are no comments for Property Max_PedestrianConfidenceThreshold in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Max_PedestrianConfidenceThreshold")]
+        public virtual int Max_PedestrianConfidenceThreshold
+        {
+            get
+            {
+                return this._Max_PedestrianConfidenceThreshold;
+            }
+            set
+            {
+                this.OnMax_PedestrianConfidenceThresholdChanging(value);
+                this._Max_PedestrianConfidenceThreshold = value;
+                this.OnMax_PedestrianConfidenceThresholdChanged();
+                this.OnPropertyChanged("Max_PedestrianConfidenceThreshold");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Max_PedestrianConfidenceThreshold;
+        partial void OnMax_PedestrianConfidenceThresholdChanging(int value);
+        partial void OnMax_PedestrianConfidenceThresholdChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
