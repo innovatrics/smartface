@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.4.0.0"
+    "version": "4.3.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -4988,8 +4988,6 @@
           "mpeG1PreviewPort",
           "mpeG1VideoBitrate",
           "name",
-          "pedestrianDetectorConfig",
-          "pedestrianDetectorResourceId",
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
@@ -5000,6 +4998,18 @@
         ],
         "type": "object",
         "properties": {
+          "pedestrianDetectorResourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "pedestrianDetectorConfig": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PedestrianDetectorConfig"
+              }
+            ],
+            "nullable": true
+          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -5020,20 +5030,10 @@
               }
             ]
           },
-          "pedestrianDetectorConfig": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PedestrianDetectorConfig"
-              }
-            ]
-          },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
-            "type": "string"
-          },
-          "pedestrianDetectorResourceId": {
             "type": "string"
           },
           "redetectionTime": {
@@ -5164,6 +5164,10 @@
             ],
             "nullable": true
           },
+          "faceDetectorResourceId": {
+            "type": "string",
+            "nullable": true
+          },
           "pedestrianDetectorConfig": {
             "allOf": [
               {
@@ -5172,15 +5176,11 @@
             ],
             "nullable": true
           },
-          "faceDetectorResourceId": {
+          "pedestrianDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
           "templateGeneratorResourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "pedestrianDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
@@ -5465,18 +5465,14 @@
           "leftEyeX",
           "leftEyeY",
           "noseTipConfidence",
-          "pitchAngle",
           "processedAt",
           "quality",
           "rightEyeX",
           "rightEyeY",
-          "rollAngle",
           "state",
-          "templateQuality",
           "trackletId",
           "type",
-          "updatedAt",
-          "yawAngle"
+          "updatedAt"
         ],
         "type": "object",
         "properties": {
@@ -5487,11 +5483,6 @@
           "quality": {
             "type": "integer",
             "format": "int32"
-          },
-          "templateQuality": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
           },
           "state": {
             "allOf": [
@@ -5618,21 +5609,6 @@
           "faceAreaChange": {
             "type": "number",
             "format": "double"
-          },
-          "yawAngle": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "pitchAngle": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "rollAngle": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
           },
           "id": {
             "type": "string",
@@ -6254,8 +6230,6 @@
           "mpeG1PreviewPort",
           "mpeG1VideoBitrate",
           "name",
-          "pedestrianDetectorConfig",
-          "pedestrianDetectorResourceId",
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
@@ -6294,20 +6268,10 @@
               }
             ]
           },
-          "pedestrianDetectorConfig": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PedestrianDetectorConfig"
-              }
-            ]
-          },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
-            "type": "string"
-          },
-          "pedestrianDetectorResourceId": {
             "type": "string"
           },
           "redetectionTime": {
@@ -6576,8 +6540,6 @@
           "mpeG1PreviewPort",
           "mpeG1VideoBitrate",
           "name",
-          "pedestrianDetectorConfig",
-          "pedestrianDetectorResourceId",
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
@@ -6608,20 +6570,10 @@
               }
             ]
           },
-          "pedestrianDetectorConfig": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PedestrianDetectorConfig"
-              }
-            ]
-          },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
-            "type": "string"
-          },
-          "pedestrianDetectorResourceId": {
             "type": "string"
           },
           "redetectionTime": {
@@ -6696,23 +6648,11 @@
             ],
             "nullable": true
           },
-          "pedestrianDetectorConfig": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PedestrianDetectorConfigCreateRequest"
-              }
-            ],
-            "nullable": true
-          },
           "faceDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
           "templateGeneratorResourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "pedestrianDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
