@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 9. 9. 2020 12:06:40
+// Generation date: 21. 9. 2020 12:43:46
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -1915,7 +1915,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// Create a new Face object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="objectType">Initial value of ObjectType.</param>
         /// <param name="faceMaskStatus">Initial value of FaceMaskStatus.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         /// <param name="state">Initial value of State.</param>
@@ -1932,7 +1931,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Face CreateFace(global::System.Guid ID, 
-                    int objectType, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus faceMaskStatus, 
                     double faceAreaChange, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState state, 
@@ -1950,7 +1948,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         {
             Face face = new Face();
             face.Id = ID;
-            face.ObjectType = objectType;
             face.FaceMaskStatus = faceMaskStatus;
             face.FaceAreaChange = faceAreaChange;
             face.State = state;
@@ -1991,28 +1988,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
-        /// There are no comments for Property ObjectType in the schema.
+        /// There are no comments for Property TemplateQuality in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectType")]
-        public virtual int ObjectType
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TemplateQuality")]
+        public virtual global::System.Nullable<int> TemplateQuality
         {
             get
             {
-                return this._ObjectType;
+                return this._TemplateQuality;
             }
             set
             {
-                this.OnObjectTypeChanging(value);
-                this._ObjectType = value;
-                this.OnObjectTypeChanged();
-                this.OnPropertyChanged("ObjectType");
+                this.OnTemplateQualityChanging(value);
+                this._TemplateQuality = value;
+                this.OnTemplateQualityChanged();
+                this.OnPropertyChanged("TemplateQuality");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private int _ObjectType;
-        partial void OnObjectTypeChanging(int value);
-        partial void OnObjectTypeChanged();
+        private global::System.Nullable<int> _TemplateQuality;
+        partial void OnTemplateQualityChanging(global::System.Nullable<int> value);
+        partial void OnTemplateQualityChanged();
         /// <summary>
         /// There are no comments for Property LeftEyeX in the schema.
         /// </summary>
@@ -2358,6 +2355,75 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType _Type;
         partial void OnTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType value);
         partial void OnTypeChanged();
+        /// <summary>
+        /// There are no comments for Property YawAngle in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("YawAngle")]
+        public virtual global::System.Nullable<double> YawAngle
+        {
+            get
+            {
+                return this._YawAngle;
+            }
+            set
+            {
+                this.OnYawAngleChanging(value);
+                this._YawAngle = value;
+                this.OnYawAngleChanged();
+                this.OnPropertyChanged("YawAngle");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _YawAngle;
+        partial void OnYawAngleChanging(global::System.Nullable<double> value);
+        partial void OnYawAngleChanged();
+        /// <summary>
+        /// There are no comments for Property PitchAngle in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("PitchAngle")]
+        public virtual global::System.Nullable<double> PitchAngle
+        {
+            get
+            {
+                return this._PitchAngle;
+            }
+            set
+            {
+                this.OnPitchAngleChanging(value);
+                this._PitchAngle = value;
+                this.OnPitchAngleChanged();
+                this.OnPropertyChanged("PitchAngle");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _PitchAngle;
+        partial void OnPitchAngleChanging(global::System.Nullable<double> value);
+        partial void OnPitchAngleChanged();
+        /// <summary>
+        /// There are no comments for Property RollAngle in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("RollAngle")]
+        public virtual global::System.Nullable<double> RollAngle
+        {
+            get
+            {
+                return this._RollAngle;
+            }
+            set
+            {
+                this.OnRollAngleChanging(value);
+                this._RollAngle = value;
+                this.OnRollAngleChanged();
+                this.OnPropertyChanged("RollAngle");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _RollAngle;
+        partial void OnRollAngleChanging(global::System.Nullable<double> value);
+        partial void OnRollAngleChanged();
         /// <summary>
         /// There are no comments for Property GenderFormatted in the schema.
         /// </summary>
@@ -3032,7 +3098,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// Create a new Pedestrian object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="objectType">Initial value of ObjectType.</param>
         /// <param name="quality">Initial value of Quality.</param>
         /// <param name="cropLeftTopX">Initial value of CropLeftTopX.</param>
         /// <param name="cropLeftTopY">Initial value of CropLeftTopY.</param>
@@ -3045,7 +3110,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Pedestrian CreatePedestrian(global::System.Guid ID, 
-                    int objectType, 
                     int quality, 
                     double cropLeftTopX, 
                     double cropLeftTopY, 
@@ -3059,7 +3123,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         {
             Pedestrian pedestrian = new Pedestrian();
             pedestrian.Id = ID;
-            pedestrian.ObjectType = objectType;
             pedestrian.Quality = quality;
             pedestrian.CropLeftTopX = cropLeftTopX;
             pedestrian.CropLeftTopY = cropLeftTopY;
@@ -3095,29 +3158,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Guid _Id;
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
-        /// <summary>
-        /// There are no comments for Property ObjectType in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectType")]
-        public virtual int ObjectType
-        {
-            get
-            {
-                return this._ObjectType;
-            }
-            set
-            {
-                this.OnObjectTypeChanging(value);
-                this._ObjectType = value;
-                this.OnObjectTypeChanged();
-                this.OnPropertyChanged("ObjectType");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private int _ObjectType;
-        partial void OnObjectTypeChanging(int value);
-        partial void OnObjectTypeChanged();
         /// <summary>
         /// There are no comments for Property ImageDataId in the schema.
         /// </summary>
