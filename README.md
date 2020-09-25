@@ -4,7 +4,7 @@ SmartFace is a high-performance, scalable, face recognition server platform able
 Any system can integrate with SmartFace by using API (OpenAPI/OData) and pub-sub notifications (ZeroMQ).
 
 For more information see:
-* [OpenAPI](https://innovatrics.github.io/smartface/?url=https://raw.githubusercontent.com/innovatrics/smartface/4.2/api/swagger.json) - Swagger UI
+* [OpenAPI](https://innovatrics.github.io/smartface/?url=https://raw.githubusercontent.com/innovatrics/smartface/4.3/api/swagger.json) - Swagger UI
 * [sfcli](sfcli) - You can use command line based user interface to interact with the Smart Face API and receive notifications.
 
 # Getting Started

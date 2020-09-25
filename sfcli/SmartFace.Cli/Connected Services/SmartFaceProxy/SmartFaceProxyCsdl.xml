@@ -392,6 +392,14 @@
         <Property Name="Min_PreviewMaxDimension" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_PreviewVideoSegmentSeconds" Type="Edm.Int32" Nullable="false" />
         <Property Name="TrackMotionOptimization" Type="Collection(Edm.String)" />
+        <Property Name="Min_MinPedestrianSize" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Max_MinPedestrianSize" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Min_MaxPedestrianSize" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Max_MaxPedestrianSize" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Min_MaxPedestrians" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Max_MaxPedestrians" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Min_PedestrianConfidenceThreshold" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Max_PedestrianConfidenceThreshold" Type="Edm.Int32" Nullable="false" />
       </ComplexType>
     </Schema>
     <Schema Namespace="Microsoft.AspNetCore.Mvc" xmlns="http://docs.oasis-open.org/odata/ns/edm">
