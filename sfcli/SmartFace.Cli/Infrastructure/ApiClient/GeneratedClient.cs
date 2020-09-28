@@ -11322,6 +11322,9 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateGeneratorResourceId { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("keepAutoLearnPhotos", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? KeepAutoLearnPhotos { get; set; }
+
 
     }
 
