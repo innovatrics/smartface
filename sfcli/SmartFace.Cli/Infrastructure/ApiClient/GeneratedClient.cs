@@ -3696,9 +3696,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<Watchlist> WatchlistsGetAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/Watchlists/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -3786,9 +3783,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task WatchlistsDeleteAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/Watchlists/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -4159,9 +4153,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<WatchlistMember> WatchlistMembersGetAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -4249,9 +4240,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task WatchlistMembersDeleteAsync(string id, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -7833,9 +7821,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<WatchlistMemberPagedCollection> WatchlistMembersAsync(string id, bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/Watchlists/{id}/WatchlistMembers?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -8801,9 +8786,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<FacePagedCollection> FacesAsync(string id, bool? ascending, int? pageNumber, int? pageSize, bool? showTotalCount, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/{id}/Faces?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -9195,9 +9177,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task AddFaceFromSystemAsync(string id, FaceWatchlistMemberLinkingRequest body, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/{id}/AddFaceFromSystem");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -9304,9 +9283,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<Face> AddNewFaceAsync(string id, AddNewFaceRequest body, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/{id}/AddNewFace");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -9419,9 +9395,6 @@ namespace ManagementApi
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task RemoveFaceAsync(string id, FaceWatchlistMemberRemoveRequest body, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/WatchlistMembers/{id}/RemoveFace");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -9757,8 +9730,14 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("instance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Instance { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("extensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, object> Extensions { get; set; }
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
     
     
     }
@@ -9769,7 +9748,7 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PedestrianDetectorResourceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
@@ -9891,13 +9870,13 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FaceDetectorResourceId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PedestrianDetectorConfigCreateRequest PedestrianDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9915,7 +9894,7 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TrackMotionOptimization { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaceSaveStrategy? FaceSaveStrategy { get; set; }
     
@@ -10356,6 +10335,7 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("trackletsIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.MinLength(1)]
         public System.Collections.Generic.ICollection<System.Guid> TrackletsIds { get; set; } = new System.Collections.ObjectModel.Collection<System.Guid>();
     
         [Newtonsoft.Json.JsonProperty("previousIndividualId", Required = Newtonsoft.Json.Required.Always)]
@@ -10380,6 +10360,7 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("individualIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.MinLength(2)]
         public System.Collections.Generic.ICollection<System.Guid> IndividualIds { get; set; } = new System.Collections.ObjectModel.Collection<System.Guid>();
     
     
@@ -10445,7 +10426,7 @@ namespace ManagementApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class LiveGroupingCreateRequest 
     {
-        [Newtonsoft.Json.JsonProperty("config", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("config", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LiveGroupingConfigCreateRequest Config { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10597,7 +10578,7 @@ namespace ManagementApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class RecordGroupingCreateRequest 
     {
-        [Newtonsoft.Json.JsonProperty("config", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("config", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public RecordGroupingConfigCreateRequest Config { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10931,7 +10912,7 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10949,7 +10930,7 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TrackMotionOptimization { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaceSaveStrategy? FaceSaveStrategy { get; set; }
     
@@ -11304,6 +11285,7 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("watchlistMembersIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.MinLength(1)]
         public System.Collections.Generic.ICollection<string> WatchlistMembersIds { get; set; } = new System.Collections.ObjectModel.Collection<string>();
     
     
@@ -11318,10 +11300,12 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("images", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.MinLength(1)]
         public System.Collections.Generic.ICollection<ImageData> Images { get; set; } = new System.Collections.ObjectModel.Collection<ImageData>();
     
         [Newtonsoft.Json.JsonProperty("watchlistIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.MinLength(1)]
         public System.Collections.Generic.ICollection<string> WatchlistIds { get; set; } = new System.Collections.ObjectModel.Collection<string>();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
