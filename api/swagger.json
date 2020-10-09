@@ -6504,22 +6504,14 @@
         "required": [
           "enabled",
           "faceDetectorConfig",
-          "faceDetectorResourceId",
-          "faceSaveStrategy",
           "id",
           "imageQuality",
           "maskImagePath",
-          "mpeG1PreviewEnabled",
-          "mpeG1PreviewPort",
-          "mpeG1VideoBitrate",
           "name",
-          "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
           "source",
-          "templateGenerationTime",
-          "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "templateGenerationTime"
         ],
         "type": "object",
         "properties": {
@@ -6541,10 +6533,12 @@
           },
           "faceDetectorResourceId": {
             "type": "string",
+            "nullable": true,
             "deprecated": true
           },
           "templateGeneratorResourceId": {
             "type": "string",
+            "nullable": true,
             "deprecated": true
           },
           "redetectionTime": {
@@ -6557,6 +6551,7 @@
           },
           "trackMotionOptimization": {
             "type": "string",
+            "nullable": true,
             "deprecated": true
           },
           "faceSaveStrategy": {
