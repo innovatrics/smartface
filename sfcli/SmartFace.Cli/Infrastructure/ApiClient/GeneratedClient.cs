@@ -10633,10 +10633,12 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.Obsolete]
         public string FaceDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.Obsolete]
         public string TemplateGeneratorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
@@ -10647,6 +10649,7 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.Obsolete]
         public string TrackMotionOptimization { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.Always)]
@@ -10664,15 +10667,19 @@ namespace ManagementApi
         public int ImageQuality { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1PreviewEnabled", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete]
         public bool MpeG1PreviewEnabled { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1PreviewPort", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete]
         public int MpeG1PreviewPort { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1VideoBitrate", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete]
         public int MpeG1VideoBitrate { get; set; }
     
         [Newtonsoft.Json.JsonProperty("previewMaxDimension", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete]
         public int PreviewMaxDimension { get; set; }
     
     
@@ -10853,10 +10860,12 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.Obsolete]
         public string FaceDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.Obsolete]
         public string TemplateGeneratorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Always)]
@@ -10867,6 +10876,7 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.Obsolete]
         public string TrackMotionOptimization { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.Always)]
@@ -10884,15 +10894,19 @@ namespace ManagementApi
         public int ImageQuality { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1PreviewEnabled", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete]
         public bool MpeG1PreviewEnabled { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1PreviewPort", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete]
         public int MpeG1PreviewPort { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1VideoBitrate", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete]
         public int MpeG1VideoBitrate { get; set; }
     
         [Newtonsoft.Json.JsonProperty("previewMaxDimension", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete]
         public int PreviewMaxDimension { get; set; }
     
     
@@ -10916,9 +10930,11 @@ namespace ManagementApi
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public string FaceDetectorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public string TemplateGeneratorResourceId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10928,6 +10944,7 @@ namespace ManagementApi
         public int? TemplateGenerationTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public string TrackMotionOptimization { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10944,15 +10961,19 @@ namespace ManagementApi
         public int? ImageQuality { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1PreviewEnabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public bool? MpeG1PreviewEnabled { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1PreviewPort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public int? MpeG1PreviewPort { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1VideoBitrate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public int? MpeG1VideoBitrate { get; set; }
     
         [Newtonsoft.Json.JsonProperty("previewMaxDimension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public int? PreviewMaxDimension { get; set; }
     
     
