@@ -4835,12 +4835,6 @@
   "components": {
     "schemas": {
       "FaceDetectorConfig": {
-        "required": [
-          "confidenceThreshold",
-          "maxFaces",
-          "maxFaceSize",
-          "minFaceSize"
-        ],
         "type": "object",
         "properties": {
           "minFaceSize": {
@@ -4863,12 +4857,6 @@
         "additionalProperties": false
       },
       "PedestrianDetectorConfig": {
-        "required": [
-          "confidenceThreshold",
-          "maxPedestrians",
-          "maxPedestrianSize",
-          "minPedestrianSize"
-        ],
         "type": "object",
         "properties": {
           "minPedestrianSize": {
