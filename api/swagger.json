@@ -4835,6 +4835,12 @@
   "components": {
     "schemas": {
       "FaceDetectorConfig": {
+        "required": [
+          "confidenceThreshold",
+          "maxFaces",
+          "maxFaceSize",
+          "minFaceSize"
+        ],
         "type": "object",
         "properties": {
           "minFaceSize": {
@@ -4857,6 +4863,12 @@
         "additionalProperties": false
       },
       "PedestrianDetectorConfig": {
+        "required": [
+          "confidenceThreshold",
+          "maxPedestrians",
+          "maxPedestrianSize",
+          "minPedestrianSize"
+        ],
         "type": "object",
         "properties": {
           "minPedestrianSize": {
@@ -4914,9 +4926,6 @@
         ],
         "type": "object",
         "properties": {
-          "serviceName": {
-            "type": "string"
-          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -4984,6 +4993,9 @@
           "previewMaxDimension": {
             "type": "integer",
             "format": "int32"
+          },
+          "serviceName": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -5038,13 +5050,6 @@
         ],
         "type": "object",
         "properties": {
-          "pedestrianDetectorResourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "pedestrianDetectorConfig": {
-            "$ref": "#/components/schemas/PedestrianDetectorConfig"
-          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -5061,11 +5066,18 @@
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/FaceDetectorConfig"
           },
+          "pedestrianDetectorConfig": {
+            "$ref": "#/components/schemas/PedestrianDetectorConfig"
+          },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
             "type": "string"
+          },
+          "pedestrianDetectorResourceId": {
+            "type": "string",
+            "nullable": true
           },
           "redetectionTime": {
             "type": "integer",
@@ -5169,10 +5181,6 @@
         ],
         "type": "object",
         "properties": {
-          "serviceName": {
-            "type": "string",
-            "nullable": true
-          },
           "name": {
             "type": "string"
           },
@@ -5248,6 +5256,10 @@
           "previewMaxDimension": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "serviceName": {
+            "type": "string",
             "nullable": true
           }
         },
