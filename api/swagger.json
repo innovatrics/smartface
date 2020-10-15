@@ -4834,7 +4834,13 @@
   },
   "components": {
     "schemas": {
-      "FaceDetectorConfig": {
+      "VideoFaceDetectorConfig": {
+        "required": [
+          "confidenceThreshold",
+          "maxFaces",
+          "maxFaceSize",
+          "minFaceSize"
+        ],
         "type": "object",
         "properties": {
           "minFaceSize": {
@@ -4856,7 +4862,13 @@
         },
         "additionalProperties": false
       },
-      "PedestrianDetectorConfig": {
+      "VideoPedestrianDetectorConfig": {
+        "required": [
+          "confidenceThreshold",
+          "maxPedestrians",
+          "maxPedestrianSize",
+          "minPedestrianSize"
+        ],
         "type": "object",
         "properties": {
           "minPedestrianSize": {
@@ -4928,10 +4940,10 @@
             "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
           },
           "pedestrianDetectorConfig": {
-            "$ref": "#/components/schemas/PedestrianDetectorConfig"
+            "$ref": "#/components/schemas/VideoPedestrianDetectorConfig"
           },
           "faceDetectorResourceId": {
             "type": "string"
@@ -5052,10 +5064,10 @@
             "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
           },
           "pedestrianDetectorConfig": {
-            "$ref": "#/components/schemas/PedestrianDetectorConfig"
+            "$ref": "#/components/schemas/VideoPedestrianDetectorConfig"
           },
           "faceDetectorResourceId": {
             "type": "string"
@@ -5782,6 +5794,28 @@
         },
         "additionalProperties": false
       },
+      "FaceDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaces": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "SearchInIndividualsRequest": {
         "required": [
           "groupingId",
@@ -6252,7 +6286,7 @@
             "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
           },
           "faceDetectorResourceId": {
             "type": "string",
@@ -6529,7 +6563,7 @@
             "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
           },
           "faceDetectorResourceId": {
             "type": "string",

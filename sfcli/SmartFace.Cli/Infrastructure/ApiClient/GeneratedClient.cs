@@ -9576,37 +9576,37 @@ namespace ManagementApi
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class FaceDetectorConfig 
+    public partial class VideoFaceDetectorConfig 
     {
-        [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinFaceSize { get; set; }
+        [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MinFaceSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFaceSize { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxFaceSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxFaceSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxFaces", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFaces { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxFaces", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxFaces { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ConfidenceThreshold { get; set; }
+        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public int ConfidenceThreshold { get; set; }
     
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class PedestrianDetectorConfig 
+    public partial class VideoPedestrianDetectorConfig 
     {
-        [Newtonsoft.Json.JsonProperty("minPedestrianSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public float? MinPedestrianSize { get; set; }
+        [Newtonsoft.Json.JsonProperty("minPedestrianSize", Required = Newtonsoft.Json.Required.Always)]
+        public float MinPedestrianSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxPedestrianSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public float? MaxPedestrianSize { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxPedestrianSize", Required = Newtonsoft.Json.Required.Always)]
+        public float MaxPedestrianSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxPedestrians", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxPedestrians { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxPedestrians", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxPedestrians { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ConfidenceThreshold { get; set; }
+        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public int ConfidenceThreshold { get; set; }
     
     
     }
@@ -9651,11 +9651,11 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
+        public VideoFaceDetectorConfig FaceDetectorConfig { get; set; } = new VideoFaceDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new PedestrianDetectorConfig();
+        public VideoPedestrianDetectorConfig PedestrianDetectorConfig { get; set; } = new VideoPedestrianDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -9762,10 +9762,10 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
+        public VideoFaceDetectorConfig FaceDetectorConfig { get; set; } = new VideoFaceDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PedestrianDetectorConfig PedestrianDetectorConfig { get; set; }
+        public VideoPedestrianDetectorConfig PedestrianDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -10295,6 +10295,24 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FaceDetectorConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinFaceSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxFaceSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxFaces", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxFaces { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ConfidenceThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SearchInIndividualsRequest 
     {
         [Newtonsoft.Json.JsonProperty("image", Required = Newtonsoft.Json.Required.Always)]
@@ -10629,7 +10647,7 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
+        public VideoFaceDetectorConfig FaceDetectorConfig { get; set; } = new VideoFaceDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -10856,7 +10874,7 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public FaceDetectorConfig FaceDetectorConfig { get; set; } = new FaceDetectorConfig();
+        public VideoFaceDetectorConfig FaceDetectorConfig { get; set; } = new VideoFaceDetectorConfig();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
