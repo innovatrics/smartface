@@ -9,6 +9,7 @@ using System.Threading.Tasks.Dataflow;
 using ManagementApi;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using SmartFace.Cli.Commands.SubWatchlistMember;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
@@ -30,29 +31,43 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             _jsonLoader = loader ?? throw new ArgumentNullException(nameof(loader));
         }
 
-        public async Task<WatchlistMemberWithRelatedData> RegisterWatchlistMemberAsync(WatchlistMemberRegistrationData watchlistMemberRegistrationData)
+        public async Task<WatchlistMemberWithRelatedData> RegisterWatchlistMemberAsync(WatchlistMemberRegisterData regData)
         {
-            var data = new RegisterWatchlistMemberData
+            // prepare watchlist member data
+            var wlMemberData = new RegisterWatchlistMemberData
             {
-                Id = watchlistMemberRegistrationData.Id,
-                DisplayName = watchlistMemberRegistrationData.DisplayName,
-                FullName = watchlistMemberRegistrationData.FullName,
-                Note = watchlistMemberRegistrationData.Note,
-                WatchlistIds = watchlistMemberRegistrationData.WatchlistIds
+                Id = regData.WatchlistMemberMetadata.Id,
+                DisplayName = regData.WatchlistMemberMetadata.DisplayName,
+                FullName = regData.WatchlistMemberMetadata.FullName,
+                Note = regData.WatchlistMemberMetadata.Note,
+                WatchlistIds = regData.WatchlistMemberMetadata.WatchlistIds
             };
 
-            watchlistMemberRegistrationData.PhotoFiles.ToList().ForEach(pathToPhotoFile => data.ImageData.Add(new RegisterWatchlistMemberImageData
+            regData.WatchlistMemberMetadata.PhotoFiles.ToList().ForEach(pathToPhotoFile => wlMemberData.ImageData.Add(new RegisterWatchlistMemberImageData
             {
                 Data = File.ReadAllBytes(pathToPhotoFile)
             }));
 
-            var result = await _watchlistMembersRepository.RegisterAsync(data);
-            _log.LogInformation($"WatchlistMember with Id {data.Id} registered.");
+            // update detection params
+            var result = await _watchlistMembersRepository.RegisterAsync(wlMemberData, req =>
+            {
+                req.FaceDetectorResourceId = regData.RegisterRequestParams.FaceDetectionResourceId;
+                req.FaceDetectorResourceId = regData.RegisterRequestParams.TemplateGeneratorResourceId;
+
+                req.FaceDetectorConfig = new FaceDetectorConfig
+                {
+                    MinFaceSize = regData.RegisterRequestParams.MinFaceSize,
+                    MaxFaceSize = regData.RegisterRequestParams.MaxFaceSize,
+                    ConfidenceThreshold = regData.RegisterRequestParams.FaceConfidenceThreshold
+                };
+            });
+
+            _log.LogInformation($"WatchlistMember with Id {wlMemberData.Id} registered.");
 
             return result;
         }
 
-        public Task<RegistrationResult> RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistIds,
+        public Task<RegistrationResult> RegisterWatchlistMembersFromDirAsync(string directory, RegisterRequestParams registerRequestParams,
             int maxDegreeOfParallelism, CancellationToken cancellationToken)
         {
             if (!Directory.Exists(directory))
@@ -60,27 +75,30 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 throw new DirectoryNotFoundException($"Directory does not exists {directory}");
             }
 
-            var watchlistMemberRegistrationData = GetWlMemberRegistrationDataFromDirectory(directory, watchlistIds);
+            var watchlistMemberRegistrationData = BuildWatchlistMemberRegisterData(directory, registerRequestParams.WatchlistIds, registerRequestParams);
             return RegisterWatchlistMembersAsync(watchlistMemberRegistrationData, maxDegreeOfParallelism, cancellationToken);
         }
 
-        public Task<RegistrationResult> RegisterWatchlistMembersFromDirByMetadataFileAsync(string directory, string[] watchlistIds,
+        public Task<RegistrationResult> RegisterWatchlistMembersFromDirByMetadataFileAsync(string directory, RegisterRequestParams registerRequestParams,
             int maxDegreeOfParallelism, CancellationToken cancellationToken)
         {
-            var registrationData = _jsonLoader.GetWatchlistMemberRegistrationData(directory);
+            var wlmMembersMetadata = _jsonLoader.GetWatchlistMemberRegistrationData(directory);
 
-            registrationData.ToList().ForEach(data => data.WatchlistIds = watchlistIds);
+            wlmMembersMetadata.ToList().ForEach(data => data.WatchlistIds = registerRequestParams.WatchlistIds);
 
-            return RegisterWatchlistMembersAsync(registrationData, maxDegreeOfParallelism, cancellationToken);
+            var watchlistMemberRegistrationData = wlmMembersMetadata
+                .Select(x => new WatchlistMemberRegisterData(x, registerRequestParams)).ToArray();
+            
+            return RegisterWatchlistMembersAsync(watchlistMemberRegistrationData, maxDegreeOfParallelism, cancellationToken);
         }
 
-        private async Task<RegistrationResult> RegisterWatchlistMembersAsync(IEnumerable<WatchlistMemberRegistrationData> watchlistMemberRegistrationData, int maxDegreeOfParallelism, CancellationToken cancellationToken)
+        private async Task<RegistrationResult> RegisterWatchlistMembersAsync(IEnumerable<WatchlistMemberRegisterData> watchlistMemberRegistrationData, int maxDegreeOfParallelism, CancellationToken cancellationToken)
         {
             var registrationResult = new RegistrationResult();
 
             var (sourceBlock, destinationBlock) = CreateProcessingBlocks((regData, ex) =>
             {
-                var failure = new WatchlistMemberRegistrationFailure(regData.PhotoFiles, ex);
+                var failure = new WatchlistMemberRegistrationFailure(regData.WatchlistMemberMetadata.PhotoFiles, ex);
                 registrationResult.Add(failure);
 
             }, maxDegreeOfParallelism);
@@ -91,7 +109,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 
                 if (!processed)
                 {
-                    _log.LogError($"Unable to process member with id [{memberRegistrationData.Id}]");
+                    _log.LogError($"Unable to process member with id [{memberRegistrationData.WatchlistMemberMetadata.Id}]");
                 }
             }
 
@@ -101,10 +119,10 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             return registrationResult;
         }
 
-        private (TransformBlock<WatchlistMemberRegistrationData, WatchlistMemberWithRelatedData> sourceBlock, ActionBlock<WatchlistMemberWithRelatedData> destinationBlock)
-            CreateProcessingBlocks(Action<WatchlistMemberRegistrationData, Exception> errorAction, int maxDegreeOfParallelism)
+        private (TransformBlock<WatchlistMemberRegisterData, WatchlistMemberWithRelatedData> sourceBlock, ActionBlock<WatchlistMemberWithRelatedData> destinationBlock)
+            CreateProcessingBlocks(Action<WatchlistMemberRegisterData, Exception> errorAction, int maxDegreeOfParallelism)
         {
-            var transformBlock = new TransformBlock<WatchlistMemberRegistrationData, WatchlistMemberWithRelatedData>(async registrationData =>
+            var transformBlock = new TransformBlock<WatchlistMemberRegisterData, WatchlistMemberWithRelatedData>(async registrationData =>
                 {
                     try
                     {
@@ -112,7 +130,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                     }
                     catch (Exception e)
                     {
-                        _log.LogError(e, $"Registration of watchlist member with Id [{registrationData.Id}] failed");
+                        _log.LogError(e, $"Registration of watchlist member with Id [{registrationData.WatchlistMemberMetadata.Id}] failed");
                         errorAction?.Invoke(registrationData, e);
                         return null;
                     }
@@ -144,7 +162,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             return (transformBlock, actionBlock);
         }
 
-        private static IEnumerable<WatchlistMemberRegistrationData> GetWlMemberRegistrationDataFromDirectory(string directory, string[] watchlistIds)
+        private static IEnumerable<WatchlistMemberRegisterData> BuildWatchlistMemberRegisterData(string directory, string[] watchlistIds, RegisterRequestParams requestParams)
         {
             var files = Directory.GetFiles(directory);
 
@@ -163,21 +181,21 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 
             var groupedPhotos = watchlistMemberPhotoPaths.GroupBy(p => p.WatchlistMemberId).ToArray();
 
-            var watchlistMemberRegistrationData = new List<WatchlistMemberRegistrationData>();
+            var watchlistMemberRegistrationData = new List<WatchlistMemberRegisterData>();
 
             foreach (var group in groupedPhotos)
             {
                 var id = group.Key;
                 var photoPaths = group.Select(photoWithId => photoWithId.PhotoPath).ToArray();
 
-                var registerWatchlistMemberExtended = new WatchlistMemberRegistrationData
+                var watchlistMemberMetadata = new WatchlistMemberMetadata
                 {
                     Id = id,
                     PhotoFiles = photoPaths,
                     WatchlistIds = watchlistIds
                 };
 
-                watchlistMemberRegistrationData.Add(registerWatchlistMemberExtended);
+                watchlistMemberRegistrationData.Add(new WatchlistMemberRegisterData(watchlistMemberMetadata, requestParams));
             }
 
             return watchlistMemberRegistrationData;

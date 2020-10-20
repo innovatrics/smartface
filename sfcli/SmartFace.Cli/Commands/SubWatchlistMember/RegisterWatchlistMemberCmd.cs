@@ -27,6 +27,21 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         [Option("-p|--photos <FILE>", "", CommandOptionType.MultipleValue)]
         public string[] Photos { get; set; }
 
+        [Option("--minFaceSize", "", CommandOptionType.SingleValue)]
+        public int MinFaceSize { get; set; } = 25;
+
+        [Option("--maxFaceSize", "", CommandOptionType.SingleValue)]
+        public int MaxFaceSize { get; set; } = 400;
+
+        [Option("--faceDetConfidenceThreshold", "", CommandOptionType.SingleValue)]
+        public int FaceDetectionConfidenceThreshold { get; set; } = 400;
+
+        [Option("--faceDetResourceId", "", CommandOptionType.SingleValue)]
+        public string FaceDetectionResourceId { get; set; } = "cpu";
+
+        [Option("--templateGenResourceId", "", CommandOptionType.SingleValue)]
+        public string TemplateGeneratorResourceId { get; set; } = "cpu";
+
         public RegisterWatchlistMemberCmd(IWatchlistMemberRegistrationManager registrationManager)
         {
             _registrationManager = registrationManager;
@@ -34,13 +49,16 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
 
         protected virtual async Task<int> OnExecuteAsync(CommandLineApplication app, IConsole console)
         {
-            var data = new WatchlistMemberRegistrationData
+            var wlMemberData = new WatchlistMemberMetadata
             {
                 Id = Id,
                 PhotoFiles = Photos,
                 WatchlistIds = WatchlistIds
             };
-            var result = await _registrationManager.RegisterWatchlistMemberAsync(data);
+
+            var registerParams = new RegisterRequestParams(MinFaceSize, MaxFaceSize, FaceDetectionConfidenceThreshold, FaceDetectionResourceId, TemplateGeneratorResourceId, WatchlistIds);
+
+            var result = await _registrationManager.RegisterWatchlistMemberAsync(new WatchlistMemberRegisterData(wlMemberData, registerParams));
 
             var resultOutput = JsonConvert.SerializeObject(result, Formatting.Indented);
             console.WriteLine(resultOutput);

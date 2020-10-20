@@ -33,11 +33,11 @@ namespace SmartFace.CliTests.SfCliTests.Commands
             {
                 var regManager = Substitute.For<IWatchlistMemberRegistrationManager>();
 
-                regManager.RegisterWatchlistMembersFromDirAsync(Arg.Any<string>(), Arg.Any<string[]>(), Arg.Any<int>(),
+                regManager.RegisterWatchlistMembersFromDirAsync(Arg.Any<string>(), Arg.Any<RegisterRequestParams>(), Arg.Any<int>(),
                         Arg.Any<CancellationToken>())
                     .ReturnsForAnyArgs(new RegistrationResult().Add(new WatchlistMemberRegistrationFailure(new[] { testSourceFilePath }, new Exception("testEx"))));
 
-                regManager.RegisterWatchlistMembersFromDirByMetadataFileAsync(Arg.Any<string>(), Arg.Any<string[]>(), Arg.Any<int>(),
+                regManager.RegisterWatchlistMembersFromDirByMetadataFileAsync(Arg.Any<string>(), Arg.Any<RegisterRequestParams>(), Arg.Any<int>(),
                         Arg.Any<CancellationToken>())
                     .ReturnsForAnyArgs(new RegistrationResult().Add(new WatchlistMemberRegistrationFailure(new[] { testSourceFilePath }, new Exception("testEx"))));
 

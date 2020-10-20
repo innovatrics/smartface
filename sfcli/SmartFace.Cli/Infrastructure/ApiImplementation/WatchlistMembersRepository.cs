@@ -21,9 +21,9 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             _watchlistMembersClient = new WatchlistMembersClient(apiDefinition.ApiUrl, _httpClient);
         }
 
-        public async Task<WatchlistMemberWithRelatedData> RegisterAsync(RegisterWatchlistMemberData data)
+        public async Task<WatchlistMemberWithRelatedData> RegisterAsync(RegisterWatchlistMemberData data, Action<RegisterWatchlistMemberRequest> requestModifier)
         {
-            var payload = new RegisterWatchlistMemberRequest
+            var requestPayload = new RegisterWatchlistMemberRequest
             {
                 Images = data.ImageData.Select(imgData => new ImageData
                 {
@@ -33,7 +33,9 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 Id = data.Id
             };
 
-            var watchlistMember = await _watchlistMembersClient.RegisterAsync(payload);
+            requestModifier?.Invoke(requestPayload);
+
+            var watchlistMember = await _watchlistMembersClient.RegisterAsync(requestPayload);
 
             return await UpdateExtendedDataAsync(data, watchlistMember);
         }

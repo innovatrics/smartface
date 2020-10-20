@@ -17,6 +17,21 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         private readonly ILogger<RegisterWatchlistMembersFromDirCmd> _logger;
         private readonly IWatchlistMemberRegistrationManager _registrationManager;
 
+        [Option("--minFaceSize", "", CommandOptionType.SingleValue)]
+        public int MinFaceSize { get; set; } = 25;
+
+        [Option("--maxFaceSize", "", CommandOptionType.SingleValue)]
+        public int MaxFaceSize { get; set; } = 400;
+
+        [Option("--faceDetConfidenceThreshold", "", CommandOptionType.SingleValue)]
+        public int FaceDetectionConfidenceThreshold { get; set; } = 400;
+
+        [Option("--faceDetResourceId", "", CommandOptionType.SingleValue)]
+        public string FaceDetectionResourceId { get; set; } = "cpu";
+
+        [Option("--templateGenResourceId", "", CommandOptionType.SingleValue)]
+        public string TemplateGeneratorResourceId { get; set; } = "cpu";
+
         [Required]
         [Option("-w|--watchlistIds", "", CommandOptionType.MultipleValue)]
         public string[] WatchlistIds { get; set; }
@@ -54,13 +69,15 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         {
             RegistrationResult registrationResult;
 
+            var registerParams = new RegisterRequestParams(MinFaceSize, MaxFaceSize, FaceDetectionConfidenceThreshold, FaceDetectionResourceId, TemplateGeneratorResourceId, WatchlistIds);
+
             if (UseMetaDataFile)
             {
-                registrationResult = await _registrationManager.RegisterWatchlistMembersFromDirByMetadataFileAsync(Directory, WatchlistIds, MaxDegreeOfParallelism, cancellationToken);
+                registrationResult = await _registrationManager.RegisterWatchlistMembersFromDirByMetadataFileAsync(Directory, registerParams, MaxDegreeOfParallelism, cancellationToken);
             }
             else
             {
-                registrationResult = await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, WatchlistIds, MaxDegreeOfParallelism, cancellationToken);
+                registrationResult = await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, registerParams, MaxDegreeOfParallelism, cancellationToken);
             }
 
             if (registrationResult.Failures.Any())
@@ -85,7 +102,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
                     File.Copy(photoPath, destPath, true);
                 }
 
-                _logger.LogInformation("Copying done.");
+                _logger.LogInformation($"Copying to {failurePhotosDir} done.");
             }
 
             return Constants.EXIT_CODE_OK;

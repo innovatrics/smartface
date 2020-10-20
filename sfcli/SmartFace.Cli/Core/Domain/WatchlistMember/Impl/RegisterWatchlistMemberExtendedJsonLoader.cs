@@ -16,7 +16,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             Log = log;
         }
 
-        public WatchlistMemberRegistrationData[] GetWatchlistMemberRegistrationData(string path)
+        public WatchlistMemberMetadata[] GetWatchlistMemberRegistrationData(string path)
         {
             if (!Directory.Exists(path))
             {
@@ -36,7 +36,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             }
 
             var content = File.ReadAllText(file);
-            var result = JsonConvert.DeserializeObject<WatchlistMemberRegistrationData[]>(content);
+            var result = JsonConvert.DeserializeObject<WatchlistMemberMetadata[]>(content);
             return result;
         }
     }

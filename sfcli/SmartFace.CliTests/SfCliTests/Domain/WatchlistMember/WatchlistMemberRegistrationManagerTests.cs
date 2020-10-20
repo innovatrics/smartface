@@ -10,6 +10,7 @@ using ManagementApi;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NSubstitute;
+using SmartFace.Cli.Commands.SubWatchlistMember;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Impl;
@@ -43,7 +44,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             Directory.SetCurrentDirectory(RegistrationDir);
 
             var registeredData = new List<RegisterWatchlistMemberData>();
-            Repository.WhenForAnyArgs(r => r.RegisterAsync(null)).Do(info => registeredData.Add(info.Arg<RegisterWatchlistMemberData>()));
+            Repository.WhenForAnyArgs(r => r.RegisterAsync(null, null)).Do(info => registeredData.Add(info.Arg<RegisterWatchlistMemberData>()));
 
             const string photoFileName = "relativePhoto.jpeg";
             CreatePhotoFile(photoFileName);
@@ -52,7 +53,9 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             var jsonFileContent = GetJsonMetadataFileContent(() => (id, new[] { photoFileName }));
             CreateDataFile(jsonFileContent);
 
-            var result = await Manager.RegisterWatchlistMembersFromDirByMetadataFileAsync(RegistrationDir, new[] { "Wl" }, 1, CancellationToken.None);
+            var requestParams = new RegisterRequestParams(20, 200, 4000, "cpu", "cpu", new[] { "Wl" });
+
+            var result = await Manager.RegisterWatchlistMembersFromDirByMetadataFileAsync(RegistrationDir, requestParams, 1, CancellationToken.None);
             Assert.Empty(result.Failures);
 
             Assert.Single(registeredData);
@@ -67,7 +70,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
         public async Task WatchlistMemberRegistrationByMetadataFile_AbsolutePhotoPath()
         {
             var registeredData = new List<RegisterWatchlistMemberData>();
-            Repository.WhenForAnyArgs(r => r.RegisterAsync(null)).Do(info => registeredData.Add(info.Arg<RegisterWatchlistMemberData>()));
+            Repository.WhenForAnyArgs(r => r.RegisterAsync(null, null)).Do(info => registeredData.Add(info.Arg<RegisterWatchlistMemberData>()));
 
             const string photoFileName = "absolutePhoto.jpeg";
             var absolutePathToPhotoFile = CreatePhotoFile(photoFileName).Replace(@"\", @"\\");
@@ -76,7 +79,8 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             var jsonFileContent = GetJsonMetadataFileContent(() => (id, new[] { absolutePathToPhotoFile }));
             CreateDataFile(jsonFileContent);
 
-            var result = await Manager.RegisterWatchlistMembersFromDirByMetadataFileAsync(RegistrationDir, new[] { "Wl" }, 1, CancellationToken.None);
+            var requestParams = new RegisterRequestParams(20, 200, 4000, "cpu", "cpu", new[] { "Wl" });
+            var result = await Manager.RegisterWatchlistMembersFromDirByMetadataFileAsync(RegistrationDir, requestParams, 1, CancellationToken.None);
             Assert.Empty(result.Failures);
 
             Assert.Single(registeredData);
@@ -91,7 +95,7 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
         public async Task WatchlistMemberRegistrationByMetadataFile_Failures()
         {
             var registeredData = new List<RegisterWatchlistMemberData>();
-            
+
             var jsonFileContent = GetJsonMetadataFileContent(
                 () => ("1", new[] { CreatePhotoFile("photo1.jpeg") }),
                 () => ("2", new[] { CreatePhotoFile("photo2.jpeg") }),
@@ -101,13 +105,14 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
 
             var ex = new TimeoutException("rpc timeout");
 
-            Repository.RegisterAsync(Arg.Is<RegisterWatchlistMemberData>(r => r.Id == "2"))
+            Repository.RegisterAsync(Arg.Is<RegisterWatchlistMemberData>(r => r.Id == "2"), Arg.Any<Action<RegisterWatchlistMemberRequest>>())
                 .Returns(Task.FromException<WatchlistMemberWithRelatedData>(ex));
 
-            Repository.When(r => r.RegisterAsync(Arg.Is<RegisterWatchlistMemberData>(r => r.Id != "2")))
+            Repository.When(r => r.RegisterAsync(Arg.Is<RegisterWatchlistMemberData>(r => r.Id != "2"), Arg.Any<Action<RegisterWatchlistMemberRequest>>()))
                 .Do(info => registeredData.Add(info.Arg<RegisterWatchlistMemberData>()));
 
-            var result = await Manager.RegisterWatchlistMembersFromDirByMetadataFileAsync(RegistrationDir, new[] { "Wl" }, 1, CancellationToken.None);
+            var requestParams = new RegisterRequestParams(20, 200, 4000, "cpu", "cpu", new[] { "Wl" });
+            var result = await Manager.RegisterWatchlistMembersFromDirByMetadataFileAsync(RegistrationDir, requestParams, 1, CancellationToken.None);
             var failure = Assert.Single(result.Failures);
 
             // ReSharper disable once PossibleNullReferenceException
