@@ -7,16 +7,16 @@ using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
 
 namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 {
-    public class RegisterWatchlistMemberExtendedJsonLoader
+    public class WatchlistMemberRegistrationDataJsonLoader
     {
-        private ILogger<RegisterWatchlistMemberExtendedJsonLoader> Log { get; }
+        private ILogger<WatchlistMemberRegistrationDataJsonLoader> Log { get; }
 
-        public RegisterWatchlistMemberExtendedJsonLoader(ILogger<RegisterWatchlistMemberExtendedJsonLoader> log)
+        public WatchlistMemberRegistrationDataJsonLoader(ILogger<WatchlistMemberRegistrationDataJsonLoader> log)
         {
             Log = log;
         }
 
-        public RegisterWatchlistMemberExtended[] GetRegisterWatchlistMemberExtendedData(string path)
+        public WatchlistMemberRegistrationData[] GetWatchlistMemberRegistrationData(string path)
         {
             if (!Directory.Exists(path))
             {
@@ -36,7 +36,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             }
 
             var content = File.ReadAllText(file);
-            var result = JsonConvert.DeserializeObject<RegisterWatchlistMemberExtended[]>(content);
+            var result = JsonConvert.DeserializeObject<WatchlistMemberRegistrationData[]>(content);
             return result;
         }
     }

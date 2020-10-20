@@ -38,10 +38,10 @@ namespace SmartFace.CliTests.SfCliTests.Domain.WatchlistMember
             string fileName = Path.Combine(dir, "file_with_inconsistent_case_in_extension.JsoN");
             File.WriteAllText(fileName, content, Encoding.UTF8);
 
-            var logger = Substitute.For<ILogger<RegisterWatchlistMemberExtendedJsonLoader>>();
-            var loader = new RegisterWatchlistMemberExtendedJsonLoader(logger);
+            var logger = Substitute.For<ILogger<WatchlistMemberRegistrationDataJsonLoader>>();
+            var loader = new WatchlistMemberRegistrationDataJsonLoader(logger);
 
-            var serializeData = loader.GetRegisterWatchlistMemberExtendedData(dir);
+            var serializeData = loader.GetWatchlistMemberRegistrationData(dir);
 
             Assert.Equal(2, serializeData.Length);
 

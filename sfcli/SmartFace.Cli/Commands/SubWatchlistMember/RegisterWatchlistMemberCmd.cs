@@ -34,7 +34,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
 
         protected virtual async Task<int> OnExecuteAsync(CommandLineApplication app, IConsole console)
         {
-            var data = new RegisterWatchlistMemberExtended
+            var data = new WatchlistMemberRegistrationData
             {
                 Id = Id,
                 PhotoFiles = Photos,

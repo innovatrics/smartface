@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using ManagementApi;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.ApiAbstraction;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 using SmartFace.Cli.Core.Domain.WatchlistMember.Model;
@@ -17,183 +17,187 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 {
     public class WatchlistMemberRegistrationManager : IWatchlistMemberRegistrationManager
     {
-        private ILogger<WatchlistMemberRegistrationManager> Log { get; }
+        private const string PHOTO_FILE_NAME_WITH_EXT_PATTERN = @"^([^.]+)\.([jJ][pP][eE]?[gG]|[pP][nN][gG])$";
 
-        private IWatchlistMembersRepository Repository { get; }
+        private readonly ILogger<WatchlistMemberRegistrationManager> _log;
+        private readonly IWatchlistMembersRepository _watchlistMembersRepository;
+        private readonly WatchlistMemberRegistrationDataJsonLoader _jsonLoader;
 
-        private RegisterWatchlistMemberExtendedJsonLoader Loader { get; }
-
-        public const string FILE_PATTERN = @"^([^.]+)\.([jJ][pP][eE]?[gG]|[pP][nN][gG])$";
-
-        public WatchlistMemberRegistrationManager(ILogger<WatchlistMemberRegistrationManager> log, IWatchlistMembersRepository repository, RegisterWatchlistMemberExtendedJsonLoader loader)
+        public WatchlistMemberRegistrationManager(ILogger<WatchlistMemberRegistrationManager> log, IWatchlistMembersRepository repository, WatchlistMemberRegistrationDataJsonLoader loader)
         {
-            Log = log;
-            Repository = repository;
-            Loader = loader;
+            _log = log ?? throw new ArgumentNullException(nameof(log));
+            _watchlistMembersRepository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _jsonLoader = loader ?? throw new ArgumentNullException(nameof(loader));
         }
 
-        public async Task<WatchlistMemberWithRelatedData> RegisterWatchlistMemberAsync(RegisterWatchlistMemberExtended registerWatchlistMemberExtended)
+        public async Task<WatchlistMemberWithRelatedData> RegisterWatchlistMemberAsync(WatchlistMemberRegistrationData watchlistMemberRegistrationData)
         {
             var data = new RegisterWatchlistMemberData
             {
-                Id = registerWatchlistMemberExtended.Id,
-                DisplayName = registerWatchlistMemberExtended.DisplayName,
-                FullName = registerWatchlistMemberExtended.FullName,
-                Note = registerWatchlistMemberExtended.Note,
-                WatchlistIds = registerWatchlistMemberExtended.WatchlistIds
+                Id = watchlistMemberRegistrationData.Id,
+                DisplayName = watchlistMemberRegistrationData.DisplayName,
+                FullName = watchlistMemberRegistrationData.FullName,
+                Note = watchlistMemberRegistrationData.Note,
+                WatchlistIds = watchlistMemberRegistrationData.WatchlistIds
             };
 
-            registerWatchlistMemberExtended.PhotoFiles.ToList().ForEach(pathToPhotoFile => data.ImageData.Add(new RegisterWatchlistMemberImageData
+            watchlistMemberRegistrationData.PhotoFiles.ToList().ForEach(pathToPhotoFile => data.ImageData.Add(new RegisterWatchlistMemberImageData
             {
                 Data = File.ReadAllBytes(pathToPhotoFile)
             }));
 
-            var result = await Repository.RegisterAsync(data);
-            Log.LogInformation($"WatchlistMember registered. [{data.Id}]");
+            var result = await _watchlistMembersRepository.RegisterAsync(data);
+            _log.LogInformation($"WatchlistMember with Id {data.Id} registered.");
 
             return result;
         }
 
-        public Task RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistIds,
-            int maxDegreeOfParallelism)
+        public Task<RegistrationResult> RegisterWatchlistMembersFromDirAsync(string directory, string[] watchlistIds,
+            int maxDegreeOfParallelism, CancellationToken cancellationToken)
         {
             if (!Directory.Exists(directory))
             {
-                throw new ProcessingException($"Directory does not exists {directory}");
+                throw new DirectoryNotFoundException($"Directory does not exists {directory}");
             }
 
-            var groupedPhotos = GetPhotosGroupedById(directory);
-
-            var extendedData = new List<RegisterWatchlistMemberExtended>();
-
-            foreach (var group in groupedPhotos)
-            {
-                var id = group.Key;
-                var photoPaths = group.Select(photoWithId => photoWithId.PhotoPath).ToArray();
-                var registerWatchlistMemberExtended = new RegisterWatchlistMemberExtended
-                {
-                    Id = id,
-                    PhotoFiles = photoPaths,
-                    WatchlistIds = watchlistIds
-                };
-                extendedData.Add(registerWatchlistMemberExtended);
-            }
-
-            var (sourceBlock, destinationBlock) = CreateProcessingBlocks(maxDegreeOfParallelism);
-
-            PostDataToSourceBlock(extendedData, sourceBlock);
-
-            return WaitForRegistrationCompletionAsync(sourceBlock, destinationBlock);
+            var watchlistMemberRegistrationData = GetWlMemberRegistrationDataFromDirectory(directory, watchlistIds);
+            return RegisterWatchlistMembersAsync(watchlistMemberRegistrationData, maxDegreeOfParallelism, cancellationToken);
         }
 
-        public Task RegisterWatchlistMembersExtendedFromDirAsync(string directory, string[] watchlistIds,
-            int maxDegreeOfParallelism)
+        public Task<RegistrationResult> RegisterWatchlistMembersFromDirByMetadataFileAsync(string directory, string[] watchlistIds,
+            int maxDegreeOfParallelism, CancellationToken cancellationToken)
         {
-            var extendedData = Loader.GetRegisterWatchlistMemberExtendedData(directory);
-            extendedData.ToList().ForEach(data => data.WatchlistIds = watchlistIds);
+            var registrationData = _jsonLoader.GetWatchlistMemberRegistrationData(directory);
 
-            Directory.SetCurrentDirectory(directory);
-            
-            var (sourceBlock, destinationBlock) = CreateProcessingBlocks(maxDegreeOfParallelism);
+            registrationData.ToList().ForEach(data => data.WatchlistIds = watchlistIds);
 
-            PostDataToSourceBlock(extendedData, sourceBlock);
-
-            return WaitForRegistrationCompletionAsync(sourceBlock, destinationBlock);
+            return RegisterWatchlistMembersAsync(registrationData, maxDegreeOfParallelism, cancellationToken);
         }
 
-        private static IEnumerable<IGrouping<string, PhotoWithId>> GetPhotosGroupedById(string directory)
+        private async Task<RegistrationResult> RegisterWatchlistMembersAsync(IEnumerable<WatchlistMemberRegistrationData> watchlistMemberRegistrationData, int maxDegreeOfParallelism, CancellationToken cancellationToken)
         {
-            var files = Directory.GetFiles(directory);
-            var validPhotos = new List<PhotoWithId>();
-            foreach (var file in files)
+            var registrationResult = new RegistrationResult();
+
+            var (sourceBlock, destinationBlock) = CreateProcessingBlocks((regData, ex) =>
             {
-                if (TryGetIdFromPhotoFile(file, out string id))
+                var failure = new WatchlistMemberRegistrationFailure(regData.PhotoFiles, ex);
+                registrationResult.Add(failure);
+
+            }, maxDegreeOfParallelism);
+
+            foreach (var memberRegistrationData in watchlistMemberRegistrationData)
+            {
+                var processed = await sourceBlock.SendAsync(memberRegistrationData, cancellationToken);
+
+                if (!processed)
                 {
-                    var photoWithId = new PhotoWithId(id, file);
-                    validPhotos.Add(photoWithId);
+                    _log.LogError($"Unable to process member with id [{memberRegistrationData.Id}]");
                 }
             }
 
-            var groupedPhotos = validPhotos.GroupBy(p => p.Id);
-            return groupedPhotos;
-        }
-
-        private static bool TryGetIdFromPhotoFile(string photoPath, out string id)
-        {
-            id = string.Empty;
-            bool isValid = false;
-            Regex regex = new Regex(FILE_PATTERN);
-            var file = Path.GetFileName(photoPath);
-            Match match = regex.Match(file);
-
-            if (match.Success)
-            {
-                isValid = true;
-                id = match.Groups[1].Value;
-            }
-
-            return isValid;
-        }
-
-        private static Task WaitForRegistrationCompletionAsync(
-            TransformBlock<RegisterWatchlistMemberExtended, WatchlistMemberWithRelatedData> sourceBlock,
-            ActionBlock<WatchlistMemberWithRelatedData> destinationBlock)
-        {
             sourceBlock.Complete();
-            return destinationBlock.Completion;
+            await destinationBlock.Completion;
+
+            return registrationResult;
         }
 
-        private void PostDataToSourceBlock(IEnumerable<RegisterWatchlistMemberExtended> extendedData,
-            TransformBlock<RegisterWatchlistMemberExtended, WatchlistMemberWithRelatedData> sourceBlock)
+        private (TransformBlock<WatchlistMemberRegistrationData, WatchlistMemberWithRelatedData> sourceBlock, ActionBlock<WatchlistMemberWithRelatedData> destinationBlock)
+            CreateProcessingBlocks(Action<WatchlistMemberRegistrationData, Exception> errorAction, int maxDegreeOfParallelism)
         {
-            foreach (var registerWatchlistMemberExtended in extendedData)
-            {
-                var posted = sourceBlock.Post(registerWatchlistMemberExtended);
-                if (!posted)
-                {
-                    Log.LogError(
-                        $"Unable to process member with id [{registerWatchlistMemberExtended.Id}]");
-                }
-            }
-        }
-
-        private (TransformBlock<RegisterWatchlistMemberExtended, WatchlistMemberWithRelatedData> sourceBlock,
-            ActionBlock<WatchlistMemberWithRelatedData> destinationBlock) CreateProcessingBlocks(
-                int maxDegreeOfParallelism)
-        {
-            var transformBlock = new TransformBlock<RegisterWatchlistMemberExtended, WatchlistMemberWithRelatedData>(
-                async data =>
+            var transformBlock = new TransformBlock<WatchlistMemberRegistrationData, WatchlistMemberWithRelatedData>(async registrationData =>
                 {
                     try
                     {
-                        return await RegisterWatchlistMemberAsync(data);
+                        return await RegisterWatchlistMemberAsync(registrationData);
                     }
                     catch (Exception e)
                     {
-                        Log.LogError($"Register member with id [{data.Id}] failed", e);
+                        _log.LogError(e, $"Registration of watchlist member with Id [{registrationData.Id}] failed");
+                        errorAction?.Invoke(registrationData, e);
                         return null;
                     }
                 },
                 new ExecutionDataflowBlockOptions
                 {
+                    BoundedCapacity = 100,
                     EnsureOrdered = true,
                     MaxDegreeOfParallelism = maxDegreeOfParallelism
-
                 });
 
-            var actionBlock = new ActionBlock<WatchlistMemberWithRelatedData>(
-                data => Log.LogInformation(JsonConvert.SerializeObject(data, Formatting.Indented)),
+            var actionBlock = new ActionBlock<WatchlistMemberWithRelatedData>(data =>
+                {
+                    _log.LogInformation(JsonConvert.SerializeObject(data, Formatting.Indented));
+                },
                 new ExecutionDataflowBlockOptions
                 {
+                    BoundedCapacity = 100,
                     MaxDegreeOfParallelism = 1
                 });
+
+            transformBlock.LinkTo(DataflowBlock.NullTarget<WatchlistMemberWithRelatedData>(), x => x == null);
 
             transformBlock.LinkTo(actionBlock, new DataflowLinkOptions
             {
                 PropagateCompletion = true
-            });
+            }, x => x!= null);
 
             return (transformBlock, actionBlock);
+        }
+
+        private static IEnumerable<WatchlistMemberRegistrationData> GetWlMemberRegistrationDataFromDirectory(string directory, string[] watchlistIds)
+        {
+            var files = Directory.GetFiles(directory);
+
+            var watchlistMemberPhotoPaths = new List<WatchlistMemberPhotoPath>();
+
+            foreach (var file in files)
+            {
+                if (!TryGetWatchlistMemberIdFromFile(file, out var watchlistMemberId))
+                {
+                    continue;
+                }
+
+                var watchlistMemberPhotoPath = new WatchlistMemberPhotoPath(watchlistMemberId, file);
+                watchlistMemberPhotoPaths.Add(watchlistMemberPhotoPath);
+            }
+
+            var groupedPhotos = watchlistMemberPhotoPaths.GroupBy(p => p.WatchlistMemberId).ToArray();
+
+            var watchlistMemberRegistrationData = new List<WatchlistMemberRegistrationData>();
+
+            foreach (var group in groupedPhotos)
+            {
+                var id = group.Key;
+                var photoPaths = group.Select(photoWithId => photoWithId.PhotoPath).ToArray();
+
+                var registerWatchlistMemberExtended = new WatchlistMemberRegistrationData
+                {
+                    Id = id,
+                    PhotoFiles = photoPaths,
+                    WatchlistIds = watchlistIds
+                };
+
+                watchlistMemberRegistrationData.Add(registerWatchlistMemberExtended);
+            }
+
+            return watchlistMemberRegistrationData;
+        }
+
+        private static bool TryGetWatchlistMemberIdFromFile(string filePath, out string wlMemberId)
+        {
+            wlMemberId = string.Empty;
+
+            var regex = new Regex(PHOTO_FILE_NAME_WITH_EXT_PATTERN);
+            var file = Path.GetFileName(filePath);
+            var match = regex.Match(file);
+
+            if (!match.Success)
+            {
+                return false;
+            }
+
+            wlMemberId = match.Groups[1].Value;
+            return true;
         }
     }
 }

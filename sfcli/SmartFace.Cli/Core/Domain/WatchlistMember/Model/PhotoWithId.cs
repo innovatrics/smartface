@@ -1,15 +1,17 @@
-﻿namespace SmartFace.Cli.Core.Domain.WatchlistMember.Model
+﻿using System;
+
+namespace SmartFace.Cli.Core.Domain.WatchlistMember.Model
 {
-    public class PhotoWithId
+    public class WatchlistMemberPhotoPath
     {
-        public string Id { get; }
+        public string WatchlistMemberId { get; }
 
         public string PhotoPath { get; }
 
-        public PhotoWithId(string id, string photoPath)
+        public WatchlistMemberPhotoPath(string watchlistMemberId, string photoPath)
         {
-            Id = id;
-            PhotoPath = photoPath;
+            WatchlistMemberId = watchlistMemberId ?? throw new ArgumentNullException(nameof(watchlistMemberId));
+            PhotoPath = photoPath ?? throw new ArgumentNullException(nameof(photoPath));
         }
     }
 }

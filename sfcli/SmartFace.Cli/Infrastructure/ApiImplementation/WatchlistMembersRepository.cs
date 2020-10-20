@@ -48,7 +48,6 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 var payload = new WatchlistMemberUpsertRequest
                 {
                     Id = newMember.Id,
-
                     DisplayName = data.DisplayName,
                     FullName = data.FullName,
                     Note = data.Note
