@@ -84,8 +84,10 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
             {
                 _logger.LogWarning($"{registrationResult.Failures} registrations failed.");
 
+                var currentTimestampFormatted = DateTime.UtcNow.ToString("yyyy-MM-dd_hh-mm-ss");
+
                 var failurePhotosDir = string.IsNullOrEmpty(FailedRegistrationDir)
-                    ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Guid.NewGuid().ToString())
+                    ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"SF_REG_FAILURE_{currentTimestampFormatted}")
                     : FailedRegistrationDir;
 
                 System.IO.Directory.CreateDirectory(failurePhotosDir);
