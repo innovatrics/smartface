@@ -52,7 +52,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             var result = await _watchlistMembersRepository.RegisterAsync(wlMemberData, req =>
             {
                 req.FaceDetectorResourceId = regData.RegisterRequestParams.FaceDetectionResourceId;
-                req.FaceDetectorResourceId = regData.RegisterRequestParams.TemplateGeneratorResourceId;
+                req.TemplateGeneratorResourceId = regData.RegisterRequestParams.TemplateGeneratorResourceId;
 
                 req.FaceDetectorConfig = new FaceDetectorConfig
                 {
