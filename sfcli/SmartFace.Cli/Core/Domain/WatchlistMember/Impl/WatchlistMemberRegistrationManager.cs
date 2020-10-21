@@ -75,20 +75,20 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 throw new DirectoryNotFoundException($"Directory does not exists {directory}");
             }
 
-            var watchlistMemberRegistrationData = BuildWatchlistMemberRegisterData(directory, registerRequestParams.WatchlistIds, registerRequestParams);
+            var watchlistMemberRegistrationData = BuildWatchlistMemberRegisterData(GetFullPathToRegistrationDirectory(directory), registerRequestParams.WatchlistIds, registerRequestParams);
             return RegisterWatchlistMembersAsync(watchlistMemberRegistrationData, maxDegreeOfParallelism, cancellationToken);
         }
 
         public Task<RegistrationResult> RegisterWatchlistMembersFromDirByMetadataFileAsync(string directory, RegisterRequestParams registerRequestParams,
             int maxDegreeOfParallelism, CancellationToken cancellationToken)
         {
-            var wlmMembersMetadata = _jsonLoader.GetWatchlistMemberRegistrationData(directory);
+            var wlmMembersMetadata = _jsonLoader.GetWatchlistMemberRegistrationData(GetFullPathToRegistrationDirectory(directory));
 
             wlmMembersMetadata.ToList().ForEach(data => data.WatchlistIds = registerRequestParams.WatchlistIds);
 
             var watchlistMemberRegistrationData = wlmMembersMetadata
                 .Select(x => new WatchlistMemberRegisterData(x, registerRequestParams)).ToArray();
-            
+
             return RegisterWatchlistMembersAsync(watchlistMemberRegistrationData, maxDegreeOfParallelism, cancellationToken);
         }
 
@@ -103,9 +103,18 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 
             }, maxDegreeOfParallelism);
 
+            var firstRequest = true;
+
             foreach (var memberRegistrationData in watchlistMemberRegistrationData)
             {
                 var processed = await sourceBlock.SendAsync(memberRegistrationData, cancellationToken);
+
+                // Delay sending of next request after first one is send to prevent cold start problem and possible parallel SQL watchlist creation conflict
+                if (firstRequest)
+                {
+                    await Task.Delay(5000, cancellationToken);
+                    firstRequest = false;
+                }
 
                 if (!processed)
                 {
@@ -157,14 +166,32 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             transformBlock.LinkTo(actionBlock, new DataflowLinkOptions
             {
                 PropagateCompletion = true
-            }, x => x!= null);
+            }, x => x != null);
 
             return (transformBlock, actionBlock);
         }
 
-        private static IEnumerable<WatchlistMemberRegisterData> BuildWatchlistMemberRegisterData(string directory, string[] watchlistIds, RegisterRequestParams requestParams)
+        private string GetFullPathToRegistrationDirectory(string directory)
         {
-            var files = Directory.GetFiles(directory);
+            if (Path.IsPathRooted(directory))
+            {
+                _log.LogInformation($"Registration directory path : {directory}");
+                return directory;
+            }
+
+            var workingDir = Directory.GetCurrentDirectory();
+
+            _log.LogInformation($"Working directory : {workingDir}");
+
+            var registrationDir = Path.Combine(workingDir, directory);
+
+            _log.LogInformation($"Registration directory path : {registrationDir}");
+            return registrationDir;
+        }
+
+        private IEnumerable<WatchlistMemberRegisterData> BuildWatchlistMemberRegisterData(string registrationDirectory, string[] watchlistIds, RegisterRequestParams requestParams)
+        {
+            var files = Directory.GetFiles(registrationDirectory);
 
             var watchlistMemberPhotoPaths = new List<WatchlistMemberPhotoPath>();
 
@@ -178,6 +205,8 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 var watchlistMemberPhotoPath = new WatchlistMemberPhotoPath(watchlistMemberId, file);
                 watchlistMemberPhotoPaths.Add(watchlistMemberPhotoPath);
             }
+
+            _log.LogInformation($"Found {watchlistMemberPhotoPaths.Count} images.");
 
             var groupedPhotos = watchlistMemberPhotoPaths.GroupBy(p => p.WatchlistMemberId).ToArray();
 

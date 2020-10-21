@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using SmartFace.Cli.Common;
 using SmartFace.Cli.Core.Domain.WatchlistMember;
 
@@ -17,27 +18,27 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         private readonly ILogger<RegisterWatchlistMembersFromDirCmd> _logger;
         private readonly IWatchlistMemberRegistrationManager _registrationManager;
 
-        [Option("--minFaceSize", "", CommandOptionType.SingleValue)]
+        [Option("--minFaceSize", "Default 25", CommandOptionType.SingleValue)]
         public int MinFaceSize { get; set; } = 25;
 
-        [Option("--maxFaceSize", "", CommandOptionType.SingleValue)]
+        [Option("--maxFaceSize", "Default 400", CommandOptionType.SingleValue)]
         public int MaxFaceSize { get; set; } = 400;
 
-        [Option("--faceDetConfidenceThreshold", "", CommandOptionType.SingleValue)]
+        [Option("--faceDetConfidenceThreshold", "Default 400", CommandOptionType.SingleValue)]
         public int FaceDetectionConfidenceThreshold { get; set; } = 400;
 
-        [Option("--faceDetResourceId", "", CommandOptionType.SingleValue)]
+        [Option("--faceDetResourceId", "Default cpu", CommandOptionType.SingleValue)]
         public string FaceDetectionResourceId { get; set; } = "cpu";
 
-        [Option("--templateGenResourceId", "", CommandOptionType.SingleValue)]
+        [Option("--templateGenResourceId", "Default cpu", CommandOptionType.SingleValue)]
         public string TemplateGeneratorResourceId { get; set; } = "cpu";
 
         [Required]
-        [Option("-w|--watchlistIds", "", CommandOptionType.MultipleValue)]
+        [Option("-w|--watchlistIds", "Watchlist Id/s for enrollment", CommandOptionType.MultipleValue)]
         public string[] WatchlistIds { get; set; }
 
         [Required]
-        [Option("-d|--dirToPhotos", "", CommandOptionType.SingleValue)]
+        [Option("-d|--dirToPhotos", "Directory path where photos for registration are expected.", CommandOptionType.SingleValue)]
         public string Directory { get; set; }
 
         [Option("-f|--failedRegistrationDirectory", "Path to directory name that will be created when some registrations failed. Photos of unsuccessful registrations will be copied here.", CommandOptionType.SingleValue)]
@@ -71,12 +72,17 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
 
             var registerParams = new RegisterRequestParams(MinFaceSize, MaxFaceSize, FaceDetectionConfidenceThreshold, FaceDetectionResourceId, TemplateGeneratorResourceId, WatchlistIds);
 
+            _logger.LogInformation("Detection parameters for register requests :");
+            _logger.LogInformation(JsonConvert.SerializeObject(registerParams, Formatting.Indented));
+
             if (UseMetaDataFile)
             {
+                _logger.LogWarning($"Registering watchlist members from directory {Directory} with metadata file.");
                 registrationResult = await _registrationManager.RegisterWatchlistMembersFromDirByMetadataFileAsync(Directory, registerParams, MaxDegreeOfParallelism, cancellationToken);
             }
             else
             {
+                _logger.LogWarning($"Registering watchlist members from directory {Directory}.");
                 registrationResult = await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, registerParams, MaxDegreeOfParallelism, cancellationToken);
             }
 
@@ -92,7 +98,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
 
                 System.IO.Directory.CreateDirectory(failurePhotosDir);
 
-                _logger.LogInformation($"Directory for unsuccessful registration photos created at {failurePhotosDir}.");
+                _logger.LogWarning($"Directory for unsuccessful registration photos created at {failurePhotosDir}.");
 
                 // Give OS some time to commit directory, CreateDirectory is kinda async
                 Thread.Sleep(500);
@@ -100,11 +106,15 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
                 foreach (var photoPath in registrationResult.Failures.SelectMany(f => f.PhotoPaths))
                 {
                     var destPath = Path.Combine(failurePhotosDir, Path.GetFileName(photoPath));
-                    _logger.LogInformation($"Copying file from {photoPath} to {destPath}");
+                    _logger.LogWarning($"Copying file from {photoPath} to {destPath}");
                     File.Copy(photoPath, destPath, true);
                 }
 
-                _logger.LogInformation($"Copying to {failurePhotosDir} done.");
+                _logger.LogWarning($"Copying to {failurePhotosDir} done.");
+            }
+            else
+            {
+                _logger.LogInformation("Registration finished successfully without any errors.");
             }
 
             return Constants.EXIT_CODE_OK;
