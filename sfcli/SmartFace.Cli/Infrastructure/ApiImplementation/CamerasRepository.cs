@@ -94,6 +94,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 MpeG1PreviewEnabled = originalCamera.MpeG1PreviewEnabled,
                 MpeG1VideoBitrate = originalCamera.MpeG1VideoBitrate,
                 SaveFrameImageData = originalCamera.SaveFrameImageData,
+                PedestrianDetectorConfig = originalCamera.PedestrianDetectorConfig,
 
                 Name = updateData.Name ?? originalCamera.Name,
                 Source = updateData.Source ?? originalCamera.Source,
