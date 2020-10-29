@@ -68,10 +68,13 @@ namespace SmartFace.Cli.Common.DI
                 .AddTransient<ICamerasRepository, CamerasRepository>()
                 .AddTransient<IWatchlistMembersRepository, WatchlistMembersRepository>()
                 .AddTransient<ZeroMqNotificationReader>()
-                .AddTransient<RegisterWatchlistMemberExtendedJsonLoader>()
+                .AddTransient<WatchlistMemberRegistrationDataJsonLoader>()
                 .AddTransient<INotificationReceiver, ZeroMqNotificationReceiver>()
                 .AddTransient<IWatchlistMemberRegistrationManager, WatchlistMemberRegistrationManager>()
-                .AddLogging(configure => configure.AddConsole())
+                .AddLogging(loggingBuilder =>
+                {
+                    loggingBuilder.AddConsole();
+                })
                 .BuildServiceProvider();
             return services;
         }
