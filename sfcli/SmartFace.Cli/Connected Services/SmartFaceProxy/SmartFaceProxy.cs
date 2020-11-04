@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 10/29/2020 3:06:19 PM
+// Generation date: 4. 11. 2020 10:33:54
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -5802,50 +5802,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             : base(query) {}
 
         /// <summary>
-        /// There are no comments for StreamWorker in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("StreamWorker")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle StreamWorker
-        {
-            get
-            {
-                if (!this.IsComposable)
-                {
-                    throw new global::System.NotSupportedException("The previous function is not composable.");
-                }
-                if ((this._StreamWorker == null))
-                {
-                    this._StreamWorker = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle(this.Context, GetPath("StreamWorker"));
-                }
-                return this._StreamWorker;
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle _StreamWorker;
-        /// <summary>
-        /// There are no comments for VideoPublishWorker in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("VideoPublishWorker")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle VideoPublishWorker
-        {
-            get
-            {
-                if (!this.IsComposable)
-                {
-                    throw new global::System.NotSupportedException("The previous function is not composable.");
-                }
-                if ((this._VideoPublishWorker == null))
-                {
-                    this._VideoPublishWorker = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle(this.Context, GetPath("VideoPublishWorker"));
-                }
-                return this._VideoPublishWorker;
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle _VideoPublishWorker;
-        /// <summary>
         /// There are no comments for Stream in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -5883,13 +5839,45 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="state">Initial value of State.</param>
+        /// <param name="enabled">Initial value of Enabled.</param>
+        /// <param name="minFaceSize">Initial value of MinFaceSize.</param>
+        /// <param name="maxFaceSize">Initial value of MaxFaceSize.</param>
+        /// <param name="maxFaces">Initial value of MaxFaces.</param>
+        /// <param name="confidenceThreshold">Initial value of ConfidenceThreshold.</param>
+        /// <param name="redetectionTime">Initial value of RedetectionTime.</param>
+        /// <param name="templateGenerationTime">Initial value of TemplateGenerationTime.</param>
+        /// <param name="faceSaveStrategy">Initial value of FaceSaveStrategy.</param>
+        /// <param name="saveFrameImageData">Initial value of SaveFrameImageData.</param>
+        /// <param name="imageQuality">Initial value of ImageQuality.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static VideoRecord CreateVideoRecord(global::System.Guid ID, global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState state, global::System.DateTimeOffset createdAt)
+        public static VideoRecord CreateVideoRecord(global::System.Guid ID, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState state, 
+                    bool enabled, 
+                    int minFaceSize, 
+                    int maxFaceSize, 
+                    int maxFaces, 
+                    int confidenceThreshold, 
+                    int redetectionTime, 
+                    int templateGenerationTime, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Models.SaveBehavior faceSaveStrategy, 
+                    bool saveFrameImageData, 
+                    int imageQuality, 
+                    global::System.DateTimeOffset createdAt)
         {
             VideoRecord videoRecord = new VideoRecord();
             videoRecord.Id = ID;
             videoRecord.State = state;
+            videoRecord.Enabled = enabled;
+            videoRecord.MinFaceSize = minFaceSize;
+            videoRecord.MaxFaceSize = maxFaceSize;
+            videoRecord.MaxFaces = maxFaces;
+            videoRecord.ConfidenceThreshold = confidenceThreshold;
+            videoRecord.RedetectionTime = redetectionTime;
+            videoRecord.TemplateGenerationTime = templateGenerationTime;
+            videoRecord.FaceSaveStrategy = faceSaveStrategy;
+            videoRecord.SaveFrameImageData = saveFrameImageData;
+            videoRecord.ImageQuality = imageQuality;
             videoRecord.CreatedAt = createdAt;
             return videoRecord;
         }
@@ -5940,6 +5928,282 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnStateChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState value);
         partial void OnStateChanged();
         /// <summary>
+        /// There are no comments for Property Source in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Source")]
+        public virtual string Source
+        {
+            get
+            {
+                return this._Source;
+            }
+            set
+            {
+                this.OnSourceChanging(value);
+                this._Source = value;
+                this.OnSourceChanged();
+                this.OnPropertyChanged("Source");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private string _Source;
+        partial void OnSourceChanging(string value);
+        partial void OnSourceChanged();
+        /// <summary>
+        /// There are no comments for Property Enabled in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Enabled")]
+        public virtual bool Enabled
+        {
+            get
+            {
+                return this._Enabled;
+            }
+            set
+            {
+                this.OnEnabledChanging(value);
+                this._Enabled = value;
+                this.OnEnabledChanged();
+                this.OnPropertyChanged("Enabled");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private bool _Enabled;
+        partial void OnEnabledChanging(bool value);
+        partial void OnEnabledChanged();
+        /// <summary>
+        /// There are no comments for Property MinFaceSize in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MinFaceSize")]
+        public virtual int MinFaceSize
+        {
+            get
+            {
+                return this._MinFaceSize;
+            }
+            set
+            {
+                this.OnMinFaceSizeChanging(value);
+                this._MinFaceSize = value;
+                this.OnMinFaceSizeChanged();
+                this.OnPropertyChanged("MinFaceSize");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _MinFaceSize;
+        partial void OnMinFaceSizeChanging(int value);
+        partial void OnMinFaceSizeChanged();
+        /// <summary>
+        /// There are no comments for Property MaxFaceSize in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MaxFaceSize")]
+        public virtual int MaxFaceSize
+        {
+            get
+            {
+                return this._MaxFaceSize;
+            }
+            set
+            {
+                this.OnMaxFaceSizeChanging(value);
+                this._MaxFaceSize = value;
+                this.OnMaxFaceSizeChanged();
+                this.OnPropertyChanged("MaxFaceSize");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _MaxFaceSize;
+        partial void OnMaxFaceSizeChanging(int value);
+        partial void OnMaxFaceSizeChanged();
+        /// <summary>
+        /// There are no comments for Property MaxFaces in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MaxFaces")]
+        public virtual int MaxFaces
+        {
+            get
+            {
+                return this._MaxFaces;
+            }
+            set
+            {
+                this.OnMaxFacesChanging(value);
+                this._MaxFaces = value;
+                this.OnMaxFacesChanged();
+                this.OnPropertyChanged("MaxFaces");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _MaxFaces;
+        partial void OnMaxFacesChanging(int value);
+        partial void OnMaxFacesChanged();
+        /// <summary>
+        /// There are no comments for Property ConfidenceThreshold in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ConfidenceThreshold")]
+        public virtual int ConfidenceThreshold
+        {
+            get
+            {
+                return this._ConfidenceThreshold;
+            }
+            set
+            {
+                this.OnConfidenceThresholdChanging(value);
+                this._ConfidenceThreshold = value;
+                this.OnConfidenceThresholdChanged();
+                this.OnPropertyChanged("ConfidenceThreshold");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _ConfidenceThreshold;
+        partial void OnConfidenceThresholdChanging(int value);
+        partial void OnConfidenceThresholdChanged();
+        /// <summary>
+        /// There are no comments for Property RedetectionTime in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("RedetectionTime")]
+        public virtual int RedetectionTime
+        {
+            get
+            {
+                return this._RedetectionTime;
+            }
+            set
+            {
+                this.OnRedetectionTimeChanging(value);
+                this._RedetectionTime = value;
+                this.OnRedetectionTimeChanged();
+                this.OnPropertyChanged("RedetectionTime");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _RedetectionTime;
+        partial void OnRedetectionTimeChanging(int value);
+        partial void OnRedetectionTimeChanged();
+        /// <summary>
+        /// There are no comments for Property TemplateGenerationTime in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TemplateGenerationTime")]
+        public virtual int TemplateGenerationTime
+        {
+            get
+            {
+                return this._TemplateGenerationTime;
+            }
+            set
+            {
+                this.OnTemplateGenerationTimeChanging(value);
+                this._TemplateGenerationTime = value;
+                this.OnTemplateGenerationTimeChanged();
+                this.OnPropertyChanged("TemplateGenerationTime");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _TemplateGenerationTime;
+        partial void OnTemplateGenerationTimeChanging(int value);
+        partial void OnTemplateGenerationTimeChanged();
+        /// <summary>
+        /// There are no comments for Property FaceSaveStrategy in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceSaveStrategy")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Models.SaveBehavior FaceSaveStrategy
+        {
+            get
+            {
+                return this._FaceSaveStrategy;
+            }
+            set
+            {
+                this.OnFaceSaveStrategyChanging(value);
+                this._FaceSaveStrategy = value;
+                this.OnFaceSaveStrategyChanged();
+                this.OnPropertyChanged("FaceSaveStrategy");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Models.SaveBehavior _FaceSaveStrategy;
+        partial void OnFaceSaveStrategyChanging(global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Models.SaveBehavior value);
+        partial void OnFaceSaveStrategyChanged();
+        /// <summary>
+        /// There are no comments for Property MaskImagePath in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MaskImagePath")]
+        public virtual string MaskImagePath
+        {
+            get
+            {
+                return this._MaskImagePath;
+            }
+            set
+            {
+                this.OnMaskImagePathChanging(value);
+                this._MaskImagePath = value;
+                this.OnMaskImagePathChanged();
+                this.OnPropertyChanged("MaskImagePath");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private string _MaskImagePath;
+        partial void OnMaskImagePathChanging(string value);
+        partial void OnMaskImagePathChanged();
+        /// <summary>
+        /// There are no comments for Property SaveFrameImageData in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("SaveFrameImageData")]
+        public virtual bool SaveFrameImageData
+        {
+            get
+            {
+                return this._SaveFrameImageData;
+            }
+            set
+            {
+                this.OnSaveFrameImageDataChanging(value);
+                this._SaveFrameImageData = value;
+                this.OnSaveFrameImageDataChanged();
+                this.OnPropertyChanged("SaveFrameImageData");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private bool _SaveFrameImageData;
+        partial void OnSaveFrameImageDataChanging(bool value);
+        partial void OnSaveFrameImageDataChanged();
+        /// <summary>
+        /// There are no comments for Property ImageQuality in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ImageQuality")]
+        public virtual int ImageQuality
+        {
+            get
+            {
+                return this._ImageQuality;
+            }
+            set
+            {
+                this.OnImageQualityChanging(value);
+                this._ImageQuality = value;
+                this.OnImageQualityChanged();
+                this.OnPropertyChanged("ImageQuality");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _ImageQuality;
+        partial void OnImageQualityChanging(int value);
+        partial void OnImageQualityChanged();
+        /// <summary>
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -5985,52 +6249,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<global::System.DateTimeOffset> _UpdatedAt;
         partial void OnUpdatedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
         partial void OnUpdatedAtChanged();
-        /// <summary>
-        /// There are no comments for Property StreamWorker in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("StreamWorker")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker StreamWorker
-        {
-            get
-            {
-                return this._StreamWorker;
-            }
-            set
-            {
-                this.OnStreamWorkerChanging(value);
-                this._StreamWorker = value;
-                this.OnStreamWorkerChanged();
-                this.OnPropertyChanged("StreamWorker");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker _StreamWorker;
-        partial void OnStreamWorkerChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker value);
-        partial void OnStreamWorkerChanged();
-        /// <summary>
-        /// There are no comments for Property VideoPublishWorker in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("VideoPublishWorker")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker VideoPublishWorker
-        {
-            get
-            {
-                return this._VideoPublishWorker;
-            }
-            set
-            {
-                this.OnVideoPublishWorkerChanging(value);
-                this._VideoPublishWorker = value;
-                this.OnVideoPublishWorkerChanged();
-                this.OnPropertyChanged("VideoPublishWorker");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker _VideoPublishWorker;
-        partial void OnVideoPublishWorkerChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker value);
-        partial void OnVideoPublishWorkerChanged();
         /// <summary>
         /// There are no comments for Property Stream in the schema.
         /// </summary>
@@ -9490,6 +9708,25 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models
         Female = 1
     }
 }
+namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Models
+{
+    /// <summary>
+    /// There are no comments for SaveBehavior in the schema.
+    /// </summary>
+    [global::System.Flags]
+    [global::Microsoft.OData.Client.OriginalNameAttribute("SaveBehavior")]
+    public enum SaveBehavior
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("All")]
+        All = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FirstFace")]
+        FirstFace = 1,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("BestFace")]
+        BestFace = 2,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchedOnly")]
+        MatchedOnly = 4
+    }
+}
 namespace SmartFace.ODataClient.Function
 {
     /// <summary>
@@ -9665,6 +9902,11 @@ namespace SmartFace.ODataClient.Default
             {
                 return resolvedType;
             }
+            resolvedType = this.DefaultResolveType(typeName, "SmartFace.Domain.Configuration.Models", "SmartFace.ODataClient.SmartFace.Domain.Configuration.Models");
+            if ((resolvedType != null))
+            {
+                return resolvedType;
+            }
             resolvedType = this.DefaultResolveType(typeName, "SmartFace.ODataApi.Models.Responses", "SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses");
             if ((resolvedType != null))
             {
@@ -9734,6 +9976,14 @@ namespace SmartFace.ODataClient.Default
                     return string.Concat("SmartFace.Domain.DataAccess.Models.Core.", originalNameAttribute.OriginalName);
                 }
                 return string.Concat("SmartFace.Domain.DataAccess.Models.Core.", clientType.Name);
+            }
+            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.Domain.Configuration.Models", global::System.StringComparison.Ordinal))
+            {
+                if (originalNameAttribute != null)
+                {
+                    return string.Concat("SmartFace.Domain.Configuration.Models.", originalNameAttribute.OriginalName);
+                }
+                return string.Concat("SmartFace.Domain.Configuration.Models.", clientType.Name);
             }
             if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses", global::System.StringComparison.Ordinal))
             {

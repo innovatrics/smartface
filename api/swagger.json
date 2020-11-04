@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.4.0.0"
+    "version": "4.5.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -4834,7 +4834,13 @@
   },
   "components": {
     "schemas": {
-      "FaceDetectorConfig": {
+      "VideoFaceDetectorConfig": {
+        "required": [
+          "confidenceThreshold",
+          "maxFaces",
+          "maxFaceSize",
+          "minFaceSize"
+        ],
         "type": "object",
         "properties": {
           "minFaceSize": {
@@ -4856,7 +4862,13 @@
         },
         "additionalProperties": false
       },
-      "PedestrianDetectorConfig": {
+      "VideoPedestrianDetectorConfig": {
+        "required": [
+          "confidenceThreshold",
+          "maxPedestrians",
+          "maxPedestrianSize",
+          "minPedestrianSize"
+        ],
         "type": "object",
         "properties": {
           "minPedestrianSize": {
@@ -4914,9 +4926,6 @@
         ],
         "type": "object",
         "properties": {
-          "serviceName": {
-            "type": "string"
-          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -4931,10 +4940,10 @@
             "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
           },
           "pedestrianDetectorConfig": {
-            "$ref": "#/components/schemas/PedestrianDetectorConfig"
+            "$ref": "#/components/schemas/VideoPedestrianDetectorConfig"
           },
           "faceDetectorResourceId": {
             "type": "string"
@@ -4984,6 +4993,9 @@
           "previewMaxDimension": {
             "type": "integer",
             "format": "int32"
+          },
+          "serviceName": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -5038,13 +5050,6 @@
         ],
         "type": "object",
         "properties": {
-          "pedestrianDetectorResourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "pedestrianDetectorConfig": {
-            "$ref": "#/components/schemas/PedestrianDetectorConfig"
-          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -5059,13 +5064,20 @@
             "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
+          },
+          "pedestrianDetectorConfig": {
+            "$ref": "#/components/schemas/VideoPedestrianDetectorConfig"
           },
           "faceDetectorResourceId": {
             "type": "string"
           },
           "templateGeneratorResourceId": {
             "type": "string"
+          },
+          "pedestrianDetectorResourceId": {
+            "type": "string",
+            "nullable": true
           },
           "redetectionTime": {
             "type": "integer",
@@ -5169,10 +5181,6 @@
         ],
         "type": "object",
         "properties": {
-          "serviceName": {
-            "type": "string",
-            "nullable": true
-          },
           "name": {
             "type": "string"
           },
@@ -5248,6 +5256,10 @@
           "previewMaxDimension": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "serviceName": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -5782,6 +5794,28 @@
         },
         "additionalProperties": false
       },
+      "FaceDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaces": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "SearchInIndividualsRequest": {
         "required": [
           "groupingId",
@@ -6252,13 +6286,15 @@
             "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
           },
           "faceDetectorResourceId": {
-            "type": "string"
+            "type": "string",
+            "deprecated": true
           },
           "templateGeneratorResourceId": {
-            "type": "string"
+            "type": "string",
+            "deprecated": true
           },
           "redetectionTime": {
             "type": "integer",
@@ -6269,7 +6305,8 @@
             "format": "int32"
           },
           "trackMotionOptimization": {
-            "type": "string"
+            "type": "string",
+            "deprecated": true
           },
           "faceSaveStrategy": {
             "$ref": "#/components/schemas/FaceSaveStrategy"
@@ -6286,19 +6323,23 @@
             "format": "int32"
           },
           "mpeG1PreviewEnabled": {
-            "type": "boolean"
+            "type": "boolean",
+            "deprecated": true
           },
           "mpeG1PreviewPort": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "deprecated": true
           },
           "mpeG1VideoBitrate": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "deprecated": true
           },
           "previewMaxDimension": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "deprecated": true
           }
         },
         "additionalProperties": false
@@ -6497,22 +6538,14 @@
         "required": [
           "enabled",
           "faceDetectorConfig",
-          "faceDetectorResourceId",
-          "faceSaveStrategy",
           "id",
           "imageQuality",
           "maskImagePath",
-          "mpeG1PreviewEnabled",
-          "mpeG1PreviewPort",
-          "mpeG1VideoBitrate",
           "name",
-          "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
           "source",
-          "templateGenerationTime",
-          "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "templateGenerationTime"
         ],
         "type": "object",
         "properties": {
@@ -6530,13 +6563,17 @@
             "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
           },
           "faceDetectorResourceId": {
-            "type": "string"
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
           },
           "templateGeneratorResourceId": {
-            "type": "string"
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
           },
           "redetectionTime": {
             "type": "integer",
@@ -6547,7 +6584,9 @@
             "format": "int32"
           },
           "trackMotionOptimization": {
-            "type": "string"
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
           },
           "faceSaveStrategy": {
             "$ref": "#/components/schemas/FaceSaveStrategy"
@@ -6564,19 +6603,23 @@
             "format": "int32"
           },
           "mpeG1PreviewEnabled": {
-            "type": "boolean"
+            "type": "boolean",
+            "deprecated": true
           },
           "mpeG1PreviewPort": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "deprecated": true
           },
           "mpeG1VideoBitrate": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "deprecated": true
           },
           "previewMaxDimension": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "deprecated": true
           }
         },
         "additionalProperties": false
@@ -6603,11 +6646,13 @@
           },
           "faceDetectorResourceId": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "templateGeneratorResourceId": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "redetectionTime": {
             "type": "integer",
@@ -6621,7 +6666,8 @@
           },
           "trackMotionOptimization": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "faceSaveStrategy": {
             "$ref": "#/components/schemas/FaceSaveStrategy"
@@ -6641,22 +6687,26 @@
           },
           "mpeG1PreviewEnabled": {
             "type": "boolean",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "mpeG1PreviewPort": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "mpeG1VideoBitrate": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "previewMaxDimension": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           }
         },
         "additionalProperties": false

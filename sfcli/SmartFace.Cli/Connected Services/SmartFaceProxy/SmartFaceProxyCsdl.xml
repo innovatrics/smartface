@@ -267,10 +267,20 @@
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState" Nullable="false" />
+        <Property Name="Source" Type="Edm.String" />
+        <Property Name="Enabled" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="MinFaceSize" Type="Edm.Int32" Nullable="false" />
+        <Property Name="MaxFaceSize" Type="Edm.Int32" Nullable="false" />
+        <Property Name="MaxFaces" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ConfidenceThreshold" Type="Edm.Int32" Nullable="false" />
+        <Property Name="RedetectionTime" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TemplateGenerationTime" Type="Edm.Int32" Nullable="false" />
+        <Property Name="FaceSaveStrategy" Type="SmartFace.Domain.Configuration.Models.SaveBehavior" Nullable="false" />
+        <Property Name="MaskImagePath" Type="Edm.String" />
+        <Property Name="SaveFrameImageData" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="ImageQuality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
-        <NavigationProperty Name="StreamWorker" Type="SmartFace.Domain.DataAccess.Models.Core.Worker" />
-        <NavigationProperty Name="VideoPublishWorker" Type="SmartFace.Domain.DataAccess.Models.Core.Worker" />
         <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream" />
       </EntityType>
       <EntityType Name="Watchlist">
@@ -474,6 +484,14 @@
         <Member Name="Female" Value="1" />
       </EnumType>
     </Schema>
+    <Schema Namespace="SmartFace.Domain.Configuration.Models" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EnumType Name="SaveBehavior" IsFlags="true">
+        <Member Name="All" Value="0" />
+        <Member Name="FirstFace" Value="1" />
+        <Member Name="BestFace" Value="2" />
+        <Member Name="MatchedOnly" Value="4" />
+      </EnumType>
+    </Schema>
     <Schema Namespace="Function" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <Function Name="GetConfigValues" IsBound="true">
         <Parameter Name="bindingParameter" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Config)" />
@@ -595,8 +613,6 @@
         </EntitySet>
         <EntitySet Name="VideoRecords" EntityType="SmartFace.Domain.DataAccess.Models.Core.VideoRecord">
           <NavigationPropertyBinding Path="Stream" Target="Streams" />
-          <NavigationPropertyBinding Path="StreamWorker" Target="Workers" />
-          <NavigationPropertyBinding Path="VideoPublishWorker" Target="Workers" />
         </EntitySet>
         <EntitySet Name="Watchlists" EntityType="SmartFace.Domain.DataAccess.Models.Core.Watchlist">
           <NavigationPropertyBinding Path="WatchlistMembers" Target="WatchlistMembers" />
