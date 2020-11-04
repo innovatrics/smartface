@@ -337,6 +337,10 @@
         <Property Name="FaceMaskConfidence" Type="Edm.Double" />
         <Property Name="NoseTipConfidence" Type="Edm.Double" />
         <Property Name="FaceMaskStatus" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus" Nullable="false" />
+        <Property Name="YawAngle" Type="Edm.Double" />
+        <Property Name="PitchAngle" Type="Edm.Double" />
+        <Property Name="RollAngle" Type="Edm.Double" />
+        <Property Name="TemplateQuality" Type="Edm.Int32" />
       </EntityType>
     </Schema>
     <Schema Namespace="SmartFace.ODataApi.Models.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">

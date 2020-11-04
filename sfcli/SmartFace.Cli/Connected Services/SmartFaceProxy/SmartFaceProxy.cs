@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 9. 10. 2020 13:39:28
+// Generation date: 4. 11. 2020 10:33:54
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -7431,6 +7431,98 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus _FaceMaskStatus;
         partial void OnFaceMaskStatusChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus value);
         partial void OnFaceMaskStatusChanged();
+        /// <summary>
+        /// There are no comments for Property YawAngle in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("YawAngle")]
+        public virtual global::System.Nullable<double> YawAngle
+        {
+            get
+            {
+                return this._YawAngle;
+            }
+            set
+            {
+                this.OnYawAngleChanging(value);
+                this._YawAngle = value;
+                this.OnYawAngleChanged();
+                this.OnPropertyChanged("YawAngle");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _YawAngle;
+        partial void OnYawAngleChanging(global::System.Nullable<double> value);
+        partial void OnYawAngleChanged();
+        /// <summary>
+        /// There are no comments for Property PitchAngle in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("PitchAngle")]
+        public virtual global::System.Nullable<double> PitchAngle
+        {
+            get
+            {
+                return this._PitchAngle;
+            }
+            set
+            {
+                this.OnPitchAngleChanging(value);
+                this._PitchAngle = value;
+                this.OnPitchAngleChanged();
+                this.OnPropertyChanged("PitchAngle");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _PitchAngle;
+        partial void OnPitchAngleChanging(global::System.Nullable<double> value);
+        partial void OnPitchAngleChanged();
+        /// <summary>
+        /// There are no comments for Property RollAngle in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("RollAngle")]
+        public virtual global::System.Nullable<double> RollAngle
+        {
+            get
+            {
+                return this._RollAngle;
+            }
+            set
+            {
+                this.OnRollAngleChanging(value);
+                this._RollAngle = value;
+                this.OnRollAngleChanged();
+                this.OnPropertyChanged("RollAngle");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _RollAngle;
+        partial void OnRollAngleChanging(global::System.Nullable<double> value);
+        partial void OnRollAngleChanged();
+        /// <summary>
+        /// There are no comments for Property TemplateQuality in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TemplateQuality")]
+        public virtual global::System.Nullable<int> TemplateQuality
+        {
+            get
+            {
+                return this._TemplateQuality;
+            }
+            set
+            {
+                this.OnTemplateQualityChanging(value);
+                this._TemplateQuality = value;
+                this.OnTemplateQualityChanged();
+                this.OnPropertyChanged("TemplateQuality");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<int> _TemplateQuality;
+        partial void OnTemplateQualityChanging(global::System.Nullable<int> value);
+        partial void OnTemplateQualityChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
