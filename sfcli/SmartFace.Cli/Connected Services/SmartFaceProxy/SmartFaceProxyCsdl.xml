@@ -175,6 +175,8 @@
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="TimeAppeared" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="TimeDisappeared" Type="Edm.DateTimeOffset" />
+        <Property Name="TimeAppearedRelativeMs" Type="Edm.Int64" Nullable="false" />
+        <Property Name="TimeDisappearedRelativeMs" Type="Edm.Int64" Nullable="false" />
         <Property Name="StreamId" Type="Edm.Guid" />
         <NavigationProperty Name="Scope" Type="SmartFace.Domain.DataAccess.Models.Core.Scope">
           <ReferentialConstraint Property="ScopeId" ReferencedProperty="Id" />

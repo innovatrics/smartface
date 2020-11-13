@@ -5270,7 +5270,9 @@
           "createdAt",
           "id",
           "timeAppeared",
+          "timeAppearedRelativeMs",
           "timeDisappeared",
+          "timeDisappearedRelativeMs",
           "updatedAt"
         ],
         "type": "object",
@@ -5283,6 +5285,14 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "timeAppearedRelativeMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "timeDisappearedRelativeMs": {
+            "type": "integer",
+            "format": "int64"
           },
           "id": {
             "type": "string",
