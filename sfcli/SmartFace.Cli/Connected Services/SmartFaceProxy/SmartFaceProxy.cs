@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 4. 11. 2020 10:33:54
+// Generation date: 11/12/2020 5:18:04 PM
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -3878,13 +3878,17 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         /// <param name="timeAppeared">Initial value of TimeAppeared.</param>
+        /// <param name="timeAppearedRelativeMs">Initial value of TimeAppearedRelativeMs.</param>
+        /// <param name="timeDisappearedRelativeMs">Initial value of TimeDisappearedRelativeMs.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public static Tracklet CreateTracklet(global::System.Guid ID, global::System.DateTimeOffset createdAt, global::System.DateTimeOffset timeAppeared)
+        public static Tracklet CreateTracklet(global::System.Guid ID, global::System.DateTimeOffset createdAt, global::System.DateTimeOffset timeAppeared, long timeAppearedRelativeMs, long timeDisappearedRelativeMs)
         {
             Tracklet tracklet = new Tracklet();
             tracklet.Id = ID;
             tracklet.CreatedAt = createdAt;
             tracklet.TimeAppeared = timeAppeared;
+            tracklet.TimeAppearedRelativeMs = timeAppearedRelativeMs;
+            tracklet.TimeDisappearedRelativeMs = timeDisappearedRelativeMs;
             return tracklet;
         }
         /// <summary>
@@ -4025,6 +4029,52 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<global::System.DateTimeOffset> _TimeDisappeared;
         partial void OnTimeDisappearedChanging(global::System.Nullable<global::System.DateTimeOffset> value);
         partial void OnTimeDisappearedChanged();
+        /// <summary>
+        /// There are no comments for Property TimeAppearedRelativeMs in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TimeAppearedRelativeMs")]
+        public virtual long TimeAppearedRelativeMs
+        {
+            get
+            {
+                return this._TimeAppearedRelativeMs;
+            }
+            set
+            {
+                this.OnTimeAppearedRelativeMsChanging(value);
+                this._TimeAppearedRelativeMs = value;
+                this.OnTimeAppearedRelativeMsChanged();
+                this.OnPropertyChanged("TimeAppearedRelativeMs");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private long _TimeAppearedRelativeMs;
+        partial void OnTimeAppearedRelativeMsChanging(long value);
+        partial void OnTimeAppearedRelativeMsChanged();
+        /// <summary>
+        /// There are no comments for Property TimeDisappearedRelativeMs in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TimeDisappearedRelativeMs")]
+        public virtual long TimeDisappearedRelativeMs
+        {
+            get
+            {
+                return this._TimeDisappearedRelativeMs;
+            }
+            set
+            {
+                this.OnTimeDisappearedRelativeMsChanging(value);
+                this._TimeDisappearedRelativeMs = value;
+                this.OnTimeDisappearedRelativeMsChanged();
+                this.OnPropertyChanged("TimeDisappearedRelativeMs");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private long _TimeDisappearedRelativeMs;
+        partial void OnTimeDisappearedRelativeMsChanging(long value);
+        partial void OnTimeDisappearedRelativeMsChanged();
         /// <summary>
         /// There are no comments for Property StreamId in the schema.
         /// </summary>

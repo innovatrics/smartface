@@ -9932,6 +9932,12 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("timeDisappeared", Required = Newtonsoft.Json.Required.AllowNull)]
         public System.DateTimeOffset? TimeDisappeared { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("timeAppearedRelativeMs", Required = Newtonsoft.Json.Required.Always)]
+        public long TimeAppearedRelativeMs { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("timeDisappearedRelativeMs", Required = Newtonsoft.Json.Required.Always)]
+        public long TimeDisappearedRelativeMs { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.Guid Id { get; set; }
