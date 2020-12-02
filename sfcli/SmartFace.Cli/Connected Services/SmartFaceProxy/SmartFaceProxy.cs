@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 11/12/2020 5:18:04 PM
+// Generation date: 2. 12. 2020 14:00:23
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -2102,6 +2102,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<double> _RightEyeY;
         partial void OnRightEyeYChanging(global::System.Nullable<double> value);
         partial void OnRightEyeYChanged();
+        /// <summary>
+        /// There are no comments for Property AutolearnClusterType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("AutolearnClusterType")]
+        public virtual global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> AutolearnClusterType
+        {
+            get
+            {
+                return this._AutolearnClusterType;
+            }
+            set
+            {
+                this.OnAutolearnClusterTypeChanging(value);
+                this._AutolearnClusterType = value;
+                this.OnAutolearnClusterTypeChanged();
+                this.OnPropertyChanged("AutolearnClusterType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> _AutolearnClusterType;
+        partial void OnAutolearnClusterTypeChanging(global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> value);
+        partial void OnAutolearnClusterTypeChanged();
         /// <summary>
         /// There are no comments for Property Age in the schema.
         /// </summary>
@@ -8411,6 +8434,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// <param name="min_CleanupAmount">Initial value of Min_CleanupAmount.</param>
         /// <param name="min_SelectionThreshold">Initial value of Min_SelectionThreshold.</param>
         /// <param name="min_MaxAutoLearnFacesCount">Initial value of Min_MaxAutoLearnFacesCount.</param>
+        /// <param name="min_MaskConfidence">Initial value of Min_MaskConfidence.</param>
+        /// <param name="max_MaskConfidence">Initial value of Max_MaskConfidence.</param>
         /// <param name="min_ImageQuality">Initial value of Min_ImageQuality.</param>
         /// <param name="max_ImageQuality">Initial value of Max_ImageQuality.</param>
         /// <param name="min_FaceDetectionConfidenceThreshold">Initial value of Min_FaceDetectionConfidenceThreshold.</param>
@@ -8449,6 +8474,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
                     int min_CleanupAmount, 
                     int min_SelectionThreshold, 
                     int min_MaxAutoLearnFacesCount, 
+                    double min_MaskConfidence, 
+                    double max_MaskConfidence, 
                     int min_ImageQuality, 
                     int max_ImageQuality, 
                     int min_FaceDetectionConfidenceThreshold, 
@@ -8488,6 +8515,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
             configurationConstants.Min_CleanupAmount = min_CleanupAmount;
             configurationConstants.Min_SelectionThreshold = min_SelectionThreshold;
             configurationConstants.Min_MaxAutoLearnFacesCount = min_MaxAutoLearnFacesCount;
+            configurationConstants.Min_MaskConfidence = min_MaskConfidence;
+            configurationConstants.Max_MaskConfidence = max_MaskConfidence;
             configurationConstants.Min_ImageQuality = min_ImageQuality;
             configurationConstants.Max_ImageQuality = max_ImageQuality;
             configurationConstants.Min_FaceDetectionConfidenceThreshold = min_FaceDetectionConfidenceThreshold;
@@ -8818,6 +8847,52 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         private string _Max_ExecutionStartTime;
         partial void OnMax_ExecutionStartTimeChanging(string value);
         partial void OnMax_ExecutionStartTimeChanged();
+        /// <summary>
+        /// There are no comments for Property Min_MaskConfidence in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaskConfidence")]
+        public virtual double Min_MaskConfidence
+        {
+            get
+            {
+                return this._Min_MaskConfidence;
+            }
+            set
+            {
+                this.OnMin_MaskConfidenceChanging(value);
+                this._Min_MaskConfidence = value;
+                this.OnMin_MaskConfidenceChanged();
+                this.OnPropertyChanged("Min_MaskConfidence");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _Min_MaskConfidence;
+        partial void OnMin_MaskConfidenceChanging(double value);
+        partial void OnMin_MaskConfidenceChanged();
+        /// <summary>
+        /// There are no comments for Property Max_MaskConfidence in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MaskConfidence")]
+        public virtual double Max_MaskConfidence
+        {
+            get
+            {
+                return this._Max_MaskConfidence;
+            }
+            set
+            {
+                this.OnMax_MaskConfidenceChanging(value);
+                this._Max_MaskConfidence = value;
+                this.OnMax_MaskConfidenceChanged();
+                this.OnPropertyChanged("Max_MaskConfidence");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _Max_MaskConfidence;
+        partial void OnMax_MaskConfidenceChanging(double value);
+        partial void OnMax_MaskConfidenceChanged();
         /// <summary>
         /// There are no comments for Property Min_ImageQuality in the schema.
         /// </summary>
@@ -9631,6 +9706,17 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Pending = 2,
         [global::Microsoft.OData.Client.OriginalNameAttribute("Error")]
         Error = 3
+    }
+    /// <summary>
+    /// There are no comments for AutolearnClusterType in the schema.
+    /// </summary>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("AutolearnClusterType")]
+    public enum AutolearnClusterType
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Masked")]
+        Masked = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NotMasked")]
+        NotMasked = 1
     }
     /// <summary>
     /// There are no comments for FaceMaskStatus in the schema.

@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.5.0.0"
+    "version": "4.6.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -3351,7 +3351,6 @@
           "VideoRecord"
         ],
         "summary": "Updates the specified video record with given values.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "New video record values.",
           "content": {
@@ -3415,7 +3414,6 @@
           "VideoRecord"
         ],
         "summary": "Creates a video record.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "Request specifying video record properties.",
           "content": {
@@ -4586,6 +4584,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -5473,6 +5481,7 @@
       "Face": {
         "required": [
           "age",
+          "autolearnClusterType",
           "createdAt",
           "cropLeftBottomX",
           "cropLeftBottomY",
@@ -5650,6 +5659,10 @@
           "rollAngle": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          },
+          "autolearnClusterType": {
+            "type": "string",
             "nullable": true
           },
           "id": {
@@ -6502,13 +6515,25 @@
             "format": "date-span",
             "nullable": true
           },
+          "maxAutoLearnFacesCount": {
+            "type": "integer",
+            "format": "int32"
+          },
           "selectionThreshold": {
             "type": "integer",
             "format": "int32"
           },
-          "maxAutoLearnFacesCount": {
+          "maskedSelectionThreshold": {
             "type": "integer",
             "format": "int32"
+          },
+          "noFaceMaskConfidenceThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "faceMaskConfidenceThreshold": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

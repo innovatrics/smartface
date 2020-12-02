@@ -9140,6 +9140,16 @@ namespace ManagementApi
                             throw new ApiException<ProblemDetails>("Request has timed out.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                         else
+                        if (status_ == 429)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ProblemDetails>("Too many requests.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
@@ -10199,6 +10209,9 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("rollAngle", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? RollAngle { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("autolearnClusterType", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string AutolearnClusterType { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.Guid Id { get; set; }
@@ -10825,11 +10838,20 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("executionStartTime", Required = Newtonsoft.Json.Required.AllowNull)]
         public string ExecutionStartTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("maxAutoLearnFacesCount", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxAutoLearnFacesCount { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("selectionThreshold", Required = Newtonsoft.Json.Required.Always)]
         public int SelectionThreshold { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxAutoLearnFacesCount", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxAutoLearnFacesCount { get; set; }
+        [Newtonsoft.Json.JsonProperty("maskedSelectionThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaskedSelectionThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noFaceMaskConfidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? NoFaceMaskConfidenceThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskConfidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? FaceMaskConfidenceThreshold { get; set; }
     
     
     }
