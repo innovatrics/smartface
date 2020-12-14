@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 9. 12. 2020 12:31:12
+// Generation date: 14. 12. 2020 16:32:14
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -3121,42 +3121,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// Create a new Pedestrian object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="earLeftX">Initial value of EarLeftX.</param>
-        /// <param name="earLeftY">Initial value of EarLeftY.</param>
-        /// <param name="earRightX">Initial value of EarRightX.</param>
-        /// <param name="earRightY">Initial value of EarRightY.</param>
-        /// <param name="eyeLeftX">Initial value of EyeLeftX.</param>
-        /// <param name="eyeLeftY">Initial value of EyeLeftY.</param>
-        /// <param name="eyeRightX">Initial value of EyeRightX.</param>
-        /// <param name="eyeRightY">Initial value of EyeRightY.</param>
-        /// <param name="noseX">Initial value of NoseX.</param>
-        /// <param name="noseY">Initial value of NoseY.</param>
-        /// <param name="neckX">Initial value of NeckX.</param>
-        /// <param name="neckY">Initial value of NeckY.</param>
-        /// <param name="shoulderLeftX">Initial value of ShoulderLeftX.</param>
-        /// <param name="shoulderLeftY">Initial value of ShoulderLeftY.</param>
-        /// <param name="shoulderRightX">Initial value of ShoulderRightX.</param>
-        /// <param name="shoulderRightY">Initial value of ShoulderRightY.</param>
-        /// <param name="elbowLeftX">Initial value of ElbowLeftX.</param>
-        /// <param name="elbowLeftY">Initial value of ElbowLeftY.</param>
-        /// <param name="elbowRightX">Initial value of ElbowRightX.</param>
-        /// <param name="elbowRightY">Initial value of ElbowRightY.</param>
-        /// <param name="wristLeftX">Initial value of WristLeftX.</param>
-        /// <param name="wristLeftY">Initial value of WristLeftY.</param>
-        /// <param name="wristRightX">Initial value of WristRightX.</param>
-        /// <param name="wristRightY">Initial value of WristRightY.</param>
-        /// <param name="hipLeftX">Initial value of HipLeftX.</param>
-        /// <param name="hipLeftY">Initial value of HipLeftY.</param>
-        /// <param name="hipRightX">Initial value of HipRightX.</param>
-        /// <param name="hipRightY">Initial value of HipRightY.</param>
-        /// <param name="kneeLeftX">Initial value of KneeLeftX.</param>
-        /// <param name="kneeLeftY">Initial value of KneeLeftY.</param>
-        /// <param name="kneeRightX">Initial value of KneeRightX.</param>
-        /// <param name="kneeRightY">Initial value of KneeRightY.</param>
-        /// <param name="ankleLeftX">Initial value of AnkleLeftX.</param>
-        /// <param name="ankleLeftY">Initial value of AnkleLeftY.</param>
-        /// <param name="ankleRightX">Initial value of AnkleRightX.</param>
-        /// <param name="ankleRightY">Initial value of AnkleRightY.</param>
         /// <param name="quality">Initial value of Quality.</param>
         /// <param name="cropLeftTopX">Initial value of CropLeftTopX.</param>
         /// <param name="cropLeftTopY">Initial value of CropLeftTopY.</param>
@@ -3169,42 +3133,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Pedestrian CreatePedestrian(global::System.Guid ID, 
-                    double earLeftX, 
-                    double earLeftY, 
-                    double earRightX, 
-                    double earRightY, 
-                    double eyeLeftX, 
-                    double eyeLeftY, 
-                    double eyeRightX, 
-                    double eyeRightY, 
-                    double noseX, 
-                    double noseY, 
-                    double neckX, 
-                    double neckY, 
-                    double shoulderLeftX, 
-                    double shoulderLeftY, 
-                    double shoulderRightX, 
-                    double shoulderRightY, 
-                    double elbowLeftX, 
-                    double elbowLeftY, 
-                    double elbowRightX, 
-                    double elbowRightY, 
-                    double wristLeftX, 
-                    double wristLeftY, 
-                    double wristRightX, 
-                    double wristRightY, 
-                    double hipLeftX, 
-                    double hipLeftY, 
-                    double hipRightX, 
-                    double hipRightY, 
-                    double kneeLeftX, 
-                    double kneeLeftY, 
-                    double kneeRightX, 
-                    double kneeRightY, 
-                    double ankleLeftX, 
-                    double ankleLeftY, 
-                    double ankleRightX, 
-                    double ankleRightY, 
                     int quality, 
                     double cropLeftTopX, 
                     double cropLeftTopY, 
@@ -3218,42 +3146,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         {
             Pedestrian pedestrian = new Pedestrian();
             pedestrian.Id = ID;
-            pedestrian.EarLeftX = earLeftX;
-            pedestrian.EarLeftY = earLeftY;
-            pedestrian.EarRightX = earRightX;
-            pedestrian.EarRightY = earRightY;
-            pedestrian.EyeLeftX = eyeLeftX;
-            pedestrian.EyeLeftY = eyeLeftY;
-            pedestrian.EyeRightX = eyeRightX;
-            pedestrian.EyeRightY = eyeRightY;
-            pedestrian.NoseX = noseX;
-            pedestrian.NoseY = noseY;
-            pedestrian.NeckX = neckX;
-            pedestrian.NeckY = neckY;
-            pedestrian.ShoulderLeftX = shoulderLeftX;
-            pedestrian.ShoulderLeftY = shoulderLeftY;
-            pedestrian.ShoulderRightX = shoulderRightX;
-            pedestrian.ShoulderRightY = shoulderRightY;
-            pedestrian.ElbowLeftX = elbowLeftX;
-            pedestrian.ElbowLeftY = elbowLeftY;
-            pedestrian.ElbowRightX = elbowRightX;
-            pedestrian.ElbowRightY = elbowRightY;
-            pedestrian.WristLeftX = wristLeftX;
-            pedestrian.WristLeftY = wristLeftY;
-            pedestrian.WristRightX = wristRightX;
-            pedestrian.WristRightY = wristRightY;
-            pedestrian.HipLeftX = hipLeftX;
-            pedestrian.HipLeftY = hipLeftY;
-            pedestrian.HipRightX = hipRightX;
-            pedestrian.HipRightY = hipRightY;
-            pedestrian.KneeLeftX = kneeLeftX;
-            pedestrian.KneeLeftY = kneeLeftY;
-            pedestrian.KneeRightX = kneeRightX;
-            pedestrian.KneeRightY = kneeRightY;
-            pedestrian.AnkleLeftX = ankleLeftX;
-            pedestrian.AnkleLeftY = ankleLeftY;
-            pedestrian.AnkleRightX = ankleRightX;
-            pedestrian.AnkleRightY = ankleRightY;
             pedestrian.Quality = quality;
             pedestrian.CropLeftTopX = cropLeftTopX;
             pedestrian.CropLeftTopY = cropLeftTopY;
@@ -3294,7 +3186,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("EarLeftX")]
-        public virtual double EarLeftX
+        public virtual global::System.Nullable<double> EarLeftX
         {
             get
             {
@@ -3309,15 +3201,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _EarLeftX;
-        partial void OnEarLeftXChanging(double value);
+        private global::System.Nullable<double> _EarLeftX;
+        partial void OnEarLeftXChanging(global::System.Nullable<double> value);
         partial void OnEarLeftXChanged();
         /// <summary>
         /// There are no comments for Property EarLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("EarLeftY")]
-        public virtual double EarLeftY
+        public virtual global::System.Nullable<double> EarLeftY
         {
             get
             {
@@ -3332,15 +3224,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _EarLeftY;
-        partial void OnEarLeftYChanging(double value);
+        private global::System.Nullable<double> _EarLeftY;
+        partial void OnEarLeftYChanging(global::System.Nullable<double> value);
         partial void OnEarLeftYChanged();
         /// <summary>
         /// There are no comments for Property EarRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("EarRightX")]
-        public virtual double EarRightX
+        public virtual global::System.Nullable<double> EarRightX
         {
             get
             {
@@ -3355,15 +3247,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _EarRightX;
-        partial void OnEarRightXChanging(double value);
+        private global::System.Nullable<double> _EarRightX;
+        partial void OnEarRightXChanging(global::System.Nullable<double> value);
         partial void OnEarRightXChanged();
         /// <summary>
         /// There are no comments for Property EarRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("EarRightY")]
-        public virtual double EarRightY
+        public virtual global::System.Nullable<double> EarRightY
         {
             get
             {
@@ -3378,15 +3270,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _EarRightY;
-        partial void OnEarRightYChanging(double value);
+        private global::System.Nullable<double> _EarRightY;
+        partial void OnEarRightYChanging(global::System.Nullable<double> value);
         partial void OnEarRightYChanged();
         /// <summary>
         /// There are no comments for Property EyeLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("EyeLeftX")]
-        public virtual double EyeLeftX
+        public virtual global::System.Nullable<double> EyeLeftX
         {
             get
             {
@@ -3401,15 +3293,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _EyeLeftX;
-        partial void OnEyeLeftXChanging(double value);
+        private global::System.Nullable<double> _EyeLeftX;
+        partial void OnEyeLeftXChanging(global::System.Nullable<double> value);
         partial void OnEyeLeftXChanged();
         /// <summary>
         /// There are no comments for Property EyeLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("EyeLeftY")]
-        public virtual double EyeLeftY
+        public virtual global::System.Nullable<double> EyeLeftY
         {
             get
             {
@@ -3424,15 +3316,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _EyeLeftY;
-        partial void OnEyeLeftYChanging(double value);
+        private global::System.Nullable<double> _EyeLeftY;
+        partial void OnEyeLeftYChanging(global::System.Nullable<double> value);
         partial void OnEyeLeftYChanged();
         /// <summary>
         /// There are no comments for Property EyeRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("EyeRightX")]
-        public virtual double EyeRightX
+        public virtual global::System.Nullable<double> EyeRightX
         {
             get
             {
@@ -3447,15 +3339,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _EyeRightX;
-        partial void OnEyeRightXChanging(double value);
+        private global::System.Nullable<double> _EyeRightX;
+        partial void OnEyeRightXChanging(global::System.Nullable<double> value);
         partial void OnEyeRightXChanged();
         /// <summary>
         /// There are no comments for Property EyeRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("EyeRightY")]
-        public virtual double EyeRightY
+        public virtual global::System.Nullable<double> EyeRightY
         {
             get
             {
@@ -3470,15 +3362,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _EyeRightY;
-        partial void OnEyeRightYChanging(double value);
+        private global::System.Nullable<double> _EyeRightY;
+        partial void OnEyeRightYChanging(global::System.Nullable<double> value);
         partial void OnEyeRightYChanged();
         /// <summary>
         /// There are no comments for Property NoseX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("NoseX")]
-        public virtual double NoseX
+        public virtual global::System.Nullable<double> NoseX
         {
             get
             {
@@ -3493,15 +3385,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _NoseX;
-        partial void OnNoseXChanging(double value);
+        private global::System.Nullable<double> _NoseX;
+        partial void OnNoseXChanging(global::System.Nullable<double> value);
         partial void OnNoseXChanged();
         /// <summary>
         /// There are no comments for Property NoseY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("NoseY")]
-        public virtual double NoseY
+        public virtual global::System.Nullable<double> NoseY
         {
             get
             {
@@ -3516,15 +3408,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _NoseY;
-        partial void OnNoseYChanging(double value);
+        private global::System.Nullable<double> _NoseY;
+        partial void OnNoseYChanging(global::System.Nullable<double> value);
         partial void OnNoseYChanged();
         /// <summary>
         /// There are no comments for Property NeckX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("NeckX")]
-        public virtual double NeckX
+        public virtual global::System.Nullable<double> NeckX
         {
             get
             {
@@ -3539,15 +3431,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _NeckX;
-        partial void OnNeckXChanging(double value);
+        private global::System.Nullable<double> _NeckX;
+        partial void OnNeckXChanging(global::System.Nullable<double> value);
         partial void OnNeckXChanged();
         /// <summary>
         /// There are no comments for Property NeckY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("NeckY")]
-        public virtual double NeckY
+        public virtual global::System.Nullable<double> NeckY
         {
             get
             {
@@ -3562,15 +3454,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _NeckY;
-        partial void OnNeckYChanging(double value);
+        private global::System.Nullable<double> _NeckY;
+        partial void OnNeckYChanging(global::System.Nullable<double> value);
         partial void OnNeckYChanged();
         /// <summary>
         /// There are no comments for Property ShoulderLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderLeftX")]
-        public virtual double ShoulderLeftX
+        public virtual global::System.Nullable<double> ShoulderLeftX
         {
             get
             {
@@ -3585,15 +3477,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _ShoulderLeftX;
-        partial void OnShoulderLeftXChanging(double value);
+        private global::System.Nullable<double> _ShoulderLeftX;
+        partial void OnShoulderLeftXChanging(global::System.Nullable<double> value);
         partial void OnShoulderLeftXChanged();
         /// <summary>
         /// There are no comments for Property ShoulderLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderLeftY")]
-        public virtual double ShoulderLeftY
+        public virtual global::System.Nullable<double> ShoulderLeftY
         {
             get
             {
@@ -3608,15 +3500,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _ShoulderLeftY;
-        partial void OnShoulderLeftYChanging(double value);
+        private global::System.Nullable<double> _ShoulderLeftY;
+        partial void OnShoulderLeftYChanging(global::System.Nullable<double> value);
         partial void OnShoulderLeftYChanged();
         /// <summary>
         /// There are no comments for Property ShoulderRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderRightX")]
-        public virtual double ShoulderRightX
+        public virtual global::System.Nullable<double> ShoulderRightX
         {
             get
             {
@@ -3631,15 +3523,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _ShoulderRightX;
-        partial void OnShoulderRightXChanging(double value);
+        private global::System.Nullable<double> _ShoulderRightX;
+        partial void OnShoulderRightXChanging(global::System.Nullable<double> value);
         partial void OnShoulderRightXChanged();
         /// <summary>
         /// There are no comments for Property ShoulderRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderRightY")]
-        public virtual double ShoulderRightY
+        public virtual global::System.Nullable<double> ShoulderRightY
         {
             get
             {
@@ -3654,15 +3546,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _ShoulderRightY;
-        partial void OnShoulderRightYChanging(double value);
+        private global::System.Nullable<double> _ShoulderRightY;
+        partial void OnShoulderRightYChanging(global::System.Nullable<double> value);
         partial void OnShoulderRightYChanged();
         /// <summary>
         /// There are no comments for Property ElbowLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowLeftX")]
-        public virtual double ElbowLeftX
+        public virtual global::System.Nullable<double> ElbowLeftX
         {
             get
             {
@@ -3677,15 +3569,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _ElbowLeftX;
-        partial void OnElbowLeftXChanging(double value);
+        private global::System.Nullable<double> _ElbowLeftX;
+        partial void OnElbowLeftXChanging(global::System.Nullable<double> value);
         partial void OnElbowLeftXChanged();
         /// <summary>
         /// There are no comments for Property ElbowLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowLeftY")]
-        public virtual double ElbowLeftY
+        public virtual global::System.Nullable<double> ElbowLeftY
         {
             get
             {
@@ -3700,15 +3592,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _ElbowLeftY;
-        partial void OnElbowLeftYChanging(double value);
+        private global::System.Nullable<double> _ElbowLeftY;
+        partial void OnElbowLeftYChanging(global::System.Nullable<double> value);
         partial void OnElbowLeftYChanged();
         /// <summary>
         /// There are no comments for Property ElbowRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowRightX")]
-        public virtual double ElbowRightX
+        public virtual global::System.Nullable<double> ElbowRightX
         {
             get
             {
@@ -3723,15 +3615,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _ElbowRightX;
-        partial void OnElbowRightXChanging(double value);
+        private global::System.Nullable<double> _ElbowRightX;
+        partial void OnElbowRightXChanging(global::System.Nullable<double> value);
         partial void OnElbowRightXChanged();
         /// <summary>
         /// There are no comments for Property ElbowRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowRightY")]
-        public virtual double ElbowRightY
+        public virtual global::System.Nullable<double> ElbowRightY
         {
             get
             {
@@ -3746,15 +3638,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _ElbowRightY;
-        partial void OnElbowRightYChanging(double value);
+        private global::System.Nullable<double> _ElbowRightY;
+        partial void OnElbowRightYChanging(global::System.Nullable<double> value);
         partial void OnElbowRightYChanged();
         /// <summary>
         /// There are no comments for Property WristLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("WristLeftX")]
-        public virtual double WristLeftX
+        public virtual global::System.Nullable<double> WristLeftX
         {
             get
             {
@@ -3769,15 +3661,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _WristLeftX;
-        partial void OnWristLeftXChanging(double value);
+        private global::System.Nullable<double> _WristLeftX;
+        partial void OnWristLeftXChanging(global::System.Nullable<double> value);
         partial void OnWristLeftXChanged();
         /// <summary>
         /// There are no comments for Property WristLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("WristLeftY")]
-        public virtual double WristLeftY
+        public virtual global::System.Nullable<double> WristLeftY
         {
             get
             {
@@ -3792,15 +3684,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _WristLeftY;
-        partial void OnWristLeftYChanging(double value);
+        private global::System.Nullable<double> _WristLeftY;
+        partial void OnWristLeftYChanging(global::System.Nullable<double> value);
         partial void OnWristLeftYChanged();
         /// <summary>
         /// There are no comments for Property WristRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("WristRightX")]
-        public virtual double WristRightX
+        public virtual global::System.Nullable<double> WristRightX
         {
             get
             {
@@ -3815,15 +3707,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _WristRightX;
-        partial void OnWristRightXChanging(double value);
+        private global::System.Nullable<double> _WristRightX;
+        partial void OnWristRightXChanging(global::System.Nullable<double> value);
         partial void OnWristRightXChanged();
         /// <summary>
         /// There are no comments for Property WristRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("WristRightY")]
-        public virtual double WristRightY
+        public virtual global::System.Nullable<double> WristRightY
         {
             get
             {
@@ -3838,15 +3730,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _WristRightY;
-        partial void OnWristRightYChanging(double value);
+        private global::System.Nullable<double> _WristRightY;
+        partial void OnWristRightYChanging(global::System.Nullable<double> value);
         partial void OnWristRightYChanged();
         /// <summary>
         /// There are no comments for Property HipLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("HipLeftX")]
-        public virtual double HipLeftX
+        public virtual global::System.Nullable<double> HipLeftX
         {
             get
             {
@@ -3861,15 +3753,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _HipLeftX;
-        partial void OnHipLeftXChanging(double value);
+        private global::System.Nullable<double> _HipLeftX;
+        partial void OnHipLeftXChanging(global::System.Nullable<double> value);
         partial void OnHipLeftXChanged();
         /// <summary>
         /// There are no comments for Property HipLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("HipLeftY")]
-        public virtual double HipLeftY
+        public virtual global::System.Nullable<double> HipLeftY
         {
             get
             {
@@ -3884,15 +3776,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _HipLeftY;
-        partial void OnHipLeftYChanging(double value);
+        private global::System.Nullable<double> _HipLeftY;
+        partial void OnHipLeftYChanging(global::System.Nullable<double> value);
         partial void OnHipLeftYChanged();
         /// <summary>
         /// There are no comments for Property HipRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("HipRightX")]
-        public virtual double HipRightX
+        public virtual global::System.Nullable<double> HipRightX
         {
             get
             {
@@ -3907,15 +3799,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _HipRightX;
-        partial void OnHipRightXChanging(double value);
+        private global::System.Nullable<double> _HipRightX;
+        partial void OnHipRightXChanging(global::System.Nullable<double> value);
         partial void OnHipRightXChanged();
         /// <summary>
         /// There are no comments for Property HipRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("HipRightY")]
-        public virtual double HipRightY
+        public virtual global::System.Nullable<double> HipRightY
         {
             get
             {
@@ -3930,15 +3822,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _HipRightY;
-        partial void OnHipRightYChanging(double value);
+        private global::System.Nullable<double> _HipRightY;
+        partial void OnHipRightYChanging(global::System.Nullable<double> value);
         partial void OnHipRightYChanged();
         /// <summary>
         /// There are no comments for Property KneeLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("KneeLeftX")]
-        public virtual double KneeLeftX
+        public virtual global::System.Nullable<double> KneeLeftX
         {
             get
             {
@@ -3953,15 +3845,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _KneeLeftX;
-        partial void OnKneeLeftXChanging(double value);
+        private global::System.Nullable<double> _KneeLeftX;
+        partial void OnKneeLeftXChanging(global::System.Nullable<double> value);
         partial void OnKneeLeftXChanged();
         /// <summary>
         /// There are no comments for Property KneeLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("KneeLeftY")]
-        public virtual double KneeLeftY
+        public virtual global::System.Nullable<double> KneeLeftY
         {
             get
             {
@@ -3976,15 +3868,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _KneeLeftY;
-        partial void OnKneeLeftYChanging(double value);
+        private global::System.Nullable<double> _KneeLeftY;
+        partial void OnKneeLeftYChanging(global::System.Nullable<double> value);
         partial void OnKneeLeftYChanged();
         /// <summary>
         /// There are no comments for Property KneeRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("KneeRightX")]
-        public virtual double KneeRightX
+        public virtual global::System.Nullable<double> KneeRightX
         {
             get
             {
@@ -3999,15 +3891,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _KneeRightX;
-        partial void OnKneeRightXChanging(double value);
+        private global::System.Nullable<double> _KneeRightX;
+        partial void OnKneeRightXChanging(global::System.Nullable<double> value);
         partial void OnKneeRightXChanged();
         /// <summary>
         /// There are no comments for Property KneeRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("KneeRightY")]
-        public virtual double KneeRightY
+        public virtual global::System.Nullable<double> KneeRightY
         {
             get
             {
@@ -4022,15 +3914,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _KneeRightY;
-        partial void OnKneeRightYChanging(double value);
+        private global::System.Nullable<double> _KneeRightY;
+        partial void OnKneeRightYChanging(global::System.Nullable<double> value);
         partial void OnKneeRightYChanged();
         /// <summary>
         /// There are no comments for Property AnkleLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleLeftX")]
-        public virtual double AnkleLeftX
+        public virtual global::System.Nullable<double> AnkleLeftX
         {
             get
             {
@@ -4045,15 +3937,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _AnkleLeftX;
-        partial void OnAnkleLeftXChanging(double value);
+        private global::System.Nullable<double> _AnkleLeftX;
+        partial void OnAnkleLeftXChanging(global::System.Nullable<double> value);
         partial void OnAnkleLeftXChanged();
         /// <summary>
         /// There are no comments for Property AnkleLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleLeftY")]
-        public virtual double AnkleLeftY
+        public virtual global::System.Nullable<double> AnkleLeftY
         {
             get
             {
@@ -4068,15 +3960,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _AnkleLeftY;
-        partial void OnAnkleLeftYChanging(double value);
+        private global::System.Nullable<double> _AnkleLeftY;
+        partial void OnAnkleLeftYChanging(global::System.Nullable<double> value);
         partial void OnAnkleLeftYChanged();
         /// <summary>
         /// There are no comments for Property AnkleRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleRightX")]
-        public virtual double AnkleRightX
+        public virtual global::System.Nullable<double> AnkleRightX
         {
             get
             {
@@ -4091,15 +3983,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _AnkleRightX;
-        partial void OnAnkleRightXChanging(double value);
+        private global::System.Nullable<double> _AnkleRightX;
+        partial void OnAnkleRightXChanging(global::System.Nullable<double> value);
         partial void OnAnkleRightXChanged();
         /// <summary>
         /// There are no comments for Property AnkleRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleRightY")]
-        public virtual double AnkleRightY
+        public virtual global::System.Nullable<double> AnkleRightY
         {
             get
             {
@@ -4114,8 +4006,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _AnkleRightY;
-        partial void OnAnkleRightYChanging(double value);
+        private global::System.Nullable<double> _AnkleRightY;
+        partial void OnAnkleRightYChanging(global::System.Nullable<double> value);
         partial void OnAnkleRightYChanged();
         /// <summary>
         /// There are no comments for Property ImageDataId in the schema.

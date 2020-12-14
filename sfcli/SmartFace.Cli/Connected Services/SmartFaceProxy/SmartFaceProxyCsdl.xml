@@ -136,42 +136,42 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
-        <Property Name="EarLeftX" Type="Edm.Double" Nullable="false" />
-        <Property Name="EarLeftY" Type="Edm.Double" Nullable="false" />
-        <Property Name="EarRightX" Type="Edm.Double" Nullable="false" />
-        <Property Name="EarRightY" Type="Edm.Double" Nullable="false" />
-        <Property Name="EyeLeftX" Type="Edm.Double" Nullable="false" />
-        <Property Name="EyeLeftY" Type="Edm.Double" Nullable="false" />
-        <Property Name="EyeRightX" Type="Edm.Double" Nullable="false" />
-        <Property Name="EyeRightY" Type="Edm.Double" Nullable="false" />
-        <Property Name="NoseX" Type="Edm.Double" Nullable="false" />
-        <Property Name="NoseY" Type="Edm.Double" Nullable="false" />
-        <Property Name="NeckX" Type="Edm.Double" Nullable="false" />
-        <Property Name="NeckY" Type="Edm.Double" Nullable="false" />
-        <Property Name="ShoulderLeftX" Type="Edm.Double" Nullable="false" />
-        <Property Name="ShoulderLeftY" Type="Edm.Double" Nullable="false" />
-        <Property Name="ShoulderRightX" Type="Edm.Double" Nullable="false" />
-        <Property Name="ShoulderRightY" Type="Edm.Double" Nullable="false" />
-        <Property Name="ElbowLeftX" Type="Edm.Double" Nullable="false" />
-        <Property Name="ElbowLeftY" Type="Edm.Double" Nullable="false" />
-        <Property Name="ElbowRightX" Type="Edm.Double" Nullable="false" />
-        <Property Name="ElbowRightY" Type="Edm.Double" Nullable="false" />
-        <Property Name="WristLeftX" Type="Edm.Double" Nullable="false" />
-        <Property Name="WristLeftY" Type="Edm.Double" Nullable="false" />
-        <Property Name="WristRightX" Type="Edm.Double" Nullable="false" />
-        <Property Name="WristRightY" Type="Edm.Double" Nullable="false" />
-        <Property Name="HipLeftX" Type="Edm.Double" Nullable="false" />
-        <Property Name="HipLeftY" Type="Edm.Double" Nullable="false" />
-        <Property Name="HipRightX" Type="Edm.Double" Nullable="false" />
-        <Property Name="HipRightY" Type="Edm.Double" Nullable="false" />
-        <Property Name="KneeLeftX" Type="Edm.Double" Nullable="false" />
-        <Property Name="KneeLeftY" Type="Edm.Double" Nullable="false" />
-        <Property Name="KneeRightX" Type="Edm.Double" Nullable="false" />
-        <Property Name="KneeRightY" Type="Edm.Double" Nullable="false" />
-        <Property Name="AnkleLeftX" Type="Edm.Double" Nullable="false" />
-        <Property Name="AnkleLeftY" Type="Edm.Double" Nullable="false" />
-        <Property Name="AnkleRightX" Type="Edm.Double" Nullable="false" />
-        <Property Name="AnkleRightY" Type="Edm.Double" Nullable="false" />
+        <Property Name="EarLeftX" Type="Edm.Double" />
+        <Property Name="EarLeftY" Type="Edm.Double" />
+        <Property Name="EarRightX" Type="Edm.Double" />
+        <Property Name="EarRightY" Type="Edm.Double" />
+        <Property Name="EyeLeftX" Type="Edm.Double" />
+        <Property Name="EyeLeftY" Type="Edm.Double" />
+        <Property Name="EyeRightX" Type="Edm.Double" />
+        <Property Name="EyeRightY" Type="Edm.Double" />
+        <Property Name="NoseX" Type="Edm.Double" />
+        <Property Name="NoseY" Type="Edm.Double" />
+        <Property Name="NeckX" Type="Edm.Double" />
+        <Property Name="NeckY" Type="Edm.Double" />
+        <Property Name="ShoulderLeftX" Type="Edm.Double" />
+        <Property Name="ShoulderLeftY" Type="Edm.Double" />
+        <Property Name="ShoulderRightX" Type="Edm.Double" />
+        <Property Name="ShoulderRightY" Type="Edm.Double" />
+        <Property Name="ElbowLeftX" Type="Edm.Double" />
+        <Property Name="ElbowLeftY" Type="Edm.Double" />
+        <Property Name="ElbowRightX" Type="Edm.Double" />
+        <Property Name="ElbowRightY" Type="Edm.Double" />
+        <Property Name="WristLeftX" Type="Edm.Double" />
+        <Property Name="WristLeftY" Type="Edm.Double" />
+        <Property Name="WristRightX" Type="Edm.Double" />
+        <Property Name="WristRightY" Type="Edm.Double" />
+        <Property Name="HipLeftX" Type="Edm.Double" />
+        <Property Name="HipLeftY" Type="Edm.Double" />
+        <Property Name="HipRightX" Type="Edm.Double" />
+        <Property Name="HipRightY" Type="Edm.Double" />
+        <Property Name="KneeLeftX" Type="Edm.Double" />
+        <Property Name="KneeLeftY" Type="Edm.Double" />
+        <Property Name="KneeRightX" Type="Edm.Double" />
+        <Property Name="KneeRightY" Type="Edm.Double" />
+        <Property Name="AnkleLeftX" Type="Edm.Double" />
+        <Property Name="AnkleLeftY" Type="Edm.Double" />
+        <Property Name="AnkleRightX" Type="Edm.Double" />
+        <Property Name="AnkleRightY" Type="Edm.Double" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CropLeftTopX" Type="Edm.Double" Nullable="false" />
