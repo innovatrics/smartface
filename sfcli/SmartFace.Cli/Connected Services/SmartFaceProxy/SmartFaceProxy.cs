@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 14. 12. 2020 16:32:14
+// Generation date: 17. 12. 2020 18:20:57
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -3121,6 +3121,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// Create a new Pedestrian object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
+        /// <param name="pose">Initial value of Pose.</param>
         /// <param name="quality">Initial value of Quality.</param>
         /// <param name="cropLeftTopX">Initial value of CropLeftTopX.</param>
         /// <param name="cropLeftTopY">Initial value of CropLeftTopY.</param>
@@ -3133,6 +3134,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Pedestrian CreatePedestrian(global::System.Guid ID, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose pose, 
                     int quality, 
                     double cropLeftTopX, 
                     double cropLeftTopY, 
@@ -3146,6 +3148,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         {
             Pedestrian pedestrian = new Pedestrian();
             pedestrian.Id = ID;
+            pedestrian.Pose = pose;
             pedestrian.Quality = quality;
             pedestrian.CropLeftTopX = cropLeftTopX;
             pedestrian.CropLeftTopY = cropLeftTopY;
@@ -3181,6 +3184,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Guid _Id;
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
+        /// <summary>
+        /// There are no comments for Property Pose in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Pose")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose Pose
+        {
+            get
+            {
+                return this._Pose;
+            }
+            set
+            {
+                this.OnPoseChanging(value);
+                this._Pose = value;
+                this.OnPoseChanged();
+                this.OnPropertyChanged("Pose");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose _Pose;
+        partial void OnPoseChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose value);
+        partial void OnPoseChanged();
         /// <summary>
         /// There are no comments for Property EarLeftX in the schema.
         /// </summary>
@@ -10584,6 +10610,17 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Regular = 0,
         [global::Microsoft.OData.Client.OriginalNameAttribute("AutoLearn")]
         AutoLearn = 1
+    }
+    /// <summary>
+    /// There are no comments for HumanPose in the schema.
+    /// </summary>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("HumanPose")]
+    public enum HumanPose
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Unknown")]
+        Unknown = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("HandsInFrontOfFace")]
+        HandsInFrontOfFace = 1
     }
     /// <summary>
     /// There are no comments for FrameState in the schema.

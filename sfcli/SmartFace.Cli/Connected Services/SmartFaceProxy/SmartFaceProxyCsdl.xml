@@ -136,6 +136,7 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="Pose" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose" Nullable="false" />
         <Property Name="EarLeftX" Type="Edm.Double" />
         <Property Name="EarLeftY" Type="Edm.Double" />
         <Property Name="EarRightX" Type="Edm.Double" />
@@ -491,6 +492,10 @@
       <EnumType Name="FaceType">
         <Member Name="Regular" Value="0" />
         <Member Name="AutoLearn" Value="1" />
+      </EnumType>
+      <EnumType Name="HumanPose">
+        <Member Name="Unknown" Value="0" />
+        <Member Name="HandsInFrontOfFace" Value="1" />
       </EnumType>
       <EnumType Name="FrameState">
         <Member Name="New" Value="0" />
