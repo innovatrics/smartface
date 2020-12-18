@@ -6181,8 +6181,7 @@
             "nullable": true
           },
           "pose": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "earLeftX": {
             "type": "number",

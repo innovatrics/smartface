@@ -10538,7 +10538,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("objectsOnFrameCountForType", Required = Newtonsoft.Json.Required.AllowNull)]
         public int? ObjectsOnFrameCountForType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pose", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("pose", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Pose { get; set; }
     
         [Newtonsoft.Json.JsonProperty("earLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
