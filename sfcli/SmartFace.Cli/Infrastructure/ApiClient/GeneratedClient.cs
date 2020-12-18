@@ -10483,17 +10483,6 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public enum HumanPose
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Unknown")]
-        Unknown = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"HandsInFrontOfFace")]
-        HandsInFrontOfFace = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Pedestrian 
     {
         [Newtonsoft.Json.JsonProperty("trackletId", Required = Newtonsoft.Json.Required.Always)]
@@ -10549,10 +10538,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("objectsOnFrameCountForType", Required = Newtonsoft.Json.Required.AllowNull)]
         public int? ObjectsOnFrameCountForType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pose", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public HumanPose Pose { get; set; }
+        [Newtonsoft.Json.JsonProperty("pose", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string Pose { get; set; }
     
         [Newtonsoft.Json.JsonProperty("earLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? EarLeftX { get; set; }

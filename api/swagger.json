@@ -6044,13 +6044,6 @@
         },
         "additionalProperties": false
       },
-      "HumanPose": {
-        "enum": [
-          "Unknown",
-          "HandsInFrontOfFace"
-        ],
-        "type": "string"
-      },
       "Pedestrian": {
         "required": [
           "ankleLeftX",
@@ -6188,7 +6181,8 @@
             "nullable": true
           },
           "pose": {
-            "$ref": "#/components/schemas/HumanPose"
+            "type": "string",
+            "nullable": true
           },
           "earLeftX": {
             "type": "number",
