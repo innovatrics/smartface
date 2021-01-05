@@ -493,8 +493,8 @@
         <Member Name="Regular" Value="0" />
         <Member Name="AutoLearn" Value="1" />
       </EnumType>
-      <EnumType Name="HumanPose">
-        <Member Name="Unknown" Value="0" />
+      <EnumType Name="HumanPose" IsFlags="true">
+        <Member Name="Unspecified" Value="0" />
         <Member Name="HandsInFrontOfFace" Value="1" />
       </EnumType>
       <EnumType Name="FrameState">

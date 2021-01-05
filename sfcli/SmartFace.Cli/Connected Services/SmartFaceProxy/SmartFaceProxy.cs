@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 17. 12. 2020 18:20:57
+// Generation date: 1/5/2021 2:26:22 PM
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -10614,11 +10614,12 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
     /// <summary>
     /// There are no comments for HumanPose in the schema.
     /// </summary>
+    [global::System.Flags]
     [global::Microsoft.OData.Client.OriginalNameAttribute("HumanPose")]
     public enum HumanPose
     {
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Unknown")]
-        Unknown = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Unspecified")]
+        Unspecified = 0,
         [global::Microsoft.OData.Client.OriginalNameAttribute("HandsInFrontOfFace")]
         HandsInFrontOfFace = 1
     }
