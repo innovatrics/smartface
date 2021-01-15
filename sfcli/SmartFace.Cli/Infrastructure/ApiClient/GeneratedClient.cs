@@ -10538,6 +10538,118 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("objectsOnFrameCountForType", Required = Newtonsoft.Json.Required.AllowNull)]
         public int? ObjectsOnFrameCountForType { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("pose", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Pose { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("earLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EarLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("earLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EarLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("earRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EarRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("earRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EarRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("eyeLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EyeLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("eyeLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EyeLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("eyeRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EyeRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("eyeRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EyeRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noseX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NoseX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noseY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NoseY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("neckX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NeckX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("neckY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NeckY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shoulderLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ShoulderLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shoulderLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ShoulderLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shoulderRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ShoulderRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shoulderRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ShoulderRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elbowLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ElbowLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elbowLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ElbowLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elbowRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ElbowRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elbowRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ElbowRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("wristLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? WristLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("wristLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? WristLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("wristRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? WristRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("wristRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? WristRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hipLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? HipLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hipLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? HipLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hipRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? HipRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hipRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? HipRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("kneeLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? KneeLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("kneeLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? KneeLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("kneeRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? KneeRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("kneeRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? KneeRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ankleLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AnkleLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ankleLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AnkleLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ankleRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AnkleRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ankleRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AnkleRightY { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.Guid Id { get; set; }

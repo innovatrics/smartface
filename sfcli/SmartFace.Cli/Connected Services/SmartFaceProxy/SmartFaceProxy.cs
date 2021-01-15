@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 2. 12. 2020 14:00:23
+// Generation date: 1/5/2021 2:26:22 PM
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -3121,6 +3121,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// Create a new Pedestrian object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
+        /// <param name="pose">Initial value of Pose.</param>
         /// <param name="quality">Initial value of Quality.</param>
         /// <param name="cropLeftTopX">Initial value of CropLeftTopX.</param>
         /// <param name="cropLeftTopY">Initial value of CropLeftTopY.</param>
@@ -3133,6 +3134,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Pedestrian CreatePedestrian(global::System.Guid ID, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose pose, 
                     int quality, 
                     double cropLeftTopX, 
                     double cropLeftTopY, 
@@ -3146,6 +3148,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         {
             Pedestrian pedestrian = new Pedestrian();
             pedestrian.Id = ID;
+            pedestrian.Pose = pose;
             pedestrian.Quality = quality;
             pedestrian.CropLeftTopX = cropLeftTopX;
             pedestrian.CropLeftTopY = cropLeftTopY;
@@ -3181,6 +3184,857 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Guid _Id;
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
+        /// <summary>
+        /// There are no comments for Property Pose in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Pose")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose Pose
+        {
+            get
+            {
+                return this._Pose;
+            }
+            set
+            {
+                this.OnPoseChanging(value);
+                this._Pose = value;
+                this.OnPoseChanged();
+                this.OnPropertyChanged("Pose");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose _Pose;
+        partial void OnPoseChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose value);
+        partial void OnPoseChanged();
+        /// <summary>
+        /// There are no comments for Property EarLeftX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("EarLeftX")]
+        public virtual global::System.Nullable<double> EarLeftX
+        {
+            get
+            {
+                return this._EarLeftX;
+            }
+            set
+            {
+                this.OnEarLeftXChanging(value);
+                this._EarLeftX = value;
+                this.OnEarLeftXChanged();
+                this.OnPropertyChanged("EarLeftX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _EarLeftX;
+        partial void OnEarLeftXChanging(global::System.Nullable<double> value);
+        partial void OnEarLeftXChanged();
+        /// <summary>
+        /// There are no comments for Property EarLeftY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("EarLeftY")]
+        public virtual global::System.Nullable<double> EarLeftY
+        {
+            get
+            {
+                return this._EarLeftY;
+            }
+            set
+            {
+                this.OnEarLeftYChanging(value);
+                this._EarLeftY = value;
+                this.OnEarLeftYChanged();
+                this.OnPropertyChanged("EarLeftY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _EarLeftY;
+        partial void OnEarLeftYChanging(global::System.Nullable<double> value);
+        partial void OnEarLeftYChanged();
+        /// <summary>
+        /// There are no comments for Property EarRightX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("EarRightX")]
+        public virtual global::System.Nullable<double> EarRightX
+        {
+            get
+            {
+                return this._EarRightX;
+            }
+            set
+            {
+                this.OnEarRightXChanging(value);
+                this._EarRightX = value;
+                this.OnEarRightXChanged();
+                this.OnPropertyChanged("EarRightX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _EarRightX;
+        partial void OnEarRightXChanging(global::System.Nullable<double> value);
+        partial void OnEarRightXChanged();
+        /// <summary>
+        /// There are no comments for Property EarRightY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("EarRightY")]
+        public virtual global::System.Nullable<double> EarRightY
+        {
+            get
+            {
+                return this._EarRightY;
+            }
+            set
+            {
+                this.OnEarRightYChanging(value);
+                this._EarRightY = value;
+                this.OnEarRightYChanged();
+                this.OnPropertyChanged("EarRightY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _EarRightY;
+        partial void OnEarRightYChanging(global::System.Nullable<double> value);
+        partial void OnEarRightYChanged();
+        /// <summary>
+        /// There are no comments for Property EyeLeftX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("EyeLeftX")]
+        public virtual global::System.Nullable<double> EyeLeftX
+        {
+            get
+            {
+                return this._EyeLeftX;
+            }
+            set
+            {
+                this.OnEyeLeftXChanging(value);
+                this._EyeLeftX = value;
+                this.OnEyeLeftXChanged();
+                this.OnPropertyChanged("EyeLeftX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _EyeLeftX;
+        partial void OnEyeLeftXChanging(global::System.Nullable<double> value);
+        partial void OnEyeLeftXChanged();
+        /// <summary>
+        /// There are no comments for Property EyeLeftY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("EyeLeftY")]
+        public virtual global::System.Nullable<double> EyeLeftY
+        {
+            get
+            {
+                return this._EyeLeftY;
+            }
+            set
+            {
+                this.OnEyeLeftYChanging(value);
+                this._EyeLeftY = value;
+                this.OnEyeLeftYChanged();
+                this.OnPropertyChanged("EyeLeftY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _EyeLeftY;
+        partial void OnEyeLeftYChanging(global::System.Nullable<double> value);
+        partial void OnEyeLeftYChanged();
+        /// <summary>
+        /// There are no comments for Property EyeRightX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("EyeRightX")]
+        public virtual global::System.Nullable<double> EyeRightX
+        {
+            get
+            {
+                return this._EyeRightX;
+            }
+            set
+            {
+                this.OnEyeRightXChanging(value);
+                this._EyeRightX = value;
+                this.OnEyeRightXChanged();
+                this.OnPropertyChanged("EyeRightX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _EyeRightX;
+        partial void OnEyeRightXChanging(global::System.Nullable<double> value);
+        partial void OnEyeRightXChanged();
+        /// <summary>
+        /// There are no comments for Property EyeRightY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("EyeRightY")]
+        public virtual global::System.Nullable<double> EyeRightY
+        {
+            get
+            {
+                return this._EyeRightY;
+            }
+            set
+            {
+                this.OnEyeRightYChanging(value);
+                this._EyeRightY = value;
+                this.OnEyeRightYChanged();
+                this.OnPropertyChanged("EyeRightY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _EyeRightY;
+        partial void OnEyeRightYChanging(global::System.Nullable<double> value);
+        partial void OnEyeRightYChanged();
+        /// <summary>
+        /// There are no comments for Property NoseX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NoseX")]
+        public virtual global::System.Nullable<double> NoseX
+        {
+            get
+            {
+                return this._NoseX;
+            }
+            set
+            {
+                this.OnNoseXChanging(value);
+                this._NoseX = value;
+                this.OnNoseXChanged();
+                this.OnPropertyChanged("NoseX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _NoseX;
+        partial void OnNoseXChanging(global::System.Nullable<double> value);
+        partial void OnNoseXChanged();
+        /// <summary>
+        /// There are no comments for Property NoseY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NoseY")]
+        public virtual global::System.Nullable<double> NoseY
+        {
+            get
+            {
+                return this._NoseY;
+            }
+            set
+            {
+                this.OnNoseYChanging(value);
+                this._NoseY = value;
+                this.OnNoseYChanged();
+                this.OnPropertyChanged("NoseY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _NoseY;
+        partial void OnNoseYChanging(global::System.Nullable<double> value);
+        partial void OnNoseYChanged();
+        /// <summary>
+        /// There are no comments for Property NeckX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NeckX")]
+        public virtual global::System.Nullable<double> NeckX
+        {
+            get
+            {
+                return this._NeckX;
+            }
+            set
+            {
+                this.OnNeckXChanging(value);
+                this._NeckX = value;
+                this.OnNeckXChanged();
+                this.OnPropertyChanged("NeckX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _NeckX;
+        partial void OnNeckXChanging(global::System.Nullable<double> value);
+        partial void OnNeckXChanged();
+        /// <summary>
+        /// There are no comments for Property NeckY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NeckY")]
+        public virtual global::System.Nullable<double> NeckY
+        {
+            get
+            {
+                return this._NeckY;
+            }
+            set
+            {
+                this.OnNeckYChanging(value);
+                this._NeckY = value;
+                this.OnNeckYChanged();
+                this.OnPropertyChanged("NeckY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _NeckY;
+        partial void OnNeckYChanging(global::System.Nullable<double> value);
+        partial void OnNeckYChanged();
+        /// <summary>
+        /// There are no comments for Property ShoulderLeftX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderLeftX")]
+        public virtual global::System.Nullable<double> ShoulderLeftX
+        {
+            get
+            {
+                return this._ShoulderLeftX;
+            }
+            set
+            {
+                this.OnShoulderLeftXChanging(value);
+                this._ShoulderLeftX = value;
+                this.OnShoulderLeftXChanged();
+                this.OnPropertyChanged("ShoulderLeftX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _ShoulderLeftX;
+        partial void OnShoulderLeftXChanging(global::System.Nullable<double> value);
+        partial void OnShoulderLeftXChanged();
+        /// <summary>
+        /// There are no comments for Property ShoulderLeftY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderLeftY")]
+        public virtual global::System.Nullable<double> ShoulderLeftY
+        {
+            get
+            {
+                return this._ShoulderLeftY;
+            }
+            set
+            {
+                this.OnShoulderLeftYChanging(value);
+                this._ShoulderLeftY = value;
+                this.OnShoulderLeftYChanged();
+                this.OnPropertyChanged("ShoulderLeftY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _ShoulderLeftY;
+        partial void OnShoulderLeftYChanging(global::System.Nullable<double> value);
+        partial void OnShoulderLeftYChanged();
+        /// <summary>
+        /// There are no comments for Property ShoulderRightX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderRightX")]
+        public virtual global::System.Nullable<double> ShoulderRightX
+        {
+            get
+            {
+                return this._ShoulderRightX;
+            }
+            set
+            {
+                this.OnShoulderRightXChanging(value);
+                this._ShoulderRightX = value;
+                this.OnShoulderRightXChanged();
+                this.OnPropertyChanged("ShoulderRightX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _ShoulderRightX;
+        partial void OnShoulderRightXChanging(global::System.Nullable<double> value);
+        partial void OnShoulderRightXChanged();
+        /// <summary>
+        /// There are no comments for Property ShoulderRightY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderRightY")]
+        public virtual global::System.Nullable<double> ShoulderRightY
+        {
+            get
+            {
+                return this._ShoulderRightY;
+            }
+            set
+            {
+                this.OnShoulderRightYChanging(value);
+                this._ShoulderRightY = value;
+                this.OnShoulderRightYChanged();
+                this.OnPropertyChanged("ShoulderRightY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _ShoulderRightY;
+        partial void OnShoulderRightYChanging(global::System.Nullable<double> value);
+        partial void OnShoulderRightYChanged();
+        /// <summary>
+        /// There are no comments for Property ElbowLeftX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowLeftX")]
+        public virtual global::System.Nullable<double> ElbowLeftX
+        {
+            get
+            {
+                return this._ElbowLeftX;
+            }
+            set
+            {
+                this.OnElbowLeftXChanging(value);
+                this._ElbowLeftX = value;
+                this.OnElbowLeftXChanged();
+                this.OnPropertyChanged("ElbowLeftX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _ElbowLeftX;
+        partial void OnElbowLeftXChanging(global::System.Nullable<double> value);
+        partial void OnElbowLeftXChanged();
+        /// <summary>
+        /// There are no comments for Property ElbowLeftY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowLeftY")]
+        public virtual global::System.Nullable<double> ElbowLeftY
+        {
+            get
+            {
+                return this._ElbowLeftY;
+            }
+            set
+            {
+                this.OnElbowLeftYChanging(value);
+                this._ElbowLeftY = value;
+                this.OnElbowLeftYChanged();
+                this.OnPropertyChanged("ElbowLeftY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _ElbowLeftY;
+        partial void OnElbowLeftYChanging(global::System.Nullable<double> value);
+        partial void OnElbowLeftYChanged();
+        /// <summary>
+        /// There are no comments for Property ElbowRightX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowRightX")]
+        public virtual global::System.Nullable<double> ElbowRightX
+        {
+            get
+            {
+                return this._ElbowRightX;
+            }
+            set
+            {
+                this.OnElbowRightXChanging(value);
+                this._ElbowRightX = value;
+                this.OnElbowRightXChanged();
+                this.OnPropertyChanged("ElbowRightX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _ElbowRightX;
+        partial void OnElbowRightXChanging(global::System.Nullable<double> value);
+        partial void OnElbowRightXChanged();
+        /// <summary>
+        /// There are no comments for Property ElbowRightY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowRightY")]
+        public virtual global::System.Nullable<double> ElbowRightY
+        {
+            get
+            {
+                return this._ElbowRightY;
+            }
+            set
+            {
+                this.OnElbowRightYChanging(value);
+                this._ElbowRightY = value;
+                this.OnElbowRightYChanged();
+                this.OnPropertyChanged("ElbowRightY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _ElbowRightY;
+        partial void OnElbowRightYChanging(global::System.Nullable<double> value);
+        partial void OnElbowRightYChanged();
+        /// <summary>
+        /// There are no comments for Property WristLeftX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WristLeftX")]
+        public virtual global::System.Nullable<double> WristLeftX
+        {
+            get
+            {
+                return this._WristLeftX;
+            }
+            set
+            {
+                this.OnWristLeftXChanging(value);
+                this._WristLeftX = value;
+                this.OnWristLeftXChanged();
+                this.OnPropertyChanged("WristLeftX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _WristLeftX;
+        partial void OnWristLeftXChanging(global::System.Nullable<double> value);
+        partial void OnWristLeftXChanged();
+        /// <summary>
+        /// There are no comments for Property WristLeftY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WristLeftY")]
+        public virtual global::System.Nullable<double> WristLeftY
+        {
+            get
+            {
+                return this._WristLeftY;
+            }
+            set
+            {
+                this.OnWristLeftYChanging(value);
+                this._WristLeftY = value;
+                this.OnWristLeftYChanged();
+                this.OnPropertyChanged("WristLeftY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _WristLeftY;
+        partial void OnWristLeftYChanging(global::System.Nullable<double> value);
+        partial void OnWristLeftYChanged();
+        /// <summary>
+        /// There are no comments for Property WristRightX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WristRightX")]
+        public virtual global::System.Nullable<double> WristRightX
+        {
+            get
+            {
+                return this._WristRightX;
+            }
+            set
+            {
+                this.OnWristRightXChanging(value);
+                this._WristRightX = value;
+                this.OnWristRightXChanged();
+                this.OnPropertyChanged("WristRightX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _WristRightX;
+        partial void OnWristRightXChanging(global::System.Nullable<double> value);
+        partial void OnWristRightXChanged();
+        /// <summary>
+        /// There are no comments for Property WristRightY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WristRightY")]
+        public virtual global::System.Nullable<double> WristRightY
+        {
+            get
+            {
+                return this._WristRightY;
+            }
+            set
+            {
+                this.OnWristRightYChanging(value);
+                this._WristRightY = value;
+                this.OnWristRightYChanged();
+                this.OnPropertyChanged("WristRightY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _WristRightY;
+        partial void OnWristRightYChanging(global::System.Nullable<double> value);
+        partial void OnWristRightYChanged();
+        /// <summary>
+        /// There are no comments for Property HipLeftX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("HipLeftX")]
+        public virtual global::System.Nullable<double> HipLeftX
+        {
+            get
+            {
+                return this._HipLeftX;
+            }
+            set
+            {
+                this.OnHipLeftXChanging(value);
+                this._HipLeftX = value;
+                this.OnHipLeftXChanged();
+                this.OnPropertyChanged("HipLeftX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _HipLeftX;
+        partial void OnHipLeftXChanging(global::System.Nullable<double> value);
+        partial void OnHipLeftXChanged();
+        /// <summary>
+        /// There are no comments for Property HipLeftY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("HipLeftY")]
+        public virtual global::System.Nullable<double> HipLeftY
+        {
+            get
+            {
+                return this._HipLeftY;
+            }
+            set
+            {
+                this.OnHipLeftYChanging(value);
+                this._HipLeftY = value;
+                this.OnHipLeftYChanged();
+                this.OnPropertyChanged("HipLeftY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _HipLeftY;
+        partial void OnHipLeftYChanging(global::System.Nullable<double> value);
+        partial void OnHipLeftYChanged();
+        /// <summary>
+        /// There are no comments for Property HipRightX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("HipRightX")]
+        public virtual global::System.Nullable<double> HipRightX
+        {
+            get
+            {
+                return this._HipRightX;
+            }
+            set
+            {
+                this.OnHipRightXChanging(value);
+                this._HipRightX = value;
+                this.OnHipRightXChanged();
+                this.OnPropertyChanged("HipRightX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _HipRightX;
+        partial void OnHipRightXChanging(global::System.Nullable<double> value);
+        partial void OnHipRightXChanged();
+        /// <summary>
+        /// There are no comments for Property HipRightY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("HipRightY")]
+        public virtual global::System.Nullable<double> HipRightY
+        {
+            get
+            {
+                return this._HipRightY;
+            }
+            set
+            {
+                this.OnHipRightYChanging(value);
+                this._HipRightY = value;
+                this.OnHipRightYChanged();
+                this.OnPropertyChanged("HipRightY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _HipRightY;
+        partial void OnHipRightYChanging(global::System.Nullable<double> value);
+        partial void OnHipRightYChanged();
+        /// <summary>
+        /// There are no comments for Property KneeLeftX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("KneeLeftX")]
+        public virtual global::System.Nullable<double> KneeLeftX
+        {
+            get
+            {
+                return this._KneeLeftX;
+            }
+            set
+            {
+                this.OnKneeLeftXChanging(value);
+                this._KneeLeftX = value;
+                this.OnKneeLeftXChanged();
+                this.OnPropertyChanged("KneeLeftX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _KneeLeftX;
+        partial void OnKneeLeftXChanging(global::System.Nullable<double> value);
+        partial void OnKneeLeftXChanged();
+        /// <summary>
+        /// There are no comments for Property KneeLeftY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("KneeLeftY")]
+        public virtual global::System.Nullable<double> KneeLeftY
+        {
+            get
+            {
+                return this._KneeLeftY;
+            }
+            set
+            {
+                this.OnKneeLeftYChanging(value);
+                this._KneeLeftY = value;
+                this.OnKneeLeftYChanged();
+                this.OnPropertyChanged("KneeLeftY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _KneeLeftY;
+        partial void OnKneeLeftYChanging(global::System.Nullable<double> value);
+        partial void OnKneeLeftYChanged();
+        /// <summary>
+        /// There are no comments for Property KneeRightX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("KneeRightX")]
+        public virtual global::System.Nullable<double> KneeRightX
+        {
+            get
+            {
+                return this._KneeRightX;
+            }
+            set
+            {
+                this.OnKneeRightXChanging(value);
+                this._KneeRightX = value;
+                this.OnKneeRightXChanged();
+                this.OnPropertyChanged("KneeRightX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _KneeRightX;
+        partial void OnKneeRightXChanging(global::System.Nullable<double> value);
+        partial void OnKneeRightXChanged();
+        /// <summary>
+        /// There are no comments for Property KneeRightY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("KneeRightY")]
+        public virtual global::System.Nullable<double> KneeRightY
+        {
+            get
+            {
+                return this._KneeRightY;
+            }
+            set
+            {
+                this.OnKneeRightYChanging(value);
+                this._KneeRightY = value;
+                this.OnKneeRightYChanged();
+                this.OnPropertyChanged("KneeRightY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _KneeRightY;
+        partial void OnKneeRightYChanging(global::System.Nullable<double> value);
+        partial void OnKneeRightYChanged();
+        /// <summary>
+        /// There are no comments for Property AnkleLeftX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleLeftX")]
+        public virtual global::System.Nullable<double> AnkleLeftX
+        {
+            get
+            {
+                return this._AnkleLeftX;
+            }
+            set
+            {
+                this.OnAnkleLeftXChanging(value);
+                this._AnkleLeftX = value;
+                this.OnAnkleLeftXChanged();
+                this.OnPropertyChanged("AnkleLeftX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _AnkleLeftX;
+        partial void OnAnkleLeftXChanging(global::System.Nullable<double> value);
+        partial void OnAnkleLeftXChanged();
+        /// <summary>
+        /// There are no comments for Property AnkleLeftY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleLeftY")]
+        public virtual global::System.Nullable<double> AnkleLeftY
+        {
+            get
+            {
+                return this._AnkleLeftY;
+            }
+            set
+            {
+                this.OnAnkleLeftYChanging(value);
+                this._AnkleLeftY = value;
+                this.OnAnkleLeftYChanged();
+                this.OnPropertyChanged("AnkleLeftY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _AnkleLeftY;
+        partial void OnAnkleLeftYChanging(global::System.Nullable<double> value);
+        partial void OnAnkleLeftYChanged();
+        /// <summary>
+        /// There are no comments for Property AnkleRightX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleRightX")]
+        public virtual global::System.Nullable<double> AnkleRightX
+        {
+            get
+            {
+                return this._AnkleRightX;
+            }
+            set
+            {
+                this.OnAnkleRightXChanging(value);
+                this._AnkleRightX = value;
+                this.OnAnkleRightXChanged();
+                this.OnPropertyChanged("AnkleRightX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _AnkleRightX;
+        partial void OnAnkleRightXChanging(global::System.Nullable<double> value);
+        partial void OnAnkleRightXChanged();
+        /// <summary>
+        /// There are no comments for Property AnkleRightY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleRightY")]
+        public virtual global::System.Nullable<double> AnkleRightY
+        {
+            get
+            {
+                return this._AnkleRightY;
+            }
+            set
+            {
+                this.OnAnkleRightYChanging(value);
+                this._AnkleRightY = value;
+                this.OnAnkleRightYChanged();
+                this.OnPropertyChanged("AnkleRightY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _AnkleRightY;
+        partial void OnAnkleRightYChanging(global::System.Nullable<double> value);
+        partial void OnAnkleRightYChanged();
         /// <summary>
         /// There are no comments for Property ImageDataId in the schema.
         /// </summary>
@@ -9756,6 +10610,18 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Regular = 0,
         [global::Microsoft.OData.Client.OriginalNameAttribute("AutoLearn")]
         AutoLearn = 1
+    }
+    /// <summary>
+    /// There are no comments for HumanPose in the schema.
+    /// </summary>
+    [global::System.Flags]
+    [global::Microsoft.OData.Client.OriginalNameAttribute("HumanPose")]
+    public enum HumanPose
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Unspecified")]
+        Unspecified = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("HandsInFrontOfFace")]
+        HandsInFrontOfFace = 1
     }
     /// <summary>
     /// There are no comments for FrameState in the schema.
