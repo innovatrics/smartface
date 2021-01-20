@@ -33,25 +33,19 @@ sfcli camera get -i 2976ac85-f570-4bec-9561-ce5b2ec1d234
 
 ##### HTTP
 
-Target HTTP API location can be defined by `--host` option. Default value is `localhost`.
+Target HTTP API location can be defined by `--api-url` and `--odata-url` options. Default value for API URL is `http://localhost:8098` and default value for OData URL is `http://localhost:8099`.
 
 ```sh
-$ sfcli --host localhost
+$ sfcli --api-url http://localhost:8098 --odata-url http://localhost:8099
 ```
 
-Example camera command with defined host option:
+Example camera command with defined API url option:
 
 ```sh
-$ sfcli --host localhost camera get
+$ sfcli --api-url http://localhost:8098 camera get
 ```
 
-Default port for OData API is 8099, and for REST API is 8098. To change these ports, set the `--odataPort` or `--restPort` respectively.
-
-Default protocol used for communicating with APIs is `http`. To change the protocol, set the `--protocol` option.
-
-The final Api address is constructed as `{protocol}://{host}:{port}`.
-
-The host can overridden by setting `sfcli_host` environment variable.
+Both URLs can overridden by setting `sfcli_url_api` and `sfcli_url_odata` environment variables.
 
 ##### ZeroMQ
 Smartface notifications are published via ZeroMQ, sfcli utility uses non configurable default smartface port 2406. 
@@ -61,10 +55,11 @@ For more info about notifications please see command `notifications`.
 
 ```
 Options:
-  --host           SmartFace host (e.g. "smartfaceserver"). Defaults to "localhost". Can be overridden by environment
-                   variable sfcli_host
-  -rp|--restPort   Port under which the Rest API runs on the provided host. Defaults to 8098
-  -op|--odataPort  Port under which the OData API runs on the provided host. Defaults to 8099
+  --api-url        SmartFace REST API url (e.g. "http://smartfaceserver:8098"). Defaults to "http://localhost:8098". Can be overridden by environment
+                   variable sfcli_url_api
+  --odata-url      SmartFace ODATA API base url (e.g. "http://smartfaceserver:8099"). Defaults to "http://localhost:8099". Can be overridden by environment
+                   variable sfcli_url_odata
+  --zero-mq-host   Hostname where SFBase service is available
   -?|-h|--help     Show help information
 
 Commands:
@@ -88,7 +83,7 @@ Options:
 
 Example:
 ```sh
-$ sfcli --host localhost notifications -t:matchResults.match.insert
+$ sfcli --zero-mq-host localhost notifications -t:matchResults.match.insert
 ```
 
 #### watchlistmember
@@ -127,7 +122,7 @@ Options:
 
 Example:
 ```sh
-$ sfcli --host localhost watchlistmember register -i:external_wlMember_id -w:123 -w:567 -p:face1.jpg -p:face2.jpg
+$ sfcli watchlistmember register -i:external_wlMember_id -w:123 -w:567 -p:face1.jpg -p:face2.jpg
 ```
 This command will create/replace watchlist member with faces from photo files (face1.jpg, face2.jpg) and link this watchlist member to watchlists with external ids (123, 567).
 
@@ -163,7 +158,7 @@ Options:
 
 Example:
 ```sh
-sfcli --host localhost watchlistmember registerFromDir -w:fingera -d:"d:\Fingera Registration Photo"
+sfcli watchlistmember registerFromDir -w:fingera -d:"d:\Fingera Registration Photo"
 ```
 
 #### camera
@@ -183,11 +178,11 @@ Commands:
 ```
 Example (create camera):
 ```sh
-$ sfcli --host localhost camera add -s:c:\temp\wafs.mp4
+$ sfcli camera add -s:c:\temp\wafs.mp4
 ```
 Example (start camera):
 ```sh
-$ sfcli --host localhost camera set -e:true -i:2976ac85-f570-4bec-9561-ce5b2ec1d234
+$ sfcli camera set -e:true -i:2976ac85-f570-4bec-9561-ce5b2ec1d234
 ```
 
 ##### camera add

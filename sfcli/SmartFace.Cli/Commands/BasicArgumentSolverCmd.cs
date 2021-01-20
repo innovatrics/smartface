@@ -8,38 +8,36 @@ namespace SmartFace.Cli.Commands
     [Command(Name = "sfcli", Description = "CLI for SmartFace instance")]
     public class BasicArgumentSolverCmd : IApiDefinition
     {
-        private string _host = "localhost";
+        private string _apiUrl = Constants.DEFAULT_URL_API;
 
-        [Option("--host",
-            "SmartFace host (e.g. \"smartfaceserver\"). Defaults to \"localhost\". Can be overridden by environment variable " +
-            Constants.ENVIRONMENT_HOST,
+        [Option(Constants.ARGUMENT_URL_API,
+            "SmartFace REST API url (e.g. \"http://smartfaceserver:8098\"). Defaults to \"" + Constants.DEFAULT_URL_API +"\". Can be overridden by environment variable " +
+            Constants.ENVIRONMENT_URL_API,
             CommandOptionType.SingleValue)]
-        public string Host
+        public string ApiUrl
         {
-            get => Environment.GetEnvironmentVariable(Constants.ENVIRONMENT_HOST) ?? _host;
-            set => _host = value;
+            get => Environment.GetEnvironmentVariable(Constants.DEFAULT_URL_API) ?? _apiUrl;
+            set => _apiUrl = value;
+        }
+        
+        private string _odataUrl = Constants.DEFAULT_URL_ODATA;
+
+        [Option(Constants.ARGUMENT_URL_ODATA,
+            "SmartFace ODATA API base url (e.g. \"http://smartfaceserver:8099\"). Defaults to \"" + Constants.DEFAULT_URL_ODATA + "\". Can be overridden by environment variable " +
+            Constants.ENVIRONMENT_URL_ODATA,
+            CommandOptionType.SingleValue)]
+        public string OdataBaseUrl
+        {
+            get => Environment.GetEnvironmentVariable(Constants.ENVIRONMENT_URL_ODATA) ?? _odataUrl;
+            set => _odataUrl = value;
         }
 
-        [Option("--protocol",
-            "Protocol under which to communicate with SmartFace APIs (e.g. \"http\" or \"https\"). Defaults to \"http\".",
+        [Option("--zero-mq-host",
+            "Hostname where SFBase service is available",
             CommandOptionType.SingleValue)]
-        public string Protocol { get; set; } = "http";
-
-        [Option("-rp|--restPort",
-            "Port under which the Rest API runs on the provided host. Defaults to 8098",
-            CommandOptionType.SingleValue)]
-        public int RestApiPort { get; set; } = 8098;
-
-        [Option("-op|--odataPort",
-            "Port under which the OData API runs on the provided host. Defaults to 8099",
-            CommandOptionType.SingleValue)]
-        public int ODataPort { get; set; } = 8099;
+        public string ZeroMqHost { get; } = "localhost";
 
         public int ZeroMqPort => 2406;
-
-        public string ApiUrl => $"{Protocol}://{Host}:{RestApiPort}";
-
-        public string OdataBaseUrl => $"{Protocol}://{Host}:{ODataPort}";
 
         public string ODataUrl => $"{OdataBaseUrl}/odata";
 

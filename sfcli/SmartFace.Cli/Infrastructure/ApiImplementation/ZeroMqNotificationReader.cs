@@ -28,7 +28,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
         public ZeroMqNotificationReader(IApiDefinition apiDefinition)
         {
-            _host = apiDefinition.Host;
+            _host = apiDefinition.ZeroMqHost;
             _port = apiDefinition.ZeroMqPort;
         }
 

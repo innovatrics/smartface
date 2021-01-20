@@ -12,10 +12,10 @@ For more information see:
 
 2. Start video face recognition using following CLI command (or use GUI)
 ```
-$ sfcli --host localhost camera add -s:c:\temp\wafs.mp4 -e:true
+$ sfcli camera add -s:c:\temp\wafs.mp4 -e:true
 ```
 
 3. Recognized faces - receive notifications using following CLI command (or use GUI)
 ```
-$ sfcli --host localhost notifications -t:faces.insert
+$ sfcli --zero-mq-host notifications -t:faces.insert
 ```
