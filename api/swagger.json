@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.5.0.0"
+    "version": "4.6.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -109,7 +109,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -173,7 +173,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -3351,7 +3351,6 @@
           "VideoRecord"
         ],
         "summary": "Updates the specified video record with given values.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "New video record values.",
           "content": {
@@ -3415,7 +3414,6 @@
           "VideoRecord"
         ],
         "summary": "Creates a video record.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code> and <code>gpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "Request specifying video record properties.",
           "content": {
@@ -4586,6 +4584,16 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -5473,6 +5481,7 @@
       "Face": {
         "required": [
           "age",
+          "autolearnClusterType",
           "createdAt",
           "cropLeftBottomX",
           "cropLeftBottomY",
@@ -5650,6 +5659,10 @@
           "rollAngle": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          },
+          "autolearnClusterType": {
+            "type": "string",
             "nullable": true
           },
           "id": {
@@ -6033,6 +6046,10 @@
       },
       "Pedestrian": {
         "required": [
+          "ankleLeftX",
+          "ankleLeftY",
+          "ankleRightX",
+          "ankleRightY",
           "areaOnFrame",
           "createdAt",
           "cropLeftBottomX",
@@ -6043,16 +6060,49 @@
           "cropRightBottomY",
           "cropRightTopX",
           "cropRightTopY",
+          "earLeftX",
+          "earLeftY",
+          "earRightX",
+          "earRightY",
+          "elbowLeftX",
+          "elbowLeftY",
+          "elbowRightX",
+          "elbowRightY",
+          "eyeLeftX",
+          "eyeLeftY",
+          "eyeRightX",
+          "eyeRightY",
           "frameId",
+          "hipLeftX",
+          "hipLeftY",
+          "hipRightX",
+          "hipRightY",
           "id",
           "imageDataId",
+          "kneeLeftX",
+          "kneeLeftY",
+          "kneeRightX",
+          "kneeRightY",
+          "neckX",
+          "neckY",
+          "noseX",
+          "noseY",
           "objectOrderOnFrameForType",
           "objectsOnFrameCountForType",
+          "pose",
           "processedAt",
           "quality",
+          "shoulderLeftX",
+          "shoulderLeftY",
+          "shoulderRightX",
+          "shoulderRightY",
           "streamId",
           "trackletId",
-          "updatedAt"
+          "updatedAt",
+          "wristLeftX",
+          "wristLeftY",
+          "wristRightX",
+          "wristRightY"
         ],
         "type": "object",
         "properties": {
@@ -6128,6 +6178,189 @@
           "objectsOnFrameCountForType": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "pose": {
+            "type": "string"
+          },
+          "earLeftX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "earLeftY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "earRightX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "earRightY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "eyeLeftX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "eyeLeftY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "eyeRightX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "eyeRightY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "noseX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "noseY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "neckX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "neckY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "shoulderLeftX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "shoulderLeftY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "shoulderRightX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "shoulderRightY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "elbowLeftX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "elbowLeftY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "elbowRightX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "elbowRightY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "wristLeftX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "wristLeftY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "wristRightX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "wristRightY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hipLeftX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hipLeftY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hipRightX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hipRightY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "kneeLeftX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "kneeLeftY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "kneeRightX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "kneeRightY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ankleLeftX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ankleLeftY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ankleRightX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ankleRightY": {
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "id": {
@@ -6502,13 +6735,25 @@
             "format": "date-span",
             "nullable": true
           },
+          "maxAutoLearnFacesCount": {
+            "type": "integer",
+            "format": "int32"
+          },
           "selectionThreshold": {
             "type": "integer",
             "format": "int32"
           },
-          "maxAutoLearnFacesCount": {
+          "maskedSelectionThreshold": {
             "type": "integer",
             "format": "int32"
+          },
+          "noFaceMaskConfidenceThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "faceMaskConfidenceThreshold": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
