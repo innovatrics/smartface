@@ -6089,6 +6089,7 @@
           "noseY",
           "objectOrderOnFrameForType",
           "objectsOnFrameCountForType",
+          "pose",
           "processedAt",
           "quality",
           "shoulderLeftX",
@@ -6178,6 +6179,9 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "pose": {
+            "type": "string"
           },
           "earLeftX": {
             "type": "number",
