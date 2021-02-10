@@ -7435,6 +7435,24 @@
         },
         "additionalProperties": false
       },
+      "RegistrationImageData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "faceId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "format": "byte"
+          }
+        },
+        "additionalProperties": false
+      },
       "RegisterWatchlistMemberRequest": {
         "required": [
           "id",
@@ -7450,7 +7468,7 @@
             "minItems": 1,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ImageData"
+              "$ref": "#/components/schemas/RegistrationImageData"
             }
           },
           "watchlistIds": {
@@ -7547,7 +7565,7 @@
         "type": "object",
         "properties": {
           "imageData": {
-            "$ref": "#/components/schemas/ImageData"
+            "$ref": "#/components/schemas/RegistrationImageData"
           },
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/FaceDetectorConfig"

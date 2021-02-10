@@ -2,7 +2,7 @@
   "profiles": {
     "sfcli": {
       "commandName": "Project",
-      "commandLineArgs": "--host localhost watchlistmember registerFromDir -w:watchlistId1 -d:\"C:\\temp\\TestData\\Watchlists\\cliRegisterFromDir\""
+      "commandLineArgs": "watchlistmember registerFromDir -w:watchlistId1 -d:\"C:\\temp\\TestData\\Watchlists\\cliRegisterFromDir\""
     }
   }
 }
