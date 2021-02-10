@@ -9642,8 +9642,20 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SpoofDetectorConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double ExternalScoreThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Camera 
     {
+        [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.Guid Id { get; set; }
@@ -9718,6 +9730,9 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string ServiceName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SpoofDetectorConfig SpoofDetectorConfig { get; set; }
     
     
     }
@@ -9824,6 +9839,12 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("previewMaxDimension", Required = Newtonsoft.Json.Required.Always)]
         public int PreviewMaxDimension { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SpoofDetectorConfig SpoofDetectorConfig { get; set; }
+    
     
     }
     
@@ -9859,6 +9880,15 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? ConfidenceThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SpoofDetectorConfigCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? ExternalScoreThreshold { get; set; }
     
     
     }
@@ -9928,6 +9958,12 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SpoofDetectorConfigCreateRequest SpoofDetectorConfig { get; set; }
     
     
     }

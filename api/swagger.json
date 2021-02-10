@@ -4908,6 +4908,19 @@
         ],
         "type": "string"
       },
+      "SpoofDetectorConfig": {
+        "required": [
+          "externalScoreThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "Camera": {
         "required": [
           "enabled",
@@ -4934,6 +4947,13 @@
         ],
         "type": "object",
         "properties": {
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -5004,6 +5024,9 @@
           },
           "serviceName": {
             "type": "string"
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/SpoofDetectorConfig"
           }
         },
         "additionalProperties": false
@@ -5126,6 +5149,16 @@
           "previewMaxDimension": {
             "type": "integer",
             "format": "int32"
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/SpoofDetectorConfig"
           }
         },
         "additionalProperties": false
@@ -5177,6 +5210,17 @@
           "confidenceThreshold": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpoofDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double",
             "nullable": true
           }
         },
@@ -5269,6 +5313,16 @@
           "serviceName": {
             "type": "string",
             "nullable": true
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/SpoofDetectorConfigCreateRequest"
           }
         },
         "additionalProperties": false
