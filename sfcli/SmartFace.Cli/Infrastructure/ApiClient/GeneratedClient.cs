@@ -11503,6 +11503,19 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class RegistrationImageData 
+    {
+        [Newtonsoft.Json.JsonProperty("faceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid? FaceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public byte[] Data { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class RegisterWatchlistMemberRequest 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
@@ -11512,7 +11525,7 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("images", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<ImageData> Images { get; set; } = new System.Collections.ObjectModel.Collection<ImageData>();
+        public System.Collections.Generic.ICollection<RegistrationImageData> Images { get; set; } = new System.Collections.ObjectModel.Collection<RegistrationImageData>();
     
         [Newtonsoft.Json.JsonProperty("watchlistIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -11583,7 +11596,7 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("imageData", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public ImageData ImageData { get; set; } = new ImageData();
+        public RegistrationImageData ImageData { get; set; } = new RegistrationImageData();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfig FaceDetectorConfig { get; set; }

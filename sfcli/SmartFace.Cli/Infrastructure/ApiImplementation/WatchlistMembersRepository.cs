@@ -25,7 +25,7 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         {
             var requestPayload = new RegisterWatchlistMemberRequest
             {
-                Images = data.ImageData.Select(imgData => new ImageData
+                Images = data.ImageData.Select(imgData => new RegistrationImageData
                 {
                     Data = imgData.Data
                 }).ToList(),
