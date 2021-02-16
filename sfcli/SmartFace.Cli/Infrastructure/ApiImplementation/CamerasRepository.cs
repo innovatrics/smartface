@@ -112,13 +112,9 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
 
             updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;
             updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? originalCamera.FaceDetectorConfig.MinFaceSize;
-            updatedCamera.FaceDetectorConfig.MaxFaces = originalCamera.FaceDetectorConfig.MaxFaces;
-            updatedCamera.FaceDetectorConfig.ConfidenceThreshold = originalCamera.FaceDetectorConfig.ConfidenceThreshold;
 
             updatedCamera.PedestrianDetectorConfig.MaxPedestrianSize = updateData.MaxPedestrianSize ?? originalCamera.PedestrianDetectorConfig.MaxPedestrianSize;
             updatedCamera.PedestrianDetectorConfig.MinPedestrianSize = updateData.MinPedestrianSize ?? originalCamera.PedestrianDetectorConfig.MinPedestrianSize;
-            updatedCamera.PedestrianDetectorConfig.MaxPedestrians = originalCamera.PedestrianDetectorConfig.MaxPedestrians;
-            updatedCamera.PedestrianDetectorConfig.ConfidenceThreshold = originalCamera.PedestrianDetectorConfig.ConfidenceThreshold;
 
             updatedCamera.SpoofDetectorResourceIds = updateData.SpoofDetectorResourceIds ?? originalCamera.SpoofDetectorResourceIds;
 
