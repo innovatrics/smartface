@@ -208,6 +208,7 @@ Options:
   -pd|--pedestrianDetectorResourceId  Pedestrian detector resource id for the camera
   -mp|--minPedestrianSize             Minimum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)
   -xp|--maxPedestrianSize             Maximum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)
+  -sd|--spoofDetectorResourceId       Spoof detector resource id for the camera
   -?|-h|--help                        Show help information
 ```
 
@@ -240,5 +241,6 @@ Options:
   -pd|--pedestrianDetectorResourceId  Pedestrian detector resource id for the camera
   -mp|--minPedestrianSize             Minimum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)
   -xp|--maxPedestrianSize             Maximum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)
+  -sd|--spoofDetectorResourceId       Spoof detector resource id for the camera
   -?|-h|--help                        Show help information
 ```

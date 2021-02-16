@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.6.0.0"
+    "version": "4.7.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -173,7 +173,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.\r\nSupported values for <code>SpoofDetectorResourceIds</code> are <code>none</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -4585,6 +4585,16 @@
               }
             }
           },
+          "409": {
+            "description": "There was a conflict during the registration of the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
           "429": {
             "description": "Too many requests.",
             "content": {
@@ -4764,6 +4774,16 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "There was a conflict adding the new face to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -4908,6 +4928,19 @@
         ],
         "type": "string"
       },
+      "SpoofDetectorConfig": {
+        "required": [
+          "externalScoreThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "Camera": {
         "required": [
           "enabled",
@@ -4934,6 +4967,13 @@
         ],
         "type": "object",
         "properties": {
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -5004,6 +5044,9 @@
           },
           "serviceName": {
             "type": "string"
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/SpoofDetectorConfig"
           }
         },
         "additionalProperties": false
@@ -5126,6 +5169,16 @@
           "previewMaxDimension": {
             "type": "integer",
             "format": "int32"
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/SpoofDetectorConfig"
           }
         },
         "additionalProperties": false
@@ -5177,6 +5230,17 @@
           "confidenceThreshold": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpoofDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double",
             "nullable": true
           }
         },
@@ -5269,6 +5333,16 @@
           "serviceName": {
             "type": "string",
             "nullable": true
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/SpoofDetectorConfigCreateRequest"
           }
         },
         "additionalProperties": false

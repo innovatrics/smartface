@@ -1,4 +1,6 @@
-﻿namespace SmartFace.Cli.Core.ApiAbstraction.Models
+﻿using System.Collections.Generic;
+
+namespace SmartFace.Cli.Core.ApiAbstraction.Models
 {
     public class CameraRequestData
     {
@@ -14,5 +16,6 @@
         public string PedestrianDetectorResourceId { get; set; }
         public float? MinPedestrianSize { get; set; }
         public float? MaxPedestrianSize { get; set; }
+        public List<string> SpoofDetectorResourceIds { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Core.ApiAbstraction.Models;
 
@@ -34,7 +35,10 @@ namespace SmartFace.Cli.Commands.SubCamera
         
         [Option("-xp|--maxPedestrianSize", "Maximum size of detected pedestrian in pixels (if >= 1) or relative to the longer edge of the processed video (if > 0 && < 1)", CommandOptionType.SingleValue)]
         public (bool HasValue, float Value) MaxPedestrianSize { get; }
-        
+
+        [Option("-sd|--spoofDetectorResourceId", "Spoof detector resource id for the camera", CommandOptionType.MultipleValue)]
+        public List<string> SpoofDetectorResourceIds { get; }
+
         public abstract (bool HasValue, string Value) Name { get; }
         public abstract (bool HasValue, string Value) Source { get; }
 
@@ -99,6 +103,8 @@ namespace SmartFace.Cli.Commands.SubCamera
             {
                 cameraRequestData.Name = Name.Value;
             }
+
+            cameraRequestData.SpoofDetectorResourceIds = SpoofDetectorResourceIds;
         }
     }
 }
