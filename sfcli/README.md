@@ -217,6 +217,16 @@ Options:
   -?|-h|--help   Show help information
 ```
 
+##### camera delete
+
+Delete a camera.
+
+```
+Options:
+  -i|--id  Id of camera to delete.
+  -?|-h|--help   Show help information
+```
+
 ##### camera set
 
 Change properties of a camera. `--id` is required. Only filled properties will be changed on the camera.

@@ -11,6 +11,7 @@ namespace SmartFace.Cli.Core.ApiAbstraction
         Task<Camera> CreateCameraAsync(CameraRequestData cameraRequestData);
         Task<Camera> UpdateCameraAsync(Guid streamId, CameraRequestData cameraRequestData);
         Task<Camera> GetCameraAsync(Guid streamId);
+        Task DeleteCameraAsync(Guid streamId);
         Task<ICollection<Camera>> GetCamerasAsync();
     }
 }
