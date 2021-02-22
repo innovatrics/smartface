@@ -8,6 +8,7 @@ namespace SmartFace.Cli.Commands.SubCamera
     [Command(Name = "delete", Description = "Delete a camera")]
     public class DeleteCameraCmd
     {
+        [Required]
         [Option("-i|--id", "Id of camera to delete.", CommandOptionType.SingleValue)]
         public (bool HasValue, Guid Value) CameraId { get; }
 

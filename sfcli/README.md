@@ -224,8 +224,8 @@ Delete a camera.
 
 ```
 Options:
-  -i|--id  Id of camera to delete.
-  -?|-h|--help   Show help information
+  -i|--id         [Required] Id of camera to delete.
+  -?|-h|--help    Show help information
 ```
 
 ##### camera set
