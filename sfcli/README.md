@@ -163,7 +163,7 @@ sfcli watchlistmember registerFromDir -w:fingera -d:"d:\Fingera Registration Pho
 
 #### camera
 
-This command allow to create, update or view settings of a camera. Camera is domain entity which groups some data entities, workers and configs. That allows you to add live stream from IP camera and easily change processing properties.
+This command allow to create, update, delete or view settings of a camera. Camera is domain entity which groups some data entities, workers and configs. That allows you to add live stream from IP camera and easily change processing properties.
 
 NOTE: camera id is a unique identifier of a camera
 
@@ -174,6 +174,7 @@ Options:
 Commands:
   add           Create new camera
   get           Read properties of camera
+  delete        Delete a camera
   set           Edit properties of a camera
 ```
 Example (create camera):
@@ -215,6 +216,16 @@ Read properties of a camera. If `--id` option is not provided then all cameras a
 Options:
   -i|--id  Id of camera to get. If empty, all cameras will be fetched.
   -?|-h|--help   Show help information
+```
+
+##### camera delete
+
+Delete a camera.
+
+```
+Options:
+  -i|--id         [Required] Id of camera to delete.
+  -?|-h|--help    Show help information
 ```
 
 ##### camera set
