@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using SmartFace.Cli.Core.ApiAbstraction;
@@ -9,8 +10,8 @@ namespace SmartFace.Cli.Commands.SubCamera
     public class DeleteCameraCmd
     {
         [Required]
-        [Option("-i|--id", "Id of camera to delete.", CommandOptionType.SingleValue)]
-        public (bool HasValue, Guid Value) CameraId { get; }
+        [Option("-i|--id", "[Required] Id of camera to delete.", CommandOptionType.SingleValue)]
+        public Guid CameraId { get; }
 
         private ICamerasRepository Repository { get; }
 
@@ -21,14 +22,8 @@ namespace SmartFace.Cli.Commands.SubCamera
 
         protected virtual async Task OnExecuteAsync(IConsole console)
         {
-            if (!CameraId.HasValue)
-            {
-                console.WriteLine("No camera id was specified.");
-                return;
-            }
-
-            await Repository.DeleteCameraAsync(CameraId.Value);
-            console.WriteLine($"Camera with id {CameraId.Value} deleted successfully.");
+            await Repository.DeleteCameraAsync(CameraId);
+            console.WriteLine($"Camera with id {CameraId} deleted successfully.");
         }
     }
 }
