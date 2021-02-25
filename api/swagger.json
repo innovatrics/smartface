@@ -108,8 +108,8 @@
         "tags": [
           "Camera"
         ],
-        "summary": "Updates the specified camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.",
+        "summary": "Updates the specified camera. <br />",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.<br />\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.<br />\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.<br />\r\nSupported values for <code>SpoofDetectorResourceIds</code> are <code>none</code>, <code>body_parts_cpu_remote</code> and <code>external</code>. Default is <code>none</code>.<br />",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -172,8 +172,8 @@
         "tags": [
           "Camera"
         ],
-        "summary": "Creates a new camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.\r\nSupported values for <code>SpoofDetectorResourceIds</code> are <code>none</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.",
+        "summary": "Creates a new camera.<br />",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.<br />\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.<br />\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.<br />\r\nSupported values for <code>SpoofDetectorResourceIds</code> are <code>none</code>, <code>body_parts_cpu_remote</code> and <code>external</code>. Default is <code>none</code>.<br />",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -6163,7 +6163,7 @@
           "noseY",
           "objectOrderOnFrameForType",
           "objectsOnFrameCountForType",
-          "pose",
+          "poses",
           "processedAt",
           "quality",
           "shoulderLeftX",
@@ -6254,8 +6254,11 @@
             "format": "int32",
             "nullable": true
           },
-          "pose": {
-            "type": "string"
+          "poses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "earLeftX": {
             "type": "number",
