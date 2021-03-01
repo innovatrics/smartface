@@ -173,6 +173,7 @@
         <Property Name="AnkleLeftY" Type="Edm.Double" />
         <Property Name="AnkleRightX" Type="Edm.Double" />
         <Property Name="AnkleRightY" Type="Edm.Double" />
+        <Property Name="Poses" Type="Collection(Edm.String)" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CropLeftTopX" Type="Edm.Double" Nullable="false" />
