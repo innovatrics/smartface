@@ -297,7 +297,7 @@ namespace ManagementApi
             }
         }
     
-        /// <summary>Updates the specified camera.</summary>
+        /// <summary>Updates the specified camera. &lt;br /&gt;</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>Returns the newly updated camera.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -307,7 +307,7 @@ namespace ManagementApi
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Updates the specified camera.</summary>
+        /// <summary>Updates the specified camera. &lt;br /&gt;</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>Returns the newly updated camera.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -396,7 +396,7 @@ namespace ManagementApi
             }
         }
     
-        /// <summary>Creates a new camera.</summary>
+        /// <summary>Creates a new camera.&lt;br /&gt;</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>The new camera was created successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -406,7 +406,7 @@ namespace ManagementApi
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Creates a new camera.</summary>
+        /// <summary>Creates a new camera.&lt;br /&gt;</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>The new camera was created successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -10594,9 +10594,9 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("objectsOnFrameCountForType", Required = Newtonsoft.Json.Required.AllowNull)]
         public int? ObjectsOnFrameCountForType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pose", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Pose { get; set; }
+        [Newtonsoft.Json.JsonProperty("poses", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> Poses { get; set; } = new System.Collections.ObjectModel.Collection<string>();
     
         [Newtonsoft.Json.JsonProperty("earLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? EarLeftX { get; set; }

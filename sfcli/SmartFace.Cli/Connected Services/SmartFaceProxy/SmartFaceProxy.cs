@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 1/5/2021 2:26:22 PM
+// Generation date: 2/24/2021 12:56:03 PM
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -4035,6 +4035,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<double> _AnkleRightY;
         partial void OnAnkleRightYChanging(global::System.Nullable<double> value);
         partial void OnAnkleRightYChanged();
+        /// <summary>
+        /// There are no comments for Property Poses in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Poses")]
+        public virtual global::System.Collections.ObjectModel.ObservableCollection<string> Poses
+        {
+            get
+            {
+                return this._Poses;
+            }
+            set
+            {
+                this.OnPosesChanging(value);
+                this._Poses = value;
+                this.OnPosesChanged();
+                this.OnPropertyChanged("Poses");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Collections.ObjectModel.ObservableCollection<string> _Poses = new global::System.Collections.ObjectModel.ObservableCollection<string>();
+        partial void OnPosesChanging(global::System.Collections.ObjectModel.ObservableCollection<string> value);
+        partial void OnPosesChanged();
         /// <summary>
         /// There are no comments for Property ImageDataId in the schema.
         /// </summary>

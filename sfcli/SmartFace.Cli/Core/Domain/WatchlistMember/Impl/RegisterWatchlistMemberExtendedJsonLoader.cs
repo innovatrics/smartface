@@ -23,7 +23,11 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 throw new ProcessingException($"Directory does not exists {path}");
             }
 
-            var files = Directory.GetFiles(path, "*.json");
+            var files = Directory.GetFiles(path, "*.json", new EnumerationOptions
+            {
+                MatchCasing = MatchCasing.CaseInsensitive
+            });
+            
             if (files.Length == 0)
             {
                 throw new ProcessingException($"Selected directory does not contain any json file with RegisterWatchlistMemberExtended data [{path}]");

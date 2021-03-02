@@ -8,6 +8,7 @@ namespace SmartFace.Cli.Commands
     Subcommand(typeof(AddCameraCmd)),
     Subcommand(typeof(GetCameraCmd)),
     Subcommand(typeof(SetCameraCmd)),
+    Subcommand(typeof(DeleteCameraCmd))
     ]
     public class CameraCmd
     {

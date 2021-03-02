@@ -76,6 +76,11 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
             return _setupClient.CamerasGetAsync(streamId);
         }
 
+        public Task DeleteCameraAsync(Guid streamId)
+        {
+            return _setupClient.CamerasDeleteAsync(streamId);
+        }
+
         public Task<ICollection<Camera>> GetCamerasAsync()
         {
             return _setupClient.CamerasGetAsync();
