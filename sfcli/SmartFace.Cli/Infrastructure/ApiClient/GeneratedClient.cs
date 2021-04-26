@@ -297,7 +297,7 @@ namespace ManagementApi
             }
         }
     
-        /// <summary>Updates the specified camera. &lt;br /&gt;</summary>
+        /// <summary>Updates the specified camera.</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>Returns the newly updated camera.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -307,7 +307,7 @@ namespace ManagementApi
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Updates the specified camera. &lt;br /&gt;</summary>
+        /// <summary>Updates the specified camera.</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>Returns the newly updated camera.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -396,7 +396,7 @@ namespace ManagementApi
             }
         }
     
-        /// <summary>Creates a new camera.&lt;br /&gt;</summary>
+        /// <summary>Creates a new camera.</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>The new camera was created successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -406,7 +406,7 @@ namespace ManagementApi
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Creates a new camera.&lt;br /&gt;</summary>
+        /// <summary>Creates a new camera.</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>The new camera was created successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -9667,6 +9667,20 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
         public double ExternalScoreThreshold { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double DistantLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double NearbyLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string DistantLivenessConditions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string NearbyLivenessConditions { get; set; }
+    
     
     }
     
@@ -9909,6 +9923,18 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? ExternalScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? DistantLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? NearbyLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DistantLivenessConditions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NearbyLivenessConditions { get; set; }
     
     
     }
