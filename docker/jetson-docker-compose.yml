@@ -1,0 +1,269 @@
+version: '3.4'
+services:
+  sf-base:
+    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    container_name: SFBase
+    command: --serviceName SFBase
+    ports: 
+      - 2406:2406
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  sf-group:
+    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    container_name: SFGroup
+    command: --serviceName SFGroup
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  sf-cam-1:
+    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    container_name: SFCam1
+    command: --serviceName SFCam1
+    ports: 
+      - 30001:30001
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+      - GstPipelineTemplate
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  sf-cam-2:
+    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    container_name: SFCam2
+    command: --serviceName SFCam2
+    ports: 
+      - 30002:30002
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+      - GstPipelineTemplate
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  sf-cam-nx:
+    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
+    container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  api:
+    image: ${REGISTRY}sf-jetson-api:${VERSION}
+    container_name: SFApi
+    ports:
+      # we forward the configured ports to default SF ports
+      - 8098:${Hosting__Port}
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - Hosting__Host
+      - Hosting__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  odata-api:
+    image: ${REGISTRY}sf-jetson-odata-api:${VERSION}
+    container_name: SFODataApi
+    ports:
+      # we forward the configured ports to default SF ports
+      - 8099:${Hosting__Port}
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - Hosting__Host
+      - Hosting__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  detector:
+    image: ${REGISTRY}sf-jetson-detector:${VERSION}
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  pedestrian-detector:
+    image: ${REGISTRY}sf-jetson-pedestrian-detector:${VERSION}
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  extractor:
+    image: ${REGISTRY}sf-jetson-extractor:${VERSION}
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  matcher:
+    image: ${REGISTRY}sf-jetson-matcher:${VERSION}
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  liveness:
+    image: ${REGISTRY}sf-jetson-liveness:${VERSION}
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  video-aggregator:
+    image: ${REGISTRY}sf-jetson-video-aggregator:${VERSION}
+    container_name: SFVideoDataAggregator
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  video-collector:
+    image: ${REGISTRY}sf-jetson-video-collector:${VERSION}
+    container_name: SFVideoDataCollector
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+      - S3Bucket__Endpoint
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  video-reader:
+    image: ${REGISTRY}sf-jetson-video-reader:${VERSION}
+    container_name: SFVideoReader
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+networks:
+  default:
+    external:
+      name: sf-network
