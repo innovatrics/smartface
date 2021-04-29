@@ -262,6 +262,18 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
+    
+  access-controller:
+    image: ${REGISTRY}sf-access-controller:${AC_VERSION}
+    ports:
+      # we forward the configured ports to default SF ports
+      - 5050:${Hosting__Port}
+    environment:
+      - RabbitMq__HostName
+      - RabbitMq__UserName
+      - RabbitMq__Password
+      - RabbitMq__Port
+      - Kestrel__EndPoints__Http__Url=http://${Hosting__Host}:${Hosting__Port}
 
 networks:
   default:

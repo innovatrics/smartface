@@ -6,6 +6,7 @@ Any system can integrate with SmartFace by using API (OpenAPI/OData) and pub-sub
 For more information see:
 * [OpenAPI](https://innovatrics.github.io/smartface/?url=https://raw.githubusercontent.com/innovatrics/smartface/4.5/api/swagger.json) - Swagger UI
 * [sfcli](sfcli) - You can use command line based user interface to interact with the Smart Face API and receive notifications.
+* [docker](docker) - SmartFace can be easily deployed using docker containers. 
 
 # Getting Started
 1. Deploy SmartFace (ask for demo/installation https://www.innovatrics.com/face-recognition-solutions/)
