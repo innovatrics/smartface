@@ -112,7 +112,13 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                     updateData.TemplateGeneratorResourceId ?? originalCamera.TemplateGeneratorResourceId,
                 FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId,
                 PedestrianDetectorResourceId = updateData.PedestrianDetectorResourceId ?? originalCamera.PedestrianDetectorResourceId,
-                SpoofDetectorConfig = originalCamera.SpoofDetectorConfig
+                SpoofDetectorConfig = new SpoofDetectorConfigUpdateRequest {
+                    ExternalScoreThreshold = originalCamera.SpoofDetectorConfig.ExternalScoreThreshold,
+                    DistantLivenessScoreThreshold = originalCamera.SpoofDetectorConfig.DistantLivenessScoreThreshold,
+                    NearbyLivenessScoreThreshold = originalCamera.SpoofDetectorConfig.NearbyLivenessScoreThreshold,
+                    DistantLivenessConditions = originalCamera.SpoofDetectorConfig.DistantLivenessConditions,
+                    NearbyLivenessConditions = originalCamera.SpoofDetectorConfig.NearbyLivenessConditions
+                }
             };
 
             updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;
