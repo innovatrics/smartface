@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   sf-base:
-    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    image: ${REGISTRY}sf-jetson-base:${SF_VERSION}
     container_name: SFBase
     command: --serviceName SFBase
     ports: 
@@ -22,7 +22,7 @@ services:
     runtime: nvidia
 
   sf-group:
-    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    image: ${REGISTRY}sf-jetson-base:${SF_VERSION}
     container_name: SFGroup
     command: --serviceName SFGroup
     environment:
@@ -41,7 +41,7 @@ services:
     runtime: nvidia
 
   sf-cam-1:
-    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    image: ${REGISTRY}sf-jetson-base:${SF_VERSION}
     container_name: SFCam1
     command: --serviceName SFCam1
     ports: 
@@ -62,7 +62,7 @@ services:
     runtime: nvidia
 
   sf-cam-2:
-    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    image: ${REGISTRY}sf-jetson-base:${SF_VERSION}
     container_name: SFCam2
     command: --serviceName SFCam2
     ports: 
@@ -83,7 +83,7 @@ services:
     runtime: nvidia
 
   sf-cam-nx:
-    image: ${REGISTRY}sf-jetson-base:${VERSION}
+    image: ${REGISTRY}sf-jetson-base:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
@@ -102,7 +102,7 @@ services:
     runtime: nvidia
 
   api:
-    image: ${REGISTRY}sf-jetson-api:${VERSION}
+    image: ${REGISTRY}sf-jetson-api:${SF_VERSION}
     container_name: SFApi
     ports:
       # we forward the configured ports to default SF ports
@@ -125,7 +125,7 @@ services:
     runtime: nvidia
 
   odata-api:
-    image: ${REGISTRY}sf-jetson-odata-api:${VERSION}
+    image: ${REGISTRY}sf-jetson-odata-api:${SF_VERSION}
     container_name: SFODataApi
     ports:
       # we forward the configured ports to default SF ports
@@ -148,7 +148,7 @@ services:
     runtime: nvidia
 
   detector:
-    image: ${REGISTRY}sf-jetson-detector:${VERSION}
+    image: ${REGISTRY}sf-jetson-detector:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -161,7 +161,7 @@ services:
     runtime: nvidia
 
   pedestrian-detector:
-    image: ${REGISTRY}sf-jetson-pedestrian-detector:${VERSION}
+    image: ${REGISTRY}sf-jetson-pedestrian-detector:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -174,7 +174,7 @@ services:
     runtime: nvidia
 
   extractor:
-    image: ${REGISTRY}sf-jetson-extractor:${VERSION}
+    image: ${REGISTRY}sf-jetson-extractor:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -187,7 +187,7 @@ services:
     runtime: nvidia
 
   matcher:
-    image: ${REGISTRY}sf-jetson-matcher:${VERSION}
+    image: ${REGISTRY}sf-jetson-matcher:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -202,7 +202,7 @@ services:
     runtime: nvidia
 
   liveness:
-    image: ${REGISTRY}sf-jetson-liveness:${VERSION}
+    image: ${REGISTRY}sf-jetson-liveness:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -215,7 +215,7 @@ services:
     runtime: nvidia
 
   video-aggregator:
-    image: ${REGISTRY}sf-jetson-video-aggregator:${VERSION}
+    image: ${REGISTRY}sf-jetson-video-aggregator:${SF_VERSION}
     container_name: SFVideoDataAggregator
     environment:
       - RabbitMQ__Hostname
@@ -233,7 +233,7 @@ services:
     runtime: nvidia
 
   video-collector:
-    image: ${REGISTRY}sf-jetson-video-collector:${VERSION}
+    image: ${REGISTRY}sf-jetson-video-collector:${SF_VERSION}
     container_name: SFVideoDataCollector
     environment:
       - RabbitMQ__Hostname
@@ -250,7 +250,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   video-reader:
-    image: ${REGISTRY}sf-jetson-video-reader:${VERSION}
+    image: ${REGISTRY}sf-jetson-video-reader:${SF_VERSION}
     container_name: SFVideoReader
     environment:
       - RabbitMQ__Hostname

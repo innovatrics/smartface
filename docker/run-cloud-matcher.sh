@@ -22,7 +22,7 @@ sleep 10
 docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace"
 
 # load version and registry from .env
-VERSION=$(grep VERSION .env | cut -d '=' -f2)
+VERSION=$(grep SF_VERSION .env | cut -d '=' -f2)
 REGISTRY=$(grep REGISTRY .env | cut -d '=' -f2)
 
 # run database migration to current version

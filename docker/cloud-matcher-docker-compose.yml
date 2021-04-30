@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   detector:
-    image: ${REGISTRY}sf-detector:${VERSION}
+    image: ${REGISTRY}sf-detector:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -13,7 +13,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
          
   extractor:
-    image: ${REGISTRY}sf-extractor:${VERSION}
+    image: ${REGISTRY}sf-extractor:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -25,7 +25,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
   matcher:
-    image: ${REGISTRY}sf-matcher:${VERSION}
+    image: ${REGISTRY}sf-matcher:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -39,7 +39,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
   watchlist-api:
-    image: ${REGISTRY}sf-watchlist-api:${VERSION}
+    image: ${REGISTRY}sf-watchlist-api:${SF_VERSION}
     container_name: SFWatchlistApi
     ports: 
       # we forward the configured ports to default SF ports

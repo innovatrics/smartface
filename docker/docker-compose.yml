@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   sf-base:
-    image: ${REGISTRY}sf-base:${VERSION}
+    image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFBase
     command: --serviceName SFBase
     ports: 
@@ -21,7 +21,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-group:
-    image: ${REGISTRY}sf-base:${VERSION}
+    image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFGroup
     command: --serviceName SFGroup
     environment:
@@ -39,7 +39,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-1:
-    image: ${REGISTRY}sf-base:${VERSION}
+    image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFCam1
     command: --serviceName SFCam1
     ports: 
@@ -58,7 +58,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-2:
-    image: ${REGISTRY}sf-base:${VERSION}
+    image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFCam2
     command: --serviceName SFCam2
     ports: 
@@ -77,7 +77,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-3:
-    image: ${REGISTRY}sf-base:${VERSION}
+    image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFCam3
     command: --serviceName SFCam3
     ports: 
@@ -96,7 +96,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-4:
-    image: ${REGISTRY}sf-base:${VERSION}
+    image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFCam4
     command: --serviceName SFCam4
     ports: 
@@ -115,7 +115,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-5:
-    image: ${REGISTRY}sf-base:${VERSION}
+    image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFCam5
     command: --serviceName SFCam5
     ports: 
@@ -134,7 +134,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-nx:
-    image: ${REGISTRY}sf-base:${VERSION}
+    image: ${REGISTRY}sf-base:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
@@ -152,7 +152,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   api:
-    image: ${REGISTRY}sf-api:${VERSION}
+    image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
     ports:
       # we forward the configured ports to default SF ports
@@ -174,7 +174,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   odata-api:
-    image: ${REGISTRY}sf-odata-api:${VERSION}
+    image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     container_name: SFODataApi
     ports:
       # we forward the configured ports to default SF ports
@@ -196,7 +196,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   detector:
-    image: ${REGISTRY}sf-detector:${VERSION}
+    image: ${REGISTRY}sf-detector:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -208,7 +208,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   pedestrian-detector:
-    image: ${REGISTRY}sf-pedestrian-detector:${VERSION}
+    image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -220,7 +220,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   extractor:
-    image: ${REGISTRY}sf-extractor:${VERSION}
+    image: ${REGISTRY}sf-extractor:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -232,7 +232,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   matcher:
-    image: ${REGISTRY}sf-matcher:${VERSION}
+    image: ${REGISTRY}sf-matcher:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -246,7 +246,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   liveness:
-    image: ${REGISTRY}sf-liveness:${VERSION}
+    image: ${REGISTRY}sf-liveness:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -258,7 +258,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   video-aggregator:
-    image: ${REGISTRY}sf-video-aggregator:${VERSION}
+    image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
     container_name: SFVideoDataAggregator
     environment:
       - RabbitMQ__Hostname
@@ -275,7 +275,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   video-collector:
-    image: ${REGISTRY}sf-video-collector:${VERSION}
+    image: ${REGISTRY}sf-video-collector:${SF_VERSION}
     container_name: SFVideoDataCollector
     environment:
       - RabbitMQ__Hostname
@@ -292,7 +292,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   video-reader:
-    image: ${REGISTRY}sf-video-reader:${VERSION}
+    image: ${REGISTRY}sf-video-reader:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -304,7 +304,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   body-parts-detector:
-    image: ${REGISTRY}sf-body-parts-detector:${VERSION}
+    image: ${REGISTRY}sf-body-parts-detector:${SF_VERSION}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username

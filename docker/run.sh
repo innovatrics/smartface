@@ -19,7 +19,7 @@ docker-compose -f sf_dependencies/docker-compose.yml up -d
 sleep 10
 
 # load version and registry from .env
-VERSION=$(grep VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+VERSION=$(grep SF_VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 REGISTRY=$(grep REGISTRY .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 
 # we use the DB engine that will be used by SF to create and migrate the DB
