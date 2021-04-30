@@ -4979,6 +4979,8 @@
           "saveFrameImageData",
           "serviceName",
           "source",
+          "spoofDetectorConfig",
+          "spoofDetectorResourceIds",
           "templateGenerationTime",
           "templateGeneratorResourceId",
           "trackMotionOptimization"
@@ -4989,8 +4991,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "nullable": true
+            }
           },
           "id": {
             "type": "string",
@@ -5096,6 +5097,35 @@
         },
         "additionalProperties": { }
       },
+      "SpoofDetectorConfigUpdateRequest": {
+        "required": [
+          "externalScoreThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CameraUpdateRequest": {
         "required": [
           "enabled",
@@ -5196,7 +5226,7 @@
             "nullable": true
           },
           "spoofDetectorConfig": {
-            "$ref": "#/components/schemas/SpoofDetectorConfig"
+            "$ref": "#/components/schemas/SpoofDetectorConfigUpdateRequest"
           }
         },
         "additionalProperties": false
