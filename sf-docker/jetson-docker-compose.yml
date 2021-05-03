@@ -149,6 +149,7 @@ services:
 
   detector:
     image: ${REGISTRY}sf-jetson-detector:${SF_VERSION}
+    container_name: SFDetectCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -162,6 +163,7 @@ services:
 
   pedestrian-detector:
     image: ${REGISTRY}sf-jetson-pedestrian-detector:${SF_VERSION}
+    container_name: SFPedestrianDetectCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -175,6 +177,7 @@ services:
 
   extractor:
     image: ${REGISTRY}sf-jetson-extractor:${SF_VERSION}
+    container_name: SFExtractCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -188,6 +191,7 @@ services:
 
   matcher:
     image: ${REGISTRY}sf-jetson-matcher:${SF_VERSION}
+    container_name: SFWatchlistMatcher
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -203,6 +207,7 @@ services:
 
   liveness:
     image: ${REGISTRY}sf-jetson-liveness:${SF_VERSION}
+    container_name: SFLiveness
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -265,6 +270,7 @@ services:
     
   access-controller:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
+    container_name: SFAccessController
     ports:
       # we forward the configured ports to default SF ports
       - 5050:${Hosting__Port}

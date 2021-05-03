@@ -2,6 +2,7 @@ version: '3.4'
 services:
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
+    container_name: SFDetectCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -14,6 +15,7 @@ services:
          
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
+    container_name: SFExtractCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -26,6 +28,7 @@ services:
       
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
+    container_name: SFWatchlistMatcher
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username

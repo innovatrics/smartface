@@ -197,6 +197,7 @@ services:
 
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
+    container_name: SFDetectCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -209,6 +210,7 @@ services:
 
   pedestrian-detector:
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
+    container_name: SFPedestrianDetectCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -221,6 +223,7 @@ services:
 
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
+    container_name: SFExtractCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -233,6 +236,7 @@ services:
 
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
+    container_name: SFWatchlistMatcher
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -247,6 +251,7 @@ services:
 
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
+    container_name: SFLiveness
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -293,6 +298,7 @@ services:
 
   video-reader:
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
+    container_name: SFVideoReader
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -305,6 +311,7 @@ services:
 
   body-parts-detector:
     image: ${REGISTRY}sf-body-parts-detector:${SF_VERSION}
+    container_name: SFBodyPartsDetectCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -317,6 +324,7 @@ services:
 
   access-controller:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
+    container_name: SFAccessController
     ports:
       # we forward the configured ports to default SF ports
       - 5050:${Hosting__Port}

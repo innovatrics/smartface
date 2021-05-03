@@ -5,7 +5,7 @@ SmartFace docker images provide an easy way of deploying and scaling SmartFace w
 Before deploying SF, you will need:
 - Docker
 - docker-compose
-- Login to container registry `docker login registry.gitlab.com -u <username> -p <password>`. The credentials are available in our CRM portal.
+- Login to container registry `docker login registry.gitlab.com -u <username> -p <password>`. The credentials are available in our [CRM portal](https://crm.innovatrics.com/).
 - Copy the license file `iengine.lic` to the root of this directory. Since these are docker images, the license needs to be universal (not be bound to specific HWID).
 
 To get up and running as fast as possible, multiple run scripts are available for different platforms.
