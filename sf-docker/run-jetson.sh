@@ -19,8 +19,8 @@ docker-compose -f sf_dependencies/docker-compose.yml up -d
 sleep 10
 
 # load version and registry from .env
-VERSION=$(grep SF_VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-REGISTRY=$(grep REGISTRY .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+VERSION=$(grep -E ^JETSON_VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+REGISTRY=$(grep -E ^REGISTRY .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 
 echo $VERSION
 echo $REGISTRY
