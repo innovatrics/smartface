@@ -9807,10 +9807,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
         public double ExternalScoreThreshold { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? DistantLivenessScoreThreshold { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? NearbyLivenessScoreThreshold { get; set; }
     
         [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

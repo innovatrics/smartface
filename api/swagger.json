@@ -5108,11 +5108,13 @@
           },
           "distantLivenessScoreThreshold": {
             "type": "number",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "nearbyLivenessScoreThreshold": {
             "type": "number",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "distantLivenessConditions": {
             "type": "string",
