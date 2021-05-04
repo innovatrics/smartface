@@ -31,12 +31,12 @@ echo $REGISTRY
 
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
-    docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace"
+    docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace" || true
     # run database migration to current version
     docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=mssql;Database=SmartFace;User ID=sa;Password=Test1234;" -dbe $DB_ENGINE
 elif [[ "$DB_ENGINE" == "PgSql" ]]; then
     # create SmartFace database in PgSql
-    docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface"
+    docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
     # run database migration to current version
     docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Pooling=False;Trust Server Certificate=true;" -dbe $DB_ENGINE
 else 
