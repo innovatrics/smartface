@@ -11,7 +11,7 @@ Before deploying SF, you will need:
 To get up and running as fast as possible, multiple run scripts are available for different platforms.
 The run scripts contain comments which should clarify the steps needed to start everything:
 - `run.sh` - to run full SF platform on x64
-- `run-jetson.sh` - to run SF platform on Nvidia Jetson devices
+- `run-jetson.sh` - to run SF platform on Nvidia Jetson devices. Note that only PgSQL database is available on arm architecture, so modify `.env` file accordingly
 - `run-cloud-matcher.sh` - to run cloud matcher
 
 # Production use
