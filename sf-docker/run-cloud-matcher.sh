@@ -19,7 +19,7 @@ docker-compose -f sf_dependencies/docker-compose.yml up -d
 sleep 10
 
 # create SmartFace database in MsSql
-docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace"
+docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace" || true
 
 # load version and registry from .env
 VERSION=$(grep -E ^SF_VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)

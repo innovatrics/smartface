@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.7.0.0"
+    "version": "4.8.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -108,8 +108,8 @@
         "tags": [
           "Camera"
         ],
-        "summary": "Updates the specified camera. <br />",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.<br />\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.<br />\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.<br />\r\nSupported values for <code>SpoofDetectorResourceIds</code> are <code>none</code>, <code>body_parts_cpu_remote</code> and <code>external</code>. Default is <code>none</code>.<br />",
+        "summary": "Updates the specified camera.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.<br />\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.<br />\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.<br />\r\nSupported values for <code>SpoofDetectorResourceIds</code> are <code>none</code>, <code>body_parts_cpu_remote</code>, <code>liveness_distant_cpu_remote</code>, <code>liveness_distant_gpu_remote</code>, <code>liveness_nearby_cpu_remote</code>, <code>liveness_nearby_gpu_remote</code> and <code>external</code>. Default is <code>none</code>.<br />",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -172,8 +172,8 @@
         "tags": [
           "Camera"
         ],
-        "summary": "Creates a new camera.<br />",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.<br />\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.<br />\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.<br />\r\nSupported values for <code>SpoofDetectorResourceIds</code> are <code>none</code>, <code>body_parts_cpu_remote</code> and <code>external</code>. Default is <code>none</code>.<br />",
+        "summary": "Creates a new camera.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>,\r\nfor remote detection <code>cpu_remote</code> and <code>gpu_remote</code>\r\nand <code>none</code> when face detection should be disabled and only object detection should work.\r\nDefault is <code>cpu</code>.<br />\r\nSupported values for <code>TemplateGeneratorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.<br />\r\nSupported values for <code>PedestrianDetectorResourceId</code> are <code>none</code>, <code>cpu_remote</code>, <code>gpu_remote</code> and <code>body_parts_cpu_remote</code>. Default is <code>none</code>.<br />\r\nSupported values for <code>SpoofDetectorResourceIds</code> are <code>none</code>, <code>body_parts_cpu_remote</code>, <code>liveness_distant_cpu_remote</code>, <code>liveness_distant_gpu_remote</code>, <code>liveness_nearby_cpu_remote</code>, <code>liveness_nearby_gpu_remote</code> and <code>external</code>. Default is <code>none</code>.<br />",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -4930,13 +4930,31 @@
       },
       "SpoofDetectorConfig": {
         "required": [
-          "externalScoreThreshold"
+          "distantLivenessConditions",
+          "distantLivenessScoreThreshold",
+          "externalScoreThreshold",
+          "nearbyLivenessConditions",
+          "nearbyLivenessScoreThreshold"
         ],
         "type": "object",
         "properties": {
           "externalScoreThreshold": {
             "type": "number",
             "format": "double"
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessConditions": {
+            "type": "string"
+          },
+          "nearbyLivenessConditions": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -4961,6 +4979,8 @@
           "saveFrameImageData",
           "serviceName",
           "source",
+          "spoofDetectorConfig",
+          "spoofDetectorResourceIds",
           "templateGenerationTime",
           "templateGeneratorResourceId",
           "trackMotionOptimization"
@@ -4971,8 +4991,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "nullable": true
+            }
           },
           "id": {
             "type": "string",
@@ -5078,6 +5097,37 @@
         },
         "additionalProperties": { }
       },
+      "SpoofDetectorConfigUpdateRequest": {
+        "required": [
+          "externalScoreThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CameraUpdateRequest": {
         "required": [
           "enabled",
@@ -5178,7 +5228,7 @@
             "nullable": true
           },
           "spoofDetectorConfig": {
-            "$ref": "#/components/schemas/SpoofDetectorConfig"
+            "$ref": "#/components/schemas/SpoofDetectorConfigUpdateRequest"
           }
         },
         "additionalProperties": false
@@ -5241,6 +5291,24 @@
           "externalScoreThreshold": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
             "nullable": true
           }
         },

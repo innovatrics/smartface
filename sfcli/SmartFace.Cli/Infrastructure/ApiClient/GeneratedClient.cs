@@ -297,7 +297,7 @@ namespace ManagementApi
             }
         }
     
-        /// <summary>Updates the specified camera. &lt;br /&gt;</summary>
+        /// <summary>Updates the specified camera.</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>Returns the newly updated camera.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -307,7 +307,7 @@ namespace ManagementApi
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Updates the specified camera. &lt;br /&gt;</summary>
+        /// <summary>Updates the specified camera.</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>Returns the newly updated camera.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -396,7 +396,7 @@ namespace ManagementApi
             }
         }
     
-        /// <summary>Creates a new camera.&lt;br /&gt;</summary>
+        /// <summary>Creates a new camera.</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>The new camera was created successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -406,7 +406,7 @@ namespace ManagementApi
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Creates a new camera.&lt;br /&gt;</summary>
+        /// <summary>Creates a new camera.</summary>
         /// <param name="body">New camera configuration.</param>
         /// <returns>The new camera was created successfully.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -9667,14 +9667,29 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
         public double ExternalScoreThreshold { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double DistantLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double NearbyLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string DistantLivenessConditions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string NearbyLivenessConditions { get; set; }
+    
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Camera 
     {
-        [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; } = new System.Collections.ObjectModel.Collection<string>();
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -9751,8 +9766,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string ServiceName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SpoofDetectorConfig SpoofDetectorConfig { get; set; }
+        [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public SpoofDetectorConfig SpoofDetectorConfig { get; set; } = new SpoofDetectorConfig();
     
     
     }
@@ -9783,6 +9799,27 @@ namespace ManagementApi
             get { return _additionalProperties; }
             set { _additionalProperties = value; }
         }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SpoofDetectorConfigUpdateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double ExternalScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? DistantLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? NearbyLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DistantLivenessConditions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NearbyLivenessConditions { get; set; }
     
     
     }
@@ -9863,7 +9900,7 @@ namespace ManagementApi
         public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SpoofDetectorConfig SpoofDetectorConfig { get; set; }
+        public SpoofDetectorConfigUpdateRequest SpoofDetectorConfig { get; set; }
     
     
     }
@@ -9909,6 +9946,18 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? ExternalScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? DistantLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? NearbyLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DistantLivenessConditions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NearbyLivenessConditions { get; set; }
     
     
     }
