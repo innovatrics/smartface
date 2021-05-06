@@ -329,11 +329,11 @@ services:
       # we forward the configured ports to default SF ports
       - 5050:${Hosting__Port}
     environment:
-      - RabbitMq__HostName
-      - RabbitMq__UserName
-      - RabbitMq__Password
-      - RabbitMq__Port
-      - Kestrel__EndPoints__Http__Url=http://${Hosting__Host}:${Hosting__Port}
+      - RabbitMq__HostName=${RabbitMQ__Hostname}
+      - RabbitMq__UserName=${RabbitMQ__Username}
+      - RabbitMq__Password=${RabbitMQ__Password}
+      - RabbitMq__Port=${RabbitMQ__Port}
+      - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
 
   # Add smartface station when dockerized
 networks:
