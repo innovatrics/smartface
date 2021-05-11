@@ -147,7 +147,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
 
-  detector:
+  detector-cpu:
     image: ${REGISTRY}sf-jetson-detector:${JETSON_VERSION}
     container_name: SFDetectCpu
     environment:
@@ -161,7 +161,23 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
 
-  pedestrian-detector:
+  detector-gpu:
+    image: ${REGISTRY}sf-jetson-detector:${JETSON_VERSION}
+    container_name: SFDetectGpu
+    command: --gpu=true
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+      - Gpu__GpuEnabled=true
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  pedestrian-detector-cpu:
     image: ${REGISTRY}sf-jetson-pedestrian-detector:${JETSON_VERSION}
     container_name: SFPedestrianDetectCpu
     environment:
@@ -175,7 +191,23 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
 
-  extractor:
+  pedestrian-detector-gpu:
+    image: ${REGISTRY}sf-jetson-pedestrian-detector:${JETSON_VERSION}
+    container_name: SFPedestrianDetectGpu
+    command: --gpu=true
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+      - Gpu__GpuEnabled=true
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  extractor-cpu:
     image: ${REGISTRY}sf-jetson-extractor:${JETSON_VERSION}
     container_name: SFExtractCpu
     environment:
@@ -185,6 +217,22 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  extractor-gpu:
+    image: ${REGISTRY}sf-jetson-extractor:${JETSON_VERSION}
+    container_name: SFExtractGpu
+    command: --gpu=true
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+      - Gpu__GpuEnabled=true
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -205,9 +253,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
 
-  liveness:
+  liveness-cpu:
     image: ${REGISTRY}sf-jetson-liveness:${JETSON_VERSION}
-    container_name: SFLiveness
+    container_name: SFLivenessCpu
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -215,6 +263,22 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  liveness-gpu:
+    image: ${REGISTRY}sf-jetson-liveness:${JETSON_VERSION}
+    container_name: SFLivenessGpu
+    command: --gpu=true
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+      - Gpu__GpuEnabled=true
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
