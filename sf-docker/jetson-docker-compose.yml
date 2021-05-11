@@ -164,6 +164,7 @@ services:
   detector-gpu:
     image: ${REGISTRY}sf-jetson-detector:${JETSON_VERSION}
     container_name: SFDetectGpu
+    command: --gpu=true
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -193,6 +194,7 @@ services:
   pedestrian-detector-gpu:
     image: ${REGISTRY}sf-jetson-pedestrian-detector:${JETSON_VERSION}
     container_name: SFPedestrianDetectGpu
+    command: --gpu=true
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -222,6 +224,7 @@ services:
   extractor-gpu:
     image: ${REGISTRY}sf-jetson-extractor:${JETSON_VERSION}
     container_name: SFExtractGpu
+    command: --gpu=true
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -267,6 +270,7 @@ services:
   liveness-gpu:
     image: ${REGISTRY}sf-jetson-liveness:${JETSON_VERSION}
     container_name: SFLivenessGpu
+    command: --gpu=true
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
