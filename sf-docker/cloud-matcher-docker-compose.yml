@@ -9,7 +9,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
          
@@ -22,7 +21,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
@@ -37,7 +35,6 @@ services:
       - Database__DbEngine
       - ConnectionStrings__CoreDbContext
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
@@ -58,7 +55,6 @@ services:
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
