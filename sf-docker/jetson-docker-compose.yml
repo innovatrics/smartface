@@ -15,7 +15,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -34,7 +33,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -55,7 +53,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
       - GstPipelineTemplate
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -76,7 +73,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
       - GstPipelineTemplate
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -96,7 +92,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -118,7 +113,6 @@ services:
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -141,7 +135,6 @@ services:
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -156,7 +149,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -171,7 +163,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
       - Gpu__GpuEnabled=true
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -186,7 +177,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -201,7 +191,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
       - Gpu__GpuEnabled=true
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -216,7 +205,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -231,7 +219,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
       - Gpu__GpuEnabled=true
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -248,7 +235,6 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -262,7 +248,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -277,7 +262,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
       - Gpu__GpuEnabled=true
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -295,7 +279,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -313,7 +296,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-      - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -327,7 +309,6 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
