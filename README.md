@@ -4,18 +4,19 @@ SmartFace is a high-performance, scalable, face recognition server platform able
 Any system can integrate with SmartFace by using API (OpenAPI/OData) and pub-sub notifications (ZeroMQ).
 
 For more information see:
-* [OpenAPI](https://innovatrics.github.io/smartface/?url=https://raw.githubusercontent.com/innovatrics/smartface/4.5/api/swagger.json) - Swagger UI
+* [OpenAPI](https://innovatrics.github.io/smartface/?url=https://raw.githubusercontent.com/innovatrics/smartface/4.8/api/swagger.json) - Swagger UI
 * [sfcli](sfcli) - You can use command line based user interface to interact with the Smart Face API and receive notifications.
+* [docker](sf-docker) - SmartFace can be easily deployed using docker containers. 
 
 # Getting Started
 1. Deploy SmartFace (ask for demo/installation https://www.innovatrics.com/face-recognition-solutions/)
 
 2. Start video face recognition using following CLI command (or use GUI)
 ```
-$ sfcli --host localhost camera add -s:c:\temp\wafs.mp4 -e:true
+$ sfcli camera add -s:c:\temp\wafs.mp4 -e:true
 ```
 
 3. Recognized faces - receive notifications using following CLI command (or use GUI)
 ```
-$ sfcli --host localhost notifications -t:faces.insert
+$ sfcli --zero-mq-host localhost notifications -t:faces.insert
 ```

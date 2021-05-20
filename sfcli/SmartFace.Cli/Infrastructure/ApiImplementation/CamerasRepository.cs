@@ -52,7 +52,9 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 {
                     MaxPedestrianSize = cameraRequestData.MaxPedestrianSize,
                     MinPedestrianSize = cameraRequestData.MinPedestrianSize
-                }
+                },
+
+                SpoofDetectorResourceIds = cameraRequestData.SpoofDetectorResourceIds
             };
 
             var newCamera = await _setupClient.CamerasPostAsync(newCameraPayload);
@@ -72,6 +74,11 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
         public Task<Camera> GetCameraAsync(Guid streamId)
         {
             return _setupClient.CamerasGetAsync(streamId);
+        }
+
+        public Task DeleteCameraAsync(Guid streamId)
+        {
+            return _setupClient.CamerasDeleteAsync(streamId);
         }
 
         public Task<ICollection<Camera>> GetCamerasAsync()
@@ -104,14 +111,23 @@ namespace SmartFace.Cli.Infrastructure.ApiImplementation
                 TemplateGeneratorResourceId =
                     updateData.TemplateGeneratorResourceId ?? originalCamera.TemplateGeneratorResourceId,
                 FaceDetectorResourceId = updateData.FaceDetectorResourceId ?? originalCamera.FaceDetectorResourceId,
-                PedestrianDetectorResourceId = updateData.PedestrianDetectorResourceId ?? originalCamera.PedestrianDetectorResourceId
+                PedestrianDetectorResourceId = updateData.PedestrianDetectorResourceId ?? originalCamera.PedestrianDetectorResourceId,
+                SpoofDetectorConfig = new SpoofDetectorConfigUpdateRequest {
+                    ExternalScoreThreshold = originalCamera.SpoofDetectorConfig.ExternalScoreThreshold,
+                    DistantLivenessScoreThreshold = originalCamera.SpoofDetectorConfig.DistantLivenessScoreThreshold,
+                    NearbyLivenessScoreThreshold = originalCamera.SpoofDetectorConfig.NearbyLivenessScoreThreshold,
+                    DistantLivenessConditions = originalCamera.SpoofDetectorConfig.DistantLivenessConditions,
+                    NearbyLivenessConditions = originalCamera.SpoofDetectorConfig.NearbyLivenessConditions
+                }
             };
 
             updatedCamera.FaceDetectorConfig.MaxFaceSize = updateData.TrackMaxFaceSize ?? originalCamera.FaceDetectorConfig.MaxFaceSize;
             updatedCamera.FaceDetectorConfig.MinFaceSize = updateData.TrackMinFaceSize ?? originalCamera.FaceDetectorConfig.MinFaceSize;
-            
+
             updatedCamera.PedestrianDetectorConfig.MaxPedestrianSize = updateData.MaxPedestrianSize ?? originalCamera.PedestrianDetectorConfig.MaxPedestrianSize;
             updatedCamera.PedestrianDetectorConfig.MinPedestrianSize = updateData.MinPedestrianSize ?? originalCamera.PedestrianDetectorConfig.MinPedestrianSize;
+
+            updatedCamera.SpoofDetectorResourceIds = updateData.SpoofDetectorResourceIds ?? originalCamera.SpoofDetectorResourceIds;
 
             return updatedCamera;
         }

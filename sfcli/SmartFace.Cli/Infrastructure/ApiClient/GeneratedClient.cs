@@ -9140,6 +9140,26 @@ namespace ManagementApi
                             throw new ApiException<ProblemDetails>("Request has timed out.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                         else
+                        if (status_ == 409)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ProblemDetails>("There was a conflict during the registration of the watchlist member.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 429)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ProblemDetails>("Too many requests.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
@@ -9356,6 +9376,16 @@ namespace ManagementApi
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
                             throw new ApiException<ProblemDetails>("Request has timed out.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        if (status_ == 409)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ProblemDetails>(response_, headers_).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ProblemDetails>("There was a conflict adding the new face to the watchlist member.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                         else
                         {
@@ -9632,8 +9662,35 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SpoofDetectorConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double ExternalScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double DistantLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double NearbyLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string DistantLivenessConditions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string NearbyLivenessConditions { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Camera 
     {
+        [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; } = new System.Collections.ObjectModel.Collection<string>();
+    
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.Guid Id { get; set; }
@@ -9709,6 +9766,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string ServiceName { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public SpoofDetectorConfig SpoofDetectorConfig { get; set; } = new SpoofDetectorConfig();
+    
     
     }
     
@@ -9738,6 +9799,27 @@ namespace ManagementApi
             get { return _additionalProperties; }
             set { _additionalProperties = value; }
         }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SpoofDetectorConfigUpdateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double ExternalScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? DistantLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? NearbyLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DistantLivenessConditions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NearbyLivenessConditions { get; set; }
     
     
     }
@@ -9814,6 +9896,12 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("previewMaxDimension", Required = Newtonsoft.Json.Required.Always)]
         public int PreviewMaxDimension { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SpoofDetectorConfigUpdateRequest SpoofDetectorConfig { get; set; }
+    
     
     }
     
@@ -9849,6 +9937,27 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? ConfidenceThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class SpoofDetectorConfigCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? ExternalScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? DistantLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? NearbyLivenessScoreThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DistantLivenessConditions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NearbyLivenessConditions { get; set; }
     
     
     }
@@ -9918,6 +10027,12 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("spoofDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SpoofDetectorConfigCreateRequest SpoofDetectorConfig { get; set; }
     
     
     }
@@ -10198,6 +10313,9 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("rollAngle", Required = Newtonsoft.Json.Required.AllowNull)]
         public double? RollAngle { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("autolearnClusterType", Required = Newtonsoft.Json.Required.AllowNull)]
+        public string AutolearnClusterType { get; set; }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -10525,6 +10643,118 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("objectsOnFrameCountForType", Required = Newtonsoft.Json.Required.AllowNull)]
         public int? ObjectsOnFrameCountForType { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("poses", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> Poses { get; set; } = new System.Collections.ObjectModel.Collection<string>();
+    
+        [Newtonsoft.Json.JsonProperty("earLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EarLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("earLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EarLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("earRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EarRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("earRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EarRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("eyeLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EyeLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("eyeLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EyeLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("eyeRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EyeRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("eyeRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? EyeRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noseX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NoseX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noseY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NoseY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("neckX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NeckX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("neckY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? NeckY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shoulderLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ShoulderLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shoulderLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ShoulderLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shoulderRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ShoulderRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shoulderRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ShoulderRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elbowLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ElbowLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elbowLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ElbowLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elbowRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ElbowRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elbowRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? ElbowRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("wristLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? WristLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("wristLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? WristLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("wristRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? WristRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("wristRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? WristRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hipLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? HipLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hipLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? HipLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hipRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? HipRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hipRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? HipRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("kneeLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? KneeLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("kneeLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? KneeLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("kneeRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? KneeRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("kneeRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? KneeRightY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ankleLeftX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AnkleLeftX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ankleLeftY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AnkleLeftY { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ankleRightX", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AnkleRightX { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ankleRightY", Required = Newtonsoft.Json.Required.AllowNull)]
+        public double? AnkleRightY { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.Guid Id { get; set; }
@@ -10825,11 +11055,20 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("executionStartTime", Required = Newtonsoft.Json.Required.AllowNull)]
         public string ExecutionStartTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("maxAutoLearnFacesCount", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxAutoLearnFacesCount { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("selectionThreshold", Required = Newtonsoft.Json.Required.Always)]
         public int SelectionThreshold { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxAutoLearnFacesCount", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxAutoLearnFacesCount { get; set; }
+        [Newtonsoft.Json.JsonProperty("maskedSelectionThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaskedSelectionThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noFaceMaskConfidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? NoFaceMaskConfidenceThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskConfidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? FaceMaskConfidenceThreshold { get; set; }
     
     
     }
@@ -11333,6 +11572,19 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class RegistrationImageData 
+    {
+        [Newtonsoft.Json.JsonProperty("faceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid? FaceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public byte[] Data { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class RegisterWatchlistMemberRequest 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
@@ -11342,7 +11594,7 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("images", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<ImageData> Images { get; set; } = new System.Collections.ObjectModel.Collection<ImageData>();
+        public System.Collections.Generic.ICollection<RegistrationImageData> Images { get; set; } = new System.Collections.ObjectModel.Collection<RegistrationImageData>();
     
         [Newtonsoft.Json.JsonProperty("watchlistIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -11413,7 +11665,7 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("imageData", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public ImageData ImageData { get; set; } = new ImageData();
+        public RegistrationImageData ImageData { get; set; } = new RegistrationImageData();
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfig FaceDetectorConfig { get; set; }
