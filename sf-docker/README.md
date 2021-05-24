@@ -14,5 +14,14 @@ The run scripts contain comments which should clarify the steps needed to start 
 - `run-jetson.sh` - to run SF platform on Nvidia Jetson devices. Note that only PgSQL database is available on arm architecture, so modify `.env` file accordingly
 - `run-cloud-matcher.sh` - to run cloud matcher
 
+# GPU acceleration
+Some services could benefit from GPU acceleration, which could be enabled in docker compose file. 
+
+To use GPU for hw decoding and face detection uncomment `runtime: nvidia` in `docker-compose.yml` for camera services `sf-cam-*`. 
+
+Other services which could use GPU needs also uncomment environment variable `Gpu__GpuEnabled=true`. This is necessary for extractor, detector, pedestrian-detector, liveness.
+
+Please note that GPU acceleration is supported only NVIDIA GPU.
+
 # Production use
 The provided docker-compose files are used to demonstrate configuration steps needed to wire everything up and are not fit for production use. The images can be used with any other orchestration engine. Also note that not all services are needed for every use case, e.g the `video-*` services are used for offline video processing, so if offline video processing is not to be used they can be disabled (commented-out).
