@@ -324,8 +324,6 @@ services:
       - 80:80
     env_file: .env.sfstation
     environment:
-      # for now we disable keycloak-integration
-      DISABLE_AUTHENTICATION: 'true'
       HOST: 0.0.0.0
       PORT: 80
 
