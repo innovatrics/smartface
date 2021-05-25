@@ -15,7 +15,7 @@ The run scripts contain comments which should clarify the steps needed to start 
 - `run-cloud-matcher.sh` - to run cloud matcher
 
 # GPU acceleration
-Some services could benefit from GPU acceleration, which could be enabled in docker compose file, but also some prerequisites needs to  be met on host machine.
+Some services can benefit from GPU acceleration, which can be enabled in docker compose file, but also some prerequisites needs to  be met on host machine.
 
 Please note that GPU acceleration is supported only on NVIDIA GPU.
 
