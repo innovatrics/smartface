@@ -6966,7 +6966,7 @@
         },
         "additionalProperties": false
       },
-      "FeaturesConfig": {
+      "FaceFeaturesConfig": {
         "required": [
           "age",
           "faceMask",
@@ -6998,6 +6998,18 @@
           },
           "rollAngle": {
             "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FeaturesConfig": {
+        "required": [
+          "faceFeaturesConfig"
+        ],
+        "type": "object",
+        "properties": {
+          "faceFeaturesConfig": {
+            "$ref": "#/components/schemas/FaceFeaturesConfig"
           }
         },
         "additionalProperties": false

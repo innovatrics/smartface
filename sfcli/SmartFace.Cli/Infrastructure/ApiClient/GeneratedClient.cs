@@ -11240,7 +11240,7 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class FeaturesConfig 
+    public partial class FaceFeaturesConfig 
     {
         [Newtonsoft.Json.JsonProperty("age", Required = Newtonsoft.Json.Required.Always)]
         public bool Age { get; set; }
@@ -11262,6 +11262,16 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("rollAngle", Required = Newtonsoft.Json.Required.Always)]
         public bool RollAngle { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FeaturesConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("faceFeaturesConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public FaceFeaturesConfig FaceFeaturesConfig { get; set; } = new FaceFeaturesConfig();
     
     
     }
