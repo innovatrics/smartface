@@ -29,7 +29,7 @@
       <PackageReference Include="Microsoft.Spatial" Version="7.6.4" />
       <PackageReference Include="NetMQ" Version="4.0.1.6" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-      <PackageReference Include="System.Linq.Dynamic.Core" Version="1.1.0" />
+      <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.10" />
     </ItemGroup>
 
     <ItemGroup>
