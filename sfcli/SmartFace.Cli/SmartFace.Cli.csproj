@@ -23,10 +23,10 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
       <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
       <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
-      <PackageReference Include="Microsoft.OData.Client" Version="7.6.4" />
-      <PackageReference Include="Microsoft.OData.Core" Version="7.6.4" />
-      <PackageReference Include="Microsoft.OData.Edm" Version="7.6.4" />
-      <PackageReference Include="Microsoft.Spatial" Version="7.6.4" />
+      <PackageReference Include="Microsoft.OData.Client" Version="7.9.0" />
+      <PackageReference Include="Microsoft.OData.Core" Version="7.9.0" />
+      <PackageReference Include="Microsoft.OData.Edm" Version="7.9.0" />
+      <PackageReference Include="Microsoft.Spatial" Version="7.9.0" />
       <PackageReference Include="NetMQ" Version="4.0.1.6" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
       <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.10" />
