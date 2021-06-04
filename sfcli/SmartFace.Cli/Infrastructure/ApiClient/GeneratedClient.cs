@@ -11613,6 +11613,15 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FaceMaskConfidenceConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("faceMaskThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public double FaceMaskThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.2.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SearchInWatchlistRequest 
     {
         [Newtonsoft.Json.JsonProperty("image", Required = Newtonsoft.Json.Required.Always)]
@@ -11636,6 +11645,12 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateGeneratorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceMaskConfidenceConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FaceMaskConfidenceConfig FaceMaskConfidenceConfig { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceFeaturesConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FaceFeaturesConfig FaceFeaturesConfig { get; set; }
     
     
     }

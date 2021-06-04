@@ -7466,6 +7466,19 @@
         },
         "additionalProperties": false
       },
+      "FaceMaskConfidenceConfig": {
+        "required": [
+          "faceMaskThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "faceMaskThreshold": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "SearchInWatchlistRequest": {
         "required": [
           "image"
@@ -7500,6 +7513,12 @@
           },
           "templateGeneratorResourceId": {
             "type": "string"
+          },
+          "faceMaskConfidenceConfig": {
+            "$ref": "#/components/schemas/FaceMaskConfidenceConfig"
+          },
+          "faceFeaturesConfig": {
+            "$ref": "#/components/schemas/FaceFeaturesConfig"
           }
         },
         "additionalProperties": false
