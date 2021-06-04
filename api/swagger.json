@@ -7466,7 +7466,7 @@
         },
         "additionalProperties": false
       },
-      "FaceMaskConfidenceConfig": {
+      "FaceMaskConfidenceRequest": {
         "required": [
           "faceMaskThreshold"
         ],
@@ -7514,8 +7514,8 @@
           "templateGeneratorResourceId": {
             "type": "string"
           },
-          "faceMaskConfidenceConfig": {
-            "$ref": "#/components/schemas/FaceMaskConfidenceConfig"
+          "faceMaskConfidenceRequest": {
+            "$ref": "#/components/schemas/FaceMaskConfidenceRequest"
           },
           "faceFeaturesConfig": {
             "$ref": "#/components/schemas/FaceFeaturesConfig"
