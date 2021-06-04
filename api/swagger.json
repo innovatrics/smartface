@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.8.0.0"
+    "version": "4.9.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -2891,6 +2891,109 @@
           },
           "404": {
             "description": "Database cleanup config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Setup/Features": {
+      "get": {
+        "tags": [
+          "SetupFeatures"
+        ],
+        "summary": "Retrieves current features config.",
+        "responses": {
+          "200": {
+            "description": "Features config was returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeaturesConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Features config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "SetupFeatures"
+        ],
+        "summary": "Updates the features config with specified values.",
+        "requestBody": {
+          "description": "The new features configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeaturesConfig"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeaturesConfig"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeaturesConfig"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeaturesConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Features config was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeaturesConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Features config was not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -6863,6 +6966,54 @@
         },
         "additionalProperties": false
       },
+      "FaceFeaturesConfig": {
+        "required": [
+          "age",
+          "faceMask",
+          "gender",
+          "noseTip",
+          "pitchAngle",
+          "rollAngle",
+          "yawAngle"
+        ],
+        "type": "object",
+        "properties": {
+          "age": {
+            "type": "boolean"
+          },
+          "gender": {
+            "type": "boolean"
+          },
+          "faceMask": {
+            "type": "boolean"
+          },
+          "noseTip": {
+            "type": "boolean"
+          },
+          "yawAngle": {
+            "type": "boolean"
+          },
+          "pitchAngle": {
+            "type": "boolean"
+          },
+          "rollAngle": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FeaturesConfig": {
+        "required": [
+          "faceFeaturesConfig"
+        ],
+        "type": "object",
+        "properties": {
+          "faceFeaturesConfig": {
+            "$ref": "#/components/schemas/FaceFeaturesConfig"
+          }
+        },
+        "additionalProperties": false
+      },
       "WatchlistAutoLearnConfig": {
         "required": [
           "enabled",
@@ -7315,6 +7466,19 @@
         },
         "additionalProperties": false
       },
+      "FaceMaskConfidenceRequest": {
+        "required": [
+          "faceMaskThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "faceMaskThreshold": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "SearchInWatchlistRequest": {
         "required": [
           "image"
@@ -7349,6 +7513,12 @@
           },
           "templateGeneratorResourceId": {
             "type": "string"
+          },
+          "faceMaskConfidenceRequest": {
+            "$ref": "#/components/schemas/FaceMaskConfidenceRequest"
+          },
+          "faceFeaturesConfig": {
+            "$ref": "#/components/schemas/FaceFeaturesConfig"
           }
         },
         "additionalProperties": false
