@@ -24,7 +24,7 @@ To use GPU acceleration, you will need following on the docker host machine:
 - Nvidia driver of version >= 418.39
 - Nvidia container toolkit https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker
 
-To use GPU for hw decoding and face detection for cameras uncomment `runtime: nvidia` in `docker-compose.yml` for camera services `sf-cam-*`. 
+To use GPU for hw decoding and face detection for cameras uncomment `runtime: nvidia` and `GstPipelineTemplate` in `docker-compose.yml` for camera services `sf-cam-*`. 
 When using the nvidia docker runtime SmartFace camera processes need gstreamer pipelines for camera sources.
 
 Other services which could use GPU needs also uncomment environment variable `Gpu__GpuEnabled=true`. This is necessary for extractor, detector, pedestrian-detector and liveness service.

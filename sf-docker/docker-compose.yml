@@ -51,6 +51,7 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
+    # - GstPipelineTemplate
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     #runtime: nvidia
@@ -70,6 +71,7 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
+    # - GstPipelineTemplate
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     #runtime: nvidia
@@ -89,6 +91,7 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
+    # - GstPipelineTemplate
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     #runtime: nvidia
@@ -108,6 +111,7 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
+    # - GstPipelineTemplate
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     #runtime: nvidia
@@ -127,6 +131,7 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
+    # - GstPipelineTemplate
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     #runtime: nvidia
