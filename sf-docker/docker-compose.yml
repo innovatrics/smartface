@@ -335,7 +335,17 @@ services:
       - RabbitMq__Port=${RabbitMQ__Port}
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
 
-  # Add smartface station when dockerized
+  sf-station:
+    image: ${REGISTRY}sf-station:${SFS_VERSION}
+    container_name: SFStation
+    restart: unless-stopped
+    ports:
+      - 80:80
+    env_file: .env.sfstation
+    environment:
+      HOST: 0.0.0.0
+      PORT: 80
+
 networks:
   default:
     external:
