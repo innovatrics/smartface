@@ -11843,11 +11843,11 @@ namespace ManagementApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class VideoRecordMatchingConfigUpdateRequest 
     {
-        [Newtonsoft.Json.JsonProperty("matchDetectedFaces", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? MatchDetectedFaces { get; set; }
+        [Newtonsoft.Json.JsonProperty("matchDetectedFaces", Required = Newtonsoft.Json.Required.Always)]
+        public bool MatchDetectedFaces { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxResultsCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxResultsCount { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxResultsCount", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxResultsCount { get; set; }
     
     
     }

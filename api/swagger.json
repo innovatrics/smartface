@@ -7422,16 +7422,18 @@
         "additionalProperties": false
       },
       "VideoRecordMatchingConfigUpdateRequest": {
+        "required": [
+          "matchDetectedFaces",
+          "maxResultsCount"
+        ],
         "type": "object",
         "properties": {
           "matchDetectedFaces": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           },
           "maxResultsCount": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           }
         },
         "additionalProperties": false
