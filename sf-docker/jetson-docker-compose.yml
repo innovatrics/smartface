@@ -239,6 +239,21 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
 
+  face-matcher:
+    image: ${REGISTRY}sf-jetson-face-matcher:${JETSON_VERSION}
+    container_name: SFFaceMatcher
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
   liveness-cpu:
     image: ${REGISTRY}sf-jetson-liveness:${JETSON_VERSION}
     container_name: SFLivenessCpu

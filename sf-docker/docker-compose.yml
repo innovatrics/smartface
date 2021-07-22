@@ -252,6 +252,20 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
+  face-matcher:
+    image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
+    container_name: SFFaceMatcher
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
