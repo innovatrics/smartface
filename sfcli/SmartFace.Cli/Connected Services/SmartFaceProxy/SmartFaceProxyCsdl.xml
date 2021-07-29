@@ -71,9 +71,9 @@
         <NavigationProperty Name="GroupingMetadata" Type="SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata">
           <ReferentialConstraint Property="GroupingMetadataId" ReferencedProperty="Id" />
         </NavigationProperty>
+        <NavigationProperty Name="Tracklets" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Tracklet)" />
         <NavigationProperty Name="BestFace" Type="SmartFace.Domain.DataAccess.Models.Core.Face" />
         <NavigationProperty Name="Faces" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Face)" />
-        <NavigationProperty Name="Tracklets" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Tracklet)" />
         <NavigationProperty Name="Frames" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Frame)" />
       </EntityType>
       <EntityType Name="Face">
@@ -223,10 +223,10 @@
         <NavigationProperty Name="WatchlistMembers" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.WatchlistMember)" />
         <NavigationProperty Name="Faces" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Face)" />
         <NavigationProperty Name="Pedestrians" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Pedestrian)" />
+        <NavigationProperty Name="Individuals" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)" />
         <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream">
           <ReferentialConstraint Property="StreamId" ReferencedProperty="Id" />
         </NavigationProperty>
-        <NavigationProperty Name="Individuals" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)" />
       </EntityType>
       <EntityType Name="Stream">
         <Key>
@@ -347,10 +347,10 @@
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="TrackletId" Type="Edm.Guid" />
+        <NavigationProperty Name="Watchlists" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Watchlist)" />
         <NavigationProperty Name="Tracklet" Type="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
           <ReferentialConstraint Property="TrackletId" ReferencedProperty="Id" />
         </NavigationProperty>
-        <NavigationProperty Name="Watchlists" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Watchlist)" />
       </EntityType>
       <EntityType Name="MatchResult">
         <Key>
@@ -384,7 +384,7 @@
         <Property Name="TemplateQuality" Type="Edm.Int32" />
       </EntityType>
     </Schema>
-    <Schema Namespace="SmartFace.ODataApi.Models.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="SmartFace.ODataApi.DtoModels.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="Ping">
         <Key>
           <PropertyRef Name="Id" />
@@ -400,7 +400,7 @@
         <Property Name="PropertyName" Type="Edm.String" />
       </ComplexType>
     </Schema>
-    <Schema Namespace="SmartFace.ODataApi.Models.Requests" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="SmartFace.ODataApi.DtoModels.Requests" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <ComplexType Name="UpdateConfigValueData">
         <Property Name="Value" Type="Edm.String" Nullable="false" />
         <Property Name="Name" Type="Edm.String" Nullable="false" />
@@ -494,15 +494,15 @@
         <Member Name="Regular" Value="0" />
         <Member Name="AutoLearn" Value="1" />
       </EnumType>
-      <EnumType Name="HumanPose" IsFlags="true">
-        <Member Name="Unspecified" Value="0" />
-        <Member Name="HandsInFrontOfFace" Value="1" />
-      </EnumType>
       <EnumType Name="FrameState">
         <Member Name="New" Value="0" />
         <Member Name="Processing" Value="1" />
         <Member Name="Processed" Value="2" />
         <Member Name="Error" Value="3" />
+      </EnumType>
+      <EnumType Name="HumanPose" IsFlags="true">
+        <Member Name="Unspecified" Value="0" />
+        <Member Name="HandsInFrontOfFace" Value="1" />
       </EnumType>
       <EnumType Name="WorkerType">
         <Member Name="ContinuousGroupingWorker" Value="0" />
@@ -556,6 +556,9 @@
       </Function>
     </Schema>
     <Schema Namespace="Action" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Action Name="SoftRestart" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Service)" />
+      </Action>
       <Action Name="CreateDefault" IsBound="true">
         <Parameter Name="bindingParameter" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Config)" />
         <Parameter Name="Name" Type="Edm.String" />
@@ -584,11 +587,8 @@
       </Action>
       <Action Name="SetConfigValues" IsBound="true">
         <Parameter Name="bindingParameter" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Config)" />
-        <Parameter Name="ConfigValues" Type="Collection(SmartFace.ODataApi.Models.Requests.UpdateConfigValueData)" />
+        <Parameter Name="ConfigValues" Type="Collection(SmartFace.ODataApi.DtoModels.Requests.UpdateConfigValueData)" />
         <ReturnType Type="SmartFace.Domain.DataAccess.Models.Core.Config" />
-      </Action>
-      <Action Name="SoftRestart" IsBound="true">
-        <Parameter Name="bindingParameter" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Service)" />
       </Action>
     </Schema>
     <Schema Namespace="Default" xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -649,7 +649,7 @@
           <NavigationPropertyBinding Path="Tracklets" Target="Tracklets" />
           <NavigationPropertyBinding Path="VideoRecords" Target="VideoRecords" />
         </EntitySet>
-        <EntitySet Name="Ping" EntityType="SmartFace.ODataApi.Models.Responses.Ping" />
+        <EntitySet Name="Ping" EntityType="SmartFace.ODataApi.DtoModels.Responses.Ping" />
         <EntitySet Name="Configs" EntityType="SmartFace.Domain.DataAccess.Models.Core.Config" />
         <EntitySet Name="Workers" EntityType="SmartFace.Domain.DataAccess.Models.Core.Worker">
           <NavigationPropertyBinding Path="Service" Target="Services" />
