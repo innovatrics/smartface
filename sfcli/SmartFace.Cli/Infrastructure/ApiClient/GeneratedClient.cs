@@ -10087,10 +10087,6 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("templateGenerationTime", Required = Newtonsoft.Json.Required.Always)]
         public int TemplateGenerationTime { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("trackingMode", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string TrackingMode { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string TrackMotionOptimization { get; set; }
@@ -10170,9 +10166,6 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("templateGenerationTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? TemplateGenerationTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("trackingMode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TrackingMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TrackMotionOptimization { get; set; }
@@ -10258,9 +10251,6 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("templateGenerationTime", Required = Newtonsoft.Json.Required.Always)]
         public int TemplateGenerationTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("trackingMode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TrackingMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]

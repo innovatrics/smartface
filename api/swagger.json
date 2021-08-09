@@ -4950,7 +4950,6 @@
           "spoofDetectorResourceIds",
           "templateGenerationTime",
           "templateGeneratorResourceId",
-          "trackingMode",
           "trackMotionOptimization",
           "trackSpeedAccuracyMode"
         ],
@@ -4997,9 +4996,6 @@
           "templateGenerationTime": {
             "type": "integer",
             "format": "int32"
-          },
-          "trackingMode": {
-            "type": "string"
           },
           "trackMotionOptimization": {
             "type": "string"
@@ -5088,10 +5084,6 @@
           "templateGenerationTime": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "trackingMode": {
-            "type": "string",
             "nullable": true
           },
           "trackMotionOptimization": {
@@ -5213,10 +5205,6 @@
           "templateGenerationTime": {
             "type": "integer",
             "format": "int32"
-          },
-          "trackingMode": {
-            "type": "string",
-            "nullable": true
           },
           "trackMotionOptimization": {
             "type": "string"
