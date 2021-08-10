@@ -1,23 +1,38 @@
 # Windows Powershell Scripts
 
-Query all SmartFace services:
+
+### Get SmartFace services
 ```
 Get-Service -Name "SF*"
 ```
 
+### Stop SmartFace services
 **WARNING!** 
 Scripts query services by name pattern. It may happen that other application/system register service with similair pattern. It is always recomended to query all SmartFace services before to ensure only propper SmartFace services will be affected.
 
-Stop all SF related services
-
-*PowerShell 5.1 and later*
+*Compatibility:*
+*PowerShell 7.x*
+*PowerShell 5.x*
 ```
 Get-Service -Name "SF*" | Stop-Service
 ```
 
-Remove all SF related services
+
+### Remove all SF related services
+**WARNING!** 
+Scripts query services by name pattern. It may happen that other application/system register service with similair pattern. It is always recomended to query all SmartFace services before to ensure only propper SmartFace services will be affected.
+
+*Compatibility:*
+*PowerShell 7.x*
 ```
 Get-Service -Name "SF*" | Remove-Service
+```
+
+*Compatibility:*
+*PowerShell 5.x*
+```
+Get-Service -Name "SF*" | foreach {sc.exe delete $_.Name}
+Get-Service | where {$_.Name -like "SF*"} | foreach {sc.exe delete $_.Name}
 ```
 
 Get-Service | where {$_.Name -like "SF*"} | foreach {sc.exe stop $_.Name}
