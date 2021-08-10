@@ -9,7 +9,9 @@ Get-Service -Name "SF*"
 ****************************************************************************************************************************************************************************
 **WARNING!**
   
-Scripts query services by name pattern. It may happen that other application/system register service with similair pattern. It is always recomended to query all SmartFace services before to ensure only propper SmartFace services will be affected.
+Scripts query services by the Service Name pattern. 
+It may happen that other application/system register service with similair pattern. 
+We always recomended you to get all SmartFace services list before to ensure only propper SmartFace services will be affected.
 ****************************************************************************************************************************************************************************
 
 ### Stop SmartFace services
