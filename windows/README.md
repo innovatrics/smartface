@@ -14,39 +14,39 @@ Scripts query services by name pattern. It may happen that other application/sys
 
 ### Stop SmartFace services
 
-*Compatibility:*
-*PowerShell 7.x*
-*PowerShell 5.x*
+  *Compatibility:*
+  *PowerShell 7.x*
+  *PowerShell 5.x*
 ```
 Get-Service -Name "SF*" | Stop-Service
 ```
 
 
 ### Remove all SmartFace services
-*Compatibility:*
-*PowerShell 7.x*
+  *Compatibility:*
+  *PowerShell 7.x*
 ```
 Get-Service -Name "SF*" | Remove-Service
 ```
 
-*Compatibility:*
-*PowerShell 5.x*
+  *Compatibility:*
+  *PowerShell 5.x*
 ```
 Get-Service -Name "SF*" | foreach {sc.exe delete $_.Name}
 ```
 
 ### Disable auto-start on all SmartFace services
-*Compatibility:*
-*PowerShell 7.x*
-*PowerShell 5.x*
+  *Compatibility:*
+  *PowerShell 7.x*
+  *PowerShell 5.x*
 ```
 Get-Service -Name "SF*" | foreach {sc.exe config $_.Name start= disabled}
 ```
 
 ### Start on all SmartFace services
-*Compatibility:*
-*PowerShell 7.x*
-*PowerShell 5.x*
+  *Compatibility:*
+  *PowerShell 7.x*
+  *PowerShell 5.x*
 ```
 Get-Service | where {$_.Name -like "SF*"} | foreach {sc.exe start $_.Name}
 ```
