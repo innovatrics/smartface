@@ -23,6 +23,7 @@ Get-Service -Name "SF*" | Stop-Service
 
 
 ### Remove all SmartFace services
+
   *Compatibility:*
   *PowerShell 7.x*
 ```
@@ -36,6 +37,7 @@ Get-Service -Name "SF*" | foreach {sc.exe delete $_.Name}
 ```
 
 ### Disable auto-start on all SmartFace services
+
   *Compatibility:*
   *PowerShell 7.x*
   *PowerShell 5.x*
@@ -44,6 +46,7 @@ Get-Service -Name "SF*" | foreach {sc.exe config $_.Name start= disabled}
 ```
 
 ### Start on all SmartFace services
+
   *Compatibility:*
   *PowerShell 7.x*
   *PowerShell 5.x*
