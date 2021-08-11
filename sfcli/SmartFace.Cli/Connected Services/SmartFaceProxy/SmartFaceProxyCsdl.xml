@@ -81,6 +81,11 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="FaceOrder" Type="Edm.Int32" />
+        <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
+        <Property Name="FaceArea" Type="Edm.Double" />
+        <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
+        <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
         <Property Name="TemplateQuality" Type="Edm.Int32" />
         <Property Name="LeftEyeX" Type="Edm.Double" />
         <Property Name="LeftEyeY" Type="Edm.Double" />
@@ -93,11 +98,6 @@
         <Property Name="NoseTipConfidence" Type="Edm.Double" />
         <Property Name="FaceMaskStatus" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus" Nullable="false" />
         <Property Name="FaceAreaChange" Type="Edm.Double" Nullable="false" />
-        <Property Name="FaceArea" Type="Edm.Double" />
-        <Property Name="FaceOrder" Type="Edm.Int32" />
-        <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
-        <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
-        <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
         <Property Name="YawAngle" Type="Edm.Double" />
         <Property Name="PitchAngle" Type="Edm.Double" />
         <Property Name="RollAngle" Type="Edm.Double" />
@@ -322,6 +322,8 @@
         <Property Name="ImageQuality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
+        <Property Name="MatchDetectedFaces" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="MatchMaxResultsCount" Type="Edm.Int32" Nullable="false" />
         <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream" />
       </EntityType>
       <EntityType Name="Watchlist">
@@ -475,15 +477,6 @@
         <Member Name="Pending" Value="2" />
         <Member Name="Error" Value="3" />
       </EnumType>
-      <EnumType Name="AutolearnClusterType">
-        <Member Name="Masked" Value="0" />
-        <Member Name="NotMasked" Value="1" />
-      </EnumType>
-      <EnumType Name="FaceMaskStatus">
-        <Member Name="Unknown" Value="0" />
-        <Member Name="Mask" Value="1" />
-        <Member Name="NoMask" Value="2" />
-      </EnumType>
       <EnumType Name="FaceState">
         <Member Name="New" Value="0" />
         <Member Name="Extracting" Value="1" />
@@ -493,6 +486,15 @@
       <EnumType Name="FaceType">
         <Member Name="Regular" Value="0" />
         <Member Name="AutoLearn" Value="1" />
+      </EnumType>
+      <EnumType Name="AutolearnClusterType">
+        <Member Name="Masked" Value="0" />
+        <Member Name="NotMasked" Value="1" />
+      </EnumType>
+      <EnumType Name="FaceMaskStatus">
+        <Member Name="Unknown" Value="0" />
+        <Member Name="Mask" Value="1" />
+        <Member Name="NoMask" Value="2" />
       </EnumType>
       <EnumType Name="FrameState">
         <Member Name="New" Value="0" />
