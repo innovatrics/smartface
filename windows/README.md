@@ -11,7 +11,7 @@ Get-Service -Name "SF*"
   
 Scripts query services by the Service Name pattern. 
 It may happen that other application/system register service with similar pattern. 
-We always recomended you to get all SmartFace services list before to ensure only propper SmartFace services will be affected.
+We always recommend you to list all SmartFace services before running other commands to ensure that only SmartFace are affected.
 ***********************************************************************************************************************************************
 
 ### Stop SmartFace services
@@ -33,8 +33,8 @@ Get-Service -Name "SF*" | foreach {sc.exe delete $_.Name}
 Get-Service -Name "SF*" | foreach {sc.exe config $_.Name start= disabled}
 ```
 
-### Start on all SmartFace services
+### Start all SmartFace services
 
 ```
-Get-Service | where {$_.Name -like "SF*"} | foreach {sc.exe start $_.Name}
+Get-Service -Name "SF*" | foreach {sc.exe start $_.Name}
 ```
