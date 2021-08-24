@@ -20,8 +20,8 @@ Some services can benefit from GPU acceleration, which can be enabled in docker 
 Please note that GPU acceleration is supported only on NVIDIA GPU.
 
 To use GPU acceleration, you will need following on the docker host machine:
-- Nvidia GPU compatible with Cuda 10.1
-- Nvidia driver of version >= 418.39
+- Nvidia GPU compatible with Cuda 11.1
+- Nvidia driver of version >= 450.80.02
 - Nvidia container toolkit https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker
 
 To use GPU for hw decoding and face detection for cameras uncomment `runtime: nvidia` and `GstPipelineTemplate` in `docker-compose.yml` for camera services `sf-cam-*`. 
