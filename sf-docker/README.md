@@ -1,7 +1,7 @@
 # About
 SmartFace docker images provide an easy way of deploying and scaling SmartFace with all the benefits of containerization. SmartFace platform is distributed as a number of linux docker images, some of which are specific for [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform.
 
-Note that the jetson docker containers need to be run in privileged mode. This is because we need speicific system files available in the container to properly check license usage.
+Note that the jetson docker containers need to be run in privileged mode. This is because we need specific system files available in the container to properly check license usage.
 
 # Deployment
 Before deploying SF, you will need:
