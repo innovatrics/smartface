@@ -119,7 +119,7 @@ services:
     runtime: nvidia
 
   sf-graphql-api:
-    image: ${REGISTRY}sf-graphql-api:${VERSION}
+    image: ${REGISTRY}sf-jetson-graphql-api:${JETSON_VERSION}
     container_name: SFGraphQLApi
     ports:
       # we forward the configured ports to default SF ports
