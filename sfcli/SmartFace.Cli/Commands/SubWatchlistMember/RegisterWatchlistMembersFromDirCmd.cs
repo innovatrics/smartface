@@ -60,6 +60,9 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         [Option("-p|--parallel", "Max degree of parallelism, default value is 1", CommandOptionType.SingleValue)]
         public int MaxDegreeOfParallelism { get; set; } = 1;
 
+        [Option("--fileNameAs", "Use file name as ID, FullName", CommandOptionType.SingleValue)]
+        public string FileNameToProperty { get; set; } = "id";
+
         public RegisterWatchlistMembersFromDirCmd(IWatchlistMemberRegistrationManager registrationManager, ILogger<RegisterWatchlistMembersFromDirCmd> logger)
         {
             _registrationManager = registrationManager;
@@ -83,7 +86,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
             else
             {
                 _logger.LogWarning($"Registering watchlist members from directory {Directory}.");
-                registrationResult = await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, registerParams, MaxDegreeOfParallelism, cancellationToken);
+                registrationResult = await _registrationManager.RegisterWatchlistMembersFromDirAsync(Directory, registerParams, MaxDegreeOfParallelism, FileNameToProperty, cancellationToken);
             }
 
             if (registrationResult.Failures.Any())

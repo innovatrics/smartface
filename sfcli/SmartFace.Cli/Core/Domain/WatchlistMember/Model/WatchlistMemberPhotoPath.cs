@@ -4,14 +4,14 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Model
 {
     public class WatchlistMemberPhotoPath
     {
-        public string WatchlistMemberId { get; }
+        public string WatchlistMemberId { get; init; }
 
-        public string PhotoPath { get; }
+        public string Name { get; init; }
 
-        public WatchlistMemberPhotoPath(string watchlistMemberId, string photoPath)
+        public string PhotoPath { get; init; }
+
+        public WatchlistMemberPhotoPath()
         {
-            WatchlistMemberId = watchlistMemberId ?? throw new ArgumentNullException(nameof(watchlistMemberId));
-            PhotoPath = photoPath ?? throw new ArgumentNullException(nameof(photoPath));
         }
     }
 }
