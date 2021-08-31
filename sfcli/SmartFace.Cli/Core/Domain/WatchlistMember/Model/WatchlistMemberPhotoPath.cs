@@ -6,9 +6,9 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Model
     {
         public string WatchlistMemberId { get; init; }
 
-        public string Name { get; init; }
-
         public string PhotoPath { get; init; }
+
+        public string Name { get; init; }
 
         public WatchlistMemberPhotoPath()
         {
