@@ -225,7 +225,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                         watchlistMemberPhotoPaths.Add(new WatchlistMemberPhotoPath() { WatchlistMemberId = validFileName, PhotoPath = file });
                         break;
 
-                    case "fullname":
+                    case "name":
                         watchlistMemberPhotoPaths.Add(new WatchlistMemberPhotoPath() { Name = validFileName, PhotoPath = file });
                         break;
                 }
