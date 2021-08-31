@@ -211,7 +211,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 
             foreach (var file in files)
             {
-                if (!TryGetWatchlistMemberIdFromFile(file, out var validFileName))
+                if (!TryGetValidFileName(file, out var validFileName))
                 {
                     continue;
                 }
@@ -258,9 +258,9 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             return watchlistMemberRegistrationData;
         }
 
-        private static bool TryGetWatchlistMemberIdFromFile(string filePath, out string wlMemberId)
+        private static bool TryGetValidFileName(string filePath, out string validFileName)
         {
-            wlMemberId = string.Empty;
+            validFileName = string.Empty;
 
             var regex = new Regex(PHOTO_FILE_NAME_WITH_EXT_PATTERN);
             var file = Path.GetFileName(filePath);
@@ -271,7 +271,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
                 return false;
             }
 
-            wlMemberId = match.Groups[1].Value;
+            validFileName = match.Groups[1].Value;
             return true;
         }
     }
