@@ -175,6 +175,20 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
+  sf-graphql-api:
+    image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
+    container_name: SFGraphQLApi
+    ports:
+      # we forward the configured ports to default SF ports
+      - 8097:${Hosting__Port}
+    environment:      
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - Hosting__Host
+      - Hosting__Port
+      - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+
   odata-api:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     container_name: SFODataApi

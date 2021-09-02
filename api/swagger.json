@@ -4950,7 +4950,8 @@
           "spoofDetectorResourceIds",
           "templateGenerationTime",
           "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "trackMotionOptimization",
+          "trackSpeedAccuracyMode"
         ],
         "type": "object",
         "properties": {
@@ -4997,6 +4998,9 @@
             "format": "int32"
           },
           "trackMotionOptimization": {
+            "type": "string"
+          },
+          "trackSpeedAccuracyMode": {
             "type": "string"
           },
           "faceSaveStrategy": {
@@ -5083,6 +5087,10 @@
             "nullable": true
           },
           "trackMotionOptimization": {
+            "type": "string",
+            "nullable": true
+          },
+          "trackSpeedAccuracyMode": {
             "type": "string",
             "nullable": true
           },
@@ -5200,6 +5208,10 @@
           },
           "trackMotionOptimization": {
             "type": "string"
+          },
+          "trackSpeedAccuracyMode": {
+            "type": "string",
+            "nullable": true
           },
           "faceSaveStrategy": {
             "$ref": "#/components/schemas/FaceSaveStrategy"
