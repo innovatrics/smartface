@@ -334,6 +334,7 @@ services:
       - RabbitMq__Password=${RabbitMQ__Password}
       - RabbitMq__Port=${RabbitMQ__Port}
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
+    env_file: .env.sfac
 
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
