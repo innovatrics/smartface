@@ -57,8 +57,10 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
       - GstPipelineTemplate
+    # - Gpu__NeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     runtime: nvidia
 
   sf-cam-2:
@@ -78,8 +80,10 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
       - GstPipelineTemplate
+    # - Gpu__NeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     runtime: nvidia
 
   sf-cam-nx:
@@ -97,8 +101,10 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
+    # - Gpu__NeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     runtime: nvidia
 
   api:
@@ -187,8 +193,10 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - Gpu__GpuEnabled=true
+    # - Gpu__NeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     runtime: nvidia
 
   pedestrian-detector-cpu:
@@ -217,8 +225,10 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - Gpu__GpuEnabled=true
+    # - Gpu__NeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     runtime: nvidia
 
   extractor-cpu:
@@ -247,8 +257,10 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - Gpu__GpuEnabled=true
+    # - Gpu__NeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     runtime: nvidia
 
   matcher:
@@ -309,8 +321,10 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - Gpu__GpuEnabled=true
+    # - Gpu__NeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     runtime: nvidia
 
   video-aggregator:
