@@ -8,6 +8,9 @@ services:
     environment: 
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Test1234
+    #volumes:
+    #  - /var/lib/smartface/mssql:/var/opt/mssql
+
   pgsql:
     image: "postgres:13.2"
     container_name: pgsql
@@ -15,6 +18,9 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=Test1234
+    #volumes:
+    #  - /var/lib/smartface/pgsql:/var/lib/postgresql
+
   pgadmin:
     image: "dpage/pgadmin4:5.1"
     container_name: pgadmin
@@ -35,6 +41,13 @@ services:
     command: server /data
     ports:
       - "9000:9000"
+    # volumes:
+    #   - /var/lib/smartface/miniodata:/data
+
+#volumes:
+#  mssql:
+#  pgsql:
+#  miniodata:
 
 networks:
   default:
