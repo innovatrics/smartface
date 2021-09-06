@@ -6,6 +6,7 @@ services:
     command: --serviceName SFBase
     ports: 
       - 2406:2406
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -23,6 +24,7 @@ services:
     image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFGroup
     command: --serviceName SFGroup
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -42,6 +44,7 @@ services:
     command: --serviceName SFCam1
     ports: 
       - 30001:30001
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -62,6 +65,7 @@ services:
     command: --serviceName SFCam2
     ports: 
       - 30002:30002
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -82,6 +86,7 @@ services:
     command: --serviceName SFCam3
     ports: 
       - 30003:30003
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -102,6 +107,7 @@ services:
     command: --serviceName SFCam4
     ports: 
       - 30004:30004
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -122,6 +128,7 @@ services:
     command: --serviceName SFCam5
     ports: 
       - 30005:30005
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -141,6 +148,7 @@ services:
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -160,6 +168,7 @@ services:
     ports:
       # we forward the configured ports to default SF ports
       - 8098:${Hosting__Port}
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -181,6 +190,7 @@ services:
     ports:
       # we forward the configured ports to default SF ports
       - 8099:${Hosting__Port}
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -199,6 +209,7 @@ services:
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -213,6 +224,7 @@ services:
   pedestrian-detector:
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
     container_name: SFPedestrianDetectCpu
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -227,6 +239,7 @@ services:
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     container_name: SFExtractCpu
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -241,6 +254,7 @@ services:
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -255,6 +269,7 @@ services:
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -269,6 +284,7 @@ services:
   video-aggregator:
     image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
     container_name: SFVideoDataAggregator
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -285,6 +301,7 @@ services:
   video-collector:
     image: ${REGISTRY}sf-video-collector:${SF_VERSION}
     container_name: SFVideoDataCollector
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -301,6 +318,7 @@ services:
   video-reader:
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
     container_name: SFVideoReader
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -313,6 +331,7 @@ services:
   body-parts-detector:
     image: ${REGISTRY}sf-body-parts-detector:${SF_VERSION}
     container_name: SFBodyPartsDetectCpu
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -328,12 +347,14 @@ services:
     ports:
       # we forward the configured ports to default SF ports
       - 5050:${Hosting__Port}
+    restart: unless-stopped
     environment:
       - RabbitMq__HostName=${RabbitMQ__Hostname}
       - RabbitMq__UserName=${RabbitMQ__Username}
       - RabbitMq__Password=${RabbitMQ__Password}
       - RabbitMq__Port=${RabbitMQ__Port}
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
+    env_file: .env.sfac
 
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
