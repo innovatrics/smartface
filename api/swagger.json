@@ -6863,8 +6863,7 @@
           },
           "threshold": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/FaceSearchDetectorConfig"
