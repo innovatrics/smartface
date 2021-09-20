@@ -1,6 +1,8 @@
 # About
 SmartFace docker images provide an easy way of deploying and scaling SmartFace with all the benefits of containerization. SmartFace platform is distributed as a number of linux docker images, some of which are specific for [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform.
 
+Note that the jetson docker containers need to be run in privileged mode. This is because we need specific system files available in the container to properly check license usage.
+
 # Deployment
 Before deploying SF, you will need:
 - Docker
@@ -20,14 +22,16 @@ Some services can benefit from GPU acceleration, which can be enabled in docker 
 Please note that GPU acceleration is supported only on NVIDIA GPU.
 
 To use GPU acceleration, you will need following on the docker host machine:
-- Nvidia GPU compatible with Cuda 10.1
-- Nvidia driver of version >= 418.39
+- Nvidia GPU compatible with Cuda 11.1
+- Nvidia driver of version >= 450.80.02
 - Nvidia container toolkit https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker
 
 To use GPU for hw decoding and face detection for cameras uncomment `runtime: nvidia` and `GstPipelineTemplate` in `docker-compose.yml` for camera services `sf-cam-*`. 
 When using the nvidia docker runtime SmartFace camera processes need gstreamer pipelines for camera sources.
 
 Other services which could use GPU needs also uncomment environment variable `Gpu__GpuEnabled=true`. This is necessary for extractor, detector, pedestrian-detector and liveness service.
+
+For using specific neural networks runtime it is possible to uncomment environment variable `Gpu__NeuralRuntime` which can have values `Default`, `Cuda` or `Tensor`. The GPU needs to support these neural runtimes. When using `Tensor` you can uncomment mapping `"/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"` to retain TensorRT cache files in the host when container is recreated. This can be helpful as generating cache files is longer operation which needs to be performed before the first run of neural network. Setting neural network runtime is possible for camera, extractor, detector, pedestrian-detector and liveness services.
 
 # Production use
 The provided docker-compose files are used to demonstrate configuration steps needed to wire everything up and are not fit for production use. The images can be used with any other orchestration engine. Also note that not all services are needed for every use case, e.g the `video-*` services are used for offline video processing, so if offline video processing is not to be used they can be disabled (commented-out).

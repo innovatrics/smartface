@@ -4930,7 +4930,7 @@ namespace ManagementApi
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
         /// <summary>Searches for similar stored faces based on the given image.</summary>
-        /// <param name="body">Request containing searching image to be searched.</param>
+        /// <param name="body">Request containing reference image to be searched.</param>
         /// <returns>Returns the face match results.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<SearchInFacesResponse> SearchAsync(SearchInFacesRequest body)
@@ -4940,7 +4940,7 @@ namespace ManagementApi
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Searches for similar stored faces based on the given image.</summary>
-        /// <param name="body">Request containing searching image to be searched.</param>
+        /// <param name="body">Request containing reference image to be searched.</param>
         /// <returns>Returns the face match results.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<SearchInFacesResponse> SearchAsync(SearchInFacesRequest body, System.Threading.CancellationToken cancellationToken)
@@ -11021,6 +11021,21 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FaceSearchDetectorConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinFaceSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxFaceSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ConfidenceThreshold { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public enum FaceState
     {
         [System.Runtime.Serialization.EnumMember(Value = @"New")]
@@ -11729,11 +11744,11 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public ImageData Image { get; set; } = new ImageData();
     
-        [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Threshold { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FaceDetectorConfig FaceDetectorConfig { get; set; }
+        public FaceSearchDetectorConfig FaceDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FaceDetectorResourceId { get; set; }

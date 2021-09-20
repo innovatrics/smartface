@@ -555,7 +555,7 @@
         "summary": "Searches for similar stored faces based on the given image.",
         "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
         "requestBody": {
-          "description": "Request containing searching image to be searched.",
+          "description": "Request containing reference image to be searched.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -5834,6 +5834,24 @@
         ],
         "type": "string"
       },
+      "FaceSearchDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "FaceState": {
         "enum": [
           "New",
@@ -6845,11 +6863,10 @@
           },
           "threshold": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
+            "$ref": "#/components/schemas/FaceSearchDetectorConfig"
           },
           "faceDetectorResourceId": {
             "type": "string"
