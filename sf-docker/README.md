@@ -31,5 +31,7 @@ When using the nvidia docker runtime SmartFace camera processes need gstreamer p
 
 Other services which could use GPU needs also uncomment environment variable `Gpu__GpuEnabled=true`. This is necessary for extractor, detector, pedestrian-detector and liveness service.
 
+For using specific neural networks runtime it is possible to uncomment environment variable `Gpu__NeuralRuntime` which can have values `Default`, `Cuda` or `Tensor`. The GPU needs to support these neural runtimes. When using `Tensor` you can uncomment mapping `"/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"` to retain TensorRT cache files in the host when container is recreated. This can be helpful as generating cache files is longer operation which needs to be performed before the first run of neural network. Setting neural network runtime is possible for camera, extractor, detector, pedestrian-detector and liveness services.
+
 # Production use
 The provided docker-compose files are used to demonstrate configuration steps needed to wire everything up and are not fit for production use. The images can be used with any other orchestration engine. Also note that not all services are needed for every use case, e.g the `video-*` services are used for offline video processing, so if offline video processing is not to be used they can be disabled (commented-out).
