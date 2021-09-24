@@ -102,6 +102,7 @@
         <Property Name="YawAngle" Type="Edm.Double" />
         <Property Name="PitchAngle" Type="Edm.Double" />
         <Property Name="RollAngle" Type="Edm.Double" />
+        <Property Name="SearchSessionObjects" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.SearchSessionObject)" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CropLeftTopX" Type="Edm.Double" Nullable="false" />
@@ -338,6 +339,7 @@
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="Threshold" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PreviewColor" Type="Edm.String" />
         <NavigationProperty Name="WatchlistMembers" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.WatchlistMember)" />
         <NavigationProperty Name="MatchResults" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.MatchResult)" />
       </EntityType>
@@ -375,6 +377,7 @@
         <Property Name="WatchlistFullName" Type="Edm.String" />
         <Property Name="WatchlistDisplayName" Type="Edm.String" />
         <Property Name="WatchlistId" Type="Edm.String" />
+        <Property Name="PreviewColor" Type="Edm.String" />
         <Property Name="FaceId" Type="Edm.Guid" />
         <Property Name="FrameId" Type="Edm.Guid" />
         <Property Name="FaceArea" Type="Edm.Double" />
@@ -407,6 +410,12 @@
           <ReferentialConstraint Property="FaceId" ReferencedProperty="Id" />
         </NavigationProperty>
       </EntityType>
+      <ComplexType Name="SearchSessionObject">
+        <Property Name="SearchSessionId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="VisualObjectId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="Score" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Face" Type="SmartFace.Domain.DataAccess.Models.Core.Face" />
+      </ComplexType>
     </Schema>
     <Schema Namespace="SmartFace.ODataApi.DtoModels.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="Ping">
@@ -651,6 +660,7 @@
           <NavigationPropertyBinding Path="Frames" Target="Frames" />
           <NavigationPropertyBinding Path="Individuals" Target="Individuals" />
           <NavigationPropertyBinding Path="MatchResults" Target="MatchResults" />
+          <NavigationPropertyBinding Path="SearchSessionObjects/Face" Target="Faces" />
           <NavigationPropertyBinding Path="Stream" Target="Streams" />
           <NavigationPropertyBinding Path="Tracklet" Target="Tracklets" />
         </EntitySet>
