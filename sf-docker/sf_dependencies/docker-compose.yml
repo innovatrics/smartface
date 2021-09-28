@@ -38,6 +38,12 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+    environment: 
+      RABBITMQ_NODENAME: rabbit@rmq
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+    volumes:
+      - ./etc_rmq/:/etc/rabbitmq/external
+      - ./data_rmq:/var/lib/rabbitmq
     restart: unless-stopped
 
   minio:
