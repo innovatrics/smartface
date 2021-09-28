@@ -43,7 +43,7 @@ services:
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
     volumes:
       - ./etc_rmq/:/etc/rabbitmq/external
-      - ./data_rmq:/var/lib/rabbitmq
+      - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped
 
   minio:
@@ -56,7 +56,8 @@ services:
     # volumes:
     #   - /var/lib/smartface/miniodata:/data
 
-#volumes:
+volumes:
+  rmqdata:
 #  mssql:
 #  pgsql:
 #  miniodata:
