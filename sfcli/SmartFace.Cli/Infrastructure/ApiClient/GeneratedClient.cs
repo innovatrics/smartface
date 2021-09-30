@@ -11801,6 +11801,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string NoMatchColor { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("pedestrianColor", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string PedestrianColor { get; set; }
+    
     
     }
     

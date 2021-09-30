@@ -6792,11 +6792,15 @@
       },
       "PreviewConfig": {
         "required": [
-          "noMatchColor"
+          "noMatchColor",
+          "pedestrianColor"
         ],
         "type": "object",
         "properties": {
           "noMatchColor": {
+            "type": "string"
+          },
+          "pedestrianColor": {
             "type": "string"
           }
         },
