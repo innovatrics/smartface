@@ -1,17 +1,17 @@
-version: '3.4'
+version: "3.4"
 services:
   sf-base:
     image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFBase
     command: --serviceName SFBase
-    ports: 
+    ports:
       - 2406:2406
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
@@ -28,7 +28,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
@@ -37,10 +37,10 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-1:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam1
     command: --serviceName SFCam1
-    ports: 
+    ports:
       - 30001:30001
     environment:
       - RabbitMQ__Hostname
@@ -59,17 +59,17 @@ services:
     #runtime: nvidia
 
   sf-cam-2:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam2
     command: --serviceName SFCam2
-    ports: 
+    ports:
       - 30002:30002
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
@@ -81,17 +81,17 @@ services:
     #runtime: nvidia
 
   sf-cam-3:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam3
     command: --serviceName SFCam3
-    ports: 
+    ports:
       - 30003:30003
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
@@ -103,17 +103,17 @@ services:
     #runtime: nvidia
 
   sf-cam-4:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam4
     command: --serviceName SFCam4
-    ports: 
+    ports:
       - 30004:30004
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
@@ -125,17 +125,17 @@ services:
     #runtime: nvidia
 
   sf-cam-5:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam5
     command: --serviceName SFCam5
-    ports: 
+    ports:
       - 30005:30005
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
@@ -147,7 +147,7 @@ services:
     #runtime: nvidia
 
   sf-cam-nx:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
@@ -156,7 +156,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
@@ -177,7 +177,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
       - Hosting__Port
@@ -193,7 +193,7 @@ services:
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
-    environment:      
+    environment:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -212,7 +212,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
       - Hosting__Port
@@ -278,7 +278,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
     volumes:
@@ -322,7 +322,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
@@ -338,7 +338,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext 
+      - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint

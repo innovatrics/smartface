@@ -1,11 +1,11 @@
-version: '3.4'
+version: "3.4"
 services:
   sf-base:
     image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
     privileged: true
     container_name: SFBase
     command: --serviceName SFBase
-    ports: 
+    ports:
       - 2406:2406
     environment:
       - RabbitMQ__Hostname
@@ -41,11 +41,11 @@ services:
     runtime: nvidia
 
   sf-cam-1:
-    image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
+    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
     privileged: true
     container_name: SFCam1
     command: --serviceName SFCam1
-    ports: 
+    ports:
       - 30001:30001
     environment:
       - RabbitMQ__Hostname
@@ -64,11 +64,11 @@ services:
     runtime: nvidia
 
   sf-cam-2:
-    image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
+    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
     privileged: true
     container_name: SFCam2
     command: --serviceName SFCam2
-    ports: 
+    ports:
       - 30002:30002
     environment:
       - RabbitMQ__Hostname
@@ -87,7 +87,7 @@ services:
     runtime: nvidia
 
   sf-cam-nx:
-    image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
+    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
     privileged: true
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
@@ -136,7 +136,7 @@ services:
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
-    environment:      
+    environment:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -375,7 +375,7 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
-    
+
   access-controller:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     privileged: true
