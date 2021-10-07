@@ -340,11 +340,8 @@ services:
     container_name: SFStation
     restart: unless-stopped
     ports:
-      - 80:80
+      - 8000:8000
     env_file: .env.sfstation
-    environment:
-      HOST: 0.0.0.0
-      PORT: 80
 
 networks:
   default:
