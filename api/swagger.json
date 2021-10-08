@@ -559,22 +559,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchInFacesRequest"
+                "$ref": "#/components/schemas/FaceSearchRequest"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchInFacesRequest"
+                "$ref": "#/components/schemas/FaceSearchRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchInFacesRequest"
+                "$ref": "#/components/schemas/FaceSearchRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchInFacesRequest"
+                "$ref": "#/components/schemas/FaceSearchRequest"
               }
             }
           }
@@ -5852,6 +5852,31 @@
         },
         "additionalProperties": false
       },
+      "FaceSearchRequest": {
+        "required": [
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceSearchDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "FaceState": {
         "enum": [
           "New",
@@ -6848,31 +6873,6 @@
           "watchlistId": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SearchInFacesRequest": {
-        "required": [
-          "image"
-        ],
-        "type": "object",
-        "properties": {
-          "image": {
-            "$ref": "#/components/schemas/ImageData"
-          },
-          "threshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceSearchDetectorConfig"
-          },
-          "faceDetectorResourceId": {
-            "type": "string"
-          },
-          "templateGeneratorResourceId": {
-            "type": "string"
           }
         },
         "additionalProperties": false

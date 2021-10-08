@@ -4933,7 +4933,7 @@ namespace ManagementApi
         /// <param name="body">Request containing reference image to be searched.</param>
         /// <returns>Returns the face match results.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<SearchInFacesResponse> SearchAsync(SearchInFacesRequest body)
+        public System.Threading.Tasks.Task<SearchInFacesResponse> SearchAsync(FaceSearchRequest body)
         {
             return SearchAsync(body, System.Threading.CancellationToken.None);
         }
@@ -4943,7 +4943,7 @@ namespace ManagementApi
         /// <param name="body">Request containing reference image to be searched.</param>
         /// <returns>Returns the face match results.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<SearchInFacesResponse> SearchAsync(SearchInFacesRequest body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<SearchInFacesResponse> SearchAsync(FaceSearchRequest body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/Faces/Search");
@@ -11036,6 +11036,28 @@ namespace ManagementApi
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class FaceSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("image", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ImageData Image { get; set; } = new ImageData();
+    
+        [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Threshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FaceSearchDetectorConfig FaceDetectorConfig { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FaceDetectorResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemplateGeneratorResourceId { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public enum FaceState
     {
         [System.Runtime.Serialization.EnumMember(Value = @"New")]
@@ -11733,28 +11755,6 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("watchlistId", Required = Newtonsoft.Json.Required.AllowNull)]
         public string WatchlistId { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class SearchInFacesRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("image", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public ImageData Image { get; set; } = new ImageData();
-    
-        [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Threshold { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FaceSearchDetectorConfig FaceDetectorConfig { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FaceDetectorResourceId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemplateGeneratorResourceId { get; set; }
     
     
     }
