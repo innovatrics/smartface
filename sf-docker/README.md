@@ -8,7 +8,9 @@ Before deploying SF, you will need:
 - Docker
 - docker-compose
 - Login to container registry `docker login registry.gitlab.com -u <username> -p <password>`. The credentials are available in our [CRM portal](https://crm.innovatrics.com/).
-- Copy the license file `iengine.lic` to the root of this directory. Since these are docker images, the license needs to be universal (not be bound to specific HWID).
+- Identify hardware id (hwid) for your machine with command `docker run registry.gitlab.com/innovatrics/smartface/license-manager:3.2.7`. For nvidia jetson device use command `docker run --privileged registry.gitlab.com/innovatrics/smartface/license-manager:3.2.7`
+- Obtain license for your hwid https://www.innovatrics.com/face-recognition-solutions/
+- Copy the license file `iengine.lic` to the root of this directory.
 
 To get up and running as fast as possible, multiple run scripts are available for different platforms.
 The run scripts contain comments which should clarify the steps needed to start everything:
