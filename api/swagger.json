@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.9.1.0"
+    "version": "4.10.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -19,7 +19,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the camera.",
               "format": "uuid"
             }
           }
@@ -60,7 +59,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the camera.",
               "format": "uuid"
             }
           }
@@ -248,7 +246,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the camera.",
               "format": "uuid"
             }
           },
@@ -336,7 +333,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the camera.",
               "format": "uuid"
             }
           },
@@ -423,7 +419,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the face.",
               "format": "uuid"
             }
           }
@@ -464,7 +459,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the face to delete.",
               "format": "uuid"
             }
           }
@@ -553,6 +547,82 @@
         }
       }
     },
+    "/api/v1/Faces/Search": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Searches for similar stored faces based on the given image.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "requestBody": {
+          "description": "Request containing reference image to be searched.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceSearchRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceSearchRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceSearchRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceSearchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the face match results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchInFacesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/Frames/{id}": {
       "get": {
         "tags": [
@@ -567,7 +637,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the frame.",
               "format": "uuid"
             }
           }
@@ -608,7 +677,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the frame to delete.",
               "format": "uuid"
             }
           }
@@ -712,7 +780,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the image.",
               "format": "uuid"
             }
           },
@@ -722,9 +789,7 @@
             "description": "Minimum size of the smaller edge.",
             "schema": {
               "type": "integer",
-              "description": "Minimum size of the smaller edge.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             }
           },
           {
@@ -733,9 +798,7 @@
             "description": "Maximum size of the larger edge.",
             "schema": {
               "type": "integer",
-              "description": "Maximum size of the larger edge.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             }
           }
         ],
@@ -808,7 +871,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the individual.",
               "format": "uuid"
             }
           }
@@ -849,7 +911,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the individual to delete.",
               "format": "uuid"
             }
           }
@@ -953,7 +1014,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the individual.",
               "format": "uuid"
             }
           },
@@ -1238,7 +1298,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the live grouping.",
               "format": "uuid"
             }
           }
@@ -1279,7 +1338,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the live grouping.",
               "format": "uuid"
             }
           }
@@ -1464,7 +1522,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the live grouping.",
               "format": "uuid"
             }
           }
@@ -1511,7 +1568,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the live grouping.",
               "format": "uuid"
             }
           },
@@ -1599,7 +1655,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the live grouping.",
               "format": "uuid"
             }
           },
@@ -1686,7 +1741,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the live grouping.",
               "format": "uuid"
             }
           }
@@ -1757,7 +1811,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the live grouping",
               "format": "uuid"
             }
           }
@@ -1828,7 +1881,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the pedestrian.",
               "format": "uuid"
             }
           }
@@ -1869,7 +1921,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the pedestrian to delete.",
               "format": "uuid"
             }
           }
@@ -1972,7 +2023,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           }
@@ -2013,7 +2063,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           }
@@ -2198,7 +2247,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           }
@@ -2245,7 +2293,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           },
@@ -2333,7 +2380,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           },
@@ -2421,7 +2467,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           }
@@ -2499,7 +2544,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           }
@@ -2532,7 +2576,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           }
@@ -2568,7 +2611,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping.",
               "format": "uuid"
             }
           }
@@ -2639,7 +2681,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the record grouping",
               "format": "uuid"
             }
           }
@@ -3005,6 +3046,109 @@
         }
       }
     },
+    "/api/v1/Setup/SearchSessionsCleanup": {
+      "get": {
+        "tags": [
+          "SetupSearchSessionsCleanup"
+        ],
+        "summary": "Retrieves current search sessions cleanup config.",
+        "responses": {
+          "200": {
+            "description": "Search sessions cleanup config was returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search sessions cleanup config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "SetupSearchSessionsCleanup"
+        ],
+        "summary": "Updates the search sessions cleanup config with specified values.",
+        "requestBody": {
+          "description": "The new search sessions cleanup configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Search sessions cleanup config was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search sessions cleanup config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/Setup/Watchlists/AutoLearn": {
       "get": {
         "tags": [
@@ -3122,7 +3266,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the tracklet.",
               "format": "uuid"
             }
           }
@@ -3163,7 +3306,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the tracklet to delete.",
               "format": "uuid"
             }
           }
@@ -3267,7 +3409,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the tracklet.",
               "format": "uuid"
             }
           },
@@ -3364,7 +3505,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the video record.",
               "format": "uuid"
             }
           }
@@ -3405,7 +3545,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the video record.",
               "format": "uuid"
             }
           }
@@ -3591,7 +3730,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the video record.",
               "format": "uuid"
             }
           },
@@ -3679,7 +3817,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Id of the video record.",
               "format": "uuid"
             }
           },
@@ -3949,9 +4086,7 @@
             "description": "Id of the watchlist.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Id of the watchlist.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -3990,9 +4125,7 @@
             "description": "Id of the watchlist.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Id of the watchlist.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -4027,9 +4160,7 @@
             "description": "Id of the watchlist.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Id of the watchlist.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -4367,9 +4498,7 @@
             "description": "Id of the watchlist member.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Id of the watchlist member.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -4408,9 +4537,7 @@
             "description": "Id of the watchlist member.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Id of the watchlist member.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -4445,9 +4572,7 @@
             "description": "Id of the watchlist member.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Id of the watchlist member.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -4724,9 +4849,7 @@
             "description": "The watchlist member id.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The watchlist member id.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -4806,9 +4929,7 @@
             "description": "The watchlist member id.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The watchlist member id.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -4904,9 +5025,7 @@
             "description": "The watchlist member id.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The watchlist member id.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -4965,98 +5084,22 @@
   },
   "components": {
     "schemas": {
-      "VideoFaceDetectorConfig": {
+      "AddNewFaceRequest": {
         "required": [
-          "confidenceThreshold",
-          "maxFaces",
-          "maxFaceSize",
-          "minFaceSize"
+          "imageData"
         ],
         "type": "object",
         "properties": {
-          "minFaceSize": {
-            "type": "integer",
-            "format": "int32"
+          "imageData": {
+            "$ref": "#/components/schemas/RegistrationImageData"
           },
-          "maxFaceSize": {
-            "type": "integer",
-            "format": "int32"
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceDetectorConfig"
           },
-          "maxFaces": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "confidenceThreshold": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "VideoPedestrianDetectorConfig": {
-        "required": [
-          "confidenceThreshold",
-          "maxPedestrians",
-          "maxPedestrianSize",
-          "minPedestrianSize"
-        ],
-        "type": "object",
-        "properties": {
-          "minPedestrianSize": {
-            "type": "number",
-            "format": "float"
-          },
-          "maxPedestrianSize": {
-            "type": "number",
-            "format": "float"
-          },
-          "maxPedestrians": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "confidenceThreshold": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FaceSaveStrategy": {
-        "enum": [
-          "All",
-          "FirstFace",
-          "BestFace",
-          "FirstFace, BestFace",
-          "MatchedOnly"
-        ],
-        "type": "string"
-      },
-      "SpoofDetectorConfig": {
-        "required": [
-          "distantLivenessConditions",
-          "distantLivenessScoreThreshold",
-          "externalScoreThreshold",
-          "nearbyLivenessConditions",
-          "nearbyLivenessScoreThreshold"
-        ],
-        "type": "object",
-        "properties": {
-          "externalScoreThreshold": {
-            "type": "number",
-            "format": "double"
-          },
-          "distantLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double"
-          },
-          "nearbyLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double"
-          },
-          "distantLivenessConditions": {
+          "faceDetectorResourceId": {
             "type": "string"
           },
-          "nearbyLivenessConditions": {
+          "templateGeneratorResourceId": {
             "type": "string"
           }
         },
@@ -5086,7 +5129,8 @@
           "spoofDetectorResourceIds",
           "templateGenerationTime",
           "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "trackMotionOptimization",
+          "trackSpeedAccuracyMode"
         ],
         "type": "object",
         "properties": {
@@ -5135,6 +5179,9 @@
           "trackMotionOptimization": {
             "type": "string"
           },
+          "trackSpeedAccuracyMode": {
+            "type": "string"
+          },
           "faceSaveStrategy": {
             "$ref": "#/components/schemas/FaceSaveStrategy"
           },
@@ -5173,60 +5220,107 @@
         },
         "additionalProperties": false
       },
-      "ProblemDetails": {
+      "CameraCreateRequest": {
+        "required": [
+          "name",
+          "source"
+        ],
         "type": "object",
         "properties": {
-          "type": {
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceDetectorConfigCreateRequest"
+          },
+          "faceDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
-          "title": {
+          "pedestrianDetectorConfig": {
+            "$ref": "#/components/schemas/PedestrianDetectorConfigCreateRequest"
+          },
+          "pedestrianDetectorResourceId": {
             "type": "string",
             "nullable": true
           },
-          "status": {
+          "templateGeneratorResourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "redetectionTime": {
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "detail": {
+          "templateGenerationTime": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trackMotionOptimization": {
             "type": "string",
             "nullable": true
           },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": { }
-      },
-      "SpoofDetectorConfigUpdateRequest": {
-        "required": [
-          "externalScoreThreshold"
-        ],
-        "type": "object",
-        "properties": {
-          "externalScoreThreshold": {
-            "type": "number",
-            "format": "double"
-          },
-          "distantLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "nearbyLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "distantLivenessConditions": {
+          "trackSpeedAccuracyMode": {
             "type": "string",
             "nullable": true
           },
-          "nearbyLivenessConditions": {
+          "faceSaveStrategy": {
+            "$ref": "#/components/schemas/FaceSaveStrategy"
+          },
+          "maskImagePath": {
             "type": "string",
             "nullable": true
+          },
+          "saveFrameImageData": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "imageQuality": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "mpeG1PreviewEnabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "mpeG1PreviewPort": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "mpeG1VideoBitrate": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "previewMaxDimension": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "serviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/SpoofDetectorConfigCreateRequest"
           }
         },
         "additionalProperties": false
@@ -5294,6 +5388,10 @@
           "trackMotionOptimization": {
             "type": "string"
           },
+          "trackSpeedAccuracyMode": {
+            "type": "string",
+            "nullable": true
+          },
           "faceSaveStrategy": {
             "$ref": "#/components/schemas/FaceSaveStrategy"
           },
@@ -5336,392 +5434,46 @@
         },
         "additionalProperties": false
       },
-      "FaceDetectorConfigCreateRequest": {
-        "type": "object",
-        "properties": {
-          "minFaceSize": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "maxFaceSize": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "maxFaces": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "confidenceThreshold": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PedestrianDetectorConfigCreateRequest": {
-        "type": "object",
-        "properties": {
-          "minPedestrianSize": {
-            "type": "number",
-            "format": "float",
-            "nullable": true
-          },
-          "maxPedestrianSize": {
-            "type": "number",
-            "format": "float",
-            "nullable": true
-          },
-          "maxPedestrians": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "confidenceThreshold": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SpoofDetectorConfigCreateRequest": {
-        "type": "object",
-        "properties": {
-          "externalScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "distantLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "nearbyLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "distantLivenessConditions": {
-            "type": "string",
-            "nullable": true
-          },
-          "nearbyLivenessConditions": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CameraCreateRequest": {
+      "DbCleanupConfig": {
         "required": [
-          "name",
-          "source"
+          "cleanupAmount",
+          "cleanupStart",
+          "deleteSql",
+          "enabled",
+          "maxFramesCount",
+          "maxImageDataAge"
         ],
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
           "enabled": {
+            "type": "boolean"
+          },
+          "maxFramesCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxImageDataAge": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cleanupStart": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          },
+          "cleanupAmount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "deleteSql": {
             "type": "boolean",
             "nullable": true
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfigCreateRequest"
-          },
-          "faceDetectorResourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "pedestrianDetectorConfig": {
-            "$ref": "#/components/schemas/PedestrianDetectorConfigCreateRequest"
-          },
-          "pedestrianDetectorResourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "templateGeneratorResourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "redetectionTime": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "templateGenerationTime": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "trackMotionOptimization": {
-            "type": "string",
-            "nullable": true
-          },
-          "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
-          },
-          "maskImagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "saveFrameImageData": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "imageQuality": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "mpeG1PreviewEnabled": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "mpeG1PreviewPort": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "mpeG1VideoBitrate": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "previewMaxDimension": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "serviceName": {
-            "type": "string",
-            "nullable": true
-          },
-          "spoofDetectorResourceIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "spoofDetectorConfig": {
-            "$ref": "#/components/schemas/SpoofDetectorConfigCreateRequest"
           }
         },
         "additionalProperties": false
-      },
-      "Tracklet": {
-        "required": [
-          "createdAt",
-          "id",
-          "timeAppeared",
-          "timeAppearedRelativeMs",
-          "timeDisappeared",
-          "timeDisappearedRelativeMs",
-          "updatedAt"
-        ],
-        "type": "object",
-        "properties": {
-          "timeAppeared": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "timeDisappeared": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "timeAppearedRelativeMs": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "timeDisappearedRelativeMs": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TrackletPagedCollection": {
-        "required": [
-          "items",
-          "nextPage",
-          "pageNumber",
-          "pageSize",
-          "previousPage",
-          "totalItemsCount"
-        ],
-        "type": "object",
-        "properties": {
-          "totalItemsCount": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tracklet"
-            }
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FrameState": {
-        "enum": [
-          "New",
-          "Processing",
-          "Processed",
-          "Error"
-        ],
-        "type": "string"
-      },
-      "Frame": {
-        "required": [
-          "createdAt",
-          "id",
-          "imageDataId",
-          "positionInMs",
-          "receivedAt",
-          "state",
-          "updatedAt"
-        ],
-        "type": "object",
-        "properties": {
-          "state": {
-            "$ref": "#/components/schemas/FrameState"
-          },
-          "imageDataId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "receivedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "positionInMs": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FramePagedCollection": {
-        "required": [
-          "items",
-          "nextPage",
-          "pageNumber",
-          "pageSize",
-          "previousPage",
-          "totalItemsCount"
-        ],
-        "type": "object",
-        "properties": {
-          "totalItemsCount": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Frame"
-            }
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FaceState": {
-        "enum": [
-          "New",
-          "Extracting",
-          "Extracted",
-          "Error"
-        ],
-        "type": "string"
-      },
-      "FaceType": {
-        "enum": [
-          "Regular",
-          "AutoLearn"
-        ],
-        "type": "string"
-      },
-      "FaceMaskStatus": {
-        "enum": [
-          "Unknown",
-          "Mask",
-          "NoMask"
-        ],
-        "type": "string"
       },
       "Face": {
         "required": [
@@ -5926,6 +5678,111 @@
         },
         "additionalProperties": false
       },
+      "FaceDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaces": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "minFaceSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxFaceSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxFaces": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceFeaturesConfig": {
+        "required": [
+          "age",
+          "faceMask",
+          "gender",
+          "noseTip",
+          "pitchAngle",
+          "rollAngle",
+          "yawAngle"
+        ],
+        "type": "object",
+        "properties": {
+          "age": {
+            "type": "boolean"
+          },
+          "gender": {
+            "type": "boolean"
+          },
+          "faceMask": {
+            "type": "boolean"
+          },
+          "noseTip": {
+            "type": "boolean"
+          },
+          "yawAngle": {
+            "type": "boolean"
+          },
+          "pitchAngle": {
+            "type": "boolean"
+          },
+          "rollAngle": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceMaskConfidenceRequest": {
+        "required": [
+          "faceMaskThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "faceMaskThreshold": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceMaskStatus": {
+        "enum": [
+          "Unknown",
+          "Mask",
+          "NoMask"
+        ],
+        "type": "string"
+      },
       "FacePagedCollection": {
         "required": [
           "items",
@@ -5963,6 +5820,255 @@
           "nextPage": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceSaveStrategy": {
+        "enum": [
+          "All",
+          "FirstFace",
+          "BestFace",
+          "FirstFace, BestFace",
+          "MatchedOnly"
+        ],
+        "type": "string"
+      },
+      "FaceSearchDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceSearchRequest": {
+        "required": [
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceSearchDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceState": {
+        "enum": [
+          "New",
+          "Extracting",
+          "Extracted",
+          "Error"
+        ],
+        "type": "string"
+      },
+      "FaceType": {
+        "enum": [
+          "Regular",
+          "AutoLearn"
+        ],
+        "type": "string"
+      },
+      "FaceWatchlistMemberLinkingRequest": {
+        "required": [
+          "faceId"
+        ],
+        "type": "object",
+        "properties": {
+          "faceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceWatchlistMemberRemoveRequest": {
+        "required": [
+          "faceId"
+        ],
+        "type": "object",
+        "properties": {
+          "faceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FeaturesConfig": {
+        "required": [
+          "faceFeaturesConfig"
+        ],
+        "type": "object",
+        "properties": {
+          "faceFeaturesConfig": {
+            "$ref": "#/components/schemas/FaceFeaturesConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Frame": {
+        "required": [
+          "createdAt",
+          "id",
+          "imageDataId",
+          "positionInMs",
+          "receivedAt",
+          "state",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/FrameState"
+          },
+          "imageDataId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "receivedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "positionInMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FramePagedCollection": {
+        "required": [
+          "items",
+          "nextPage",
+          "pageNumber",
+          "pageSize",
+          "previousPage",
+          "totalItemsCount"
+        ],
+        "type": "object",
+        "properties": {
+          "totalItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Frame"
+            }
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FrameState": {
+        "enum": [
+          "New",
+          "Processing",
+          "Processed",
+          "Error"
+        ],
+        "type": "string"
+      },
+      "GenderType": {
+        "enum": [
+          "Male",
+          "Female"
+        ],
+        "type": "string"
+      },
+      "GroupingState": {
+        "required": [
+          "id",
+          "numNewFrames",
+          "numUnprocFrames",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "numNewFrames": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numUnprocFrames": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ProgressStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImageData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "byte"
           }
         },
         "additionalProperties": false
@@ -6049,129 +6155,13 @@
         },
         "additionalProperties": false
       },
-      "ImageData": {
+      "LinkInputRequest": {
         "required": [
-          "data"
+          "ids"
         ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "string",
-            "format": "byte"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FaceDetectorConfig": {
-        "type": "object",
-        "properties": {
-          "minFaceSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "maxFaceSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "maxFaces": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "confidenceThreshold": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SearchInIndividualsRequest": {
-        "required": [
-          "groupingId",
-          "image"
-        ],
-        "type": "object",
-        "properties": {
-          "image": {
-            "$ref": "#/components/schemas/ImageData"
-          },
-          "groupingId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "matchThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
-          },
-          "faceDetectorResourceId": {
-            "type": "string"
-          },
-          "templateGeneratorResourceId": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SearchInIndividualsResponse": {
-        "required": [
-          "results"
-        ],
-        "type": "object",
-        "properties": {
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Individual"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
-      "SplitIndividualsRequest": {
-        "required": [
-          "previousIndividualId",
-          "trackletsIds"
-        ],
-        "type": "object",
-        "properties": {
-          "trackletsIds": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          "previousIndividualId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SplitIndividualsResponse": {
-        "required": [
-          "individualId"
-        ],
-        "type": "object",
-        "properties": {
-          "individualId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
-      "MergeIndividualsRequest": {
-        "required": [
-          "individualIds"
-        ],
-        "type": "object",
-        "properties": {
-          "individualIds": {
-            "minItems": 2,
+          "ids": {
             "type": "array",
             "items": {
               "type": "string",
@@ -6181,15 +6171,24 @@
         },
         "additionalProperties": false
       },
-      "MergeIndividualsResponse": {
+      "LiveGrouping": {
         "required": [
-          "individualId"
+          "config",
+          "description",
+          "id"
         ],
         "type": "object",
         "properties": {
-          "individualId": {
+          "config": {
+            "$ref": "#/components/schemas/LiveGroupingConfig"
+          },
+          "id": {
             "type": "string",
             "format": "uuid"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6213,28 +6212,6 @@
           "threshold": {
             "type": "integer",
             "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LiveGrouping": {
-        "required": [
-          "config",
-          "description",
-          "id"
-        ],
-        "type": "object",
-        "properties": {
-          "config": {
-            "$ref": "#/components/schemas/LiveGroupingConfig"
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6273,18 +6250,32 @@
         },
         "additionalProperties": false
       },
-      "LinkInputRequest": {
+      "MergeIndividualsRequest": {
         "required": [
-          "ids"
+          "individualIds"
         ],
         "type": "object",
         "properties": {
-          "ids": {
+          "individualIds": {
+            "minItems": 2,
             "type": "array",
             "items": {
               "type": "string",
               "format": "uuid"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "MergeIndividualsResponse": {
+        "required": [
+          "individualId"
+        ],
+        "type": "object",
+        "properties": {
+          "individualId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -6627,6 +6618,32 @@
         },
         "additionalProperties": false
       },
+      "PedestrianDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "minPedestrianSize": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "maxPedestrianSize": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "maxPedestrians": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "PedestrianPagedCollection": {
         "required": [
           "items",
@@ -6668,18 +6685,39 @@
         },
         "additionalProperties": false
       },
-      "RecordGroupingConfig": {
-        "required": [
-          "threshold"
-        ],
+      "ProblemDetails": {
         "type": "object",
         "properties": {
-          "threshold": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": { }
+      },
+      "ProgressStatus": {
+        "enum": [
+          "Processing",
+          "Ready"
+        ],
+        "type": "string"
       },
       "RecordGrouping": {
         "required": [
@@ -6699,6 +6737,19 @@
           "description": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecordGroupingConfig": {
+        "required": [
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "threshold": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -6727,754 +6778,159 @@
         },
         "additionalProperties": false
       },
-      "VideoState": {
-        "enum": [
-          "Ready",
-          "Processing",
-          "Processed",
-          "Error"
-        ],
-        "type": "string"
-      },
-      "VideoRecord": {
+      "RegisterWatchlistMemberRequest": {
         "required": [
-          "enabled",
-          "faceDetectorConfig",
-          "faceDetectorResourceId",
-          "faceSaveStrategy",
           "id",
-          "imageQuality",
-          "maskImagePath",
-          "mpeG1PreviewEnabled",
-          "mpeG1PreviewPort",
-          "mpeG1VideoBitrate",
-          "name",
-          "previewMaxDimension",
-          "redetectionTime",
-          "saveFrameImageData",
-          "source",
-          "state",
-          "templateGenerationTime",
-          "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "images",
+          "watchlistIds"
         ],
         "type": "object",
         "properties": {
-          "state": {
-            "$ref": "#/components/schemas/VideoState"
-          },
           "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
             "type": "string"
           },
-          "source": {
-            "type": "string"
+          "images": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RegistrationImageData"
+            }
           },
-          "enabled": {
-            "type": "boolean"
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
-          },
-          "faceDetectorResourceId": {
-            "type": "string",
-            "deprecated": true
-          },
-          "templateGeneratorResourceId": {
-            "type": "string",
-            "deprecated": true
-          },
-          "redetectionTime": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "templateGenerationTime": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "trackMotionOptimization": {
-            "type": "string",
-            "deprecated": true
-          },
-          "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
-          },
-          "maskImagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "saveFrameImageData": {
-            "type": "boolean"
-          },
-          "imageQuality": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "mpeG1PreviewEnabled": {
-            "type": "boolean",
-            "deprecated": true
-          },
-          "mpeG1PreviewPort": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
-          },
-          "mpeG1VideoBitrate": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
-          },
-          "previewMaxDimension": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UploadedImageRequest": {
-        "required": [
-          "imageData"
-        ],
-        "type": "object",
-        "properties": {
-          "imageData": {
-            "$ref": "#/components/schemas/ImageData"
+          "watchlistIds": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/FaceDetectorConfig"
           },
           "faceDetectorResourceId": {
             "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "keepAutoLearnPhotos": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
       },
-      "UploadedImageResponse": {
+      "RegistrationImageData": {
         "required": [
-          "frameId",
-          "frameImageDataId"
+          "data"
         ],
         "type": "object",
         "properties": {
-          "frameId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "frameImageDataId": {
+          "faceId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "format": "byte"
           }
         },
         "additionalProperties": false
       },
-      "ProgressStatus": {
-        "enum": [
-          "Processing",
-          "Ready"
-        ],
-        "type": "string"
-      },
-      "GroupingState": {
+      "SearchByImageMatchResult": {
         "required": [
-          "id",
-          "numNewFrames",
-          "numUnprocFrames",
-          "status"
+          "displayName",
+          "fullName",
+          "score",
+          "watchlistDisplayName",
+          "watchlistFullName",
+          "watchlistId",
+          "watchlistMemberId"
         ],
         "type": "object",
         "properties": {
-          "id": {
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "watchlistMemberId": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "watchlistDisplayName": {
+            "type": "string"
+          },
+          "watchlistFullName": {
+            "type": "string"
+          },
+          "watchlistId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchInFacesResponse": {
+        "required": [
+          "searchSessionId"
+        ],
+        "type": "object",
+        "properties": {
+          "searchSessionId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchInIndividualsRequest": {
+        "required": [
+          "groupingId",
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "groupingId": {
             "type": "string",
             "format": "uuid"
           },
-          "numNewFrames": {
+          "matchThreshold": {
             "type": "integer",
             "format": "int32"
-          },
-          "numUnprocFrames": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "status": {
-            "$ref": "#/components/schemas/ProgressStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "VideoDataStorageMode": {
-        "enum": [
-          "None",
-          "All"
-        ],
-        "type": "string"
-      },
-      "VideoDataStorageConfig": {
-        "required": [
-          "storageMode"
-        ],
-        "type": "object",
-        "properties": {
-          "storageMode": {
-            "$ref": "#/components/schemas/VideoDataStorageMode"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DbCleanupConfig": {
-        "required": [
-          "cleanupAmount",
-          "cleanupStart",
-          "deleteSql",
-          "enabled",
-          "maxFramesCount",
-          "maxImageDataAge"
-        ],
-        "type": "object",
-        "properties": {
-          "enabled": {
-            "type": "boolean"
-          },
-          "maxFramesCount": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "maxImageDataAge": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "cleanupStart": {
-            "type": "string",
-            "format": "date-span",
-            "nullable": true
-          },
-          "cleanupAmount": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "deleteSql": {
-            "type": "boolean",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FaceFeaturesConfig": {
-        "required": [
-          "age",
-          "faceMask",
-          "gender",
-          "noseTip",
-          "pitchAngle",
-          "rollAngle",
-          "yawAngle"
-        ],
-        "type": "object",
-        "properties": {
-          "age": {
-            "type": "boolean"
-          },
-          "gender": {
-            "type": "boolean"
-          },
-          "faceMask": {
-            "type": "boolean"
-          },
-          "noseTip": {
-            "type": "boolean"
-          },
-          "yawAngle": {
-            "type": "boolean"
-          },
-          "pitchAngle": {
-            "type": "boolean"
-          },
-          "rollAngle": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FeaturesConfig": {
-        "required": [
-          "faceFeaturesConfig"
-        ],
-        "type": "object",
-        "properties": {
-          "faceFeaturesConfig": {
-            "$ref": "#/components/schemas/FaceFeaturesConfig"
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistAutoLearnConfig": {
-        "required": [
-          "enabled",
-          "executionStartTime",
-          "maxAutoLearnFacesCount",
-          "selectionThreshold"
-        ],
-        "type": "object",
-        "properties": {
-          "enabled": {
-            "type": "boolean"
-          },
-          "executionStartTime": {
-            "type": "string",
-            "format": "date-span",
-            "nullable": true
-          },
-          "maxAutoLearnFacesCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "selectionThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "maskedSelectionThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "noFaceMaskConfidenceThreshold": {
-            "type": "number",
-            "format": "double"
-          },
-          "faceMaskConfidenceThreshold": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "VersionInfo": {
-        "required": [
-          "assemblyLastModifiedTime",
-          "assemblyVersion",
-          "databaseVersion",
-          "databaseVersionCreationTime",
-          "databaseVersionUpdatedTime"
-        ],
-        "type": "object",
-        "properties": {
-          "databaseVersion": {
-            "type": "string"
-          },
-          "databaseVersionCreationTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "databaseVersionUpdatedTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "assemblyVersion": {
-            "type": "string"
-          },
-          "assemblyLastModifiedTime": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "VideoRecordUpdateRequest": {
-        "required": [
-          "enabled",
-          "faceDetectorConfig",
-          "id",
-          "imageQuality",
-          "maskImagePath",
-          "name",
-          "redetectionTime",
-          "saveFrameImageData",
-          "source",
-          "templateGenerationTime"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "enabled": {
-            "type": "boolean"
           },
           "faceDetectorConfig": {
-            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
+            "$ref": "#/components/schemas/FaceDetectorConfig"
           },
           "faceDetectorResourceId": {
-            "type": "string",
-            "nullable": true,
-            "deprecated": true
+            "type": "string"
           },
           "templateGeneratorResourceId": {
-            "type": "string",
-            "nullable": true,
-            "deprecated": true
-          },
-          "redetectionTime": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "templateGenerationTime": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "trackMotionOptimization": {
-            "type": "string",
-            "nullable": true,
-            "deprecated": true
-          },
-          "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
-          },
-          "maskImagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "saveFrameImageData": {
-            "type": "boolean"
-          },
-          "imageQuality": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "mpeG1PreviewEnabled": {
-            "type": "boolean",
-            "deprecated": true
-          },
-          "mpeG1PreviewPort": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
-          },
-          "mpeG1VideoBitrate": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
-          },
-          "previewMaxDimension": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
-      "VideoRecordCreateRequest": {
+      "SearchInIndividualsResponse": {
         "required": [
-          "name",
-          "source"
+          "results"
         ],
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "enabled": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfigCreateRequest"
-          },
-          "faceDetectorResourceId": {
-            "type": "string",
-            "nullable": true,
-            "deprecated": true
-          },
-          "templateGeneratorResourceId": {
-            "type": "string",
-            "nullable": true,
-            "deprecated": true
-          },
-          "redetectionTime": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "templateGenerationTime": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "trackMotionOptimization": {
-            "type": "string",
-            "nullable": true,
-            "deprecated": true
-          },
-          "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
-          },
-          "maskImagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "saveFrameImageData": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "imageQuality": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "mpeG1PreviewEnabled": {
-            "type": "boolean",
-            "nullable": true,
-            "deprecated": true
-          },
-          "mpeG1PreviewPort": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true,
-            "deprecated": true
-          },
-          "mpeG1VideoBitrate": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true,
-            "deprecated": true
-          },
-          "previewMaxDimension": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true,
-            "deprecated": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Watchlist": {
-        "required": [
-          "createdAt",
-          "displayName",
-          "fullName",
-          "id",
-          "threshold",
-          "updatedAt"
-        ],
-        "type": "object",
-        "properties": {
-          "displayName": {
-            "type": "string"
-          },
-          "fullName": {
-            "type": "string"
-          },
-          "threshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "id": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistPagedCollection": {
-        "required": [
-          "items",
-          "nextPage",
-          "pageNumber",
-          "pageSize",
-          "previousPage",
-          "totalItemsCount"
-        ],
-        "type": "object",
-        "properties": {
-          "totalItemsCount": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "items": {
+          "results": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Watchlist"
+              "$ref": "#/components/schemas/Individual"
             }
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistCreateRequest": {
-        "required": [
-          "displayName",
-          "fullName"
-        ],
-        "type": "object",
-        "properties": {
-          "displayName": {
-            "type": "string"
-          },
-          "fullName": {
-            "type": "string"
-          },
-          "threshold": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistUpsertRequest": {
-        "required": [
-          "displayName",
-          "fullName",
-          "id"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "displayName": {
-            "type": "string"
-          },
-          "fullName": {
-            "type": "string"
-          },
-          "threshold": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistMember": {
-        "required": [
-          "createdAt",
-          "displayName",
-          "fullName",
-          "id",
-          "note",
-          "updatedAt"
-        ],
-        "type": "object",
-        "properties": {
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "note": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistMemberPagedCollection": {
-        "required": [
-          "items",
-          "nextPage",
-          "pageNumber",
-          "pageSize",
-          "previousPage",
-          "totalItemsCount"
-        ],
-        "type": "object",
-        "properties": {
-          "totalItemsCount": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WatchlistMember"
-            }
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FaceMaskConfidenceRequest": {
-        "required": [
-          "faceMaskThreshold"
-        ],
-        "type": "object",
-        "properties": {
-          "faceMaskThreshold": {
-            "type": "number",
-            "format": "double"
           }
         },
         "additionalProperties": false
@@ -7519,54 +6975,6 @@
           },
           "faceFeaturesConfig": {
             "$ref": "#/components/schemas/FaceFeaturesConfig"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GenderType": {
-        "enum": [
-          "Male",
-          "Female"
-        ],
-        "type": "string"
-      },
-      "SearchByImageMatchResult": {
-        "required": [
-          "displayName",
-          "fullName",
-          "score",
-          "watchlistDisplayName",
-          "watchlistFullName",
-          "watchlistId",
-          "watchlistMemberId"
-        ],
-        "type": "object",
-        "properties": {
-          "score": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "watchlistMemberId": {
-            "type": "string",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "watchlistDisplayName": {
-            "type": "string"
-          },
-          "watchlistFullName": {
-            "type": "string"
-          },
-          "watchlistId": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7680,6 +7088,871 @@
         },
         "additionalProperties": false
       },
+      "SearchSessionsCleanupConfig": {
+        "required": [
+          "enabled",
+          "interval",
+          "maxItemsCount",
+          "maxSessionAge"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "maxItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxSessionAge": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          },
+          "interval": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SplitIndividualsRequest": {
+        "required": [
+          "previousIndividualId",
+          "trackletsIds"
+        ],
+        "type": "object",
+        "properties": {
+          "trackletsIds": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "previousIndividualId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SplitIndividualsResponse": {
+        "required": [
+          "individualId"
+        ],
+        "type": "object",
+        "properties": {
+          "individualId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpoofDetectorConfig": {
+        "required": [
+          "distantLivenessConditions",
+          "distantLivenessScoreThreshold",
+          "externalScoreThreshold",
+          "nearbyLivenessConditions",
+          "nearbyLivenessScoreThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessConditions": {
+            "type": "string"
+          },
+          "nearbyLivenessConditions": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpoofDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpoofDetectorConfigUpdateRequest": {
+        "required": [
+          "externalScoreThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tracklet": {
+        "required": [
+          "createdAt",
+          "id",
+          "timeAppeared",
+          "timeAppearedRelativeMs",
+          "timeDisappeared",
+          "timeDisappearedRelativeMs",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "timeAppeared": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "timeDisappeared": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timeAppearedRelativeMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "timeDisappearedRelativeMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TrackletPagedCollection": {
+        "required": [
+          "items",
+          "nextPage",
+          "pageNumber",
+          "pageSize",
+          "previousPage",
+          "totalItemsCount"
+        ],
+        "type": "object",
+        "properties": {
+          "totalItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tracklet"
+            }
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UploadedImageRequest": {
+        "required": [
+          "imageData"
+        ],
+        "type": "object",
+        "properties": {
+          "imageData": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UploadedImageResponse": {
+        "required": [
+          "frameId",
+          "frameImageDataId"
+        ],
+        "type": "object",
+        "properties": {
+          "frameId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "frameImageDataId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VersionInfo": {
+        "required": [
+          "assemblyLastModifiedTime",
+          "assemblyVersion",
+          "databaseVersion",
+          "databaseVersionCreationTime",
+          "databaseVersionUpdatedTime"
+        ],
+        "type": "object",
+        "properties": {
+          "databaseVersion": {
+            "type": "string"
+          },
+          "databaseVersionCreationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "databaseVersionUpdatedTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "assemblyVersion": {
+            "type": "string"
+          },
+          "assemblyLastModifiedTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoDataStorageConfig": {
+        "required": [
+          "storageMode"
+        ],
+        "type": "object",
+        "properties": {
+          "storageMode": {
+            "$ref": "#/components/schemas/VideoDataStorageMode"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoDataStorageMode": {
+        "enum": [
+          "None",
+          "All"
+        ],
+        "type": "string"
+      },
+      "VideoFaceDetectorConfig": {
+        "required": [
+          "confidenceThreshold",
+          "maxFaces",
+          "maxFaceSize",
+          "minFaceSize"
+        ],
+        "type": "object",
+        "properties": {
+          "minFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaces": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoPedestrianDetectorConfig": {
+        "required": [
+          "confidenceThreshold",
+          "maxPedestrians",
+          "maxPedestrianSize",
+          "minPedestrianSize"
+        ],
+        "type": "object",
+        "properties": {
+          "minPedestrianSize": {
+            "type": "number",
+            "format": "float"
+          },
+          "maxPedestrianSize": {
+            "type": "number",
+            "format": "float"
+          },
+          "maxPedestrians": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecord": {
+        "required": [
+          "enabled",
+          "faceDetectorConfig",
+          "faceDetectorResourceId",
+          "faceSaveStrategy",
+          "id",
+          "imageQuality",
+          "maskImagePath",
+          "matchingConfig",
+          "mpeG1PreviewEnabled",
+          "mpeG1PreviewPort",
+          "mpeG1VideoBitrate",
+          "name",
+          "previewMaxDimension",
+          "redetectionTime",
+          "saveFrameImageData",
+          "source",
+          "state",
+          "templateGenerationTime",
+          "templateGeneratorResourceId",
+          "trackMotionOptimization"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/VideoState"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string",
+            "deprecated": true
+          },
+          "templateGeneratorResourceId": {
+            "type": "string",
+            "deprecated": true
+          },
+          "redetectionTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "templateGenerationTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trackMotionOptimization": {
+            "type": "string",
+            "deprecated": true
+          },
+          "faceSaveStrategy": {
+            "$ref": "#/components/schemas/FaceSaveStrategy"
+          },
+          "maskImagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveFrameImageData": {
+            "type": "boolean"
+          },
+          "imageQuality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mpeG1PreviewEnabled": {
+            "type": "boolean",
+            "deprecated": true
+          },
+          "mpeG1PreviewPort": {
+            "type": "integer",
+            "format": "int32",
+            "deprecated": true
+          },
+          "mpeG1VideoBitrate": {
+            "type": "integer",
+            "format": "int32",
+            "deprecated": true
+          },
+          "previewMaxDimension": {
+            "type": "integer",
+            "format": "int32",
+            "deprecated": true
+          },
+          "matchingConfig": {
+            "$ref": "#/components/schemas/VideoRecordMatchingConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecordCreateRequest": {
+        "required": [
+          "name",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceDetectorConfigCreateRequest"
+          },
+          "faceDetectorResourceId": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "templateGeneratorResourceId": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "redetectionTime": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "templateGenerationTime": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trackMotionOptimization": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "faceSaveStrategy": {
+            "$ref": "#/components/schemas/FaceSaveStrategy"
+          },
+          "maskImagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveFrameImageData": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "imageQuality": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "mpeG1PreviewEnabled": {
+            "type": "boolean",
+            "nullable": true,
+            "deprecated": true
+          },
+          "mpeG1PreviewPort": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "deprecated": true
+          },
+          "mpeG1VideoBitrate": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "deprecated": true
+          },
+          "previewMaxDimension": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "deprecated": true
+          },
+          "matchingConfig": {
+            "$ref": "#/components/schemas/VideoRecordMatchingConfigCreateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecordMatchingConfig": {
+        "required": [
+          "matchDetectedFaces",
+          "maxResultsCount"
+        ],
+        "type": "object",
+        "properties": {
+          "matchDetectedFaces": {
+            "type": "boolean"
+          },
+          "maxResultsCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecordMatchingConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "matchDetectedFaces": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "maxResultsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecordMatchingConfigUpdateRequest": {
+        "required": [
+          "matchDetectedFaces",
+          "maxResultsCount"
+        ],
+        "type": "object",
+        "properties": {
+          "matchDetectedFaces": {
+            "type": "boolean"
+          },
+          "maxResultsCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecordUpdateRequest": {
+        "required": [
+          "enabled",
+          "faceDetectorConfig",
+          "id",
+          "imageQuality",
+          "maskImagePath",
+          "name",
+          "redetectionTime",
+          "saveFrameImageData",
+          "source",
+          "templateGenerationTime"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/VideoFaceDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "templateGeneratorResourceId": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "redetectionTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "templateGenerationTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trackMotionOptimization": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "faceSaveStrategy": {
+            "$ref": "#/components/schemas/FaceSaveStrategy"
+          },
+          "maskImagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveFrameImageData": {
+            "type": "boolean"
+          },
+          "imageQuality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mpeG1PreviewEnabled": {
+            "type": "boolean",
+            "deprecated": true
+          },
+          "mpeG1PreviewPort": {
+            "type": "integer",
+            "format": "int32",
+            "deprecated": true
+          },
+          "mpeG1VideoBitrate": {
+            "type": "integer",
+            "format": "int32",
+            "deprecated": true
+          },
+          "previewMaxDimension": {
+            "type": "integer",
+            "format": "int32",
+            "deprecated": true
+          },
+          "matchingConfig": {
+            "$ref": "#/components/schemas/VideoRecordMatchingConfigUpdateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoState": {
+        "enum": [
+          "Ready",
+          "Processing",
+          "Processed",
+          "Error"
+        ],
+        "type": "string"
+      },
+      "Watchlist": {
+        "required": [
+          "createdAt",
+          "displayName",
+          "fullName",
+          "id",
+          "threshold",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistAutoLearnConfig": {
+        "required": [
+          "enabled",
+          "executionStartTime",
+          "maxAutoLearnFacesCount",
+          "selectionThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "executionStartTime": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          },
+          "maxAutoLearnFacesCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "selectionThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maskedSelectionThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "noFaceMaskConfidenceThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "faceMaskConfidenceThreshold": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistCreateRequest": {
+        "required": [
+          "displayName",
+          "fullName"
+        ],
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "threshold": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistMember": {
+        "required": [
+          "createdAt",
+          "displayName",
+          "fullName",
+          "id",
+          "note",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "WatchlistMemberCreateRequest": {
         "type": "object",
         "properties": {
@@ -7698,6 +7971,67 @@
           "note": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistMemberPagedCollection": {
+        "required": [
+          "items",
+          "nextPage",
+          "pageNumber",
+          "pageSize",
+          "previousPage",
+          "totalItemsCount"
+        ],
+        "type": "object",
+        "properties": {
+          "totalItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WatchlistMember"
+            }
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistMembersLinkRequest": {
+        "required": [
+          "watchlistId",
+          "watchlistMembersIds"
+        ],
+        "type": "object",
+        "properties": {
+          "watchlistId": {
+            "type": "string"
+          },
+          "watchlistMembersIds": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": false
@@ -7726,84 +8060,6 @@
           "note": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistMembersLinkRequest": {
-        "required": [
-          "watchlistId",
-          "watchlistMembersIds"
-        ],
-        "type": "object",
-        "properties": {
-          "watchlistId": {
-            "type": "string"
-          },
-          "watchlistMembersIds": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegistrationImageData": {
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "faceId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "data": {
-            "type": "string",
-            "format": "byte"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegisterWatchlistMemberRequest": {
-        "required": [
-          "id",
-          "images",
-          "watchlistIds"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "images": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RegistrationImageData"
-            }
-          },
-          "watchlistIds": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
-          },
-          "faceDetectorResourceId": {
-            "type": "string"
-          },
-          "templateGeneratorResourceId": {
-            "type": "string"
-          },
-          "keepAutoLearnPhotos": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -7860,49 +8116,69 @@
         },
         "additionalProperties": false
       },
-      "FaceWatchlistMemberLinkingRequest": {
+      "WatchlistPagedCollection": {
         "required": [
-          "faceId"
+          "items",
+          "nextPage",
+          "pageNumber",
+          "pageSize",
+          "previousPage",
+          "totalItemsCount"
         ],
         "type": "object",
         "properties": {
-          "faceId": {
+          "totalItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Watchlist"
+            }
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "previousPage": {
             "type": "string",
-            "format": "uuid"
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "AddNewFaceRequest": {
+      "WatchlistUpsertRequest": {
         "required": [
-          "imageData"
+          "displayName",
+          "fullName",
+          "id"
         ],
         "type": "object",
         "properties": {
-          "imageData": {
-            "$ref": "#/components/schemas/RegistrationImageData"
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
-          },
-          "faceDetectorResourceId": {
+          "id": {
             "type": "string"
           },
-          "templateGeneratorResourceId": {
+          "displayName": {
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FaceWatchlistMemberRemoveRequest": {
-        "required": [
-          "faceId"
-        ],
-        "type": "object",
-        "properties": {
-          "faceId": {
-            "type": "string",
-            "format": "uuid"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "threshold": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

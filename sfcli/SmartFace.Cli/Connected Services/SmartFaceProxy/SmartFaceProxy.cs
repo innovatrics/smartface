@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 2/24/2021 12:56:03 PM
+// Generation date: 27. 10. 2021 11:30:36
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
 {
     /// <summary>
@@ -175,7 +175,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -198,6 +200,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Description in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Description")]
         public virtual string Description
         {
@@ -221,7 +224,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Type in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Type")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Type is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.ScopeType Type
         {
             get
@@ -244,7 +249,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -267,6 +274,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -290,6 +298,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property GroupingMetadata in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadata")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> GroupingMetadata
         {
@@ -313,6 +322,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Tracklets in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklets")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> Tracklets
         {
@@ -336,6 +346,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
@@ -359,6 +370,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Streams in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Streams")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream> Streams
         {
@@ -382,6 +394,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Individuals in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Individuals")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Individuals
         {
@@ -585,7 +598,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -608,7 +623,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property State in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("State")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "State is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FrameState State
         {
             get
@@ -631,6 +648,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ScopeId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
         public virtual global::System.Nullable<global::System.Guid> ScopeId
         {
@@ -654,6 +672,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
         public virtual global::System.Nullable<global::System.Guid> StreamId
         {
@@ -677,6 +696,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ImageDataId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ImageDataId")]
         public virtual global::System.Nullable<global::System.Guid> ImageDataId
         {
@@ -700,7 +720,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -723,6 +745,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -746,6 +769,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ReceivedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ReceivedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> ReceivedAt
         {
@@ -769,7 +793,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property PositionInMs in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("PositionInMs")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "PositionInMs is required.")]
         public virtual long PositionInMs
         {
             get
@@ -792,6 +818,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Scope in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Scope")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope Scope
         {
@@ -815,6 +842,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Faces in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Faces")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> Faces
         {
@@ -838,6 +866,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Pedestrians in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Pedestrians")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> Pedestrians
         {
@@ -861,6 +890,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Stream in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Stream")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream Stream
         {
@@ -884,6 +914,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Individuals in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Individuals")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Individuals
         {
@@ -1021,7 +1052,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual long Id
         {
             get
@@ -1044,6 +1077,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ScopeId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
         public virtual global::System.Nullable<global::System.Guid> ScopeId
         {
@@ -1067,7 +1101,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -1090,6 +1126,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -1113,6 +1150,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ProcessedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ProcessedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> ProcessedAt
         {
@@ -1136,7 +1174,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property State in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("State")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "State is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.GroupingState State
         {
             get
@@ -1159,7 +1199,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property IsDefault in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("IsDefault")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "IsDefault is required.")]
         public virtual bool IsDefault
         {
             get
@@ -1182,6 +1224,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property NextIterationTimeStamp in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("NextIterationTimeStamp")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> NextIterationTimeStamp
         {
@@ -1205,6 +1248,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Scope in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Scope")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope Scope
         {
@@ -1228,6 +1272,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Individuals in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Individuals")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Individuals
         {
@@ -1312,6 +1357,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle _GroupingMetadata;
         /// <summary>
+        /// There are no comments for Tracklets in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklets")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> Tracklets
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Tracklets == null))
+                {
+                    this._Tracklets = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet>(GetPath("Tracklets"));
+                }
+                return this._Tracklets;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _Tracklets;
+        /// <summary>
         /// There are no comments for BestFace in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -1355,28 +1422,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> _Faces;
-        /// <summary>
-        /// There are no comments for Tracklets in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklets")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> Tracklets
-        {
-            get
-            {
-                if (!this.IsComposable)
-                {
-                    throw new global::System.NotSupportedException("The previous function is not composable.");
-                }
-                if ((this._Tracklets == null))
-                {
-                    this._Tracklets = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet>(GetPath("Tracklets"));
-                }
-                return this._Tracklets;
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _Tracklets;
         /// <summary>
         /// There are no comments for Frames in the schema.
         /// </summary>
@@ -1431,7 +1476,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -1454,6 +1501,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property GroupingMetadataId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadataId")]
         public virtual global::System.Nullable<long> GroupingMetadataId
         {
@@ -1477,7 +1525,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -1500,6 +1550,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -1523,6 +1574,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EntranceTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EntranceTime")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> EntranceTime
         {
@@ -1546,6 +1598,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ExitTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ExitTime")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> ExitTime
         {
@@ -1569,7 +1622,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Hidden in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Hidden")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Hidden is required.")]
         public virtual bool Hidden
         {
             get
@@ -1592,7 +1647,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property BestFaceId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("BestFaceId")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "BestFaceId is required.")]
         public virtual global::System.Guid BestFaceId
         {
             get
@@ -1615,6 +1672,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property GroupingMetadata in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingMetadata")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata GroupingMetadata
         {
@@ -1635,9 +1693,34 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnGroupingMetadataChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata value);
         partial void OnGroupingMetadataChanged();
         /// <summary>
+        /// There are no comments for Property Tracklets in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklets")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> Tracklets
+        {
+            get
+            {
+                return this._Tracklets;
+            }
+            set
+            {
+                this.OnTrackletsChanging(value);
+                this._Tracklets = value;
+                this.OnTrackletsChanged();
+                this.OnPropertyChanged("Tracklets");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _Tracklets = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnTrackletsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> value);
+        partial void OnTrackletsChanged();
+        /// <summary>
         /// There are no comments for Property BestFace in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("BestFace")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face BestFace
         {
@@ -1661,6 +1744,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Faces in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Faces")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> Faces
         {
@@ -1681,32 +1765,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnFacesChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> value);
         partial void OnFacesChanged();
         /// <summary>
-        /// There are no comments for Property Tracklets in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklets")]
-        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> Tracklets
-        {
-            get
-            {
-                return this._Tracklets;
-            }
-            set
-            {
-                this.OnTrackletsChanging(value);
-                this._Tracklets = value;
-                this.OnTrackletsChanged();
-                this.OnPropertyChanged("Tracklets");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _Tracklets = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnTrackletsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> value);
-        partial void OnTrackletsChanged();
-        /// <summary>
         /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
@@ -1790,6 +1852,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _BestForIndividuals;
+        /// <summary>
+        /// There are no comments for MatchResults in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResults")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> MatchResults
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._MatchResults == null))
+                {
+                    this._MatchResults = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult>(GetPath("MatchResults"));
+                }
+                return this._MatchResults;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _MatchResults;
         /// <summary>
         /// There are no comments for Tracklet in the schema.
         /// </summary>
@@ -1915,10 +1999,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// Create a new Face object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="faceMaskStatus">Initial value of FaceMaskStatus.</param>
-        /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         /// <param name="state">Initial value of State.</param>
         /// <param name="type">Initial value of Type.</param>
+        /// <param name="faceMaskStatus">Initial value of FaceMaskStatus.</param>
+        /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         /// <param name="quality">Initial value of Quality.</param>
         /// <param name="cropLeftTopX">Initial value of CropLeftTopX.</param>
         /// <param name="cropLeftTopY">Initial value of CropLeftTopY.</param>
@@ -1931,10 +2015,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="createdAt">Initial value of CreatedAt.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static Face CreateFace(global::System.Guid ID, 
-                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus faceMaskStatus, 
-                    double faceAreaChange, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState state, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType type, 
+                    global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus faceMaskStatus, 
+                    double faceAreaChange, 
                     int quality, 
                     double cropLeftTopX, 
                     double cropLeftTopY, 
@@ -1948,10 +2032,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         {
             Face face = new Face();
             face.Id = ID;
-            face.FaceMaskStatus = faceMaskStatus;
-            face.FaceAreaChange = faceAreaChange;
             face.State = state;
             face.Type = type;
+            face.FaceMaskStatus = faceMaskStatus;
+            face.FaceAreaChange = faceAreaChange;
             face.Quality = quality;
             face.CropLeftTopX = cropLeftTopX;
             face.CropLeftTopY = cropLeftTopY;
@@ -1968,7 +2052,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -1988,308 +2074,10 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
         /// <summary>
-        /// There are no comments for Property TemplateQuality in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("TemplateQuality")]
-        public virtual global::System.Nullable<int> TemplateQuality
-        {
-            get
-            {
-                return this._TemplateQuality;
-            }
-            set
-            {
-                this.OnTemplateQualityChanging(value);
-                this._TemplateQuality = value;
-                this.OnTemplateQualityChanged();
-                this.OnPropertyChanged("TemplateQuality");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<int> _TemplateQuality;
-        partial void OnTemplateQualityChanging(global::System.Nullable<int> value);
-        partial void OnTemplateQualityChanged();
-        /// <summary>
-        /// There are no comments for Property LeftEyeX in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("LeftEyeX")]
-        public virtual global::System.Nullable<double> LeftEyeX
-        {
-            get
-            {
-                return this._LeftEyeX;
-            }
-            set
-            {
-                this.OnLeftEyeXChanging(value);
-                this._LeftEyeX = value;
-                this.OnLeftEyeXChanged();
-                this.OnPropertyChanged("LeftEyeX");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _LeftEyeX;
-        partial void OnLeftEyeXChanging(global::System.Nullable<double> value);
-        partial void OnLeftEyeXChanged();
-        /// <summary>
-        /// There are no comments for Property LeftEyeY in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("LeftEyeY")]
-        public virtual global::System.Nullable<double> LeftEyeY
-        {
-            get
-            {
-                return this._LeftEyeY;
-            }
-            set
-            {
-                this.OnLeftEyeYChanging(value);
-                this._LeftEyeY = value;
-                this.OnLeftEyeYChanged();
-                this.OnPropertyChanged("LeftEyeY");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _LeftEyeY;
-        partial void OnLeftEyeYChanging(global::System.Nullable<double> value);
-        partial void OnLeftEyeYChanged();
-        /// <summary>
-        /// There are no comments for Property RightEyeX in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("RightEyeX")]
-        public virtual global::System.Nullable<double> RightEyeX
-        {
-            get
-            {
-                return this._RightEyeX;
-            }
-            set
-            {
-                this.OnRightEyeXChanging(value);
-                this._RightEyeX = value;
-                this.OnRightEyeXChanged();
-                this.OnPropertyChanged("RightEyeX");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _RightEyeX;
-        partial void OnRightEyeXChanging(global::System.Nullable<double> value);
-        partial void OnRightEyeXChanged();
-        /// <summary>
-        /// There are no comments for Property RightEyeY in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("RightEyeY")]
-        public virtual global::System.Nullable<double> RightEyeY
-        {
-            get
-            {
-                return this._RightEyeY;
-            }
-            set
-            {
-                this.OnRightEyeYChanging(value);
-                this._RightEyeY = value;
-                this.OnRightEyeYChanged();
-                this.OnPropertyChanged("RightEyeY");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _RightEyeY;
-        partial void OnRightEyeYChanging(global::System.Nullable<double> value);
-        partial void OnRightEyeYChanged();
-        /// <summary>
-        /// There are no comments for Property AutolearnClusterType in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("AutolearnClusterType")]
-        public virtual global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> AutolearnClusterType
-        {
-            get
-            {
-                return this._AutolearnClusterType;
-            }
-            set
-            {
-                this.OnAutolearnClusterTypeChanging(value);
-                this._AutolearnClusterType = value;
-                this.OnAutolearnClusterTypeChanged();
-                this.OnPropertyChanged("AutolearnClusterType");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> _AutolearnClusterType;
-        partial void OnAutolearnClusterTypeChanging(global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> value);
-        partial void OnAutolearnClusterTypeChanged();
-        /// <summary>
-        /// There are no comments for Property Age in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Age")]
-        public virtual global::System.Nullable<double> Age
-        {
-            get
-            {
-                return this._Age;
-            }
-            set
-            {
-                this.OnAgeChanging(value);
-                this._Age = value;
-                this.OnAgeChanged();
-                this.OnPropertyChanged("Age");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _Age;
-        partial void OnAgeChanging(global::System.Nullable<double> value);
-        partial void OnAgeChanged();
-        /// <summary>
-        /// There are no comments for Property Gender in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Gender")]
-        public virtual global::System.Nullable<double> Gender
-        {
-            get
-            {
-                return this._Gender;
-            }
-            set
-            {
-                this.OnGenderChanging(value);
-                this._Gender = value;
-                this.OnGenderChanged();
-                this.OnPropertyChanged("Gender");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _Gender;
-        partial void OnGenderChanging(global::System.Nullable<double> value);
-        partial void OnGenderChanged();
-        /// <summary>
-        /// There are no comments for Property FaceMaskConfidence in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskConfidence")]
-        public virtual global::System.Nullable<double> FaceMaskConfidence
-        {
-            get
-            {
-                return this._FaceMaskConfidence;
-            }
-            set
-            {
-                this.OnFaceMaskConfidenceChanging(value);
-                this._FaceMaskConfidence = value;
-                this.OnFaceMaskConfidenceChanged();
-                this.OnPropertyChanged("FaceMaskConfidence");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _FaceMaskConfidence;
-        partial void OnFaceMaskConfidenceChanging(global::System.Nullable<double> value);
-        partial void OnFaceMaskConfidenceChanged();
-        /// <summary>
-        /// There are no comments for Property NoseTipConfidence in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("NoseTipConfidence")]
-        public virtual global::System.Nullable<double> NoseTipConfidence
-        {
-            get
-            {
-                return this._NoseTipConfidence;
-            }
-            set
-            {
-                this.OnNoseTipConfidenceChanging(value);
-                this._NoseTipConfidence = value;
-                this.OnNoseTipConfidenceChanged();
-                this.OnPropertyChanged("NoseTipConfidence");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _NoseTipConfidence;
-        partial void OnNoseTipConfidenceChanging(global::System.Nullable<double> value);
-        partial void OnNoseTipConfidenceChanged();
-        /// <summary>
-        /// There are no comments for Property FaceMaskStatus in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskStatus")]
-        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus FaceMaskStatus
-        {
-            get
-            {
-                return this._FaceMaskStatus;
-            }
-            set
-            {
-                this.OnFaceMaskStatusChanging(value);
-                this._FaceMaskStatus = value;
-                this.OnFaceMaskStatusChanged();
-                this.OnPropertyChanged("FaceMaskStatus");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus _FaceMaskStatus;
-        partial void OnFaceMaskStatusChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus value);
-        partial void OnFaceMaskStatusChanged();
-        /// <summary>
-        /// There are no comments for Property FaceAreaChange in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceAreaChange")]
-        public virtual double FaceAreaChange
-        {
-            get
-            {
-                return this._FaceAreaChange;
-            }
-            set
-            {
-                this.OnFaceAreaChangeChanging(value);
-                this._FaceAreaChange = value;
-                this.OnFaceAreaChangeChanged();
-                this.OnPropertyChanged("FaceAreaChange");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private double _FaceAreaChange;
-        partial void OnFaceAreaChangeChanging(double value);
-        partial void OnFaceAreaChangeChanged();
-        /// <summary>
-        /// There are no comments for Property FaceArea in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceArea")]
-        public virtual global::System.Nullable<double> FaceArea
-        {
-            get
-            {
-                return this._FaceArea;
-            }
-            set
-            {
-                this.OnFaceAreaChanging(value);
-                this._FaceArea = value;
-                this.OnFaceAreaChanged();
-                this.OnPropertyChanged("FaceArea");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<double> _FaceArea;
-        partial void OnFaceAreaChanging(global::System.Nullable<double> value);
-        partial void OnFaceAreaChanged();
-        /// <summary>
         /// There are no comments for Property FaceOrder in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceOrder")]
         public virtual global::System.Nullable<int> FaceOrder
         {
@@ -2313,6 +2101,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FacesOnFrameCount in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FacesOnFrameCount")]
         public virtual global::System.Nullable<int> FacesOnFrameCount
         {
@@ -2333,10 +2122,36 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnFacesOnFrameCountChanging(global::System.Nullable<int> value);
         partial void OnFacesOnFrameCountChanged();
         /// <summary>
+        /// There are no comments for Property FaceArea in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceArea")]
+        public virtual global::System.Nullable<double> FaceArea
+        {
+            get
+            {
+                return this._FaceArea;
+            }
+            set
+            {
+                this.OnFaceAreaChanging(value);
+                this._FaceArea = value;
+                this.OnFaceAreaChanged();
+                this.OnPropertyChanged("FaceArea");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _FaceArea;
+        partial void OnFaceAreaChanging(global::System.Nullable<double> value);
+        partial void OnFaceAreaChanged();
+        /// <summary>
         /// There are no comments for Property State in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("State")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "State is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState State
         {
             get
@@ -2359,7 +2174,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Type in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Type")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Type is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType Type
         {
             get
@@ -2379,9 +2196,324 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTypeChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType value);
         partial void OnTypeChanged();
         /// <summary>
+        /// There are no comments for Property GenderFormatted in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("GenderFormatted")]
+        public virtual global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.GenderType> GenderFormatted
+        {
+            get
+            {
+                return this._GenderFormatted;
+            }
+            set
+            {
+                this.OnGenderFormattedChanging(value);
+                this._GenderFormatted = value;
+                this.OnGenderFormattedChanged();
+                this.OnPropertyChanged("GenderFormatted");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.GenderType> _GenderFormatted;
+        partial void OnGenderFormattedChanging(global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.GenderType> value);
+        partial void OnGenderFormattedChanged();
+        /// <summary>
+        /// There are no comments for Property TemplateQuality in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TemplateQuality")]
+        public virtual global::System.Nullable<int> TemplateQuality
+        {
+            get
+            {
+                return this._TemplateQuality;
+            }
+            set
+            {
+                this.OnTemplateQualityChanging(value);
+                this._TemplateQuality = value;
+                this.OnTemplateQualityChanged();
+                this.OnPropertyChanged("TemplateQuality");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<int> _TemplateQuality;
+        partial void OnTemplateQualityChanging(global::System.Nullable<int> value);
+        partial void OnTemplateQualityChanged();
+        /// <summary>
+        /// There are no comments for Property LeftEyeX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("LeftEyeX")]
+        public virtual global::System.Nullable<double> LeftEyeX
+        {
+            get
+            {
+                return this._LeftEyeX;
+            }
+            set
+            {
+                this.OnLeftEyeXChanging(value);
+                this._LeftEyeX = value;
+                this.OnLeftEyeXChanged();
+                this.OnPropertyChanged("LeftEyeX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _LeftEyeX;
+        partial void OnLeftEyeXChanging(global::System.Nullable<double> value);
+        partial void OnLeftEyeXChanged();
+        /// <summary>
+        /// There are no comments for Property LeftEyeY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("LeftEyeY")]
+        public virtual global::System.Nullable<double> LeftEyeY
+        {
+            get
+            {
+                return this._LeftEyeY;
+            }
+            set
+            {
+                this.OnLeftEyeYChanging(value);
+                this._LeftEyeY = value;
+                this.OnLeftEyeYChanged();
+                this.OnPropertyChanged("LeftEyeY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _LeftEyeY;
+        partial void OnLeftEyeYChanging(global::System.Nullable<double> value);
+        partial void OnLeftEyeYChanged();
+        /// <summary>
+        /// There are no comments for Property RightEyeX in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("RightEyeX")]
+        public virtual global::System.Nullable<double> RightEyeX
+        {
+            get
+            {
+                return this._RightEyeX;
+            }
+            set
+            {
+                this.OnRightEyeXChanging(value);
+                this._RightEyeX = value;
+                this.OnRightEyeXChanged();
+                this.OnPropertyChanged("RightEyeX");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _RightEyeX;
+        partial void OnRightEyeXChanging(global::System.Nullable<double> value);
+        partial void OnRightEyeXChanged();
+        /// <summary>
+        /// There are no comments for Property RightEyeY in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("RightEyeY")]
+        public virtual global::System.Nullable<double> RightEyeY
+        {
+            get
+            {
+                return this._RightEyeY;
+            }
+            set
+            {
+                this.OnRightEyeYChanging(value);
+                this._RightEyeY = value;
+                this.OnRightEyeYChanged();
+                this.OnPropertyChanged("RightEyeY");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _RightEyeY;
+        partial void OnRightEyeYChanging(global::System.Nullable<double> value);
+        partial void OnRightEyeYChanged();
+        /// <summary>
+        /// There are no comments for Property AutolearnClusterType in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("AutolearnClusterType")]
+        public virtual global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> AutolearnClusterType
+        {
+            get
+            {
+                return this._AutolearnClusterType;
+            }
+            set
+            {
+                this.OnAutolearnClusterTypeChanging(value);
+                this._AutolearnClusterType = value;
+                this.OnAutolearnClusterTypeChanged();
+                this.OnPropertyChanged("AutolearnClusterType");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> _AutolearnClusterType;
+        partial void OnAutolearnClusterTypeChanging(global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.AutolearnClusterType> value);
+        partial void OnAutolearnClusterTypeChanged();
+        /// <summary>
+        /// There are no comments for Property Age in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Age")]
+        public virtual global::System.Nullable<double> Age
+        {
+            get
+            {
+                return this._Age;
+            }
+            set
+            {
+                this.OnAgeChanging(value);
+                this._Age = value;
+                this.OnAgeChanged();
+                this.OnPropertyChanged("Age");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _Age;
+        partial void OnAgeChanging(global::System.Nullable<double> value);
+        partial void OnAgeChanged();
+        /// <summary>
+        /// There are no comments for Property Gender in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Gender")]
+        public virtual global::System.Nullable<double> Gender
+        {
+            get
+            {
+                return this._Gender;
+            }
+            set
+            {
+                this.OnGenderChanging(value);
+                this._Gender = value;
+                this.OnGenderChanged();
+                this.OnPropertyChanged("Gender");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _Gender;
+        partial void OnGenderChanging(global::System.Nullable<double> value);
+        partial void OnGenderChanged();
+        /// <summary>
+        /// There are no comments for Property FaceMaskConfidence in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskConfidence")]
+        public virtual global::System.Nullable<double> FaceMaskConfidence
+        {
+            get
+            {
+                return this._FaceMaskConfidence;
+            }
+            set
+            {
+                this.OnFaceMaskConfidenceChanging(value);
+                this._FaceMaskConfidence = value;
+                this.OnFaceMaskConfidenceChanged();
+                this.OnPropertyChanged("FaceMaskConfidence");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _FaceMaskConfidence;
+        partial void OnFaceMaskConfidenceChanging(global::System.Nullable<double> value);
+        partial void OnFaceMaskConfidenceChanged();
+        /// <summary>
+        /// There are no comments for Property NoseTipConfidence in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NoseTipConfidence")]
+        public virtual global::System.Nullable<double> NoseTipConfidence
+        {
+            get
+            {
+                return this._NoseTipConfidence;
+            }
+            set
+            {
+                this.OnNoseTipConfidenceChanging(value);
+                this._NoseTipConfidence = value;
+                this.OnNoseTipConfidenceChanged();
+                this.OnPropertyChanged("NoseTipConfidence");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Nullable<double> _NoseTipConfidence;
+        partial void OnNoseTipConfidenceChanging(global::System.Nullable<double> value);
+        partial void OnNoseTipConfidenceChanged();
+        /// <summary>
+        /// There are no comments for Property FaceMaskStatus in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskStatus")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "FaceMaskStatus is required.")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus FaceMaskStatus
+        {
+            get
+            {
+                return this._FaceMaskStatus;
+            }
+            set
+            {
+                this.OnFaceMaskStatusChanging(value);
+                this._FaceMaskStatus = value;
+                this.OnFaceMaskStatusChanged();
+                this.OnPropertyChanged("FaceMaskStatus");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus _FaceMaskStatus;
+        partial void OnFaceMaskStatusChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus value);
+        partial void OnFaceMaskStatusChanged();
+        /// <summary>
+        /// There are no comments for Property FaceAreaChange in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("FaceAreaChange")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "FaceAreaChange is required.")]
+        public virtual double FaceAreaChange
+        {
+            get
+            {
+                return this._FaceAreaChange;
+            }
+            set
+            {
+                this.OnFaceAreaChangeChanging(value);
+                this._FaceAreaChange = value;
+                this.OnFaceAreaChangeChanged();
+                this.OnPropertyChanged("FaceAreaChange");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private double _FaceAreaChange;
+        partial void OnFaceAreaChangeChanging(double value);
+        partial void OnFaceAreaChangeChanged();
+        /// <summary>
         /// There are no comments for Property YawAngle in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("YawAngle")]
         public virtual global::System.Nullable<double> YawAngle
         {
@@ -2405,6 +2537,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property PitchAngle in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("PitchAngle")]
         public virtual global::System.Nullable<double> PitchAngle
         {
@@ -2428,6 +2561,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property RollAngle in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("RollAngle")]
         public virtual global::System.Nullable<double> RollAngle
         {
@@ -2448,32 +2582,34 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnRollAngleChanging(global::System.Nullable<double> value);
         partial void OnRollAngleChanged();
         /// <summary>
-        /// There are no comments for Property GenderFormatted in the schema.
+        /// There are no comments for Property SearchSessionObjects in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("GenderFormatted")]
-        public virtual global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.GenderType> GenderFormatted
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("SearchSessionObjects")]
+        public virtual global::System.Collections.ObjectModel.ObservableCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.SearchSessionObject> SearchSessionObjects
         {
             get
             {
-                return this._GenderFormatted;
+                return this._SearchSessionObjects;
             }
             set
             {
-                this.OnGenderFormattedChanging(value);
-                this._GenderFormatted = value;
-                this.OnGenderFormattedChanged();
-                this.OnPropertyChanged("GenderFormatted");
+                this.OnSearchSessionObjectsChanging(value);
+                this._SearchSessionObjects = value;
+                this.OnSearchSessionObjectsChanged();
+                this.OnPropertyChanged("SearchSessionObjects");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.GenderType> _GenderFormatted;
-        partial void OnGenderFormattedChanging(global::System.Nullable<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.GenderType> value);
-        partial void OnGenderFormattedChanged();
+        private global::System.Collections.ObjectModel.ObservableCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.SearchSessionObject> _SearchSessionObjects = new global::System.Collections.ObjectModel.ObservableCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.SearchSessionObject>();
+        partial void OnSearchSessionObjectsChanging(global::System.Collections.ObjectModel.ObservableCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.SearchSessionObject> value);
+        partial void OnSearchSessionObjectsChanged();
         /// <summary>
         /// There are no comments for Property ImageDataId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ImageDataId")]
         public virtual global::System.Nullable<global::System.Guid> ImageDataId
         {
@@ -2497,7 +2633,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Quality in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Quality")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Quality is required.")]
         public virtual int Quality
         {
             get
@@ -2520,7 +2658,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropLeftTopX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopX")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropLeftTopX is required.")]
         public virtual double CropLeftTopX
         {
             get
@@ -2543,7 +2683,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropLeftTopY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopY")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropLeftTopY is required.")]
         public virtual double CropLeftTopY
         {
             get
@@ -2566,7 +2708,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropRightTopX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopX")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropRightTopX is required.")]
         public virtual double CropRightTopX
         {
             get
@@ -2589,7 +2733,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropRightTopY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopY")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropRightTopY is required.")]
         public virtual double CropRightTopY
         {
             get
@@ -2612,7 +2758,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropLeftBottomX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomX")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropLeftBottomX is required.")]
         public virtual double CropLeftBottomX
         {
             get
@@ -2635,7 +2783,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropLeftBottomY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomY")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropLeftBottomY is required.")]
         public virtual double CropLeftBottomY
         {
             get
@@ -2658,7 +2808,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropRightBottomX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomX")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropRightBottomX is required.")]
         public virtual double CropRightBottomX
         {
             get
@@ -2681,7 +2833,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropRightBottomY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomY")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropRightBottomY is required.")]
         public virtual double CropRightBottomY
         {
             get
@@ -2704,6 +2858,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TrackletId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
         public virtual global::System.Nullable<global::System.Guid> TrackletId
         {
@@ -2727,6 +2882,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FrameId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
         public virtual global::System.Nullable<global::System.Guid> FrameId
         {
@@ -2750,6 +2906,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
         public virtual global::System.Nullable<global::System.Guid> StreamId
         {
@@ -2773,6 +2930,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -2796,7 +2954,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -2819,6 +2979,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ProcessedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ProcessedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> ProcessedAt
         {
@@ -2842,6 +3003,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property BestForIndividuals in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("BestForIndividuals")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> BestForIndividuals
         {
@@ -2862,9 +3024,34 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnBestForIndividualsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> value);
         partial void OnBestForIndividualsChanged();
         /// <summary>
+        /// There are no comments for Property MatchResults in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResults")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> MatchResults
+        {
+            get
+            {
+                return this._MatchResults;
+            }
+            set
+            {
+                this.OnMatchResultsChanging(value);
+                this._MatchResults = value;
+                this.OnMatchResultsChanged();
+                this.OnPropertyChanged("MatchResults");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _MatchResults = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnMatchResultsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> value);
+        partial void OnMatchResultsChanged();
+        /// <summary>
         /// There are no comments for Property Tracklet in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklet")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet Tracklet
         {
@@ -2888,6 +3075,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Frame in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Frame")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame Frame
         {
@@ -2911,6 +3099,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Stream in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Stream")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream Stream
         {
@@ -2934,6 +3123,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Individuals in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Individuals")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Individuals
         {
@@ -2957,6 +3147,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
@@ -3165,7 +3356,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -3188,7 +3381,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Pose in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Pose")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Pose is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.HumanPose Pose
         {
             get
@@ -3211,6 +3406,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EarLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EarLeftX")]
         public virtual global::System.Nullable<double> EarLeftX
         {
@@ -3234,6 +3430,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EarLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EarLeftY")]
         public virtual global::System.Nullable<double> EarLeftY
         {
@@ -3257,6 +3454,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EarRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EarRightX")]
         public virtual global::System.Nullable<double> EarRightX
         {
@@ -3280,6 +3478,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EarRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EarRightY")]
         public virtual global::System.Nullable<double> EarRightY
         {
@@ -3303,6 +3502,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EyeLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EyeLeftX")]
         public virtual global::System.Nullable<double> EyeLeftX
         {
@@ -3326,6 +3526,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EyeLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EyeLeftY")]
         public virtual global::System.Nullable<double> EyeLeftY
         {
@@ -3349,6 +3550,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EyeRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EyeRightX")]
         public virtual global::System.Nullable<double> EyeRightX
         {
@@ -3372,6 +3574,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property EyeRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("EyeRightY")]
         public virtual global::System.Nullable<double> EyeRightY
         {
@@ -3395,6 +3598,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property NoseX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("NoseX")]
         public virtual global::System.Nullable<double> NoseX
         {
@@ -3418,6 +3622,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property NoseY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("NoseY")]
         public virtual global::System.Nullable<double> NoseY
         {
@@ -3441,6 +3646,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property NeckX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("NeckX")]
         public virtual global::System.Nullable<double> NeckX
         {
@@ -3464,6 +3670,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property NeckY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("NeckY")]
         public virtual global::System.Nullable<double> NeckY
         {
@@ -3487,6 +3694,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ShoulderLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderLeftX")]
         public virtual global::System.Nullable<double> ShoulderLeftX
         {
@@ -3510,6 +3718,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ShoulderLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderLeftY")]
         public virtual global::System.Nullable<double> ShoulderLeftY
         {
@@ -3533,6 +3742,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ShoulderRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderRightX")]
         public virtual global::System.Nullable<double> ShoulderRightX
         {
@@ -3556,6 +3766,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ShoulderRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ShoulderRightY")]
         public virtual global::System.Nullable<double> ShoulderRightY
         {
@@ -3579,6 +3790,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ElbowLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowLeftX")]
         public virtual global::System.Nullable<double> ElbowLeftX
         {
@@ -3602,6 +3814,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ElbowLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowLeftY")]
         public virtual global::System.Nullable<double> ElbowLeftY
         {
@@ -3625,6 +3838,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ElbowRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowRightX")]
         public virtual global::System.Nullable<double> ElbowRightX
         {
@@ -3648,6 +3862,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ElbowRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ElbowRightY")]
         public virtual global::System.Nullable<double> ElbowRightY
         {
@@ -3671,6 +3886,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WristLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WristLeftX")]
         public virtual global::System.Nullable<double> WristLeftX
         {
@@ -3694,6 +3910,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WristLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WristLeftY")]
         public virtual global::System.Nullable<double> WristLeftY
         {
@@ -3717,6 +3934,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WristRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WristRightX")]
         public virtual global::System.Nullable<double> WristRightX
         {
@@ -3740,6 +3958,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WristRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WristRightY")]
         public virtual global::System.Nullable<double> WristRightY
         {
@@ -3763,6 +3982,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property HipLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("HipLeftX")]
         public virtual global::System.Nullable<double> HipLeftX
         {
@@ -3786,6 +4006,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property HipLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("HipLeftY")]
         public virtual global::System.Nullable<double> HipLeftY
         {
@@ -3809,6 +4030,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property HipRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("HipRightX")]
         public virtual global::System.Nullable<double> HipRightX
         {
@@ -3832,6 +4054,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property HipRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("HipRightY")]
         public virtual global::System.Nullable<double> HipRightY
         {
@@ -3855,6 +4078,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property KneeLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("KneeLeftX")]
         public virtual global::System.Nullable<double> KneeLeftX
         {
@@ -3878,6 +4102,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property KneeLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("KneeLeftY")]
         public virtual global::System.Nullable<double> KneeLeftY
         {
@@ -3901,6 +4126,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property KneeRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("KneeRightX")]
         public virtual global::System.Nullable<double> KneeRightX
         {
@@ -3924,6 +4150,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property KneeRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("KneeRightY")]
         public virtual global::System.Nullable<double> KneeRightY
         {
@@ -3947,6 +4174,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property AnkleLeftX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleLeftX")]
         public virtual global::System.Nullable<double> AnkleLeftX
         {
@@ -3970,6 +4198,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property AnkleLeftY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleLeftY")]
         public virtual global::System.Nullable<double> AnkleLeftY
         {
@@ -3993,6 +4222,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property AnkleRightX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleRightX")]
         public virtual global::System.Nullable<double> AnkleRightX
         {
@@ -4016,6 +4246,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property AnkleRightY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("AnkleRightY")]
         public virtual global::System.Nullable<double> AnkleRightY
         {
@@ -4039,6 +4270,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Poses in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Poses")]
         public virtual global::System.Collections.ObjectModel.ObservableCollection<string> Poses
         {
@@ -4062,6 +4294,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ImageDataId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ImageDataId")]
         public virtual global::System.Nullable<global::System.Guid> ImageDataId
         {
@@ -4085,7 +4318,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Quality in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Quality")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Quality is required.")]
         public virtual int Quality
         {
             get
@@ -4108,7 +4343,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropLeftTopX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopX")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropLeftTopX is required.")]
         public virtual double CropLeftTopX
         {
             get
@@ -4131,7 +4368,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropLeftTopY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftTopY")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropLeftTopY is required.")]
         public virtual double CropLeftTopY
         {
             get
@@ -4154,7 +4393,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropRightTopX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopX")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropRightTopX is required.")]
         public virtual double CropRightTopX
         {
             get
@@ -4177,7 +4418,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropRightTopY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightTopY")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropRightTopY is required.")]
         public virtual double CropRightTopY
         {
             get
@@ -4200,7 +4443,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropLeftBottomX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomX")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropLeftBottomX is required.")]
         public virtual double CropLeftBottomX
         {
             get
@@ -4223,7 +4468,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropLeftBottomY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropLeftBottomY")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropLeftBottomY is required.")]
         public virtual double CropLeftBottomY
         {
             get
@@ -4246,7 +4493,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropRightBottomX in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomX")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropRightBottomX is required.")]
         public virtual double CropRightBottomX
         {
             get
@@ -4269,7 +4518,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CropRightBottomY in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CropRightBottomY")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CropRightBottomY is required.")]
         public virtual double CropRightBottomY
         {
             get
@@ -4292,6 +4543,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property AreaOnFrame in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("AreaOnFrame")]
         public virtual global::System.Nullable<double> AreaOnFrame
         {
@@ -4315,6 +4567,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ObjectOrderOnFrameForType in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectOrderOnFrameForType")]
         public virtual global::System.Nullable<int> ObjectOrderOnFrameForType
         {
@@ -4338,6 +4591,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ObjectsOnFrameCountForType in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ObjectsOnFrameCountForType")]
         public virtual global::System.Nullable<int> ObjectsOnFrameCountForType
         {
@@ -4361,6 +4615,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TrackletId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
         public virtual global::System.Nullable<global::System.Guid> TrackletId
         {
@@ -4384,6 +4639,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FrameId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
         public virtual global::System.Nullable<global::System.Guid> FrameId
         {
@@ -4407,6 +4663,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
         public virtual global::System.Nullable<global::System.Guid> StreamId
         {
@@ -4430,6 +4687,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -4453,7 +4711,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -4476,6 +4736,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ProcessedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ProcessedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> ProcessedAt
         {
@@ -4499,6 +4760,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Tracklet in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklet")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet Tracklet
         {
@@ -4522,6 +4784,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Frame in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Frame")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame Frame
         {
@@ -4545,6 +4808,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Stream in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Stream")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream Stream
         {
@@ -4568,6 +4832,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
@@ -4718,6 +4983,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> _Pedestrians;
         /// <summary>
+        /// There are no comments for Individuals in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Individuals")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Individuals
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Individuals == null))
+                {
+                    this._Individuals = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual>(GetPath("Individuals"));
+                }
+                return this._Individuals;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _Individuals;
+        /// <summary>
         /// There are no comments for Stream in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -4740,11 +5027,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle _Stream;
         /// <summary>
-        /// There are no comments for Individuals in the schema.
+        /// There are no comments for MatchResults in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Individuals")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Individuals
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResults")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> MatchResults
         {
             get
             {
@@ -4752,15 +5039,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Individuals == null))
+                if ((this._MatchResults == null))
                 {
-                    this._Individuals = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual>(GetPath("Individuals"));
+                    this._MatchResults = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult>(GetPath("MatchResults"));
                 }
-                return this._Individuals;
+                return this._MatchResults;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _Individuals;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _MatchResults;
     }
     /// <summary>
     /// There are no comments for Tracklet in the schema.
@@ -4795,7 +5082,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -4818,6 +5107,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ScopeId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
         public virtual global::System.Nullable<global::System.Guid> ScopeId
         {
@@ -4841,7 +5131,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -4864,6 +5156,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -4887,7 +5180,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TimeAppeared in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TimeAppeared")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "TimeAppeared is required.")]
         public virtual global::System.DateTimeOffset TimeAppeared
         {
             get
@@ -4910,6 +5205,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TimeDisappeared in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TimeDisappeared")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> TimeDisappeared
         {
@@ -4933,7 +5229,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TimeAppearedRelativeMs in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TimeAppearedRelativeMs")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "TimeAppearedRelativeMs is required.")]
         public virtual long TimeAppearedRelativeMs
         {
             get
@@ -4956,7 +5254,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TimeDisappearedRelativeMs in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TimeDisappearedRelativeMs")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "TimeDisappearedRelativeMs is required.")]
         public virtual long TimeDisappearedRelativeMs
         {
             get
@@ -4979,6 +5279,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
         public virtual global::System.Nullable<global::System.Guid> StreamId
         {
@@ -5002,6 +5303,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Scope in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Scope")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope Scope
         {
@@ -5025,6 +5327,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WatchlistMembers in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMembers")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> WatchlistMembers
         {
@@ -5048,6 +5351,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Faces in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Faces")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> Faces
         {
@@ -5071,6 +5375,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Pedestrians in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Pedestrians")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> Pedestrians
         {
@@ -5091,9 +5396,34 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnPedestriansChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> value);
         partial void OnPedestriansChanged();
         /// <summary>
+        /// There are no comments for Property Individuals in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Individuals")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Individuals
+        {
+            get
+            {
+                return this._Individuals;
+            }
+            set
+            {
+                this.OnIndividualsChanging(value);
+                this._Individuals = value;
+                this.OnIndividualsChanged();
+                this.OnPropertyChanged("Individuals");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _Individuals = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnIndividualsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> value);
+        partial void OnIndividualsChanged();
+        /// <summary>
         /// There are no comments for Property Stream in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Stream")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream Stream
         {
@@ -5114,28 +5444,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnStreamChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream value);
         partial void OnStreamChanged();
         /// <summary>
-        /// There are no comments for Property Individuals in the schema.
+        /// There are no comments for Property MatchResults in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Individuals")]
-        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> Individuals
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResults")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> MatchResults
         {
             get
             {
-                return this._Individuals;
+                return this._MatchResults;
             }
             set
             {
-                this.OnIndividualsChanging(value);
-                this._Individuals = value;
-                this.OnIndividualsChanged();
-                this.OnPropertyChanged("Individuals");
+                this.OnMatchResultsChanging(value);
+                this._MatchResults = value;
+                this.OnMatchResultsChanged();
+                this.OnPropertyChanged("MatchResults");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _Individuals = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnIndividualsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> value);
-        partial void OnIndividualsChanged();
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _MatchResults = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnMatchResultsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> value);
+        partial void OnMatchResultsChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -5362,7 +5693,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -5385,6 +5718,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ScopeId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ScopeId")]
         public virtual global::System.Nullable<global::System.Guid> ScopeId
         {
@@ -5408,7 +5742,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -5431,6 +5767,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -5454,6 +5791,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Description in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Description")]
         public virtual string Description
         {
@@ -5477,6 +5815,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Name in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Name")]
         public virtual string Name
         {
@@ -5500,7 +5839,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property SequenceNumber in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("SequenceNumber")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "SequenceNumber is required.")]
         public virtual long SequenceNumber
         {
             get
@@ -5523,6 +5864,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Cameras in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Cameras")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera> Cameras
         {
@@ -5546,6 +5888,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Faces in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Faces")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> Faces
         {
@@ -5569,6 +5912,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Pedestrians in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Pedestrians")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> Pedestrians
         {
@@ -5592,6 +5936,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property VideoRecords in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("VideoRecords")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> VideoRecords
         {
@@ -5615,6 +5960,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Tracklets in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklets")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> Tracklets
         {
@@ -5638,6 +5984,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Frames in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Frames")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> Frames
         {
@@ -5661,6 +6008,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Scope in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Scope")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope Scope
         {
@@ -5753,7 +6101,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Name in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Name")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Name is required.")]
         public virtual string Name
         {
             get
@@ -5776,7 +6126,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Context in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Context")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Context is required.")]
         public virtual string Context
         {
             get
@@ -5799,6 +6151,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Configuration in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Configuration")]
         public virtual string Configuration
         {
@@ -5822,7 +6175,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -5845,6 +6200,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -5960,7 +6316,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual long Id
         {
             get
@@ -5983,7 +6341,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Enabled in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Enabled")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Enabled is required.")]
         public virtual bool Enabled
         {
             get
@@ -6006,7 +6366,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WorkerType in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WorkerType")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "WorkerType is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.WorkerType WorkerType
         {
             get
@@ -6029,6 +6391,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Description in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Description")]
         public virtual string Description
         {
@@ -6052,6 +6415,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ServiceId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ServiceId")]
         public virtual global::System.Nullable<long> ServiceId
         {
@@ -6075,7 +6439,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -6098,6 +6464,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -6121,6 +6488,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Service in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Service")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service Service
         {
@@ -6232,7 +6600,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual long Id
         {
             get
@@ -6255,6 +6625,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ServiceName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ServiceName")]
         public virtual string ServiceName
         {
@@ -6278,6 +6649,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property NodeName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("NodeName")]
         public virtual string NodeName
         {
@@ -6301,7 +6673,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -6324,6 +6698,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -6347,6 +6722,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Workers in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Workers")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker> Workers
         {
@@ -6506,7 +6882,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -6529,6 +6907,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
         public virtual global::System.Nullable<global::System.Guid> StreamId
         {
@@ -6552,7 +6931,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property StreamWorkerId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamWorkerId")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "StreamWorkerId is required.")]
         public virtual long StreamWorkerId
         {
             get
@@ -6575,7 +6956,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property VideoPublishWorkerId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("VideoPublishWorkerId")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "VideoPublishWorkerId is required.")]
         public virtual long VideoPublishWorkerId
         {
             get
@@ -6598,7 +6981,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -6621,6 +7006,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -6644,6 +7030,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property StreamWorker in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamWorker")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker StreamWorker
         {
@@ -6667,6 +7054,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property VideoPublishWorker in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("VideoPublishWorker")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker VideoPublishWorker
         {
@@ -6690,6 +7078,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Stream in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Stream")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream Stream
         {
@@ -6800,6 +7189,8 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <param name="saveFrameImageData">Initial value of SaveFrameImageData.</param>
         /// <param name="imageQuality">Initial value of ImageQuality.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
+        /// <param name="matchDetectedFaces">Initial value of MatchDetectedFaces.</param>
+        /// <param name="matchMaxResultsCount">Initial value of MatchMaxResultsCount.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static VideoRecord CreateVideoRecord(global::System.Guid ID, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState state, 
@@ -6813,7 +7204,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                     global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Models.SaveBehavior faceSaveStrategy, 
                     bool saveFrameImageData, 
                     int imageQuality, 
-                    global::System.DateTimeOffset createdAt)
+                    global::System.DateTimeOffset createdAt, 
+                    bool matchDetectedFaces, 
+                    int matchMaxResultsCount)
         {
             VideoRecord videoRecord = new VideoRecord();
             videoRecord.Id = ID;
@@ -6829,13 +7222,17 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             videoRecord.SaveFrameImageData = saveFrameImageData;
             videoRecord.ImageQuality = imageQuality;
             videoRecord.CreatedAt = createdAt;
+            videoRecord.MatchDetectedFaces = matchDetectedFaces;
+            videoRecord.MatchMaxResultsCount = matchMaxResultsCount;
             return videoRecord;
         }
         /// <summary>
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -6858,7 +7255,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property State in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("State")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "State is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.VideoState State
         {
             get
@@ -6881,6 +7280,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Source in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Source")]
         public virtual string Source
         {
@@ -6904,7 +7304,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Enabled in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Enabled")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Enabled is required.")]
         public virtual bool Enabled
         {
             get
@@ -6927,7 +7329,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property MinFaceSize in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("MinFaceSize")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "MinFaceSize is required.")]
         public virtual int MinFaceSize
         {
             get
@@ -6950,7 +7354,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property MaxFaceSize in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("MaxFaceSize")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "MaxFaceSize is required.")]
         public virtual int MaxFaceSize
         {
             get
@@ -6973,7 +7379,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property MaxFaces in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("MaxFaces")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "MaxFaces is required.")]
         public virtual int MaxFaces
         {
             get
@@ -6996,7 +7404,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ConfidenceThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ConfidenceThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "ConfidenceThreshold is required.")]
         public virtual int ConfidenceThreshold
         {
             get
@@ -7019,7 +7429,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property RedetectionTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("RedetectionTime")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "RedetectionTime is required.")]
         public virtual int RedetectionTime
         {
             get
@@ -7042,7 +7454,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TemplateGenerationTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TemplateGenerationTime")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "TemplateGenerationTime is required.")]
         public virtual int TemplateGenerationTime
         {
             get
@@ -7065,7 +7479,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FaceSaveStrategy in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceSaveStrategy")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "FaceSaveStrategy is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Models.SaveBehavior FaceSaveStrategy
         {
             get
@@ -7088,6 +7504,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property MaskImagePath in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("MaskImagePath")]
         public virtual string MaskImagePath
         {
@@ -7111,7 +7528,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property SaveFrameImageData in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("SaveFrameImageData")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "SaveFrameImageData is required.")]
         public virtual bool SaveFrameImageData
         {
             get
@@ -7134,7 +7553,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property ImageQuality in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ImageQuality")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "ImageQuality is required.")]
         public virtual int ImageQuality
         {
             get
@@ -7157,7 +7578,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -7180,6 +7603,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -7200,9 +7624,60 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnUpdatedAtChanging(global::System.Nullable<global::System.DateTimeOffset> value);
         partial void OnUpdatedAtChanged();
         /// <summary>
+        /// There are no comments for Property MatchDetectedFaces in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchDetectedFaces")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "MatchDetectedFaces is required.")]
+        public virtual bool MatchDetectedFaces
+        {
+            get
+            {
+                return this._MatchDetectedFaces;
+            }
+            set
+            {
+                this.OnMatchDetectedFacesChanging(value);
+                this._MatchDetectedFaces = value;
+                this.OnMatchDetectedFacesChanged();
+                this.OnPropertyChanged("MatchDetectedFaces");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private bool _MatchDetectedFaces;
+        partial void OnMatchDetectedFacesChanging(bool value);
+        partial void OnMatchDetectedFacesChanged();
+        /// <summary>
+        /// There are no comments for Property MatchMaxResultsCount in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchMaxResultsCount")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "MatchMaxResultsCount is required.")]
+        public virtual int MatchMaxResultsCount
+        {
+            get
+            {
+                return this._MatchMaxResultsCount;
+            }
+            set
+            {
+                this.OnMatchMaxResultsCountChanging(value);
+                this._MatchMaxResultsCount = value;
+                this.OnMatchMaxResultsCountChanged();
+                this.OnPropertyChanged("MatchMaxResultsCount");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _MatchMaxResultsCount;
+        partial void OnMatchMaxResultsCountChanging(int value);
+        partial void OnMatchMaxResultsCountChanged();
+        /// <summary>
         /// There are no comments for Property Stream in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Stream")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream Stream
         {
@@ -7286,6 +7761,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> _WatchlistMembers;
+        /// <summary>
+        /// There are no comments for MatchResults in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResults")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> MatchResults
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._MatchResults == null))
+                {
+                    this._MatchResults = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult>(GetPath("MatchResults"));
+                }
+                return this._MatchResults;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _MatchResults;
     }
     /// <summary>
     /// There are no comments for Watchlist in the schema.
@@ -7316,7 +7813,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual string Id
         {
             get
@@ -7339,6 +7838,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property DisplayName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("DisplayName")]
         public virtual string DisplayName
         {
@@ -7362,6 +7862,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FullName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FullName")]
         public virtual string FullName
         {
@@ -7385,7 +7886,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -7408,6 +7911,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -7431,7 +7935,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Threshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Threshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Threshold is required.")]
         public virtual int Threshold
         {
             get
@@ -7454,6 +7960,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WatchlistMembers in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMembers")]
         public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> WatchlistMembers
         {
@@ -7473,6 +7980,30 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> _WatchlistMembers = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember>(null, global::Microsoft.OData.Client.TrackingMode.None);
         partial void OnWatchlistMembersChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> value);
         partial void OnWatchlistMembersChanged();
+        /// <summary>
+        /// There are no comments for Property MatchResults in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResults")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> MatchResults
+        {
+            get
+            {
+                return this._MatchResults;
+            }
+            set
+            {
+                this.OnMatchResultsChanging(value);
+                this._MatchResults = value;
+                this.OnMatchResultsChanged();
+                this.OnPropertyChanged("MatchResults");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _MatchResults = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnMatchResultsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> value);
+        partial void OnMatchResultsChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -7516,6 +8047,28 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             : base(query) {}
 
         /// <summary>
+        /// There are no comments for Watchlists in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Watchlists")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> Watchlists
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Watchlists == null))
+                {
+                    this._Watchlists = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist>(GetPath("Watchlists"));
+                }
+                return this._Watchlists;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> _Watchlists;
+        /// <summary>
         /// There are no comments for Tracklet in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -7538,11 +8091,11 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle _Tracklet;
         /// <summary>
-        /// There are no comments for Watchlists in the schema.
+        /// There are no comments for MatchResults in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Watchlists")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> Watchlists
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResults")]
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> MatchResults
         {
             get
             {
@@ -7550,15 +8103,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
                 {
                     throw new global::System.NotSupportedException("The previous function is not composable.");
                 }
-                if ((this._Watchlists == null))
+                if ((this._MatchResults == null))
                 {
-                    this._Watchlists = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist>(GetPath("Watchlists"));
+                    this._MatchResults = Context.CreateQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult>(GetPath("MatchResults"));
                 }
-                return this._Watchlists;
+                return this._MatchResults;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> _Watchlists;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _MatchResults;
     }
     /// <summary>
     /// There are no comments for WatchlistMember in the schema.
@@ -7587,7 +8140,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual string Id
         {
             get
@@ -7610,6 +8165,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property DisplayName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("DisplayName")]
         public virtual string DisplayName
         {
@@ -7633,6 +8189,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FullName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FullName")]
         public virtual string FullName
         {
@@ -7656,6 +8213,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Note in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Note")]
         public virtual string Note
         {
@@ -7679,7 +8237,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -7702,6 +8262,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -7725,6 +8286,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TrackletId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
         public virtual global::System.Nullable<global::System.Guid> TrackletId
         {
@@ -7745,9 +8307,34 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTrackletIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnTrackletIdChanged();
         /// <summary>
+        /// There are no comments for Property Watchlists in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Watchlists")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> Watchlists
+        {
+            get
+            {
+                return this._Watchlists;
+            }
+            set
+            {
+                this.OnWatchlistsChanging(value);
+                this._Watchlists = value;
+                this.OnWatchlistsChanged();
+                this.OnPropertyChanged("Watchlists");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> _Watchlists = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnWatchlistsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> value);
+        partial void OnWatchlistsChanged();
+        /// <summary>
         /// There are no comments for Property Tracklet in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklet")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet Tracklet
         {
@@ -7768,28 +8355,29 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnTrackletChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet value);
         partial void OnTrackletChanged();
         /// <summary>
-        /// There are no comments for Property Watchlists in the schema.
+        /// There are no comments for Property MatchResults in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Watchlists")]
-        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> Watchlists
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResults")]
+        public virtual global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> MatchResults
         {
             get
             {
-                return this._Watchlists;
+                return this._MatchResults;
             }
             set
             {
-                this.OnWatchlistsChanging(value);
-                this._Watchlists = value;
-                this.OnWatchlistsChanged();
-                this.OnPropertyChanged("Watchlists");
+                this.OnMatchResultsChanging(value);
+                this._MatchResults = value;
+                this.OnMatchResultsChanged();
+                this.OnPropertyChanged("MatchResults");
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> _Watchlists = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist>(null, global::Microsoft.OData.Client.TrackingMode.None);
-        partial void OnWatchlistsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> value);
-        partial void OnWatchlistsChanged();
+        private global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _MatchResults = new global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult>(null, global::Microsoft.OData.Client.TrackingMode.None);
+        partial void OnMatchResultsChanging(global::Microsoft.OData.Client.DataServiceCollection<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> value);
+        partial void OnMatchResultsChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -7832,6 +8420,138 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         public MatchResultSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<MatchResult> query)
             : base(query) {}
 
+        /// <summary>
+        /// There are no comments for WatchlistMember in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMember")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle WatchlistMember
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._WatchlistMember == null))
+                {
+                    this._WatchlistMember = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle(this.Context, GetPath("WatchlistMember"));
+                }
+                return this._WatchlistMember;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle _WatchlistMember;
+        /// <summary>
+        /// There are no comments for Watchlist in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Watchlist")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle Watchlist
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Watchlist == null))
+                {
+                    this._Watchlist = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle(this.Context, GetPath("Watchlist"));
+                }
+                return this._Watchlist;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle _Watchlist;
+        /// <summary>
+        /// There are no comments for Frame in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frame")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle Frame
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Frame == null))
+                {
+                    this._Frame = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(this.Context, GetPath("Frame"));
+                }
+                return this._Frame;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle _Frame;
+        /// <summary>
+        /// There are no comments for Tracklet in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklet")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle Tracklet
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Tracklet == null))
+                {
+                    this._Tracklet = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle(this.Context, GetPath("Tracklet"));
+                }
+                return this._Tracklet;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle _Tracklet;
+        /// <summary>
+        /// There are no comments for Stream in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Stream")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle Stream
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Stream == null))
+                {
+                    this._Stream = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle(this.Context, GetPath("Stream"));
+                }
+                return this._Stream;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle _Stream;
+        /// <summary>
+        /// There are no comments for Face in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Face")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle Face
+        {
+            get
+            {
+                if (!this.IsComposable)
+                {
+                    throw new global::System.NotSupportedException("The previous function is not composable.");
+                }
+                if ((this._Face == null))
+                {
+                    this._Face = new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle(this.Context, GetPath("Face"));
+                }
+                return this._Face;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle _Face;
     }
     /// <summary>
     /// There are no comments for MatchResult in the schema.
@@ -7848,29 +8568,23 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
         /// <param name="type">Initial value of Type.</param>
-        /// <param name="streamId">Initial value of StreamId.</param>
         /// <param name="score">Initial value of Score.</param>
         /// <param name="createdAt">Initial value of CreatedAt.</param>
-        /// <param name="trackletId">Initial value of TrackletId.</param>
         /// <param name="faceAreaChange">Initial value of FaceAreaChange.</param>
         /// <param name="faceMaskStatus">Initial value of FaceMaskStatus.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         public static MatchResult CreateMatchResult(global::System.Guid ID, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType type, 
-                    global::System.Guid streamId, 
                     int score, 
                     global::System.DateTimeOffset createdAt, 
-                    global::System.Guid trackletId, 
                     double faceAreaChange, 
                     global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus faceMaskStatus)
         {
             MatchResult matchResult = new MatchResult();
             matchResult.Id = ID;
             matchResult.Type = type;
-            matchResult.StreamId = streamId;
             matchResult.Score = score;
             matchResult.CreatedAt = createdAt;
-            matchResult.TrackletId = trackletId;
             matchResult.FaceAreaChange = faceAreaChange;
             matchResult.FaceMaskStatus = faceMaskStatus;
             return matchResult;
@@ -7879,7 +8593,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual global::System.Guid Id
         {
             get
@@ -7902,7 +8618,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property Type in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Type")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Type is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType Type
         {
             get
@@ -7925,6 +8643,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WatchlistMemberId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMemberId")]
         public virtual string WatchlistMemberId
         {
@@ -7948,8 +8667,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property StreamId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamId")]
-        public virtual global::System.Guid StreamId
+        public virtual global::System.Nullable<global::System.Guid> StreamId
         {
             get
             {
@@ -7964,14 +8684,16 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _StreamId;
-        partial void OnStreamIdChanging(global::System.Guid value);
+        private global::System.Nullable<global::System.Guid> _StreamId;
+        partial void OnStreamIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnStreamIdChanged();
         /// <summary>
         /// There are no comments for Property Score in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Score")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Score is required.")]
         public virtual int Score
         {
             get
@@ -7994,7 +8716,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property CreatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("CreatedAt")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "CreatedAt is required.")]
         public virtual global::System.DateTimeOffset CreatedAt
         {
             get
@@ -8017,6 +8741,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property UpdatedAt in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("UpdatedAt")]
         public virtual global::System.Nullable<global::System.DateTimeOffset> UpdatedAt
         {
@@ -8040,8 +8765,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TrackletId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TrackletId")]
-        public virtual global::System.Guid TrackletId
+        public virtual global::System.Nullable<global::System.Guid> TrackletId
         {
             get
             {
@@ -8056,13 +8782,14 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::System.Guid _TrackletId;
-        partial void OnTrackletIdChanging(global::System.Guid value);
+        private global::System.Nullable<global::System.Guid> _TrackletId;
+        partial void OnTrackletIdChanging(global::System.Nullable<global::System.Guid> value);
         partial void OnTrackletIdChanged();
         /// <summary>
         /// There are no comments for Property WatchlistMemberFullName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMemberFullName")]
         public virtual string WatchlistMemberFullName
         {
@@ -8086,6 +8813,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WatchlistMemberDisplayName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMemberDisplayName")]
         public virtual string WatchlistMemberDisplayName
         {
@@ -8109,6 +8837,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WatchlistFullName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistFullName")]
         public virtual string WatchlistFullName
         {
@@ -8132,6 +8861,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WatchlistDisplayName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistDisplayName")]
         public virtual string WatchlistDisplayName
         {
@@ -8155,6 +8885,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property WatchlistId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistId")]
         public virtual string WatchlistId
         {
@@ -8178,6 +8909,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FaceId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceId")]
         public virtual global::System.Nullable<global::System.Guid> FaceId
         {
@@ -8201,6 +8933,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FrameId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FrameId")]
         public virtual global::System.Nullable<global::System.Guid> FrameId
         {
@@ -8224,6 +8957,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FaceArea in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceArea")]
         public virtual global::System.Nullable<double> FaceArea
         {
@@ -8247,6 +8981,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FaceOrder in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceOrder")]
         public virtual global::System.Nullable<int> FaceOrder
         {
@@ -8270,6 +9005,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FacesOnFrameCount in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FacesOnFrameCount")]
         public virtual global::System.Nullable<int> FacesOnFrameCount
         {
@@ -8293,7 +9029,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FaceAreaChange in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceAreaChange")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "FaceAreaChange is required.")]
         public virtual double FaceAreaChange
         {
             get
@@ -8316,6 +9054,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FaceMaskConfidence in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskConfidence")]
         public virtual global::System.Nullable<double> FaceMaskConfidence
         {
@@ -8339,6 +9078,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property NoseTipConfidence in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("NoseTipConfidence")]
         public virtual global::System.Nullable<double> NoseTipConfidence
         {
@@ -8362,7 +9102,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property FaceMaskStatus in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceMaskStatus")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "FaceMaskStatus is required.")]
         public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus FaceMaskStatus
         {
             get
@@ -8385,6 +9127,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property YawAngle in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("YawAngle")]
         public virtual global::System.Nullable<double> YawAngle
         {
@@ -8408,6 +9151,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property PitchAngle in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("PitchAngle")]
         public virtual global::System.Nullable<double> PitchAngle
         {
@@ -8431,6 +9175,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property RollAngle in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("RollAngle")]
         public virtual global::System.Nullable<double> RollAngle
         {
@@ -8454,6 +9199,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// There are no comments for Property TemplateQuality in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TemplateQuality")]
         public virtual global::System.Nullable<int> TemplateQuality
         {
@@ -8473,6 +9219,288 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private global::System.Nullable<int> _TemplateQuality;
         partial void OnTemplateQualityChanging(global::System.Nullable<int> value);
         partial void OnTemplateQualityChanged();
+        /// <summary>
+        /// There are no comments for Property WatchlistMember in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistMember")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember WatchlistMember
+        {
+            get
+            {
+                return this._WatchlistMember;
+            }
+            set
+            {
+                this.OnWatchlistMemberChanging(value);
+                this._WatchlistMember = value;
+                this.OnWatchlistMemberChanged();
+                this.OnPropertyChanged("WatchlistMember");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember _WatchlistMember;
+        partial void OnWatchlistMemberChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember value);
+        partial void OnWatchlistMemberChanged();
+        /// <summary>
+        /// There are no comments for Property Watchlist in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Watchlist")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist Watchlist
+        {
+            get
+            {
+                return this._Watchlist;
+            }
+            set
+            {
+                this.OnWatchlistChanging(value);
+                this._Watchlist = value;
+                this.OnWatchlistChanged();
+                this.OnPropertyChanged("Watchlist");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist _Watchlist;
+        partial void OnWatchlistChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist value);
+        partial void OnWatchlistChanged();
+        /// <summary>
+        /// There are no comments for Property Frame in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Frame")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame Frame
+        {
+            get
+            {
+                return this._Frame;
+            }
+            set
+            {
+                this.OnFrameChanging(value);
+                this._Frame = value;
+                this.OnFrameChanged();
+                this.OnPropertyChanged("Frame");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame _Frame;
+        partial void OnFrameChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame value);
+        partial void OnFrameChanged();
+        /// <summary>
+        /// There are no comments for Property Tracklet in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Tracklet")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet Tracklet
+        {
+            get
+            {
+                return this._Tracklet;
+            }
+            set
+            {
+                this.OnTrackletChanging(value);
+                this._Tracklet = value;
+                this.OnTrackletChanged();
+                this.OnPropertyChanged("Tracklet");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet _Tracklet;
+        partial void OnTrackletChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet value);
+        partial void OnTrackletChanged();
+        /// <summary>
+        /// There are no comments for Property Stream in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Stream")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream Stream
+        {
+            get
+            {
+                return this._Stream;
+            }
+            set
+            {
+                this.OnStreamChanging(value);
+                this._Stream = value;
+                this.OnStreamChanged();
+                this.OnPropertyChanged("Stream");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream _Stream;
+        partial void OnStreamChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream value);
+        partial void OnStreamChanged();
+        /// <summary>
+        /// There are no comments for Property Face in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Face")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face Face
+        {
+            get
+            {
+                return this._Face;
+            }
+            set
+            {
+                this.OnFaceChanging(value);
+                this._Face = value;
+                this.OnFaceChanged();
+                this.OnPropertyChanged("Face");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face _Face;
+        partial void OnFaceChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face value);
+        partial void OnFaceChanged();
+        /// <summary>
+        /// This event is raised when the value of the property is changed
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// The value of the property is changed
+        /// </summary>
+        /// <param name="property">property name</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        protected virtual void OnPropertyChanged(string property)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new global::System.ComponentModel.PropertyChangedEventArgs(property));
+            }
+        }
+    }
+    /// <summary>
+    /// There are no comments for SearchSessionObject in the schema.
+    /// </summary>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("SearchSessionObject")]
+    public partial class SearchSessionObject : global::System.ComponentModel.INotifyPropertyChanged
+    {
+        /// <summary>
+        /// Create a new SearchSessionObject object.
+        /// </summary>
+        /// <param name="searchSessionId">Initial value of SearchSessionId.</param>
+        /// <param name="visualObjectId">Initial value of VisualObjectId.</param>
+        /// <param name="score">Initial value of Score.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        public static SearchSessionObject CreateSearchSessionObject(global::System.Guid searchSessionId, global::System.Guid visualObjectId, int score)
+        {
+            SearchSessionObject searchSessionObject = new SearchSessionObject();
+            searchSessionObject.SearchSessionId = searchSessionId;
+            searchSessionObject.VisualObjectId = visualObjectId;
+            searchSessionObject.Score = score;
+            return searchSessionObject;
+        }
+        /// <summary>
+        /// There are no comments for Property SearchSessionId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("SearchSessionId")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "SearchSessionId is required.")]
+        public virtual global::System.Guid SearchSessionId
+        {
+            get
+            {
+                return this._SearchSessionId;
+            }
+            set
+            {
+                this.OnSearchSessionIdChanging(value);
+                this._SearchSessionId = value;
+                this.OnSearchSessionIdChanged();
+                this.OnPropertyChanged("SearchSessionId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Guid _SearchSessionId;
+        partial void OnSearchSessionIdChanging(global::System.Guid value);
+        partial void OnSearchSessionIdChanged();
+        /// <summary>
+        /// There are no comments for Property VisualObjectId in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("VisualObjectId")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "VisualObjectId is required.")]
+        public virtual global::System.Guid VisualObjectId
+        {
+            get
+            {
+                return this._VisualObjectId;
+            }
+            set
+            {
+                this.OnVisualObjectIdChanging(value);
+                this._VisualObjectId = value;
+                this.OnVisualObjectIdChanged();
+                this.OnPropertyChanged("VisualObjectId");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Guid _VisualObjectId;
+        partial void OnVisualObjectIdChanging(global::System.Guid value);
+        partial void OnVisualObjectIdChanged();
+        /// <summary>
+        /// There are no comments for Property Score in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Score")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Score is required.")]
+        public virtual int Score
+        {
+            get
+            {
+                return this._Score;
+            }
+            set
+            {
+                this.OnScoreChanging(value);
+                this._Score = value;
+                this.OnScoreChanged();
+                this.OnPropertyChanged("Score");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Score;
+        partial void OnScoreChanging(int value);
+        partial void OnScoreChanged();
+        /// <summary>
+        /// There are no comments for Property Face in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Face")]
+        public virtual global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face Face
+        {
+            get
+            {
+                return this._Face;
+            }
+            set
+            {
+                this.OnFaceChanging(value);
+                this._Face = value;
+                this.OnFaceChanged();
+                this.OnPropertyChanged("Face");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face _Face;
+        partial void OnFaceChanging(global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face value);
+        partial void OnFaceChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -8499,377 +9527,377 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Scope> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ScopeSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Frame> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FrameSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadata> _source,
             long id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.GroupingMetadataSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Individual> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.IndividualSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Face> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.FaceSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Pedestrian> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.PedestrianSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Tracklet> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.TrackletSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Stream> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.StreamSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="context">The value of context</param>
         /// <param name="name">The value of name</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source,
             string context, 
             string name)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Context", context }, 
                 { "Name", name }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ConfigSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Worker> _source,
             long id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WorkerSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service> _source,
             long id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.ServiceSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Camera> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.CameraSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecord> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.VideoRecordSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Watchlist> _source,
             string id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMember> _source,
             string id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.WatchlistMemberSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
         /// Get an entity of type global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult as global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> source,
+        public static global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResult> _source,
             global::System.Guid id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.MatchResultSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
     }
 }
-namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
+namespace SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses
 {
     /// <summary>
     /// There are no comments for PingSingle in the schema.
@@ -8927,7 +9955,9 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
         /// There are no comments for Property Id in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Id is required.")]
         public virtual int Id
         {
             get
@@ -8950,6 +9980,7 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
         /// There are no comments for Property DatabaseVersion in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("DatabaseVersion")]
         public virtual string DatabaseVersion
         {
@@ -8973,7 +10004,9 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
         /// There are no comments for Property DatabaseVersionCreationTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("DatabaseVersionCreationTime")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "DatabaseVersionCreationTime is required.")]
         public virtual global::System.DateTimeOffset DatabaseVersionCreationTime
         {
             get
@@ -8996,7 +10029,9 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
         /// There are no comments for Property DatabaseVersionUpdatedTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("DatabaseVersionUpdatedTime")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "DatabaseVersionUpdatedTime is required.")]
         public virtual global::System.DateTimeOffset DatabaseVersionUpdatedTime
         {
             get
@@ -9019,6 +10054,7 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
         /// There are no comments for Property AssemblyVersion in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("AssemblyVersion")]
         public virtual string AssemblyVersion
         {
@@ -9042,7 +10078,9 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
         /// There are no comments for Property AssemblyLastModifiedTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("AssemblyLastModifiedTime")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "AssemblyLastModifiedTime is required.")]
         public virtual global::System.DateTimeOffset AssemblyLastModifiedTime
         {
             get
@@ -9089,6 +10127,7 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
         /// There are no comments for Property PropertyName in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("PropertyName")]
         public virtual string PropertyName
         {
@@ -9132,31 +10171,31 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses
     public static class ExtensionMethods
     {
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping as global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.Ping as global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.PingSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
-        /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping> source, global::System.Collections.Generic.IDictionary<string, object> keys)
+        /// <param name="_source">source entity set</param>
+        /// <param name="_keys">dictionary with the names and values of keys</param>
+        public static global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.PingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.Ping> _source, global::System.Collections.Generic.IDictionary<string, object> _keys)
         {
-            return new global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.PingSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
         /// <summary>
-        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping as global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle specified by key from an entity set
+        /// Get an entity of type global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.Ping as global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.PingSingle specified by key from an entity set
         /// </summary>
-        /// <param name="source">source entity set</param>
+        /// <param name="_source">source entity set</param>
         /// <param name="id">The value of id</param>
-        public static global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping> source,
+        public static global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.PingSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.Ping> _source,
             int id)
         {
-            global::System.Collections.Generic.IDictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            global::System.Collections.Generic.IDictionary<string, object> _keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "Id", id }
             };
-            return new global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.PingSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.PingSingle(_source.Context, _source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(_source.Context, _keys)));
         }
     }
 }
-namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests
+namespace SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Requests
 {
     /// <summary>
     /// There are no comments for UpdateConfigValueData in the schema.
@@ -9185,7 +10224,9 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests
         /// There are no comments for Property Value in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Value")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Value is required.")]
         public virtual string Value
         {
             get
@@ -9208,7 +10249,9 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests
         /// There are no comments for Property Name in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Name")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Name is required.")]
         public virtual string Name
         {
             get
@@ -9231,7 +10274,9 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests
         /// There are no comments for Property Context in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Context")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Context is required.")]
         public virtual string Context
         {
             get
@@ -9254,7 +10299,9 @@ namespace SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests
         /// There are no comments for Property Property in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Property")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Property is required.")]
         public virtual string Property
         {
             get
@@ -9309,6 +10356,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// <param name="min_MaxFramesCount">Initial value of Min_MaxFramesCount.</param>
         /// <param name="min_MaxImageDataAge">Initial value of Min_MaxImageDataAge.</param>
         /// <param name="min_CleanupAmount">Initial value of Min_CleanupAmount.</param>
+        /// <param name="min_MaxSearchItemsCount">Initial value of Min_MaxSearchItemsCount.</param>
         /// <param name="min_SelectionThreshold">Initial value of Min_SelectionThreshold.</param>
         /// <param name="min_MaxAutoLearnFacesCount">Initial value of Min_MaxAutoLearnFacesCount.</param>
         /// <param name="min_MaskConfidence">Initial value of Min_MaskConfidence.</param>
@@ -9349,6 +10397,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
                     int min_MaxFramesCount, 
                     int min_MaxImageDataAge, 
                     int min_CleanupAmount, 
+                    int min_MaxSearchItemsCount, 
                     int min_SelectionThreshold, 
                     int min_MaxAutoLearnFacesCount, 
                     double min_MaskConfidence, 
@@ -9390,6 +10439,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
             configurationConstants.Min_MaxFramesCount = min_MaxFramesCount;
             configurationConstants.Min_MaxImageDataAge = min_MaxImageDataAge;
             configurationConstants.Min_CleanupAmount = min_CleanupAmount;
+            configurationConstants.Min_MaxSearchItemsCount = min_MaxSearchItemsCount;
             configurationConstants.Min_SelectionThreshold = min_SelectionThreshold;
             configurationConstants.Min_MaxAutoLearnFacesCount = min_MaxAutoLearnFacesCount;
             configurationConstants.Min_MaskConfidence = min_MaskConfidence;
@@ -9429,7 +10479,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_GroupingStep in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_GroupingStep")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_GroupingStep is required.")]
         public virtual int Min_GroupingStep
         {
             get
@@ -9452,6 +10504,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property GroupingStrategy in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("GroupingStrategy")]
         public virtual global::System.Collections.ObjectModel.ObservableCollection<string> GroupingStrategy
         {
@@ -9475,7 +10528,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_GroupingThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_GroupingThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_GroupingThreshold is required.")]
         public virtual int Min_GroupingThreshold
         {
             get
@@ -9498,7 +10553,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_GroupingThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_GroupingThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_GroupingThreshold is required.")]
         public virtual int Max_GroupingThreshold
         {
             get
@@ -9521,7 +10578,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaxFramesCount in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxFramesCount")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxFramesCount is required.")]
         public virtual int Min_MaxFramesCount
         {
             get
@@ -9544,7 +10603,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaxImageDataAge in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxImageDataAge")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxImageDataAge is required.")]
         public virtual int Min_MaxImageDataAge
         {
             get
@@ -9567,6 +10628,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_CleanupStart in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_CleanupStart")]
         public virtual string Min_CleanupStart
         {
@@ -9590,6 +10652,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_CleanupStart in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_CleanupStart")]
         public virtual string Max_CleanupStart
         {
@@ -9613,7 +10676,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_CleanupAmount in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_CleanupAmount")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_CleanupAmount is required.")]
         public virtual int Min_CleanupAmount
         {
             get
@@ -9633,10 +10698,37 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         partial void OnMin_CleanupAmountChanging(int value);
         partial void OnMin_CleanupAmountChanged();
         /// <summary>
+        /// There are no comments for Property Min_MaxSearchItemsCount in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxSearchItemsCount")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxSearchItemsCount is required.")]
+        public virtual int Min_MaxSearchItemsCount
+        {
+            get
+            {
+                return this._Min_MaxSearchItemsCount;
+            }
+            set
+            {
+                this.OnMin_MaxSearchItemsCountChanging(value);
+                this._Min_MaxSearchItemsCount = value;
+                this.OnMin_MaxSearchItemsCountChanged();
+                this.OnPropertyChanged("Min_MaxSearchItemsCount");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private int _Min_MaxSearchItemsCount;
+        partial void OnMin_MaxSearchItemsCountChanging(int value);
+        partial void OnMin_MaxSearchItemsCountChanged();
+        /// <summary>
         /// There are no comments for Property Min_SelectionThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_SelectionThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_SelectionThreshold is required.")]
         public virtual int Min_SelectionThreshold
         {
             get
@@ -9659,7 +10751,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaxAutoLearnFacesCount in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxAutoLearnFacesCount")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxAutoLearnFacesCount is required.")]
         public virtual int Min_MaxAutoLearnFacesCount
         {
             get
@@ -9682,6 +10776,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_ExecutionStartTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_ExecutionStartTime")]
         public virtual string Min_ExecutionStartTime
         {
@@ -9705,6 +10800,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_ExecutionStartTime in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_ExecutionStartTime")]
         public virtual string Max_ExecutionStartTime
         {
@@ -9728,7 +10824,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaskConfidence in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaskConfidence")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaskConfidence is required.")]
         public virtual double Min_MaskConfidence
         {
             get
@@ -9751,7 +10849,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_MaskConfidence in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MaskConfidence")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_MaskConfidence is required.")]
         public virtual double Max_MaskConfidence
         {
             get
@@ -9774,7 +10874,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_ImageQuality in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_ImageQuality")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_ImageQuality is required.")]
         public virtual int Min_ImageQuality
         {
             get
@@ -9797,7 +10899,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_ImageQuality in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_ImageQuality")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_ImageQuality is required.")]
         public virtual int Max_ImageQuality
         {
             get
@@ -9820,6 +10924,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property FaceDetectionSpeedAccuracyMode in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("FaceDetectionSpeedAccuracyMode")]
         public virtual global::System.Collections.ObjectModel.ObservableCollection<string> FaceDetectionSpeedAccuracyMode
         {
@@ -9843,7 +10948,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_FaceDetectionConfidenceThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_FaceDetectionConfidenceThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_FaceDetectionConfidenceThreshold is required.")]
         public virtual int Min_FaceDetectionConfidenceThreshold
         {
             get
@@ -9866,7 +10973,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_FaceDetectionConfidenceThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_FaceDetectionConfidenceThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_FaceDetectionConfidenceThreshold is required.")]
         public virtual int Max_FaceDetectionConfidenceThreshold
         {
             get
@@ -9889,7 +10998,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MatchThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MatchThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MatchThreshold is required.")]
         public virtual int Min_MatchThreshold
         {
             get
@@ -9912,7 +11023,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_MatchThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MatchThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_MatchThreshold is required.")]
         public virtual int Max_MatchThreshold
         {
             get
@@ -9935,7 +11048,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MinAccurateEyeDistance in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MinAccurateEyeDistance")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MinAccurateEyeDistance is required.")]
         public virtual int Min_MinAccurateEyeDistance
         {
             get
@@ -9958,7 +11073,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MinBalancedEyeDistance in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MinBalancedEyeDistance")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MinBalancedEyeDistance is required.")]
         public virtual int Min_MinBalancedEyeDistance
         {
             get
@@ -9981,7 +11098,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MinFastEyeDistance in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MinFastEyeDistance")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MinFastEyeDistance is required.")]
         public virtual int Min_MinFastEyeDistance
         {
             get
@@ -10004,7 +11123,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaxFaces in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxFaces")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxFaces is required.")]
         public virtual int Min_MaxFaces
         {
             get
@@ -10027,7 +11148,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_ThreadNum in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_ThreadNum")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_ThreadNum is required.")]
         public virtual int Min_ThreadNum
         {
             get
@@ -10050,6 +11173,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property ThreadManagementMode in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("ThreadManagementMode")]
         public virtual global::System.Collections.ObjectModel.ObservableCollection<string> ThreadManagementMode
         {
@@ -10073,7 +11197,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_ExtractorFaceHandlerNum in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_ExtractorFaceHandlerNum")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_ExtractorFaceHandlerNum is required.")]
         public virtual int Min_ExtractorFaceHandlerNum
         {
             get
@@ -10096,7 +11222,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_FaceDiscoveryFrequency in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_FaceDiscoveryFrequency")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_FaceDiscoveryFrequency is required.")]
         public virtual int Min_FaceDiscoveryFrequency
         {
             get
@@ -10119,7 +11247,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_FaceExtractionFrequency in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_FaceExtractionFrequency")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_FaceExtractionFrequency is required.")]
         public virtual int Min_FaceExtractionFrequency
         {
             get
@@ -10142,7 +11272,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaxTrackingFaces in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxTrackingFaces")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxTrackingFaces is required.")]
         public virtual int Min_MaxTrackingFaces
         {
             get
@@ -10165,7 +11297,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaxTrackingObjects in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxTrackingObjects")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxTrackingObjects is required.")]
         public virtual int Min_MaxTrackingObjects
         {
             get
@@ -10188,7 +11322,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_Mpeg1VideoBitRate in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_Mpeg1VideoBitRate")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_Mpeg1VideoBitRate is required.")]
         public virtual int Min_Mpeg1VideoBitRate
         {
             get
@@ -10211,7 +11347,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_PreviewAutoShutdownSeconds in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_PreviewAutoShutdownSeconds")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_PreviewAutoShutdownSeconds is required.")]
         public virtual int Min_PreviewAutoShutdownSeconds
         {
             get
@@ -10234,7 +11372,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_PreviewBufferSegments in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_PreviewBufferSegments")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_PreviewBufferSegments is required.")]
         public virtual int Min_PreviewBufferSegments
         {
             get
@@ -10257,7 +11397,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_PreviewMaxDimension in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_PreviewMaxDimension")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_PreviewMaxDimension is required.")]
         public virtual int Min_PreviewMaxDimension
         {
             get
@@ -10280,7 +11422,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_PreviewVideoSegmentSeconds in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_PreviewVideoSegmentSeconds")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_PreviewVideoSegmentSeconds is required.")]
         public virtual int Min_PreviewVideoSegmentSeconds
         {
             get
@@ -10303,6 +11447,7 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property TrackMotionOptimization in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("TrackMotionOptimization")]
         public virtual global::System.Collections.ObjectModel.ObservableCollection<string> TrackMotionOptimization
         {
@@ -10323,10 +11468,36 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         partial void OnTrackMotionOptimizationChanging(global::System.Collections.ObjectModel.ObservableCollection<string> value);
         partial void OnTrackMotionOptimizationChanged();
         /// <summary>
+        /// There are no comments for Property TrackSpeedAccuracyMode in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("TrackSpeedAccuracyMode")]
+        public virtual global::System.Collections.ObjectModel.ObservableCollection<string> TrackSpeedAccuracyMode
+        {
+            get
+            {
+                return this._TrackSpeedAccuracyMode;
+            }
+            set
+            {
+                this.OnTrackSpeedAccuracyModeChanging(value);
+                this._TrackSpeedAccuracyMode = value;
+                this.OnTrackSpeedAccuracyModeChanged();
+                this.OnPropertyChanged("TrackSpeedAccuracyMode");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private global::System.Collections.ObjectModel.ObservableCollection<string> _TrackSpeedAccuracyMode = new global::System.Collections.ObjectModel.ObservableCollection<string>();
+        partial void OnTrackSpeedAccuracyModeChanging(global::System.Collections.ObjectModel.ObservableCollection<string> value);
+        partial void OnTrackSpeedAccuracyModeChanged();
+        /// <summary>
         /// There are no comments for Property Min_MinPedestrianSize in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MinPedestrianSize")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MinPedestrianSize is required.")]
         public virtual int Min_MinPedestrianSize
         {
             get
@@ -10349,7 +11520,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_MinPedestrianSize in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MinPedestrianSize")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_MinPedestrianSize is required.")]
         public virtual int Max_MinPedestrianSize
         {
             get
@@ -10372,7 +11545,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaxPedestrianSize in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxPedestrianSize")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxPedestrianSize is required.")]
         public virtual int Min_MaxPedestrianSize
         {
             get
@@ -10395,7 +11570,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_MaxPedestrianSize in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MaxPedestrianSize")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_MaxPedestrianSize is required.")]
         public virtual int Max_MaxPedestrianSize
         {
             get
@@ -10418,7 +11595,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_MaxPedestrians in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_MaxPedestrians")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_MaxPedestrians is required.")]
         public virtual int Min_MaxPedestrians
         {
             get
@@ -10441,7 +11620,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_MaxPedestrians in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_MaxPedestrians")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_MaxPedestrians is required.")]
         public virtual int Max_MaxPedestrians
         {
             get
@@ -10464,7 +11645,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Min_PedestrianConfidenceThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Min_PedestrianConfidenceThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Min_PedestrianConfidenceThreshold is required.")]
         public virtual int Min_PedestrianConfidenceThreshold
         {
             get
@@ -10487,7 +11670,9 @@ namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators
         /// There are no comments for Property Max_PedestrianConfidenceThreshold in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
         [global::Microsoft.OData.Client.OriginalNameAttribute("Max_PedestrianConfidenceThreshold")]
+        [global::System.ComponentModel.DataAnnotations.RequiredAttribute(ErrorMessage = "Max_PedestrianConfidenceThreshold is required.")]
         public virtual int Max_PedestrianConfidenceThreshold
         {
             get
@@ -10552,6 +11737,20 @@ namespace SmartFace.ODataClient.Microsoft.AspNetCore.Mvc
         }
     }
 }
+namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models
+{
+    /// <summary>
+    /// There are no comments for GenderType in the schema.
+    /// </summary>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("GenderType")]
+    public enum GenderType
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Male")]
+        Male = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Female")]
+        Female = 1
+    }
+}
 namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
 {
     /// <summary>
@@ -10585,15 +11784,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Error = 3
     }
     /// <summary>
-    /// There are no comments for AutolearnClusterType in the schema.
+    /// There are no comments for MatchResultType in the schema.
     /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("AutolearnClusterType")]
-    public enum AutolearnClusterType
+    [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResultType")]
+    public enum MatchResultType
     {
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Masked")]
-        Masked = 0,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("NotMasked")]
-        NotMasked = 1
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Match")]
+        Match = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NoMatch")]
+        NoMatch = 1
     }
     /// <summary>
     /// There are no comments for FaceMaskStatus in the schema.
@@ -10607,6 +11806,21 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Mask = 1,
         [global::Microsoft.OData.Client.OriginalNameAttribute("NoMask")]
         NoMask = 2
+    }
+    /// <summary>
+    /// There are no comments for FrameState in the schema.
+    /// </summary>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("FrameState")]
+    public enum FrameState
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("New")]
+        New = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Processing")]
+        Processing = 1,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Processed")]
+        Processed = 2,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Error")]
+        Error = 3
     }
     /// <summary>
     /// There are no comments for FaceState in the schema.
@@ -10635,31 +11849,15 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         AutoLearn = 1
     }
     /// <summary>
-    /// There are no comments for HumanPose in the schema.
+    /// There are no comments for AutolearnClusterType in the schema.
     /// </summary>
-    [global::System.Flags]
-    [global::Microsoft.OData.Client.OriginalNameAttribute("HumanPose")]
-    public enum HumanPose
+    [global::Microsoft.OData.Client.OriginalNameAttribute("AutolearnClusterType")]
+    public enum AutolearnClusterType
     {
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Unspecified")]
-        Unspecified = 0,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("HandsInFrontOfFace")]
-        HandsInFrontOfFace = 1
-    }
-    /// <summary>
-    /// There are no comments for FrameState in the schema.
-    /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("FrameState")]
-    public enum FrameState
-    {
-        [global::Microsoft.OData.Client.OriginalNameAttribute("New")]
-        New = 0,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Processing")]
-        Processing = 1,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Processed")]
-        Processed = 2,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Error")]
-        Error = 3
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Masked")]
+        Masked = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("NotMasked")]
+        NotMasked = 1
     }
     /// <summary>
     /// There are no comments for WorkerType in the schema.
@@ -10690,7 +11888,21 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         [global::Microsoft.OData.Client.OriginalNameAttribute("StreamDataDbWorker")]
         StreamDataDbWorker = 14,
         [global::Microsoft.OData.Client.OriginalNameAttribute("WatchlistAutoLearnWorker")]
-        WatchlistAutoLearnWorker = 15
+        WatchlistAutoLearnWorker = 15,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("SearchSessionsCleanupWorker")]
+        SearchSessionsCleanupWorker = 16
+    }
+    /// <summary>
+    /// There are no comments for HumanPose in the schema.
+    /// </summary>
+    [global::System.Flags]
+    [global::Microsoft.OData.Client.OriginalNameAttribute("HumanPose")]
+    public enum HumanPose
+    {
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Unspecified")]
+        Unspecified = 0,
+        [global::Microsoft.OData.Client.OriginalNameAttribute("HandsInFrontOfFace")]
+        HandsInFrontOfFace = 1
     }
     /// <summary>
     /// There are no comments for VideoState in the schema.
@@ -10706,31 +11918,6 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Enums
         Processed = 2,
         [global::Microsoft.OData.Client.OriginalNameAttribute("Error")]
         Error = 3
-    }
-    /// <summary>
-    /// There are no comments for MatchResultType in the schema.
-    /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("MatchResultType")]
-    public enum MatchResultType
-    {
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Match")]
-        Match = 0,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("NoMatch")]
-        NoMatch = 1
-    }
-}
-namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models
-{
-    /// <summary>
-    /// There are no comments for GenderType in the schema.
-    /// </summary>
-    [global::Microsoft.OData.Client.OriginalNameAttribute("GenderType")]
-    public enum GenderType
-    {
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Male")]
-        Male = 0,
-        [global::Microsoft.OData.Client.OriginalNameAttribute("Female")]
-        Female = 1
     }
 }
 namespace SmartFace.ODataClient.SmartFace.Domain.Configuration.Models
@@ -10763,28 +11950,28 @@ namespace SmartFace.ODataClient.Function
         /// There are no comments for GetConfigValues in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("GetConfigValues")]
-        public static global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.Microsoft.AspNetCore.Mvc.IActionResult> GetConfigValues(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, string name, string context)
+        public static global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.Microsoft.AspNetCore.Mvc.IActionResult> GetConfigValues(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source, string name, string context)
         {
-            if (!source.IsComposable)
+            if (!_source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return source.CreateFunctionQuerySingle<global::SmartFace.ODataClient.Microsoft.AspNetCore.Mvc.IActionResult>("Function.GetConfigValues", false, new global::Microsoft.OData.Client.UriOperationParameter("name", name),
+            return _source.CreateFunctionQuerySingle<global::SmartFace.ODataClient.Microsoft.AspNetCore.Mvc.IActionResult>("Function.GetConfigValues", false, new global::Microsoft.OData.Client.UriOperationParameter("name", name),
                     new global::Microsoft.OData.Client.UriOperationParameter("context", context));
         }
         /// <summary>
         /// There are no comments for GetConstants in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("GetConstants")]
-        public static global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators.ConfigurationConstants> GetConstants(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source)
+        public static global::Microsoft.OData.Client.DataServiceQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators.ConfigurationConstants> GetConstants(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source)
         {
-            if (!source.IsComposable)
+            if (!_source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return source.CreateFunctionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators.ConfigurationConstants>("Function.GetConstants", false);
+            return _source.CreateFunctionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.Configuration.Validators.ConfigurationConstants>("Function.GetConstants", false);
         }
     }
 }
@@ -10796,31 +11983,44 @@ namespace SmartFace.ODataClient.Action
     public static class ExtensionMethods
     {
         /// <summary>
-        /// There are no comments for CreateDefault in the schema.
+        /// There are no comments for SoftRestart in the schema.
         /// </summary>
-        [global::Microsoft.OData.Client.OriginalNameAttribute("CreateDefault")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> CreateDefault(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, string Name, string Context)
+        [global::Microsoft.OData.Client.OriginalNameAttribute("SoftRestart")]
+        public static global::Microsoft.OData.Client.DataServiceActionQuery SoftRestart(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service> _source)
         {
-            if (!source.IsComposable)
+            if (!_source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config>(source.Context, source.AppendRequestUri("Action.CreateDefault"), new global::Microsoft.OData.Client.BodyOperationParameter("Name", Name),
+            return new global::Microsoft.OData.Client.DataServiceActionQuery(_source.Context, _source.AppendRequestUri("Action.SoftRestart"));
+        }
+        /// <summary>
+        /// There are no comments for CreateDefault in the schema.
+        /// </summary>
+        [global::Microsoft.OData.Client.OriginalNameAttribute("CreateDefault")]
+        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> CreateDefault(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source, string Name, string Context)
+        {
+            if (!_source.IsComposable)
+            {
+                throw new global::System.NotSupportedException("The previous function is not composable.");
+            }
+
+            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config>(_source.Context, _source.AppendRequestUri("Action.CreateDefault"), new global::Microsoft.OData.Client.BodyOperationParameter("Name", Name),
                     new global::Microsoft.OData.Client.BodyOperationParameter("Context", Context));
         }
         /// <summary>
         /// There are no comments for Create in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("Create")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> Create(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, string Name, string Context, string Configuration)
+        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> Create(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source, string Name, string Context, string Configuration)
         {
-            if (!source.IsComposable)
+            if (!_source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config>(source.Context, source.AppendRequestUri("Action.Create"), new global::Microsoft.OData.Client.BodyOperationParameter("Name", Name),
+            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config>(_source.Context, _source.AppendRequestUri("Action.Create"), new global::Microsoft.OData.Client.BodyOperationParameter("Name", Name),
                     new global::Microsoft.OData.Client.BodyOperationParameter("Context", Context),
                     new global::Microsoft.OData.Client.BodyOperationParameter("Configuration", Configuration));
         }
@@ -10828,28 +12028,28 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for Delete in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("Delete")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuery Delete(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, string Name, string Context)
+        public static global::Microsoft.OData.Client.DataServiceActionQuery Delete(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source, string Name, string Context)
         {
-            if (!source.IsComposable)
+            if (!_source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return new global::Microsoft.OData.Client.DataServiceActionQuery(source.Context, source.AppendRequestUri("Action.Delete"), new global::Microsoft.OData.Client.BodyOperationParameter("Name", Name),
+            return new global::Microsoft.OData.Client.DataServiceActionQuery(_source.Context, _source.AppendRequestUri("Action.Delete"), new global::Microsoft.OData.Client.BodyOperationParameter("Name", Name),
                     new global::Microsoft.OData.Client.BodyOperationParameter("Context", Context));
         }
         /// <summary>
         /// There are no comments for SetConfigValue in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("SetConfigValue")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> SetConfigValue(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, string Name, string Context, string Property, string Value)
+        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> SetConfigValue(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source, string Name, string Context, string Property, string Value)
         {
-            if (!source.IsComposable)
+            if (!_source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config>(source.Context, source.AppendRequestUri("Action.SetConfigValue"), new global::Microsoft.OData.Client.BodyOperationParameter("Name", Name),
+            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config>(_source.Context, _source.AppendRequestUri("Action.SetConfigValue"), new global::Microsoft.OData.Client.BodyOperationParameter("Name", Name),
                     new global::Microsoft.OData.Client.BodyOperationParameter("Context", Context),
                     new global::Microsoft.OData.Client.BodyOperationParameter("Property", Property),
                     new global::Microsoft.OData.Client.BodyOperationParameter("Value", Value));
@@ -10858,27 +12058,14 @@ namespace SmartFace.ODataClient.Action
         /// There are no comments for SetConfigValues in the schema.
         /// </summary>
         [global::Microsoft.OData.Client.OriginalNameAttribute("SetConfigValues")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> SetConfigValues(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> source, global::System.Collections.Generic.ICollection<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests.UpdateConfigValueData> ConfigValues)
+        public static global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> SetConfigValues(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config> _source, global::System.Collections.Generic.ICollection<global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Requests.UpdateConfigValueData> ConfigValues)
         {
-            if (!source.IsComposable)
+            if (!_source.IsComposable)
             {
                 throw new global::System.NotSupportedException("The previous function is not composable.");
             }
 
-            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config>(source.Context, source.AppendRequestUri("Action.SetConfigValues"), new global::Microsoft.OData.Client.BodyOperationParameter("ConfigValues", ConfigValues));
-        }
-        /// <summary>
-        /// There are no comments for SoftRestart in the schema.
-        /// </summary>
-        [global::Microsoft.OData.Client.OriginalNameAttribute("SoftRestart")]
-        public static global::Microsoft.OData.Client.DataServiceActionQuery SoftRestart(this global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Service> source)
-        {
-            if (!source.IsComposable)
-            {
-                throw new global::System.NotSupportedException("The previous function is not composable.");
-            }
-
-            return new global::Microsoft.OData.Client.DataServiceActionQuery(source.Context, source.AppendRequestUri("Action.SoftRestart"));
+            return new global::Microsoft.OData.Client.DataServiceActionQuerySingle<global::SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core.Config>(_source.Context, _source.AppendRequestUri("Action.SetConfigValues"), new global::Microsoft.OData.Client.BodyOperationParameter("ConfigValues", ConfigValues));
         }
     }
 }
@@ -10927,22 +12114,22 @@ namespace SmartFace.ODataClient.Default
             {
                 return resolvedType;
             }
+            resolvedType = this.DefaultResolveType(typeName, "SmartFace.ODataApi.DtoModels.Responses", "SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses");
+            if ((resolvedType != null))
+            {
+                return resolvedType;
+            }
             resolvedType = this.DefaultResolveType(typeName, "SmartFace.Domain.Configuration.Models", "SmartFace.ODataClient.SmartFace.Domain.Configuration.Models");
             if ((resolvedType != null))
             {
                 return resolvedType;
             }
-            resolvedType = this.DefaultResolveType(typeName, "SmartFace.ODataApi.Models.Responses", "SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses");
+            resolvedType = this.DefaultResolveType(typeName, "SmartFace.ODataApi.DtoModels.Requests", "SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Requests");
             if ((resolvedType != null))
             {
                 return resolvedType;
             }
             resolvedType = this.DefaultResolveType(typeName, "SmartFace.Domain.DataAccess.Models", "SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models");
-            if ((resolvedType != null))
-            {
-                return resolvedType;
-            }
-            resolvedType = this.DefaultResolveType(typeName, "SmartFace.ODataApi.Models.Requests", "SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests");
             if ((resolvedType != null))
             {
                 return resolvedType;
@@ -11002,6 +12189,14 @@ namespace SmartFace.ODataClient.Default
                 }
                 return string.Concat("SmartFace.Domain.DataAccess.Models.Core.", clientType.Name);
             }
+            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses", global::System.StringComparison.Ordinal))
+            {
+                if (originalNameAttribute != null)
+                {
+                    return string.Concat("SmartFace.ODataApi.DtoModels.Responses.", originalNameAttribute.OriginalName);
+                }
+                return string.Concat("SmartFace.ODataApi.DtoModels.Responses.", clientType.Name);
+            }
             if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.Domain.Configuration.Models", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
@@ -11010,13 +12205,13 @@ namespace SmartFace.ODataClient.Default
                 }
                 return string.Concat("SmartFace.Domain.Configuration.Models.", clientType.Name);
             }
-            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses", global::System.StringComparison.Ordinal))
+            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Requests", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
                 {
-                    return string.Concat("SmartFace.ODataApi.Models.Responses.", originalNameAttribute.OriginalName);
+                    return string.Concat("SmartFace.ODataApi.DtoModels.Requests.", originalNameAttribute.OriginalName);
                 }
-                return string.Concat("SmartFace.ODataApi.Models.Responses.", clientType.Name);
+                return string.Concat("SmartFace.ODataApi.DtoModels.Requests.", clientType.Name);
             }
             if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models", global::System.StringComparison.Ordinal))
             {
@@ -11025,14 +12220,6 @@ namespace SmartFace.ODataClient.Default
                     return string.Concat("SmartFace.Domain.DataAccess.Models.", originalNameAttribute.OriginalName);
                 }
                 return string.Concat("SmartFace.Domain.DataAccess.Models.", clientType.Name);
-            }
-            if (clientType.Namespace.Equals("SmartFace.ODataClient.SmartFace.ODataApi.Models.Requests", global::System.StringComparison.Ordinal))
-            {
-                if (originalNameAttribute != null)
-                {
-                    return string.Concat("SmartFace.ODataApi.Models.Requests.", originalNameAttribute.OriginalName);
-                }
-                return string.Concat("SmartFace.ODataApi.Models.Requests.", clientType.Name);
             }
             if (clientType.Namespace.Equals("SmartFace.ODataClient.Microsoft.AspNetCore.Mvc", global::System.StringComparison.Ordinal))
             {
@@ -11217,19 +12404,19 @@ namespace SmartFace.ODataClient.Default
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Ping")]
-        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping> Ping
+        public virtual global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.Ping> Ping
         {
             get
             {
                 if ((this._Ping == null))
                 {
-                    this._Ping = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping>("Ping");
+                    this._Ping = base.CreateQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.Ping>("Ping");
                 }
                 return this._Ping;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping> _Ping;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.Ping> _Ping;
         /// <summary>
         /// There are no comments for Configs in the schema.
         /// </summary>
@@ -11442,7 +12629,7 @@ namespace SmartFace.ODataClient.Default
         /// There are no comments for Ping in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
-        public virtual void AddToPing(global::SmartFace.ODataClient.SmartFace.ODataApi.Models.Responses.Ping ping)
+        public virtual void AddToPing(global::SmartFace.ODataClient.SmartFace.ODataApi.DtoModels.Responses.Ping ping)
         {
             base.AddObject("Ping", ping);
         }
@@ -11535,7 +12722,7 @@ namespace SmartFace.ODataClient.Default
 
                     if (!global::Microsoft.OData.Edm.Csdl.CsdlReader.TryParse(reader, true, out edmModel, out errors))
                     {
-	                    global::System.Text.StringBuilder errorMessages = new System.Text.StringBuilder();
+	                    global::System.Text.StringBuilder errorMessages = new global::System.Text.StringBuilder();
 	                    foreach (var error in errors)
 	                    {
 		                    errorMessages.Append(error.ErrorMessage);
