@@ -11762,9 +11762,9 @@ namespace ManagementApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SearchInFacesResponse 
     {
-        [Newtonsoft.Json.JsonProperty("searchId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("searchSessionId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.Guid SearchId { get; set; }
+        public System.Guid SearchSessionId { get; set; }
     
     
     }

@@ -55,7 +55,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
     # - GstPipelineTemplate
-    # - Gpu__NeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -78,7 +78,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
     # - GstPipelineTemplate
-    # - Gpu__NeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -101,7 +101,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
     # - GstPipelineTemplate
-    # - Gpu__NeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -124,7 +124,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
     # - GstPipelineTemplate
-    # - Gpu__NeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -147,7 +147,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
     # - GstPipelineTemplate
-    # - Gpu__NeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -168,7 +168,7 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
-    # - Gpu__NeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -243,7 +243,7 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       # - Gpu__GpuEnabled=true
-      # - Gpu__NeuralRuntime=Tensor
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -260,7 +260,7 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       # - Gpu__GpuEnabled=true
-      # - Gpu__NeuralRuntime=Tensor
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -277,7 +277,7 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       # - Gpu__GpuEnabled=true
-      # - Gpu__NeuralRuntime=Tensor
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -323,7 +323,7 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       # - Gpu__GpuEnabled=true
-      # - Gpu__NeuralRuntime=Tensor
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"

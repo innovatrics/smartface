@@ -1,14 +1,15 @@
 ﻿{
   "ProviderId": "Microsoft.OData.ConnectedService",
-  "Version": "0.10.0.0",
+  "Version": "0.13.0.0",
   "GettingStartedDocument": {
     "Uri": "http://odata.github.io/odata.net/"
   },
   "ExtendedData": {
-    "ExcludedOperationImports": [],
     "EnableNamingAlias": true,
     "IgnoreUnexpectedElementsAndAttributes": true,
     "IncludeT4File": false,
+    "ExcludedOperationImports": [],
+    "ExcludedBoundOperations": [],
     "ServiceName": "SmartFaceProxy",
     "Endpoint": "http://localhost:8099/odata/$metadata",
     "EdmxVersion": {
@@ -30,10 +31,12 @@
     "IncludeWebProxy": false,
     "WebProxyHost": null,
     "IncludeWebProxyNetworkCredentials": false,
+    "StoreWebProxyNetworkCredentials": false,
     "WebProxyNetworkCredentialsUsername": null,
     "WebProxyNetworkCredentialsPassword": null,
     "WebProxyNetworkCredentialsDomain": null,
     "IncludeCustomHeaders": false,
+    "StoreCustomHttpHeaders": false,
     "ExcludedSchemaTypes": []
   }
 }
