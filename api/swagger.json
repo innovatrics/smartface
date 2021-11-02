@@ -7184,11 +7184,11 @@
       },
       "SearchInFacesResponse": {
         "required": [
-          "searchId"
+          "searchSessionId"
         ],
         "type": "object",
         "properties": {
-          "searchId": {
+          "searchSessionId": {
             "type": "string",
             "format": "uuid"
           }
