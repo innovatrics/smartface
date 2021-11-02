@@ -6801,6 +6801,25 @@
         "additionalProperties": false
       },
       "PreviewAttributesConfig": {
+        "required": [
+          "age",
+          "boundingBox",
+          "faceMaskConfidence",
+          "faceMaskStatus",
+          "gender",
+          "matchingScore",
+          "order",
+          "pitchAngle",
+          "quality",
+          "rollAngle",
+          "size",
+          "templateQuality",
+          "textFontSize",
+          "watchlistMemberId",
+          "watchlistMemberName",
+          "watchlistName",
+          "yawAngle"
+        ],
         "type": "object",
         "properties": {
           "textFontSize": {
@@ -6917,6 +6936,25 @@
         "additionalProperties": false
       },
       "PreviewAttributesConfigUpdateRequest": {
+        "required": [
+          "age",
+          "boundingBox",
+          "faceMaskConfidence",
+          "faceMaskStatus",
+          "gender",
+          "matchingScore",
+          "order",
+          "pitchAngle",
+          "quality",
+          "rollAngle",
+          "size",
+          "templateQuality",
+          "textFontSize",
+          "watchlistMemberId",
+          "watchlistMemberName",
+          "watchlistName",
+          "yawAngle"
+        ],
         "type": "object",
         "properties": {
           "textFontSize": {
@@ -7184,11 +7222,11 @@
       },
       "SearchInFacesResponse": {
         "required": [
-          "searchSessionId"
+          "searchId"
         ],
         "type": "object",
         "properties": {
-          "searchSessionId": {
+          "searchId": {
             "type": "string",
             "format": "uuid"
           }
