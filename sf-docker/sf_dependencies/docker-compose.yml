@@ -21,7 +21,7 @@ services:
       - POSTGRES_PASSWORD=Test1234
     restart: unless-stopped
     #volumes:
-    #  - /var/lib/smartface/pgsql:/var/lib/postgresql
+    #  - /var/lib/smartface/pgsql:/var/lib/postgresql/data
 
   pgadmin:
     image: "dpage/pgadmin4:5.1"
@@ -58,9 +58,6 @@ services:
 
 volumes:
   rmqdata:
-#  mssql:
-#  pgsql:
-#  miniodata:
 
 networks:
   default:
