@@ -6803,7 +6803,6 @@
       "PreviewAttributesConfig": {
         "required": [
           "age",
-          "boundingBox",
           "faceMaskConfidence",
           "faceMaskStatus",
           "gender",
@@ -6825,9 +6824,6 @@
           "textFontSize": {
             "type": "integer",
             "format": "int32"
-          },
-          "boundingBox": {
-            "type": "boolean"
           },
           "order": {
             "type": "boolean"
@@ -6884,9 +6880,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "boundingBox": {
-            "type": "boolean"
-          },
           "order": {
             "type": "boolean"
           },
@@ -6938,7 +6931,6 @@
       "PreviewAttributesConfigUpdateRequest": {
         "required": [
           "age",
-          "boundingBox",
           "faceMaskConfidence",
           "faceMaskStatus",
           "gender",
@@ -6960,9 +6952,6 @@
           "textFontSize": {
             "type": "integer",
             "format": "int32"
-          },
-          "boundingBox": {
-            "type": "boolean"
           },
           "order": {
             "type": "boolean"

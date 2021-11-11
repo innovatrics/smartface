@@ -11810,9 +11810,6 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("textFontSize", Required = Newtonsoft.Json.Required.Always)]
         public int TextFontSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("boundingBox", Required = Newtonsoft.Json.Required.Always)]
-        public bool BoundingBox { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("order", Required = Newtonsoft.Json.Required.Always)]
         public bool Order { get; set; }
     
@@ -11867,9 +11864,6 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("textFontSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? TextFontSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("boundingBox", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? BoundingBox { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("order", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Order { get; set; }
     
@@ -11923,9 +11917,6 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("textFontSize", Required = Newtonsoft.Json.Required.Always)]
         public int TextFontSize { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("boundingBox", Required = Newtonsoft.Json.Required.Always)]
-        public bool BoundingBox { get; set; }
     
         [Newtonsoft.Json.JsonProperty("order", Required = Newtonsoft.Json.Required.Always)]
         public bool Order { get; set; }
