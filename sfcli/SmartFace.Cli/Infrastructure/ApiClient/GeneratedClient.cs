@@ -11978,13 +11978,13 @@ namespace ManagementApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class PreviewConfig 
     {
-        [Newtonsoft.Json.JsonProperty("noMatchColor", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("faceBoundingBoxColor", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string NoMatchColor { get; set; }
+        public string FaceBoundingBoxColor { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("pedestrianColor", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("pedestrianBoundingBoxColor", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string PedestrianColor { get; set; }
+        public string PedestrianBoundingBoxColor { get; set; }
     
     
     }
@@ -12154,9 +12154,9 @@ namespace ManagementApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SearchInFacesResponse 
     {
-        [Newtonsoft.Json.JsonProperty("searchId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("searchSessionId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.Guid SearchId { get; set; }
+        public System.Guid SearchSessionId { get; set; }
     
     
     }

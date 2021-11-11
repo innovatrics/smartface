@@ -7014,15 +7014,15 @@
       },
       "PreviewConfig": {
         "required": [
-          "noMatchColor",
-          "pedestrianColor"
+          "faceBoundingBoxColor",
+          "pedestrianBoundingBoxColor"
         ],
         "type": "object",
         "properties": {
-          "noMatchColor": {
+          "faceBoundingBoxColor": {
             "type": "string"
           },
-          "pedestrianColor": {
+          "pedestrianBoundingBoxColor": {
             "type": "string"
           }
         },
@@ -7222,11 +7222,11 @@
       },
       "SearchInFacesResponse": {
         "required": [
-          "searchId"
+          "searchSessionId"
         ],
         "type": "object",
         "properties": {
-          "searchId": {
+          "searchSessionId": {
             "type": "string",
             "format": "uuid"
           }
