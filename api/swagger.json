@@ -547,6 +547,82 @@
         }
       }
     },
+    "/api/v1/Faces/Search": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Searches for similar stored faces based on the given image.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "requestBody": {
+          "description": "Request containing reference image to be searched.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceSearchRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceSearchRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceSearchRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceSearchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the face match results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchInFacesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/Frames/{id}": {
       "get": {
         "tags": [
@@ -2959,6 +3035,109 @@
           },
           "404": {
             "description": "Features config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Setup/SearchSessionsCleanup": {
+      "get": {
+        "tags": [
+          "SetupSearchSessionsCleanup"
+        ],
+        "summary": "Retrieves current search sessions cleanup config.",
+        "responses": {
+          "200": {
+            "description": "Search sessions cleanup config was returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search sessions cleanup config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "SetupSearchSessionsCleanup"
+        ],
+        "summary": "Updates the search sessions cleanup config with specified values.",
+        "requestBody": {
+          "description": "The new search sessions cleanup configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Search sessions cleanup config was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Search sessions cleanup config was not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5655,6 +5834,49 @@
         ],
         "type": "string"
       },
+      "FaceSearchDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxFaceSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceSearchRequest": {
+        "required": [
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceSearchDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "FaceState": {
         "enum": [
           "New",
@@ -6655,6 +6877,19 @@
         },
         "additionalProperties": false
       },
+      "SearchInFacesResponse": {
+        "required": [
+          "searchSessionId"
+        ],
+        "type": "object",
+        "properties": {
+          "searchSessionId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "SearchInIndividualsRequest": {
         "required": [
           "groupingId",
@@ -6849,6 +7084,36 @@
             "items": {
               "$ref": "#/components/schemas/SearchByImageMatchResult"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchSessionsCleanupConfig": {
+        "required": [
+          "enabled",
+          "interval",
+          "maxItemsCount",
+          "maxSessionAge"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "maxItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxSessionAge": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          },
+          "interval": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
           }
         },
         "additionalProperties": false

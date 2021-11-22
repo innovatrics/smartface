@@ -81,6 +81,12 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="FaceOrder" Type="Edm.Int32" />
+        <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
+        <Property Name="FaceArea" Type="Edm.Double" />
+        <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
+        <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
+        <Property Name="GenderFormatted" Type="SmartFace.Domain.DataAccess.Models.GenderType" />
         <Property Name="TemplateQuality" Type="Edm.Int32" />
         <Property Name="LeftEyeX" Type="Edm.Double" />
         <Property Name="LeftEyeY" Type="Edm.Double" />
@@ -93,15 +99,10 @@
         <Property Name="NoseTipConfidence" Type="Edm.Double" />
         <Property Name="FaceMaskStatus" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceMaskStatus" Nullable="false" />
         <Property Name="FaceAreaChange" Type="Edm.Double" Nullable="false" />
-        <Property Name="FaceArea" Type="Edm.Double" />
-        <Property Name="FaceOrder" Type="Edm.Int32" />
-        <Property Name="FacesOnFrameCount" Type="Edm.Int32" />
-        <Property Name="State" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceState" Nullable="false" />
-        <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.FaceType" Nullable="false" />
         <Property Name="YawAngle" Type="Edm.Double" />
         <Property Name="PitchAngle" Type="Edm.Double" />
         <Property Name="RollAngle" Type="Edm.Double" />
-        <Property Name="GenderFormatted" Type="SmartFace.Domain.DataAccess.Models.GenderType" />
+        <Property Name="SearchSessionObjects" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.SearchSessionObject)" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CropLeftTopX" Type="Edm.Double" Nullable="false" />
@@ -119,6 +120,7 @@
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="ProcessedAt" Type="Edm.DateTimeOffset" />
         <NavigationProperty Name="BestForIndividuals" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Individual)" />
+        <NavigationProperty Name="MatchResults" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.MatchResult)" />
         <NavigationProperty Name="Tracklet" Type="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
           <ReferentialConstraint Property="TrackletId" ReferencedProperty="Id" />
         </NavigationProperty>
@@ -227,6 +229,7 @@
         <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream">
           <ReferentialConstraint Property="StreamId" ReferencedProperty="Id" />
         </NavigationProperty>
+        <NavigationProperty Name="MatchResults" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.MatchResult)" />
       </EntityType>
       <EntityType Name="Stream">
         <Key>
@@ -322,6 +325,8 @@
         <Property Name="ImageQuality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
+        <Property Name="MatchDetectedFaces" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="MatchMaxResultsCount" Type="Edm.Int32" Nullable="false" />
         <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream" />
       </EntityType>
       <EntityType Name="Watchlist">
@@ -335,6 +340,7 @@
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
         <Property Name="Threshold" Type="Edm.Int32" Nullable="false" />
         <NavigationProperty Name="WatchlistMembers" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.WatchlistMember)" />
+        <NavigationProperty Name="MatchResults" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.MatchResult)" />
       </EntityType>
       <EntityType Name="WatchlistMember">
         <Key>
@@ -351,6 +357,7 @@
         <NavigationProperty Name="Tracklet" Type="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
           <ReferentialConstraint Property="TrackletId" ReferencedProperty="Id" />
         </NavigationProperty>
+        <NavigationProperty Name="MatchResults" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.MatchResult)" />
       </EntityType>
       <EntityType Name="MatchResult">
         <Key>
@@ -359,11 +366,11 @@
         <Property Name="Id" Type="Edm.Guid" Nullable="false" />
         <Property Name="Type" Type="SmartFace.Domain.DataAccess.Models.Core.Enums.MatchResultType" Nullable="false" />
         <Property Name="WatchlistMemberId" Type="Edm.String" />
-        <Property Name="StreamId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="StreamId" Type="Edm.Guid" />
         <Property Name="Score" Type="Edm.Int32" Nullable="false" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
-        <Property Name="TrackletId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="TrackletId" Type="Edm.Guid" />
         <Property Name="WatchlistMemberFullName" Type="Edm.String" />
         <Property Name="WatchlistMemberDisplayName" Type="Edm.String" />
         <Property Name="WatchlistFullName" Type="Edm.String" />
@@ -382,7 +389,31 @@
         <Property Name="PitchAngle" Type="Edm.Double" />
         <Property Name="RollAngle" Type="Edm.Double" />
         <Property Name="TemplateQuality" Type="Edm.Int32" />
+        <NavigationProperty Name="WatchlistMember" Type="SmartFace.Domain.DataAccess.Models.Core.WatchlistMember">
+          <ReferentialConstraint Property="WatchlistMemberId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Watchlist" Type="SmartFace.Domain.DataAccess.Models.Core.Watchlist">
+          <ReferentialConstraint Property="WatchlistId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Frame" Type="SmartFace.Domain.DataAccess.Models.Core.Frame">
+          <ReferentialConstraint Property="FrameId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Tracklet" Type="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
+          <ReferentialConstraint Property="TrackletId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream">
+          <ReferentialConstraint Property="StreamId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Face" Type="SmartFace.Domain.DataAccess.Models.Core.Face">
+          <ReferentialConstraint Property="FaceId" ReferencedProperty="Id" />
+        </NavigationProperty>
       </EntityType>
+      <ComplexType Name="SearchSessionObject">
+        <Property Name="SearchSessionId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="VisualObjectId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="Score" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Face" Type="SmartFace.Domain.DataAccess.Models.Core.Face" />
+      </ComplexType>
     </Schema>
     <Schema Namespace="SmartFace.ODataApi.DtoModels.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="Ping">
@@ -419,6 +450,7 @@
         <Property Name="Min_CleanupStart" Type="Edm.String" />
         <Property Name="Max_CleanupStart" Type="Edm.String" />
         <Property Name="Min_CleanupAmount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Min_MaxSearchItemsCount" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_SelectionThreshold" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_MaxAutoLearnFacesCount" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_ExecutionStartTime" Type="Edm.String" />
@@ -449,6 +481,7 @@
         <Property Name="Min_PreviewMaxDimension" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_PreviewVideoSegmentSeconds" Type="Edm.Int32" Nullable="false" />
         <Property Name="TrackMotionOptimization" Type="Collection(Edm.String)" />
+        <Property Name="TrackSpeedAccuracyMode" Type="Collection(Edm.String)" />
         <Property Name="Min_MinPedestrianSize" Type="Edm.Int32" Nullable="false" />
         <Property Name="Max_MinPedestrianSize" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_MaxPedestrianSize" Type="Edm.Int32" Nullable="false" />
@@ -461,6 +494,12 @@
     </Schema>
     <Schema Namespace="Microsoft.AspNetCore.Mvc" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <ComplexType Name="IActionResult" Abstract="true" />
+    </Schema>
+    <Schema Namespace="SmartFace.Domain.DataAccess.Models" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EnumType Name="GenderType">
+        <Member Name="Male" Value="0" />
+        <Member Name="Female" Value="1" />
+      </EnumType>
     </Schema>
     <Schema Namespace="SmartFace.Domain.DataAccess.Models.Core.Enums" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EnumType Name="ScopeType">
@@ -475,14 +514,20 @@
         <Member Name="Pending" Value="2" />
         <Member Name="Error" Value="3" />
       </EnumType>
-      <EnumType Name="AutolearnClusterType">
-        <Member Name="Masked" Value="0" />
-        <Member Name="NotMasked" Value="1" />
+      <EnumType Name="MatchResultType">
+        <Member Name="Match" Value="0" />
+        <Member Name="NoMatch" Value="1" />
       </EnumType>
       <EnumType Name="FaceMaskStatus">
         <Member Name="Unknown" Value="0" />
         <Member Name="Mask" Value="1" />
         <Member Name="NoMask" Value="2" />
+      </EnumType>
+      <EnumType Name="FrameState">
+        <Member Name="New" Value="0" />
+        <Member Name="Processing" Value="1" />
+        <Member Name="Processed" Value="2" />
+        <Member Name="Error" Value="3" />
       </EnumType>
       <EnumType Name="FaceState">
         <Member Name="New" Value="0" />
@@ -494,15 +539,9 @@
         <Member Name="Regular" Value="0" />
         <Member Name="AutoLearn" Value="1" />
       </EnumType>
-      <EnumType Name="FrameState">
-        <Member Name="New" Value="0" />
-        <Member Name="Processing" Value="1" />
-        <Member Name="Processed" Value="2" />
-        <Member Name="Error" Value="3" />
-      </EnumType>
-      <EnumType Name="HumanPose" IsFlags="true">
-        <Member Name="Unspecified" Value="0" />
-        <Member Name="HandsInFrontOfFace" Value="1" />
+      <EnumType Name="AutolearnClusterType">
+        <Member Name="Masked" Value="0" />
+        <Member Name="NotMasked" Value="1" />
       </EnumType>
       <EnumType Name="WorkerType">
         <Member Name="ContinuousGroupingWorker" Value="0" />
@@ -517,22 +556,17 @@
         <Member Name="StillPictureDatabaseWorker" Value="13" />
         <Member Name="StreamDataDbWorker" Value="14" />
         <Member Name="WatchlistAutoLearnWorker" Value="15" />
+        <Member Name="SearchSessionsCleanupWorker" Value="16" />
+      </EnumType>
+      <EnumType Name="HumanPose" IsFlags="true">
+        <Member Name="Unspecified" Value="0" />
+        <Member Name="HandsInFrontOfFace" Value="1" />
       </EnumType>
       <EnumType Name="VideoState">
         <Member Name="Ready" Value="0" />
         <Member Name="Processing" Value="1" />
         <Member Name="Processed" Value="2" />
         <Member Name="Error" Value="3" />
-      </EnumType>
-      <EnumType Name="MatchResultType">
-        <Member Name="Match" Value="0" />
-        <Member Name="NoMatch" Value="1" />
-      </EnumType>
-    </Schema>
-    <Schema Namespace="SmartFace.Domain.DataAccess.Models" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-      <EnumType Name="GenderType">
-        <Member Name="Male" Value="0" />
-        <Member Name="Female" Value="1" />
       </EnumType>
     </Schema>
     <Schema Namespace="SmartFace.Domain.Configuration.Models" xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -623,6 +657,8 @@
           <NavigationPropertyBinding Path="Frame" Target="Frames" />
           <NavigationPropertyBinding Path="Frames" Target="Frames" />
           <NavigationPropertyBinding Path="Individuals" Target="Individuals" />
+          <NavigationPropertyBinding Path="MatchResults" Target="MatchResults" />
+          <NavigationPropertyBinding Path="SearchSessionObjects/Face" Target="Faces" />
           <NavigationPropertyBinding Path="Stream" Target="Streams" />
           <NavigationPropertyBinding Path="Tracklet" Target="Tracklets" />
         </EntitySet>
@@ -635,6 +671,7 @@
         <EntitySet Name="Tracklets" EntityType="SmartFace.Domain.DataAccess.Models.Core.Tracklet">
           <NavigationPropertyBinding Path="Faces" Target="Faces" />
           <NavigationPropertyBinding Path="Individuals" Target="Individuals" />
+          <NavigationPropertyBinding Path="MatchResults" Target="MatchResults" />
           <NavigationPropertyBinding Path="Pedestrians" Target="Pedestrians" />
           <NavigationPropertyBinding Path="Scope" Target="Scopes" />
           <NavigationPropertyBinding Path="Stream" Target="Streams" />
@@ -666,13 +703,22 @@
           <NavigationPropertyBinding Path="Stream" Target="Streams" />
         </EntitySet>
         <EntitySet Name="Watchlists" EntityType="SmartFace.Domain.DataAccess.Models.Core.Watchlist">
+          <NavigationPropertyBinding Path="MatchResults" Target="MatchResults" />
           <NavigationPropertyBinding Path="WatchlistMembers" Target="WatchlistMembers" />
         </EntitySet>
         <EntitySet Name="WatchlistMembers" EntityType="SmartFace.Domain.DataAccess.Models.Core.WatchlistMember">
+          <NavigationPropertyBinding Path="MatchResults" Target="MatchResults" />
           <NavigationPropertyBinding Path="Tracklet" Target="Tracklets" />
           <NavigationPropertyBinding Path="Watchlists" Target="Watchlists" />
         </EntitySet>
-        <EntitySet Name="MatchResults" EntityType="SmartFace.Domain.DataAccess.Models.Core.MatchResult" />
+        <EntitySet Name="MatchResults" EntityType="SmartFace.Domain.DataAccess.Models.Core.MatchResult">
+          <NavigationPropertyBinding Path="Face" Target="Faces" />
+          <NavigationPropertyBinding Path="Frame" Target="Frames" />
+          <NavigationPropertyBinding Path="Stream" Target="Streams" />
+          <NavigationPropertyBinding Path="Tracklet" Target="Tracklets" />
+          <NavigationPropertyBinding Path="Watchlist" Target="Watchlists" />
+          <NavigationPropertyBinding Path="WatchlistMember" Target="WatchlistMembers" />
+        </EntitySet>
       </EntityContainer>
     </Schema>
   </edmx:DataServices>
