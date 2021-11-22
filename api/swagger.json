@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.10.0.0"
+    "version": "4.11.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -3046,6 +3046,110 @@
         }
       }
     },
+    "/api/v1/Setup/Preview": {
+      "get": {
+        "tags": [
+          "SetupPreview"
+        ],
+        "summary": "Retrieves current preview config.",
+        "responses": {
+          "200": {
+            "description": "Preview config was returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreviewConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Preview config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "SetupPreview"
+        ],
+        "summary": "Updates the preview config with specified values.",
+        "description": "When setting <code>PreviewColor</code>, hexadecimal format is necessary to use, e.g. <code>#012abc</code> or <code>#01a</code>.",
+        "requestBody": {
+          "description": "The new preview configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreviewConfig"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreviewConfig"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreviewConfig"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreviewConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preview config was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreviewConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Preview config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/Setup/SearchSessionsCleanup": {
       "get": {
         "tags": [
@@ -3960,6 +4064,7 @@
           "Watchlist"
         ],
         "summary": "Creates a new watchlist.",
+        "description": "When setting <code>PreviewColor</code>, hexadecimal format is necessary to use, e.g. <code>#012abc</code> or <code>#01a</code>.",
         "requestBody": {
           "description": "Request containing watchlist name and threshold.",
           "content": {
@@ -4023,7 +4128,7 @@
           "Watchlist"
         ],
         "summary": "Upserts the watchlist.",
-        "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.",
+        "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.<br />\r\nWhen setting <code>PreviewColor</code>, hexadecimal format is necessary to use, e.g. <code>#012abc</code> or <code>#01a</code>.",
         "requestBody": {
           "description": "Request containing watchlist properties.",
           "content": {
@@ -5120,6 +5225,7 @@
           "name",
           "pedestrianDetectorConfig",
           "pedestrianDetectorResourceId",
+          "previewAttributesConfig",
           "previewMaxDimension",
           "redetectionTime",
           "saveFrameImageData",
@@ -5216,6 +5322,9 @@
           },
           "spoofDetectorConfig": {
             "$ref": "#/components/schemas/SpoofDetectorConfig"
+          },
+          "previewAttributesConfig": {
+            "$ref": "#/components/schemas/PreviewAttributesConfig"
           }
         },
         "additionalProperties": false
@@ -5321,6 +5430,9 @@
           },
           "spoofDetectorConfig": {
             "$ref": "#/components/schemas/SpoofDetectorConfigCreateRequest"
+          },
+          "previewAttributesConfig": {
+            "$ref": "#/components/schemas/PreviewAttributesConfigCreateRequest"
           }
         },
         "additionalProperties": false
@@ -5430,6 +5542,9 @@
           },
           "spoofDetectorConfig": {
             "$ref": "#/components/schemas/SpoofDetectorConfigUpdateRequest"
+          },
+          "previewAttributesConfig": {
+            "$ref": "#/components/schemas/PreviewAttributesConfigUpdateRequest"
           }
         },
         "additionalProperties": false
@@ -6685,6 +6800,223 @@
         },
         "additionalProperties": false
       },
+      "PreviewAttributesConfig": {
+        "required": [
+          "age",
+          "faceMaskConfidence",
+          "faceMaskStatus",
+          "gender",
+          "matchingScore",
+          "order",
+          "pitchAngle",
+          "quality",
+          "rollAngle",
+          "size",
+          "templateQuality",
+          "textFontSize",
+          "watchlistMemberId",
+          "watchlistMemberName",
+          "watchlistName",
+          "yawAngle"
+        ],
+        "type": "object",
+        "properties": {
+          "textFontSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "order": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "boolean"
+          },
+          "quality": {
+            "type": "boolean"
+          },
+          "yawAngle": {
+            "type": "boolean"
+          },
+          "pitchAngle": {
+            "type": "boolean"
+          },
+          "rollAngle": {
+            "type": "boolean"
+          },
+          "watchlistMemberId": {
+            "type": "boolean"
+          },
+          "watchlistMemberName": {
+            "type": "boolean"
+          },
+          "watchlistName": {
+            "type": "boolean"
+          },
+          "matchingScore": {
+            "type": "boolean"
+          },
+          "age": {
+            "type": "boolean"
+          },
+          "gender": {
+            "type": "boolean"
+          },
+          "templateQuality": {
+            "type": "boolean"
+          },
+          "faceMaskStatus": {
+            "type": "boolean"
+          },
+          "faceMaskConfidence": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PreviewAttributesConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "textFontSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "order": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "boolean"
+          },
+          "quality": {
+            "type": "boolean"
+          },
+          "yawAngle": {
+            "type": "boolean"
+          },
+          "pitchAngle": {
+            "type": "boolean"
+          },
+          "rollAngle": {
+            "type": "boolean"
+          },
+          "watchlistMemberId": {
+            "type": "boolean"
+          },
+          "watchlistMemberName": {
+            "type": "boolean"
+          },
+          "watchlistName": {
+            "type": "boolean"
+          },
+          "matchingScore": {
+            "type": "boolean"
+          },
+          "age": {
+            "type": "boolean"
+          },
+          "gender": {
+            "type": "boolean"
+          },
+          "templateQuality": {
+            "type": "boolean"
+          },
+          "faceMaskStatus": {
+            "type": "boolean"
+          },
+          "faceMaskConfidence": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PreviewAttributesConfigUpdateRequest": {
+        "required": [
+          "age",
+          "faceMaskConfidence",
+          "faceMaskStatus",
+          "gender",
+          "matchingScore",
+          "order",
+          "pitchAngle",
+          "quality",
+          "rollAngle",
+          "size",
+          "templateQuality",
+          "textFontSize",
+          "watchlistMemberId",
+          "watchlistMemberName",
+          "watchlistName",
+          "yawAngle"
+        ],
+        "type": "object",
+        "properties": {
+          "textFontSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "order": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "boolean"
+          },
+          "quality": {
+            "type": "boolean"
+          },
+          "yawAngle": {
+            "type": "boolean"
+          },
+          "pitchAngle": {
+            "type": "boolean"
+          },
+          "rollAngle": {
+            "type": "boolean"
+          },
+          "watchlistMemberId": {
+            "type": "boolean"
+          },
+          "watchlistMemberName": {
+            "type": "boolean"
+          },
+          "watchlistName": {
+            "type": "boolean"
+          },
+          "matchingScore": {
+            "type": "boolean"
+          },
+          "age": {
+            "type": "boolean"
+          },
+          "gender": {
+            "type": "boolean"
+          },
+          "templateQuality": {
+            "type": "boolean"
+          },
+          "faceMaskStatus": {
+            "type": "boolean"
+          },
+          "faceMaskConfidence": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PreviewConfig": {
+        "required": [
+          "faceBoundingBoxColor",
+          "pedestrianBoundingBoxColor"
+        ],
+        "type": "object",
+        "properties": {
+          "faceBoundingBoxColor": {
+            "type": "string"
+          },
+          "pedestrianBoundingBoxColor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -7823,6 +8155,7 @@
           "displayName",
           "fullName",
           "id",
+          "previewColor",
           "threshold",
           "updatedAt"
         ],
@@ -7837,6 +8170,9 @@
           "threshold": {
             "type": "integer",
             "format": "int32"
+          },
+          "previewColor": {
+            "type": "string"
           },
           "id": {
             "type": "string"
@@ -7911,6 +8247,10 @@
             "minimum": 0,
             "type": "integer",
             "format": "int32"
+          },
+          "previewColor": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8179,6 +8519,10 @@
             "minimum": 0,
             "type": "integer",
             "format": "int32"
+          },
+          "previewColor": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

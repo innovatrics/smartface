@@ -7957,6 +7957,30 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         partial void OnThresholdChanging(int value);
         partial void OnThresholdChanged();
         /// <summary>
+        /// There are no comments for Property PreviewColor in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("PreviewColor")]
+        public virtual string PreviewColor
+        {
+            get
+            {
+                return this._PreviewColor;
+            }
+            set
+            {
+                this.OnPreviewColorChanging(value);
+                this._PreviewColor = value;
+                this.OnPreviewColorChanged();
+                this.OnPropertyChanged("PreviewColor");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private string _PreviewColor;
+        partial void OnPreviewColorChanging(string value);
+        partial void OnPreviewColorChanged();
+        /// <summary>
         /// There are no comments for Property WatchlistMembers in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
@@ -8905,6 +8929,30 @@ namespace SmartFace.ODataClient.SmartFace.Domain.DataAccess.Models.Core
         private string _WatchlistId;
         partial void OnWatchlistIdChanging(string value);
         partial void OnWatchlistIdChanged();
+        /// <summary>
+        /// There are no comments for Property PreviewColor in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+
+        [global::Microsoft.OData.Client.OriginalNameAttribute("PreviewColor")]
+        public virtual string PreviewColor
+        {
+            get
+            {
+                return this._PreviewColor;
+            }
+            set
+            {
+                this.OnPreviewColorChanging(value);
+                this._PreviewColor = value;
+                this.OnPreviewColorChanged();
+                this.OnPropertyChanged("PreviewColor");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "#VersionNumber#")]
+        private string _PreviewColor;
+        partial void OnPreviewColorChanging(string value);
+        partial void OnPreviewColorChanged();
         /// <summary>
         /// There are no comments for Property FaceId in the schema.
         /// </summary>
