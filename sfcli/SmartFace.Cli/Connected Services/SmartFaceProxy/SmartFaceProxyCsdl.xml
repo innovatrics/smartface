@@ -102,6 +102,7 @@
         <Property Name="YawAngle" Type="Edm.Double" />
         <Property Name="PitchAngle" Type="Edm.Double" />
         <Property Name="RollAngle" Type="Edm.Double" />
+        <Property Name="SearchSessionObjects" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.SearchSessionObject)" />
         <Property Name="ImageDataId" Type="Edm.Guid" />
         <Property Name="Quality" Type="Edm.Int32" Nullable="false" />
         <Property Name="CropLeftTopX" Type="Edm.Double" Nullable="false" />
@@ -407,6 +408,12 @@
           <ReferentialConstraint Property="FaceId" ReferencedProperty="Id" />
         </NavigationProperty>
       </EntityType>
+      <ComplexType Name="SearchSessionObject">
+        <Property Name="SearchSessionId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="VisualObjectId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="Score" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Face" Type="SmartFace.Domain.DataAccess.Models.Core.Face" />
+      </ComplexType>
     </Schema>
     <Schema Namespace="SmartFace.ODataApi.DtoModels.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="Ping">
@@ -651,6 +658,7 @@
           <NavigationPropertyBinding Path="Frames" Target="Frames" />
           <NavigationPropertyBinding Path="Individuals" Target="Individuals" />
           <NavigationPropertyBinding Path="MatchResults" Target="MatchResults" />
+          <NavigationPropertyBinding Path="SearchSessionObjects/Face" Target="Faces" />
           <NavigationPropertyBinding Path="Stream" Target="Streams" />
           <NavigationPropertyBinding Path="Tracklet" Target="Tracklets" />
         </EntitySet>
