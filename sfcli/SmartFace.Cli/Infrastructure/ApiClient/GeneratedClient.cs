@@ -10785,41 +10785,41 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; }
+        public string Name { get; set; } = "camera name";
     
         [Newtonsoft.Json.JsonProperty("source", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Source { get; set; }
+        public string Source { get; set; } = "rtsp://user:password@cameraHostnameOrIp:554/Streaming/Channels/101";
     
         [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FaceDetectorResourceId { get; set; }
+        public string FaceDetectorResourceId { get; set; } = "cpu";
     
         [Newtonsoft.Json.JsonProperty("pedestrianDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PedestrianDetectorConfigCreateRequest PedestrianDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("pedestrianDetectorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PedestrianDetectorResourceId { get; set; }
+        public string PedestrianDetectorResourceId { get; set; } = "none";
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemplateGeneratorResourceId { get; set; }
+        public string TemplateGeneratorResourceId { get; set; } = "cpu";
     
         [Newtonsoft.Json.JsonProperty("redetectionTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? RedetectionTime { get; set; }
+        public int? RedetectionTime { get; set; } = 500;
     
         [Newtonsoft.Json.JsonProperty("templateGenerationTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? TemplateGenerationTime { get; set; }
+        public int? TemplateGenerationTime { get; set; } = 500;
     
         [Newtonsoft.Json.JsonProperty("trackMotionOptimization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TrackMotionOptimization { get; set; }
+        public string TrackMotionOptimization { get; set; } = "track.motion_optimization.history_long.fast";
     
         [Newtonsoft.Json.JsonProperty("trackSpeedAccuracyMode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TrackSpeedAccuracyMode { get; set; }
+        public string TrackSpeedAccuracyMode { get; set; } = "accurate";
     
         [Newtonsoft.Json.JsonProperty("faceSaveStrategy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -10829,25 +10829,25 @@ namespace ManagementApi
         public string MaskImagePath { get; set; }
     
         [Newtonsoft.Json.JsonProperty("saveFrameImageData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? SaveFrameImageData { get; set; }
+        public bool? SaveFrameImageData { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("imageQuality", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ImageQuality { get; set; }
+        public int? ImageQuality { get; set; } = 90;
     
         [Newtonsoft.Json.JsonProperty("mpeG1PreviewEnabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? MpeG1PreviewEnabled { get; set; }
+        public bool? MpeG1PreviewEnabled { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("mpeG1PreviewPort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MpeG1PreviewPort { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mpeG1VideoBitrate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MpeG1VideoBitrate { get; set; }
+        public int? MpeG1VideoBitrate { get; set; } = 450000;
     
         [Newtonsoft.Json.JsonProperty("previewMaxDimension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? PreviewMaxDimension { get; set; }
+        public int? PreviewMaxDimension { get; set; } = 640;
     
         [Newtonsoft.Json.JsonProperty("serviceName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ServiceName { get; set; }
+        public string ServiceName { get; set; } = "";
     
         [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; }
@@ -11100,16 +11100,16 @@ namespace ManagementApi
     public partial class FaceDetectorConfig 
     {
         [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinFaceSize { get; set; }
+        public int? MinFaceSize { get; set; } = 35;
     
         [Newtonsoft.Json.JsonProperty("maxFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFaceSize { get; set; }
+        public int? MaxFaceSize { get; set; } = 600;
     
         [Newtonsoft.Json.JsonProperty("maxFaces", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFaces { get; set; }
+        public int? MaxFaces { get; set; } = 20;
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ConfidenceThreshold { get; set; }
+        public int? ConfidenceThreshold { get; set; } = 450;
     
     
     }
@@ -11118,16 +11118,16 @@ namespace ManagementApi
     public partial class FaceDetectorConfigCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinFaceSize { get; set; }
+        public int? MinFaceSize { get; set; } = 35;
     
         [Newtonsoft.Json.JsonProperty("maxFaceSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFaceSize { get; set; }
+        public int? MaxFaceSize { get; set; } = 600;
     
         [Newtonsoft.Json.JsonProperty("maxFaces", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFaces { get; set; }
+        public int? MaxFaces { get; set; } = 20;
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ConfidenceThreshold { get; set; }
+        public int? ConfidenceThreshold { get; set; } = 450;
     
     
     }
@@ -11136,25 +11136,25 @@ namespace ManagementApi
     public partial class FaceFeaturesConfig 
     {
         [Newtonsoft.Json.JsonProperty("age", Required = Newtonsoft.Json.Required.Always)]
-        public bool Age { get; set; }
+        public bool Age { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("gender", Required = Newtonsoft.Json.Required.Always)]
-        public bool Gender { get; set; }
+        public bool Gender { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("faceMask", Required = Newtonsoft.Json.Required.Always)]
-        public bool FaceMask { get; set; }
+        public bool FaceMask { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("noseTip", Required = Newtonsoft.Json.Required.Always)]
-        public bool NoseTip { get; set; }
+        public bool NoseTip { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("yawAngle", Required = Newtonsoft.Json.Required.Always)]
-        public bool YawAngle { get; set; }
+        public bool YawAngle { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("pitchAngle", Required = Newtonsoft.Json.Required.Always)]
-        public bool PitchAngle { get; set; }
+        public bool PitchAngle { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("rollAngle", Required = Newtonsoft.Json.Required.Always)]
-        public bool RollAngle { get; set; }
+        public bool RollAngle { get; set; } = true;
     
     
     }
@@ -11163,7 +11163,7 @@ namespace ManagementApi
     public partial class FaceMaskConfidenceRequest 
     {
         [Newtonsoft.Json.JsonProperty("faceMaskThreshold", Required = Newtonsoft.Json.Required.Always)]
-        public double FaceMaskThreshold { get; set; }
+        public double FaceMaskThreshold { get; set; } = 3000D;
     
     
     }
@@ -11231,13 +11231,13 @@ namespace ManagementApi
     public partial class FaceSearchDetectorConfig 
     {
         [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinFaceSize { get; set; }
+        public int? MinFaceSize { get; set; } = 35;
     
         [Newtonsoft.Json.JsonProperty("maxFaceSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFaceSize { get; set; }
+        public int? MaxFaceSize { get; set; } = 600;
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ConfidenceThreshold { get; set; }
+        public int? ConfidenceThreshold { get; set; } = 450;
     
     
     }
@@ -11250,16 +11250,16 @@ namespace ManagementApi
         public ImageData Image { get; set; } = new ImageData();
     
         [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Threshold { get; set; }
+        public int? Threshold { get; set; } = 30;
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceSearchDetectorConfig FaceDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FaceDetectorResourceId { get; set; }
+        public string FaceDetectorResourceId { get; set; } = "cpu";
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemplateGeneratorResourceId { get; set; }
+        public string TemplateGeneratorResourceId { get; set; } = "cpu";
     
     
     }
@@ -11765,16 +11765,16 @@ namespace ManagementApi
     public partial class PedestrianDetectorConfigCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("minPedestrianSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public float? MinPedestrianSize { get; set; }
+        public float? MinPedestrianSize { get; set; } = 80F;
     
         [Newtonsoft.Json.JsonProperty("maxPedestrianSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public float? MaxPedestrianSize { get; set; }
+        public float? MaxPedestrianSize { get; set; } = 2000F;
     
         [Newtonsoft.Json.JsonProperty("maxPedestrians", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxPedestrians { get; set; }
+        public int? MaxPedestrians { get; set; } = 20;
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ConfidenceThreshold { get; set; }
+        public int? ConfidenceThreshold { get; set; } = 2500;
     
     
     }
@@ -12073,7 +12073,7 @@ namespace ManagementApi
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; }
+        public string Id { get; set; } = "";
     
         [Newtonsoft.Json.JsonProperty("images", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -12089,13 +12089,13 @@ namespace ManagementApi
         public FaceDetectorConfig FaceDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FaceDetectorResourceId { get; set; }
+        public string FaceDetectorResourceId { get; set; } = "cpu";
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemplateGeneratorResourceId { get; set; }
+        public string TemplateGeneratorResourceId { get; set; } = "cpu";
     
         [Newtonsoft.Json.JsonProperty("keepAutoLearnPhotos", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? KeepAutoLearnPhotos { get; set; }
+        public bool? KeepAutoLearnPhotos { get; set; } = false;
     
     
     }
@@ -12198,20 +12198,20 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("watchlistIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> WatchlistIds { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Threshold { get; set; }
+        [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Threshold { get; set; } = 40;
     
-        [Newtonsoft.Json.JsonProperty("maxResultCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxResultCount { get; set; }
+        [Newtonsoft.Json.JsonProperty("maxResultCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxResultCount { get; set; } = 1;
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfig FaceDetectorConfig { get; set; }
     
         [Newtonsoft.Json.JsonProperty("faceDetectorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FaceDetectorResourceId { get; set; }
+        public string FaceDetectorResourceId { get; set; } = "cpu";
     
         [Newtonsoft.Json.JsonProperty("templateGeneratorResourceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemplateGeneratorResourceId { get; set; }
+        public string TemplateGeneratorResourceId { get; set; } = "cpu";
     
         [Newtonsoft.Json.JsonProperty("faceMaskConfidenceRequest", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceMaskConfidenceRequest FaceMaskConfidenceRequest { get; set; }
@@ -12360,19 +12360,19 @@ namespace ManagementApi
     public partial class SpoofDetectorConfigCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("externalScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? ExternalScoreThreshold { get; set; }
+        public double? ExternalScoreThreshold { get; set; } = 0D;
     
         [Newtonsoft.Json.JsonProperty("distantLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? DistantLivenessScoreThreshold { get; set; }
+        public double? DistantLivenessScoreThreshold { get; set; } = 0D;
     
         [Newtonsoft.Json.JsonProperty("nearbyLivenessScoreThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? NearbyLivenessScoreThreshold { get; set; }
+        public double? NearbyLivenessScoreThreshold { get; set; } = 0D;
     
         [Newtonsoft.Json.JsonProperty("distantLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DistantLivenessConditions { get; set; }
+        public string DistantLivenessConditions { get; set; } = "default";
     
         [Newtonsoft.Json.JsonProperty("nearbyLivenessConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string NearbyLivenessConditions { get; set; }
+        public string NearbyLivenessConditions { get; set; } = "default";
     
     
     }
@@ -12534,16 +12534,16 @@ namespace ManagementApi
     public partial class VideoFaceDetectorConfig 
     {
         [Newtonsoft.Json.JsonProperty("minFaceSize", Required = Newtonsoft.Json.Required.Always)]
-        public int MinFaceSize { get; set; }
+        public int MinFaceSize { get; set; } = 35;
     
         [Newtonsoft.Json.JsonProperty("maxFaceSize", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxFaceSize { get; set; }
+        public int MaxFaceSize { get; set; } = 600;
     
         [Newtonsoft.Json.JsonProperty("maxFaces", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxFaces { get; set; }
+        public int MaxFaces { get; set; } = 20;
     
         [Newtonsoft.Json.JsonProperty("confidenceThreshold", Required = Newtonsoft.Json.Required.Always)]
-        public int ConfidenceThreshold { get; set; }
+        public int ConfidenceThreshold { get; set; } = 450;
     
     
     }
