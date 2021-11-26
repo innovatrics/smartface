@@ -139,6 +139,7 @@ services:
   sf-graphql-api:
     image: ${REGISTRY}sf-jetson-graphql-api:${JETSON_VERSION}
     container_name: SFGraphQLApi
+    restart: unless-stopped
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
@@ -194,7 +195,6 @@ services:
     privileged: true
     container_name: SFDetectGpu
     restart: unless-stopped
-    command: --gpu=true
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -228,7 +228,6 @@ services:
     privileged: true
     container_name: SFPedestrianDetectGpu
     restart: unless-stopped
-    command: --gpu=true
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -262,7 +261,6 @@ services:
     privileged: true
     container_name: SFExtractGpu
     restart: unless-stopped
-    command: --gpu=true
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -297,6 +295,7 @@ services:
     image: ${REGISTRY}sf-jetson-face-matcher:${JETSON_VERSION}
     privileged: true
     container_name: SFFaceMatcher
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -329,7 +328,6 @@ services:
     privileged: true
     container_name: SFLivenessGpu
     restart: unless-stopped
-    command: --gpu=true
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -347,6 +345,7 @@ services:
     image: ${REGISTRY}sf-jetson-video-aggregator:${JETSON_VERSION}
     privileged: true
     container_name: SFVideoDataAggregator
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
