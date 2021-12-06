@@ -43,7 +43,7 @@ services:
     runtime: nvidia
 
   sf-cam-1:
-    image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
+    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
     privileged: true
     container_name: SFCam1
     restart: unless-stopped
@@ -67,7 +67,7 @@ services:
     runtime: nvidia
 
   sf-cam-2:
-    image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
+    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
     privileged: true
     container_name: SFCam2
     restart: unless-stopped
@@ -91,7 +91,7 @@ services:
     runtime: nvidia
 
   sf-cam-nx:
-    image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
+    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
     privileged: true
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
@@ -143,7 +143,7 @@ services:
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
-    environment:      
+    environment:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
