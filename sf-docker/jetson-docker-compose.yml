@@ -18,6 +18,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -38,6 +39,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -60,6 +62,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
       - GstPipelineTemplate
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -84,6 +87,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
       - GstPipelineTemplate
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -106,6 +110,7 @@ services:
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -132,6 +137,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -171,6 +177,7 @@ services:
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
