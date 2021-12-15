@@ -10792,7 +10792,7 @@ namespace ManagementApi
         public string Source { get; set; } = "rtsp://user:password@cameraHostnameOrIp:554/Streaming/Channels/101";
     
         [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Enabled { get; set; } = true;
+        public bool? Enabled { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("faceDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FaceDetectorConfigCreateRequest FaceDetectorConfig { get; set; }
@@ -12504,6 +12504,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("assemblyLastModifiedTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset AssemblyLastModifiedTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fullVersion", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string FullVersion { get; set; }
     
     
     }

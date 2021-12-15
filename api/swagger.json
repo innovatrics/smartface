@@ -5346,7 +5346,7 @@
           },
           "enabled": {
             "type": "boolean",
-            "default": true,
+            "default": false,
             "nullable": true
           },
           "faceDetectorConfig": {
@@ -7769,7 +7769,8 @@
           "assemblyVersion",
           "databaseVersion",
           "databaseVersionCreationTime",
-          "databaseVersionUpdatedTime"
+          "databaseVersionUpdatedTime",
+          "fullVersion"
         ],
         "type": "object",
         "properties": {
@@ -7790,6 +7791,9 @@
           "assemblyLastModifiedTime": {
             "type": "string",
             "format": "date-time"
+          },
+          "fullVersion": {
+            "type": "string"
           }
         },
         "additionalProperties": false
