@@ -56,6 +56,22 @@ services:
     # volumes:
     #   - /var/lib/smartface/miniodata:/data
 
+  # Jaeger tracikng is solely for debug purposes. No data is stored!
+  jaeger:
+   image: "jaegertracing/all-in-one:1.24.0"
+   container_name: jaeger
+   restart: unless-stopped
+   command: ["--memory.max-traces=5000"]
+   ports:
+     - "5778:5778"
+     - "16686:16686"
+     - "14268:14268"
+     - "14250:14250"
+     - "9411:9411"
+     - "5775:5775/udp"
+     - "6831:6831/udp"
+     - "6832:6832/udp"
+
 volumes:
   rmqdata:
 
