@@ -65,7 +65,7 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
-      - GstPipelineTemplate_Jetson
+      - GstPipelineTemplate=${GstPipelineTemplate_Jetson}
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -91,7 +91,7 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
-      - GstPipelineTemplate_Jetson
+      - GstPipelineTemplate=${GstPipelineTemplate_Jetson}
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
