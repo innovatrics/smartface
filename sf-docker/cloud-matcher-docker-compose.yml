@@ -55,6 +55,7 @@ services:
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
       - S3Bucket__Endpoint
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
