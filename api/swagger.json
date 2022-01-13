@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "4.11.0.0"
+    "version": "v5_4.12.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -1092,7 +1092,7 @@
           "Individual"
         ],
         "summary": "Searches for individuals by image in the specified grouping.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code>, <code>gpu</code> and <code>any</code>. Default is <code>cpu</code>.",
         "requestBody": {
           "description": "Request containing image, grouping id and resources.",
           "content": {
@@ -2458,7 +2458,7 @@
           "RecordGrouping"
         ],
         "summary": "Uploads the image to a specified record grouping.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code>, <code>gpu</code> and <code>any</code>. Default is <code>cpu</code>.",
         "parameters": [
           {
             "name": "groupingId",
@@ -3993,6 +3993,133 @@
         }
       }
     },
+    "/api/v1/VideoRecords/{id}/Tags": {
+      "put": {
+        "tags": [
+          "VideoRecord"
+        ],
+        "summary": "Updates the tags of specified video record",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the video record.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "New tags for video record",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VideoRecordTagsUpdateRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VideoRecordTagsUpdateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VideoRecordTagsUpdateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VideoRecordTagsUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Video record was updated successfully with tags",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoRecord"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Specified video record was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "VideoRecord"
+        ],
+        "summary": "Retrieves the tags of specified video record",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the video record.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the found tags.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoRecordTags"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Specified video record was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/Watchlists": {
       "get": {
         "tags": [
@@ -4861,7 +4988,7 @@
           "WatchlistMember"
         ],
         "summary": "Registers a watchlist member.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, any",
         "requestBody": {
           "description": "Request specifying watchlist member register details.",
           "content": {
@@ -5026,7 +5153,7 @@
           "WatchlistMember"
         ],
         "summary": "Adds a specified face to a given watchlist member.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code> and <code>gpu</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code>, <code>gpu</code> and <code>any</code>. Default is <code>cpu</code>.",
         "parameters": [
           {
             "name": "id",
@@ -8115,6 +8242,41 @@
           "maxResultsCount": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecordTags": {
+        "required": [
+          "id",
+          "tags"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "VideoRecordTagsUpdateRequest": {
+        "required": [
+          "tags"
+        ],
+        "type": "object",
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": false
