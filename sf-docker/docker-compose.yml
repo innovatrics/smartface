@@ -208,6 +208,7 @@ services:
   sf-graphql-api:
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
     container_name: SFGraphQLApi
+    restart: unless-stopped
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
@@ -311,6 +312,7 @@ services:
   face-matcher:
     image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
     container_name: SFFaceMatcher
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
