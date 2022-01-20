@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, accurate_cpu_remote, accurate_gpu_remote\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu\r\n\r\nSupported values for <code>PedestrianDetectorResourceId</code> are:\r\n\r\n    none, cpu_remote, gpu_remote, body_parts_cpu_remote\r\n\r\nSupported values for <code>SpoofDetectorResourceIds</code> are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, external",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for <code>PedestrianDetectorResourceId</code> are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote\r\n\r\nSupported values for <code>SpoofDetectorResourceIds</code> are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_any_remote, liveness_distant_gpu_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote, external",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -171,7 +171,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, accurate_cpu_remote, accurate_gpu_remote\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu\r\n\r\nSupported values for <code>PedestrianDetectorResourceId</code> are:\r\n\r\n    none, cpu_remote, gpu_remote, body_parts_cpu_remote\r\n\r\nSupported values for <code>SpoofDetectorResourceIds</code> are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, external",
+        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for <code>PedestrianDetectorResourceId</code> are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote\r\n\r\nSupported values for <code>SpoofDetectorResourceIds</code> are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote, external",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -4042,7 +4042,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VideoRecord"
+                  "$ref": "#/components/schemas/VideoRecordTags"
                 }
               }
             }

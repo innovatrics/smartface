@@ -9668,7 +9668,7 @@ namespace ManagementApi
         /// <param name="body">New tags for video record</param>
         /// <returns>Video record was updated successfully with tags</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<VideoRecord> TagsPutAsync(System.Guid id, VideoRecordTagsUpdateRequest body)
+        public System.Threading.Tasks.Task<VideoRecordTags> TagsPutAsync(System.Guid id, VideoRecordTagsUpdateRequest body)
         {
             return TagsPutAsync(id, body, System.Threading.CancellationToken.None);
         }
@@ -9679,7 +9679,7 @@ namespace ManagementApi
         /// <param name="body">New tags for video record</param>
         /// <returns>Video record was updated successfully with tags</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<VideoRecord> TagsPutAsync(System.Guid id, VideoRecordTagsUpdateRequest body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<VideoRecordTags> TagsPutAsync(System.Guid id, VideoRecordTagsUpdateRequest body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -9723,7 +9723,7 @@ namespace ManagementApi
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<VideoRecord>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<VideoRecordTags>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
