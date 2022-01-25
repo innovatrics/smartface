@@ -5699,6 +5699,7 @@
         "required": [
           "cleanupAmount",
           "cleanupStart",
+          "deleteMatchResults",
           "deleteSql",
           "enabled",
           "maxFramesCount",
@@ -5730,6 +5731,10 @@
             "nullable": true
           },
           "deleteSql": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "deleteMatchResults": {
             "type": "boolean",
             "nullable": true
           }
