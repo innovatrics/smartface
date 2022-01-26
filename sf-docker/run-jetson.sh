@@ -28,7 +28,7 @@ echo $REGISTRY
 # create SmartFace database in PgSql
 docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
 # run database migration to current version
-docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-jetson-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Pooling=False;Trust Server Certificate=true;" -dbe PgSql
+docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-jetson-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Trust Server Certificate=true;" -dbe PgSql
 
 # finally start SF images
 docker-compose -f jetson-docker-compose.yml up -d --force-recreate

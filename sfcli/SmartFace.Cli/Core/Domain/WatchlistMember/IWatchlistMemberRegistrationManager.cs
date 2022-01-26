@@ -9,7 +9,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember
     public interface IWatchlistMemberRegistrationManager
     {
         Task<WatchlistMemberWithRelatedData> RegisterWatchlistMemberAsync(WatchlistMemberRegisterData watchlistMemberRegisterData);
-        Task<RegistrationResult> RegisterWatchlistMembersFromDirAsync(string directory, RegisterRequestParams registerRequestParams, int maxDegreeOfParallelism, CancellationToken cancellationToken);
+        Task<RegistrationResult> RegisterWatchlistMembersFromDirAsync(string directory, RegisterRequestParams registerRequestParams, int maxDegreeOfParallelism, string fileNameToProperty, CancellationToken cancellationToken);
         Task<RegistrationResult> RegisterWatchlistMembersFromDirByMetadataFileAsync(string directory, RegisterRequestParams registerRequestParams, int maxDegreeOfParallelism, CancellationToken cancellationToken);
     }
 }
