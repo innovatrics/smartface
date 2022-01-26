@@ -16,6 +16,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
     volumes:
@@ -36,6 +38,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
     volumes:
@@ -58,8 +62,10 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
-      - GstPipelineTemplate
+      - GstPipelineTemplate=${GstPipelineTemplate_Jetson}
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -82,8 +88,10 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
-      - GstPipelineTemplate
+      - GstPipelineTemplate=${GstPipelineTemplate_Jetson}
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -105,6 +113,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -130,6 +140,8 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
     volumes:
@@ -149,6 +161,8 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - AppSettings__Log_RabbitMq_Enabled
 
   odata-api:
@@ -169,6 +183,8 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
     volumes:
@@ -186,6 +202,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -201,6 +219,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - Gpu__GpuEnabled=true
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -219,6 +239,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -234,6 +256,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - Gpu__GpuEnabled=true
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -252,6 +276,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -267,6 +293,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - Gpu__GpuEnabled=true
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -287,6 +315,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -304,6 +334,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -319,6 +351,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -334,6 +368,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - Gpu__GpuEnabled=true
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -354,6 +390,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
     volumes:
@@ -373,6 +411,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
     volumes:
@@ -389,6 +429,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
