@@ -38,3 +38,12 @@ Get-Service -Name "SF*" | foreach {sc.exe config $_.Name start= disabled}
 ```
 Get-Service -Name "SF*" | foreach {sc.exe start $_.Name}
 ```
+
+
+# Windows Command Line Scripts
+
+### Add extra SmartFace service
+
+```
+SC CREATE "SFBodyPartsDetectCpu4" binpath= "C:\Program Files\Innovatrics\SmartFace\RpcBodyPartsDetector.exe Gpu:GpuEnabled=false" DisplayName= "SmartFace Body Parts 4" start= auto
+```
