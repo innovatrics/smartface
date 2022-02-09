@@ -11179,6 +11179,9 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("deleteSql", Required = Newtonsoft.Json.Required.AllowNull)]
         public bool? DeleteSql { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("deleteMatchResults", Required = Newtonsoft.Json.Required.AllowNull)]
+        public bool? DeleteMatchResults { get; set; }
+    
     
     }
     
