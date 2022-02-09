@@ -11173,6 +11173,7 @@ namespace ManagementApi
         public string CleanupStart { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cleanupAmount", Required = Newtonsoft.Json.Required.AllowNull)]
+        [System.Obsolete]
         public int? CleanupAmount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("deleteSql", Required = Newtonsoft.Json.Required.AllowNull)]
