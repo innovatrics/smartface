@@ -299,22 +299,6 @@
         <Property Name="VideoPublishWorkerId" Type="Edm.Int64" Nullable="false" />
         <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
         <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
-        <Property Name="RenderOrder" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderSize" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderQuality" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderYawAngle" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderPitchAngle" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderRollAngle" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderWatchlistMemberId" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderWatchlistMemberName" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderWatchlistName" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderMatchingScore" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderAge" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderGender" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderTemplateQuality" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderFaceMaskStatus" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="RenderFaceMaskConfidence" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="TextFontSize" Type="Edm.Int32" Nullable="false" />
         <NavigationProperty Name="StreamWorker" Type="SmartFace.Domain.DataAccess.Models.Core.Worker" />
         <NavigationProperty Name="VideoPublishWorker" Type="SmartFace.Domain.DataAccess.Models.Core.Worker" />
         <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream">
@@ -344,7 +328,6 @@
         <Property Name="MatchDetectedFaces" Type="Edm.Boolean" Nullable="false" />
         <Property Name="MatchMaxResultsCount" Type="Edm.Int32" Nullable="false" />
         <NavigationProperty Name="Stream" Type="SmartFace.Domain.DataAccess.Models.Core.Stream" />
-        <NavigationProperty Name="Tags" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.Tag)" />
       </EntityType>
       <EntityType Name="Watchlist">
         <Key>
@@ -433,16 +416,6 @@
         <Property Name="Score" Type="Edm.Int32" Nullable="false" />
         <NavigationProperty Name="Face" Type="SmartFace.Domain.DataAccess.Models.Core.Face" />
       </ComplexType>
-      <EntityType Name="Tag">
-        <Key>
-          <PropertyRef Name="Id" />
-        </Key>
-        <Property Name="Id" Type="Edm.Guid" Nullable="false" />
-        <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" />
-        <Property Name="UpdatedAt" Type="Edm.DateTimeOffset" />
-        <Property Name="Name" Type="Edm.String" />
-        <NavigationProperty Name="VideoRecords" Type="Collection(SmartFace.Domain.DataAccess.Models.Core.VideoRecord)" />
-      </EntityType>
     </Schema>
     <Schema Namespace="SmartFace.ODataApi.DtoModels.Responses" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="Ping">
@@ -478,6 +451,7 @@
         <Property Name="Min_MaxImageDataAge" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_CleanupStart" Type="Edm.String" />
         <Property Name="Max_CleanupStart" Type="Edm.String" />
+        <Property Name="Min_CleanupAmount" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_MaxSearchItemsCount" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_SelectionThreshold" Type="Edm.Int32" Nullable="false" />
         <Property Name="Min_MaxAutoLearnFacesCount" Type="Edm.Int32" Nullable="false" />

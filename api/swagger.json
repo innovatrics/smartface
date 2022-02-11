@@ -7057,68 +7057,52 @@
         "properties": {
           "textFontSize": {
             "type": "integer",
-            "format": "int32",
-            "default": 12
+            "format": "int32"
           },
           "order": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "size": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "quality": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "yawAngle": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "pitchAngle": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "rollAngle": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "watchlistMemberId": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "watchlistMemberName": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "watchlistName": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "matchingScore": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "age": {
-            "type": "boolean",
-            "default": true
+            "type": "boolean"
           },
           "gender": {
-            "type": "boolean",
-            "default": true
+            "type": "boolean"
           },
           "templateQuality": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "faceMaskStatus": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           },
           "faceMaskConfidence": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           }
         },
         "additionalProperties": false
