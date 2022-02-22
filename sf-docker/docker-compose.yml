@@ -15,6 +15,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
@@ -34,6 +36,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
@@ -55,6 +59,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
@@ -79,6 +85,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
@@ -103,6 +111,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
@@ -127,6 +137,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
@@ -151,6 +163,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
@@ -174,6 +188,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -199,6 +215,8 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
@@ -212,12 +230,15 @@ services:
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
+    restart: unless-stopped
     environment:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - AppSettings__Log_RabbitMq_Enabled
 
   odata-api:
@@ -237,6 +258,8 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
@@ -253,6 +276,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -270,6 +295,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -287,6 +314,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -306,6 +335,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
@@ -321,6 +352,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
@@ -334,6 +367,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -353,6 +388,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
     volumes:
@@ -370,6 +407,8 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
     volumes:
@@ -385,6 +424,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
@@ -398,6 +439,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 

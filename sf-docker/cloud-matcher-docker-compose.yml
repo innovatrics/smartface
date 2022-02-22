@@ -9,6 +9,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
          
@@ -21,6 +23,8 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
@@ -35,6 +39,8 @@ services:
       - Database__DbEngine
       - ConnectionStrings__CoreDbContext
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
@@ -54,6 +60,8 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
