@@ -12075,52 +12075,52 @@ namespace ManagementApi
     public partial class PreviewAttributesConfigCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("textFontSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? TextFontSize { get; set; }
+        public int? TextFontSize { get; set; } = 12;
     
         [Newtonsoft.Json.JsonProperty("order", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Order { get; set; }
+        public bool? Order { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Size { get; set; }
+        public bool? Size { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Quality { get; set; }
+        public bool? Quality { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("yawAngle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? YawAngle { get; set; }
+        public bool? YawAngle { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("pitchAngle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? PitchAngle { get; set; }
+        public bool? PitchAngle { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("rollAngle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? RollAngle { get; set; }
+        public bool? RollAngle { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("watchlistMemberId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? WatchlistMemberId { get; set; }
+        public bool? WatchlistMemberId { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("watchlistMemberName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? WatchlistMemberName { get; set; }
+        public bool? WatchlistMemberName { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("watchlistName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? WatchlistName { get; set; }
+        public bool? WatchlistName { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("matchingScore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? MatchingScore { get; set; }
+        public bool? MatchingScore { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("age", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Age { get; set; }
+        public bool? Age { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("gender", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Gender { get; set; }
+        public bool? Gender { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("templateQuality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? TemplateQuality { get; set; }
+        public bool? TemplateQuality { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("faceMaskStatus", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? FaceMaskStatus { get; set; }
+        public bool? FaceMaskStatus { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("faceMaskConfidence", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? FaceMaskConfidence { get; set; }
+        public bool? FaceMaskConfidence { get; set; } = false;
     
     
     }
