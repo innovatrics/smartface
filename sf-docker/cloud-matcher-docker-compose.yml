@@ -63,6 +63,7 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
       

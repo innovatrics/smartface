@@ -20,6 +20,7 @@ services:
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -42,6 +43,7 @@ services:
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -66,6 +68,7 @@ services:
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - GstPipelineTemplate=${GstPipelineTemplate_Jetson}
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -92,6 +95,7 @@ services:
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - GstPipelineTemplate=${GstPipelineTemplate_Jetson}
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -116,6 +120,7 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -144,6 +149,7 @@ services:
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
@@ -187,6 +193,7 @@ services:
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
