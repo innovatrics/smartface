@@ -10874,6 +10874,42 @@ namespace ManagementApi
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ActionDetectorConfig 
+    {
+        [Newtonsoft.Json.JsonProperty("fallConfidenceThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public int FallConfidenceThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxOldnessMs", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxOldnessMs { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ActionDetectorConfigCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("fallConfidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? FallConfidenceThreshold { get; set; } = 8000;
+    
+        [Newtonsoft.Json.JsonProperty("maxOldnessMs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxOldnessMs { get; set; } = 3000;
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class ActionDetectorConfigUpdateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("fallConfidenceThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public int FallConfidenceThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxOldnessMs", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxOldnessMs { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.4.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class AddNewFaceRequest 
     {
         [Newtonsoft.Json.JsonProperty("imageData", Required = Newtonsoft.Json.Required.Always)]
@@ -10898,6 +10934,10 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("spoofDetectorResourceIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; } = new System.Collections.ObjectModel.Collection<string>();
+    
+        [Newtonsoft.Json.JsonProperty("actionDetectorResourceIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ActionDetectorResourceIds { get; set; } = new System.Collections.ObjectModel.Collection<string>();
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -10986,6 +11026,10 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public PreviewAttributesConfig PreviewAttributesConfig { get; set; } = new PreviewAttributesConfig();
     
+        [Newtonsoft.Json.JsonProperty("actionDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ActionDetectorConfig ActionDetectorConfig { get; set; } = new ActionDetectorConfig();
+    
     
     }
     
@@ -11066,6 +11110,12 @@ namespace ManagementApi
     
         [Newtonsoft.Json.JsonProperty("previewAttributesConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PreviewAttributesConfigCreateRequest PreviewAttributesConfig { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("actionDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ActionDetectorResourceIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("actionDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ActionDetectorConfigCreateRequest ActionDetectorConfig { get; set; }
     
     
     }
@@ -11154,6 +11204,12 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("previewAttributesConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PreviewAttributesConfigUpdateRequest PreviewAttributesConfig { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("actionDetectorResourceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ActionDetectorResourceIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("actionDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ActionDetectorConfigUpdateRequest ActionDetectorConfig { get; set; }
+    
     
     }
     
@@ -11173,7 +11229,6 @@ namespace ManagementApi
         public string CleanupStart { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cleanupAmount", Required = Newtonsoft.Json.Required.AllowNull)]
-        [System.Obsolete]
         public int? CleanupAmount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("deleteSql", Required = Newtonsoft.Json.Required.AllowNull)]
@@ -12075,52 +12130,52 @@ namespace ManagementApi
     public partial class PreviewAttributesConfigCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("textFontSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? TextFontSize { get; set; }
+        public int? TextFontSize { get; set; } = 12;
     
         [Newtonsoft.Json.JsonProperty("order", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Order { get; set; }
+        public bool? Order { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Size { get; set; }
+        public bool? Size { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Quality { get; set; }
+        public bool? Quality { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("yawAngle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? YawAngle { get; set; }
+        public bool? YawAngle { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("pitchAngle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? PitchAngle { get; set; }
+        public bool? PitchAngle { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("rollAngle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? RollAngle { get; set; }
+        public bool? RollAngle { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("watchlistMemberId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? WatchlistMemberId { get; set; }
+        public bool? WatchlistMemberId { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("watchlistMemberName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? WatchlistMemberName { get; set; }
+        public bool? WatchlistMemberName { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("watchlistName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? WatchlistName { get; set; }
+        public bool? WatchlistName { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("matchingScore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? MatchingScore { get; set; }
+        public bool? MatchingScore { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("age", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Age { get; set; }
+        public bool? Age { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("gender", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Gender { get; set; }
+        public bool? Gender { get; set; } = true;
     
         [Newtonsoft.Json.JsonProperty("templateQuality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? TemplateQuality { get; set; }
+        public bool? TemplateQuality { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("faceMaskStatus", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? FaceMaskStatus { get; set; }
+        public bool? FaceMaskStatus { get; set; } = false;
     
         [Newtonsoft.Json.JsonProperty("faceMaskConfidence", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? FaceMaskConfidence { get; set; }
+        public bool? FaceMaskConfidence { get; set; } = false;
     
     
     }
