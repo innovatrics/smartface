@@ -8012,6 +8012,7 @@
       },
       "VideoRecord": {
         "required": [
+          "durationMs",
           "enabled",
           "faceDetectorConfig",
           "faceDetectorResourceId",
@@ -8025,6 +8026,7 @@
           "mpeG1VideoBitrate",
           "name",
           "previewMaxDimension",
+          "recordedAt",
           "redetectionTime",
           "saveFrameImageData",
           "source",
@@ -8047,6 +8049,15 @@
           },
           "source": {
             "type": "string"
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "durationMs": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           },
           "enabled": {
             "type": "boolean"
@@ -8128,6 +8139,11 @@
           },
           "enabled": {
             "type": "boolean",
+            "nullable": true
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "faceDetectorConfig": {
@@ -8314,6 +8330,10 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/VideoFaceDetectorConfig"
