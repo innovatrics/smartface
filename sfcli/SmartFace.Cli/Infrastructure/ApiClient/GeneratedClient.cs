@@ -12807,8 +12807,8 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset RecordedAt { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("durationMs", Required = Newtonsoft.Json.Required.AllowNull)]
-        public long? DurationMs { get; set; }
+        [Newtonsoft.Json.JsonProperty("videoDurationMs", Required = Newtonsoft.Json.Required.AllowNull)]
+        public long? VideoDurationMs { get; set; }
     
         [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Always)]
         public bool Enabled { get; set; }

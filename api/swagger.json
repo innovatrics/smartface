@@ -8028,7 +8028,6 @@
       },
       "VideoRecord": {
         "required": [
-          "durationMs",
           "enabled",
           "faceDetectorConfig",
           "faceDetectorResourceId",
@@ -8049,7 +8048,8 @@
           "state",
           "templateGenerationTime",
           "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "trackMotionOptimization",
+          "videoDurationMs"
         ],
         "type": "object",
         "properties": {
@@ -8070,7 +8070,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "durationMs": {
+          "videoDurationMs": {
             "type": "integer",
             "format": "int64",
             "nullable": true
