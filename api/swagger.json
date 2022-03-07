@@ -5318,8 +5318,8 @@
     "schemas": {
       "ActionDetectorConfig": {
         "required": [
-          "fallConfidenceThreshold",
-          "maxOldnessMs"
+          "bodyPartsMaxAgeMs",
+          "fallConfidenceThreshold"
         ],
         "type": "object",
         "properties": {
@@ -5327,7 +5327,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "maxOldnessMs": {
+          "bodyPartsMaxAgeMs": {
             "type": "integer",
             "format": "int32"
           }
@@ -5343,7 +5343,7 @@
             "default": 8000,
             "nullable": true
           },
-          "maxOldnessMs": {
+          "bodyPartsMaxAgeMs": {
             "type": "integer",
             "format": "int32",
             "default": 3000,
@@ -5354,8 +5354,8 @@
       },
       "ActionDetectorConfigUpdateRequest": {
         "required": [
-          "fallConfidenceThreshold",
-          "maxOldnessMs"
+          "bodyPartsMaxAgeMs",
+          "fallConfidenceThreshold"
         ],
         "type": "object",
         "properties": {
@@ -5363,7 +5363,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "maxOldnessMs": {
+          "bodyPartsMaxAgeMs": {
             "type": "integer",
             "format": "int32"
           }

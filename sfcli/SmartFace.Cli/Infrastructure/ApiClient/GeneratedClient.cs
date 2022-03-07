@@ -10879,8 +10879,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("fallConfidenceThreshold", Required = Newtonsoft.Json.Required.Always)]
         public int FallConfidenceThreshold { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxOldnessMs", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxOldnessMs { get; set; }
+        [Newtonsoft.Json.JsonProperty("bodyPartsMaxAgeMs", Required = Newtonsoft.Json.Required.Always)]
+        public int BodyPartsMaxAgeMs { get; set; }
     
     
     }
@@ -10891,8 +10891,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("fallConfidenceThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? FallConfidenceThreshold { get; set; } = 8000;
     
-        [Newtonsoft.Json.JsonProperty("maxOldnessMs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxOldnessMs { get; set; } = 3000;
+        [Newtonsoft.Json.JsonProperty("bodyPartsMaxAgeMs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? BodyPartsMaxAgeMs { get; set; } = 3000;
     
     
     }
@@ -10903,8 +10903,8 @@ namespace ManagementApi
         [Newtonsoft.Json.JsonProperty("fallConfidenceThreshold", Required = Newtonsoft.Json.Required.Always)]
         public int FallConfidenceThreshold { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxOldnessMs", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxOldnessMs { get; set; }
+        [Newtonsoft.Json.JsonProperty("bodyPartsMaxAgeMs", Required = Newtonsoft.Json.Required.Always)]
+        public int BodyPartsMaxAgeMs { get; set; }
     
     
     }
