@@ -13,5 +13,6 @@
         public const string LIVENESS_RESULT = "liveness.result";
         public const string HEARTBEAT = "heartbeat";
         public const string PEDESTRIANS_INSERTED = "pedestrians.insert";
+        public const string ACTIONS_HUMAN_FALL_DETECTED = "actions.human.fall_detected";
     }    
 }
