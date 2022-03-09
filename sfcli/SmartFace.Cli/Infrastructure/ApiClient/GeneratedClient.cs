@@ -10935,8 +10935,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> SpoofDetectorResourceIds { get; set; } = new System.Collections.ObjectModel.Collection<string>();
     
-        [Newtonsoft.Json.JsonProperty("actionDetectorResourceIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ActionDetectorResourceIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("actionDetectorResourceIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ActionDetectorResourceIds { get; set; } = new System.Collections.ObjectModel.Collection<string>();
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -11025,8 +11026,9 @@ namespace ManagementApi
         [System.ComponentModel.DataAnnotations.Required]
         public PreviewAttributesConfig PreviewAttributesConfig { get; set; } = new PreviewAttributesConfig();
     
-        [Newtonsoft.Json.JsonProperty("actionDetectorConfig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ActionDetectorConfig ActionDetectorConfig { get; set; }
+        [Newtonsoft.Json.JsonProperty("actionDetectorConfig", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ActionDetectorConfig ActionDetectorConfig { get; set; } = new ActionDetectorConfig();
     
     
     }
