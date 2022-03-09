@@ -5316,6 +5316,60 @@
   },
   "components": {
     "schemas": {
+      "ActionDetectorConfig": {
+        "required": [
+          "bodyPartsMaxAgeMs",
+          "fallConfidenceThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "fallConfidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bodyPartsMaxAgeMs": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ActionDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "fallConfidenceThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "default": 8000,
+            "nullable": true
+          },
+          "bodyPartsMaxAgeMs": {
+            "type": "integer",
+            "format": "int32",
+            "default": 3000,
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ActionDetectorConfigUpdateRequest": {
+        "required": [
+          "bodyPartsMaxAgeMs",
+          "fallConfidenceThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "fallConfidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bodyPartsMaxAgeMs": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "AddNewFaceRequest": {
         "required": [
           "imageData"
@@ -5368,6 +5422,12 @@
         "type": "object",
         "properties": {
           "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "actionDetectorResourceIds": {
             "type": "array",
             "items": {
               "type": "string"
@@ -5452,6 +5512,9 @@
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfig"
+          },
+          "actionDetectorConfig": {
+            "$ref": "#/components/schemas/ActionDetectorConfig"
           }
         },
         "additionalProperties": false
@@ -5579,6 +5642,19 @@
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfigCreateRequest"
+          },
+          "actionDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "none"
+            ],
+            "nullable": true
+          },
+          "actionDetectorConfig": {
+            "$ref": "#/components/schemas/ActionDetectorConfigCreateRequest"
           }
         },
         "additionalProperties": false
@@ -5691,6 +5767,16 @@
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfigUpdateRequest"
+          },
+          "actionDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "actionDetectorConfig": {
+            "$ref": "#/components/schemas/ActionDetectorConfigUpdateRequest"
           }
         },
         "additionalProperties": false
@@ -5728,8 +5814,7 @@
           "cleanupAmount": {
             "type": "integer",
             "format": "int32",
-            "nullable": true,
-            "deprecated": true
+            "nullable": true
           },
           "deleteSql": {
             "type": "boolean",
@@ -7057,52 +7142,68 @@
         "properties": {
           "textFontSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "default": 12
           },
           "order": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "size": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "quality": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "yawAngle": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "pitchAngle": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "rollAngle": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "watchlistMemberId": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "watchlistMemberName": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "watchlistName": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "matchingScore": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "age": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": true
           },
           "gender": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": true
           },
           "templateQuality": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "faceMaskStatus": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "faceMaskConfidence": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           }
         },
         "additionalProperties": false
