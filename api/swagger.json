@@ -7057,52 +7057,68 @@
         "properties": {
           "textFontSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "default": 12
           },
           "order": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "size": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "quality": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "yawAngle": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "pitchAngle": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "rollAngle": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "watchlistMemberId": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "watchlistMemberName": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": true
           },
           "watchlistName": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "matchingScore": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "age": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": true
           },
           "gender": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": true
           },
           "templateQuality": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "faceMaskStatus": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
           "faceMaskConfidence": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           }
         },
         "additionalProperties": false
@@ -8025,13 +8041,15 @@
           "mpeG1VideoBitrate",
           "name",
           "previewMaxDimension",
+          "recordedAt",
           "redetectionTime",
           "saveFrameImageData",
           "source",
           "state",
           "templateGenerationTime",
           "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "trackMotionOptimization",
+          "videoDurationMs"
         ],
         "type": "object",
         "properties": {
@@ -8047,6 +8065,15 @@
           },
           "source": {
             "type": "string"
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "videoDurationMs": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
           },
           "enabled": {
             "type": "boolean"
@@ -8128,6 +8155,11 @@
           },
           "enabled": {
             "type": "boolean",
+            "nullable": true
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "faceDetectorConfig": {
@@ -8314,6 +8346,10 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/VideoFaceDetectorConfig"
