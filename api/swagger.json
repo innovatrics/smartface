@@ -3993,6 +3993,41 @@
         }
       }
     },
+    "/api/v1/VideoRecords/{id}/Clear": {
+      "post": {
+        "tags": [
+          "VideoRecord"
+        ],
+        "summary": "Clears the data produced by the video record (faces, tracklet, matches...) and set the state back to `Ready`",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the video record.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Video record data was cleaned successfully."
+          },
+          "404": {
+            "description": "Specified video record was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/VideoRecords/{id}/Tags": {
       "put": {
         "tags": [
