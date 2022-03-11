@@ -60,7 +60,7 @@ namespace SmartFace.Cli.Commands.SubWatchlistMember
         [Option("-p|--parallel", "Max degree of parallelism, default value is 1", CommandOptionType.SingleValue)]
         public int MaxDegreeOfParallelism { get; set; } = 1;
 
-        [Option("--fileNameAs", "Use file name as ID, FullName", CommandOptionType.SingleValue)]
+        [Option("--fileNameAs", "Use file name as ID or FullName", CommandOptionType.SingleValue)]
         public string FileNameToProperty { get; set; } = "id";
 
         public RegisterWatchlistMembersFromDirCmd(IWatchlistMemberRegistrationManager registrationManager, ILogger<RegisterWatchlistMembersFromDirCmd> logger)
