@@ -27,7 +27,7 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
             {
                 MatchCasing = MatchCasing.CaseInsensitive
             });
-            
+
             if (files.Length == 0)
             {
                 throw new ProcessingException($"Selected directory does not contain any json file with RegisterWatchlistMemberExtended data [{path}]");
@@ -41,7 +41,32 @@ namespace SmartFace.Cli.Core.Domain.WatchlistMember.Impl
 
             var content = File.ReadAllText(file);
             var result = JsonConvert.DeserializeObject<WatchlistMemberMetadata[]>(content);
+
+            foreach (var metadata in result)
+            {
+                metadata.PhotoFiles = metadata.PhotoFiles.Select(s => NormalizePhotoPath(path, s)).ToArray();
+            }
+
             return result;
+        }
+
+        private string NormalizePhotoPath(string directory, string photoFile)
+        {
+            if (string.IsNullOrEmpty(photoFile))
+            {
+                return photoFile;
+            }
+
+            if (Path.IsPathRooted(photoFile))
+            {
+                return photoFile;
+            }
+            
+            var normalizedPhotoPath = Path.Combine(directory, photoFile);
+
+            Log.LogInformation($"PhotoFile {photoFile} is relative, normalize to rooted path : {normalizedPhotoPath}");
+
+            return normalizedPhotoPath;
         }
     }
 }
