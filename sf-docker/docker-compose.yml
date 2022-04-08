@@ -425,6 +425,7 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
+      - S3Bucket__Endpoint
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
