@@ -26,6 +26,14 @@ REGISTRY=$(grep -E ^REGISTRY .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 # to switch DB engine, change the .env file
 DB_ENGINE=$(grep -E ^Database__DbEngine .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 
+# load RabbitMQ properties from .env
+RMQ_HOST=$(grep -E ^RabbitMQ__Hostname .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+RMQ_USER=$(grep -E ^RabbitMQ__Username .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+RMQ_PASS=$(grep -E ^RabbitMQ__Password .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+RMQ_VHOST=$(grep -E ^RabbitMQ__VirtualHost .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+RMQ_PORT=$(grep -E ^RabbitMQ__Port .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+RMQ_SSL=$(grep -E ^RabbitMQ__UseSsl .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+
 echo $VERSION
 echo $REGISTRY
 
@@ -33,12 +41,12 @@ if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
     docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace" || true
     # run database migration to current version
-    docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=mssql;Database=SmartFace;User ID=sa;Password=Test1234;" -dbe $DB_ENGINE
+    docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=mssql;Database=SmartFace;User ID=sa;Password=Test1234;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
 elif [[ "$DB_ENGINE" == "PgSql" ]]; then
     # create SmartFace database in PgSql
     docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
     # run database migration to current version
-    docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Trust Server Certificate=true;" -dbe $DB_ENGINE
+    docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Trust Server Certificate=true;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
 else 
     echo "Unknown DB engine: ${DB_ENGINE}!"
     exit 1
