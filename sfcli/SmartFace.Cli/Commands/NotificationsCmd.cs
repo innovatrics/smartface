@@ -10,20 +10,7 @@ namespace SmartFace.Cli.Commands
     public class NotificationsCmd
     {
         [Required]
-        [Option("-t|--topic", "Specify topic of notifications ["
-                              + ZeroMqNotificationTopic.FACE_CREATED + ", "
-                              + ZeroMqNotificationTopic.FACE_EXTRACTED + ", "
-                              + ZeroMqNotificationTopic.GROUPING_PROGRESS_INFO + ", "
-                              + ZeroMqNotificationTopic.VIDEO_RECORD_STATE_UPDATE + ", "
-                              + ZeroMqNotificationTopic.TRACKLET_COMPLETED + ", "
-                              + ZeroMqNotificationTopic.MATCH_RESULT_MATCH + ", "
-                              + ZeroMqNotificationTopic.MATCH_RESULT_NO_MATCH + ", "
-                              + ZeroMqNotificationTopic.MATCH_RESULT_MATCH_INSERTED + ", "
-                              + ZeroMqNotificationTopic.LIVENESS_RESULT + ", "
-                              + ZeroMqNotificationTopic.HEARTBEAT + ", "
-                              + ZeroMqNotificationTopic.PEDESTRIANS_INSERTED
-                              + ZeroMqNotificationTopic.ACTIONS_HUMAN_FALL_DETECTED
-                              + "]", CommandOptionType.SingleValue)]
+        [Option("-t|--topic", "Specify topic of notifications", CommandOptionType.SingleValue)]
         [AllowedValues(
             ZeroMqNotificationTopic.FACE_CREATED,
             ZeroMqNotificationTopic.FACE_EXTRACTED,
