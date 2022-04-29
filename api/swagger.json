@@ -7177,7 +7177,7 @@
           },
           "watchlistMemberName": {
             "type": "boolean",
-            "default": false
+            "default": true
           },
           "watchlistName": {
             "type": "boolean",
@@ -8128,13 +8128,15 @@
           "mpeG1VideoBitrate",
           "name",
           "previewMaxDimension",
+          "recordedAt",
           "redetectionTime",
           "saveFrameImageData",
           "source",
           "state",
           "templateGenerationTime",
           "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "trackMotionOptimization",
+          "videoDurationMs"
         ],
         "type": "object",
         "properties": {
@@ -8150,6 +8152,15 @@
           },
           "source": {
             "type": "string"
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "videoDurationMs": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
           },
           "enabled": {
             "type": "boolean"
@@ -8231,6 +8242,11 @@
           },
           "enabled": {
             "type": "boolean",
+            "nullable": true
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "faceDetectorConfig": {
@@ -8417,6 +8433,10 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/VideoFaceDetectorConfig"
