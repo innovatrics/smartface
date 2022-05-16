@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "sfcli": {
-      "commandName": "Project",
-      "commandLineArgs": "watchlistmember registerFromDir -w:watchlistId1 -d:\"C:\\temp\\TestData\\Watchlists\\cliRegisterFromDir\""
-    }
-  }
-}
