@@ -6,7 +6,7 @@ Note that the jetson docker containers need to be run in privileged mode. This i
 # Deployment
 Before deploying SF, you will need:
 - Docker
-- docker-compose
+- docker-compose (we require 1.X version ideally https://github.com/docker/compose/releases/tag/1.29.2)
 - Login to container registry `docker login registry.gitlab.com -u <username> -p <password>`. The credentials are available in our [CRM portal](https://crm.innovatrics.com/).
 - Identify hardware id (hwid) for your machine with command `docker run registry.gitlab.com/innovatrics/smartface/license-manager:3.2.7`. For nvidia jetson device use command `docker run --privileged registry.gitlab.com/innovatrics/smartface/license-manager:3.2.7`. This process work for native linux, for `WSL2` eg. linux containers on Windows you need special license for which you need to contact our sales.
 - Obtain license for your hwid from our CRM https://crm.innovatrics.com/client/products
