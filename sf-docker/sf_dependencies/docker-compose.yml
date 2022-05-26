@@ -9,8 +9,9 @@ services:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Test1234
     restart: unless-stopped
-    #volumes:
-    #  - /var/lib/smartface/mssql:/var/opt/mssql
+    volumes:
+      - mssqldata:/var/opt/mssql
+      #- /var/lib/smartface/mssql:/var/opt/mssql
 
   pgsql:
     image: "postgres:13.2"
@@ -20,8 +21,9 @@ services:
     environment:
       - POSTGRES_PASSWORD=Test1234
     restart: unless-stopped
-    #volumes:
-    #  - /var/lib/smartface/pgsql:/var/lib/postgresql/data
+    volumes:
+      - pgsqldata:/var/lib/postgresql/data
+      #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
 
   pgadmin:
     image: "dpage/pgadmin4:5.1"
@@ -53,8 +55,9 @@ services:
     ports:
       - "9000:9000"
     restart: unless-stopped
-    # volumes:
-    #   - /var/lib/smartface/miniodata:/data
+    volumes:
+      - miniodata:/data
+      #- /var/lib/smartface/miniodata:/data
 
   # Jaeger tracikng is solely for debug purposes. No data is stored!
   jaeger:
@@ -73,6 +76,9 @@ services:
      - "6832:6832/udp"
 
 volumes:
+  mssqldata:
+  pgsqldata:
+  miniodata:
   rmqdata:
 
 networks:
