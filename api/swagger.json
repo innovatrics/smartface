@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.12.0.0"
+    "version": "v5_4.13.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -3796,16 +3796,6 @@
               }
             }
           },
-          "409": {
-            "description": "The was a conflict while creating the video record.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
           "400": {
             "description": "The sent request was not valid.",
             "content": {
@@ -5809,6 +5799,7 @@
           "rightEyeX",
           "rightEyeY",
           "rollAngle",
+          "size",
           "state",
           "templateQuality",
           "trackletId",
@@ -5930,6 +5921,10 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
           },
           "faceOrder": {
             "type": "integer",
@@ -6657,6 +6652,7 @@
           "shoulderLeftY",
           "shoulderRightX",
           "shoulderRightY",
+          "size",
           "streamId",
           "trackletId",
           "updatedAt",
@@ -6730,6 +6726,10 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
           },
           "objectOrderOnFrameForType": {
             "type": "integer",
@@ -6948,13 +6948,13 @@
         "properties": {
           "minPedestrianSize": {
             "type": "number",
-            "format": "float",
+            "format": "double",
             "default": 80,
             "nullable": true
           },
           "maxPedestrianSize": {
             "type": "number",
-            "format": "float",
+            "format": "double",
             "default": 2000,
             "nullable": true
           },
@@ -7567,6 +7567,7 @@
           "cropRightTopY",
           "faceMaskConfidence",
           "faceMaskStatus",
+          "faceSize",
           "gender",
           "leftEyeX",
           "leftEyeY",
@@ -7640,6 +7641,10 @@
           },
           "gender": {
             "$ref": "#/components/schemas/GenderType"
+          },
+          "faceSize": {
+            "type": "number",
+            "format": "double"
           },
           "faceMaskConfidence": {
             "type": "number",
@@ -7771,13 +7776,13 @@
           "distantLivenessScoreThreshold": {
             "type": "number",
             "format": "double",
-            "default": 0,
+            "default": 90,
             "nullable": true
           },
           "nearbyLivenessScoreThreshold": {
             "type": "number",
             "format": "double",
-            "default": 0,
+            "default": 90,
             "nullable": true
           },
           "distantLivenessConditions": {
@@ -8044,11 +8049,11 @@
         "properties": {
           "minPedestrianSize": {
             "type": "number",
-            "format": "float"
+            "format": "double"
           },
           "maxPedestrianSize": {
             "type": "number",
-            "format": "float"
+            "format": "double"
           },
           "maxPedestrians": {
             "type": "integer",
