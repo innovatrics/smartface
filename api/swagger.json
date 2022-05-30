@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.12.0.0"
+    "version": "v5_4.13.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -3796,16 +3796,6 @@
               }
             }
           },
-          "409": {
-            "description": "The was a conflict while creating the video record.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
           "400": {
             "description": "The sent request was not valid.",
             "content": {
@@ -3982,6 +3972,41 @@
           },
           "404": {
             "description": "Video record with given id was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/VideoRecords/{id}/Clear": {
+      "post": {
+        "tags": [
+          "VideoRecord"
+        ],
+        "summary": "Clears the data produced by the video record (faces, tracklet, matches...) and set the state back to `Ready`",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the video record.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Video record data was cleaned successfully."
+          },
+          "404": {
+            "description": "Specified video record was not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5774,6 +5799,7 @@
           "rightEyeX",
           "rightEyeY",
           "rollAngle",
+          "size",
           "state",
           "templateQuality",
           "trackletId",
@@ -5895,6 +5921,10 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
           },
           "faceOrder": {
             "type": "integer",
@@ -6622,6 +6652,7 @@
           "shoulderLeftY",
           "shoulderRightX",
           "shoulderRightY",
+          "size",
           "streamId",
           "trackletId",
           "updatedAt",
@@ -6695,6 +6726,10 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
           },
           "objectOrderOnFrameForType": {
             "type": "integer",
@@ -6913,13 +6948,13 @@
         "properties": {
           "minPedestrianSize": {
             "type": "number",
-            "format": "float",
+            "format": "double",
             "default": 80,
             "nullable": true
           },
           "maxPedestrianSize": {
             "type": "number",
-            "format": "float",
+            "format": "double",
             "default": 2000,
             "nullable": true
           },
@@ -7532,6 +7567,7 @@
           "cropRightTopY",
           "faceMaskConfidence",
           "faceMaskStatus",
+          "faceSize",
           "gender",
           "leftEyeX",
           "leftEyeY",
@@ -7605,6 +7641,10 @@
           },
           "gender": {
             "$ref": "#/components/schemas/GenderType"
+          },
+          "faceSize": {
+            "type": "number",
+            "format": "double"
           },
           "faceMaskConfidence": {
             "type": "number",
@@ -7736,13 +7776,13 @@
           "distantLivenessScoreThreshold": {
             "type": "number",
             "format": "double",
-            "default": 0,
+            "default": 90,
             "nullable": true
           },
           "nearbyLivenessScoreThreshold": {
             "type": "number",
             "format": "double",
-            "default": 0,
+            "default": 90,
             "nullable": true
           },
           "distantLivenessConditions": {
@@ -8009,11 +8049,11 @@
         "properties": {
           "minPedestrianSize": {
             "type": "number",
-            "format": "float"
+            "format": "double"
           },
           "maxPedestrianSize": {
             "type": "number",
-            "format": "float"
+            "format": "double"
           },
           "maxPedestrians": {
             "type": "integer",
@@ -8041,13 +8081,15 @@
           "mpeG1VideoBitrate",
           "name",
           "previewMaxDimension",
+          "recordedAt",
           "redetectionTime",
           "saveFrameImageData",
           "source",
           "state",
           "templateGenerationTime",
           "templateGeneratorResourceId",
-          "trackMotionOptimization"
+          "trackMotionOptimization",
+          "videoDurationMs"
         ],
         "type": "object",
         "properties": {
@@ -8063,6 +8105,15 @@
           },
           "source": {
             "type": "string"
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "videoDurationMs": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
           },
           "enabled": {
             "type": "boolean"
@@ -8144,6 +8195,11 @@
           },
           "enabled": {
             "type": "boolean",
+            "nullable": true
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "faceDetectorConfig": {
@@ -8330,6 +8386,10 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/VideoFaceDetectorConfig"
