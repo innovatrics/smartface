@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.13.0.0"
+    "version": "v5_4.14.0.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -6475,6 +6475,24 @@
         },
         "additionalProperties": false
       },
+      "Label": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 128,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "LinkInputRequest": {
         "required": [
           "ids"
@@ -7383,6 +7401,13 @@
           "keepAutoLearnPhotos": {
             "type": "boolean",
             "default": false
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7410,6 +7435,7 @@
         "required": [
           "displayName",
           "fullName",
+          "labels",
           "score",
           "watchlistDisplayName",
           "watchlistFullName",
@@ -7443,6 +7469,12 @@
           "watchlistId": {
             "type": "string",
             "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            }
           }
         },
         "additionalProperties": false
@@ -8068,6 +8100,7 @@
       },
       "VideoRecord": {
         "required": [
+          "description",
           "enabled",
           "faceDetectorConfig",
           "faceDetectorResourceId",
@@ -8176,6 +8209,10 @@
           },
           "matchingConfig": {
             "$ref": "#/components/schemas/VideoRecordMatchingConfig"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8271,6 +8308,10 @@
           },
           "matchingConfig": {
             "$ref": "#/components/schemas/VideoRecordMatchingConfigCreateRequest"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8452,6 +8493,10 @@
           },
           "matchingConfig": {
             "$ref": "#/components/schemas/VideoRecordMatchingConfigUpdateRequest"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8577,6 +8622,7 @@
           "displayName",
           "fullName",
           "id",
+          "labels",
           "note",
           "updatedAt"
         ],
@@ -8593,6 +8639,12 @@
           "note": {
             "type": "string",
             "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            }
           },
           "id": {
             "type": "string"
@@ -8626,6 +8678,13 @@
           },
           "note": {
             "type": "string",
+            "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
             "nullable": true
           }
         },
@@ -8716,6 +8775,13 @@
           "note": {
             "type": "string",
             "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8727,6 +8793,7 @@
           "faces",
           "fullName",
           "id",
+          "labels",
           "note",
           "updatedAt",
           "watchlists"
@@ -8756,6 +8823,12 @@
           "note": {
             "type": "string",
             "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            }
           },
           "id": {
             "type": "string"
