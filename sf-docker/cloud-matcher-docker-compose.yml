@@ -52,8 +52,9 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled
-      - AppSettings__Log_RabbitMq_Enabled
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
     volumes:
       - "lic-volume:/etc/innovatrics/"    
       
