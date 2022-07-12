@@ -13,10 +13,10 @@ Before deploying SF, you will need:
 - Copy the license file `iengine.lic` to the root of this directory.
 
 To get up and running as fast as possible, multiple scenarios are available:
-- [`hello-world`](./hello-world/) - preconfigured for the Access Controll use case
+- [`hello-world`](./hello-world/) - a legendary `Hello World!` must have
 - [`access-controller`](./hello-world/) - preconfigured for the Access Controll use case
-- [`cloud-matcher`](./hello-world/) - preconfigured for the Access Controll use case
-- [`nvidia-jetson`](./hello-world/) - preconfigured for the Access Controll use case
+- [`cloud-matcher`](./hello-world/) - Cloud Matcher deployment sample
+- [`nvidia-jetson`](./hello-world/) - launch demo deployment on [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform
 
 
 The run scripts contain comments which should clarify the steps needed to start everything:
