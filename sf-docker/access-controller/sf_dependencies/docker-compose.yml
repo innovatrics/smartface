@@ -1,0 +1,59 @@
+version: '3'
+services:
+  mssql:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: mssql
+    ports:
+      - "1433:1433"
+    environment: 
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Test1234
+    restart: unless-stopped
+    volumes:
+      - mssqldata:/var/opt/mssql
+
+  pgsql:
+    image: "postgres:13.2"
+    container_name: pgsql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Test1234
+    restart: unless-stopped
+    volumes:
+      - pgsqldata:/var/lib/postgresql/data
+  
+  rabbitmq:
+    image: "rabbitmq:3.9-management"
+    container_name: rmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment: 
+      RABBITMQ_NODENAME: rabbit@rmq
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+    volumes:
+      - ./etc_rmq/:/etc/rabbitmq/external
+      - rmqdata:/var/lib/rabbitmq
+    restart: unless-stopped
+
+  minio:
+    image: "minio/minio:RELEASE.2021-02-01T22-56-52Z"
+    container_name: minio
+    command: server /data
+    ports:
+      - "9000:9000"
+    restart: unless-stopped
+    volumes:
+      - miniodata:/data
+
+volumes:
+  mssqldata:
+  pgsqldata:
+  miniodata:
+  rmqdata:
+
+networks:
+  default:
+    external:
+      name: sf-network
