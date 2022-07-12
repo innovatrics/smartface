@@ -49,7 +49,7 @@ services:
     container_name: SFCam1
     command: --serviceName SFCam1
     ports:
-      - 30001:30001
+      - 30001:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -75,7 +75,7 @@ services:
     container_name: SFCam2
     command: --serviceName SFCam2
     ports:
-      - 30002:30002
+      - 30002:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -101,7 +101,7 @@ services:
     container_name: SFCam3
     command: --serviceName SFCam3
     ports:
-      - 30003:30003
+      - 30003:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -127,7 +127,7 @@ services:
     container_name: SFCam4
     command: --serviceName SFCam4
     ports:
-      - 30004:30004
+      - 30004:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -153,7 +153,7 @@ services:
     container_name: SFCam5
     command: --serviceName SFCam5
     ports:
-      - 30005:30005
+      - 30005:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -220,6 +220,7 @@ services:
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
