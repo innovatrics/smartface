@@ -1,0 +1,87 @@
+version: '3'
+services:
+  mssql:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: mssql
+    ports:
+      - "1433:1433"
+    environment: 
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Test1234
+    restart: unless-stopped
+    volumes:
+      - mssqldata:/var/opt/mssql
+      #- /var/lib/smartface/mssql:/var/opt/mssql
+
+  pgsql:
+    image: "postgres:13.2"
+    container_name: pgsql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Test1234
+    restart: unless-stopped
+    volumes:
+      - pgsqldata:/var/lib/postgresql/data
+      #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
+
+  pgadmin:
+    image: "dpage/pgadmin4:5.1"
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: Test1234
+    ports:
+      - "7070:80"
+  
+  rabbitmq:
+    image: "rabbitmq:3.9-management"
+    container_name: rmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment: 
+      RABBITMQ_NODENAME: rabbit@rmq
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+    volumes:
+      - ./etc_rmq/:/etc/rabbitmq/external
+      - rmqdata:/var/lib/rabbitmq
+    restart: unless-stopped
+
+  minio:
+    image: "minio/minio:RELEASE.2021-02-01T22-56-52Z"
+    container_name: minio
+    command: server /data
+    ports:
+      - "9000:9000"
+    restart: unless-stopped
+    volumes:
+      - miniodata:/data
+      #- /var/lib/smartface/miniodata:/data
+
+  # Jaeger tracikng is solely for debug purposes. No data is stored!
+  jaeger:
+   image: "jaegertracing/all-in-one:1.24.0"
+   container_name: jaeger
+   restart: unless-stopped
+   command: ["--memory.max-traces=5000"]
+   ports:
+     - "5778:5778"
+     - "16686:16686"
+     - "14268:14268"
+     - "14250:14250"
+     - "9411:9411"
+     - "5775:5775/udp"
+     - "6831:6831/udp"
+     - "6832:6832/udp"
+
+volumes:
+  mssqldata:
+  pgsqldata:
+  miniodata:
+  rmqdata:
+
+networks:
+  default:
+    external:
+      name: sf-network
