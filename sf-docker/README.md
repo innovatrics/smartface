@@ -13,10 +13,10 @@ Before deploying SF, you will need:
 - Copy the license file `iengine.lic` to the root of this directory.
 
 To get up and running as fast as possible, multiple scenarios are available:
-- `hello-world` - preconfigured for the Access Controll use case
-- `access-controller` - preconfigured for the Access Controll use case
-- `cloud-matcher` - preconfigured for the Access Controll use case
-- `nvidia-jetson` - preconfigured for the Access Controll use case
+- [`hello-world`](./hello-world/) - preconfigured for the Access Controll use case
+- [`access-controller`](./hello-world/) - preconfigured for the Access Controll use case
+- [`cloud-matcher`](./hello-world/) - preconfigured for the Access Controll use case
+- [`nvidia-jetson`](./hello-world/) - preconfigured for the Access Controll use case
 
 
 The run scripts contain comments which should clarify the steps needed to start everything:
