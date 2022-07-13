@@ -21,10 +21,6 @@ To get up and running as fast as possible, multiple scenarios are available:
 - [`nvidia-jetson`](./hello-world/) - launch demo deployment on [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform
 - [`access-controller`](./hello-world/) - preconfigured for the Access Controll use case
 
-The run scripts contain comments which should clarify the steps needed to start everything:
-- `run.sh` - to run full SF platform on x64
-- `run-jetson.sh` - to run SF platform on Nvidia Jetson devices. Note that only PgSQL database is available on arm architecture, so modify `.env` file accordingly
-- `run-cloud-matcher.sh` - to run cloud matcher
 
 ## GPU acceleration
 Some services can benefit from GPU acceleration, which can be enabled in docker compose file, but also some prerequisites needs to  be met on host machine.
