@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.14.0.0"
+    "version": "v5_4.14.1.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
