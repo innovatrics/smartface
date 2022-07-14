@@ -16,11 +16,12 @@ In order to run SmartFace, you need a valid license.
 
 ## Samples
 To get up and running as fast as possible, multiple scenarios are available:
-- [`hello-world`](./hello-world/) - a legendary *Hello World!* is a must have
-- [`cloud-matcher`](./hello-world/) - Cloud Matcher deployment sample
-- [`nvidia-jetson`](./hello-world/) - launch demo deployment on [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform
-- [`access-controller`](./hello-world/) - preconfigured for the Access Controll use case
-
+- [`hello-world`](./hello-world/) - a *Hello World!* sample
+- [`cloud-matcher`](./cloud-matcher/) - Cloud Matcher deployment sample
+- [`nvidia-jetson`](./nvidia-jetson/) - launch demo deployment on [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform
+- [`access-controller`](./access-controller/) - preconfigured for the Access Controll use case
+- [`multi-server`](./multi-server/) - sample of SmartFace distributed on 3 servers
+- [`video-postprocessing`](./video-postprocessing/) - Video Post Processing use case
 
 ## GPU acceleration
 Some services can benefit from GPU acceleration, which can be enabled in docker compose file, but also some prerequisites needs to  be met on host machine.
