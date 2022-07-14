@@ -1,11 +1,11 @@
 version: "3.4"
 services:
-  sf-cam-1:
+  sf-cam-11:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam1
-    command: --serviceName SFCam1
+    container_name: SFCam11
+    command: --serviceName SFCam11
     ports:
-      - 30001:30001
+      - 30011:30011
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -26,12 +26,12 @@ services:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
-  sf-cam-2:
+  sf-cam-12:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam2
-    command: --serviceName SFCam2
+    container_name: SFCam12
+    command: --serviceName SFCam12
     ports:
-      - 30002:30002
+      - 30012:30012
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -52,12 +52,12 @@ services:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
-  sf-cam-3:
+  sf-cam-13:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam3
-    command: --serviceName SFCam3
+    container_name: SFCam13
+    command: --serviceName SFCam13
     ports:
-      - 30003:30003
+      - 30013:30013
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -78,12 +78,12 @@ services:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
-  sf-cam-4:
+  sf-cam-14:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam4
-    command: --serviceName SFCam4
+    container_name: SFCam14
+    command: --serviceName SFCam14
     ports:
-      - 30004:30004
+      - 30014:30014
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -104,12 +104,12 @@ services:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
-  sf-cam-5:
+  sf-cam-15:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam5
-    command: --serviceName SFCam5
+    container_name: SFCam15
+    command: --serviceName SFCam15
     ports:
-      - 30005:30005
+      - 30015:30015
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -130,12 +130,12 @@ services:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
-  sf-cam-6:
+  sf-cam-16:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam6
-    command: --serviceName SFCam6
+    container_name: SFCam16
+    command: --serviceName SFCam16
     ports:
-      - 30006:30006
+      - 30016:30016
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -156,12 +156,12 @@ services:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
-  sf-cam-7:
+  sf-cam-17:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam7
-    command: --serviceName SFCam7
+    container_name: SFCam17
+    command: --serviceName SFCam17
     ports:
-      - 30007:30007
+      - 30017:30017
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -180,14 +180,14 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+    #runtime: nvidia        
 
-  sf-cam-8:
+  sf-cam-18:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam8
-    command: --serviceName SFCam8
+    container_name: SFCam18
+    command: --serviceName SFCam18
     ports:
-      - 30008:30008
+      - 30018:30018
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -206,14 +206,14 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+    #runtime: nvidia        
 
-  sf-cam-9:
+  sf-cam-19:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam9
-    command: --serviceName SFCam9
+    container_name: SFCam19
+    command: --serviceName SFCam19
     ports:
-      - 30009:30009
+      - 30019:30019
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -232,14 +232,14 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+    #runtime: nvidia        
 
-  sf-cam-10:
+  sf-cam-20:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam10
-    command: --serviceName SFCam10
+    container_name: SFCam20
+    command: --serviceName SFCam20
     ports:
-      - 30010:30010
+      - 30020:30020
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -258,7 +258,7 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+    #runtime: nvidia        
 
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
@@ -370,6 +370,60 @@ services:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
+  video-aggregator:
+    image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
+    container_name: SFVideoDataAggregator
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  video-collector:
+    image: ${REGISTRY}sf-video-collector:${SF_VERSION}
+    container_name: SFVideoDataCollector
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  video-reader:
+    image: ${REGISTRY}sf-video-reader:${SF_VERSION}
+    container_name: SFVideoReader
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - S3Bucket__Endpoint
+      - JAEGER_AGENT_HOST
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
   body-parts-detector:
     image: ${REGISTRY}sf-body-parts-detector:${SF_VERSION}
     container_name: SFBodyPartsDetectCpu
@@ -384,6 +438,29 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  access-controller:
+    image: ${REGISTRY}sf-access-controller:${AC_VERSION}
+    container_name: SFAccessController
+    ports:
+      # we forward the configured ports to default SF ports
+      - 5050:${Hosting__Port}
+    restart: unless-stopped
+    environment:
+      - RabbitMq__HostName=${RabbitMQ__Hostname}
+      - RabbitMq__UserName=${RabbitMQ__Username}
+      - RabbitMq__Password=${RabbitMQ__Password}
+      - RabbitMq__Port=${RabbitMQ__Port}
+      - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
+    env_file: .env.sfac
+
+  sf-station:
+    image: ${REGISTRY}sf-station:${SFS_VERSION}
+    container_name: SFStation
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    env_file: .env.sfstation
 
 networks:
   default:
