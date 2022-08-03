@@ -1,4 +1,4 @@
-# SmartFace Hello World!
+# SmartFace Simple Setup!
 
 
 ## Quick Start
