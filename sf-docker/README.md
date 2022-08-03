@@ -16,7 +16,7 @@ In order to run SmartFace, you need a valid license.
 
 ## Samples
 To get up and running as fast as possible, multiple scenarios are available:
-- [`hello-world`](./hello-world/) - a *Hello World!* sample
+- [`simple-setup`](./simple-setup/) - a *Hello World!* sample
 - [`cloud-matcher`](./cloud-matcher/) - Cloud Matcher deployment sample
 - [`nvidia-jetson`](./nvidia-jetson/) - launch demo deployment on [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform
 - [`access-controller`](./access-controller/) - preconfigured for the Access Controll use case
