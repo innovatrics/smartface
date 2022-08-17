@@ -16,12 +16,12 @@ In order to run SmartFace, you need a valid license.
 
 ## Samples
 To get up and running as fast as possible, multiple scenarios are available:
-- [`simple-setup`](./simple-setup/) - a *Simple Setup!* sample
+- [`single-camera`](./single-camera/) - a *Simple Setup!* sample
 - [`cloud-matcher`](./cloud-matcher/) - Cloud Matcher deployment sample
 - [`nvidia-jetson`](./nvidia-jetson/) - launch demo deployment on [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform
-- [`access-controller`](./access-controller/) - preconfigured for the Access Controll use case
+- [`access-control`](./access-control/) - preconfigured for the Access Controll use case
 - [`multi-server`](./multi-server/) - sample of SmartFace distributed on 3 servers
-- [`video-postprocessing`](./video-postprocessing/) - Video Post Processing use case
+- [`rapid-video-processing`](./rapid-video-processing/) - Video Post Processing use case
 
 ## GPU acceleration
 Some services can benefit from GPU acceleration, which can be enabled in docker compose file, but also some prerequisites needs to  be met on host machine.
