@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.14.1.0"
+    "version": "v5_4.15.0.1839"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for <code>PedestrianDetectorResourceId</code> are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote\r\n\r\nSupported values for <code>SpoofDetectorResourceIds</code> are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_any_remote, liveness_distant_gpu_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote, external",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_any_remote, liveness_distant_gpu_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote, external",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -171,7 +171,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for <code>PedestrianDetectorResourceId</code> are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote\r\n\r\nSupported values for <code>SpoofDetectorResourceIds</code> are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote, external",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote, external",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -553,7 +553,7 @@
           "Face"
         ],
         "summary": "Searches for similar stored faces based on the given image.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu",
         "requestBody": {
           "description": "Request containing reference image to be searched.",
           "content": {
@@ -612,6 +612,72 @@
           },
           "404": {
             "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Faces/SpoofCheck": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Checks liveness of one face on the given image.",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote,liveness_nearby_cpu_remote, liveness_nearby_gpu_remote",
+        "requestBody": {
+          "description": "Request containing reference image to be checked and configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpoofCheckRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpoofCheckRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpoofCheckRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpoofCheckRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the liveness result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpoofCheckResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1092,7 +1158,7 @@
           "Individual"
         ],
         "summary": "Searches for individuals by image in the specified grouping.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code>, <code>gpu</code> and <code>any</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for ```FaceDetectorResourceId``` and ```TemplateGeneratorResourceId``` are\r\n```cpu```, ```gpu``` and ```any```. Default is ```cpu```.",
         "requestBody": {
           "description": "Request containing image, grouping id and resources.",
           "content": {
@@ -2458,7 +2524,7 @@
           "RecordGrouping"
         ],
         "summary": "Uploads the image to a specified record grouping.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are <code>cpu</code>, <code>gpu</code> and <code>any</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for ```FaceDetectorResourceId``` are ```cpu```, ```gpu``` and ```any```. Default is ```cpu```.",
         "parameters": [
           {
             "name": "groupingId",
@@ -3090,7 +3156,7 @@
           "SetupPreview"
         ],
         "summary": "Updates the preview config with specified values.",
-        "description": "When setting <code>PreviewColor</code>, hexadecimal format is necessary to use, e.g. <code>#012abc</code> or <code>#01a</code>.",
+        "description": "When setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
         "requestBody": {
           "description": "The new preview configuration.",
           "content": {
@@ -4216,7 +4282,7 @@
           "Watchlist"
         ],
         "summary": "Creates a new watchlist.",
-        "description": "When setting <code>PreviewColor</code>, hexadecimal format is necessary to use, e.g. <code>#012abc</code> or <code>#01a</code>.",
+        "description": "When setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
         "requestBody": {
           "description": "Request containing watchlist name and threshold.",
           "content": {
@@ -4280,7 +4346,7 @@
           "Watchlist"
         ],
         "summary": "Upserts the watchlist.",
-        "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.<br />\r\nWhen setting <code>PreviewColor</code>, hexadecimal format is necessary to use, e.g. <code>#012abc</code> or <code>#01a</code>.",
+        "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.<br />\r\nWhen setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
         "requestBody": {
           "description": "Request containing watchlist properties.",
           "content": {
@@ -4485,7 +4551,7 @@
           "Watchlist"
         ],
         "summary": "Searches the specified watchlists for matches with the given image.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote,liveness_nearby_cpu_remote, liveness_nearby_gpu_remote",
         "requestBody": {
           "description": "Request containing searching image and ids of watchlists to be searched.",
           "content": {
@@ -5013,7 +5079,7 @@
           "WatchlistMember"
         ],
         "summary": "Registers a watchlist member.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for <code>TemplateGeneratorResourceId</code> are:<br />\r\n\r\n    cpu, gpu, any",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any",
         "requestBody": {
           "description": "Request specifying watchlist member register details.",
           "content": {
@@ -5178,7 +5244,7 @@
           "WatchlistMember"
         ],
         "summary": "Adds a specified face to a given watchlist member.",
-        "description": "Supported values for <code>FaceDetectorResourceId</code> and <code>TemplateGeneratorResourceId</code> are\r\n<code>cpu</code>, <code>gpu</code> and <code>any</code>. Default is <code>cpu</code>.",
+        "description": "Supported values for ```FaceDetectorResourceId``` and ```TemplateGeneratorResourceId``` are\r\n```cpu```, ```gpu``` and ```any```. Default is ```cpu```.",
         "parameters": [
           {
             "name": "id",
@@ -5549,6 +5615,7 @@
           },
           "maskImagePath": {
             "type": "string",
+            "default": null,
             "nullable": true
           },
           "saveFrameImageData": {
@@ -5570,6 +5637,7 @@
           "mpeG1PreviewPort": {
             "type": "integer",
             "format": "int32",
+            "default": null,
             "nullable": true
           },
           "mpeG1VideoBitrate": {
@@ -6588,6 +6656,22 @@
         },
         "additionalProperties": false
       },
+      "LivenessSpoofCheck": {
+        "type": "object",
+        "properties": {
+          "performed": {
+            "type": "boolean"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "score": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "MergeIndividualsRequest": {
         "required": [
           "individualIds"
@@ -7407,6 +7491,7 @@
             "items": {
               "$ref": "#/components/schemas/Label"
             },
+            "default": null,
             "nullable": true
           }
         },
@@ -7421,6 +7506,7 @@
           "faceId": {
             "type": "string",
             "format": "uuid",
+            "default": null,
             "nullable": true
           },
           "data": {
@@ -7475,6 +7561,24 @@
             "items": {
               "$ref": "#/components/schemas/Label"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchByImageSpoofResult": {
+        "type": "object",
+        "properties": {
+          "performed": {
+            "type": "boolean"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "distantLivenessSpoofCheck": {
+            "$ref": "#/components/schemas/WatchlistLivenessSpoofCheck"
+          },
+          "nearbyLivenessSpoofCheck": {
+            "$ref": "#/components/schemas/WatchlistLivenessSpoofCheck"
           }
         },
         "additionalProperties": false
@@ -7582,6 +7686,18 @@
           },
           "faceFeaturesConfig": {
             "$ref": "#/components/schemas/FaceFeaturesConfig"
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "none"
+            ]
+          },
+          "spoofCheckConfig": {
+            "$ref": "#/components/schemas/WatchlistSpoofCheckConfig"
           }
         },
         "additionalProperties": false
@@ -7607,7 +7723,8 @@
           "noseTipConfidence",
           "quality",
           "rightEyeX",
-          "rightEyeY"
+          "rightEyeY",
+          "spoofCheckResult"
         ],
         "type": "object",
         "properties": {
@@ -7696,6 +7813,9 @@
             "items": {
               "$ref": "#/components/schemas/SearchByImageMatchResult"
             }
+          },
+          "spoofCheckResult": {
+            "$ref": "#/components/schemas/SearchByImageSpoofResult"
           }
         },
         "additionalProperties": false
@@ -7761,6 +7881,81 @@
           "individualId": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpoofCheckConfig": {
+        "type": "object",
+        "properties": {
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 90
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 90
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "default": "default",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "default": "default",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpoofCheckRequest": {
+        "required": [
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceSearchDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string",
+            "default": "cpu"
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "liveness_distant_cpu_remote"
+            ]
+          },
+          "spoofCheckConfig": {
+            "$ref": "#/components/schemas/SpoofCheckConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpoofCheckResponse": {
+        "type": "object",
+        "properties": {
+          "performed": {
+            "type": "boolean"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "distantLivenessSpoofCheck": {
+            "$ref": "#/components/schemas/LivenessSpoofCheck"
+          },
+          "nearbyLivenessSpoofCheck": {
+            "$ref": "#/components/schemas/LivenessSpoofCheck"
           }
         },
         "additionalProperties": false
@@ -8311,6 +8506,7 @@
           },
           "description": {
             "type": "string",
+            "default": null,
             "nullable": true
           }
         },
@@ -8496,6 +8692,7 @@
           },
           "description": {
             "type": "string",
+            "default": null,
             "nullable": true
           }
         },
@@ -8616,6 +8813,22 @@
         },
         "additionalProperties": false
       },
+      "WatchlistLivenessSpoofCheck": {
+        "type": "object",
+        "properties": {
+          "performed": {
+            "type": "boolean"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "score": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "WatchlistMember": {
         "required": [
           "createdAt",
@@ -8731,26 +8944,6 @@
         },
         "additionalProperties": false
       },
-      "WatchlistMembersLinkRequest": {
-        "required": [
-          "watchlistId",
-          "watchlistMembersIds"
-        ],
-        "type": "object",
-        "properties": {
-          "watchlistId": {
-            "type": "string"
-          },
-          "watchlistMembersIds": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
       "WatchlistMemberUpsertRequest": {
         "required": [
           "id"
@@ -8845,6 +9038,26 @@
         },
         "additionalProperties": false
       },
+      "WatchlistMembersLinkRequest": {
+        "required": [
+          "watchlistId",
+          "watchlistMembersIds"
+        ],
+        "type": "object",
+        "properties": {
+          "watchlistId": {
+            "type": "string"
+          },
+          "watchlistMembersIds": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "WatchlistPagedCollection": {
         "required": [
           "items",
@@ -8881,6 +9094,32 @@
           },
           "nextPage": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistSpoofCheckConfig": {
+        "type": "object",
+        "properties": {
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 90
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 90
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "default": "default",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "default": "default",
             "nullable": true
           }
         },
