@@ -23,27 +23,6 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
-  sf-group:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
-    container_name: SFGroup
-    command: --serviceName SFGroup
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - NoSqlDataStorageDisabled
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-
   sf-cam-1:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam1
@@ -236,7 +215,7 @@ services:
 
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
-    container_name: SFExtractCpu
+    scale: 3
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname

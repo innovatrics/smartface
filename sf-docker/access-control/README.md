@@ -1,6 +1,14 @@
-# SmartFace Access Controller
-Primary role of the SmartFace Access Controller is to provide controlled access to some area using an integration with physical security elements like doors, turnistilles or gateways.
+# SmartFace Access Control
+Primary role of the SmartFace Access Control is to provide controlled access to some area using an integration with physical security elements like doors, turnistilles or gateways.
 For example, when an identified person approaches entrance to the building, the reception turnstille opens automatically.
+
+## Design
+We have enabled services only required for the Access Control use case. Other functionality may be affected or disabled.
+4 Camera services are available (can be extended), all APIs, detector, extractor and matching service.
+SmartFace Station GUI is included as well.
+
+## HW Requirements
+
 
 ## Quick Start
 1. Install `Docker` and `docker compose` on the host machine.
