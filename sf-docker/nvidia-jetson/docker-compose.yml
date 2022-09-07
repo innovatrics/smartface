@@ -55,7 +55,7 @@ services:
     restart: unless-stopped
     command: --serviceName SFCam1
     ports:
-      - 30001:30001
+      - 30001:${CameraDefaults__PreviewPort}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -82,7 +82,7 @@ services:
     restart: unless-stopped
     command: --serviceName SFCam2
     ports:
-      - 30002:30002
+      - 30002:${CameraDefaults__PreviewPort}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -150,6 +150,7 @@ services:
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia

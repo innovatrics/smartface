@@ -1,8 +1,10 @@
 # SmartFace on Docker
 SmartFace docker images provide an easy way of deploying and scaling SmartFace with all the benefits of containerization. SmartFace platform is distributed as a number of linux docker images, some of which are specific for [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform.
 
-## Before we start
-Before deploying SmartFace, you will need:
+Note: *Supported Nvidia Jetson versions are Xavier NX and AGX.*
+
+# Deployment
+Before deploying SF, you will need:
 - Docker
 - docker-compose
 - Login to container registry `docker login registry.gitlab.com -u <username> -p <password>`. The credentials are available in our [CRM portal](https://crm.innovatrics.com/).
@@ -23,7 +25,9 @@ To get up and running as fast as possible, multiple scenarios are available:
 - [`multi-server`](./multi-server/) - sample of SmartFace distributed on 3 servers
 - [`rapid-video-processing`](./rapid-video-processing/) - Video Post Processing use case
 
-## GPU acceleration
+Note: *jetson docker containers need to be run in privileged mode. This is because we need specific system files available in the container to properly check license usage.*
+
+# GPU acceleration
 Some services can benefit from GPU acceleration, which can be enabled in docker compose file, but also some prerequisites needs to  be met on host machine.
 
 Please note that GPU acceleration is supported only on NVIDIA GPU.

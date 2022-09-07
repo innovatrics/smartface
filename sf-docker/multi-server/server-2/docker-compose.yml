@@ -57,7 +57,7 @@ services:
     container_name: SFCam13
     command: --serviceName SFCam13
     ports:
-      - 30013:30013
+      - 30001:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -83,7 +83,7 @@ services:
     container_name: SFCam14
     command: --serviceName SFCam14
     ports:
-      - 30014:30014
+      - 30002:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -109,7 +109,7 @@ services:
     container_name: SFCam15
     command: --serviceName SFCam15
     ports:
-      - 30015:30015
+      - 30003:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -135,7 +135,7 @@ services:
     container_name: SFCam16
     command: --serviceName SFCam16
     ports:
-      - 30016:30016
+      - 30004:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -161,7 +161,7 @@ services:
     container_name: SFCam17
     command: --serviceName SFCam17
     ports:
-      - 30017:30017
+      - 30005:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -175,8 +175,12 @@ services:
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+<<<<<<< HEAD:sf-docker/multi-server/server-2/docker-compose.yml
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
+=======
+      - CameraDefaults__PreviewPort
+>>>>>>> origin/master:sf-docker/docker-compose.yml
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -227,6 +231,7 @@ services:
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
