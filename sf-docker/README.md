@@ -1,7 +1,7 @@
 # About
 SmartFace docker images provide an easy way of deploying and scaling SmartFace with all the benefits of containerization. SmartFace platform is distributed as a number of linux docker images, some of which are specific for [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform.
 
-Note that the jetson docker containers need to be run in privileged mode. This is because we need specific system files available in the container to properly check license usage.
+Note: *Supported Nvidia Jetson versions are Xavier NX and AGX.*
 
 # Deployment
 Before deploying SF, you will need:
@@ -17,6 +17,8 @@ The run scripts contain comments which should clarify the steps needed to start 
 - `run.sh` - to run full SF platform on x64
 - `run-jetson.sh` - to run SF platform on Nvidia Jetson devices. Note that only PgSQL database is available on arm architecture, so modify `.env` file accordingly
 - `run-cloud-matcher.sh` - to run cloud matcher
+
+Note: *jetson docker containers need to be run in privileged mode. This is because we need specific system files available in the container to properly check license usage.*
 
 # GPU acceleration
 Some services can benefit from GPU acceleration, which can be enabled in docker compose file, but also some prerequisites needs to  be met on host machine.
