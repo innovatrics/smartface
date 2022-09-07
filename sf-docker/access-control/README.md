@@ -8,7 +8,7 @@ We have enabled services only required for the Access Control use case. Other fu
 SmartFace Station GUI is included as well.
 
 ## HW Requirements
-
+Notebook 1
 
 ## Quick Start
 1. Install `Docker` and `docker compose` on the host machine.
