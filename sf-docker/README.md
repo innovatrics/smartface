@@ -24,6 +24,7 @@ To get up and running as fast as possible, multiple scenarios are available:
 - [`access-control`](./access-control/) - preconfigured for the Access Controll use case
 - [`multi-server`](./multi-server/) - sample of SmartFace distributed on 3 servers
 - [`rapid-video-processing`](./rapid-video-processing/) - Video Post Processing use case
+- [`multi-camera`](./multi-camera/) - a Multi Camera setup
 
 Note: *jetson docker containers need to be run in privileged mode. This is because we need specific system files available in the container to properly check license usage.*
 
