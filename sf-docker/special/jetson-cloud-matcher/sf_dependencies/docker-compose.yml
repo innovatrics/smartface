@@ -1,18 +1,5 @@
 version: '3'
 services:
-  mssql:
-    image: "mcr.microsoft.com/mssql/server:2019-latest"
-    container_name: mssql
-    ports:
-      - "1433:1433"
-    environment: 
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=Test1234
-    restart: unless-stopped
-    volumes:
-      - mssqldata:/var/opt/mssql
-      #- /var/lib/smartface/mssql:/var/opt/mssql
-
   pgsql:
     image: "postgres:13.2"
     container_name: pgsql
