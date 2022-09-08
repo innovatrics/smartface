@@ -36,7 +36,7 @@ $COMPOSE_COMMAND -f sf_dependencies/docker-compose.yml up -d
 sleep 10
 
 # load version and registry from .env
-VERSION=$(grep -E ^SF_VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+VERSION=$(grep -E ^JETSON_VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 REGISTRY=$(grep -E ^REGISTRY .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 
 # load RabbitMQ properties from .env
