@@ -1,8 +1,10 @@
 version: '3.4'
 services:
-  detector:
+  detector-cpu:
     image: ${REGISTRY}sf-jetson-detector:${SF_VERSION}
+    privileged: true
     container_name: SFDetectCpu
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -13,10 +15,33 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  detector-gpu:
+    image: ${REGISTRY}sf-jetson-detector:${SF_VERSION}
+    privileged: true
+    container_name: SFDetectGpu
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - Gpu__GpuEnabled=true
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    runtime: nvidia
          
-  extractor:
+  extractor-cpu:
     image: ${REGISTRY}sf-jetson-extractor:${SF_VERSION}
+    privileged: true
     container_name: SFExtractCpu
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -27,26 +52,52 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  extractor-gpu:
+    image: ${REGISTRY}sf-jetson-extractor:${SF_VERSION}
+    privileged: true
+    container_name: SFExtractGpu
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - Gpu__GpuEnabled=true
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    runtime: nvidia
       
   matcher:
     image: ${REGISTRY}sf-jetson-matcher:${SF_VERSION}
+    privileged: true
     container_name: SFWatchlistMatcher
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - Database__DbEngine
       - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
   
-  liveness:
+  liveness-cpu:
     image: ${REGISTRY}sf-jetson-liveness:${SF_VERSION}
-    container_name: SFLiveness
+    privileged: true
+    container_name: SFLivenessCpu
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -57,11 +108,34 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
+
+  liveness-gpu:
+    image: ${REGISTRY}sf-jetson-liveness:${SF_VERSION}
+    privileged: true
+    container_name: SFLivenessGpu
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - Gpu__GpuEnabled=true
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    runtime: nvidia
       
   watchlist-api:
     image: ${REGISTRY}sf-jetson-watchlist-api:${SF_VERSION}
+    privileged: true
     container_name: SFWatchlistApi
-    ports: 
+    restart: unless-stopped
+    ports:
       # we forward the configured ports to default SF ports
       - 8098:${Hosting__Port}
     environment:
@@ -69,7 +143,6 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - Database__DbEngine
       - ConnectionStrings__CoreDbContext
       - Hosting__Host
       - Hosting__Port
@@ -77,10 +150,14 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    runtime: nvidia
       
+
 networks:
   default:
     external:
