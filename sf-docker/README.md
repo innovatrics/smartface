@@ -25,6 +25,7 @@ To get up and running as fast as possible, multiple scenarios are available:
 - [`multi-server`](./multi-server/) - sample of SmartFace distributed on 3 servers
 - [`rapid-video-processing`](./rapid-video-processing/) - Video Post Processing use case
 - [`multi-camera`](./multi-camera/) - a Multi Camera setup
+- [`all-in-one`](./all-in-one/) - a All-in-One setup known from previous version. Contains all available services.
 
 Note: *jetson docker containers need to be run in privileged mode. This is because we need specific system files available in the container to properly check license usage.*
 
