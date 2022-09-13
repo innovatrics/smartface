@@ -144,6 +144,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled=false
