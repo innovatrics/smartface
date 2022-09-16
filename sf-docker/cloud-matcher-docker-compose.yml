@@ -45,7 +45,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
   
   liveness:
-    image: ${REGISTRY}sf-liveness:${VERSION}
+    image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
     environment:
       - RabbitMQ__Hostname
