@@ -49,7 +49,7 @@ services:
     container_name: SFCam1
     command: --serviceName SFCam1
     ports:
-      - 30001:30001
+      - 30001:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname

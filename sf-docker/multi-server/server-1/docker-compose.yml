@@ -5,7 +5,7 @@ services:
     container_name: SFCam1
     command: --serviceName SFCam1
     ports:
-      - 30001:30001
+      - 30001:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -31,7 +31,7 @@ services:
     container_name: SFCam2
     command: --serviceName SFCam2
     ports:
-      - 30002:30002
+      - 30002:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -57,7 +57,7 @@ services:
     container_name: SFCam3
     command: --serviceName SFCam3
     ports:
-      - 30003:30003
+      - 30003:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -83,7 +83,7 @@ services:
     container_name: SFCam4
     command: --serviceName SFCam4
     ports:
-      - 30004:30004
+      - 30004:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -109,7 +109,7 @@ services:
     container_name: SFCam5
     command: --serviceName SFCam5
     ports:
-      - 30005:30005
+      - 30005:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -135,7 +135,7 @@ services:
     container_name: SFCam6
     command: --serviceName SFCam6
     ports:
-      - 30006:30006
+      - 30006:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -161,7 +161,7 @@ services:
     container_name: SFCam7
     command: --serviceName SFCam7
     ports:
-      - 30007:30007
+      - 30007:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -187,7 +187,7 @@ services:
     container_name: SFCam8
     command: --serviceName SFCam8
     ports:
-      - 30008:30008
+      - 30008:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -213,7 +213,7 @@ services:
     container_name: SFCam9
     command: --serviceName SFCam9
     ports:
-      - 30009:30009
+      - 30009:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -239,7 +239,7 @@ services:
     container_name: SFCam10
     command: --serviceName SFCam10
     ports:
-      - 30010:30010
+      - 30010:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
