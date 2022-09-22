@@ -40,13 +40,14 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+      - "1883:1883"
     environment: 
       RABBITMQ_NODENAME: rabbit@rmq
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+      RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
     volumes:
-      - ./etc_rmq/:/etc/rabbitmq/external
+      - rmq-config:/etc/rabbitmq/external
       - rmqdata:/var/lib/rabbitmq
-    restart: unless-stopped
 
   minio:
     image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
@@ -81,6 +82,12 @@ volumes:
   pgsqldata:
   miniodata:
   rmqdata:
+  rmq-config:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./etc_rmq
 
 networks:
   default:
