@@ -50,8 +50,15 @@ RMQ_VHOST=$(grep -E ^RabbitMQ__VirtualHost .env | cut -d '=' -f2 | cut -d$'\r' -
 RMQ_PORT=$(grep -E ^RabbitMQ__Port .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 RMQ_SSL=$(grep -E ^RabbitMQ__UseSsl .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 
+S3_ENDPOINT=$(grep -E ^S3Bucket__Endpoint .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+S3_ACCESS=$(grep -E ^S3Bucket__AccessKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+S3_SECRET=$(grep -E ^S3Bucket__SecretKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+S3_BUCKET=$(grep -E ^S3Bucket__BucketName .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+
 # run database migration to current version
 docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=mssql;Database=SmartFace;User ID=sa;Password=Test1234;" --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
+
+docker run --rm--name s3-bucket-create --network sf-network ${REGISTRY}sf-admin:${VERSION} ensure-s3-bucket-exists --endpoint "$S3_ENDPOINT" --access-key "$S3_ACCESS" --secret-key  "$S3_SECRET" --bucket-name "$S3_BUCKET"
 
 # finally start SF images
 $COMPOSE_COMMAND -f cloud-matcher-docker-compose.yml up -d
