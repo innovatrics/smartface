@@ -73,7 +73,7 @@ else
     exit 1
 fi
 
-docker run --rm--name s3-bucket-create --network sf-network ${REGISTRY}sf-admin:${VERSION} ensure-s3-bucket-exists --endpoint "$S3_ENDPOINT" --access-key "$S3_ACCESS" --secret-key  "$S3_SECRET" --bucket-name "$S3_BUCKET"
+docker run --rm --name s3-bucket-create --network sf-network ${REGISTRY}sf-admin:${VERSION} ensure-s3-bucket-exists --endpoint "$S3_ENDPOINT" --access-key "$S3_ACCESS" --secret-key  "$S3_SECRET" --bucket-name "$S3_BUCKET"
 
 # finally start SF images
 $COMPOSE_COMMAND -f cloud-matcher-docker-compose.yml up -d
