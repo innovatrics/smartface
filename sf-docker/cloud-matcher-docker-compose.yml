@@ -45,7 +45,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
   
   liveness:
-    image: ${REGISTRY}sf-liveness:${VERSION}
+    image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
     environment:
       - RabbitMQ__Hostname
@@ -56,7 +56,7 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
-      - "lic-volume:/etc/innovatrics/"    
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
       
   watchlist-api:
     image: ${REGISTRY}sf-watchlist-api:${SF_VERSION}

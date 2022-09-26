@@ -47,6 +47,9 @@ RMQ_VHOST=$(grep -E ^RabbitMQ__VirtualHost .env | cut -d '=' -f2 | cut -d$'\r' -
 RMQ_PORT=$(grep -E ^RabbitMQ__Port .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 RMQ_SSL=$(grep -E ^RabbitMQ__UseSsl .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 
+# set correct hostname to sfstation env file
+sed -i "s/S3_ENDPOINT=.*/S3_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
+
 echo $VERSION
 echo $REGISTRY
 
