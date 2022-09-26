@@ -62,7 +62,7 @@ docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
 # run database migration to current version
 docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-jetson-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Trust Server Certificate=true;" -dbe PgSql --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
 
-docker run --rm--name s3-bucket-create --network sf-network ${REGISTRY}sf-jetson-admin:${VERSION} ensure-s3-bucket-exists --endpoint "$S3_ENDPOINT" --access-key "$S3_ACCESS" --secret-key  "$S3_SECRET" --bucket-name "$S3_BUCKET"
+docker run --rm --name s3-bucket-create --network sf-network ${REGISTRY}sf-jetson-admin:${VERSION} ensure-s3-bucket-exists --endpoint "$S3_ENDPOINT" --access-key "$S3_ACCESS" --secret-key  "$S3_SECRET" --bucket-name "$S3_BUCKET"
 
 # finally start SF images
 $COMPOSE_COMMAND -f jetson-docker-compose.yml up -d --force-recreate
