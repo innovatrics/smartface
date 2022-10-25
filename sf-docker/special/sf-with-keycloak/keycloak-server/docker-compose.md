@@ -1,0 +1,75 @@
+version: '3.7'
+services:
+  # Keycloak-server
+  #
+  # We use `keycloak-server.127.0.0.1.nip.io` as name of our container, because we need same
+  # hostname for this server from inside of docker-compose and also from the outside.
+  #
+  # Note: alternative wildcard DNS service, in case nip.io is down: http://xip.io
+  keycloak-server.127.0.0.1.nip.io:
+    # see https://hub.docker.com/r/jboss/keycloak/
+    image: jboss/keycloak:9.0.3
+    ports:
+      - 8080:8080
+    environment:
+      # This will be admin access to Keycloak admin console at:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+    volumes:
+      # Mount `keycloak-realm` config, that will be imported into Keycloak upon start
+      - ./realm-export.json:/tmp/realm-export.json
+    command:
+      # We need to import our pre-prepared `keycloak-realm`. Official way is to set env variable KEYCLOAK_IMPORT,
+      # but that doesn't work for us. We need to overwrite `master` realm, that already exist in empty Keycloak.
+      # So we need to use `OVERWRITE_EXISTING` option.
+      - -Dkeycloak.migration.action=import
+      - -Dkeycloak.migration.provider=singleFile
+      - -Dkeycloak.migration.file=/tmp/realm-export.json
+      - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+
+  # Keycloak-gatekeeper
+  # - reverse-proxy that will sit in-front of our frontend server
+  keycloak-gatekeeper:
+    # See https://github.com/keycloak/keycloak-gatekeeper#getting-started
+    image: quay.io/keycloak/keycloak-gatekeeper:9.0.3
+    ports:
+      - 3000:3000
+    command:
+      # gatekeeper will listen on port 3000, so you need to open http://localhost:3000/ in your browser
+      - --listen
+      - :3000
+      # gatekeeper will proxy server (SmartFace Station FES) running on host on port 8000. This solution works in
+      # docker-for-macosx. We need to find solution for linux also.
+      - --upstream-url
+      - http://host.docker.internal:8000
+      # This client-Id is set in our `realm-export.json`
+      - --client-id
+      - smartgate-on-sface-demo-1w
+      # Keycloak server, that will be used by this gatekeeper
+      - --discovery-url
+      - http://keycloak-server.127.0.0.1.nip.io:8080/auth/realms/master
+      # This client-secret is set in our `realm-export.json`
+      - --client-secret
+      - '3d9e08d7-7d7c-442d-880b-fbbf9fae4263'
+      # This is needed when `enable-refresh-tokens=true`. So not needed for us in develop. But I'll keep it here.
+      # Must be a valid AES-128/AES-256 key of either 16 or 32 characters.
+      - --encryption-key
+      - vGcLt8ZUdPX5fXht
+      # For development we dont use SSL, so we MUST disable 'Secure' flag in Cookies
+      - --secure-cookie=false
+      # We want to see more debug info in console
+      - --enable-logging
+      # First, we disabled 'refresh-tokens', because gatekeeper created a very large refresh-token Cookies,
+      # and then it just return `HTTP 431 Request Header Fields Too Large`.
+      # ...
+      # But we have found, that by removing unnecessary 'defaultClientScopes' from our Keycloak client,
+      # the token size (and therefore Cookie size) is smaller.
+      # For our purposes, we need these client-scopes: "sface-demo-1w-scope", "profile", "email"
+      - --enable-refresh-tokens=true
+    depends_on:
+      - 'keycloak-server.127.0.0.1.nip.io'
+    # There is no easy way in docker-compose to wait until keycloak-server starts.
+    #
+    # gatekeeper starts very quickly. So it makes some requests, and stops after unsuccessful
+    # connection. So we need to auto-restart and wait, until keycloak-server is ready.
+    restart: always
