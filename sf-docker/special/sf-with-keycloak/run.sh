@@ -25,5 +25,5 @@ $COMPOSE_COMMAND -f keycloak-server/docker-compose.yml up -d
 
 sleep 10
 
-cd sf-Server
+cd sf-server
 ./run.sh
