@@ -2,8 +2,7 @@ version: '3.7'
 services:
 
   keycloak-server.10.11.81.42.nip.io:
-    # see https://hub.docker.com/r/jboss/keycloak/
-    image: quay.io/keycloak/keycloak:20.0
+    image: quay.io/keycloak/keycloak:13.0.0
     ports:
       - 8080:8080
     environment:
