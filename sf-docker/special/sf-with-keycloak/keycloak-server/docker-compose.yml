@@ -16,9 +16,9 @@ services:
       # Mount `keycloak-realm` config, that will be imported into Keycloak upon start
       - ./realm-export.json:/tmp/realm-export.json
     command:
-      We need to import our pre-prepared `keycloak-realm`. Official way is to set env variable KEYCLOAK_IMPORT,
-      but that doesn't work for us. We need to overwrite `master` realm, that already exist in empty Keycloak.
-      So we need to use `OVERWRITE_EXISTING` option.
+      # We need to import our pre-prepared `keycloak-realm`. Official way is to set env variable KEYCLOAK_IMPORT,
+      # but that doesn't work for us. We need to overwrite `master` realm, that already exist in empty Keycloak.
+      # So we need to use `OVERWRITE_EXISTING` option.
       - -Dkeycloak.migration.action=import
       - -Dkeycloak.migration.provider=singleFile
       - -Dkeycloak.migration.file=/tmp/realm-export.json
