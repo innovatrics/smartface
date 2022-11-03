@@ -68,5 +68,8 @@ services:
     # gatekeeper starts very quickly. So it makes some requests, and stops after unsuccessful
     # connection. So we need to auto-restart and wait, until keycloak-server is ready.
     restart: always
-    extra_hosts:
-      - host.docker.internal:host-gateway
+
+  networks:
+    mynetwork:
+      external: true
+      name: host
