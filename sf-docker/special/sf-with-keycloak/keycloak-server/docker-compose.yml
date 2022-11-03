@@ -2,7 +2,7 @@ version: '3.7'
 services:
 
   keycloak-server.10.11.81.42.nip.io:
-    image: quay.io/keycloak/keycloak:18.0.0
+    image: quay.io/keycloak/keycloak:20.0.0
     ports:
       - 8080:8080
     environment:
@@ -11,7 +11,7 @@ services:
       - KEYCLOAK_PASSWORD=admin
       - KC_HOSTNAME_STRICT=false
       - KC_HTTP_ENABLED=true
-    entrypoint: ["/opt/keycloak/bin/kc.sh", "start"]
+    entrypoint: ["/opt/keycloak/bin/kc.sh", "start-dev"]
     volumes:
       # Mount `keycloak-realm` config, that will be imported into Keycloak upon start
       - ./realm-export.json:/tmp/realm-export.json
