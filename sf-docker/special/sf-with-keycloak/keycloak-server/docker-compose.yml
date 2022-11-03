@@ -2,7 +2,7 @@ version: '3.7'
 services:
 
   keycloak-server.10.11.81.42.nip.io:
-    image: quay.io/keycloak/keycloak:17.0.0
+    image: quay.io/keycloak/keycloak:20.0.0
     ports:
       - 8080:8080
     environment:
@@ -22,7 +22,7 @@ services:
       - -Dkeycloak.migration.action=import
       - -Dkeycloak.migration.provider=singleFile
       - -Dkeycloak.migration.file=/tmp/realm-export.json
-      #- -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+      - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
 
   # Keycloak-gatekeeper
   # - reverse-proxy that will sit in-front of our frontend server
