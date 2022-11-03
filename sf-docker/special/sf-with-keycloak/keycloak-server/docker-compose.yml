@@ -2,13 +2,14 @@ version: '3.7'
 services:
 
   keycloak-server.10.11.81.42.nip.io:
-    image: quay.io/keycloak/keycloak:13.0.0
+    image: quay.io/keycloak/keycloak:17.0.0
     ports:
       - 8080:8080
     environment:
       # This will be admin access to Keycloak admin console at:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
+    entrypoint: ["/opt/keycloak/bin/kc.sh", "start"]
     volumes:
       # Mount `keycloak-realm` config, that will be imported into Keycloak upon start
       - ./realm-export.json:/tmp/realm-export.json
