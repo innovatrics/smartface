@@ -28,7 +28,7 @@ services:
   # - reverse-proxy that will sit in-front of our frontend server
   keycloak-gatekeeper:
     # See https://github.com/keycloak/keycloak-gatekeeper#getting-started
-    image: quay.io/gogatekeeper/gatekeeper:1.8.1
+    image: quay.io/keycloak/keycloak-gatekeeper:10.0.0
     ports:
       - 3000:3000
     command:
@@ -44,7 +44,7 @@ services:
       - smartgate-on-sface-demo-1w
       # Keycloak server, that will be used by this gatekeeper
       - --discovery-url
-      - http://keycloak-server.10.11.81.42.nip.io:8080/realms/master/.well-known/openid-configuration
+      - http://keycloak-server.10.11.81.42.nip.io:8080/realms/master
       # This client-secret is set in our `realm-export.json`
       - --client-secret
       - '3d9e08d7-7d7c-442d-880b-fbbf9fae4263'
