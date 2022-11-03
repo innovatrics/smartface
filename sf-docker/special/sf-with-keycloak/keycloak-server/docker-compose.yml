@@ -36,7 +36,7 @@ services:
       # gatekeeper will proxy server (SmartFace Station FES) running on host on port 8000. This solution works in
       # docker-for-macosx. We need to find solution for linux also.
       - --upstream-url
-      - http://SFStation:8000
+      - http://host.docker.internal:8000
       #- http://10.11.64.54:8000
       # This client-Id is set in our `realm-export.json`
       - --client-id
