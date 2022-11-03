@@ -44,7 +44,7 @@ services:
       - smartgate-on-sface-demo-1w
       # Keycloak server, that will be used by this gatekeeper
       - --discovery-url
-      - http://keycloak-server.10.11.81.42.nip.io:8080/realms/master
+      - http://keycloak-server.10.11.81.42.nip.io:8080/realms/master/.well-known/openid-configuration
       # This client-secret is set in our `realm-export.json`
       - --client-secret
       - '3d9e08d7-7d7c-442d-880b-fbbf9fae4263'
