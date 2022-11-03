@@ -9,6 +9,7 @@ services:
       # This will be admin access to Keycloak admin console at:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
+      - HOSTNAME_STRICT=false
     entrypoint: ["/opt/keycloak/bin/kc.sh", "start"]
     volumes:
       # Mount `keycloak-realm` config, that will be imported into Keycloak upon start
