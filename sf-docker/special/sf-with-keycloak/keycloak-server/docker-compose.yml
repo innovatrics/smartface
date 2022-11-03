@@ -22,7 +22,7 @@ services:
       - -Dkeycloak.migration.action=import
       - -Dkeycloak.migration.provider=singleFile
       - -Dkeycloak.migration.file=/tmp/realm-export.json
-      - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+      #- -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
 
   # Keycloak-gatekeeper
   # - reverse-proxy that will sit in-front of our frontend server
