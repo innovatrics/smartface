@@ -1,7 +1,7 @@
 version: '3.7'
 services:
 
-  keycloak-server.10.11.81.42.nip.io:
+  keycloak:
     image: quay.io/keycloak/keycloak:20.0.0
     ports:
       - 8080:8080
@@ -44,7 +44,7 @@ services:
       - smartgate-on-sface-demo-1w
       # Keycloak server, that will be used by this gatekeeper
       - --discovery-url
-      - http://keycloak-server.10.11.81.42.nip.io:8080/auth/realms/master
+      - http://keycloak:8080/auth/realms/master
       # This client-secret is set in our `realm-export.json`
       - --client-secret
       - '3d9e08d7-7d7c-442d-880b-fbbf9fae4263'
@@ -64,7 +64,7 @@ services:
       # For our purposes, we need these client-scopes: "sface-demo-1w-scope", "profile", "email"
       - --enable-refresh-tokens=true
     depends_on:
-      - 'keycloak-server.10.11.81.42.nip.io'
+      - 'keycloak'
     # There is no easy way in docker-compose to wait until keycloak-server starts.
     #
     # gatekeeper starts very quickly. So it makes some requests, and stops after unsuccessful
