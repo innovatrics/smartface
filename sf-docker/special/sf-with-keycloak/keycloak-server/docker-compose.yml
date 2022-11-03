@@ -36,7 +36,7 @@ services:
       # gatekeeper will proxy server (SmartFace Station FES) running on host on port 8000. This solution works in
       # docker-for-macosx. We need to find solution for linux also.
       - --upstream-url
-      - http://sface-train-2u:8000
+      - http://SFStation:8000
       # This client-Id is set in our `realm-export.json`
       - --client-id
       - smartgate-on-sface-demo-1w
@@ -68,8 +68,8 @@ services:
     # gatekeeper starts very quickly. So it makes some requests, and stops after unsuccessful
     # connection. So we need to auto-restart and wait, until keycloak-server is ready.
     restart: always
-
-  networks:
-    host:
-      name: host
-      external: true
+    
+networks:
+  default:
+    external:
+      name: sf-network
