@@ -28,7 +28,7 @@ services:
   # - reverse-proxy that will sit in-front of our frontend server
   keycloak-gatekeeper:
     # See https://github.com/keycloak/keycloak-gatekeeper#getting-started
-    image: quay.io/keycloak/keycloak-gatekeeper:10.0.0
+    image: quay.io/gogatekeeper/gatekeeper:1.8.1
     ports:
       - 3000:3000
     command:
