@@ -57,6 +57,11 @@ sed -i "s/S3_ENDPOINT=.*/S3_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
 echo $VERSION
 echo $REGISTRY
 
+# create mqtt user for rmq mqtt plugin
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
+
 # create SmartFace database in PgSql
 docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
 # run database migration to current version
