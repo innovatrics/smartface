@@ -18,6 +18,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -44,6 +47,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -70,6 +76,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -96,6 +105,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -122,6 +134,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -148,7 +163,11 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -174,13 +193,13 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
-<<<<<<< HEAD:sf-docker/multi-server/server-2/docker-compose.yml
-    # - GstPipelineTemplate
-    # - Gpu__GpuNeuralRuntime=Tensor
-=======
       - CameraDefaults__PreviewPort
->>>>>>> origin/master:sf-docker/docker-compose.yml
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor      
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -204,6 +223,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -230,6 +252,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
       - CameraDefaults__PreviewPort
     # - GstPipelineTemplate
@@ -257,6 +282,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -390,6 +418,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -409,6 +440,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -425,6 +459,9 @@ services:
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
