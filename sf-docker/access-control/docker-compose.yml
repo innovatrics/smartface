@@ -322,6 +322,23 @@ api:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
+ 
+  edge-stream-processor:
+    image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
+    container_name: SFEdgeStreamProcessor
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
   access-controller:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     container_name: SFAccessController
