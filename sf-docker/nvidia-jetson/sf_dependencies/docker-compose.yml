@@ -10,6 +10,16 @@ services:
     restart: unless-stopped
     volumes:
       - pgsqldata:/var/lib/postgresql/data
+      #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
+
+  pgadmin:
+    image: "dpage/pgadmin4:6.10"
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: Test1234
+    ports:
+      - "7070:80"
 
   rabbitmq:
     image: "rabbitmq:3.9-management"
@@ -17,7 +27,7 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
-    environment: 
+    environment:
       RABBITMQ_NODENAME: rabbit@rmq
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
     volumes:
@@ -39,6 +49,7 @@ volumes:
   pgsqldata:
   miniodata:
   rmqdata:
+
 
 networks:
   default:
