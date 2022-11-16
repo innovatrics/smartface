@@ -12,6 +12,7 @@ services:
     volumes:
       - mssqldata:/var/opt/mssql
       #- /var/lib/smartface/mssql:/var/opt/mssql
+      #- /var/lib/smartface/mssql:/var/opt/mssql
 
   pgsql:
     image: "postgres:14.3"
@@ -81,6 +82,7 @@ volumes:
   pgsqldata:
   miniodata:
   rmqdata:
+
 
 networks:
   default:

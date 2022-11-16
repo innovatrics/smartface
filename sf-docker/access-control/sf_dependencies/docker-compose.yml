@@ -11,6 +11,7 @@ services:
     restart: unless-stopped
     volumes:
       - mssqldata:/var/opt/mssql
+      #- /var/lib/smartface/mssql:/var/opt/mssql
 
   pgsql:
     image: "postgres:14.3"
