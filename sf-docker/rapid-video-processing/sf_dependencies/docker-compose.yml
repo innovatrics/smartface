@@ -14,7 +14,7 @@ services:
       #- /var/lib/smartface/mssql:/var/opt/mssql
 
   pgsql:
-    image: "postgres:13.2"
+    image: "postgres:14.3"
     container_name: pgsql
     ports:
       - "5432:5432"
