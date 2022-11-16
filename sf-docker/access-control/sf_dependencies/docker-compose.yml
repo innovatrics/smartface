@@ -35,14 +35,16 @@ services:
       - "7070:80"
 
   rabbitmq:
-    image: "rabbitmq:3.9-management"
+    image: "rabbitmq:3.10.2-management"
     container_name: rmq
     ports:
       - "15672:15672"
       - "5672:5672"
+      - "1883:1883"
     environment:
       RABBITMQ_NODENAME: rabbit@rmq
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+      RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
     volumes:
       - ./etc_rmq/:/etc/rabbitmq/external
       - rmqdata:/var/lib/rabbitmq
