@@ -44,7 +44,7 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
-  api:
+api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
     ports:
@@ -66,6 +66,7 @@ services:
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 

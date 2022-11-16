@@ -148,7 +148,7 @@ sf-cam-4:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
-  api:
+api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
     ports:
@@ -170,6 +170,7 @@ sf-cam-4:
       - S3Bucket__Endpoint
       - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
