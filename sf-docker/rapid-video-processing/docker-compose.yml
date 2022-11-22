@@ -164,9 +164,9 @@ services:
 
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
-    container_name: SFExtractCpu
     restart: unless-stopped
-    scale: 5
+    deploy:
+      replicas: 5
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -259,9 +259,9 @@ services:
 
   video-collector:
     image: ${REGISTRY}sf-video-collector:${SF_VERSION}
-    container_name: SFVideoDataCollector
     restart: unless-stopped
-    scale: 5
+    deploy:
+      replicas: 5
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -282,9 +282,9 @@ services:
 
   video-reader:
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
-    container_name: SFVideoReader
     restart: unless-stopped
-    scale: 5
+    deploy:
+      replicas: 5
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username

@@ -237,7 +237,8 @@ services:
 
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
-    scale: 3
+    deploy:
+      replicas: 3
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -322,7 +323,6 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
- 
   edge-stream-processor:
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     container_name: SFEdgeStreamProcessor

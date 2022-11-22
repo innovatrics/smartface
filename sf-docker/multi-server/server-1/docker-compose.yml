@@ -331,7 +331,8 @@ services:
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     restart: unless-stopped
-    scale: 10
+    deploy:
+      replicas: 10
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
