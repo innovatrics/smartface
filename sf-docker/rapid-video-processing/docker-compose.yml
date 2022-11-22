@@ -314,6 +314,21 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+  
+  access-controller:
+    image: ${REGISTRY}sf-access-controller:${AC_VERSION}
+    container_name: SFAccessController
+    ports:
+      # we forward the configured ports to default SF ports
+      - 5050:${Hosting__Port}
+    restart: unless-stopped
+    environment:
+      - RabbitMq__HostName=${RabbitMQ__Hostname}
+      - RabbitMq__UserName=${RabbitMQ__Username}
+      - RabbitMq__Password=${RabbitMQ__Password}
+      - RabbitMq__Port=${RabbitMQ__Port}
+      - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
+    env_file: .env.sfac
 
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
