@@ -222,7 +222,7 @@ services:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
-  api:
+    api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
     ports:

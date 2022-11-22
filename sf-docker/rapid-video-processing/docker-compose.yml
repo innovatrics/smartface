@@ -50,7 +50,7 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
-api:
+  api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
     ports:
