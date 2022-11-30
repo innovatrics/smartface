@@ -7,9 +7,6 @@ We have enabled services only required for the Access Control use case. Other fu
 4 Camera services are available (can be extended), all APIs, detector, extractor and matching service.
 SmartFace Station GUI is included as well.
 
-## HW Requirements
-Notebook 1
-
 ## Quick Start
 1. Install `Docker` and `docker compose` on the host machine.
 2. Login to container registry `docker login registry.gitlab.com -u <username> -p <password>`. The credentials are available in our [CRM portal](https://crm.innovatrics.com/).
