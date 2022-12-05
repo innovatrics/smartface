@@ -54,9 +54,16 @@ S3_ENDPOINT=$(grep -E ^S3Bucket__Endpoint .env | cut -d '=' -f2 | cut -d$'\r' -f
 S3_ACCESS=$(grep -E ^S3Bucket__AccessKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 S3_SECRET=$(grep -E ^S3Bucket__SecretKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 S3_BUCKET=$(grep -E ^S3Bucket__BucketName .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+# set correct hostname to sfstation env file
+sed -i "s/S3_ENDPOINT=.*/S3_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
 
 echo $VERSION
 echo $REGISTRY
+
+# create mqtt user for rmq mqtt plugin
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
 
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
@@ -68,7 +75,7 @@ elif [[ "$DB_ENGINE" == "PgSql" ]]; then
     docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
     # run database migration to current version
     docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Trust Server Certificate=true;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
-else 
+else
     echo "Unknown DB engine: ${DB_ENGINE}!" >&2
     exit 1
 fi
@@ -76,4 +83,4 @@ fi
 docker run --rm --name s3-bucket-create --network sf-network ${REGISTRY}sf-admin:${VERSION} ensure-s3-bucket-exists --endpoint "$S3_ENDPOINT" --access-key "$S3_ACCESS" --secret-key  "$S3_SECRET" --bucket-name "$S3_BUCKET"
 
 # finally start SF images
-$COMPOSE_COMMAND -f cloud-matcher-docker-compose.yml up -d
+$COMPOSE_COMMAND up -d --force-recreate

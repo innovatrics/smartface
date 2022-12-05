@@ -1,67 +1,12 @@
 version: "3.4"
 services:
-  sf-base:
-    image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
-    privileged: true
-    container_name: SFBase
-    restart: unless-stopped
-    command: --serviceName SFBase
-    ports:
-      - 2406:2406
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
-  sf-group:
-    image: ${REGISTRY}sf-jetson-base:${JETSON_VERSION}
-    privileged: true
-    container_name: SFGroup
-    restart: unless-stopped
-    command: --serviceName SFGroup
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
   sf-cam-1:
-    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
-    privileged: true
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam1
-    restart: unless-stopped
     command: --serviceName SFCam1
     ports:
       - 30001:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -76,22 +21,21 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - GstPipelineTemplate=${GstPipelineTemplate_Jetson}
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    runtime: nvidia
+    #runtime: nvidia
 
   sf-cam-2:
-    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
-    privileged: true
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam2
-    restart: unless-stopped
     command: --serviceName SFCam2
     ports:
       - 30002:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -106,21 +50,21 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - GstPipelineTemplate=${GstPipelineTemplate_Jetson}
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    runtime: nvidia
+    #runtime: nvidia
 
-  sf-cam-nx:
-    image: ${REGISTRY}sf-jetson-cam:${JETSON_VERSION}
-    privileged: true
-    # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
-    container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+  sf-cam-3:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam3
+    command: --serviceName SFCam3
+    ports:
+      - 30003:${CameraDefaults__PreviewPort}
     restart: unless-stopped
-    command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -136,20 +80,20 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    runtime: nvidia
+    #runtime: nvidia
 
-  api:
-    image: ${REGISTRY}sf-jetson-api:${JETSON_VERSION}
-    privileged: true
-    container_name: SFApi
-    restart: unless-stopped
+  sf-cam-4:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam4
+    command: --serviceName SFCam4
     ports:
-      # we forward the configured ports to default SF ports
-      - 8098:${Hosting__Port}
+      - 30004:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -157,8 +101,6 @@ services:
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
-      - Hosting__Host
-      - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -166,38 +108,21 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
-      - CameraDefaults__PreviewPort
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
 
-  sf-graphql-api:
-    image: ${REGISTRY}sf-jetson-graphql-api:${JETSON_VERSION}
-    container_name: SFGraphQLApi
-    restart: unless-stopped
+  sf-cam-5:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam5
+    command: --serviceName SFCam5
     ports:
-      # we forward the configured ports to default SF ports
-      - 8097:${Hosting__Port}
-    environment:
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - Hosting__Host
-      - Hosting__Port
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - AppSettings__Log_RabbitMq_Enabled
-
-  odata-api:
-    image: ${REGISTRY}sf-jetson-odata-api:${JETSON_VERSION}
-    privileged: true
-    container_name: SFODataApi
+      - 30005:${CameraDefaults__PreviewPort}
     restart: unless-stopped
-    ports:
-      # we forward the configured ports to default SF ports
-      - 8099:${Hosting__Port}
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -205,8 +130,6 @@ services:
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
-      - Hosting__Host
-      - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -214,15 +137,161 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
 
-  detector-cpu:
-    image: ${REGISTRY}sf-jetson-detector:${JETSON_VERSION}
-    privileged: true
+  sf-cam-6:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam6
+    command: --serviceName SFCam6
+    ports:
+      - 30006:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-7:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam7
+    command: --serviceName SFCam7
+    ports:
+      - 30007:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-8:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam8
+    command: --serviceName SFCam8
+    ports:
+      - 30008:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-9:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam9
+    command: --serviceName SFCam9
+    ports:
+      - 30009:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-10:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam10
+    command: --serviceName SFCam10
+    ports:
+      - 30010:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  detector:
+    image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
     restart: unless-stopped
     environment:
@@ -233,33 +302,15 @@ services:
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
-  detector-gpu:
-    image: ${REGISTRY}sf-jetson-detector:${JETSON_VERSION}
-    privileged: true
-    container_name: SFDetectGpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    runtime: nvidia
+    #runtime: nvidia
 
-  pedestrian-detector-cpu:
-    image: ${REGISTRY}sf-jetson-pedestrian-detector:${JETSON_VERSION}
-    privileged: true
+  pedestrian-detector:
+    image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
     container_name: SFPedestrianDetectCpu
     restart: unless-stopped
     environment:
@@ -270,35 +321,18 @@ services:
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
-  pedestrian-detector-gpu:
-    image: ${REGISTRY}sf-jetson-pedestrian-detector:${JETSON_VERSION}
-    privileged: true
-    container_name: SFPedestrianDetectGpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    runtime: nvidia
+    #runtime: nvidia
 
-  extractor-cpu:
-    image: ${REGISTRY}sf-jetson-extractor:${JETSON_VERSION}
-    privileged: true
-    container_name: SFExtractCpu
+  extractor:
+    image: ${REGISTRY}sf-extractor:${SF_VERSION}
     restart: unless-stopped
+    deploy:
+      replicas: 10
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -307,33 +341,15 @@ services:
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
-  extractor-gpu:
-    image: ${REGISTRY}sf-jetson-extractor:${JETSON_VERSION}
-    privileged: true
-    container_name: SFExtractGpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    runtime: nvidia
+    #runtime: nvidia
 
   matcher:
-    image: ${REGISTRY}sf-jetson-matcher:${JETSON_VERSION}
-    privileged: true
+    image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
     restart: unless-stopped
     environment:
@@ -348,11 +364,9 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
 
   face-matcher:
-    image: ${REGISTRY}sf-jetson-face-matcher:${JETSON_VERSION}
-    privileged: true
+    image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
     container_name: SFFaceMatcher
     restart: unless-stopped
     environment:
@@ -367,12 +381,10 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
 
-  liveness-cpu:
-    image: ${REGISTRY}sf-jetson-liveness:${JETSON_VERSION}
-    privileged: true
-    container_name: SFLivenessCpu
+  liveness:
+    image: ${REGISTRY}sf-liveness:${SF_VERSION}
+    container_name: SFLiveness
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -382,81 +394,16 @@ services:
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
-  liveness-gpu:
-    image: ${REGISTRY}sf-jetson-liveness:${JETSON_VERSION}
-    privileged: true
-    container_name: SFLivenessGpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    runtime: nvidia
+    #runtime: nvidia
 
-  video-aggregator:
-    image: ${REGISTRY}sf-jetson-video-aggregator:${JETSON_VERSION}
-    privileged: true
-    container_name: SFVideoDataAggregator
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
-  video-collector:
-    image: ${REGISTRY}sf-jetson-video-collector:${JETSON_VERSION}
-    privileged: true
-    container_name: SFVideoDataCollector
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-
-  video-reader:
-    image: ${REGISTRY}sf-jetson-video-reader:${JETSON_VERSION}
-    privileged: true
-    container_name: SFVideoReader
+  body-parts-detector:
+    image: ${REGISTRY}sf-body-parts-detector:${SF_VERSION}
+    container_name: SFBodyPartsDetectCpu
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -465,55 +412,9 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
-  edge-stream-processor:
-    image: ${REGISTRY}sf-jetson-edge-stream-processor:${JETSON_VERSION}
-    container_name: SFEdgeStreamProcessor
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
-      - AppSettings__Log_RabbitMq_Enabled
-      - NoSqlDataStorageDisabled
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-    runtime: nvidia
-
-  access-controller:
-    image: ${REGISTRY}sf-access-controller:${AC_VERSION}
-    privileged: true
-    container_name: SFAccessController
-    restart: unless-stopped
-    ports:
-      # we forward the configured ports to default SF ports
-      - 5050:${Hosting__Port}
-    environment:
-      - RabbitMq__HostName=${RabbitMQ__Hostname}
-      - RabbitMq__UserName=${RabbitMQ__Username}
-      - RabbitMq__Password=${RabbitMQ__Password}
-      - RabbitMq__Port=${RabbitMQ__Port}
-      - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
-    env_file: .env.sfac
-
-  sf-station:
-    image: ${REGISTRY}sf-station:${SFS_VERSION}
-    container_name: SFStation
-    restart: unless-stopped
-    ports:
-      - 8000:8000
-    env_file: .env.sfstation
 
 networks:
   default:
