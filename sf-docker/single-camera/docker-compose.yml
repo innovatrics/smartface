@@ -278,7 +278,6 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
- 
   edge-stream-processor:
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     container_name: SFEdgeStreamProcessor
