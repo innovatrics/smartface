@@ -203,6 +203,10 @@ sf-cam-4:
       - 8097:${Hosting__Port}
     restart: unless-stopped
     environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
