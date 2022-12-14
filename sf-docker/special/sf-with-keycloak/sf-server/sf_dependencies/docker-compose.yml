@@ -34,7 +34,6 @@ services:
       PGADMIN_DEFAULT_PASSWORD: Test1234
     ports:
       - "7070:80"
-
   rabbitmq:
     image: "rabbitmq:3.10.2-management"
     container_name: rmq
