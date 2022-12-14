@@ -1,7 +1,7 @@
 version: '3'
 services:
   pgsql:
-    image: "postgres:13.2"
+    image: "postgres:14.3"
     container_name: pgsql
     ports:
       - "5432:5432"
@@ -13,60 +13,64 @@ services:
       #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
 
   pgadmin:
-    image: "dpage/pgadmin4:5.1"
+    image: "dpage/pgadmin4:6.10"
     container_name: pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: Test1234
     ports:
       - "7070:80"
-  
+
   rabbitmq:
-    image: "rabbitmq:3.9-management"
+    image: "rabbitmq:3.10.2-management"
     container_name: rmq
     ports:
       - "15672:15672"
       - "5672:5672"
-    environment: 
+      - "1883:1883"
+    environment:
       RABBITMQ_NODENAME: rabbit@rmq
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+      RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
     volumes:
       - ./etc_rmq/:/etc/rabbitmq/external
       - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped
 
   minio:
-    image: "minio/minio:RELEASE.2021-02-01T22-56-52Z"
+    image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
     container_name: minio
-    command: server /data
+    command: server /data --console-address ":9001"
     ports:
       - "9000:9000"
+      - "9001:9001"
     restart: unless-stopped
     volumes:
       - miniodata:/data
       #- /var/lib/smartface/miniodata:/data
 
-  # Jaeger tracikng is solely for debug purposes. No data is stored!
+      # Jaeger tracikng is solely for debug purposes. No data is stored!
   jaeger:
-   image: "jaegertracing/all-in-one:1.24.0"
-   container_name: jaeger
-   restart: unless-stopped
-   command: ["--memory.max-traces=5000"]
-   ports:
-     - "5778:5778"
-     - "16686:16686"
-     - "14268:14268"
-     - "14250:14250"
-     - "9411:9411"
-     - "5775:5775/udp"
-     - "6831:6831/udp"
-     - "6832:6832/udp"
+    image: "jaegertracing/all-in-one:1.35.0"
+    container_name: jaeger
+    restart: unless-stopped
+    command: [ "--memory.max-traces=5000" ]
+    ports:
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "14250:14250"
+      - "9411:9411"
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
 
 volumes:
   mssqldata:
   pgsqldata:
   miniodata:
   rmqdata:
+
 
 networks:
   default:

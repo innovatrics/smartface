@@ -18,6 +18,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -44,6 +47,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -70,6 +76,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -96,6 +105,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -122,6 +134,9 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -148,7 +163,11 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -174,6 +193,7 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+<<<<<<< HEAD
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
 <<<<<<< HEAD:sf-docker/multi-server/server-2/docker-compose.yml
     # - GstPipelineTemplate
@@ -181,6 +201,15 @@ services:
 =======
       - CameraDefaults__PreviewPort
 >>>>>>> origin/master:sf-docker/docker-compose.yml
+=======
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
+      - CameraDefaults__PreviewPort
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor      
+>>>>>>> origin/master
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -204,6 +233,12 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+<<<<<<< HEAD
+=======
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+>>>>>>> origin/master
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -230,6 +265,12 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+<<<<<<< HEAD
+=======
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+>>>>>>> origin/master
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
       - CameraDefaults__PreviewPort
     # - GstPipelineTemplate
@@ -257,6 +298,12 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+<<<<<<< HEAD
+=======
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+>>>>>>> origin/master
       - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
@@ -306,7 +353,12 @@ services:
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     restart: unless-stopped
+<<<<<<< HEAD
     scale: 10
+=======
+    deploy:
+      replicas: 10
+>>>>>>> origin/master
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -390,6 +442,12 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+<<<<<<< HEAD
+=======
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+>>>>>>> origin/master
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -409,6 +467,12 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
+<<<<<<< HEAD
+=======
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+>>>>>>> origin/master
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -425,6 +489,12 @@ services:
       - AppSettings__Log-RollingFile-Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - S3Bucket__Endpoint
+<<<<<<< HEAD
+=======
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+>>>>>>> origin/master
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -444,6 +514,25 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
+<<<<<<< HEAD
+=======
+  edge-stream-processor:
+    image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
+    container_name: SFEdgeStreamProcessor
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+>>>>>>> origin/master
   access-controller:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     container_name: SFAccessController
