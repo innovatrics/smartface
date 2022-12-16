@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.15.0.1839"
+    "version": "v5_4.17.0.2565"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -405,6 +405,232 @@
         }
       }
     },
+    "/api/v1/EdgeStreams/{id}": {
+      "get": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Retrieves the EdgeStream by its Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the EdgeStream.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the found EdgeStream.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EdgeStream"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The EdgeStream with given Id was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Deletes a EdgeStream by its id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the EdgeStream.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The EdgeStream with given id was deleted successfully."
+          },
+          "404": {
+            "description": "The EdgeStream with given id was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/EdgeStreams": {
+      "get": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Retrieves all EdgeStreams.",
+        "responses": {
+          "200": {
+            "description": "Returns the found EdgeStreams.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EdgeStream"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Creates a new EdgeStream.",
+        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n\r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
+        "requestBody": {
+          "description": "New EdgeStream configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamCreateRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamCreateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamCreateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The new EdgeStream was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EdgeStream"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "There was a conflict while creating the EdgeStream.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Updates the specified EdgeStream.",
+        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n\r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
+        "requestBody": {
+          "description": "New EdgeStream configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamUpdateRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamUpdateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamUpdateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the newly updated EdgeStream.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EdgeStream"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The EdgeStream was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/Faces/{id}": {
       "get": {
         "tags": [
@@ -629,7 +855,7 @@
           "Face"
         ],
         "summary": "Checks liveness of one face on the given image.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote,liveness_nearby_cpu_remote, liveness_nearby_gpu_remote",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote,liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\n <br />```SpoofCheckConfig.KeepEvaluatingConditionsAfterFirstFail``` is used <br />\r\n\r\n to evaluate all conditions supplied with ``` Nearby/Distant LivenessConditions ```.\r\n\r\n When ```true``` it can have slight performance impact, because all conditions are evaluated <br />",
         "requestBody": {
           "description": "Request containing reference image to be checked and configuration.",
           "content": {
@@ -662,6 +888,72 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SpoofCheckResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Faces/Verify": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Calculates confidence that two faces on sent photos belong to the same person.",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu",
+        "requestBody": {
+          "description": "Request containing images with faces to be compared",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerificationRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerificationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerificationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the verification result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerificationResponse"
                 }
               }
             }
@@ -5539,7 +5831,7 @@
             "type": "string"
           },
           "spoofDetectorConfig": {
-            "$ref": "#/components/schemas/SpoofDetectorConfig"
+            "$ref": "#/components/schemas/CameraSpoofDetectorConfig"
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfig"
@@ -5668,10 +5960,106 @@
             "nullable": true
           },
           "spoofDetectorConfig": {
-            "$ref": "#/components/schemas/SpoofDetectorConfigCreateRequest"
+            "$ref": "#/components/schemas/CameraSpoofDetectorConfigCreateRequest"
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfigCreateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CameraSpoofDetectorConfig": {
+        "required": [
+          "distantLivenessConditions",
+          "distantLivenessScoreThreshold",
+          "externalScoreThreshold",
+          "nearbyLivenessConditions",
+          "nearbyLivenessScoreThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessConditions": {
+            "type": "string"
+          },
+          "nearbyLivenessConditions": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CameraSpoofDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 0,
+            "nullable": true
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 90,
+            "nullable": true
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 90,
+            "nullable": true
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "default": "default",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "default": "default",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CameraSpoofDetectorConfigUpdateRequest": {
+        "required": [
+          "externalScoreThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "externalScoreThreshold": {
+            "type": "number",
+            "format": "double"
+          },
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -5780,7 +6168,7 @@
             "nullable": true
           },
           "spoofDetectorConfig": {
-            "$ref": "#/components/schemas/SpoofDetectorConfigUpdateRequest"
+            "$ref": "#/components/schemas/CameraSpoofDetectorConfigUpdateRequest"
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfigUpdateRequest"
@@ -5831,6 +6219,189 @@
           "deleteMatchResults": {
             "type": "boolean",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStream": {
+        "required": [
+          "clientId",
+          "enabled",
+          "faceSaveStrategy",
+          "id",
+          "name",
+          "spoofDetectorConfig",
+          "spoofDetectorResourceIds",
+          "templateGeneratorResourceId"
+        ],
+        "type": "object",
+        "properties": {
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "faceSaveStrategy": {
+            "type": "string"
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/SpoofDetectorConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamCreateRequest": {
+        "required": [
+          "clientId",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "default": false
+          },
+          "name": {
+            "type": "string",
+            "default": "unspecified"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string",
+            "default": "cpu",
+            "nullable": true
+          },
+          "faceSaveStrategy": {
+            "type": "string",
+            "default": "FirstFace, BestFace",
+            "nullable": true
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "none"
+            ],
+            "nullable": true
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/EdgeStreamSpoofDetectorConfigCreateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamSpoofDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 90,
+            "nullable": true
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "default": 90,
+            "nullable": true
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "default": "default",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "default": "default",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamSpoofDetectorConfigUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "distantLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "nearbyLivenessScoreThreshold": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "distantLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          },
+          "nearbyLivenessConditions": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamUpdateRequest": {
+        "required": [
+          "clientId",
+          "enabled",
+          "faceSaveStrategy",
+          "id",
+          "name",
+          "templateGeneratorResourceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "faceSaveStrategy": {
+            "type": "string"
+          },
+          "spoofDetectorResourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "spoofDetectorConfig": {
+            "$ref": "#/components/schemas/EdgeStreamSpoofDetectorConfigUpdateRequest"
           }
         },
         "additionalProperties": false
@@ -6043,6 +6614,113 @@
         },
         "additionalProperties": false
       },
+      "FaceAttributes": {
+        "required": [
+          "age",
+          "cropLeftBottomX",
+          "cropLeftBottomY",
+          "cropLeftTopX",
+          "cropLeftTopY",
+          "cropRightBottomX",
+          "cropRightBottomY",
+          "cropRightTopX",
+          "cropRightTopY",
+          "faceMaskConfidence",
+          "faceMaskStatus",
+          "faceSize",
+          "gender",
+          "leftEyeX",
+          "leftEyeY",
+          "noseTipConfidence",
+          "quality",
+          "rightEyeX",
+          "rightEyeY"
+        ],
+        "type": "object",
+        "properties": {
+          "cropLeftTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "quality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "leftEyeX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "leftEyeY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rightEyeX": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rightEyeY": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "age": {
+            "type": "number",
+            "format": "double"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/GenderType"
+          },
+          "faceSize": {
+            "type": "number",
+            "format": "double"
+          },
+          "faceMaskConfidence": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "noseTipConfidence": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "faceMaskStatus": {
+            "$ref": "#/components/schemas/FaceMaskStatus"
+          }
+        },
+        "additionalProperties": false
+      },
       "FaceDetectorConfig": {
         "type": "object",
         "properties": {
@@ -6205,6 +6883,29 @@
         },
         "additionalProperties": false
       },
+      "FaceProbe": {
+        "required": [
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceSearchDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string",
+            "default": "cpu"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string",
+            "default": "cpu"
+          }
+        },
+        "additionalProperties": false
+      },
       "FaceSaveStrategy": {
         "enum": [
           "All",
@@ -6302,6 +7003,16 @@
           "faceId": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FailReason": {
+        "type": "object",
+        "properties": {
+          "reasonMessage": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6668,6 +7379,13 @@
           "score": {
             "type": "number",
             "format": "double"
+          },
+          "notPerformedReasons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FailReason"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7486,6 +8204,14 @@
             "type": "boolean",
             "default": false
           },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
           "labels": {
             "type": "array",
             "items": {
@@ -7728,6 +8454,15 @@
         ],
         "type": "object",
         "properties": {
+          "matchResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchByImageMatchResult"
+            }
+          },
+          "spoofCheckResult": {
+            "$ref": "#/components/schemas/SearchByImageSpoofResult"
+          },
           "cropLeftTopX": {
             "type": "number",
             "format": "double"
@@ -7807,15 +8542,6 @@
           },
           "faceMaskStatus": {
             "$ref": "#/components/schemas/FaceMaskStatus"
-          },
-          "matchResults": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SearchByImageMatchResult"
-            }
-          },
-          "spoofCheckResult": {
-            "$ref": "#/components/schemas/SearchByImageSpoofResult"
           }
         },
         "additionalProperties": false
@@ -7907,6 +8633,10 @@
             "type": "string",
             "default": "default",
             "nullable": true
+          },
+          "keepEvaluatingConditionsAfterFirstFail": {
+            "type": "boolean",
+            "default": false
           }
         },
         "additionalProperties": false
@@ -7964,16 +8694,11 @@
         "required": [
           "distantLivenessConditions",
           "distantLivenessScoreThreshold",
-          "externalScoreThreshold",
           "nearbyLivenessConditions",
           "nearbyLivenessScoreThreshold"
         ],
         "type": "object",
         "properties": {
-          "externalScoreThreshold": {
-            "type": "number",
-            "format": "double"
-          },
           "distantLivenessScoreThreshold": {
             "type": "number",
             "format": "double"
@@ -7987,71 +8712,6 @@
           },
           "nearbyLivenessConditions": {
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SpoofDetectorConfigCreateRequest": {
-        "type": "object",
-        "properties": {
-          "externalScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "default": 0,
-            "nullable": true
-          },
-          "distantLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "default": 90,
-            "nullable": true
-          },
-          "nearbyLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "default": 90,
-            "nullable": true
-          },
-          "distantLivenessConditions": {
-            "type": "string",
-            "default": "default",
-            "nullable": true
-          },
-          "nearbyLivenessConditions": {
-            "type": "string",
-            "default": "default",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SpoofDetectorConfigUpdateRequest": {
-        "required": [
-          "externalScoreThreshold"
-        ],
-        "type": "object",
-        "properties": {
-          "externalScoreThreshold": {
-            "type": "number",
-            "format": "double"
-          },
-          "distantLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "nearbyLivenessScoreThreshold": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "distantLivenessConditions": {
-            "type": "string",
-            "nullable": true
-          },
-          "nearbyLivenessConditions": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8175,6 +8835,38 @@
             "type": "string",
             "format": "uuid",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerificationRequest": {
+        "required": [
+          "probeImage",
+          "referenceImage"
+        ],
+        "type": "object",
+        "properties": {
+          "probeImage": {
+            "$ref": "#/components/schemas/FaceProbe"
+          },
+          "referenceImage": {
+            "$ref": "#/components/schemas/FaceProbe"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerificationResponse": {
+        "type": "object",
+        "properties": {
+          "confidence": {
+            "type": "number",
+            "format": "double"
+          },
+          "probeFaceDetails": {
+            "$ref": "#/components/schemas/FaceAttributes"
+          },
+          "referenceFaceDetails": {
+            "$ref": "#/components/schemas/FaceAttributes"
           }
         },
         "additionalProperties": false
@@ -8309,6 +9001,8 @@
           "mpeG1VideoBitrate",
           "name",
           "previewMaxDimension",
+          "processingDurationMs",
+          "processingStartTime",
           "recordedAt",
           "redetectionTime",
           "saveFrameImageData",
@@ -8407,6 +9101,16 @@
           },
           "description": {
             "type": "string",
+            "nullable": true
+          },
+          "processingStartTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "processingDurationMs": {
+            "type": "integer",
+            "format": "int64",
             "nullable": true
           }
         },
@@ -8825,6 +9529,13 @@
           "score": {
             "type": "number",
             "format": "double"
+          },
+          "notPerformedReasons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FailReason"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -9121,6 +9832,10 @@
             "type": "string",
             "default": "default",
             "nullable": true
+          },
+          "keepEvaluatingConditionsAfterFirstFail": {
+            "type": "boolean",
+            "default": false
           }
         },
         "additionalProperties": false
