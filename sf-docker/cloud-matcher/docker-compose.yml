@@ -81,14 +81,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - Authentication__UseAuthentication
-      - Authentication__IgnoreHttpsIssuerCheck
-      - Authentication__Authority
-      - Authentication__ClientCredsTokenUrl
-      - Authentication__AuthCodeTokenUrl
-      - Authentication__AuthCodeAuthorizeUrl
-      - Multitenancy__UseMultitenancy
-      - Multitenancy__TenantScopePrefix
       - FeatureManagement__Watchlist=true
       - FeatureManagement__Full=false
     volumes:
