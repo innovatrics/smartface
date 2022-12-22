@@ -367,8 +367,7 @@ sf-cam-4:
     container_name: SFEdgeStreamProcessor
     restart: unless-stopped
     environment:
-
-      - RabbitMQ__Hostname
+- RabbitMQ__Hostname
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
