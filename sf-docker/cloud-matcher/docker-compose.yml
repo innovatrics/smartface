@@ -59,7 +59,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   watchlist-api:
-    image: ${REGISTRY}sf-watchlist-api:${SF_VERSION}
+    image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFWatchlistApi
     ports:
       # we forward the configured ports to default SF ports
@@ -80,6 +80,9 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - FeatureManagement__Watchlist=true
+      - FeatureManagement__Full=false
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 

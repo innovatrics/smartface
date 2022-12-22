@@ -131,7 +131,7 @@ services:
     runtime: nvidia
       
   watchlist-api:
-    image: ${REGISTRY}sf-jetson-watchlist-api:${SF_VERSION}
+    image: ${REGISTRY}sf-jetson-api:${SF_VERSION}
     privileged: true
     container_name: SFWatchlistApi
     restart: unless-stopped
@@ -142,9 +142,9 @@ services:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
       - RabbitMQ__Password
-      - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext
+      - RabbitMQ__Port      
       - Database__DbEngine
+      - ConnectionStrings__CoreDbContext
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log-RollingFile-Enabled=false
@@ -155,12 +155,11 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
-      - CameraDefaults__PreviewPort
+      - FeatureManagement__Watchlist=true
+      - FeatureManagement__Full=false
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
-      
 
 networks:
   default:

@@ -22,7 +22,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
@@ -47,7 +46,6 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -76,7 +74,6 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -105,7 +102,6 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -134,7 +130,6 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -166,7 +161,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
       - CameraDefaults__PreviewPort
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -216,7 +210,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - Metrics__PROMETHEUS_METRIC_SERVER_HOSTNAME
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
