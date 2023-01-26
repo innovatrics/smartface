@@ -3,27 +3,19 @@ services:
   pgsql:
     image: "postgres:14.3"
     container_name: pgsql
+    restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=Test1234
-    restart: unless-stopped
+      - POSTGRES_PASSWORD=Test1234    
     volumes:
       - pgsqldata:/var/lib/postgresql/data
       #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
 
-  pgadmin:
-    image: "dpage/pgadmin4:6.10"
-    container_name: pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: Test1234
-    ports:
-      - "7070:80"
-
   rabbitmq:
     image: "rabbitmq:3.10.2-management"
     container_name: rmq
+    restart: unless-stopped
     ports:
       - "15672:15672"
       - "5672:5672"
@@ -35,16 +27,15 @@ services:
     volumes:
       - ./etc_rmq/:/etc/rabbitmq/external
       - rmqdata:/var/lib/rabbitmq
-    restart: unless-stopped
 
   minio:
     image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
     container_name: minio
     command: server /data --console-address ":9001"
+    restart: unless-stopped
     ports:
       - "9000:9000"
       - "9001:9001"
-    restart: unless-stopped
     volumes:
       - miniodata:/data
       #- /var/lib/smartface/miniodata:/data
@@ -53,7 +44,6 @@ volumes:
   pgsqldata:
   miniodata:
   rmqdata:
-
 
 networks:
   default:
