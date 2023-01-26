@@ -4,7 +4,7 @@ services:
     image: ${REGISTRY}sf-jetson-base:${SF_VERSION}
     privileged: true
     container_name: SFBase
-    restart: unless-stopped
+    restart: always
     command: --serviceName SFBase
     ports:
       - 2406:2406
@@ -31,7 +31,7 @@ services:
     image: ${REGISTRY}sf-jetson-base:${SF_VERSION}
     privileged: true
     container_name: SFGroup
-    restart: unless-stopped
+    restart: always
     command: --serviceName SFGroup
     environment:
       - RabbitMQ__Hostname
@@ -56,7 +56,7 @@ services:
     image: ${REGISTRY}sf-jetson-cam:${SF_VERSION}
     privileged: true
     container_name: SFCam1
-    restart: unless-stopped
+    restart: always
     command: --serviceName SFCam1
     ports:
       - 30001:${CameraDefaults__PreviewPort}
@@ -85,7 +85,7 @@ services:
     image: ${REGISTRY}sf-jetson-cam:${SF_VERSION}
     privileged: true
     container_name: SFCam2
-    restart: unless-stopped
+    restart: always
     command: --serviceName SFCam2
     ports:
       - 30002:${CameraDefaults__PreviewPort}
@@ -115,7 +115,7 @@ services:
     privileged: true
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
-    restart: unless-stopped
+    restart: always
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     environment:
       - RabbitMQ__Hostname
@@ -141,7 +141,7 @@ services:
     image: ${REGISTRY}sf-jetson-api:${SF_VERSION}
     privileged: true
     container_name: SFApi
-    restart: unless-stopped
+    restart: always
     ports:
       # we forward the configured ports to default SF ports
       - 8098:${Hosting__Port}
@@ -171,7 +171,7 @@ services:
     image: ${REGISTRY}sf-jetson-graphql-api:${SF_VERSION}
     privileged: true
     container_name: SFGraphQLApi
-    restart: unless-stopped
+    restart: always
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
@@ -196,7 +196,7 @@ services:
     image: ${REGISTRY}sf-jetson-odata-api:${SF_VERSION}
     privileged: true
     container_name: SFODataApi
-    restart: unless-stopped
+    restart: always
     ports:
       # we forward the configured ports to default SF ports
       - 8099:${Hosting__Port}
@@ -225,7 +225,7 @@ services:
     image: ${REGISTRY}sf-jetson-detector:${SF_VERSION}
     privileged: true
     container_name: SFDetectCpu
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -242,7 +242,7 @@ services:
     image: ${REGISTRY}sf-jetson-detector:${SF_VERSION}
     privileged: true
     container_name: SFDetectGpu
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -262,7 +262,7 @@ services:
     image: ${REGISTRY}sf-jetson-pedestrian-detector:${SF_VERSION}
     privileged: true
     container_name: SFPedestrianDetectCpu
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -279,7 +279,7 @@ services:
     image: ${REGISTRY}sf-jetson-pedestrian-detector:${SF_VERSION}
     privileged: true
     container_name: SFPedestrianDetectGpu
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -299,7 +299,7 @@ services:
     image: ${REGISTRY}sf-jetson-extractor:${SF_VERSION}
     privileged: true
     container_name: SFExtractCpu
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -316,7 +316,7 @@ services:
     image: ${REGISTRY}sf-jetson-extractor:${SF_VERSION}
     privileged: true
     container_name: SFExtractGpu
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -336,7 +336,7 @@ services:
     image: ${REGISTRY}sf-jetson-matcher:${SF_VERSION}
     privileged: true
     container_name: SFWatchlistMatcher
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -355,7 +355,7 @@ services:
     image: ${REGISTRY}sf-jetson-face-matcher:${SF_VERSION}
     privileged: true
     container_name: SFFaceMatcher
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -374,7 +374,7 @@ services:
     image: ${REGISTRY}sf-jetson-liveness:${SF_VERSION}
     privileged: true
     container_name: SFLivenessCpu
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -391,7 +391,7 @@ services:
     image: ${REGISTRY}sf-jetson-liveness:${SF_VERSION}
     privileged: true
     container_name: SFLivenessGpu
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -411,7 +411,7 @@ services:
     image: ${REGISTRY}sf-jetson-video-aggregator:${SF_VERSION}
     privileged: true
     container_name: SFVideoDataAggregator
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -435,7 +435,7 @@ services:
     image: ${REGISTRY}sf-jetson-video-collector:${SF_VERSION}
     privileged: true
     container_name: SFVideoDataCollector
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -458,7 +458,7 @@ services:
     image: ${REGISTRY}sf-jetson-video-reader:${SF_VERSION}
     privileged: true
     container_name: SFVideoReader
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -478,7 +478,7 @@ services:
   edge-stream-processor:
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     container_name: SFEdgeStreamProcessor
-    restart: unless-stopped
+    restart: always
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -496,7 +496,7 @@ services:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     privileged: true
     container_name: SFAccessController
-    restart: unless-stopped
+    restart: always
     ports:
       # we forward the configured ports to default SF ports
       - 5050:${Hosting__Port}
@@ -511,7 +511,7 @@ services:
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
     container_name: SFStation
-    restart: unless-stopped
+    restart: always
     ports:
       - 8000:8000
     env_file: .env.sfstation

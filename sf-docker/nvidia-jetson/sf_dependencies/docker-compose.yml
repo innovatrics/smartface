@@ -3,7 +3,7 @@ services:
   pgsql:
     image: "postgres:14.3"
     container_name: pgsql
-    restart: unless-stopped
+    restart: always
     ports:
       - "5432:5432"
     environment:
@@ -15,7 +15,7 @@ services:
   rabbitmq:
     image: "rabbitmq:3.10.2-management"
     container_name: rmq
-    restart: unless-stopped
+    restart: always
     ports:
       - "15672:15672"
       - "5672:5672"
@@ -32,7 +32,7 @@ services:
     image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
     container_name: minio
     command: server /data --console-address ":9001"
-    restart: unless-stopped
+    restart: always
     ports:
       - "9000:9000"
       - "9001:9001"
