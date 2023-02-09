@@ -26,7 +26,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-group:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
+    image: ${REGISTRY}sf-grouping:${SF_VERSION}
     container_name: SFGroup
     command: --serviceName SFGroup
     restart: unless-stopped
