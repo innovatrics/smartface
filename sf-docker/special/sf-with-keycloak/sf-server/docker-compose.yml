@@ -14,7 +14,7 @@ services:
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -26,7 +26,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-group:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
+    image: ${REGISTRY}sf-grouping:${SF_VERSION}
     container_name: SFGroup
     command: --serviceName SFGroup
     restart: unless-stopped
@@ -37,7 +37,7 @@ services:
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -62,7 +62,7 @@ services:
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -92,7 +92,7 @@ services:
       - Database__DbEngine
       - Hosting__Host
       - Hosting__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -120,7 +120,7 @@ services:
       - Database__DbEngine
       - Hosting__Host
       - Hosting__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - AppSettings__Log_RabbitMq_Enabled
@@ -141,7 +141,7 @@ services:
       - Database__DbEngine
       - Hosting__Host
       - Hosting__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -161,7 +161,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
@@ -180,7 +180,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
@@ -199,7 +199,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
@@ -220,7 +220,7 @@ services:
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -237,7 +237,7 @@ services:
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -252,7 +252,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
@@ -271,7 +271,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -289,7 +289,7 @@ services:
       - RabbitMQ__Port
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
     volumes:
