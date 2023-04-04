@@ -198,6 +198,7 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    cpuset: "0"
 
   face-matcher:
     image: ${REGISTRY}sf-face-matcher:${SF_VERSION}

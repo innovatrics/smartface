@@ -43,6 +43,7 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    cpuset: "0"
 
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
