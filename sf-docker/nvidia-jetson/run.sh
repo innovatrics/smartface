@@ -33,7 +33,7 @@ docker network create sf-network || true
 $COMPOSE_COMMAND -f sf_dependencies/docker-compose.yml up -d
 
 # sleep to wait for the dependencies to start up
-sleep 10
+sleep 30
 
 # load version and registry from .env
 VERSION=$(grep -E ^SF_VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)
