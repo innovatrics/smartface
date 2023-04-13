@@ -8,7 +8,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -22,7 +22,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -38,11 +38,12 @@ services:
       - RabbitMQ__Port
       - Database__DbEngine
       - ConnectionStrings__CoreDbContext
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    cpuset: "0"
 
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
@@ -52,7 +53,7 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -73,7 +74,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Hosting__Host
       - Hosting__Port
-      - AppSettings__Log-RollingFile-Enabled=false
+      - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
