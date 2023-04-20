@@ -50,18 +50,6 @@ services:
       - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped
 
-  minio:
-    image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
-    container_name: minio
-    command: server /data --console-address ":9001"
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    restart: unless-stopped
-    volumes:
-      - miniodata:/data
-      #- /var/lib/smartface/miniodata:/data
-
   # Jaeger tracikng is solely for debug purposes. No data is stored!
   jaeger:
    image: "jaegertracing/all-in-one:1.35.0"
@@ -81,7 +69,6 @@ services:
 volumes:
   mssqldata:
   pgsqldata:
-  miniodata:
   rmqdata:
 
 networks:
