@@ -89,6 +89,7 @@ services:
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
+      - WatchlistMatcher__SeedPageSize
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
