@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.17.0.2565"
+    "version": "v5_4.18.2.3499"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -1790,6 +1790,16 @@
               }
             }
           },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
           "409": {
             "description": "There was a conflict while creating live grouping.",
             "content": {
@@ -2160,7 +2170,7 @@
         "tags": [
           "LiveGrouping"
         ],
-        "summary": "Unlinks specified cameras from a live grouping.",
+        "summary": "Unlink specified cameras from a live grouping.",
         "parameters": [
           {
             "name": "groupingId",
@@ -2511,6 +2521,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RecordGrouping"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -3247,22 +3267,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/DbCleanupConfig"
+                "$ref": "#/components/schemas/DbCleanupConfigUpdateRequest"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DbCleanupConfig"
+                "$ref": "#/components/schemas/DbCleanupConfigUpdateRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/DbCleanupConfig"
+                "$ref": "#/components/schemas/DbCleanupConfigUpdateRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/DbCleanupConfig"
+                "$ref": "#/components/schemas/DbCleanupConfigUpdateRequest"
               }
             }
           }
@@ -3313,7 +3333,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FeaturesConfig"
+                  "$ref": "#/components/schemas/FaceFeaturesConfigFeaturesConfig"
                 }
               }
             }
@@ -3350,22 +3370,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/FeaturesConfig"
+                "$ref": "#/components/schemas/FeaturesConfigUpdateRequestFeaturesConfig"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FeaturesConfig"
+                "$ref": "#/components/schemas/FeaturesConfigUpdateRequestFeaturesConfig"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/FeaturesConfig"
+                "$ref": "#/components/schemas/FeaturesConfigUpdateRequestFeaturesConfig"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/FeaturesConfig"
+                "$ref": "#/components/schemas/FeaturesConfigUpdateRequestFeaturesConfig"
               }
             }
           }
@@ -3376,7 +3396,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FeaturesConfig"
+                  "$ref": "#/components/schemas/FaceFeaturesConfigFeaturesConfig"
                 }
               }
             }
@@ -6188,6 +6208,12 @@
         ],
         "type": "object",
         "properties": {
+          "cleanupAmount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "deprecated": true
+          },
           "enabled": {
             "type": "boolean"
           },
@@ -6206,11 +6232,51 @@
             "format": "date-span",
             "nullable": true
           },
+          "deleteSql": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "deleteMatchResults": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DbCleanupConfigUpdateRequest": {
+        "required": [
+          "cleanupStart",
+          "deleteMatchResults",
+          "deleteSql",
+          "enabled",
+          "maxFramesCount",
+          "maxImageDataAge"
+        ],
+        "type": "object",
+        "properties": {
           "cleanupAmount": {
             "type": "integer",
             "format": "int32",
             "nullable": true,
             "deprecated": true
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "maxFramesCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxImageDataAge": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cleanupStart": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
           },
           "deleteSql": {
             "type": "boolean",
@@ -6410,6 +6476,7 @@
         "required": [
           "age",
           "autolearnClusterType",
+          "brightness",
           "createdAt",
           "cropLeftBottomX",
           "cropLeftBottomY",
@@ -6427,6 +6494,8 @@
           "facesOnFrameCount",
           "frameId",
           "gender",
+          "glassStatus",
+          "heavyFrame",
           "id",
           "imageDataId",
           "leftEyeX",
@@ -6438,9 +6507,11 @@
           "rightEyeX",
           "rightEyeY",
           "rollAngle",
+          "sharpness",
           "size",
           "state",
           "templateQuality",
+          "tintedGlasses",
           "trackletId",
           "type",
           "updatedAt",
@@ -6598,6 +6669,31 @@
             "type": "string",
             "nullable": true
           },
+          "sharpness": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "brightness": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tintedGlasses": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "heavyFrame": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "glassStatus": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "id": {
             "type": "string",
             "format": "uuid"
@@ -6617,6 +6713,7 @@
       "FaceAttributes": {
         "required": [
           "age",
+          "brightness",
           "cropLeftBottomX",
           "cropLeftBottomY",
           "cropLeftTopX",
@@ -6629,12 +6726,16 @@
           "faceMaskStatus",
           "faceSize",
           "gender",
+          "glassStatus",
+          "heavyFrame",
           "leftEyeX",
           "leftEyeY",
           "noseTipConfidence",
           "quality",
           "rightEyeX",
-          "rightEyeY"
+          "rightEyeY",
+          "sharpness",
+          "tintedGlasses"
         ],
         "type": "object",
         "properties": {
@@ -6717,6 +6818,31 @@
           },
           "faceMaskStatus": {
             "$ref": "#/components/schemas/FaceMaskStatus"
+          },
+          "sharpness": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "brightness": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tintedGlasses": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "heavyFrame": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "glassStatus": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6780,11 +6906,16 @@
       "FaceFeaturesConfig": {
         "required": [
           "age",
+          "brightness",
           "faceMask",
           "gender",
+          "glassStatus",
+          "heavyFrame",
           "noseTip",
           "pitchAngle",
           "rollAngle",
+          "sharpness",
+          "tintedGlasses",
           "yawAngle"
         ],
         "type": "object",
@@ -6816,6 +6947,38 @@
           "rollAngle": {
             "type": "boolean",
             "default": true
+          },
+          "sharpness": {
+            "type": "boolean",
+            "default": true
+          },
+          "brightness": {
+            "type": "boolean",
+            "default": true
+          },
+          "tintedGlasses": {
+            "type": "boolean",
+            "default": true
+          },
+          "heavyFrame": {
+            "type": "boolean",
+            "default": true
+          },
+          "glassStatus": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceFeaturesConfigFeaturesConfig": {
+        "required": [
+          "faceFeaturesConfig"
+        ],
+        "type": "object",
+        "properties": {
+          "faceFeaturesConfig": {
+            "$ref": "#/components/schemas/FaceFeaturesConfig"
           }
         },
         "additionalProperties": false
@@ -7017,14 +7180,82 @@
         },
         "additionalProperties": false
       },
-      "FeaturesConfig": {
+      "FeaturesConfigUpdateRequest": {
+        "required": [
+          "age",
+          "faceMask",
+          "gender",
+          "noseTip",
+          "pitchAngle",
+          "rollAngle",
+          "yawAngle"
+        ],
+        "type": "object",
+        "properties": {
+          "age": {
+            "type": "boolean",
+            "default": true
+          },
+          "gender": {
+            "type": "boolean",
+            "default": true
+          },
+          "faceMask": {
+            "type": "boolean",
+            "default": true
+          },
+          "noseTip": {
+            "type": "boolean",
+            "default": true
+          },
+          "yawAngle": {
+            "type": "boolean",
+            "default": true
+          },
+          "pitchAngle": {
+            "type": "boolean",
+            "default": true
+          },
+          "rollAngle": {
+            "type": "boolean",
+            "default": true
+          },
+          "sharpness": {
+            "type": "boolean",
+            "default": true,
+            "nullable": true
+          },
+          "brightness": {
+            "type": "boolean",
+            "default": true,
+            "nullable": true
+          },
+          "tintedGlasses": {
+            "type": "boolean",
+            "default": true,
+            "nullable": true
+          },
+          "heavyFrame": {
+            "type": "boolean",
+            "default": true,
+            "nullable": true
+          },
+          "glassStatus": {
+            "type": "boolean",
+            "default": true,
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FeaturesConfigUpdateRequestFeaturesConfig": {
         "required": [
           "faceFeaturesConfig"
         ],
         "type": "object",
         "properties": {
           "faceFeaturesConfig": {
-            "$ref": "#/components/schemas/FaceFeaturesConfig"
+            "$ref": "#/components/schemas/FeaturesConfigUpdateRequest"
           }
         },
         "additionalProperties": false
@@ -7837,17 +8068,22 @@
       "PreviewAttributesConfig": {
         "required": [
           "age",
+          "brightness",
           "faceMaskConfidence",
           "faceMaskStatus",
           "gender",
+          "glassStatus",
+          "heavyFrame",
           "matchingScore",
           "order",
           "pitchAngle",
           "quality",
           "rollAngle",
+          "sharpness",
           "size",
           "templateQuality",
           "textFontSize",
+          "tintedGlasses",
           "watchlistMemberId",
           "watchlistMemberName",
           "watchlistName",
@@ -7902,6 +8138,21 @@
             "type": "boolean"
           },
           "faceMaskConfidence": {
+            "type": "boolean"
+          },
+          "sharpness": {
+            "type": "boolean"
+          },
+          "brightness": {
+            "type": "boolean"
+          },
+          "tintedGlasses": {
+            "type": "boolean"
+          },
+          "heavyFrame": {
+            "type": "boolean"
+          },
+          "glassStatus": {
             "type": "boolean"
           }
         },
@@ -7972,6 +8223,26 @@
             "default": false
           },
           "faceMaskConfidence": {
+            "type": "boolean",
+            "default": false
+          },
+          "sharpness": {
+            "type": "boolean",
+            "default": false
+          },
+          "brightness": {
+            "type": "boolean",
+            "default": false
+          },
+          "tintedGlasses": {
+            "type": "boolean",
+            "default": false
+          },
+          "heavyFrame": {
+            "type": "boolean",
+            "default": false
+          },
+          "glassStatus": {
             "type": "boolean",
             "default": false
           }
@@ -8047,6 +8318,26 @@
           },
           "faceMaskConfidence": {
             "type": "boolean"
+          },
+          "sharpness": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "brightness": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "tintedGlasses": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "heavyFrame": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "glassStatus": {
+            "type": "boolean",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8411,7 +8702,7 @@
             "$ref": "#/components/schemas/FaceMaskConfidenceRequest"
           },
           "faceFeaturesConfig": {
-            "$ref": "#/components/schemas/FaceFeaturesConfig"
+            "$ref": "#/components/schemas/WatchlistSearchFaceFeaturesRequestConfig"
           },
           "spoofDetectorResourceIds": {
             "type": "array",
@@ -8431,6 +8722,7 @@
       "SearchInWatchlistResponse": {
         "required": [
           "age",
+          "brightness",
           "cropLeftBottomX",
           "cropLeftBottomY",
           "cropLeftTopX",
@@ -8443,6 +8735,8 @@
           "faceMaskStatus",
           "faceSize",
           "gender",
+          "glassStatus",
+          "heavyFrame",
           "leftEyeX",
           "leftEyeY",
           "matchResults",
@@ -8450,7 +8744,9 @@
           "quality",
           "rightEyeX",
           "rightEyeY",
-          "spoofCheckResult"
+          "sharpness",
+          "spoofCheckResult",
+          "tintedGlasses"
         ],
         "type": "object",
         "properties": {
@@ -8542,6 +8838,31 @@
           },
           "faceMaskStatus": {
             "$ref": "#/components/schemas/FaceMaskStatus"
+          },
+          "sharpness": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "brightness": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tintedGlasses": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "heavyFrame": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "glassStatus": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -9806,6 +10127,69 @@
           "nextPage": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistSearchFaceFeaturesRequestConfig": {
+        "required": [
+          "age",
+          "faceMask",
+          "gender",
+          "noseTip",
+          "pitchAngle",
+          "rollAngle",
+          "yawAngle"
+        ],
+        "type": "object",
+        "properties": {
+          "age": {
+            "type": "boolean",
+            "default": true
+          },
+          "gender": {
+            "type": "boolean",
+            "default": true
+          },
+          "faceMask": {
+            "type": "boolean",
+            "default": true
+          },
+          "noseTip": {
+            "type": "boolean",
+            "default": true
+          },
+          "yawAngle": {
+            "type": "boolean",
+            "default": true
+          },
+          "pitchAngle": {
+            "type": "boolean",
+            "default": true
+          },
+          "rollAngle": {
+            "type": "boolean",
+            "default": true
+          },
+          "sharpness": {
+            "type": "boolean",
+            "default": true
+          },
+          "brightness": {
+            "type": "boolean",
+            "default": true
+          },
+          "tintedGlasses": {
+            "type": "boolean",
+            "default": true
+          },
+          "heavyFrame": {
+            "type": "boolean",
+            "default": true
+          },
+          "glassStatus": {
+            "type": "boolean",
+            "default": true
           }
         },
         "additionalProperties": false
