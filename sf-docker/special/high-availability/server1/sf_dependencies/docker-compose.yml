@@ -3,12 +3,14 @@ services:
   rmq1:
     image: "rabbitmq:3.10.2-management"
     container_name: rmq1
+    expose:
+      - "15672"
+      - "5672"
+      - "1883"
+      - "4369"
+      - "25672"
     ports:
-      - "15672:15672"
-      - "5672:5672"
-      - "1883:1883"
-      - "4369:4369"
-      - "25672:25672"
+       - "15677:15672"
     environment: 
       RABBITMQ_NODENAME: rabbit@rmq1
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
