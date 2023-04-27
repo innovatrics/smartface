@@ -8,11 +8,11 @@ services:
       - "5672:5672"
       - "1883:1883"
     environment: 
-      RABBITMQ_NODENAME: rabbit@rmq2
+      RABBITMQ_NODENAME: rabbit@SGDEVSAFCTN01
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
       RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
-      RABBITMQ_ERLANG_COOKIE: rabbitcookie
     volumes:
+      - ./.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./etc_rmq/:/etc/rabbitmq/external
       - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped

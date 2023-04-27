@@ -61,9 +61,13 @@ echo $VERSION
 echo $REGISTRY
 
 # create mqtt user for rmq mqtt plugin
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
+docker exec -it rmq2 /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
+docker exec -it rmq2 /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
+docker exec -it rmq2 /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
+
+docker exec -it rmq2 /opt/rabbitmq/sbin/rabbitmqctl stop_app
+docker exec -it rmq2 /opt/rabbitmq/sbin/rabbitmqctl join_cluster --ram rabbit@SGDEVCPFCTN01
+docker exec -it rmq2 /opt/rabbitmq/sbin/rabbitmqctl start_app
 
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
