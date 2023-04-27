@@ -48,7 +48,7 @@ services:
       - data4-1:/data1
       - data4-2:/data2
 
-  nginx:
+  minio-proxy:
     image: nginx:1.19.2-alpine
     hostname: nginx
     volumes:
@@ -73,3 +73,8 @@ volumes:
   data3-2:
   data4-1:
   data4-2:
+
+networks:
+  default:
+    external:
+      name: HighAvailabilityClusterNetwork

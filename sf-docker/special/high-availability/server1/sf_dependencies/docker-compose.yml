@@ -37,4 +37,4 @@ volumes:
 networks:
   default:
     external:
-      name: sf-network
+      name: HighAvailabilityClusterNetwork
