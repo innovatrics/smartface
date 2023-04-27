@@ -1,0 +1,26 @@
+version: '3'
+services:
+  rmq2:
+    image: "rabbitmq:3.10.2-management"
+    container_name: rmq2
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "1883:1883"
+    environment: 
+      RABBITMQ_NODENAME: rabbit@rmq2
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+      RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
+      RABBITMQ_ERLANG_COOKIE: rabbitcookie
+    volumes:
+      - ./etc_rmq/:/etc/rabbitmq/external
+      - rmqdata:/var/lib/rabbitmq
+    restart: unless-stopped
+
+volumes:
+  rmqdata:
+
+networks:
+  default:
+    external:
+      name: sf-network
