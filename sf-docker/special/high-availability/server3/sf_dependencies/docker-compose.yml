@@ -1,0 +1,28 @@
+version: '3'
+services:
+  rmq3:
+    image: "rabbitmq:3.10.2-management"
+    container_name: rmq3
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "1883:1883"
+      - "4369:4369"
+      - "25672:25672"
+    environment: 
+      RABBITMQ_NODENAME: rabbit@rmq3
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+      RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
+    volumes:
+      - ./.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./etc_rmq/:/etc/rabbitmq/external
+      - rmqdata:/var/lib/rabbitmq
+    restart: unless-stopped
+
+volumes:
+  rmqdata:
+
+networks:
+  default:
+    external:
+      name: HighAvailabilityClusterNetwork
