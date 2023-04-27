@@ -1,3 +1,28 @@
+#!/bin/bash
+
+set -x
+set -e
+
+if [ ! -f iengine.lic ]; then
+    echo "License file not found. Please make sure that the license file is present in the current directory." >&2
+    exit 1
+fi
+
+COMPOSE_COMMAND="docker compose"
+
+set +e
+
+$COMPOSE_COMMAND version
+
+if [ $? -ne 0 ]; then
+    COMPOSE_COMMAND="docker-compose"
+    $COMPOSE_COMMAND version
+    if [ $? -ne 0 ]; then
+        echo "No compose command found. Please install docker compose" >&2
+        exit 1
+    fi
+fi
+
 set -e
 # HighAvailabilityClusterNetwork is used so that sf-dependencies and sf containers can communicate
 # this can fail if the network already exists, but we don't mind that
