@@ -7,8 +7,10 @@ services:
       - "15672:15672"
       - "5672:5672"
       - "1883:1883"
+      - "4369:4369"
+      - "25672:25672"
     environment: 
-      RABBITMQ_NODENAME: rabbit@SGDEVSAFCTN01
+      RABBITMQ_NODENAME: rabbit@rmq2
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
       RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
     volumes:
