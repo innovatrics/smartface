@@ -18,11 +18,11 @@ services:
     volumes:
       - ./.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./etc_rmq/:/etc/rabbitmq/external
-      - rmqdata:/var/lib/rabbitmq
+      - rmqdata1:/var/lib/rabbitmq
     restart: unless-stopped
 
 volumes:
-  rmqdata:
+  rmqdata1:
 
 networks:
   default:
