@@ -2,6 +2,7 @@ version: "3.4"
 services:
   sf-base:
     image: ${REGISTRY}sf-base:${SF_VERSION}
+    container_name: SFBase
     command: --serviceName SFBase
     ports:
       - 2406:2406
