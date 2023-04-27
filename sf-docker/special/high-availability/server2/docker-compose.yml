@@ -1,10 +1,10 @@
 version: "3.4"
 services:
-  sf-cam-6:
+  sf-cam-2:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    command: --serviceName SFCam6
+    command: --serviceName SFCam2
     ports:
-      - 30006:${CameraDefaults__PreviewPort}
+      - 30002:${CameraDefaults__PreviewPort}
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
