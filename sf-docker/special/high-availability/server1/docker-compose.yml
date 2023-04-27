@@ -75,6 +75,7 @@ services:
 
   api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
+    container_name: SFApi
     ports:
       # we forward the configured ports to default SF ports
       - 8098:${Hosting__Port}
@@ -102,6 +103,7 @@ services:
 
   sf-graphql-api:
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
+    container_name: SFGraphQLApi
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
@@ -122,6 +124,7 @@ services:
 
   odata-api:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
+    container_name: SFODataApi
     ports:
       # we forward the configured ports to default SF ports
       - 8099:${Hosting__Port}
