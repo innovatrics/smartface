@@ -3,11 +3,6 @@
 set -x
 set -e
 
-if [ ! -f iengine.lic ]; then
-    echo "License file not found. Please make sure that the license file is present in the current directory." >&2
-    exit 1
-fi
-
 COMPOSE_COMMAND="docker compose"
 
 set +e
