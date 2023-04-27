@@ -1,31 +1,7 @@
 version: "3.4"
 services:
-  sf-group:
-    image: ${REGISTRY}sf-grouping:${SF_VERSION}
-    container_name: SFGroup
-    command: --serviceName SFGroup
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-
   sf-cam-6:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam6
     command: --serviceName SFCam6
     ports:
       - 30006:${CameraDefaults__PreviewPort}
@@ -53,7 +29,6 @@ services:
 
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
-    container_name: SFDetectCpu
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -72,7 +47,6 @@ services:
 
   pedestrian-detector:
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
-    container_name: SFPedestrianDetectCpu
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -91,7 +65,6 @@ services:
 
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
-    container_name: SFExtractCpu
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -110,7 +83,6 @@ services:
 
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
-    container_name: SFWatchlistMatcher
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -128,7 +100,6 @@ services:
 
   face-matcher:
     image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
-    container_name: SFFaceMatcher
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -145,7 +116,6 @@ services:
 
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
-    container_name: SFLiveness
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -164,7 +134,6 @@ services:
 
   video-aggregator:
     image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
-    container_name: SFVideoDataAggregator
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -186,7 +155,6 @@ services:
 
   video-collector:
     image: ${REGISTRY}sf-video-collector:${SF_VERSION}
-    container_name: SFVideoDataCollector
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -208,7 +176,6 @@ services:
 
   video-reader:
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
-    container_name: SFVideoReader
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -227,7 +194,6 @@ services:
 
   body-parts-detector:
     image: ${REGISTRY}sf-body-parts-detector:${SF_VERSION}
-    container_name: SFBodyPartsDetectCpu
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -242,7 +208,6 @@ services:
 
   edge-stream-processor:
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
-    container_name: SFEdgeStreamProcessor
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
