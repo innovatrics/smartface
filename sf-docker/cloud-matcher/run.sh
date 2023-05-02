@@ -54,16 +54,9 @@ S3_ENDPOINT=$(grep -E ^S3Bucket__Endpoint .env | cut -d '=' -f2 | cut -d$'\r' -f
 S3_ACCESS=$(grep -E ^S3Bucket__AccessKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 S3_SECRET=$(grep -E ^S3Bucket__SecretKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 S3_BUCKET=$(grep -E ^S3Bucket__BucketName .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-# set correct hostname to sfstation env file
-sed -i "s/S3_ENDPOINT=.*/S3_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
 
 echo $VERSION
 echo $REGISTRY
-
-# create mqtt user for rmq mqtt plugin
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
 
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
