@@ -43,7 +43,7 @@ Please note that GPU acceleration is supported only on NVIDIA GPU.
 
 To use GPU acceleration, you will need following on the docker host machine:
 
-- Nvidia GPU compatible with Cuda 11.6
+- Nvidia GPU compatible with Cuda 11.4
 - Nvidia driver of version >=510.47.03
 - Nvidia container toolkit https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker
 
