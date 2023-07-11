@@ -535,6 +535,25 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
+  object-detector:
+    image: ${REGISTRY}sf-object-detector:${SF_VERSION}
+    container_name: SFObjectDetectorCpu
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+  
   access-controller:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     container_name: SFAccessController
