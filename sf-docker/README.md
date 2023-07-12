@@ -19,7 +19,7 @@ In order to run SmartFace, you need a valid license.
 ## Samples
 To get up and running as fast as possible, multiple scenarios are available:
 - [`single-camera`](./single-camera/) - a *Simple Setup!* sample
-- [`cloud-matcher`](./cloud-matcher/) - Cloud Matcher deployment sample
+- [`LFIS`](./LFIS/) - Lightweight Facial Identification Service deployment sample
 - [`nvidia-jetson`](./nvidia-jetson/) - launch demo deployment on [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform
 - [`access-control`](./access-control/) - preconfigured for the Access Controll use case
 - [`multi-server`](./multi-server/) - sample of SmartFace distributed on 3 servers
