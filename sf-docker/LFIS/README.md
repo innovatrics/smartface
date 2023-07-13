@@ -1,4 +1,4 @@
-# SmartFace Cloud Matcher
+# SmartFace Lightweight Facial Identification Service
 
 ## Deployment
 1. Install `Docker` and `docker compose` on the host machine.
