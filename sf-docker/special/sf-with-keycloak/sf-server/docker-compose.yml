@@ -48,6 +48,26 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
+  sf-streamdatadbworker:
+    image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
+    container_name: SFStreamDataDbWorker
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+
   sf-cam-1:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam1
