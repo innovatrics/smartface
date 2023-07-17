@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.18.2.3499"
+    "version": "v5_4.20.1"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -25,7 +25,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns the found frame.",
+            "description": "Returns the found camera.",
             "content": {
               "application/json": {
                 "schema": {
@@ -35,7 +35,7 @@
             }
           },
           "404": {
-            "description": "The frame with given Id was not found.",
+            "description": "The camera with given Id was not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -68,7 +68,7 @@
             "description": "The camera with given id was deleted successfully."
           },
           "404": {
-            "description": "The individual with given id was not found.",
+            "description": "The camera with given id was not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_any_remote, liveness_distant_gpu_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote, external",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -171,7 +171,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n\r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote, external",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -507,7 +507,7 @@
           "EdgeStream"
         ],
         "summary": "Creates a new EdgeStream.",
-        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n\r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
+        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -571,7 +571,7 @@
           "EdgeStream"
         ],
         "summary": "Updates the specified EdgeStream.",
-        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n\r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
+        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -779,7 +779,7 @@
           "Face"
         ],
         "summary": "Searches for similar stored faces based on the given image.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any",
         "requestBody": {
           "description": "Request containing reference image to be searched.",
           "content": {
@@ -855,7 +855,7 @@
           "Face"
         ],
         "summary": "Checks liveness of one face on the given image.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote,liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\n <br />```SpoofCheckConfig.KeepEvaluatingConditionsAfterFirstFail``` is used <br />\r\n\r\n to evaluate all conditions supplied with ``` Nearby/Distant LivenessConditions ```.\r\n\r\n When ```true``` it can have slight performance impact, because all conditions are evaluated <br />",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\n <br />```SpoofCheckConfig.KeepEvaluatingConditionsAfterFirstFail``` is used\r\n\r\n to evaluate all conditions supplied with ``` Nearby/Distant LivenessConditions ```.\r\n\r\n When ```true``` it can have slight performance impact, because all conditions are evaluated <br />",
         "requestBody": {
           "description": "Request containing reference image to be checked and configuration.",
           "content": {
@@ -921,7 +921,7 @@
           "Face"
         ],
         "summary": "Calculates confidence that two faces on sent photos belong to the same person.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any",
         "requestBody": {
           "description": "Request containing images with faces to be compared",
           "content": {
@@ -1162,44 +1162,10 @@
         ],
         "responses": {
           "404": {
-            "description": "The image with given Id was not found.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
+            "description": "The image with given Id was not found."
           },
           "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
+            "description": "The sent request was not valid."
           },
           "200": {
             "description": null,
@@ -1450,7 +1416,7 @@
           "Individual"
         ],
         "summary": "Searches for individuals by image in the specified grouping.",
-        "description": "Supported values for ```FaceDetectorResourceId``` and ```TemplateGeneratorResourceId``` are\r\n```cpu```, ```gpu``` and ```any```. Default is ```cpu```.",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any",
         "requestBody": {
           "description": "Request containing image, grouping id and resources.",
           "content": {
@@ -2836,7 +2802,7 @@
           "RecordGrouping"
         ],
         "summary": "Uploads the image to a specified record grouping.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are ```cpu```, ```gpu``` and ```any```. Default is ```cpu```.",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any",
         "parameters": [
           {
             "name": "groupingId",
@@ -4863,7 +4829,7 @@
           "Watchlist"
         ],
         "summary": "Searches the specified watchlists for matches with the given image.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, accurate_cpu, accurate_gpu\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote,liveness_nearby_cpu_remote, liveness_nearby_gpu_remote",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote",
         "requestBody": {
           "description": "Request containing searching image and ids of watchlists to be searched.",
           "content": {
@@ -5556,7 +5522,7 @@
           "WatchlistMember"
         ],
         "summary": "Adds a specified face to a given watchlist member.",
-        "description": "Supported values for ```FaceDetectorResourceId``` and ```TemplateGeneratorResourceId``` are\r\n```cpu```, ```gpu``` and ```any```. Default is ```cpu```.",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any",
         "parameters": [
           {
             "name": "id",
@@ -5740,6 +5706,64 @@
         },
         "additionalProperties": false
       },
+      "AttributeType": {
+        "enum": [
+          "Hat",
+          "Glasses",
+          "ShortSleeve",
+          "LongSleeve",
+          "UpperStripe",
+          "UpperLogo",
+          "UpperPlaid",
+          "UpperSplice",
+          "LowerStripe",
+          "LowerPattern",
+          "LongCoat",
+          "Trousers",
+          "Shorts",
+          "SkirtOrDress",
+          "Boots",
+          "HandBag",
+          "ShoulderBag",
+          "Backpack",
+          "HoldObjectsInFront",
+          "IsSenior",
+          "IsAdult",
+          "IsChild",
+          "IsMale",
+          "IsFemale",
+          "Front",
+          "Side",
+          "Back",
+          "HatConfidence",
+          "GlassesConfidence",
+          "ShortSleeveConfidence",
+          "LongSleeveConfidence",
+          "UpperStripeConfidence",
+          "UpperLogoConfidence",
+          "UpperPlaidConfidence",
+          "UpperSpliceConfidence",
+          "LowerStripeConfidence",
+          "LowerPatternConfidence",
+          "LongCoatConfidence",
+          "TrousersConfidence",
+          "ShortsConfidence",
+          "SkirtOrDressConfidence",
+          "BootsConfidence",
+          "HandBagConfidence",
+          "ShoulderBagConfidence",
+          "BackpackConfidence",
+          "HoldObjectsInFrontConfidence",
+          "IsSeniorConfidence",
+          "IsAdultConfidence",
+          "IsChildConfidence",
+          "FemaleConfidence",
+          "FrontConfidence",
+          "SideConfidence",
+          "BackConfidence"
+        ],
+        "type": "string"
+      },
       "Camera": {
         "required": [
           "enabled",
@@ -5753,8 +5777,13 @@
           "mpeG1PreviewPort",
           "mpeG1VideoBitrate",
           "name",
+          "objectDetectorConfig",
+          "objectDetectorResourceId",
+          "objectSaveStrategy",
           "pedestrianDetectorConfig",
           "pedestrianDetectorResourceId",
+          "pedestrianExtractorResourceId",
+          "pedestrianSaveStrategy",
           "previewAttributesConfig",
           "previewMaxDimension",
           "redetectionTime",
@@ -5804,6 +5833,9 @@
           "pedestrianDetectorResourceId": {
             "type": "string"
           },
+          "pedestrianExtractorResourceId": {
+            "type": "string"
+          },
           "redetectionTime": {
             "type": "integer",
             "format": "int32"
@@ -5819,7 +5851,15 @@
             "type": "string"
           },
           "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
+            "type": "string"
+          },
+          "pedestrianSaveStrategy": {
+            "type": "string",
+            "nullable": true
+          },
+          "objectSaveStrategy": {
+            "type": "string",
+            "nullable": true
           },
           "maskImagePath": {
             "type": "string",
@@ -5855,6 +5895,13 @@
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfig"
+          },
+          "objectDetectorResourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "objectDetectorConfig": {
+            "$ref": "#/components/schemas/ObjectDetectorConfig"
           }
         },
         "additionalProperties": false
@@ -5895,6 +5942,11 @@
             "default": "none",
             "nullable": true
           },
+          "pedestrianExtractorResourceId": {
+            "type": "string",
+            "default": "none",
+            "nullable": true
+          },
           "templateGeneratorResourceId": {
             "type": "string",
             "default": "cpu",
@@ -5923,7 +5975,14 @@
             "nullable": true
           },
           "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
+            "type": "string",
+            "default": "BestFace",
+            "nullable": true
+          },
+          "pedestrianSaveStrategy": {
+            "type": "string",
+            "default": "Best",
+            "nullable": true
           },
           "maskImagePath": {
             "type": "string",
@@ -5984,6 +6043,19 @@
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfigCreateRequest"
+          },
+          "objectDetectorResourceId": {
+            "type": "string",
+            "default": "none",
+            "nullable": true
+          },
+          "objectSaveStrategy": {
+            "type": "string",
+            "default": "Best",
+            "nullable": true
+          },
+          "objectDetectorConfig": {
+            "$ref": "#/components/schemas/ObjectDetectorConfigCreateRequest"
           }
         },
         "additionalProperties": false
@@ -6136,6 +6208,10 @@
             "type": "string",
             "nullable": true
           },
+          "pedestrianExtractorResourceId": {
+            "type": "string",
+            "nullable": true
+          },
           "redetectionTime": {
             "type": "integer",
             "format": "int32"
@@ -6152,7 +6228,11 @@
             "nullable": true
           },
           "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
+            "type": "string"
+          },
+          "pedestrianSaveStrategy": {
+            "type": "string",
+            "nullable": true
           },
           "maskImagePath": {
             "type": "string",
@@ -6192,6 +6272,17 @@
           },
           "previewAttributesConfig": {
             "$ref": "#/components/schemas/PreviewAttributesConfigUpdateRequest"
+          },
+          "objectDetectorResourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "objectSaveStrategy": {
+            "type": "string",
+            "nullable": true
+          },
+          "objectDetectorConfig": {
+            "$ref": "#/components/schemas/ObjectDetectorConfigUpdateRequest"
           }
         },
         "additionalProperties": false
@@ -6296,6 +6387,7 @@
           "faceSaveStrategy",
           "id",
           "name",
+          "saveFrameImageData",
           "spoofDetectorConfig",
           "spoofDetectorResourceIds",
           "templateGeneratorResourceId"
@@ -6319,6 +6411,9 @@
             "type": "string"
           },
           "enabled": {
+            "type": "boolean"
+          },
+          "saveFrameImageData": {
             "type": "boolean"
           },
           "templateGeneratorResourceId": {
@@ -6351,6 +6446,10 @@
           "clientId": {
             "type": "string"
           },
+          "saveFrameImageData": {
+            "type": "boolean",
+            "default": true
+          },
           "templateGeneratorResourceId": {
             "type": "string",
             "default": "cpu",
@@ -6358,7 +6457,7 @@
           },
           "faceSaveStrategy": {
             "type": "string",
-            "default": "FirstFace, BestFace",
+            "default": "BestFace",
             "nullable": true
           },
           "spoofDetectorResourceIds": {
@@ -6452,6 +6551,10 @@
           },
           "name": {
             "type": "string"
+          },
+          "saveFrameImageData": {
+            "type": "boolean",
+            "nullable": true
           },
           "templateGeneratorResourceId": {
             "type": "string"
@@ -6722,8 +6825,10 @@
           "cropRightBottomY",
           "cropRightTopX",
           "cropRightTopY",
+          "faceArea",
           "faceMaskConfidence",
           "faceMaskStatus",
+          "faceOrder",
           "faceSize",
           "gender",
           "glassStatus",
@@ -6731,11 +6836,15 @@
           "leftEyeX",
           "leftEyeY",
           "noseTipConfidence",
+          "pitchAngle",
           "quality",
           "rightEyeX",
           "rightEyeY",
+          "rollAngle",
           "sharpness",
-          "tintedGlasses"
+          "templateQuality",
+          "tintedGlasses",
+          "yawAngle"
         ],
         "type": "object",
         "properties": {
@@ -6843,6 +6952,33 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "pitchAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "yawAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rollAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "faceArea": {
+            "type": "number",
+            "format": "double"
+          },
+          "templateQuality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "faceOrder": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -7068,16 +7204,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "FaceSaveStrategy": {
-        "enum": [
-          "All",
-          "FirstFace",
-          "BestFace",
-          "FirstFace, BestFace",
-          "MatchedOnly"
-        ],
-        "type": "string"
       },
       "FaceSearchDetectorConfig": {
         "type": "object",
@@ -7651,6 +7777,204 @@
         },
         "additionalProperties": false
       },
+      "ObjectAttribute": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AttributeType"
+          },
+          "floatValue": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "boolValue": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObjectDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minObjectSize": {
+            "type": "number",
+            "format": "double"
+          },
+          "maxObjectSize": {
+            "type": "number",
+            "format": "double"
+          },
+          "maxObjects": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "objectTypesConfiguration": {
+            "$ref": "#/components/schemas/ObjectTypesForDetection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObjectDetectorConfigCreateRequest": {
+        "type": "object",
+        "properties": {
+          "minObjectSize": {
+            "type": "number",
+            "format": "double",
+            "default": 40
+          },
+          "maxObjectSize": {
+            "type": "number",
+            "format": "double",
+            "default": 2000
+          },
+          "maxObjects": {
+            "type": "integer",
+            "format": "int32",
+            "default": 20
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "default": 5000
+          },
+          "objectTypesConfiguration": {
+            "$ref": "#/components/schemas/ObjectTypesForDetection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObjectDetectorConfigUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "minObjectSize": {
+            "type": "number",
+            "format": "double"
+          },
+          "maxObjectSize": {
+            "type": "number",
+            "format": "double"
+          },
+          "maxObjects": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "objectTypesConfiguration": {
+            "$ref": "#/components/schemas/ObjectTypesForDetection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObjectTypesForDetection": {
+        "type": "object",
+        "properties": {
+          "detectCar": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectBus": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectTruck": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectMotorcycle": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectBicycle": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectBoat": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectAirplane": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectTrain": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectBird": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectCat": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectDog": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectHorse": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectSheep": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectCow": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectBear": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectElephant": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectGiraffe": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectZebra": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectSuitcase": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectBackpack": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectHandbag": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectUmbrella": {
+            "type": "boolean",
+            "default": false
+          },
+          "detectKnife": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
       "Pedestrian": {
         "required": [
           "ankleLeftX",
@@ -7694,6 +8018,7 @@
           "neckY",
           "noseX",
           "noseY",
+          "objectAttributes",
           "objectOrderOnFrameForType",
           "objectsOnFrameCountForType",
           "poses",
@@ -7977,6 +8302,12 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "objectAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ObjectAttribute"
+            }
           },
           "id": {
             "type": "string",
@@ -8354,6 +8685,10 @@
           },
           "pedestrianBoundingBoxColor": {
             "type": "string"
+          },
+          "objectBoundingBoxColor": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8731,8 +9066,10 @@
           "cropRightBottomY",
           "cropRightTopX",
           "cropRightTopY",
+          "faceArea",
           "faceMaskConfidence",
           "faceMaskStatus",
+          "faceOrder",
           "faceSize",
           "gender",
           "glassStatus",
@@ -8741,12 +9078,16 @@
           "leftEyeY",
           "matchResults",
           "noseTipConfidence",
+          "pitchAngle",
           "quality",
           "rightEyeX",
           "rightEyeY",
+          "rollAngle",
           "sharpness",
           "spoofCheckResult",
-          "tintedGlasses"
+          "templateQuality",
+          "tintedGlasses",
+          "yawAngle"
         ],
         "type": "object",
         "properties": {
@@ -8863,6 +9204,33 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "pitchAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "yawAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rollAngle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "faceArea": {
+            "type": "number",
+            "format": "double"
+          },
+          "templateQuality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "faceOrder": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -9385,7 +9753,7 @@
             "deprecated": true
           },
           "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
+            "type": "string"
           },
           "maskImagePath": {
             "type": "string",
@@ -9488,7 +9856,8 @@
             "deprecated": true
           },
           "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
+            "type": "string",
+            "nullable": true
           },
           "maskImagePath": {
             "type": "string",
@@ -9680,7 +10049,8 @@
             "deprecated": true
           },
           "faceSaveStrategy": {
-            "$ref": "#/components/schemas/FaceSaveStrategy"
+            "type": "string",
+            "nullable": true
           },
           "maskImagePath": {
             "type": "string",
