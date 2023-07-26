@@ -54,6 +54,8 @@ S3_ENDPOINT=$(grep -E ^S3Bucket__Endpoint .env | cut -d '=' -f2 | cut -d$'\r' -f
 S3_ACCESS=$(grep -E ^S3Bucket__AccessKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 S3_SECRET=$(grep -E ^S3Bucket__SecretKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
 S3_BUCKET=$(grep -E ^S3Bucket__BucketName .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+# set correct hostname to sfstation env file
+sed -i "s/S3_ENDPOINT=.*/S3_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
 
 echo $VERSION
 echo $REGISTRY
@@ -67,12 +69,12 @@ if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
     docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace" || true
     # run database migration to current version
-    docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=mssql;Database=SmartFace;User ID=sa;Password=Test1234;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
+    docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=mssql;Database=SmartFace;User ID=sa;Password=Test1234;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
 elif [[ "$DB_ENGINE" == "PgSql" ]]; then
     # create SmartFace database in PgSql
     docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
     # run database migration to current version
-    docker run --rm --name admin_migration --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Trust Server Certificate=true;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
+    docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Trust Server Certificate=true;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
 else
     echo "Unknown DB engine: ${DB_ENGINE}!" >&2
     exit 1
