@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.20.1"
+    "version": "v5_4.21.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -3434,7 +3434,7 @@
           "SetupPreview"
         ],
         "summary": "Updates the preview config with specified values.",
-        "description": "When setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
+        "description": "Default value for FaceBoundingBoxColor is ```#ecec5e```\r\n\r\nDefault value for PedestrianBoundingBoxColor is ```#80b5ff```\r\n\r\nDefault value for ObjectBoundingBoxColor is ```#e638d3```",
         "requestBody": {
           "description": "The new preview configuration.",
           "content": {
@@ -8874,6 +8874,7 @@
           "displayName",
           "fullName",
           "labels",
+          "previewColor",
           "score",
           "watchlistDisplayName",
           "watchlistFullName",
@@ -8907,6 +8908,9 @@
           "watchlistId": {
             "type": "string",
             "nullable": true
+          },
+          "previewColor": {
+            "type": "string"
           },
           "labels": {
             "type": "array",
