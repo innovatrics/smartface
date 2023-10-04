@@ -364,7 +364,7 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     #runtime: nvidia
-  
+
   pedestrian-extractor:
     image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
     container_name: SFPedestrianExtractorCpu
@@ -547,6 +547,33 @@ services:
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
+      - OperationMode__MatchingDataStrategy
+      - OperationMode__LivenessDataStrategy
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  edge-streams-state-synchronizer:
+    image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
+    container_name: SFEdgeStreamsStateSynchronizer
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 

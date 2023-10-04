@@ -5,7 +5,7 @@ services:
     container_name: mssql
     ports:
       - "1433:1433"
-    environment: 
+    environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Test1234
     restart: unless-stopped
@@ -24,7 +24,7 @@ services:
     volumes:
       - pgsqldata:/var/lib/postgresql/data
       #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
-  
+
   pgadmin:
     image: "dpage/pgadmin4:6.10"
     container_name: pgadmin
@@ -33,7 +33,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: Test1234
     ports:
       - "7070:80"
-  
+
   rabbitmq:
     image: "rabbitmq:3.10.2-management"
     container_name: rmq
@@ -41,7 +41,8 @@ services:
       - "15672:15672"
       - "5672:5672"
       - "1883:1883"
-    environment: 
+      - "5552:5552"
+    environment:
       RABBITMQ_NODENAME: rabbit@rmq
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
       RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
