@@ -2,7 +2,7 @@
 
 source .env
 
-docker run --rm --name admin-stream-gen --network sf-network ${REGISTRY}sf-admin:${VERSION} \
+docker run --rm --name admin-stream-gen --network sf-network ${REGISTRY}sf-admin:${SF_VERSION} \
     populate-wl-update-log-stream \
     -c "${ConnectionStrings__CoreDbContext}" \
     -dbe ${Database__DbEngine} \
