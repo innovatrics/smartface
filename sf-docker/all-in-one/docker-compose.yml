@@ -609,6 +609,7 @@ services:
   edge-streams-state-synchronizer:
     image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
     container_name: SFEdgeStreamsStateSynchronizer
+    restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
