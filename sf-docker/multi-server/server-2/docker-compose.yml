@@ -12,6 +12,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -40,6 +42,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -68,6 +72,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -96,6 +102,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -124,6 +132,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -152,6 +162,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -181,6 +193,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -210,6 +224,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -238,6 +254,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -267,6 +285,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -292,6 +312,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -311,6 +333,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -330,6 +354,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -347,6 +373,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -365,6 +393,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -384,6 +414,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -402,6 +434,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -419,6 +453,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -438,6 +474,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -460,6 +498,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -482,6 +522,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - S3Bucket__Endpoint
@@ -501,6 +543,8 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -516,11 +560,40 @@ services:
       - RabbitMQ__Username
       - RabbitMQ__Password
       - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl      
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
+      - OperationMode__MatchingDataStrategy
+      - OperationMode__LivenessDataStrategy      
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  edge-streams-state-synchronizer:
+    image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
+    container_name: SFEdgeStreamsStateSynchronizer
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - RabbitMQ__StreamsPort
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_RabbitMq_Enabled
+      - Rpc__TimeoutMs
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
@@ -536,6 +609,8 @@ services:
       - RabbitMq__UserName=${RabbitMQ__Username}
       - RabbitMq__Password=${RabbitMQ__Password}
       - RabbitMq__Port=${RabbitMQ__Port}
+      - RabbitMq__VirtualHost=${RabbitMQ__VirtualHost}
+      - RabbitMq__UseSsl=${RabbitMQ__UseSsl}
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
     env_file: .env.sfac
 
