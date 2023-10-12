@@ -28,32 +28,29 @@ set -e
 # this can fail if the network already exists, but we don't mind that
 docker network create sf-network || true
 
-# start dependencies of SF - MsSql, RMQ and minio
+# start dependencies of SF - PgSql, RMQ and minio
+chmod go+rx sf_dependencies/etc_rmq
+chmod go+r sf_dependencies/etc_rmq/*
 $COMPOSE_COMMAND -f sf_dependencies/docker-compose.yml up -d
 
 # sleep to wait for the dependencies to start up
 sleep 10
 
+getvalue() {
+    local key="$1"
+    local value=$(grep -E ^${key}= .env | cut -d '=' -f2- | cut -d$'\r' -f1)
+    echo "$value"
+}
+
 # load version and registry from .env
-VERSION=$(grep -E ^SF_VERSION .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-REGISTRY=$(grep -E ^REGISTRY .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+VERSION="$(getvalue SF_VERSION)"
+REGISTRY="$(getvalue REGISTRY)"
+
+SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
 
 # we use the DB engine that will be used by SF to create and migrate the DB
 # to switch DB engine, change the .env file
-DB_ENGINE=$(grep -E ^Database__DbEngine .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-
-# load RabbitMQ properties from .env
-RMQ_HOST=$(grep -E ^RabbitMQ__Hostname .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-RMQ_USER=$(grep -E ^RabbitMQ__Username .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-RMQ_PASS=$(grep -E ^RabbitMQ__Password .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-RMQ_VHOST=$(grep -E ^RabbitMQ__VirtualHost .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-RMQ_PORT=$(grep -E ^RabbitMQ__Port .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-RMQ_SSL=$(grep -E ^RabbitMQ__UseSsl .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-
-S3_ENDPOINT=$(grep -E ^S3Bucket__Endpoint .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-S3_ACCESS=$(grep -E ^S3Bucket__AccessKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-S3_SECRET=$(grep -E ^S3Bucket__SecretKey .env | cut -d '=' -f2 | cut -d$'\r' -f1)
-S3_BUCKET=$(grep -E ^S3Bucket__BucketName .env | cut -d '=' -f2 | cut -d$'\r' -f1)
+DB_ENGINE="$(getvalue Database__DbEngine)"
 
 echo $VERSION
 echo $REGISTRY
@@ -62,18 +59,27 @@ if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
     docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace" || true
     # run database migration to current version
-    docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=mssql;Database=SmartFace;User ID=sa;Password=Test1234;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
+    docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${SF_ADMIN_IMAGE} \
+        run-migration \
+            -p 5 -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
+            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
 elif [[ "$DB_ENGINE" == "PgSql" ]]; then
     # create SmartFace database in PgSql
     docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
     # run database migration to current version
-    docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${REGISTRY}sf-admin:${VERSION} run-migration -p 5 -c "Server=pgsql;Database=smartface;Username=postgres;Password=Test1234;Trust Server Certificate=true;" -dbe $DB_ENGINE --rmq-host ${RMQ_HOST} --rmq-user ${RMQ_USER} --rmq-pass ${RMQ_PASS} --rmq-virtual-host ${RMQ_VHOST} --rmq-port ${RMQ_PORT} --rmq-use-ssl ${RMQ_SSL}
+    docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${SF_ADMIN_IMAGE} \
+        run-migration \
+            -p 5 -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
+            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
 else
     echo "Unknown DB engine: ${DB_ENGINE}!" >&2
     exit 1
 fi
 
-docker run --rm --name s3-bucket-create --network sf-network ${REGISTRY}sf-admin:${VERSION} ensure-s3-bucket-exists --endpoint "$S3_ENDPOINT" --access-key "$S3_ACCESS" --secret-key  "$S3_SECRET" --bucket-name "$S3_BUCKET"
+docker run --rm --name s3-bucket-create --network sf-network ${SF_ADMIN_IMAGE} \
+    ensure-s3-bucket-exists --endpoint "$(getvalue S3Bucket__Endpoint)" --access-key "$(getvalue S3Bucket__AccessKey)" --secret-key  "$(getvalue S3Bucket__SecretKey)" --bucket-name "$(getvalue S3Bucket__BucketName)"
 
 # finally start SF images
 $COMPOSE_COMMAND up -d --force-recreate

@@ -29,5 +29,7 @@ set -e
 # this can fail if the network already exists, but we don't mind that
 docker network create sf-network || true
 
-# start dependencies of SF - MsSql, RMQ and minio
+# start dependencies of SF - PgSql, RMQ and minio
+chmod go+rx sf_dependencies/etc_rmq
+chmod go+r sf_dependencies/etc_rmq/*
 $COMPOSE_COMMAND docker-compose.yml up -d

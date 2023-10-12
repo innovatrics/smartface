@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.21.0"
+    "version": "v5_4.22.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -507,7 +507,7 @@
           "EdgeStream"
         ],
         "summary": "Creates a new EdgeStream.",
-        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
+        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -571,7 +571,7 @@
           "EdgeStream"
         ],
         "summary": "Updates the specified EdgeStream.",
-        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
+        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -620,6 +620,124 @@
           },
           "400": {
             "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/EdgeStreams/{id}/WatchlistSynchronization": {
+      "put": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Sets the watchlist synchronization for the specified EdgeStream.",
+        "description": "Supported values for ```watchlistSyncOption``` are: <br />\r\n\r\n    None, All",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Settings for watchlist synchronization",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamWatchlistSynchronizationRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamWatchlistSynchronizationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamWatchlistSynchronizationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdgeStreamWatchlistSynchronizationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EdgeStreamWatchlistSynchronization"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Retrieves watchlist synchronization settings for the specified EdgeStream.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the found settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EdgeStreamWatchlistSynchronization"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The EdgeStream with given Id was not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4040,7 +4158,7 @@
         "tags": [
           "VideoRecord"
         ],
-        "summary": "Updates the specified video record with given values.",
+        "summary": "Upserts the specified video record with given values.",
         "requestBody": {
           "description": "New video record values.",
           "content": {
@@ -5657,10 +5775,10 @@
         },
         "responses": {
           "204": {
-            "description": "The face was successfully added to the watchlist member."
+            "description": "The face was successfully removed from watchlist member."
           },
           "404": {
-            "description": "The face or watchlist member were not found.",
+            "description": "The face or watchlist member was not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -6571,6 +6689,31 @@
           },
           "spoofDetectorConfig": {
             "$ref": "#/components/schemas/EdgeStreamSpoofDetectorConfigUpdateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamWatchlistSynchronization": {
+        "required": [
+          "watchlistSyncOption"
+        ],
+        "type": "object",
+        "properties": {
+          "watchlistSyncOption": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamWatchlistSynchronizationRequest": {
+        "required": [
+          "watchlistSyncOption"
+        ],
+        "type": "object",
+        "properties": {
+          "watchlistSyncOption": {
+            "type": "string",
+            "default": "None"
           }
         },
         "additionalProperties": false
@@ -10194,9 +10337,13 @@
         "type": "object",
         "properties": {
           "displayName": {
+            "maxLength": 200,
+            "minLength": 0,
             "type": "string"
           },
           "fullName": {
+            "maxLength": 200,
+            "minLength": 0,
             "type": "string"
           },
           "threshold": {
@@ -10610,9 +10757,13 @@
             "type": "string"
           },
           "displayName": {
+            "maxLength": 200,
+            "minLength": 0,
             "type": "string"
           },
           "fullName": {
+            "maxLength": 200,
+            "minLength": 0,
             "type": "string"
           },
           "threshold": {
