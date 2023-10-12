@@ -50,7 +50,7 @@ SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
 
 # we use the DB engine that will be used by SF to create and migrate the DB
 # to switch DB engine, change the .env file
-DB_ENGINE="$(getvalue Database__DbEngine)
+DB_ENGINE="$(getvalue Database__DbEngine)"
 
 # set correct hostname to sfstation env file
 sed -i "s/S3_PUBLIC_ENDPOINT=.*/S3_PUBLIC_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
