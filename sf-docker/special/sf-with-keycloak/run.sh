@@ -20,7 +20,9 @@ fi
 
 set -e
 
-# start dependencies of SF - MsSql, RMQ and minio
+# start dependencies of SF - PgSql, RMQ and minio
+chmod go+rx sf_dependencies/etc_rmq
+chmod go+r sf_dependencies/etc_rmq/*
 $COMPOSE_COMMAND -f keycloak-server/docker-compose.yml up -d
 
 sleep 10
