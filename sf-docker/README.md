@@ -22,15 +22,10 @@ In order to run SmartFace, you need a valid license.
 
 ## Samples
 
-To get up and running as fast as possible, multiple scenarios are available:
-- [`single-camera`](./single-camera/) - a *Simple Setup!* sample
+To get up and running as fast as possible, these samples are available:
+- [`all-in-one`](./all-in-one/) - a All-in-One setup known from previous version. Contains all available services.
 - [`LFIS`](./LFIS/) - Lightweight Facial Identification Service deployment sample
 - [`nvidia-jetson`](./nvidia-jetson/) - launch demo deployment on [Nvidia Jetson](https://developer.nvidia.com/embedded/jetson-developer-kits) platform
-- [`access-control`](./access-control/) - preconfigured for the Access Controll use case
-- [`multi-server`](./multi-server/) - sample of SmartFace distributed on 3 servers
-- [`rapid-video-processing`](./rapid-video-processing/) - Video Post Processing use case
-- [`multi-camera`](./multi-camera/) - a Multi Camera setup
-- [`all-in-one`](./all-in-one/) - a All-in-One setup known from previous version. Contains all available services.
 
 Note: _jetson docker containers need to be run in privileged mode. This is because we need specific system files available in the container to properly check license usage._
 
