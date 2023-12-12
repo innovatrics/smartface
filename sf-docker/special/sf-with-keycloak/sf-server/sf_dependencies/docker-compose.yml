@@ -42,10 +42,12 @@ services:
       - "15672:15672"
       - "5672:5672"
       - "1883:1883"
+      - "5552:5552/tcp"      
     environment:
       RABBITMQ_NODENAME: rabbit@rmq
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
       RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: -rabbitmq_stream advertised_host rmq      
     volumes:
       - ./etc_rmq/:/etc/rabbitmq/external
       - rmqdata:/var/lib/rabbitmq
