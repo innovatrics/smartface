@@ -63,6 +63,9 @@ docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
 docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
 docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
 
+# stop smartface core services before migration
+$COMPOSE_COMMAND down --remove-orphans
+
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
     docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace" || true
@@ -88,6 +91,10 @@ fi
 
 docker run --rm --name s3-bucket-create --network sf-network ${SF_ADMIN_IMAGE} \
     ensure-s3-bucket-exists --endpoint "$(getvalue S3Bucket__Endpoint)" --access-key "$(getvalue S3Bucket__AccessKey)" --secret-key  "$(getvalue S3Bucket__SecretKey)" --bucket-name "$(getvalue S3Bucket__BucketName)"
+
+############### NOTE ###############
+# Uncomment line below if you are interested in watchlists synchronization from SmartFace platform to edge cameras
+#./create-wl-stream-generation.sh
 
 # finally start SF images
 $COMPOSE_COMMAND up -d --force-recreate
