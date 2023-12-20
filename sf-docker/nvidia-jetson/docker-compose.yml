@@ -541,7 +541,7 @@ services:
     runtime: nvidia
 
   edge-streams-state-synchronizer:
-    image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
+    image: ${REGISTRY}sf-jetson-edge-streams-state-synchronizer:${SF_VERSION}
     container_name: SFEdgeStreamsStateSynchronizer
     restart: unless-stopped
     environment:
