@@ -22,7 +22,7 @@ services:
       - "7070:80"
 
   rabbitmq:
-    image: "rabbitmq:3.10.2-management"
+    image: "rabbitmq:3.12.11-management"
     container_name: rmq
     ports:
       - "15672:15672"
