@@ -106,6 +106,7 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - GstPipelineTemplate
+      - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -137,6 +138,7 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - GstPipelineTemplate
+      - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -166,6 +168,7 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -561,6 +564,7 @@ services:
       - NoSqlDataStorageDisabled
       - OperationMode__MatchingDataStrategy
       - OperationMode__LivenessDataStrategy
+      - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia

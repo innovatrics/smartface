@@ -99,6 +99,7 @@ services:
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -386,7 +387,8 @@ services:
       - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
       - OperationMode__MatchingDataStrategy
-      - OperationMode__LivenessDataStrategy      
+      - OperationMode__LivenessDataStrategy
+      - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
