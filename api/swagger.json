@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.23.0"
+    "version": "v5_4.24.0.5357"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    All, Best\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    All, Best",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -171,7 +171,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    All, Best\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    All, Best",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -637,7 +637,7 @@
           "EdgeStream"
         ],
         "summary": "Sets the watchlist synchronization for the specified EdgeStream.",
-        "description": "Supported values for ```watchlistSyncOption``` are: <br />\r\n\r\n    None, All",
+        "description": "Supported values for ```watchlistSyncOption``` are: <br />\r\n\r\n    None, All, Selected",
         "parameters": [
           {
             "name": "id",
@@ -4159,6 +4159,7 @@
           "VideoRecord"
         ],
         "summary": "Upserts the specified video record with given values.",
+        "description": "Supported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly",
         "requestBody": {
           "description": "New video record values.",
           "content": {
@@ -4222,6 +4223,7 @@
           "VideoRecord"
         ],
         "summary": "Creates a video record.",
+        "description": "Supported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly",
         "requestBody": {
           "description": "Request specifying video record properties.",
           "content": {
@@ -6701,6 +6703,13 @@
         "properties": {
           "watchlistSyncOption": {
             "type": "string"
+          },
+          "watchlistIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6714,6 +6723,13 @@
           "watchlistSyncOption": {
             "type": "string",
             "default": "None"
+          },
+          "watchlistIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
