@@ -564,7 +564,6 @@ services:
       - NoSqlDataStorageDisabled
       - OperationMode__MatchingDataStrategy
       - OperationMode__LivenessDataStrategy
-      - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
