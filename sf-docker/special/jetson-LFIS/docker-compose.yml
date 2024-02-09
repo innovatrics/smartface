@@ -178,7 +178,7 @@ services:
     runtime: nvidia
 
   sf-station:
-    image: ${REGISTRY}sf-jetson-station:${SFS_VERSION}
+    image: ${REGISTRY}sf-station:${SFS_VERSION}
     container_name: SFStation
     restart: unless-stopped
     ports:
