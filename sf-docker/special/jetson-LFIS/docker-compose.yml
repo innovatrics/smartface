@@ -177,6 +177,39 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     runtime: nvidia
 
+  sf-station:
+    image: ${REGISTRY}sf-station:${SFS_VERSION}
+    container_name: SFStation
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    env_file: .env.sfstation
+
+  sf-graphql-api:
+    image: ${REGISTRY}sf-jetson-graphql-api:${SF_VERSION}
+    container_name: SFGraphQLApi
+    ports:
+      # we forward the configured ports to default SF ports
+      - 8097:${Hosting__Port}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - Hosting__Host
+      - Hosting__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - AppSettings__Log_RabbitMq_Enabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
 networks:
   default:
     external:
