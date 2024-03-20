@@ -69,7 +69,8 @@ docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
 # run database migration to current version
     docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${SF_ADMIN_IMAGE} \
         run-migration \
-            -p 5 -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            -p "$(getvalue CameraServicesCount)" \
+            -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
             --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
             --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
 
