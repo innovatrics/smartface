@@ -638,7 +638,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   db-synchronization-leader:
-    image: ${REGISTRY}sf-db-synchronization-leader:${VERSION}
+    image: ${REGISTRY}sf-db-synchronization-leader:${SF_VERSION}
     container_name: SFDbSynchronizationLeader
     ports:
       - 8100:${Hosting__Port}
@@ -668,7 +668,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   db-synchronization-follower:
-    image: ${REGISTRY}sf-db-synchronization-follower:${VERSION}
+    image: ${REGISTRY}sf-db-synchronization-follower:${SF_VERSION}
     container_name: SFDbSynchronizationFollower
     restart: unless-stopped
     environment:
