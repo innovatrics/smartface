@@ -74,8 +74,9 @@ if [[ "$DB_ENGINE" == "MsSql" ]]; then
         run-migration \
             -p "$(getvalue CameraServicesCount)" \
             -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            --dependencies-availability-timeout 120 \
             --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
-            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
+            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-streams-port "$(getvalue RabbitMQ__StreamsPort)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
 elif [[ "$DB_ENGINE" == "PgSql" ]]; then
     # create SmartFace database in PgSql
     docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
@@ -84,8 +85,9 @@ elif [[ "$DB_ENGINE" == "PgSql" ]]; then
         run-migration \
             -p "$(getvalue CameraServicesCount)" \
             -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            --dependencies-availability-timeout 120 \
             --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
-            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
+            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-streams-port "$(getvalue RabbitMQ__StreamsPort)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
 else
     echo "Unknown DB engine: ${DB_ENGINE}!" >&2
     exit 1
