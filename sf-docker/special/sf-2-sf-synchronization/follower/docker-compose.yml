@@ -641,7 +641,8 @@ services:
     ports:
       - 8000:8000
     env_file: .env.sfstation
-    environment: FeatureManagement__ReadOnlyWatchlists=true
+    environment:
+      - FeatureManagement__ReadOnlyWatchlists=true
   db-synchronization-follower:
     image: ${REGISTRY}sf-db-synchronization-follower:${SF_VERSION}
     container_name: SFDbSynchronizationFollower

@@ -46,7 +46,9 @@ cp $BASEDIR/../../all-in-one/run.sh $BASEDIR/follower/run.sh
 cat $BASEDIR/../../all-in-one/docker-compose.yml \
     | yq -P '
         with (.services.api; .environment |= . + "FeatureManagement__ReadOnlyWatchlists=true" ) |
-        with (.services.sf-station; .environment |= . + "FeatureManagement__ReadOnlyWatchlists=true" ) |
+        with (.services.sf-station;
+            .environment = []
+            | .environment |= . + "FeatureManagement__ReadOnlyWatchlists=true" ) |
         with (.services.db-synchronization-follower;
             .image = "${REGISTRY}sf-db-synchronization-follower:${SF_VERSION}"
             | .container_name = "SFDbSynchronizationFollower"
