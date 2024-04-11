@@ -13,4 +13,4 @@ in *read only watchlist mode* and with SFDbSyncFollower service configured to th
 
 In production environment, usage of TLS and authentication is greatly encouraged.
 
-You can find out more about this setup in [online documentation](https://developers.innovatrics.com/smartface/).
+You can find out more about this setup in [online documentation](https://developers.innovatrics.com/smartface/docs/manuals/smartface-platform/watchlists/#watchlist-synchronization-between-smartface-instances).
