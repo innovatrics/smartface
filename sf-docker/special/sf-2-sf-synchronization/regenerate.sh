@@ -1,13 +1,14 @@
 # If yq is not present on the machine, you can run this script using docker image mikefarah/yq by running following command from sf-docker directory
 # docker run -it --rm -v $PWD:/workdir --entrypoint /bin/sh mikefarah/yq ./special/sf-2-sf-synchronization/regenerate.sh
 
-BASEDIR=$(dirname "$0")
+THISDIR=$(dirname "$0")
+DOCKERDIR=$(dirname $(dirname $THISDIR))
 
-cp $BASEDIR/../../all-in-one/.env $BASEDIR/leader/.env
-cp $BASEDIR/../../all-in-one/.env.sfac $BASEDIR/leader/.env.sfac
-cp $BASEDIR/../../all-in-one/.env.sfstation $BASEDIR/leader/.env.sfstation
-cp $BASEDIR/../../all-in-one/run.sh $BASEDIR/leader/run.sh
-cat $BASEDIR/../../all-in-one/docker-compose.yml \
+cp $DOCKERDIR/all-in-one/.env $THISDIR/leader/.env
+cp $DOCKERDIR/all-in-one/.env.sfac $THISDIR/leader/.env.sfac
+cp $DOCKERDIR/all-in-one/.env.sfstation $THISDIR/leader/.env.sfstation
+cp $DOCKERDIR/all-in-one/run.sh $THISDIR/leader/run.sh
+cat $DOCKERDIR/all-in-one/docker-compose.yml \
     | yq -P '
         with (.services.db-synchronization-leader;
             .image = "${REGISTRY}sf-db-synchronization-leader:${SF_VERSION}"
@@ -37,13 +38,13 @@ cat $BASEDIR/../../all-in-one/docker-compose.yml \
                 "Authentication__Audience" ]
             | .volumes = [ "./iengine.lic:/etc/innovatrics/iengine.lic" ]
         )
-    ' > $BASEDIR/leader/docker-compose.yml
+    ' > $THISDIR/leader/docker-compose.yml
 
-cp $BASEDIR/../../all-in-one/.env $BASEDIR/follower/.env
-cp $BASEDIR/../../all-in-one/.env.sfac $BASEDIR/follower/.env.sfac
-cp $BASEDIR/../../all-in-one/.env.sfstation $BASEDIR/follower/.env.sfstation
-cp $BASEDIR/../../all-in-one/run.sh $BASEDIR/follower/run.sh
-cat $BASEDIR/../../all-in-one/docker-compose.yml \
+cp $DOCKERDIR/all-in-one/.env $THISDIR/follower/.env
+cp $DOCKERDIR/all-in-one/.env.sfac $THISDIR/follower/.env.sfac
+cp $DOCKERDIR/all-in-one/.env.sfstation $THISDIR/follower/.env.sfstation
+cp $DOCKERDIR/all-in-one/run.sh $THISDIR/follower/run.sh
+cat $DOCKERDIR/all-in-one/docker-compose.yml \
     | yq -P '
         with (.services.api; .environment |= . + "FeatureManagement__ReadOnlyWatchlists=true" ) |
         with (.services.sf-station;
@@ -79,4 +80,4 @@ cat $BASEDIR/../../all-in-one/docker-compose.yml \
                 "ClientAuthentication__Audience" ]
             | .volumes = [ "./iengine.lic:/etc/innovatrics/iengine.lic" ]
         )
-    ' > $BASEDIR/follower/docker-compose.yml
+    ' > $THISDIR/follower/docker-compose.yml
