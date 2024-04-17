@@ -274,6 +274,11 @@ services:
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -304,6 +309,11 @@ services:
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -404,7 +414,7 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     #runtime: nvidia
-  
+
   pedestrian-extractor:
     image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
     container_name: SFPedestrianExtractorCpu
@@ -607,8 +617,6 @@ services:
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
-      - OperationMode__MatchingDataStrategy
-      - OperationMode__LivenessDataStrategy
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
