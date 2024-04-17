@@ -25,7 +25,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -41,7 +41,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - Database__DbEngine
       - ConnectionStrings__CoreDbContext
       - AppSettings__Log_RollingFile_Enabled=false
@@ -60,7 +60,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -79,7 +79,12 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
       - Database__DbEngine
       - ConnectionStrings__CoreDbContext
       - Hosting__Host
@@ -119,6 +124,11 @@ services:
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -129,7 +139,6 @@ services:
       - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
-
 
 networks:
   default:

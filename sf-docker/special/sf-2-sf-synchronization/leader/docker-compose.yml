@@ -282,6 +282,7 @@ services:
       - MQTT__Username
       - MQTT__Password
       - MQTT__Port
+      - MQTT__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -315,6 +316,7 @@ services:
       - MQTT__Username
       - MQTT__Password
       - MQTT__Port
+      - MQTT__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
