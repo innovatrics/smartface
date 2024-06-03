@@ -428,6 +428,11 @@ services:
       - RabbitMq__VirtualHost=${RabbitMQ__VirtualHost}
       - RabbitMq__UseSsl=${RabbitMQ__UseSsl}
       - RabbitMq__Port=${RabbitMQ__Port}
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
     env_file: .env.sfac
 
