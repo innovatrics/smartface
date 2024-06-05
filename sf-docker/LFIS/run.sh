@@ -52,8 +52,19 @@ SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
 # to switch DB engine, change the .env file
 DB_ENGINE="$(getvalue Database__DbEngine)"
 
+# set correct hostname to sfstation env file
+sed -i "s/S3_PUBLIC_ENDPOINT=.*/S3_PUBLIC_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
+
 echo $VERSION
 echo $REGISTRY
+
+# create mqtt user for rmq mqtt plugin
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
+
+# stop smartface core services before migration
+$COMPOSE_COMMAND down --remove-orphans
 
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
@@ -61,18 +72,24 @@ if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # run database migration to current version
     docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${SF_ADMIN_IMAGE} \
         run-migration \
-            -p 5 -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            -p 5 \
+            -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            --tenant-id default \
             --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
-            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
+            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-streams-port "$(getvalue RabbitMQ__StreamsPort)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)" \
+            --dependencies-availability-timeout 120
 elif [[ "$DB_ENGINE" == "PgSql" ]]; then
     # create SmartFace database in PgSql
     docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
     # run database migration to current version
     docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${SF_ADMIN_IMAGE} \
         run-migration \
-            -p 5 -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            -p 5 \
+            -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            --tenant-id default \
             --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
-            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
+            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-streams-port "$(getvalue RabbitMQ__StreamsPort)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)" \
+            --dependencies-availability-timeout 120
 else
     echo "Unknown DB engine: ${DB_ENGINE}!" >&2
     exit 1
@@ -80,6 +97,10 @@ fi
 
 docker run --rm --name s3-bucket-create --network sf-network ${SF_ADMIN_IMAGE} \
     ensure-s3-bucket-exists --endpoint "$(getvalue S3Bucket__Endpoint)" --access-key "$(getvalue S3Bucket__AccessKey)" --secret-key  "$(getvalue S3Bucket__SecretKey)" --bucket-name "$(getvalue S3Bucket__BucketName)"
+
+############### NOTE ###############
+# Uncomment line below if you are interested in watchlists synchronization from SmartFace platform to edge cameras
+#./create-wl-stream-generation.sh
 
 # finally start SF images
 $COMPOSE_COMMAND up -d --force-recreate
