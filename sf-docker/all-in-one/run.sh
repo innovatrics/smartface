@@ -3,9 +3,13 @@
 set -x
 set -e
 
-if [ ! -f iengine.lic ]; then
-    echo "License file not found. Please make sure that the license file is present in the current directory." >&2
+function error_exit {
+    echo "$1" 1>&2
     exit 1
+}
+
+if [ ! -f iengine.lic ]; then
+    error_exit "License file not found. Please make sure that the license file is present in the current directory."
 fi
 
 COMPOSE_COMMAND="docker compose"
@@ -18,8 +22,7 @@ if [ $? -ne 0 ]; then
     COMPOSE_COMMAND="docker-compose"
     $COMPOSE_COMMAND version
     if [ $? -ne 0 ]; then
-        echo "No compose command found. Please install docker compose" >&2
-        exit 1
+        error_exit "No compose command found. Please install docker compose"
     fi
 fi
 
@@ -91,8 +94,7 @@ elif [[ "$DB_ENGINE" == "PgSql" ]]; then
             --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-streams-port "$(getvalue RabbitMQ__StreamsPort)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)" \
             --dependencies-availability-timeout 120
 else
-    echo "Unknown DB engine: ${DB_ENGINE}!" >&2
-    exit 1
+    error_exit "Unknown DB engine: ${DB_ENGINE}!"
 fi
 
 docker run --rm --name s3-bucket-create --network sf-network ${SF_ADMIN_IMAGE} \
