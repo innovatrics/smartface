@@ -8,6 +8,44 @@ function error_exit {
     exit 1
 }
 
+function ensure_docker_version_is_sufficient () {
+    requiredMajor=20
+    requiredMinor=10
+    requiredPatch=10
+
+    # Check if Docker is installed
+    if ! command -v docker &> /dev/null; then
+        error_exit "Docker is not installed on this machine."
+    fi
+
+    actualDockerVersion=$(docker version --format '{{.Server.Version}}')
+    if [[ -z "$actualDockerVersion" ]]; then
+        error_exit "Unable to determine Docker server version."
+    fi
+    
+    read actualMajor actualMinor actualPatch <<< $( echo ${actualDockerVersion} | awk -F"." '{print $1" "$2" "$3}' )
+    
+    if [ "$actualMajor" -lt "$requiredMajor" ]; then
+        error_exit "You have old version of docker installed. Please update your docker version to at least $requiredMajor.$requiredMinor.$requiredPatch"
+    fi
+
+    if [ "$actualMajor" -eq "$requiredMajor" ]; then
+        if [ "$actualMinor" -lt "$requiredMinor" ]; then
+            error_exit "You have old version of docker installed. Please update your docker version to at least $requiredMajor.$requiredMinor.$requiredPatch"
+        fi
+        
+        if [ "$actualMinor" -eq "$requiredMinor" ]; then
+            if [ "$actualPatch" -lt "$requiredPatch" ]; then
+                error_exit "You have old version of docker installed. Please update your docker version to at least $requiredMajor.$requiredMinor.$requiredPatch"
+            fi
+        fi
+    fi
+
+    echo "Docker server version is $actualDockerVersion and it meets the requirement."
+}
+
+ensure_docker_version_is_sufficient
+
 if [ ! -f iengine.lic ]; then
     error_exit "License file not found. Please make sure that the license file is present in the current directory."
 fi
