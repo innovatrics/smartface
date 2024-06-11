@@ -26,17 +26,17 @@ function ensure_docker_version_is_sufficient () {
     read actualMajor actualMinor actualPatch <<< $( echo ${actualDockerVersion} | awk -F"." '{print $1" "$2" "$3}' )
     
     if [ "$actualMajor" -lt "$requiredMajor" ]; then
-        error_exit "You have old version of docker installed. Please update your docker version to at least $requiredMajor.$requiredMinor.$requiredPatch"
+        error_exit "Old version of docker detected. Please update your docker to version $requiredMajor.$requiredMinor.$requiredPatch or newer."
     fi
 
     if [ "$actualMajor" -eq "$requiredMajor" ]; then
         if [ "$actualMinor" -lt "$requiredMinor" ]; then
-            error_exit "You have old version of docker installed. Please update your docker version to at least $requiredMajor.$requiredMinor.$requiredPatch"
+            error_exit "Old version of docker detected. Please update your docker to version $requiredMajor.$requiredMinor.$requiredPatch or newer."
         fi
         
         if [ "$actualMinor" -eq "$requiredMinor" ]; then
             if [ "$actualPatch" -lt "$requiredPatch" ]; then
-                error_exit "You have old version of docker installed. Please update your docker version to at least $requiredMajor.$requiredMinor.$requiredPatch"
+                error_exit "Old version of docker detected. Please update your docker to version $requiredMajor.$requiredMinor.$requiredPatch or newer."
             fi
         fi
     fi
