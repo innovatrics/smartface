@@ -3,9 +3,51 @@
 set -x
 set -e
 
-if [ ! -f iengine.lic ]; then
-    echo "License file not found. Please make sure that the license file is present in the current directory." >&2
+function error_exit {
+    echo "$1" 1>&2
     exit 1
+}
+
+function ensure_docker_version_is_sufficient () {
+    requiredMajor=20
+    requiredMinor=10
+    requiredPatch=10
+
+    # Check if Docker is installed
+    if ! command -v docker &> /dev/null; then
+        error_exit "Docker is not installed on this machine."
+    fi
+
+    actualDockerVersion=$(docker version --format '{{.Server.Version}}')
+    if [[ -z "$actualDockerVersion" ]]; then
+        error_exit "Unable to determine Docker server version."
+    fi
+    
+    read actualMajor actualMinor actualPatch <<< $( echo ${actualDockerVersion} | awk -F"." '{print $1" "$2" "$3}' )
+    
+    if [ "$actualMajor" -lt "$requiredMajor" ]; then
+        error_exit "Old version of docker detected. Please update your docker to version $requiredMajor.$requiredMinor.$requiredPatch or newer."
+    fi
+
+    if [ "$actualMajor" -eq "$requiredMajor" ]; then
+        if [ "$actualMinor" -lt "$requiredMinor" ]; then
+            error_exit "Old version of docker detected. Please update your docker to version $requiredMajor.$requiredMinor.$requiredPatch or newer."
+        fi
+        
+        if [ "$actualMinor" -eq "$requiredMinor" ]; then
+            if [ "$actualPatch" -lt "$requiredPatch" ]; then
+                error_exit "Old version of docker detected. Please update your docker to version $requiredMajor.$requiredMinor.$requiredPatch or newer."
+            fi
+        fi
+    fi
+
+    echo "Docker server version is $actualDockerVersion and it meets the requirement."
+}
+
+ensure_docker_version_is_sufficient
+
+if [ ! -f iengine.lic ]; then
+    error_exit "License file not found. Please make sure that the license file is present in the current directory."
 fi
 
 COMPOSE_COMMAND="docker compose"
@@ -18,8 +60,7 @@ if [ $? -ne 0 ]; then
     COMPOSE_COMMAND="docker-compose"
     $COMPOSE_COMMAND version
     if [ $? -ne 0 ]; then
-        echo "No compose command found. Please install docker compose" >&2
-        exit 1
+        error_exit "No compose command found. Please install docker compose"
     fi
 fi
 
@@ -52,8 +93,19 @@ SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
 # to switch DB engine, change the .env file
 DB_ENGINE="$(getvalue Database__DbEngine)"
 
+# set correct hostname to sfstation env file
+sed -i "s/S3_PUBLIC_ENDPOINT=.*/S3_PUBLIC_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
+
 echo $VERSION
 echo $REGISTRY
+
+# create mqtt user for rmq mqtt plugin
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
+docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
+
+# stop smartface core services before migration
+$COMPOSE_COMMAND down --remove-orphans
 
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
@@ -61,25 +113,34 @@ if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # run database migration to current version
     docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${SF_ADMIN_IMAGE} \
         run-migration \
-            -p 5 -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            -p "$(getvalue CameraServicesCount)" \
+            -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            --tenant-id default \
             --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
-            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
+            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-streams-port "$(getvalue RabbitMQ__StreamsPort)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)" \
+            --dependencies-availability-timeout 120
 elif [[ "$DB_ENGINE" == "PgSql" ]]; then
     # create SmartFace database in PgSql
     docker exec pgsql psql -U postgres -c "CREATE DATABASE smartface" || true
     # run database migration to current version
     docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${SF_ADMIN_IMAGE} \
         run-migration \
-            -p 5 -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            -p "$(getvalue CameraServicesCount)" \
+            -c "$(getvalue ConnectionStrings__CoreDbContext)" -dbe $DB_ENGINE \
+            --tenant-id default \
             --rmq-host "$(getvalue RabbitMQ__Hostname)" --rmq-user "$(getvalue RabbitMQ__Username)" --rmq-pass "$(getvalue RabbitMQ__Password)" \
-            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)"
+            --rmq-virtual-host "$(getvalue RabbitMQ__VirtualHost)" --rmq-port "$(getvalue RabbitMQ__Port)" --rmq-streams-port "$(getvalue RabbitMQ__StreamsPort)" --rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)" \
+            --dependencies-availability-timeout 120
 else
-    echo "Unknown DB engine: ${DB_ENGINE}!" >&2
-    exit 1
+    error_exit "Unknown DB engine: ${DB_ENGINE}!"
 fi
 
 docker run --rm --name s3-bucket-create --network sf-network ${SF_ADMIN_IMAGE} \
     ensure-s3-bucket-exists --endpoint "$(getvalue S3Bucket__Endpoint)" --access-key "$(getvalue S3Bucket__AccessKey)" --secret-key  "$(getvalue S3Bucket__SecretKey)" --bucket-name "$(getvalue S3Bucket__BucketName)"
+
+############### NOTE ###############
+# Uncomment line below if you are interested in watchlists synchronization from SmartFace platform to edge cameras
+#./create-wl-stream-generation.sh
 
 # finally start SF images
 $COMPOSE_COMMAND up -d --force-recreate

@@ -1,5 +1,5 @@
 # If yq is not present on the machine, you can run this script using docker image mikefarah/yq by running following command from sf-docker directory
-# docker run -it --rm -v $PWD:/workdir --entrypoint /bin/sh mikefarah/yq ./special/sf-2-sf-synchronization/regenerate.sh
+# docker run -it --rm -v ${PWD}:/workdir --entrypoint /bin/sh mikefarah/yq ./special/sf-2-sf-synchronization/regenerate.sh
 
 THISDIR=$(dirname "$0")
 DOCKERDIR=$(dirname $(dirname $THISDIR))

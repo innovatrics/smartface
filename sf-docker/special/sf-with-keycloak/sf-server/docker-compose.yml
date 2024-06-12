@@ -351,24 +351,6 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
-
-  body-parts-detector:
-    image: ${REGISTRY}sf-body-parts-detector:${SF_VERSION}
-    container_name: SFBodyPartsDetectCpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-
  
   edge-stream-processor:
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
@@ -428,6 +410,11 @@ services:
       - RabbitMq__VirtualHost=${RabbitMQ__VirtualHost}
       - RabbitMq__UseSsl=${RabbitMQ__UseSsl}
       - RabbitMq__Port=${RabbitMQ__Port}
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
     env_file: .env.sfac
 
