@@ -2,12 +2,14 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.25.2"
+    "version": "v5_4.26.0.6489"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
       "get": {
-        "tags": ["Camera"],
+        "tags": [
+          "Camera"
+        ],
         "summary": "Retrieves the camera by its Id.",
         "parameters": [
           {
@@ -45,7 +47,9 @@
         }
       },
       "delete": {
-        "tags": ["Camera"],
+        "tags": [
+          "Camera"
+        ],
         "summary": "Deletes a camera by its id.",
         "parameters": [
           {
@@ -78,7 +82,9 @@
     },
     "/api/v1/Cameras": {
       "get": {
-        "tags": ["Camera"],
+        "tags": [
+          "Camera"
+        ],
         "summary": "Retrieves all cameras.",
         "responses": {
           "200": {
@@ -97,9 +103,11 @@
         }
       },
       "put": {
-        "tags": ["Camera"],
+        "tags": [
+          "Camera"
+        ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    All, Best\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    All, Best",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    All, Best\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    All, Best",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -159,9 +167,11 @@
         }
       },
       "post": {
-        "tags": ["Camera"],
+        "tags": [
+          "Camera"
+        ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, body_parts_cpu_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, body_parts_cpu_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    All, Best\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    All, Best",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    All, Best\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    All, Best",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -223,7 +233,9 @@
     },
     "/api/v1/Cameras/{id}/Tracklets": {
       "get": {
-        "tags": ["Camera"],
+        "tags": [
+          "Camera"
+        ],
         "summary": "Retrieves tracklets with faces as a paged collection by their camera Id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -308,7 +320,9 @@
     },
     "/api/v1/Cameras/{id}/Frames": {
       "get": {
-        "tags": ["Camera"],
+        "tags": [
+          "Camera"
+        ],
         "summary": "Retrieves frames as a paged collection by their camera Id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -393,7 +407,9 @@
     },
     "/api/v1/EdgeStreams/{id}": {
       "get": {
-        "tags": ["EdgeStream"],
+        "tags": [
+          "EdgeStream"
+        ],
         "summary": "Retrieves the EdgeStream by its Id.",
         "parameters": [
           {
@@ -431,7 +447,9 @@
         }
       },
       "delete": {
-        "tags": ["EdgeStream"],
+        "tags": [
+          "EdgeStream"
+        ],
         "summary": "Deletes a EdgeStream by its id.",
         "parameters": [
           {
@@ -464,7 +482,9 @@
     },
     "/api/v1/EdgeStreams": {
       "get": {
-        "tags": ["EdgeStream"],
+        "tags": [
+          "EdgeStream"
+        ],
         "summary": "Retrieves all EdgeStreams.",
         "responses": {
           "200": {
@@ -483,7 +503,9 @@
         }
       },
       "post": {
-        "tags": ["EdgeStream"],
+        "tags": [
+          "EdgeStream"
+        ],
         "summary": "Creates a new EdgeStream.",
         "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
         "requestBody": {
@@ -545,7 +567,9 @@
         }
       },
       "put": {
-        "tags": ["EdgeStream"],
+        "tags": [
+          "EdgeStream"
+        ],
         "summary": "Updates the specified EdgeStream.",
         "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    All, FirstFace, BestFace, FirstFaceBestFace, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
         "requestBody": {
@@ -609,7 +633,9 @@
     },
     "/api/v1/EdgeStreams/{id}/WatchlistSynchronization": {
       "put": {
-        "tags": ["EdgeStream"],
+        "tags": [
+          "EdgeStream"
+        ],
         "summary": "Sets the watchlist synchronization for the specified EdgeStream.",
         "description": "Supported values for ```watchlistSyncOption``` are: <br />\r\n\r\n    None, All, Selected",
         "parameters": [
@@ -683,7 +709,9 @@
         }
       },
       "get": {
-        "tags": ["EdgeStream"],
+        "tags": [
+          "EdgeStream"
+        ],
         "summary": "Retrieves watchlist synchronization settings for the specified EdgeStream.",
         "parameters": [
           {
@@ -723,7 +751,9 @@
     },
     "/api/v1/Faces/{id}": {
       "get": {
-        "tags": ["Face"],
+        "tags": [
+          "Face"
+        ],
         "summary": "Retrieves the face by its Id.",
         "parameters": [
           {
@@ -761,7 +791,9 @@
         }
       },
       "delete": {
-        "tags": ["Face"],
+        "tags": [
+          "Face"
+        ],
         "summary": "Deletes the face by its Id.",
         "parameters": [
           {
@@ -794,7 +826,9 @@
     },
     "/api/v1/Faces": {
       "get": {
-        "tags": ["Face"],
+        "tags": [
+          "Face"
+        ],
         "summary": "Retrieves faces as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -859,7 +893,9 @@
     },
     "/api/v1/Faces/Search": {
       "post": {
-        "tags": ["Face"],
+        "tags": [
+          "Face"
+        ],
         "summary": "Searches for similar stored faces based on the given image.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any",
         "requestBody": {
@@ -933,7 +969,9 @@
     },
     "/api/v1/Faces/SpoofCheck": {
       "post": {
-        "tags": ["Face"],
+        "tags": [
+          "Face"
+        ],
         "summary": "Checks liveness of one face on the given image.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\n <br />```SpoofCheckConfig.KeepEvaluatingConditionsAfterFirstFail``` is used\r\n\r\n to evaluate all conditions supplied with ``` Nearby/Distant LivenessConditions ```.\r\n\r\n When ```true``` it can have slight performance impact, because all conditions are evaluated <br />",
         "requestBody": {
@@ -997,7 +1035,9 @@
     },
     "/api/v1/Faces/Verify": {
       "post": {
-        "tags": ["Face"],
+        "tags": [
+          "Face"
+        ],
         "summary": "Calculates confidence that two faces on sent photos belong to the same person.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any",
         "requestBody": {
@@ -1061,7 +1101,9 @@
     },
     "/api/v1/Frames/{id}": {
       "get": {
-        "tags": ["Frame"],
+        "tags": [
+          "Frame"
+        ],
         "summary": "Retrieves the frame by its Id.",
         "parameters": [
           {
@@ -1099,7 +1141,9 @@
         }
       },
       "delete": {
-        "tags": ["Frame"],
+        "tags": [
+          "Frame"
+        ],
         "summary": "Deletes the frame by its Id.",
         "parameters": [
           {
@@ -1132,7 +1176,9 @@
     },
     "/api/v1/Frames": {
       "get": {
-        "tags": ["Frame"],
+        "tags": [
+          "Frame"
+        ],
         "summary": "Retrieves frames as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -1197,7 +1243,9 @@
     },
     "/api/v1/Images/{id}": {
       "get": {
-        "tags": ["Image"],
+        "tags": [
+          "Image"
+        ],
         "summary": "Retrieves the image by its Id.",
         "description": "Two optional parameters can be specified that allow the image to be resize to given values.\r\nMore specifically, minSize will resize the smaller edge to minSize, maxSize will resize the larger edge to maxSize.",
         "parameters": [
@@ -1231,14 +1279,8 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "The image with given Id was not found."
-          },
-          "400": {
-            "description": "The sent request was not valid."
-          },
           "200": {
-            "description": null,
+            "description": "Returns requested image",
             "content": {
               "image/jpeg": {
                 "schema": {
@@ -1247,13 +1289,21 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "The image with given Id was not found."
+          },
+          "400": {
+            "description": "The sent request was not valid."
           }
         }
       }
     },
     "/api/v1/Individuals/{id}": {
       "get": {
-        "tags": ["Individual"],
+        "tags": [
+          "Individual"
+        ],
         "summary": "Retrieves the individual by its Id.",
         "parameters": [
           {
@@ -1291,7 +1341,9 @@
         }
       },
       "delete": {
-        "tags": ["Individual"],
+        "tags": [
+          "Individual"
+        ],
         "summary": "Deletes the individual by its Id.",
         "parameters": [
           {
@@ -1324,7 +1376,9 @@
     },
     "/api/v1/Individuals": {
       "get": {
-        "tags": ["Individual"],
+        "tags": [
+          "Individual"
+        ],
         "summary": "Retrieves individuals as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -1389,7 +1443,9 @@
     },
     "/api/v1/Individuals/{id}/Tracklets": {
       "get": {
-        "tags": ["Individual"],
+        "tags": [
+          "Individual"
+        ],
         "summary": "Retrieves the tracklets with faces by their individual Id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -1474,7 +1530,9 @@
     },
     "/api/v1/Individuals/Search": {
       "post": {
-        "tags": ["Individual"],
+        "tags": [
+          "Individual"
+        ],
         "summary": "Searches for individuals by image in the specified grouping.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any",
         "requestBody": {
@@ -1538,7 +1596,9 @@
     },
     "/api/v1/Individuals/Split": {
       "post": {
-        "tags": ["Individual"],
+        "tags": [
+          "Individual"
+        ],
         "summary": "Splits specified individual, assigns specified tracklets to the newly created individual.",
         "description": "Specified tracklets must be part of the previous individual.",
         "requestBody": {
@@ -1602,7 +1662,9 @@
     },
     "/api/v1/Individuals/Merge": {
       "post": {
-        "tags": ["Individual"],
+        "tags": [
+          "Individual"
+        ],
         "summary": "Merges multiple individuals into one individual.",
         "description": "Individuals are merged into a individual, whose id is the first id in the request array of individuals.",
         "requestBody": {
@@ -1666,7 +1728,9 @@
     },
     "/api/v1/LiveGroupings/{groupingId}": {
       "get": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Retrieves the live grouping by its id.",
         "parameters": [
           {
@@ -1704,7 +1768,9 @@
         }
       },
       "delete": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Deletes a live grouping by its id.",
         "parameters": [
           {
@@ -1747,7 +1813,9 @@
     },
     "/api/v1/LiveGroupings": {
       "get": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Retrieves all live groupings.",
         "responses": {
           "200": {
@@ -1766,7 +1834,9 @@
         }
       },
       "post": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Creates a new live grouping.",
         "requestBody": {
           "description": "Request containing live grouping properties",
@@ -1827,29 +1897,30 @@
         }
       },
       "put": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Updates the specified live grouping.",
         "requestBody": {
-          "description": "New live grouping configuration.",
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/LiveGrouping"
+                "$ref": "#/components/schemas/LiveGroupingUpdateRequest"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LiveGrouping"
+                "$ref": "#/components/schemas/LiveGroupingUpdateRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LiveGrouping"
+                "$ref": "#/components/schemas/LiveGroupingUpdateRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LiveGrouping"
+                "$ref": "#/components/schemas/LiveGroupingUpdateRequest"
               }
             }
           }
@@ -1888,9 +1959,53 @@
         }
       }
     },
+    "/api/v1/LiveGroupings/{groupingId}/Streams": {
+      "get": {
+        "tags": [
+          "LiveGrouping"
+        ],
+        "summary": "Retrieves streams belonging to a live grouping with given id.",
+        "parameters": [
+          {
+            "name": "groupingId",
+            "in": "path",
+            "description": "Id of the live grouping.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned the found cameras and edge streams.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiveGroupingStreams"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The live grouping with given Id was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/LiveGroupings/{groupingId}/Cameras": {
       "get": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Retrieves cameras belonging to a live grouping with given id.",
         "parameters": [
           {
@@ -1933,7 +2048,9 @@
     },
     "/api/v1/LiveGroupings/{groupingId}/Individuals": {
       "get": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Retrieves the individuals belonging to a live grouping with given id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -2018,7 +2135,9 @@
     },
     "/api/v1/LiveGroupings/{groupingId}/Frames": {
       "get": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Retrieves the frames belonging to a live grouping with given id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -2101,9 +2220,151 @@
         }
       }
     },
+    "/api/v1/LiveGroupings/{groupingId}/LinkStreams": {
+      "post": {
+        "tags": [
+          "LiveGrouping"
+        ],
+        "summary": "Links specified streams to a given live grouping.",
+        "parameters": [
+          {
+            "name": "groupingId",
+            "in": "path",
+            "description": "Id of the live grouping.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request containing camera ids.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkInputRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkInputRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkInputRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkInputRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The streams were successfully linked to the live grouping."
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The live grouping or cameras were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/LiveGroupings/{groupingId}/UnlinkStreams": {
+      "post": {
+        "tags": [
+          "LiveGrouping"
+        ],
+        "summary": "Unlink specified streams from a live grouping.",
+        "parameters": [
+          {
+            "name": "groupingId",
+            "in": "path",
+            "description": "Id of the live grouping",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request containing camera ids.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkInputRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkInputRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkInputRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkInputRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The streams were successfully unlinked from the live grouping."
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The live grouping or cameras were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/LiveGroupings/{groupingId}/LinkCameras": {
       "post": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Links specified cameras to a given live grouping.",
         "parameters": [
           {
@@ -2171,7 +2432,9 @@
     },
     "/api/v1/LiveGroupings/{groupingId}/UnlinkCameras": {
       "post": {
-        "tags": ["LiveGrouping"],
+        "tags": [
+          "LiveGrouping"
+        ],
         "summary": "Unlink specified cameras from a live grouping.",
         "parameters": [
           {
@@ -2239,7 +2502,9 @@
     },
     "/api/v1/Pedestrians/{id}": {
       "get": {
-        "tags": ["Pedestrian"],
+        "tags": [
+          "Pedestrian"
+        ],
         "summary": "Retrieves the pedestrian by its Id.",
         "parameters": [
           {
@@ -2277,7 +2542,9 @@
         }
       },
       "delete": {
-        "tags": ["Pedestrian"],
+        "tags": [
+          "Pedestrian"
+        ],
         "summary": "Deletes the pedestrian by its Id.",
         "parameters": [
           {
@@ -2310,7 +2577,9 @@
     },
     "/api/v1/Pedestrians": {
       "get": {
-        "tags": ["Pedestrian"],
+        "tags": [
+          "Pedestrian"
+        ],
         "summary": "Retrieves pedestrians as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -2375,7 +2644,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}": {
       "get": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Retrieves a record grouping by its id.",
         "parameters": [
           {
@@ -2413,7 +2684,9 @@
         }
       },
       "delete": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Deletes a record grouping by its id.",
         "parameters": [
           {
@@ -2456,7 +2729,9 @@
     },
     "/api/v1/RecordGroupings": {
       "get": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Retrieves all record groupings.",
         "responses": {
           "200": {
@@ -2475,7 +2750,9 @@
         }
       },
       "post": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Creates a new record grouping.",
         "requestBody": {
           "description": "Request containing new record grouping configuration.",
@@ -2536,7 +2813,9 @@
         }
       },
       "put": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Updates a specified record grouping.",
         "requestBody": {
           "description": "New record grouping configuration.",
@@ -2599,7 +2878,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}/VideoRecords": {
       "get": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Retrieves video records belonging to record grouping with given id.",
         "parameters": [
           {
@@ -2642,7 +2923,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}/Individuals": {
       "get": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Retrieves individuals belonging to a record grouping with given id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -2727,7 +3010,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}/Frames": {
       "get": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Retrieves frames belonging to a record grouping with given id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -2812,7 +3097,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}/Image": {
       "post": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Uploads the image to a specified record grouping.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any",
         "parameters": [
@@ -2888,7 +3175,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}/State": {
       "get": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Retrieves the state of the record grouping.",
         "parameters": [
           {
@@ -2918,7 +3207,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}/Trigger": {
       "post": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Triggers a start of the record grouping.",
         "parameters": [
           {
@@ -2951,7 +3242,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}/LinkVideoRecords": {
       "post": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Links specified video records to a given record grouping.",
         "parameters": [
           {
@@ -3019,7 +3312,9 @@
     },
     "/api/v1/RecordGroupings/{groupingId}/UnlinkVideoRecords": {
       "post": {
-        "tags": ["RecordGrouping"],
+        "tags": [
+          "RecordGrouping"
+        ],
         "summary": "Unlinks specified video records from a record grouping.",
         "parameters": [
           {
@@ -3087,7 +3382,9 @@
     },
     "/api/v1/Setup/DataStorage/Video": {
       "get": {
-        "tags": ["SetupDataStorage"],
+        "tags": [
+          "SetupDataStorage"
+        ],
         "summary": "Retrieves the current video data storage config.",
         "responses": {
           "200": {
@@ -3123,7 +3420,9 @@
         }
       },
       "put": {
-        "tags": ["SetupDataStorage"],
+        "tags": [
+          "SetupDataStorage"
+        ],
         "summary": "Updates the video data storage config with specified values.",
         "requestBody": {
           "description": "The new video data storage configuration.",
@@ -3186,7 +3485,9 @@
     },
     "/api/v1/Setup/DbCleanup": {
       "get": {
-        "tags": ["SetupDbCleanup"],
+        "tags": [
+          "SetupDbCleanup"
+        ],
         "summary": "Retrieves current database cleanup config.",
         "responses": {
           "200": {
@@ -3222,7 +3523,9 @@
         }
       },
       "put": {
-        "tags": ["SetupDbCleanup"],
+        "tags": [
+          "SetupDbCleanup"
+        ],
         "summary": "Updates the database cleanup config with specified values.",
         "requestBody": {
           "description": "The new database cleanup configuration.",
@@ -3285,7 +3588,9 @@
     },
     "/api/v1/Setup/Features": {
       "get": {
-        "tags": ["SetupFeatures"],
+        "tags": [
+          "SetupFeatures"
+        ],
         "summary": "Retrieves current features config.",
         "responses": {
           "200": {
@@ -3321,7 +3626,9 @@
         }
       },
       "put": {
-        "tags": ["SetupFeatures"],
+        "tags": [
+          "SetupFeatures"
+        ],
         "summary": "Updates the features config with specified values.",
         "requestBody": {
           "description": "The new features configuration.",
@@ -3384,7 +3691,9 @@
     },
     "/api/v1/Setup/Preview": {
       "get": {
-        "tags": ["SetupPreview"],
+        "tags": [
+          "SetupPreview"
+        ],
         "summary": "Retrieves current preview config.",
         "responses": {
           "200": {
@@ -3420,7 +3729,9 @@
         }
       },
       "put": {
-        "tags": ["SetupPreview"],
+        "tags": [
+          "SetupPreview"
+        ],
         "summary": "Updates the preview config with specified values.",
         "description": "Default value for FaceBoundingBoxColor is ```#ecec5e```\r\n\r\nDefault value for PedestrianBoundingBoxColor is ```#80b5ff```\r\n\r\nDefault value for ObjectBoundingBoxColor is ```#e638d3```",
         "requestBody": {
@@ -3484,7 +3795,9 @@
     },
     "/api/v1/Setup/SearchSessionsCleanup": {
       "get": {
-        "tags": ["SetupSearchSessionsCleanup"],
+        "tags": [
+          "SetupSearchSessionsCleanup"
+        ],
         "summary": "Retrieves current search sessions cleanup config.",
         "responses": {
           "200": {
@@ -3520,7 +3833,9 @@
         }
       },
       "put": {
-        "tags": ["SetupSearchSessionsCleanup"],
+        "tags": [
+          "SetupSearchSessionsCleanup"
+        ],
         "summary": "Updates the search sessions cleanup config with specified values.",
         "requestBody": {
           "description": "The new search sessions cleanup configuration.",
@@ -3583,7 +3898,9 @@
     },
     "/api/v1/Setup/Watchlists/AutoLearn": {
       "get": {
-        "tags": ["SetupWatchlistAutoLearn"],
+        "tags": [
+          "SetupWatchlistAutoLearn"
+        ],
         "summary": "Retrieves the current watchlist autolearn config.",
         "responses": {
           "200": {
@@ -3619,7 +3936,9 @@
         }
       },
       "put": {
-        "tags": ["SetupWatchlistAutoLearn"],
+        "tags": [
+          "SetupWatchlistAutoLearn"
+        ],
         "summary": "Updates the watchlist autolearn config with specified values.",
         "requestBody": {
           "description": "The new watchlist autolearn configuration.",
@@ -3682,7 +4001,9 @@
     },
     "/api/v1/Tracklet/{id}": {
       "get": {
-        "tags": ["Tracklet"],
+        "tags": [
+          "Tracklet"
+        ],
         "summary": "Retrieves the tracklet by its id.",
         "parameters": [
           {
@@ -3720,7 +4041,9 @@
         }
       },
       "delete": {
-        "tags": ["Tracklet"],
+        "tags": [
+          "Tracklet"
+        ],
         "summary": "Deletes the tracklets by its id.",
         "parameters": [
           {
@@ -3753,7 +4076,9 @@
     },
     "/api/v1/Tracklet": {
       "get": {
-        "tags": ["Tracklet"],
+        "tags": [
+          "Tracklet"
+        ],
         "summary": "Retrieves tracklets as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -3818,7 +4143,9 @@
     },
     "/api/v1/Tracklet/{id}/Faces": {
       "get": {
-        "tags": ["Tracklet"],
+        "tags": [
+          "Tracklet"
+        ],
         "summary": "Retrieves faces for given tracklet id as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -3893,7 +4220,9 @@
     },
     "/api/v1/Version": {
       "get": {
-        "tags": ["Version"],
+        "tags": [
+          "Version"
+        ],
         "summary": "Retrieves the version information.",
         "responses": {
           "200": {
@@ -3911,7 +4240,9 @@
     },
     "/api/v1/VideoRecords/{id}": {
       "get": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Retrieve a video record by its id.",
         "parameters": [
           {
@@ -3949,7 +4280,9 @@
         }
       },
       "delete": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Deletes a video record by its id.",
         "parameters": [
           {
@@ -3982,7 +4315,9 @@
     },
     "/api/v1/VideoRecords": {
       "get": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Retrieves all video records.",
         "responses": {
           "200": {
@@ -4001,7 +4336,9 @@
         }
       },
       "put": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Upserts the specified video record with given values.",
         "description": "Supported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly",
         "requestBody": {
@@ -4063,7 +4400,9 @@
         }
       },
       "post": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Creates a video record.",
         "description": "Supported values for ```FaceSaveStrategy``` are:\r\n            \r\n    FirstFace, BestFace, FirstFaceBestFace, All, MatchedOnly",
         "requestBody": {
@@ -4117,7 +4456,9 @@
     },
     "/api/v1/VideoRecords/{id}/Tracklets": {
       "get": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Retrieves tracklets belonging to a video record with the given id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -4202,7 +4543,9 @@
     },
     "/api/v1/VideoRecords/{id}/Frames": {
       "get": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Retrieves the frames belonging to video record with the given id.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -4287,7 +4630,9 @@
     },
     "/api/v1/VideoRecords/{id}/Clear": {
       "post": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Clears the data produced by the video record (faces, tracklet, matches...) and set the state back to `Ready`",
         "parameters": [
           {
@@ -4320,7 +4665,9 @@
     },
     "/api/v1/VideoRecords/{id}/Tags": {
       "put": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Updates the tags of specified video record",
         "parameters": [
           {
@@ -4393,7 +4740,9 @@
         }
       },
       "get": {
-        "tags": ["VideoRecord"],
+        "tags": [
+          "VideoRecord"
+        ],
         "summary": "Retrieves the tags of specified video record",
         "parameters": [
           {
@@ -4443,7 +4792,9 @@
     },
     "/api/v1/Watchlists": {
       "get": {
-        "tags": ["Watchlist"],
+        "tags": [
+          "Watchlist"
+        ],
         "summary": "Retrieves the watchlists as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -4506,7 +4857,9 @@
         }
       },
       "post": {
-        "tags": ["Watchlist"],
+        "tags": [
+          "Watchlist"
+        ],
         "summary": "Creates a new watchlist.",
         "description": "When setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
         "requestBody": {
@@ -4568,7 +4921,9 @@
         }
       },
       "put": {
-        "tags": ["Watchlist"],
+        "tags": [
+          "Watchlist"
+        ],
         "summary": "Upserts the watchlist.",
         "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.<br />\r\nWhen setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
         "requestBody": {
@@ -4622,7 +4977,9 @@
     },
     "/api/v1/Watchlists/{id}": {
       "get": {
-        "tags": ["Watchlist"],
+        "tags": [
+          "Watchlist"
+        ],
         "summary": "Retrieves the watchlist by its id.",
         "parameters": [
           {
@@ -4659,7 +5016,9 @@
         }
       },
       "delete": {
-        "tags": ["Watchlist"],
+        "tags": [
+          "Watchlist"
+        ],
         "summary": "Deletes a watchlist by its id.",
         "parameters": [
           {
@@ -4691,7 +5050,9 @@
     },
     "/api/v1/Watchlists/{id}/WatchlistMembers": {
       "get": {
-        "tags": ["Watchlist"],
+        "tags": [
+          "Watchlist"
+        ],
         "summary": "Retrieves the watchlist members belonging to a watchlist with specified watchlist id as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -4765,7 +5126,9 @@
     },
     "/api/v1/Watchlists/Search": {
       "post": {
-        "tags": ["Watchlist"],
+        "tags": [
+          "Watchlist"
+        ],
         "summary": "Searches the specified watchlists for matches with the given image.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote",
         "requestBody": {
@@ -4842,7 +5205,9 @@
     },
     "/api/v1/WatchlistMembers": {
       "get": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Retrieves the watchlist members as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -4905,7 +5270,9 @@
         }
       },
       "post": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Creates a new watchlist member.",
         "requestBody": {
           "description": "Request specifying watchlist member properties.",
@@ -4966,7 +5333,9 @@
         }
       },
       "put": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Upserts the watchlist member.",
         "description": "If the watchlist member with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist member with specified Id exists, it updates it.",
         "requestBody": {
@@ -5020,7 +5389,9 @@
     },
     "/api/v1/WatchlistMembers/{id}": {
       "get": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Retrieves the watchlist member by its id.",
         "parameters": [
           {
@@ -5057,7 +5428,9 @@
         }
       },
       "delete": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Deletes a watchlist member by its id.",
         "parameters": [
           {
@@ -5089,7 +5462,9 @@
     },
     "/api/v1/WatchlistMembers/{id}/Faces": {
       "get": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Retrieves faces for given watchlist member id as a paged collection.",
         "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
         "parameters": [
@@ -5163,7 +5538,9 @@
     },
     "/api/v1/WatchlistMembers/LinkToWatchlist": {
       "post": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Links specified watchlist members to a given watchlist.",
         "requestBody": {
           "description": "Request specifying watchlist member ids and watchlist id",
@@ -5219,7 +5596,9 @@
     },
     "/api/v1/WatchlistMembers/UnlinkFromWatchlist": {
       "post": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Unlinks specified watchlist members for a given watchlist.",
         "requestBody": {
           "description": "Request specifying watchlist member ids and watchlist id",
@@ -5275,7 +5654,9 @@
     },
     "/api/v1/WatchlistMembers/Register": {
       "post": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Registers a watchlist member.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any",
         "requestBody": {
@@ -5359,7 +5740,9 @@
     },
     "/api/v1/WatchlistMembers/{id}/AddFaceFromSystem": {
       "post": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Adds a specified face to a given watchlist member.",
         "parameters": [
           {
@@ -5436,7 +5819,9 @@
     },
     "/api/v1/WatchlistMembers/{id}/AddNewFace": {
       "post": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Adds a specified face to a given watchlist member.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any",
         "parameters": [
@@ -5531,7 +5916,9 @@
     },
     "/api/v1/WatchlistMembers/{id}/RemoveFace": {
       "post": {
-        "tags": ["WatchlistMember"],
+        "tags": [
+          "WatchlistMember"
+        ],
         "summary": "Removes a face from a watchlist member.",
         "parameters": [
           {
@@ -5592,6 +5979,16 @@
                 }
               }
             }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -5600,7 +5997,9 @@
   "components": {
     "schemas": {
       "AddNewFaceRequest": {
-        "required": ["imageData"],
+        "required": [
+          "imageData"
+        ],
         "type": "object",
         "properties": {
           "imageData": {
@@ -5819,7 +6218,10 @@
         "additionalProperties": false
       },
       "CameraCreateRequest": {
-        "required": ["name", "source"],
+        "required": [
+          "name",
+          "source"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -5942,7 +6344,9 @@
             "items": {
               "type": "string"
             },
-            "default": ["none"],
+            "default": [
+              "none"
+            ],
             "nullable": true
           },
           "spoofDetectorConfig": {
@@ -6033,7 +6437,9 @@
         "additionalProperties": false
       },
       "CameraSpoofDetectorConfigUpdateRequest": {
-        "required": ["externalScoreThreshold"],
+        "required": [
+          "externalScoreThreshold"
+        ],
         "type": "object",
         "properties": {
           "externalScoreThreshold": {
@@ -6293,6 +6699,7 @@
           "id",
           "name",
           "saveFrameImageData",
+          "settings",
           "spoofDetectorConfig",
           "spoofDetectorResourceIds",
           "templateGeneratorResourceId"
@@ -6329,12 +6736,18 @@
           },
           "spoofDetectorConfig": {
             "$ref": "#/components/schemas/SpoofDetectorConfig"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/EdgeStreamSettings"
           }
         },
         "additionalProperties": false
       },
       "EdgeStreamCreateRequest": {
-        "required": ["clientId", "name"],
+        "required": [
+          "clientId",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "enabled": {
@@ -6350,7 +6763,7 @@
           },
           "saveFrameImageData": {
             "type": "boolean",
-            "default": true
+            "default": false
           },
           "templateGeneratorResourceId": {
             "type": "string",
@@ -6367,11 +6780,834 @@
             "items": {
               "type": "string"
             },
-            "default": ["none"],
+            "default": [
+              "none"
+            ],
             "nullable": true
           },
           "spoofDetectorConfig": {
             "$ref": "#/components/schemas/EdgeStreamSpoofDetectorConfigCreateRequest"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/EdgeStreamSettingsCreateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionCropSettings": {
+        "required": [
+          "enable",
+          "imageFormat",
+          "imageQuality",
+          "maxSize"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean"
+          },
+          "maxSize": {
+            "type": "number",
+            "format": "float"
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionCropSettingsCreateRequest": {
+        "required": [
+          "enable",
+          "imageFormat",
+          "imageQuality",
+          "maxSize"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "maxSize": {
+            "type": "number",
+            "format": "float",
+            "default": 50
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float",
+            "default": 90
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionCropSettingsUpdateRequest": {
+        "required": [
+          "enable",
+          "imageFormat",
+          "imageQuality",
+          "maxSize"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "maxSize": {
+            "type": "number",
+            "format": "float",
+            "default": 50
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float",
+            "default": 90
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionOrderBy": {
+        "enum": [
+          "DetectionConfidence",
+          "FaceSize"
+        ],
+        "type": "string"
+      },
+      "EdgeStreamFaceDetectionSettings": {
+        "required": [
+          "crop",
+          "enable",
+          "maxDetections",
+          "maxFaceSize",
+          "minFaceSize",
+          "orderBy",
+          "tracking"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean"
+          },
+          "maxDetections": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minFaceSize": {
+            "type": "number",
+            "format": "float"
+          },
+          "maxFaceSize": {
+            "type": "number",
+            "format": "float"
+          },
+          "orderBy": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionOrderBy"
+          },
+          "tracking": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionTrackingSettings"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionCropSettings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionSettingsCreateRequest": {
+        "required": [
+          "crop",
+          "enable",
+          "maxDetections",
+          "maxFaceSize",
+          "minFaceSize",
+          "orderBy",
+          "tracking"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "maxDetections": {
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+          },
+          "minFaceSize": {
+            "type": "number",
+            "format": "float",
+            "default": 20
+          },
+          "maxFaceSize": {
+            "type": "number",
+            "format": "float",
+            "default": 200
+          },
+          "orderBy": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionOrderBy"
+          },
+          "tracking": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionTrackingSettingsCreateRequest"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionCropSettingsCreateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionSettingsUpdateRequest": {
+        "required": [
+          "crop",
+          "enable",
+          "maxDetections",
+          "maxFaceSize",
+          "minFaceSize",
+          "orderBy",
+          "tracking"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "maxDetections": {
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+          },
+          "minFaceSize": {
+            "type": "number",
+            "format": "float",
+            "default": 20
+          },
+          "maxFaceSize": {
+            "type": "number",
+            "format": "float",
+            "default": 200
+          },
+          "orderBy": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionOrderBy"
+          },
+          "tracking": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionTrackingSettingsUpdateRequest"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionCropSettingsUpdateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionTrackingSettings": {
+        "required": [
+          "inputThreshold",
+          "maxFramesLost",
+          "outputThreshold",
+          "stability"
+        ],
+        "type": "object",
+        "properties": {
+          "outputThreshold": {
+            "type": "number",
+            "format": "float"
+          },
+          "inputThreshold": {
+            "type": "number",
+            "format": "float"
+          },
+          "stability": {
+            "type": "number",
+            "format": "float"
+          },
+          "maxFramesLost": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionTrackingSettingsCreateRequest": {
+        "required": [
+          "inputThreshold",
+          "maxFramesLost",
+          "outputThreshold",
+          "stability"
+        ],
+        "type": "object",
+        "properties": {
+          "outputThreshold": {
+            "type": "number",
+            "format": "float",
+            "default": 1500
+          },
+          "inputThreshold": {
+            "type": "number",
+            "format": "float",
+            "default": 1000
+          },
+          "stability": {
+            "type": "number",
+            "format": "float",
+            "default": 85
+          },
+          "maxFramesLost": {
+            "type": "integer",
+            "format": "int32",
+            "default": 25
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceDetectionTrackingSettingsUpdateRequest": {
+        "required": [
+          "inputThreshold",
+          "maxFramesLost",
+          "outputThreshold",
+          "stability"
+        ],
+        "type": "object",
+        "properties": {
+          "outputThreshold": {
+            "type": "number",
+            "format": "float",
+            "default": 1500
+          },
+          "inputThreshold": {
+            "type": "number",
+            "format": "float",
+            "default": 1000
+          },
+          "stability": {
+            "type": "number",
+            "format": "float",
+            "default": 85
+          },
+          "maxFramesLost": {
+            "type": "integer",
+            "format": "int32",
+            "default": 25
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceExtractionSettings": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceExtractionSettingsCreateRequest": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceExtractionSettingsUpdateRequest": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceIdentificationSettings": {
+        "required": [
+          "enable",
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean"
+          },
+          "threshold": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceIdentificationSettingsCreateRequest": {
+        "required": [
+          "enable",
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "threshold": {
+            "type": "number",
+            "format": "float",
+            "default": 40
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceIdentificationSettingsUpdateRequest": {
+        "required": [
+          "enable",
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "threshold": {
+            "type": "number",
+            "format": "float",
+            "default": 40
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceLivenessPassiveCondition": {
+        "required": [
+          "lowerThreshold",
+          "parameter",
+          "upperThreshold"
+        ],
+        "type": "object",
+        "properties": {
+          "parameter": {
+            "type": "string"
+          },
+          "lowerThreshold": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "upperThreshold": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceLivenessPassiveSettings": {
+        "required": [
+          "conditions",
+          "enable",
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean"
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/EdgeStreamLivenessStrategy"
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EdgeStreamFaceLivenessPassiveCondition"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceLivenessPassiveSettingsCreateRequest": {
+        "required": [
+          "conditions",
+          "enable",
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": false
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/EdgeStreamLivenessStrategy"
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EdgeStreamFaceLivenessPassiveCondition"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFaceLivenessPassiveSettingsUpdateRequest": {
+        "required": [
+          "conditions",
+          "enable",
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": false
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/EdgeStreamLivenessStrategy"
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EdgeStreamFaceLivenessPassiveCondition"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFullFrameSettings": {
+        "required": [
+          "imageFormat",
+          "imageHeight",
+          "imageQuality",
+          "imageWidth"
+        ],
+        "type": "object",
+        "properties": {
+          "imageWidth": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "imageHeight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFullFrameSettingsCreateRequest": {
+        "required": [
+          "imageFormat",
+          "imageQuality"
+        ],
+        "type": "object",
+        "properties": {
+          "imageWidth": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "imageHeight": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float",
+            "default": 90
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamFullFrameSettingsUpdateRequest": {
+        "required": [
+          "imageFormat",
+          "imageQuality"
+        ],
+        "type": "object",
+        "properties": {
+          "imageWidth": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "imageHeight": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float",
+            "default": 90
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamImageFormat": {
+        "enum": [
+          "Raw",
+          "Jpeg",
+          "Png"
+        ],
+        "type": "string"
+      },
+      "EdgeStreamLicenseSettingsCreateRequest": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "byte",
+            "default": null
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamLicenseSettingsUpdateRequest": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "byte",
+            "default": null
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamLivenessStrategy": {
+        "enum": [
+          "OnEachExtractedFace",
+          "OnEachIdentifiedFace"
+        ],
+        "type": "string"
+      },
+      "EdgeStreamMessagingSettings": {
+        "required": [
+          "allowEmptyMessages",
+          "enable",
+          "interval",
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean"
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/EdgeStreamMessagingStrategy"
+          },
+          "interval": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "allowEmptyMessages": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamMessagingSettingsCreateRequest": {
+        "required": [
+          "allowEmptyMessages",
+          "enable",
+          "interval",
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/EdgeStreamMessagingStrategy"
+          },
+          "interval": {
+            "type": "integer",
+            "format": "int32",
+            "default": 250
+          },
+          "allowEmptyMessages": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamMessagingSettingsUpdateRequest": {
+        "required": [
+          "allowEmptyMessages",
+          "enable",
+          "interval",
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/EdgeStreamMessagingStrategy"
+          },
+          "interval": {
+            "type": "integer",
+            "format": "int32",
+            "default": 250
+          },
+          "allowEmptyMessages": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamMessagingStrategy": {
+        "enum": [
+          "OnNewAndInterval",
+          "OnNewAndIntervalBest"
+        ],
+        "type": "string"
+      },
+      "EdgeStreamSettings": {
+        "required": [
+          "faceDetection",
+          "faceExtraction",
+          "faceIdentification",
+          "faceLivenessPassive",
+          "fullFrame",
+          "messaging"
+        ],
+        "type": "object",
+        "properties": {
+          "faceDetection": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionSettings"
+          },
+          "faceExtraction": {
+            "$ref": "#/components/schemas/EdgeStreamFaceExtractionSettings"
+          },
+          "faceLivenessPassive": {
+            "$ref": "#/components/schemas/EdgeStreamFaceLivenessPassiveSettings"
+          },
+          "faceIdentification": {
+            "$ref": "#/components/schemas/EdgeStreamFaceIdentificationSettings"
+          },
+          "messaging": {
+            "$ref": "#/components/schemas/EdgeStreamMessagingSettings"
+          },
+          "fullFrame": {
+            "$ref": "#/components/schemas/EdgeStreamFullFrameSettings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamSettingsCreateRequest": {
+        "required": [
+          "faceDetection",
+          "faceExtraction",
+          "faceIdentification",
+          "faceLivenessPassive",
+          "fullFrame",
+          "messaging"
+        ],
+        "type": "object",
+        "properties": {
+          "faceDetection": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionSettingsCreateRequest"
+          },
+          "faceExtraction": {
+            "$ref": "#/components/schemas/EdgeStreamFaceExtractionSettingsCreateRequest"
+          },
+          "faceLivenessPassive": {
+            "$ref": "#/components/schemas/EdgeStreamFaceLivenessPassiveSettingsCreateRequest"
+          },
+          "faceIdentification": {
+            "$ref": "#/components/schemas/EdgeStreamFaceIdentificationSettingsCreateRequest"
+          },
+          "messaging": {
+            "$ref": "#/components/schemas/EdgeStreamMessagingSettingsCreateRequest"
+          },
+          "fullFrame": {
+            "$ref": "#/components/schemas/EdgeStreamFullFrameSettingsCreateRequest"
+          },
+          "license": {
+            "$ref": "#/components/schemas/EdgeStreamLicenseSettingsCreateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamSettingsUpdateRequest": {
+        "required": [
+          "faceDetection",
+          "faceExtraction",
+          "faceIdentification",
+          "faceLivenessPassive",
+          "fullFrame",
+          "messaging"
+        ],
+        "type": "object",
+        "properties": {
+          "faceDetection": {
+            "$ref": "#/components/schemas/EdgeStreamFaceDetectionSettingsUpdateRequest"
+          },
+          "faceExtraction": {
+            "$ref": "#/components/schemas/EdgeStreamFaceExtractionSettingsUpdateRequest"
+          },
+          "faceLivenessPassive": {
+            "$ref": "#/components/schemas/EdgeStreamFaceLivenessPassiveSettingsUpdateRequest"
+          },
+          "faceIdentification": {
+            "$ref": "#/components/schemas/EdgeStreamFaceIdentificationSettingsUpdateRequest"
+          },
+          "messaging": {
+            "$ref": "#/components/schemas/EdgeStreamMessagingSettingsUpdateRequest"
+          },
+          "fullFrame": {
+            "$ref": "#/components/schemas/EdgeStreamFullFrameSettingsUpdateRequest"
+          },
+          "license": {
+            "$ref": "#/components/schemas/EdgeStreamLicenseSettingsUpdateRequest"
           }
         },
         "additionalProperties": false
@@ -6471,12 +7707,17 @@
           },
           "spoofDetectorConfig": {
             "$ref": "#/components/schemas/EdgeStreamSpoofDetectorConfigUpdateRequest"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/EdgeStreamSettingsUpdateRequest"
           }
         },
         "additionalProperties": false
       },
       "EdgeStreamWatchlistSynchronization": {
-        "required": ["watchlistSyncOption"],
+        "required": [
+          "watchlistSyncOption"
+        ],
         "type": "object",
         "properties": {
           "watchlistSyncOption": {
@@ -6493,7 +7734,9 @@
         "additionalProperties": false
       },
       "EdgeStreamWatchlistSynchronizationRequest": {
-        "required": ["watchlistSyncOption"],
+        "required": [
+          "watchlistSyncOption"
+        ],
         "type": "object",
         "properties": {
           "watchlistSyncOption": {
@@ -7043,7 +8286,9 @@
         "additionalProperties": false
       },
       "FaceFeaturesConfigFeaturesConfig": {
-        "required": ["faceFeaturesConfig"],
+        "required": [
+          "faceFeaturesConfig"
+        ],
         "type": "object",
         "properties": {
           "faceFeaturesConfig": {
@@ -7053,7 +8298,9 @@
         "additionalProperties": false
       },
       "FaceMaskConfidenceRequest": {
-        "required": ["faceMaskThreshold"],
+        "required": [
+          "faceMaskThreshold"
+        ],
         "type": "object",
         "properties": {
           "faceMaskThreshold": {
@@ -7065,7 +8312,11 @@
         "additionalProperties": false
       },
       "FaceMaskStatus": {
-        "enum": ["Unknown", "Mask", "NoMask"],
+        "enum": [
+          "Unknown",
+          "Mask",
+          "NoMask"
+        ],
         "type": "string"
       },
       "FacePagedCollection": {
@@ -7110,7 +8361,9 @@
         "additionalProperties": false
       },
       "FaceProbe": {
-        "required": ["image"],
+        "required": [
+          "image"
+        ],
         "type": "object",
         "properties": {
           "image": {
@@ -7152,7 +8405,9 @@
         "additionalProperties": false
       },
       "FaceSearchRequest": {
-        "required": ["image"],
+        "required": [
+          "image"
+        ],
         "type": "object",
         "properties": {
           "image": {
@@ -7178,15 +8433,25 @@
         "additionalProperties": false
       },
       "FaceState": {
-        "enum": ["New", "Extracting", "Extracted", "Error"],
+        "enum": [
+          "New",
+          "Extracting",
+          "Extracted",
+          "Error"
+        ],
         "type": "string"
       },
       "FaceType": {
-        "enum": ["Regular", "AutoLearn"],
+        "enum": [
+          "Regular",
+          "AutoLearn"
+        ],
         "type": "string"
       },
       "FaceWatchlistMemberLinkingRequest": {
-        "required": ["faceId"],
+        "required": [
+          "faceId"
+        ],
         "type": "object",
         "properties": {
           "faceId": {
@@ -7197,7 +8462,9 @@
         "additionalProperties": false
       },
       "FaceWatchlistMemberRemoveRequest": {
-        "required": ["faceId"],
+        "required": [
+          "faceId"
+        ],
         "type": "object",
         "properties": {
           "faceId": {
@@ -7286,7 +8553,9 @@
         "additionalProperties": false
       },
       "FeaturesConfigUpdateRequestFeaturesConfig": {
-        "required": ["faceFeaturesConfig"],
+        "required": [
+          "faceFeaturesConfig"
+        ],
         "type": "object",
         "properties": {
           "faceFeaturesConfig": {
@@ -7382,15 +8651,28 @@
         "additionalProperties": false
       },
       "FrameState": {
-        "enum": ["New", "Processing", "Processed", "Error"],
+        "enum": [
+          "New",
+          "Processing",
+          "Processed",
+          "Error"
+        ],
         "type": "string"
       },
       "GenderType": {
-        "enum": ["Male", "Female"],
+        "enum": [
+          "Male",
+          "Female"
+        ],
         "type": "string"
       },
       "GroupingState": {
-        "required": ["id", "numNewFrames", "numUnprocFrames", "status"],
+        "required": [
+          "id",
+          "numNewFrames",
+          "numUnprocFrames",
+          "status"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -7412,7 +8694,9 @@
         "additionalProperties": false
       },
       "ImageData": {
-        "required": ["data"],
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
@@ -7524,7 +8808,9 @@
         "additionalProperties": false
       },
       "LinkInputRequest": {
-        "required": ["ids"],
+        "required": [
+          "ids"
+        ],
         "type": "object",
         "properties": {
           "ids": {
@@ -7538,7 +8824,11 @@
         "additionalProperties": false
       },
       "LiveGrouping": {
-        "required": ["config", "description", "id"],
+        "required": [
+          "config",
+          "description",
+          "id"
+        ],
         "type": "object",
         "properties": {
           "config": {
@@ -7556,9 +8846,17 @@
         "additionalProperties": false
       },
       "LiveGroupingConfig": {
-        "required": ["slidingWindow", "step", "threshold"],
+        "required": [
+          "enabled",
+          "slidingWindow",
+          "step",
+          "threshold"
+        ],
         "type": "object",
         "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
           "step": {
             "type": "integer",
             "format": "int32"
@@ -7577,20 +8875,54 @@
       "LiveGroupingConfigCreateRequest": {
         "type": "object",
         "properties": {
+          "enabled": {
+            "type": "boolean",
+            "default": true,
+            "nullable": true
+          },
           "step": {
             "type": "integer",
             "format": "int32",
+            "default": 600,
             "nullable": true
           },
           "slidingWindow": {
             "type": "integer",
             "format": "int32",
+            "default": 3600,
             "nullable": true
           },
           "threshold": {
             "type": "integer",
             "format": "int32",
+            "default": 40,
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LiveGroupingConfigUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "default": true,
+            "nullable": true
+          },
+          "step": {
+            "type": "integer",
+            "format": "int32",
+            "default": 600
+          },
+          "slidingWindow": {
+            "type": "integer",
+            "format": "int32",
+            "default": 3600
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32",
+            "default": 40
           }
         },
         "additionalProperties": false
@@ -7600,6 +8932,48 @@
         "properties": {
           "config": {
             "$ref": "#/components/schemas/LiveGroupingConfigCreateRequest"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LiveGroupingStreams": {
+        "type": "object",
+        "properties": {
+          "cameras": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Camera"
+            },
+            "nullable": true
+          },
+          "edgeStreams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EdgeStream"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LiveGroupingUpdateRequest": {
+        "required": [
+          "config",
+          "description",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "config": {
+            "$ref": "#/components/schemas/LiveGroupingConfigUpdateRequest"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
           },
           "description": {
             "type": "string",
@@ -7632,7 +9006,9 @@
         "additionalProperties": false
       },
       "MergeIndividualsRequest": {
-        "required": ["individualIds"],
+        "required": [
+          "individualIds"
+        ],
         "type": "object",
         "properties": {
           "individualIds": {
@@ -7647,7 +9023,9 @@
         "additionalProperties": false
       },
       "MergeIndividualsResponse": {
-        "required": ["individualId"],
+        "required": [
+          "individualId"
+        ],
         "type": "object",
         "properties": {
           "individualId": {
@@ -7658,7 +9036,9 @@
         "additionalProperties": false
       },
       "ObjectAttribute": {
-        "required": ["type"],
+        "required": [
+          "type"
+        ],
         "type": "object",
         "properties": {
           "type": {
@@ -8552,7 +9932,10 @@
         "additionalProperties": false
       },
       "PreviewConfig": {
-        "required": ["faceBoundingBoxColor", "pedestrianBoundingBoxColor"],
+        "required": [
+          "faceBoundingBoxColor",
+          "pedestrianBoundingBoxColor"
+        ],
         "type": "object",
         "properties": {
           "faceBoundingBoxColor": {
@@ -8593,14 +9976,21 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": { }
       },
       "ProgressStatus": {
-        "enum": ["Processing", "Ready"],
+        "enum": [
+          "Processing",
+          "Ready"
+        ],
         "type": "string"
       },
       "RecordGrouping": {
-        "required": ["config", "description", "id"],
+        "required": [
+          "config",
+          "description",
+          "id"
+        ],
         "type": "object",
         "properties": {
           "config": {
@@ -8618,7 +10008,9 @@
         "additionalProperties": false
       },
       "RecordGroupingConfig": {
-        "required": ["threshold"],
+        "required": [
+          "threshold"
+        ],
         "type": "object",
         "properties": {
           "threshold": {
@@ -8653,7 +10045,11 @@
         "additionalProperties": false
       },
       "RegisterWatchlistMemberRequest": {
-        "required": ["id", "images", "watchlistIds"],
+        "required": [
+          "id",
+          "images",
+          "watchlistIds"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -8673,7 +10069,9 @@
             "items": {
               "type": "string"
             },
-            "default": ["sample_watchlist_id"]
+            "default": [
+              "sample_watchlist_id"
+            ]
           },
           "faceDetectorConfig": {
             "$ref": "#/components/schemas/FaceDetectorConfig"
@@ -8698,6 +10096,10 @@
             "type": "string",
             "nullable": true
           },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
           "labels": {
             "type": "array",
             "items": {
@@ -8710,7 +10112,9 @@
         "additionalProperties": false
       },
       "RegistrationImageData": {
-        "required": ["data"],
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "faceId": {
@@ -8798,7 +10202,9 @@
         "additionalProperties": false
       },
       "SearchInFacesResponse": {
-        "required": ["searchSessionId"],
+        "required": [
+          "searchSessionId"
+        ],
         "type": "object",
         "properties": {
           "searchSessionId": {
@@ -8809,7 +10215,10 @@
         "additionalProperties": false
       },
       "SearchInIndividualsRequest": {
-        "required": ["groupingId", "image"],
+        "required": [
+          "groupingId",
+          "image"
+        ],
         "type": "object",
         "properties": {
           "image": {
@@ -8836,7 +10245,9 @@
         "additionalProperties": false
       },
       "SearchInIndividualsResponse": {
-        "required": ["results"],
+        "required": [
+          "results"
+        ],
         "type": "object",
         "properties": {
           "results": {
@@ -8849,7 +10260,9 @@
         "additionalProperties": false
       },
       "SearchInWatchlistRequest": {
-        "required": ["image"],
+        "required": [
+          "image"
+        ],
         "type": "object",
         "properties": {
           "image": {
@@ -8860,7 +10273,9 @@
             "items": {
               "type": "string"
             },
-            "default": ["sample_watchlist_id"],
+            "default": [
+              "sample_watchlist_id"
+            ],
             "nullable": true
           },
           "threshold": {
@@ -8895,7 +10310,9 @@
             "items": {
               "type": "string"
             },
-            "default": ["none"]
+            "default": [
+              "none"
+            ]
           },
           "spoofCheckConfig": {
             "$ref": "#/components/schemas/WatchlistSpoofCheckConfig"
@@ -9085,7 +10502,12 @@
         "additionalProperties": false
       },
       "SearchSessionsCleanupConfig": {
-        "required": ["enabled", "interval", "maxItemsCount", "maxSessionAge"],
+        "required": [
+          "enabled",
+          "interval",
+          "maxItemsCount",
+          "maxSessionAge"
+        ],
         "type": "object",
         "properties": {
           "enabled": {
@@ -9110,7 +10532,10 @@
         "additionalProperties": false
       },
       "SplitIndividualsRequest": {
-        "required": ["previousIndividualId", "trackletsIds"],
+        "required": [
+          "previousIndividualId",
+          "trackletsIds"
+        ],
         "type": "object",
         "properties": {
           "trackletsIds": {
@@ -9129,7 +10554,9 @@
         "additionalProperties": false
       },
       "SplitIndividualsResponse": {
-        "required": ["individualId"],
+        "required": [
+          "individualId"
+        ],
         "type": "object",
         "properties": {
           "individualId": {
@@ -9170,7 +10597,9 @@
         "additionalProperties": false
       },
       "SpoofCheckRequest": {
-        "required": ["image"],
+        "required": [
+          "image"
+        ],
         "type": "object",
         "properties": {
           "image": {
@@ -9188,7 +10617,9 @@
             "items": {
               "type": "string"
             },
-            "default": ["liveness_distant_cpu_remote"]
+            "default": [
+              "liveness_distant_cpu_remote"
+            ]
           },
           "spoofCheckConfig": {
             "$ref": "#/components/schemas/SpoofCheckConfig"
@@ -9327,7 +10758,9 @@
         "additionalProperties": false
       },
       "UploadedImageRequest": {
-        "required": ["imageData"],
+        "required": [
+          "imageData"
+        ],
         "type": "object",
         "properties": {
           "imageData": {
@@ -9343,7 +10776,10 @@
         "additionalProperties": false
       },
       "UploadedImageResponse": {
-        "required": ["frameId", "frameImageDataId"],
+        "required": [
+          "frameId",
+          "frameImageDataId"
+        ],
         "type": "object",
         "properties": {
           "frameId": {
@@ -9359,7 +10795,10 @@
         "additionalProperties": false
       },
       "VerificationRequest": {
-        "required": ["probeImage", "referenceImage"],
+        "required": [
+          "probeImage",
+          "referenceImage"
+        ],
         "type": "object",
         "properties": {
           "probeImage": {
@@ -9423,7 +10862,9 @@
         "additionalProperties": false
       },
       "VideoDataStorageConfig": {
-        "required": ["storageMode"],
+        "required": [
+          "storageMode"
+        ],
         "type": "object",
         "properties": {
           "storageMode": {
@@ -9433,7 +10874,10 @@
         "additionalProperties": false
       },
       "VideoDataStorageMode": {
-        "enum": ["None", "All"],
+        "enum": [
+          "None",
+          "All"
+        ],
         "type": "string"
       },
       "VideoFaceDetectorConfig": {
@@ -9628,7 +11072,10 @@
         "additionalProperties": false
       },
       "VideoRecordCreateRequest": {
-        "required": ["name", "source"],
+        "required": [
+          "name",
+          "source"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -9726,7 +11173,10 @@
         "additionalProperties": false
       },
       "VideoRecordMatchingConfig": {
-        "required": ["matchDetectedFaces", "maxResultsCount"],
+        "required": [
+          "matchDetectedFaces",
+          "maxResultsCount"
+        ],
         "type": "object",
         "properties": {
           "matchDetectedFaces": {
@@ -9755,7 +11205,10 @@
         "additionalProperties": false
       },
       "VideoRecordMatchingConfigUpdateRequest": {
-        "required": ["matchDetectedFaces", "maxResultsCount"],
+        "required": [
+          "matchDetectedFaces",
+          "maxResultsCount"
+        ],
         "type": "object",
         "properties": {
           "matchDetectedFaces": {
@@ -9769,7 +11222,10 @@
         "additionalProperties": false
       },
       "VideoRecordTags": {
-        "required": ["id", "tags"],
+        "required": [
+          "id",
+          "tags"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -9786,7 +11242,9 @@
         "additionalProperties": false
       },
       "VideoRecordTagsUpdateRequest": {
-        "required": ["tags"],
+        "required": [
+          "tags"
+        ],
         "type": "object",
         "properties": {
           "tags": {
@@ -9902,7 +11360,12 @@
         "additionalProperties": false
       },
       "VideoState": {
-        "enum": ["Ready", "Processing", "Processed", "Error"],
+        "enum": [
+          "Ready",
+          "Processing",
+          "Processed",
+          "Error"
+        ],
         "type": "string"
       },
       "Watchlist": {
@@ -9986,7 +11449,10 @@
         "additionalProperties": false
       },
       "WatchlistCreateRequest": {
-        "required": ["displayName", "fullName"],
+        "required": [
+          "displayName",
+          "fullName"
+        ],
         "type": "object",
         "properties": {
           "displayName": {
@@ -10151,7 +11617,9 @@
         "additionalProperties": false
       },
       "WatchlistMemberUpsertRequest": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -10243,7 +11711,10 @@
         "additionalProperties": false
       },
       "WatchlistMembersLinkRequest": {
-        "required": ["watchlistId", "watchlistMembersIds"],
+        "required": [
+          "watchlistId",
+          "watchlistMembersIds"
+        ],
         "type": "object",
         "properties": {
           "watchlistId": {
@@ -10394,7 +11865,11 @@
         "additionalProperties": false
       },
       "WatchlistUpsertRequest": {
-        "required": ["displayName", "fullName", "id"],
+        "required": [
+          "displayName",
+          "fullName",
+          "id"
+        ],
         "type": "object",
         "properties": {
           "id": {
