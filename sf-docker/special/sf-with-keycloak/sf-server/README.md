@@ -1,7 +1,6 @@
-# SmartFace Simple Setup!
+# SmartFace All-in-One
 
-
-## Quick Start
+## Deployment
 1. Install `Docker` and `docker compose` on the host machine.
 2. Login to container registry `docker login registry.gitlab.com -u <username> -p <password>`. The credentials are available in our [Customer Portal](https://customerportal.innovatrics.com/).
 3. Identify hardware id (hwid) for your machine with command `docker run registry.gitlab.com/innovatrics/smartface/license-manager:3.2.7`. This process work for native linux, for `WSL2` eg. linux containers on Windows you need special license for which you need to contact our sales.
