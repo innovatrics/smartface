@@ -874,14 +874,14 @@
         {
             "id": "42c1c8c4-fe51-458e-b4c8-7cc3d6bed2f7",
             "clientId": "smartgate-on-sface-demo-1w",
-            "rootUrl": "http://10.11.83.35:8000/",
-            "adminUrl": "http://10.11.83.35:8000/",
+            "rootUrl": "http://$YOUR-SERVER-IP$:8000/",
+            "adminUrl": "http://$YOUR-SERVER-IP$:8000/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "clientAuthenticatorType": "client-secret",
             "secret": "3d9e08d7-7d7c-442d-880b-fbbf9fae4263",
             "redirectUris": [
-                "http://10.11.83.35:8000/*"
+                "http://$YOUR-SERVER-IP$:8000/*"
             ],
             "webOrigins": [
                 "*"
