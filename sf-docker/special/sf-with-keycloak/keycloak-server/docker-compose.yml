@@ -7,7 +7,7 @@ services:
   # hostname for this server from inside of docker-compose and also from the outside.
   #
   # Note: alternative wildcard DNS service, in case nip.io is down: http://xip.io
-  sface-demolaptop-4d:
+  keycloak-server.127.0.0.1.nip.io:
     # see https://hub.docker.com/r/jboss/keycloak/
     image: quay.io/keycloak/keycloak:16.1.1
     ports:
