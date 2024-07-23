@@ -1,13 +1,7 @@
-version: '3.7'
+version: "3.7"
 services:
-
   # Keycloak-server
-  #
-  # We use `keycloak-server.127.0.0.1.nip.io` as name of our container, because we need same
-  # hostname for this server from inside of docker-compose and also from the outside.
-  #
-  # Note: alternative wildcard DNS service, in case nip.io is down: http://xip.io
-  keycloak-server.127.0.0.1.nip.io:
+  keycloak-server:
     # see https://hub.docker.com/r/jboss/keycloak/
     image: quay.io/keycloak/keycloak:16.1.1
     ports:
