@@ -13,7 +13,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -38,7 +38,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -62,7 +62,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -74,7 +74,7 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"      
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-1:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
@@ -89,7 +89,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -101,6 +101,159 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-2:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam2
+    command: --serviceName SFCam2
+    ports:
+      - 30002:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-3:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam3
+    command: --serviceName SFCam3
+    ports:
+      - 30003:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-4:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam4
+    command: --serviceName SFCam4
+    ports:
+      - 30004:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-5:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam5
+    command: --serviceName SFCam5
+    ports:
+      - 30005:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-nx:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
+    container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
@@ -120,7 +273,12 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -150,7 +308,12 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -160,7 +323,7 @@ services:
       - JAEGER_AGENT_HOST
       - AppSettings__Log_RabbitMq_Enabled
     volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"      
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   odata-api:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
@@ -175,7 +338,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - Hosting__Host
@@ -201,7 +364,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -222,7 +385,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -243,7 +406,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -251,7 +414,7 @@ services:
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     #runtime: nvidia
-  
+
   pedestrian-extractor:
     image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
     container_name: SFPedestrianExtractorCpu
@@ -262,7 +425,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -281,7 +444,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -302,7 +465,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -322,7 +485,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -341,7 +504,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
@@ -351,7 +514,76 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
- 
+
+  video-aggregator:
+    image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
+    container_name: SFVideoDataAggregator
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  video-collector:
+    image: ${REGISTRY}sf-video-collector:${SF_VERSION}
+    container_name: SFVideoDataCollector
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  video-reader:
+    image: ${REGISTRY}sf-video-reader:${SF_VERSION}
+    container_name: SFVideoReader
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - JAEGER_AGENT_HOST
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
   edge-stream-processor:
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     container_name: SFEdgeStreamProcessor
@@ -362,7 +594,7 @@ services:
       - RabbitMQ__Password
       - RabbitMQ__Port
       - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl      
+      - RabbitMQ__UseSsl
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
@@ -407,9 +639,9 @@ services:
       - RabbitMq__HostName=${RabbitMQ__Hostname}
       - RabbitMq__UserName=${RabbitMQ__Username}
       - RabbitMq__Password=${RabbitMQ__Password}
+      - RabbitMq__Port=${RabbitMQ__Port}
       - RabbitMq__VirtualHost=${RabbitMQ__VirtualHost}
       - RabbitMq__UseSsl=${RabbitMQ__UseSsl}
-      - RabbitMq__Port=${RabbitMQ__Port}
       - MQTT__Hostname
       - MQTT__Username
       - MQTT__Password
