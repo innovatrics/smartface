@@ -8,6 +8,10 @@ function Install-Chocolatey {
         Set-ExecutionPolicy Bypass -Scope Process -Force;
         [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
         iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "Failed to install Chocolatey. Exiting."
+            Exit 1
+        }
         Write-Output "Chocolatey installed successfully."
     } else {
         Write-Output "Chocolatey is already installed."
@@ -20,28 +24,94 @@ function Install-Multipass {
     if (-Not (Get-Command multipass.exe -ErrorAction SilentlyContinue)) {
         Write-Output "Multipass is not installed. Installing Multipass..."
         choco install multipass -y
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "Failed to install Multipass. Exiting."
+            Exit 1
+        }
         Write-Output "Multipass installed successfully."
+
+        # Allow mounts in Multipass
+        Write-Output "Allowing mounts in Multipass..."
+        multipass set local.privileged-mounts=Yes
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "Failed to set privileged mounts. Exiting."
+            Exit 1
+        }
     } else {
         Write-Output "Multipass is already installed."
     }
 }
 
 # Function to create and configure a virtual machine using Multipass
-function Setup-VirtualMachine {
-    Write-Output "Launching a virtual machine with Multipass..."
+function Prepare-VM {
     $vmName = "smartface-vm"
-    multipass launch --name $vmName --cpus 2 --mem 4G --disk 20G
-    Write-Output "Virtual machine $vmName launched successfully."
 
-    # Install Docker inside the VM
-    Write-Output "Installing Docker inside the virtual machine..."
-    multipass exec $vmName -- bash -c "sudo apt-get update && sudo apt-get install -y docker.io"
-    Write-Output "Docker installed successfully inside the VM."
+    # Check if the VM already exists
+    Write-Output "Checking if the virtual machine $vmName already exists..."
+    $vmExists = multipass list | Select-String -Pattern $vmName
 
-    # Copy the SmartFace directory into the VM
-    Write-Output "Copying SmartFace files to the virtual machine..."
-    multipass transfer ./* ${vmName}:/home/ubuntu/smartface
-    Write-Output "SmartFace files transferred successfully."
+    if ($vmExists) {
+        Write-Output "Virtual machine $vmName already exists. Checking its status..."
+        $vmStatus = multipass info $vmName | Select-String -Pattern "State" | ForEach-Object { $_ -replace "State: ", "" }
+
+        if ($vmStatus -eq "Running") {
+            Write-Output "Virtual machine $vmName is already running. Skipping launch."
+        } else {
+            Write-Output "Virtual machine $vmName exists but is not running. Starting it..."
+            multipass start $vmName
+            if ($LASTEXITCODE -ne 0) {
+                Write-Error "Failed to start existing virtual machine $vmName. Exiting."
+                Exit 1
+            }
+        }
+    } else {
+        Write-Output "Launching a new virtual machine with Multipass..."
+        multipass launch --name $vmName --cpus 2 --memory 4G --disk 20G
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "Failed to launch virtual machine. Exiting."
+            Exit 1
+        }
+        Write-Output "Virtual machine $vmName launched successfully."
+    }
+
+
+    # Install Docker and Docker Compose inside the VM
+    Write-Output "Installing Docker and Docker Compose inside the virtual machine..."
+    multipass exec $vmName -- bash -c "sudo apt-get update && sudo apt-get install -y docker.io docker-compose-v2"
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Failed to install Docker and Docker Compose. Exiting."
+        Exit 1
+    }
+    Write-Output "Docker and Docker Compose installed successfully inside the VM."
+
+    # Mount the current directory into the VM
+    $currentDir = (Get-Location).Path
+    Write-Output "Mounting current directory $currentDir to the virtual machine..."
+    multipass mount $currentDir ${vmName}:/home/ubuntu/smartface
+    if ($LASTEXITCODE -ne 0) {
+        #Write-Error "Failed to mount directory. Exiting."
+        #Exit 1
+    }
+    Write-Output "Current directory mounted successfully."
+}
+
+# Function to log in to the Docker registry
+function Docker-Login {
+    Write-Output "Logging in to Docker registry..."
+    $vmName = "smartface-vm"
+    $passwordFilePath = "registrypass.txt"
+
+    if (-Not (Test-Path $passwordFilePath)) {
+        Write-Error "Password file $passwordFilePath not found. Exiting."
+        Exit 1
+    }
+
+    multipass exec $vmName -- bash -c "cat /home/ubuntu/smartface/$passwordFilePath | sudo docker login registry.gitlab.com -u sf-distribution --password-stdin"
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Failed to log in to Docker registry. Exiting."
+        Exit 1
+    }
+    Write-Output "Logged in to Docker registry successfully."
 }
 
 # Function to deploy SmartFace using Docker Compose
@@ -51,9 +121,17 @@ function Deploy-SmartFace {
 
     # Ensure Docker service is running
     multipass exec $vmName -- bash -c "sudo systemctl start docker"
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Failed to start Docker service. Exiting."
+        Exit 1
+    }
 
     # Run the SmartFace Docker Compose setup
-    multipass exec $vmName -- bash -c "cd /home/ubuntu/smartface/sf-docker/all-in-one && sudo bash run.sh"
+    multipass exec $vmName -- bash -c "cd /home/ubuntu/smartface/ && sudo bash run.sh"
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Failed to deploy SmartFace. Exiting."
+        Exit 1
+    }
     Write-Output "SmartFace deployed successfully."
 }
 
@@ -72,7 +150,8 @@ if (-not (Test-IsAdmin)) {
 # Main script execution
 Install-Chocolatey
 Install-Multipass
-Setup-VirtualMachine
+Prepare-VM
+Docker-Login
 Deploy-SmartFace
 
 Write-Output "SmartFace platform deployment completed successfully!"
