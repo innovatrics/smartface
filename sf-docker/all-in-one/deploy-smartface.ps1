@@ -66,7 +66,7 @@ function Prepare-VM {
         }
     } else {
         Write-Output "Launching a new virtual machine with Multipass..."
-        multipass launch --name $vmName --cpus 2 --memory 4G --disk 20G
+        multipass launch --name $vmName --cpus 4 --memory 16G --disk 60G
         if ($LASTEXITCODE -ne 0) {
             Write-Error "Failed to launch virtual machine. Exiting."
             Exit 1
@@ -153,5 +153,8 @@ Install-Multipass
 Prepare-VM
 Docker-Login
 Deploy-SmartFace
+
+$output = multipass info smartface-vm
+Write-Output $output
 
 Write-Output "SmartFace platform deployment completed successfully!"
