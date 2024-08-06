@@ -30,6 +30,6 @@ $COMPOSE_COMMAND up -d
 sleep 2
 
 # create mqtt user for rmq mqtt plugin
-docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;"
+docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc config host add obsminio http://obsminio:9900 minioadmin minioadmin;"
 docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mb obsminio/loki;"
 docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc policy set public obsminio/loki; exit 0;"
