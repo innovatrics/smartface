@@ -1,0 +1,103 @@
+﻿global:
+  scrape_interval: 15s 
+  evaluation_interval: 15s
+
+scrape_configs:
+  # SF platform application metrics
+  - job_name: "appmetrics"
+    scrape_interval: 5s
+    metrics_path: /metrics
+    docker_sd_configs: 
+      - host: unix:///var/run/docker.sock
+    relabel_configs:
+      - source_labels: [ __meta_docker_container_label_scrapeMetrics ]
+        regex: ^true$
+        action: keep
+      - source_labels: [ __meta_docker_port_private ]
+        regex: ^4318$
+        action: keep
+      - source_labels: [ __meta_docker_container_label_com_docker_compose_service ]
+        action: replace
+        regex: (.*)
+        replacement: $1
+        target_label: service        
+      - source_labels: [ __meta_docker_container_label_com_docker_compose_project ]
+        target_label: composeproject
+        replacement: ${1}
+      - source_labels: [ __meta_docker_container_label_com_docker_compose_service ]
+        target_label: composeservice
+        replacement: ${1}
+      - source_labels: [ composeproject ]
+        regex: ^docker$
+        target_label: composeproject
+        replacement: sf_docker
+      - source_labels: [ composeproject ]
+        regex: ^sf-docker$
+        target_label: composeproject
+        replacement: sf_docker
+      - source_labels: [ composeproject ]
+        regex: ^smartface$
+        target_label: composeproject
+        replacement: sf_docker
+    metric_relabel_configs:
+          
+  # container resources (cpu, memory, disk, network...)
+  - job_name: "cadvisor"
+    scrape_interval: 5s
+    static_configs: 
+      - targets: ["cadvisor:8080"]
+    relabel_configs:
+      - action: labeldrop
+        regex: ^instance$
+      - action: labeldrop
+        regex: ^cadvisor_version_info$
+    metric_relabel_configs:
+      - source_labels: [ container_label_com_docker_compose_project ]
+        target_label: composeproject
+        replacement: ${1}
+      - source_labels: [ container_label_com_docker_compose_service ]
+        target_label: composeservice
+        replacement: ${1}
+      - source_labels: [ container_label_com_docker_compose_project, container_label_com_docker_compose_service ]
+        separator: ;
+        regex: (.+);(.+)
+        target_label: dockerservice
+        replacement: ${1}_${2}
+      - source_labels: [composeproject]
+        regex: ^docker$
+        target_label: composeproject
+        replacement: sf_docker
+      - source_labels: [ composeproject ]
+        regex: ^sf-docker$
+        target_label: composeproject
+        replacement: sf_docker
+      - source_labels: [ composeproject ]
+        regex: ^smartface$
+        target_label: composeproject
+        replacement: sf_docker
+      - action: labeldrop
+        regex: ^container_label_(.*)
+  
+  # node resources (cpu, memory, disk, network...)
+  - job_name: "node"
+    scrape_interval: 1s
+    static_configs:
+      - targets: ["nodeexporter:9100"]
+    relabel_configs:
+    metric_relabel_configs:
+  
+  - job_name: 'rabbitmq-server'
+    static_configs:
+      - targets:
+          - 'rmq:15692'
+
+
+
+  ## self metrics
+  #- job_name: "prometheus"
+  #  scrape_interval: 1m
+  #  static_configs:
+  #    - targets: [ "localhost:9090" ]
+  #  relabel_configs:
+  #    - target_label: source
+  #      replacement: prometheus
