@@ -7,7 +7,7 @@ services:
     expose:
       - 9000
     ports:
-      - "9902:9000"
+      - "9900:9000"
       - "9901:9001"
     restart: unless-stopped
     volumes:
@@ -19,7 +19,7 @@ services:
   grafana:
     image: grafana/grafana:10.1.4
     ports:
-      - 9900:3000
+      - 9905:3000
     volumes:
       - ./configuration/grafana/datasources:/etc/grafana/provisioning/datasources
       - ./configuration/grafana/dashboards:/etc/grafana/provisioning/dashboards
