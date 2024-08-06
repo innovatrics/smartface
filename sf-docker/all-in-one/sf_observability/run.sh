@@ -23,7 +23,7 @@ set -e
 # this can fail if the network already exists, but we don't mind that
 docker network create sf-network || true
 
-$COMPOSE_COMMAND docker-compose.yml up -d
+$COMPOSE_COMMAND up -d
 
 # sleep to wait for the dependencies to start up
 sleep 15
