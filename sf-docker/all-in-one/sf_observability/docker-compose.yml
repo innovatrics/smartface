@@ -9,7 +9,7 @@ services:
       - "9901:9001"
     restart: unless-stopped
     volumes:
-      - miniodata:/data
+      - minio_data:/data
     networks:
       sf-observability:
 
