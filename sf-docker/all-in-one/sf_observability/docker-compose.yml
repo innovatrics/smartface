@@ -7,6 +7,7 @@ services:
     expose:
       - 9000
     ports:
+      - "9902:9000"
       - "9901:9001"
     restart: unless-stopped
     volumes:
