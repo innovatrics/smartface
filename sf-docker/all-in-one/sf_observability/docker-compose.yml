@@ -4,8 +4,9 @@ services:
   obsminio:
     image: "minio/minio"
     command: server /data --console-address ":9001"
+    expose:
+      - 9000
     ports:
-      - "9900:9000"
       - "9901:9001"
     restart: unless-stopped
     volumes:
