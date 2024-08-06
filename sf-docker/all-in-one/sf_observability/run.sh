@@ -28,32 +28,10 @@ $COMPOSE_COMMAND docker-compose.yml up -d
 # sleep to wait for the dependencies to start up
 sleep 15
 
-getvalue() {
-    local key="$1"
-    local value=$(grep -E ^${key}= .env | cut -d '=' -f2- | cut -d$'\r' -f1)
-    echo "$value"
-}
-
-# load version and registry from .env
-VERSION="$(getvalue SF_VERSION)"
-REGISTRY="$(getvalue REGISTRY)"
-
-SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
-
-# we use the DB engine that will be used by SF to create and migrate the DB
-# to switch DB engine, change the .env file
-DB_ENGINE="$(getvalue Database__DbEngine)"
-
-# set correct hostname to sfstation env file
-sed -i "s/S3_PUBLIC_ENDPOINT=.*/S3_PUBLIC_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
-
-echo $VERSION
-echo $REGISTRY
-
 # create mqtt user for rmq mqtt plugin
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl add_user mqtt mqtt || true
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administrator || true
-docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
+docker run --rm --network observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;"
+docker run --rm --network observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mb obsminio/loki;"
+docker run --rm --network observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc policy set public obsminio/loki; exit 0;"
 
 # stop smartface core services before migration
 $COMPOSE_COMMAND down --remove-orphans

@@ -14,17 +14,6 @@ services:
       observability:
     restart: unless-stopped
 
-  obsminio_createbuckets:
-    image: minio/mc
-    depends_on:
-      obsminio:
-        condition: service_started
-    entrypoint: >
-      /bin/sh -c " /usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin; /usr/bin/mc mb obsminio/loki; /usr/bin/mc policy set public obsminio/loki; exit 0; "
-    networks:
-      observability:
-
-
   grafana:
     image: grafana/grafana:10.1.4
     ports:
@@ -160,7 +149,6 @@ volumes:
 
   #obs_prometheus_config:
   prometheus_data:
-
 
 networks:
   observability:
