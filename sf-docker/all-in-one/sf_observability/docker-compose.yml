@@ -29,7 +29,8 @@ services:
       - GF_AUTH_DISABLE_LOGIN_FORM=true
     networks:
       - sf-observability
-      sf-network:
+      - sf-network
+
     restart: unless-stopped
 
   loki:
@@ -78,10 +79,8 @@ services:
     ports:
       - "9903:16686"
     networks:
-      sf-network:
-        aliases:
-          - jaeger
-      sf-observability:
+      - sf-network
+      - sf-observability
     restart: unless-stopped
 
   nodeexporter:
@@ -135,7 +134,7 @@ services:
       - 9902:9090
     networks:
       - sf-observability
-      sf-network:
+      - sf-network
     restart: unless-stopped
 
 volumes:
@@ -149,11 +148,10 @@ volumes:
   #obs_prometheus_config:
   prometheus_data:
 
-
 networks:
   sf-observability:
     external:
-      name: sf-network
+      name: sf-observability
   sf-network:
     external:
       name: sf-network
