@@ -36,8 +36,6 @@ services:
     depends_on:
       obsminio:
         condition: service_started
-      obsminio_createbuckets:
-        condition: service_completed_successfully
     volumes:
       - ./configuration/loki:/etc/loki
       - loki_data:/loki

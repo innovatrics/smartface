@@ -26,7 +26,7 @@ docker network create sf-network || true
 $COMPOSE_COMMAND up -d
 
 # sleep to wait for the dependencies to start up
-sleep 15
+sleep 2
 
 # create mqtt user for rmq mqtt plugin
 docker run --rm --network observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;"
