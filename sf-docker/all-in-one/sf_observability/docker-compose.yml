@@ -150,6 +150,8 @@ volumes:
 
 networks:
   sf-observability:
+    external:
+      name: sf-network
   sf-network:
     external:
       name: sf-network
