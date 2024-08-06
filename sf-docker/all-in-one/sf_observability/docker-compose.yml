@@ -11,7 +11,7 @@ services:
     volumes:
       - minio_data:/data
     networks:
-      observability:
+      sf-observability:
     restart: unless-stopped
 
   grafana:
@@ -27,7 +27,7 @@ services:
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_AUTH_DISABLE_LOGIN_FORM=true
     networks:
-      observability:
+      sf-observability:
       sf-network:
     restart: unless-stopped
 
@@ -43,7 +43,7 @@ services:
     expose:
       - 3100
     networks:
-      observability:
+      sf-observability:
     restart: unless-stopped
 
   promtail:
@@ -58,7 +58,7 @@ services:
     # to debug relabeling, additional command line arguments "--dry-run --inspect" can be used
     command: -config.file=/etc/promtail/docker-config.yaml
     networks:
-      observability:
+      sf-observability:
     restart: unless-stopped
 
   # Jaeger tracing as configured here is solely for debug purposes. No data is stored!
@@ -80,7 +80,7 @@ services:
       sf-network:
         aliases:
           - jaeger
-      observability:
+      sf-observability:
     restart: unless-stopped
 
   nodeexporter:
@@ -97,7 +97,7 @@ services:
     expose:
       - 9100
     networks:
-      observability:
+      sf-observability:
     restart: unless-stopped
 
   cadvisor:
@@ -110,7 +110,7 @@ services:
     expose:
       - 8080
     networks:
-      observability:
+      sf-observability:
     restart: unless-stopped
 
   prometheus:
@@ -133,7 +133,7 @@ services:
     ports:
       - 9902:9090
     networks:
-      observability:
+      sf-observability:
       sf-network:
     restart: unless-stopped
 
@@ -149,7 +149,7 @@ volumes:
   prometheus_data:
 
 networks:
-  observability:
+  sf-observability:
   sf-network:
     external:
       name: sf-network
