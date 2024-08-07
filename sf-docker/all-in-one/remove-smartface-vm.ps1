@@ -27,6 +27,3 @@ function Remove-VirtualMachine {
 Remove-VirtualMachine
 
 Write-Output "Virtual machine removal process completed!"
-
-# Prompt the user for input
-$userInput = Read-Host "Please press enter to exit"
