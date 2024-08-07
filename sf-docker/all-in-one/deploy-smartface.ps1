@@ -47,6 +47,7 @@ function Install-Multipass {
         }
     } else {
         Write-Output "Multipass is already installed."
+		Restart-Multipass
     }
 }
 
@@ -127,11 +128,35 @@ function Docker-Login {
 
 			$form = New-Object System.Windows.Forms.Form
 			$form.Text = "Please enter the registry credentials"
-			$form.Size = New-Object System.Drawing.Size(450,150)
+			$form.Size = New-Object System.Drawing.Size(450,180)
 			$form.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedDialog
 			$form.StartPosition = [System.Windows.Forms.FormStartPosition]::CenterScreen
 			$form.ShowInTaskbar = $true
 			$form.TopMost = $true
+
+			# Create a label for the password field
+			$label2 = New-Object System.Windows.Forms.Label
+			$label2.Text = "Get it from: "
+			$label2.Location = New-Object System.Drawing.Point(10,55)
+			$label2.AutoSize = $true
+			$form.Controls.Add($label2)
+
+			#
+			#LinkLabel1
+			#
+			$LinkLabel1 = (New-Object -TypeName System.Windows.Forms.LinkLabel)
+			$LinkLabel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]92,[System.Int32]55))
+			$LinkLabel1.Name = [System.String]'LinkLabel1'
+			$LinkLabel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]254,[System.Int32]23))
+			$LinkLabel1.TabIndex = [System.Int32]3
+			$LinkLabel1.TabStop = $true
+			$LinkLabel1.Text = [System.String]'https://customerportal.innovatrics.com/'
+
+			$LinkLabel1.add_LinkClicked({
+				Start-Process $LinkLabel1.Text
+			})
+			$form.Controls.Add($LinkLabel1)
+
 				# Create a label for the password field
 			$label = New-Object System.Windows.Forms.Label
 			$label.Text = "Password:"
@@ -147,13 +172,13 @@ function Docker-Login {
 				# Create an OK button
 			$okButton = New-Object System.Windows.Forms.Button
 			$okButton.Text = "OK"
-			$okButton.Location = New-Object System.Drawing.Point(50,60)
+			$okButton.Location = New-Object System.Drawing.Point(50,90)
 			$okButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
 			$form.Controls.Add($okButton)
 				# Create a Cancel button
 			$cancelButton = New-Object System.Windows.Forms.Button
 			$cancelButton.Text = "Cancel"
-			$cancelButton.Location = New-Object System.Drawing.Point(150,60)
+			$cancelButton.Location = New-Object System.Drawing.Point(150,90)
 			$cancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
 			$form.Controls.Add($cancelButton)
 				# Set the form's AcceptButton and CancelButton properties
@@ -367,7 +392,8 @@ function Deploy-SmartFace {
 			# Check if a file was selected
 			if ($SelectedFile -ne $null) {
 				# Transfer the license file
-				multipass transfer $SelectedFile ${vmName}:/home/ubuntu/smartface/iengine.lic
+				$FilePathQuoted = "`"$SelectedFile`""
+				multipass transfer $FilePathQuoted ${vmName}:/home/ubuntu/smartface/iengine.lic
 			}		
 			
 		} else {
@@ -398,7 +424,6 @@ if (-not (Test-IsAdmin)) {
 }
 
 # Main script execution
-Restart-Multipass
 Install-Chocolatey
 Install-Multipass
 Prepare-VM
