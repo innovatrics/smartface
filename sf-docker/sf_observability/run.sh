@@ -39,6 +39,6 @@ docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/us
 docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "
       /usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;
       /usr/bin/mc mb obsminio/loki;
-      /usr/bin/mc policy set public obsminio/loki;
+      /usr/bin/mc anonymous set public obsminio/loki;
       exit 0;
       "
