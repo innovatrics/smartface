@@ -7,12 +7,12 @@ services:
     expose:
       - 9000
     ports:
-      - "9900:9000"
+#      - "9900:9000"
       - "9901:9001"
     restart: unless-stopped
-    environment:
-      MINIO_ACCESS_KEY: minioadmin
-      MINIO_SECRET_KEY: minioadmin    
+#    environment:
+#      MINIO_ACCESS_KEY: minioadmin
+#      MINIO_SECRET_KEY: minioadmin    
     volumes:
       - minio_data:/data
     networks:
