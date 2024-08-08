@@ -3,6 +3,19 @@
 # Load Windows Forms assembly
 Add-Type -AssemblyName System.Windows.Forms
 
+# Function to initiate the tool and present installation options:
+function Initialization {
+	# Find out the number of cores
+	$cpuCores = (Get-CimInstance -ClassName Win32_Processor).NumberOfCores
+	Write-Output "Number of CPU Cores: $cpuCores"
+
+	# Find out the amount of RAM
+	$totalMemory = (Get-CimInstance -ClassName Win32_ComputerSystem).TotalPhysicalMemory
+	$totalMemoryGB = [math]::round($totalMemory / 1GB, 2)
+	Write-Output "Total RAM: $totalMemoryGB GB"
+
+}
+
 # Function to reset the Multipass to have a fresh start
 function Restart-Multipass {
 	Write-Host "Restarting Multipass"
@@ -622,6 +635,8 @@ if (-not (Test-IsAdmin)) {
 
 # Main script execution
 
+
+Initialization
 Install-Chocolatey
 Install-Multipass
 Prepare-VM
