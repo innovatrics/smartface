@@ -33,6 +33,7 @@ storage_config:
   aws:
     s3: http://minioadmin:minioadmin@obsminio.:9000/loki
     s3forcepathstyle: true
+    insecure: true
 
 compactor:
   working_directory: /loki/retention
