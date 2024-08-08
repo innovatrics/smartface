@@ -31,7 +31,7 @@ storage_config:
     resync_interval: 5s
     shared_store: s3
   aws:
-    s3: http://minioadmin:minioadmin@obsminio.:9000/loki
+    s3: http://minioadmin:minioadmin@obsminio:9000/loki
     s3forcepathstyle: true
 
 compactor:
