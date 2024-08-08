@@ -3,7 +3,7 @@ version: "3.6"
 services:
   obsminio:
     image: "minio/minio:latest"
-    command: server /data --address '':9000' --console-address '':9001'
+    command: server /data --address ':9000' --console-address ':9001'
     expose:
       - 9000
     ports:
