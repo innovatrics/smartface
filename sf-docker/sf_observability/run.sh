@@ -43,4 +43,4 @@ docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "
       exit 0;
       "
 
-// docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mc ls obsminio"
+#docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mc ls obsminio"
