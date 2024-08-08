@@ -1,9 +1,11 @@
 # PowerShell script to deploy SmartFace on a virtual machine using Multipass
+
 # Load Windows Forms assembly
 Add-Type -AssemblyName System.Windows.Forms
 
 # Function to reset the Multipass to have a fresh start
 function Restart-Multipass {
+	Write-Host "Restarting Multipass"
 	net stop multipass
 	net start multipass
 }
@@ -47,8 +49,9 @@ function Install-Multipass {
         }
     } else {
         Write-Output "Multipass is already installed."
-		Restart-Multipass
+		
     }
+	#Restart-Multipass
 }
 
 # Function to create and configure a virtual machine using Multipass
@@ -84,7 +87,6 @@ function Prepare-VM {
         Write-Output "Virtual machine $vmName launched successfully."
     }
 
-
     # Install Docker and Docker Compose inside the VM
     Write-Output "Installing Docker and Docker Compose inside the virtual machine..."
     multipass exec $vmName -- bash -c "sudo apt-get update && sudo apt-get install -y docker.io docker-compose-v2"
@@ -106,11 +108,27 @@ function Prepare-VM {
     $currentDir = (Get-Location).Path
     Write-Output "Mounting current directory $currentDir to the virtual machine..."
     multipass mount $currentDir ${vmName}:/home/ubuntu/smartface
-    if ($LASTEXITCODE -ne 0) {
-        # this needs to be updated
-		#Write-Error "Failed to mount directory. Exiting."
-        #Exit 1
-    }
+
+	# Unmount the directory if it is already mounted
+	Write-Output "Unmounting the directory if it is already mounted..."
+	multipass umount ${vmName}:/home/ubuntu/smartface
+
+	# Mount the directory
+	multipass mount $currentDir ${vmName}:/home/ubuntu/smartface
+
+	# Check if the filesystem was mounted properly
+	$filepath = "/home/ubuntu/smartface/docker-compose.yml"
+	$command = "[ -e `"$filepath`" ] && echo 'File exists.' || echo 'File does not exist.'"
+	$result = multipass exec $vmName -- bash -c $command
+
+	if ($result -match "File does not exist.") {
+		Write-Error "The filesystem was not mounted properly. Exiting..."
+		# Add your action here
+		Exit 1
+	} else {
+		Write-Host "The file exists."
+	}
+
     Write-Output "Current directory mounted successfully."
 }
 
@@ -180,10 +198,12 @@ function Docker-Login {
 			$cancelButton.Text = "Cancel"
 			$cancelButton.Location = New-Object System.Drawing.Point(150,90)
 			$cancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
+			
 			$form.Controls.Add($cancelButton)
 				# Set the form's AcceptButton and CancelButton properties
 			$form.AcceptButton = $okButton
 			$form.CancelButton = $cancelButton
+			
 				# Show the form as a dialog and get the result
 			$result = $form.ShowDialog()
 				# If the user clicked OK, return the password
@@ -197,7 +217,13 @@ function Docker-Login {
 
 				Write-Output "Password written to file."
 
-			} else {
+			} 
+			elseif ($result -eq [System.Windows.Forms.DialogResult]::Cancel) {
+				Write-Host "The form was cancelled, exiting..."
+				Exit 1
+			}
+			
+				else {
 				Write-Output "Operation cancelled."
 			}
 				# Clean up
@@ -236,18 +262,25 @@ function Deploy-SmartFace {
 		$currentDir = (Get-Location).Path
 
 		# Run the License Manager
-		multipass exec $vmName -- bash -c "sudo docker run registry.gitlab.com/innovatrics/smartface/license-manager:3.2.7 | grep 'Hardware ID of this device is:' | grep -o '[^ ]*$' | tr -d '\n' | sed 's/\.$//'  > hw_id.txt"
-		
+		multipass exec $vmName -- bash -c "sudo docker run registry.gitlab.com/innovatrics/smartface/license-manager:3.2.7 | grep 'Hardware ID of this device is:' | grep -o '[^ ]*$' | tr -d '\n' | sed 's/\.$//'  > /home/ubuntu/smartface/hw_id.txt"
 		if ($LASTEXITCODE -ne 0) {
 			Write-Error "Failed to run the License Manager. Exiting."
 			Exit 1
 		}
+
 		Write-Host "The VM Hardware ID:"
 		multipass exec $vmName -- bash -c "cat hw_id.txt"
 		if ($LASTEXITCODE -ne 0) {
 			Write-Error "Failed to save the Hardware ID. Exiting."
 			Exit 1
 		}
+
+		if (-not (Test-Path "${currentDir}\hw_id.txt")){
+			Write-Output ${currentDir}
+			Write-Error "The Hardware ID was not properly obtained."
+			Exit 1
+		}
+	
 
 			# Get the Value
 		$hardwareID = Get-Content -Path "${currentDir}\hw_id.txt" -Raw
@@ -411,6 +444,170 @@ function Deploy-SmartFace {
     Write-Output "SmartFace deployed successfully."
 }
 
+function Show-SmartFace {
+	$output = multipass info smartface-vm
+	Write-Output $output
+
+	# Extract the line starting with "IPv4"
+	$ipv4_line = $output -split "`n" | Where-Object { $_ -match "^IPv4" }
+
+	# Extract the first IP address from the line using regex
+	if ($ipv4_line -match "(\d{1,3}\.){3}\d{1,3}") {
+		$first_ip = $matches[0]
+	}
+
+	# Show links for the SmartFace Station, SmartFace REST API and SmartFace GraphQL API
+
+	Write-Output "SmartFace platform deployment completed successfully!"
+
+	$formFinal = New-Object -TypeName System.Windows.Forms.Form
+	[System.Windows.Forms.PictureBox]$PictureBox1 = $null
+	[System.Windows.Forms.LinkLabel]$lnk_sfstation = $null
+	[System.Windows.Forms.Label]$lbl_sfstation = $null
+	[System.Windows.Forms.Label]$lbl_restapi = $null
+	[System.Windows.Forms.Label]$lbl_graphql = $null
+	[System.Windows.Forms.LinkLabel]$lnk_restapi = $null
+	[System.Windows.Forms.LinkLabel]$lnk_graphql = $null
+	[System.Windows.Forms.Label]$lbl_demo = $null
+	function InitializeComponent
+	{
+	$resources = . (Join-Path $PSScriptRoot 'winforms\deploy.resources.ps1')
+	$PictureBox1 = (New-Object -TypeName System.Windows.Forms.PictureBox)
+	$lnk_sfstation = (New-Object -TypeName System.Windows.Forms.LinkLabel)
+	$lbl_sfstation = (New-Object -TypeName System.Windows.Forms.Label)
+	$lbl_restapi = (New-Object -TypeName System.Windows.Forms.Label)
+	$lbl_graphql = (New-Object -TypeName System.Windows.Forms.Label)
+	$lnk_restapi = (New-Object -TypeName System.Windows.Forms.LinkLabel)
+	$lnk_graphql = (New-Object -TypeName System.Windows.Forms.LinkLabel)
+	$lbl_demo = (New-Object -TypeName System.Windows.Forms.Label)
+	([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
+	$formFinal.SuspendLayout()
+	#
+	#PictureBox1
+	#
+	$PictureBox1.BackgroundImage = ([System.Drawing.Image]$resources.'PictureBox1.BackgroundImage')
+	$PictureBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]21,[System.Int32]28))
+	$PictureBox1.Name = [System.String]'PictureBox1'
+	$PictureBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]110,[System.Int32]110))
+	$PictureBox1.TabIndex = [System.Int32]0
+	$PictureBox1.TabStop = $false
+	#
+	#lnk_sfstation
+	#
+	$lnk_sfstation.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+	$lnk_sfstation.LinkColor = [System.Drawing.Color]::White
+	$lnk_sfstation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]199,[System.Int32]155))
+	$lnk_sfstation.Name = [System.String]'lnk_sfstation'
+	$lnk_sfstation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]271,[System.Int32]30))
+	$lnk_sfstation.TabIndex = [System.Int32]1
+	$lnk_sfstation.TabStop = $true
+	$lnk_sfstation.Text = "http://${first_ip}:8000"
+	$lnk_sfstation.add_LinkClicked({
+		Start-Process $lnk_sfstation.Text
+	})
+
+	#
+	#lbl_sfstation
+	#
+	$lbl_sfstation.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+	$lbl_sfstation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]155))
+	$lbl_sfstation.Name = [System.String]'lbl_sfstation'
+	$lbl_sfstation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]23))
+	$lbl_sfstation.TabIndex = [System.Int32]2
+	$lbl_sfstation.Text = [System.String]'SmartFace Station'
+	#
+	#lbl_restapi
+	#
+	$lbl_restapi.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+	$lbl_restapi.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]189))
+	$lbl_restapi.Name = [System.String]'lbl_restapi'
+	$lbl_restapi.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]23))
+	$lbl_restapi.TabIndex = [System.Int32]3
+	$lbl_restapi.Text = [System.String]'SmartFace Rest API'
+	#
+	#lbl_graphql
+	#
+	$lbl_graphql.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+	$lbl_graphql.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]223))
+	$lbl_graphql.Name = [System.String]'lbl_graphql'
+	$lbl_graphql.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]23))
+	$lbl_graphql.TabIndex = [System.Int32]4
+	$lbl_graphql.Text = [System.String]'SmartFace GraphQL'
+	#
+	#lnk_restapi
+	#
+	$lnk_restapi.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+	$lnk_restapi.LinkColor = [System.Drawing.Color]::White
+	$lnk_restapi.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]199,[System.Int32]189))
+	$lnk_restapi.Name = [System.String]'lnk_restapi'
+	$lnk_restapi.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]271,[System.Int32]23))
+	$lnk_restapi.TabIndex = [System.Int32]5
+	$lnk_restapi.TabStop = $true
+	$lnk_restapi.Text = "http://${first_ip}:8098"
+	$lnk_restapi.add_LinkClicked({
+		Start-Process $lnk_restapi.Text
+	})
+	#
+	#lnk_graphql
+	#
+	$lnk_graphql.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+	$lnk_graphql.LinkColor = [System.Drawing.Color]::White
+	$lnk_graphql.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]199,[System.Int32]223))
+	$lnk_graphql.Name = [System.String]'lnk_graphql'
+	$lnk_graphql.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]271,[System.Int32]23))
+	$lnk_graphql.TabIndex = [System.Int32]6
+	$lnk_graphql.TabStop = $true
+	$lnk_graphql.Text = "http://${first_ip}:8097"
+	$lnk_graphql.add_LinkClicked({
+		Start-Process $lnk_graphql.Text
+	})
+	#
+	#lbl_demo
+	#
+	$lbl_demo.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]36,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+	$lbl_demo.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]229,[System.Int32]59))
+	$lbl_demo.Name = [System.String]'lbl_demo'
+	$lbl_demo.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]202,[System.Int32]56))
+	$lbl_demo.TabIndex = [System.Int32]7
+	$lbl_demo.Text = [System.String]'DEMO'
+	#
+	#formFinal
+	#
+	$formFinal.BackColor = [System.Drawing.Color]::FromArgb(([System.Int32]([System.Byte][System.Byte]56)),([System.Int32]([System.Byte][System.Byte]66)),([System.Int32]([System.Byte][System.Byte]80)))
+
+	$formFinal.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]495,[System.Int32]276))
+	$formFinal.Controls.Add($lbl_demo)
+	$formFinal.Controls.Add($lnk_graphql)
+	$formFinal.Controls.Add($lnk_restapi)
+	$formFinal.Controls.Add($lbl_graphql)
+	$formFinal.Controls.Add($lbl_restapi)
+	$formFinal.Controls.Add($lbl_sfstation)
+	$formFinal.Controls.Add($lnk_sfstation)
+	$formFinal.Controls.Add($PictureBox1)
+	$formFinal.ForeColor = [System.Drawing.Color]::White
+	$formFinal.MaximizeBox = $false
+	$formFinal.MinimizeBox = $false
+	$formFinal.Name = [System.String]'formFinal'
+	$formFinal.StartPosition = [System.Windows.Forms.FormStartPosition]::CenterScreen
+	$formFinal.TopMost = $true
+	$formFinal.ShowInTaskbar = $true
+	$formFinal.Text = [System.String]'SmartFace Demo'
+	([System.ComponentModel.ISupportInitialize]$PictureBox1).EndInit()
+	$formFinal.ResumeLayout($false)
+	Add-Member -InputObject $formFinal -Name PictureBox1 -Value $PictureBox1 -MemberType NoteProperty
+	Add-Member -InputObject $formFinal -Name lnk_sfstation -Value $lnk_sfstation -MemberType NoteProperty
+	Add-Member -InputObject $formFinal -Name lbl_sfstation -Value $lbl_sfstation -MemberType NoteProperty
+	Add-Member -InputObject $formFinal -Name lbl_restapi -Value $lbl_restapi -MemberType NoteProperty
+	Add-Member -InputObject $formFinal -Name lbl_graphql -Value $lbl_graphql -MemberType NoteProperty
+	Add-Member -InputObject $formFinal -Name lnk_restapi -Value $lnk_restapi -MemberType NoteProperty
+	Add-Member -InputObject $formFinal -Name lnk_graphql -Value $lnk_graphql -MemberType NoteProperty
+	Add-Member -InputObject $formFinal -Name lbl_demo -Value $lbl_demo -MemberType NoteProperty
+	}
+	. InitializeComponent
+	$formFinal.ShowDialog()
+
+}
+
 # Check if running as administrator
 function Test-IsAdmin {
     $currentUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
@@ -424,169 +621,11 @@ if (-not (Test-IsAdmin)) {
 }
 
 # Main script execution
+
 Install-Chocolatey
 Install-Multipass
 Prepare-VM
 Docker-Login
 Deploy-SmartFace
+Show-SmartFace
 
-$output = multipass info smartface-vm
-Write-Output $output
-
-# Extract the line starting with "IPv4"
-$ipv4_line = $output -split "`n" | Where-Object { $_ -match "^IPv4" }
-
-# Extract the first IP address from the line using regex
-if ($ipv4_line -match "(\d{1,3}\.){3}\d{1,3}") {
-    $first_ip = $matches[0]
-}
-
-# Show links for the SmartFace Station, SmartFace REST API and SmartFace GraphQL API
-
-Write-Output "SmartFace platform deployment completed successfully!"
-
-$formFinal = New-Object -TypeName System.Windows.Forms.Form
-[System.Windows.Forms.PictureBox]$PictureBox1 = $null
-[System.Windows.Forms.LinkLabel]$lnk_sfstation = $null
-[System.Windows.Forms.Label]$lbl_sfstation = $null
-[System.Windows.Forms.Label]$lbl_restapi = $null
-[System.Windows.Forms.Label]$lbl_graphql = $null
-[System.Windows.Forms.LinkLabel]$lnk_restapi = $null
-[System.Windows.Forms.LinkLabel]$lnk_graphql = $null
-[System.Windows.Forms.Label]$lbl_demo = $null
-function InitializeComponent
-{
-$resources = . (Join-Path $PSScriptRoot 'winforms\deploy.resources.ps1')
-$PictureBox1 = (New-Object -TypeName System.Windows.Forms.PictureBox)
-$lnk_sfstation = (New-Object -TypeName System.Windows.Forms.LinkLabel)
-$lbl_sfstation = (New-Object -TypeName System.Windows.Forms.Label)
-$lbl_restapi = (New-Object -TypeName System.Windows.Forms.Label)
-$lbl_graphql = (New-Object -TypeName System.Windows.Forms.Label)
-$lnk_restapi = (New-Object -TypeName System.Windows.Forms.LinkLabel)
-$lnk_graphql = (New-Object -TypeName System.Windows.Forms.LinkLabel)
-$lbl_demo = (New-Object -TypeName System.Windows.Forms.Label)
-([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
-$formFinal.SuspendLayout()
-#
-#PictureBox1
-#
-$PictureBox1.BackgroundImage = ([System.Drawing.Image]$resources.'PictureBox1.BackgroundImage')
-$PictureBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]21,[System.Int32]28))
-$PictureBox1.Name = [System.String]'PictureBox1'
-$PictureBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]110,[System.Int32]110))
-$PictureBox1.TabIndex = [System.Int32]0
-$PictureBox1.TabStop = $false
-#
-#lnk_sfstation
-#
-$lnk_sfstation.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lnk_sfstation.LinkColor = [System.Drawing.Color]::White
-$lnk_sfstation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]199,[System.Int32]155))
-$lnk_sfstation.Name = [System.String]'lnk_sfstation'
-$lnk_sfstation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]271,[System.Int32]30))
-$lnk_sfstation.TabIndex = [System.Int32]1
-$lnk_sfstation.TabStop = $true
-$lnk_sfstation.Text = "http://${first_ip}:8000"
-$lnk_sfstation.add_LinkClicked({
-	Start-Process $lnk_sfstation.Text
-})
-
-#
-#lbl_sfstation
-#
-$lbl_sfstation.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_sfstation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]155))
-$lbl_sfstation.Name = [System.String]'lbl_sfstation'
-$lbl_sfstation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]23))
-$lbl_sfstation.TabIndex = [System.Int32]2
-$lbl_sfstation.Text = [System.String]'SmartFace Station'
-#
-#lbl_restapi
-#
-$lbl_restapi.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_restapi.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]189))
-$lbl_restapi.Name = [System.String]'lbl_restapi'
-$lbl_restapi.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]23))
-$lbl_restapi.TabIndex = [System.Int32]3
-$lbl_restapi.Text = [System.String]'SmartFace Rest API'
-#
-#lbl_graphql
-#
-$lbl_graphql.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_graphql.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]223))
-$lbl_graphql.Name = [System.String]'lbl_graphql'
-$lbl_graphql.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]23))
-$lbl_graphql.TabIndex = [System.Int32]4
-$lbl_graphql.Text = [System.String]'SmartFace GraphQL'
-#
-#lnk_restapi
-#
-$lnk_restapi.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lnk_restapi.LinkColor = [System.Drawing.Color]::White
-$lnk_restapi.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]199,[System.Int32]189))
-$lnk_restapi.Name = [System.String]'lnk_restapi'
-$lnk_restapi.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]271,[System.Int32]23))
-$lnk_restapi.TabIndex = [System.Int32]5
-$lnk_restapi.TabStop = $true
-$lnk_restapi.Text = "http://${first_ip}:8098"
-$lnk_restapi.add_LinkClicked({
-	Start-Process $lnk_restapi.Text
-})
-#
-#lnk_graphql
-#
-$lnk_graphql.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lnk_graphql.LinkColor = [System.Drawing.Color]::White
-$lnk_graphql.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]199,[System.Int32]223))
-$lnk_graphql.Name = [System.String]'lnk_graphql'
-$lnk_graphql.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]271,[System.Int32]23))
-$lnk_graphql.TabIndex = [System.Int32]6
-$lnk_graphql.TabStop = $true
-$lnk_graphql.Text = "http://${first_ip}:8097"
-$lnk_graphql.add_LinkClicked({
-	Start-Process $lnk_graphql.Text
-})
-#
-#lbl_demo
-#
-$lbl_demo.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]36,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_demo.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]229,[System.Int32]59))
-$lbl_demo.Name = [System.String]'lbl_demo'
-$lbl_demo.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]202,[System.Int32]56))
-$lbl_demo.TabIndex = [System.Int32]7
-$lbl_demo.Text = [System.String]'DEMO'
-#
-#formFinal
-#
-$formFinal.BackColor = [System.Drawing.Color]::FromArgb(([System.Int32]([System.Byte][System.Byte]56)),([System.Int32]([System.Byte][System.Byte]66)),([System.Int32]([System.Byte][System.Byte]80)))
-
-$formFinal.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]495,[System.Int32]276))
-$formFinal.Controls.Add($lbl_demo)
-$formFinal.Controls.Add($lnk_graphql)
-$formFinal.Controls.Add($lnk_restapi)
-$formFinal.Controls.Add($lbl_graphql)
-$formFinal.Controls.Add($lbl_restapi)
-$formFinal.Controls.Add($lbl_sfstation)
-$formFinal.Controls.Add($lnk_sfstation)
-$formFinal.Controls.Add($PictureBox1)
-$formFinal.ForeColor = [System.Drawing.Color]::White
-$formFinal.MaximizeBox = $false
-$formFinal.MinimizeBox = $false
-$formFinal.Name = [System.String]'formFinal'
-$formFinal.StartPosition = [System.Windows.Forms.FormStartPosition]::CenterScreen
-$formFinal.TopMost = $true
-$formFinal.ShowInTaskbar = $true
-$formFinal.Text = [System.String]'SmartFace Demo'
-([System.ComponentModel.ISupportInitialize]$PictureBox1).EndInit()
-$formFinal.ResumeLayout($false)
-Add-Member -InputObject $formFinal -Name PictureBox1 -Value $PictureBox1 -MemberType NoteProperty
-Add-Member -InputObject $formFinal -Name lnk_sfstation -Value $lnk_sfstation -MemberType NoteProperty
-Add-Member -InputObject $formFinal -Name lbl_sfstation -Value $lbl_sfstation -MemberType NoteProperty
-Add-Member -InputObject $formFinal -Name lbl_restapi -Value $lbl_restapi -MemberType NoteProperty
-Add-Member -InputObject $formFinal -Name lbl_graphql -Value $lbl_graphql -MemberType NoteProperty
-Add-Member -InputObject $formFinal -Name lnk_restapi -Value $lnk_restapi -MemberType NoteProperty
-Add-Member -InputObject $formFinal -Name lnk_graphql -Value $lnk_graphql -MemberType NoteProperty
-Add-Member -InputObject $formFinal -Name lbl_demo -Value $lbl_demo -MemberType NoteProperty
-}
-. InitializeComponent
-$formFinal.ShowDialog()
