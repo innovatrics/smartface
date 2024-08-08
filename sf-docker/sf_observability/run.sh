@@ -32,4 +32,6 @@ sleep 3
 # create mqtt user for rmq mqtt plugin
 docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin"
 docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mb obsminio/loki"
-docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc policy set public obsminio/loki"
+#docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc policy set public obsminio/loki"
+docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mc anonymous set public obsminio/loki"
+
