@@ -2,22 +2,33 @@ version: "3.6"
 
 services:
   obsminio:
-    image: "minio/minio:latest"
-    command: server /data --address ':9000' --console-address ':9001'
+    image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
+    command: server /data --console-address ":9001"
     expose:
       - 9000
     ports:
       - "9901:9001"
-    restart: unless-stopped
     volumes:
       - minio_data:/data
     networks:
-      - sf-observability
+      observability:
+    restart: unless-stopped
+
+  obsminio_createbuckets:
+    image: minio/mc
+    depends_on:
+      obsminio:
+        condition: service_started
+    entrypoint: >
+      /bin/sh -c " /usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin; /usr/bin/mc mb obsminio/loki; /usr/bin/mc policy set public obsminio/loki; exit 0; "
+    networks:
+      observability:
+
 
   grafana:
     image: grafana/grafana:10.1.4
     ports:
-      - 3000:3000
+      - 9900:3000
     volumes:
       - ./configuration/grafana/datasources:/etc/grafana/provisioning/datasources
       - ./configuration/grafana/dashboards:/etc/grafana/provisioning/dashboards
@@ -27,9 +38,8 @@ services:
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_AUTH_DISABLE_LOGIN_FORM=true
     networks:
-      - sf-observability
-      - sf-network
-
+      observability:
+      sf-network:
     restart: unless-stopped
 
   loki:
@@ -37,6 +47,8 @@ services:
     depends_on:
       obsminio:
         condition: service_started
+      obsminio_createbuckets:
+        condition: service_completed_successfully
     volumes:
       - ./configuration/loki:/etc/loki
       - loki_data:/loki
@@ -44,7 +56,7 @@ services:
     expose:
       - 3100
     networks:
-      - sf-observability
+      observability:
     restart: unless-stopped
 
   promtail:
@@ -59,7 +71,7 @@ services:
     # to debug relabeling, additional command line arguments "--dry-run --inspect" can be used
     command: -config.file=/etc/promtail/docker-config.yaml
     networks:
-      - sf-observability
+      observability:
     restart: unless-stopped
 
   # Jaeger tracing as configured here is solely for debug purposes. No data is stored!
@@ -78,8 +90,10 @@ services:
     ports:
       - "9903:16686"
     networks:
-      - sf-network
-      - sf-observability
+      sf-network:
+        aliases:
+          - jaeger
+      observability:
     restart: unless-stopped
 
   nodeexporter:
@@ -96,7 +110,7 @@ services:
     expose:
       - 9100
     networks:
-      - sf-observability
+      observability:
     restart: unless-stopped
 
   cadvisor:
@@ -109,7 +123,7 @@ services:
     expose:
       - 8080
     networks:
-      - sf-observability
+      observability:
     restart: unless-stopped
 
   prometheus:
@@ -132,8 +146,8 @@ services:
     ports:
       - 9902:9090
     networks:
-      - sf-observability
-      - sf-network
+      observability:
+      sf-network:
     restart: unless-stopped
 
 volumes:
@@ -149,9 +163,7 @@ volumes:
 
 
 networks:
-  sf-observability:
-    external:
-      name: sf-observability
+  observability:
   sf-network:
     external:
       name: sf-network
