@@ -37,10 +37,6 @@ scrape_configs:
         target_label: 'composeproject'
         replacement: 'sf_docker'
       - source_labels: [ 'composeproject' ]
-        regex: '^all-in-one$'
-        target_label: 'composeproject'
-        replacement: 'sf_docker'        
-      - source_labels: [ 'composeproject' ]
         regex: '^smartface$'
         target_label: 'composeproject'
         replacement: 'sf_docker'
