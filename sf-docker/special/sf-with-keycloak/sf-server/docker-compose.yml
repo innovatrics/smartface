@@ -26,6 +26,8 @@ services:
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   sf-group:
     image: ${REGISTRY}sf-grouping:${SF_VERSION}
@@ -51,6 +53,8 @@ services:
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   sf-streamdatadbworker:
     image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
@@ -75,6 +79,8 @@ services:
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   sf-cam-1:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
@@ -104,6 +110,8 @@ services:
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -135,6 +143,8 @@ services:
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -166,6 +176,8 @@ services:
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -197,6 +209,8 @@ services:
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -228,6 +242,8 @@ services:
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -257,6 +273,8 @@ services:
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -294,6 +312,8 @@ services:
       - CameraDefaults__PreviewPort
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   sf-graphql-api:
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
@@ -324,6 +344,8 @@ services:
       - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   odata-api:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
@@ -353,6 +375,8 @@ services:
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
@@ -372,6 +396,8 @@ services:
       # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -393,6 +419,8 @@ services:
       # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -413,6 +441,8 @@ services:
       # - Gpu__GpuEnabled=true
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     #runtime: nvidia
 
   pedestrian-extractor:
@@ -432,6 +462,8 @@ services:
       # - Gpu__GpuEnabled=true
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     #runtime: nvidia
 
   extractor:
@@ -452,6 +484,8 @@ services:
       # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -473,6 +507,8 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     cpuset: "0"
 
   face-matcher:
@@ -493,6 +529,8 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
@@ -512,6 +550,8 @@ services:
       # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
     #runtime: nvidia
 
@@ -538,6 +578,8 @@ services:
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   video-collector:
     image: ${REGISTRY}sf-video-collector:${SF_VERSION}
@@ -562,6 +604,8 @@ services:
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   video-reader:
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
@@ -583,6 +627,8 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   edge-stream-processor:
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
@@ -602,6 +648,8 @@ services:
       - NoSqlDataStorageDisabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   edge-streams-state-synchronizer:
     image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
@@ -627,6 +675,8 @@ services:
       - Rpc__TimeoutMs
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   access-controller:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
@@ -649,6 +699,8 @@ services:
       - MQTT__UseSsl
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
     env_file: .env.sfac
+    labels:
+      application: smartface
 
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
@@ -657,7 +709,9 @@ services:
     ports:
       - 8000:8000
     env_file: .env.sfstation
-
+    labels:
+      application: smartface
+      
 networks:
   default:
     external:
