@@ -21,7 +21,7 @@ set -e
 
 # sf-network is used so that sf-dependencies and sf containers can communicate
 # this can fail if the network already exists, but we don't mind that
-docker network create sf-observability || true
+# docker network create sf-observability || true
 docker network create sf-network || true
 
 $COMPOSE_COMMAND up -d
@@ -35,12 +35,12 @@ sleep 3
 # #docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc policy set public obsminio/loki"
 # docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mc anonymous set public obsminio/loki"
 
-docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "
-      /usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;
-      /usr/bin/mc mb obsminio/loki;
-      /usr/bin/mc anonymous set public obsminio/loki;
-      /usr/bin/mc mc ls obsminio;
-      exit 0;
-      "
+# docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "
+#       /usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;
+#       /usr/bin/mc mb obsminio/loki;
+#       /usr/bin/mc anonymous set public obsminio/loki;
+#       /usr/bin/mc mc ls obsminio;
+#       exit 0;
+#       "
 
 #docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mc ls obsminio"
