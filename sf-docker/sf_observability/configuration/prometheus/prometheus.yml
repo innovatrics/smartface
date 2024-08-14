@@ -30,15 +30,15 @@ scrape_configs:
       - source_labels: [ composeproject ]
         regex: ^docker$
         target_label: composeproject
-        replacement: sf_docker
+        replacement: app_x_smartface
       - source_labels: [ composeproject ]
         regex: ^sf-docker$
         target_label: composeproject
-        replacement: sf_docker
+        replacement: app_x_smartface
       - source_labels: [ composeproject ]
         regex: ^smartface$
         target_label: composeproject
-        replacement: sf_docker
+        replacement: app_x_smartface
     metric_relabel_configs:
           
   # container resources (cpu, memory, disk, network...)
@@ -52,6 +52,9 @@ scrape_configs:
       - action: labeldrop
         regex: ^cadvisor_version_info$
     metric_relabel_configs:
+      - source_labels: [ __meta_docker_container_label_application ]
+        target_label: application
+        replacement: ${1}
       - source_labels: [ container_label_com_docker_compose_project ]
         target_label: composeproject
         replacement: ${1}
@@ -63,18 +66,6 @@ scrape_configs:
         regex: (.+);(.+)
         target_label: dockerservice
         replacement: ${1}_${2}
-      - source_labels: [composeproject]
-        regex: ^docker$
-        target_label: composeproject
-        replacement: sf_docker
-      - source_labels: [ composeproject ]
-        regex: ^sf-docker$
-        target_label: composeproject
-        replacement: sf_docker
-      - source_labels: [ composeproject ]
-        regex: ^smartface$
-        target_label: composeproject
-        replacement: sf_docker
       - action: labeldrop
         regex: ^container_label_(.*)
   
@@ -90,14 +81,3 @@ scrape_configs:
     static_configs:
       - targets:
           - 'rmq:15692'
-
-
-
-  ## self metrics
-  #- job_name: "prometheus"
-  #  scrape_interval: 1m
-  #  static_configs:
-  #    - targets: [ "localhost:9090" ]
-  #  relabel_configs:
-  #    - target_label: source
-  #      replacement: prometheus

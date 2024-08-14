@@ -31,15 +31,15 @@ scrape_configs:
       - source_labels: [ 'composeproject' ]
         regex: '^docker$'
         target_label: 'composeproject'
-        replacement: 'sf_docker'
+        replacement: 'app_x_smartface'
       - source_labels: [ 'composeproject' ]
         regex: '^sf-docker$'
         target_label: 'composeproject'
-        replacement: 'sf_docker'
+        replacement: 'app_x_smartface'
       - source_labels: [ 'composeproject' ]
         regex: '^smartface$'
         target_label: 'composeproject'
-        replacement: 'sf_docker'
+        replacement: 'app_x_smartface'
     
     pipeline_stages:
       - docker: {}
