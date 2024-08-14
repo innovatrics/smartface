@@ -173,7 +173,7 @@
             "uid": "provisioned-loki"
           },
           "editorMode": "code",
-          "expr": "{application=\"app_x_smartface\",structured=\"true\"} | json | line_format \"{{.ServiceName}} {{._mt}} {{._x}}\"",
+          "expr": "{application=\"smartface\",structured=\"true\"} | json | line_format \"{{.ServiceName}} {{._mt}} {{._x}}\"",
           "queryType": "range",
           "refId": "A"
         },
@@ -183,7 +183,7 @@
             "uid": "provisioned-loki"
           },
           "editorMode": "code",
-          "expr": "{application=\"app_x_smartface\",structured=\"false\"} | line_format \"{{.composeservice}} {{__line__}}\"",
+          "expr": "{application=\"smartface\",structured=\"false\"} | line_format \"{{.composeservice}} {{__line__}}\"",
           "hide": false,
           "queryType": "range",
           "refId": "B"
@@ -443,7 +443,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "100 * sum(irate(container_cpu_usage_seconds_total{application=\"app_x_smartface\"}[1m])) by (composeservice)",
+          "expr": "100 * sum(irate(container_cpu_usage_seconds_total{application=\"smartface\"}[1m])) by (composeservice)",
           "legendFormat": "{{dockerservice}}",
           "range": true,
           "refId": "A"
@@ -615,7 +615,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "container_memory_usage_bytes{application=\"app_x_smartface\"}",
+          "expr": "container_memory_usage_bytes{application=\"smartface\"}",
           "legendFormat": "{{composeservice}}",
           "range": true,
           "refId": "A"
@@ -758,7 +758,7 @@
             "uid": "provisioned-loki"
           },
           "editorMode": "code",
-          "expr": "sum by (level) (count_over_time({application=\"app_x_smartface\"}[1m])) ",
+          "expr": "sum by (level) (count_over_time({application=\"smartface\"}[1m])) ",
           "legendFormat": "{{level}}",
           "queryType": "range",
           "refId": "A"
@@ -808,7 +808,7 @@
                 "uid": "provisioned-loki"
               },
               "editorMode": "code",
-              "expr": "{application=\"app_x_smartface_dependencies\"} | regexp \"^(?P<line>.*)$\" | line_format \"{{.composeservice}} {{.line}}\"",
+              "expr": "{application=\"smartface_dependencies\"} | regexp \"^(?P<line>.*)$\" | line_format \"{{.composeservice}} {{.line}}\"",
               "queryType": "range",
               "refId": "A"
             }
@@ -870,7 +870,7 @@
                 "uid": "provisioned-prometheus"
               },
               "editorMode": "code",
-              "expr": "100 * sum(rate(container_cpu_usage_seconds_total{application=\"app_x_smartface_dependencies\"}[1m])) by (composeservice)",
+              "expr": "100 * sum(rate(container_cpu_usage_seconds_total{application=\"smartface_dependencies\"}[1m])) by (composeservice)",
               "legendFormat": "{{dockerservice}}",
               "range": true,
               "refId": "A"
@@ -932,7 +932,7 @@
                 "uid": "provisioned-prometheus"
               },
               "editorMode": "code",
-              "expr": "container_memory_usage_bytes{application=\"app_x_smartface_dependencies\"}",
+              "expr": "container_memory_usage_bytes{application=\"smartface_dependencies\"}",
               "legendFormat": "{{composeservice}}",
               "range": true,
               "refId": "A"
