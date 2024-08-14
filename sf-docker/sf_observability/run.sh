@@ -44,3 +44,6 @@ sleep 3
 #       "
 
 #docker run --rm --network sf-observability --entrypoint /bin/sh minio/mc -c "/usr/bin/mc mc ls obsminio"
+
+cd ../all-in-one/
+./run.sh
