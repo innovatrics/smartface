@@ -13,6 +13,7 @@ scrape_configs:
       - source_labels: [ __meta_docker_container_label_application ]
         target_label: application
         replacement: ${1}
+        action: keep
       - source_labels: [ __meta_docker_container_label_scrapeMetrics ]
         regex: ^true$
         action: keep
