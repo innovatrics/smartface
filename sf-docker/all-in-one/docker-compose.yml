@@ -660,5 +660,5 @@ services:
 
 networks:
   default:
-    external:
-      name: sf-network
+    name: sf-network
+    external: true

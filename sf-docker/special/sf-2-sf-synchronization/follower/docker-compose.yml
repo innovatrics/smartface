@@ -667,5 +667,5 @@ services:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 networks:
   default:
-    external:
-      name: sf-network
+    name: sf-network
+    external: true
