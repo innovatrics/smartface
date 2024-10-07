@@ -1,34 +1,6 @@
 version: '3.4'
 services:
 
-  sf-base:
-    image: ${REGISTRY}sf-base:${SF_VERSION}
-    container_name: SFBase
-    command: --serviceName SFBase
-    ports:
-      - 2406:2406
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
-
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
