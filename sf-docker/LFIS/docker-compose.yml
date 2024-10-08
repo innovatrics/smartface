@@ -17,6 +17,8 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
@@ -34,6 +36,8 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
@@ -53,6 +57,8 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
     cpuset: "0"
 
   liveness:
@@ -71,6 +77,8 @@ services:
       - JAEGER_AGENT_HOST
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   watchlist-api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
@@ -107,6 +115,8 @@ services:
       - FeatureManagement__Full=false
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
@@ -115,6 +125,8 @@ services:
     ports:
       - 8000:8000
     env_file: .env.sfstation
+    labels:
+      application: smartface    
 
   sf-graphql-api:
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
@@ -146,6 +158,8 @@ services:
       - AppSettings__Log_RabbitMq_Enabled
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      application: smartface
 
 networks:
   default:
