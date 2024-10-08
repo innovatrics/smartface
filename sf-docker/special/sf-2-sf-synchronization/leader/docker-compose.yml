@@ -17,6 +17,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -41,6 +42,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -64,6 +66,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -90,6 +93,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -98,11 +102,13 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
+
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   sf-cam-2:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam2
@@ -120,6 +126,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -128,11 +135,13 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
+
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   sf-cam-3:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam3
@@ -150,6 +159,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -158,11 +168,13 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
+
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   sf-cam-4:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam4
@@ -180,6 +192,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -188,11 +201,13 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
+
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   sf-cam-5:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam5
@@ -210,6 +225,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -218,14 +234,17 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
+
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   sf-cam-nx:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
+
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     restart: unless-stopped
@@ -239,6 +258,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -247,10 +267,12 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
+
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
@@ -275,6 +297,7 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -309,6 +332,7 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - AppSettings__Log_RabbitMq_Enabled
@@ -333,6 +357,7 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -354,14 +379,17 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-      # - Gpu__GpuNeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
+
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   pedestrian-detector:
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
     container_name: SFPedestrianDetectCpu
@@ -374,14 +402,17 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-      # - Gpu__GpuNeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
+
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   object-detector:
     image: ${REGISTRY}sf-object-detector:${SF_VERSION}
     container_name: SFObjectDetectorCpu
@@ -394,6 +425,7 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
@@ -412,6 +444,7 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
@@ -430,14 +463,17 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-      # - Gpu__GpuNeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
+
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
@@ -452,6 +488,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -471,6 +508,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -487,14 +525,17 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-      # - Gpu__GpuNeuralRuntime=Tensor
+    # - Gpu__GpuNeuralRuntime=Tensor
+
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
+  #runtime: nvidia
+
   video-aggregator:
     image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
     container_name: SFVideoDataAggregator
@@ -509,6 +550,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -532,6 +574,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -553,6 +596,7 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
@@ -575,6 +619,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
     volumes:
@@ -599,6 +644,7 @@ services:
       - ConnectionStrings__CoreDbContext
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__Log_RabbitMq_Enabled
       - Rpc__TimeoutMs
     volumes:
@@ -623,6 +669,7 @@ services:
       - MQTT__Port
       - MQTT__UseSsl
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
+      - AppSettings__Log_JsonConsole_Enabled
     env_file: .env.sfac
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
@@ -649,6 +696,7 @@ services:
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__USE_JAEGER_APP_SETTINGS
+      - AppSettings__Log_JsonConsole_Enabled
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
@@ -662,5 +710,5 @@ services:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 networks:
   default:
-    external:
-      name: sf-network
+    name: sf-network
+    external: true
