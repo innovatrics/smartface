@@ -7,5 +7,5 @@ if %errorlevel% neq 0 (
     exit /b
 )
 :: Run the PowerShell script
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0remove-smartface-vm.ps1"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\remove-smartface-vm.ps1"
 pause

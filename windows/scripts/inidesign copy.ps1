@@ -1,3 +1,5 @@
+$GroupBox1_Enter = {
+}
 $Button1_Click = {
 }
 Add-Type -AssemblyName System.Windows.Forms

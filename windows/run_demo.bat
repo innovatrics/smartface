@@ -7,7 +7,7 @@ if %errorlevel% neq 0 (
     exit /b
 )
 :: Set the working directory
-set "scriptDir=%~dp0"
+set "scriptDir=%~dp0\scripts"
 
 :: Run the PowerShell script with the correct working directory
 powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-Location '%scriptDir%'; .\deploy-smartface.ps1"

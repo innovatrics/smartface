@@ -1,3 +1,7 @@
+# SmartFace on Windows
+TODO
+
+
 # SmartFace on Docker
 
 SmartFace docker images provide an easy way of deploying and scaling SmartFace with all the benefits of containerization. SmartFace platform is distributed as Linux Docker images for both 86x64 and ARM platforms.
