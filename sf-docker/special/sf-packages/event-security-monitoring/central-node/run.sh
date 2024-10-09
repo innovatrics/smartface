@@ -140,7 +140,7 @@ docker run --rm --name s3-bucket-create --network sf-network ${SF_ADMIN_IMAGE} \
 
 ############### NOTE ###############
 # Uncomment line below if you are interested in watchlists synchronization from SmartFace platform to edge cameras
-#./create-wl-stream-generation.sh
+./create-wl-stream-generation.sh
 
 # finally start SF images
 $COMPOSE_COMMAND up -d --force-recreate
