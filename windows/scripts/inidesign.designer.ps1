@@ -5,12 +5,6 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.LinkLabel]$lnk_documentation = $null
 [System.Windows.Forms.PictureBox]$img_SmartFaceLogo = $null
 [System.Windows.Forms.TabControl]$tab_control01 = $null
-[System.Windows.Forms.TabPage]$tab_welcome = $null
-[System.Windows.Forms.Label]$lbl_welcome_info03 = $null
-[System.Windows.Forms.Button]$btn_welcome_continue = $null
-[System.Windows.Forms.Label]$lbl_welcome_info01 = $null
-[System.Windows.Forms.PictureBox]$img_welcome_image = $null
-[System.Windows.Forms.Label]$lbl_welcome_info02 = $null
 [System.Windows.Forms.TabPage]$tab_install = $null
 [System.Windows.Forms.Label]$lbl_install_prerequisities_info03 = $null
 [System.Windows.Forms.LinkLabel]$lnk_install_prerequisities_hyperv = $null
@@ -20,11 +14,7 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.LinkLabel]$lnk_install_prerequisities_chocolatey = $null
 [System.Windows.Forms.Label]$lbl_install_prerequisities_info02 = $null
 [System.Windows.Forms.Label]$lbl_install_yourcomputer = $null
-[System.Windows.Forms.Label]$lbl_install_lfis_info = $null
 [System.Windows.Forms.Label]$lbl_install_allinone_info = $null
-[System.Windows.Forms.Label]$lbl_install_choose = $null
-[System.Windows.Forms.RadioButton]$rdb_install_lfis = $null
-[System.Windows.Forms.RadioButton]$rdb_install_allinone = $null
 [System.Windows.Forms.Button]$Button4 = $null
 [System.Windows.Forms.TabPage]$tab_license = $null
 [System.Windows.Forms.Label]$lbl_license_info2 = $null
@@ -66,7 +56,6 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$btn_wmstatus_start = $null
 [System.Windows.Forms.Button]$btn_wmstatus_stop = $null
 [System.Windows.Forms.TabPage]$tab_uninstall = $null
-[System.Windows.Forms.PictureBox]$img_uninstall = $null
 [System.Windows.Forms.Label]$lbl_uninstall = $null
 [System.Windows.Forms.Button]$btn_uninstall = $null
 function InitializeComponent
@@ -78,12 +67,6 @@ $lbl_evaluationDemo = (New-Object -TypeName System.Windows.Forms.Label)
 $lnk_documentation = (New-Object -TypeName System.Windows.Forms.LinkLabel)
 $img_SmartFaceLogo = (New-Object -TypeName System.Windows.Forms.PictureBox)
 $tab_control01 = (New-Object -TypeName System.Windows.Forms.TabControl)
-$tab_welcome = (New-Object -TypeName System.Windows.Forms.TabPage)
-$lbl_welcome_info03 = (New-Object -TypeName System.Windows.Forms.Label)
-$btn_welcome_continue = (New-Object -TypeName System.Windows.Forms.Button)
-$lbl_welcome_info01 = (New-Object -TypeName System.Windows.Forms.Label)
-$img_welcome_image = (New-Object -TypeName System.Windows.Forms.PictureBox)
-$lbl_welcome_info02 = (New-Object -TypeName System.Windows.Forms.Label)
 $tab_install = (New-Object -TypeName System.Windows.Forms.TabPage)
 $lbl_install_prerequisities_info03 = (New-Object -TypeName System.Windows.Forms.Label)
 $lnk_install_prerequisities_hyperv = (New-Object -TypeName System.Windows.Forms.LinkLabel)
@@ -93,11 +76,7 @@ $lnk_install_prerequisities_multipass = (New-Object -TypeName System.Windows.For
 $lnk_install_prerequisities_chocolatey = (New-Object -TypeName System.Windows.Forms.LinkLabel)
 $lbl_install_prerequisities_info02 = (New-Object -TypeName System.Windows.Forms.Label)
 $lbl_install_yourcomputer = (New-Object -TypeName System.Windows.Forms.Label)
-$lbl_install_lfis_info = (New-Object -TypeName System.Windows.Forms.Label)
 $lbl_install_allinone_info = (New-Object -TypeName System.Windows.Forms.Label)
-$lbl_install_choose = (New-Object -TypeName System.Windows.Forms.Label)
-$rdb_install_lfis = (New-Object -TypeName System.Windows.Forms.RadioButton)
-$rdb_install_allinone = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $Button4 = (New-Object -TypeName System.Windows.Forms.Button)
 $tab_license = (New-Object -TypeName System.Windows.Forms.TabPage)
 $lbl_license_info2 = (New-Object -TypeName System.Windows.Forms.Label)
@@ -139,19 +118,15 @@ $Label22 = (New-Object -TypeName System.Windows.Forms.Label)
 $btn_wmstatus_start = (New-Object -TypeName System.Windows.Forms.Button)
 $btn_wmstatus_stop = (New-Object -TypeName System.Windows.Forms.Button)
 $tab_uninstall = (New-Object -TypeName System.Windows.Forms.TabPage)
-$img_uninstall = (New-Object -TypeName System.Windows.Forms.PictureBox)
 $lbl_uninstall = (New-Object -TypeName System.Windows.Forms.Label)
 $btn_uninstall = (New-Object -TypeName System.Windows.Forms.Button)
 $pnl_white.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$img_SmartFaceLogo).BeginInit()
 $tab_control01.SuspendLayout()
-$tab_welcome.SuspendLayout()
-([System.ComponentModel.ISupportInitialize]$img_welcome_image).BeginInit()
 $tab_install.SuspendLayout()
 $tab_license.SuspendLayout()
 $tab_run.SuspendLayout()
 $tab_uninstall.SuspendLayout()
-([System.ComponentModel.ISupportInitialize]$img_uninstall).BeginInit()
 $Form1.SuspendLayout()
 #
 #pnl_white
@@ -168,7 +143,7 @@ $pnl_white.TabIndex = [System.Int32]1
 #
 #lbl_documentation
 #
-$lbl_documentation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]627,[System.Int32]70))
+$lbl_documentation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]599,[System.Int32]62))
 $lbl_documentation.Name = [System.String]'lbl_documentation'
 $lbl_documentation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]216,[System.Int32]16))
 $lbl_documentation.TabIndex = [System.Int32]11
@@ -186,9 +161,9 @@ $lbl_evaluationDemo.Text = [System.String]'Evaluation DEMO'
 #
 #lnk_documentation
 #
-$lnk_documentation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]627,[System.Int32]86))
+$lnk_documentation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]599,[System.Int32]78))
 $lnk_documentation.Name = [System.String]'lnk_documentation'
-$lnk_documentation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]225,[System.Int32]23))
+$lnk_documentation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]248,[System.Int32]23))
 $lnk_documentation.TabIndex = [System.Int32]9
 $lnk_documentation.TabStop = $true
 $lnk_documentation.Text = [System.String]'http://developer.innovatrics.com/smartface'
@@ -205,7 +180,6 @@ $img_SmartFaceLogo.TabStop = $false
 #
 #tab_control01
 #
-$tab_control01.Controls.Add($tab_welcome)
 $tab_control01.Controls.Add($tab_install)
 $tab_control01.Controls.Add($tab_license)
 $tab_control01.Controls.Add($tab_run)
@@ -215,65 +189,6 @@ $tab_control01.Name = [System.String]'tab_control01'
 $tab_control01.SelectedIndex = [System.Int32]0
 $tab_control01.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]846,[System.Int32]490))
 $tab_control01.TabIndex = [System.Int32]9
-#
-#tab_welcome
-#
-$tab_welcome.Controls.Add($lbl_welcome_info03)
-$tab_welcome.Controls.Add($btn_welcome_continue)
-$tab_welcome.Controls.Add($lbl_welcome_info01)
-$tab_welcome.Controls.Add($img_welcome_image)
-$tab_welcome.Controls.Add($lbl_welcome_info02)
-$tab_welcome.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]22))
-$tab_welcome.Name = [System.String]'tab_welcome'
-$tab_welcome.Padding = (New-Object -TypeName System.Windows.Forms.Padding -ArgumentList @([System.Int32]3))
-$tab_welcome.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]838,[System.Int32]464))
-$tab_welcome.TabIndex = [System.Int32]0
-$tab_welcome.Text = [System.String]'Welcome'
-$tab_welcome.UseVisualStyleBackColor = $true
-#
-#lbl_welcome_info03
-#
-$lbl_welcome_info03.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]20,[System.Int32]265))
-$lbl_welcome_info03.Name = [System.String]'lbl_welcome_info03'
-$lbl_welcome_info03.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]279,[System.Int32]191))
-$lbl_welcome_info03.TabIndex = [System.Int32]4
-$lbl_welcome_info03.Text = [System.String]$resources.'lbl_welcome_info03.Text'
-#
-#btn_welcome_continue
-#
-$btn_welcome_continue.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]699,[System.Int32]416))
-$btn_welcome_continue.Name = [System.String]'btn_welcome_continue'
-$btn_welcome_continue.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]133,[System.Int32]40))
-$btn_welcome_continue.TabIndex = [System.Int32]3
-$btn_welcome_continue.Text = [System.String]'Continue'
-$btn_welcome_continue.UseVisualStyleBackColor = $true
-#
-#lbl_welcome_info01
-#
-$lbl_welcome_info01.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_welcome_info01.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]6,[System.Int32]17))
-$lbl_welcome_info01.Name = [System.String]'lbl_welcome_info01'
-$lbl_welcome_info01.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]293,[System.Int32]23))
-$lbl_welcome_info01.TabIndex = [System.Int32]2
-$lbl_welcome_info01.Text = [System.String]'What is SmartFace'
-#
-#img_welcome_image
-#
-$img_welcome_image.BackgroundImage = ([System.Drawing.Image]$resources.'img_welcome_image.BackgroundImage')
-$img_welcome_image.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]305,[System.Int32]17))
-$img_welcome_image.Name = [System.String]'img_welcome_image'
-$img_welcome_image.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]524,[System.Int32]393))
-$img_welcome_image.TabIndex = [System.Int32]1
-$img_welcome_image.TabStop = $false
-#
-#lbl_welcome_info02
-#
-$lbl_welcome_info02.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]20,[System.Int32]53))
-$lbl_welcome_info02.Name = [System.String]'lbl_welcome_info02'
-$lbl_welcome_info02.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]279,[System.Int32]201))
-$lbl_welcome_info02.TabIndex = [System.Int32]0
-$lbl_welcome_info02.Text = [System.String]$resources.'lbl_welcome_info02.Text'
-$lbl_welcome_info02.add_Click($Label1_Click)
 #
 #tab_install
 #
@@ -285,11 +200,7 @@ $tab_install.Controls.Add($lnk_install_prerequisities_multipass)
 $tab_install.Controls.Add($lnk_install_prerequisities_chocolatey)
 $tab_install.Controls.Add($lbl_install_prerequisities_info02)
 $tab_install.Controls.Add($lbl_install_yourcomputer)
-$tab_install.Controls.Add($lbl_install_lfis_info)
 $tab_install.Controls.Add($lbl_install_allinone_info)
-$tab_install.Controls.Add($lbl_install_choose)
-$tab_install.Controls.Add($rdb_install_lfis)
-$tab_install.Controls.Add($rdb_install_allinone)
 $tab_install.Controls.Add($Button4)
 $tab_install.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]8.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
 $tab_install.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]22))
@@ -312,7 +223,7 @@ To enable Hyper-V'
 #
 $lnk_install_prerequisities_hyperv.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]560,[System.Int32]361))
 $lnk_install_prerequisities_hyperv.Name = [System.String]'lnk_install_prerequisities_hyperv'
-$lnk_install_prerequisities_hyperv.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]261,[System.Int32]37))
+$lnk_install_prerequisities_hyperv.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]261,[System.Int32]52))
 $lnk_install_prerequisities_hyperv.TabIndex = [System.Int32]17
 $lnk_install_prerequisities_hyperv.TabStop = $true
 $lnk_install_prerequisities_hyperv.Text = [System.String]'https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v'
@@ -375,25 +286,9 @@ $lbl_install_yourcomputer.TabIndex = [System.Int32]11
 $lbl_install_yourcomputer.Text = [System.String]'Your computer has X CPU cores and Y GB of Ram. Please ensure your host computer has the resources available for the SmartFace Evaluation DEMO.
 '
 #
-#lbl_install_lfis_info
-#
-$lbl_install_lfis_info.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]252,[System.Int32]186))
-$lbl_install_lfis_info.Name = [System.String]'lbl_install_lfis_info'
-$lbl_install_lfis_info.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]247,[System.Int32]162))
-$lbl_install_lfis_info.TabIndex = [System.Int32]7
-$lbl_install_lfis_info.Text = [System.String]'Evaluation preset for the Lightweight Facial Identification Service
-
-Demo of a solution suitable for cloud instances
-
-
-Needs 4 core CPU
-Needs 8GB Ram 
-Needs 40 GB of HDD space
-'
-#
 #lbl_install_allinone_info
 #
-$lbl_install_allinone_info.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]25,[System.Int32]186))
+$lbl_install_allinone_info.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]40,[System.Int32]52))
 $lbl_install_allinone_info.Name = [System.String]'lbl_install_allinone_info'
 $lbl_install_allinone_info.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]202,[System.Int32]162))
 $lbl_install_allinone_info.TabIndex = [System.Int32]6
@@ -407,37 +302,6 @@ Needs 8 core CPU
 Needs 16GB Ram
 Needs 40 GB of HDD space
 '
-#
-#lbl_install_choose
-#
-$lbl_install_choose.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]8.25,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_install_choose.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]21,[System.Int32]15))
-$lbl_install_choose.Name = [System.String]'lbl_install_choose'
-$lbl_install_choose.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]440,[System.Int32]23))
-$lbl_install_choose.TabIndex = [System.Int32]5
-$lbl_install_choose.Text = [System.String]'You are about to install the SmartFace Evaluation Demo. Choose your setup:'
-#
-#rdb_install_lfis
-#
-$rdb_install_lfis.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]8.25,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$rdb_install_lfis.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]289,[System.Int32]85))
-$rdb_install_lfis.Name = [System.String]'rdb_install_lfis'
-$rdb_install_lfis.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]143,[System.Int32]54))
-$rdb_install_lfis.TabIndex = [System.Int32]4
-$rdb_install_lfis.TabStop = $true
-$rdb_install_lfis.Text = [System.String]'Lightweight Facial Identification Service'
-$rdb_install_lfis.UseVisualStyleBackColor = $true
-#
-#rdb_install_allinone
-#
-$rdb_install_allinone.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]8.25,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$rdb_install_allinone.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]64,[System.Int32]100))
-$rdb_install_allinone.Name = [System.String]'rdb_install_allinone'
-$rdb_install_allinone.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]104,[System.Int32]24))
-$rdb_install_allinone.TabIndex = [System.Int32]3
-$rdb_install_allinone.TabStop = $true
-$rdb_install_allinone.Text = [System.String]'All in one'
-$rdb_install_allinone.UseVisualStyleBackColor = $true
 #
 #Button4
 #
@@ -478,20 +342,19 @@ $tab_license.UseVisualStyleBackColor = $true
 #
 #lbl_license_info2
 #
-$lbl_license_info2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]74,[System.Int32]267))
+$lbl_license_info2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]24,[System.Int32]272))
 $lbl_license_info2.Name = [System.String]'lbl_license_info2'
-$lbl_license_info2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]140,[System.Int32]40))
+$lbl_license_info2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]140,[System.Int32]63))
 $lbl_license_info2.TabIndex = [System.Int32]17
 $lbl_license_info2.Text = [System.String]'For more information and detailed instruction visit'
 #
 #btn_license_loginregistry
 #
-$btn_license_loginregistry.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]605,[System.Int32]153))
+$btn_license_loginregistry.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]555,[System.Int32]157))
 $btn_license_loginregistry.Name = [System.String]'btn_license_loginregistry'
 $btn_license_loginregistry.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]112,[System.Int32]50))
-$btn_license_loginregistry.TabIndex = [System.Int32]16
-$btn_license_loginregistry.Text = [System.String]'Log in to Registry'
-$btn_license_loginregistry.UseVisualStyleBackColor = $true
+$btn_license_loginregistry.TabIndex = [System.Int32]18
+$btn_license_loginregistry.Text = [System.String]'Log in Registry'
 #
 #lbl_license_header2
 #
@@ -503,18 +366,19 @@ $lbl_license_header2.TabIndex = [System.Int32]15
 $lbl_license_header2.Text = [System.String]'2. Get a license
 
                  1. Copy Hardware ID  >  2. Visit Customer Portal  >  3. Generate License  >  4. Download the license  >  5. Select License file'
+
 #
 #lbl_license_info
 #
-$lbl_license_info.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]22,[System.Int32]25))
+$lbl_license_info.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]13))
 $lbl_license_info.Name = [System.String]'lbl_license_info'
-$lbl_license_info.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]793,[System.Int32]75))
+$lbl_license_info.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]793,[System.Int32]92))
 $lbl_license_info.TabIndex = [System.Int32]14
 $lbl_license_info.Text = [System.String]$resources.'lbl_license_info.Text'
 #
 #lnk_license_customerportal
 #
-$lnk_license_customerportal.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]22,[System.Int32]100))
+$lnk_license_customerportal.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]105))
 $lnk_license_customerportal.Name = [System.String]'lnk_license_customerportal'
 $lnk_license_customerportal.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]449,[System.Int32]23))
 $lnk_license_customerportal.TabIndex = [System.Int32]13
@@ -524,7 +388,7 @@ $lnk_license_customerportal.Text = [System.String]'https://customerportal.innova
 #lbl_license_header1
 #
 $lbl_license_header1.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]8.25,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_license_header1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]22,[System.Int32]129))
+$lbl_license_header1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]134))
 $lbl_license_header1.Name = [System.String]'lbl_license_header1'
 $lbl_license_header1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]296,[System.Int32]23))
 $lbl_license_header1.TabIndex = [System.Int32]12
@@ -532,7 +396,7 @@ $lbl_license_header1.Text = [System.String]'1. Provide registry credentials. '
 #
 #btn_license_clipboard
 #
-$btn_license_clipboard.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]605,[System.Int32]310))
+$btn_license_clipboard.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]555,[System.Int32]338))
 $btn_license_clipboard.Name = [System.String]'btn_license_clipboard'
 $btn_license_clipboard.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]112,[System.Int32]52))
 $btn_license_clipboard.TabIndex = [System.Int32]11
@@ -542,14 +406,14 @@ $btn_license_clipboard.UseVisualStyleBackColor = $true
 #txt_license_hwid
 #
 $txt_license_hwid.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]27.75,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$txt_license_hwid.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]180,[System.Int32]310))
+$txt_license_hwid.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]130,[System.Int32]338))
 $txt_license_hwid.Name = [System.String]'txt_license_hwid'
 $txt_license_hwid.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]419,[System.Int32]52))
 $txt_license_hwid.TabIndex = [System.Int32]10
 #
 #lbl_license_hwid
 #
-$lbl_license_hwid.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]74,[System.Int32]310))
+$lbl_license_hwid.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]24,[System.Int32]338))
 $lbl_license_hwid.Name = [System.String]'lbl_license_hwid'
 $lbl_license_hwid.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
 $lbl_license_hwid.TabIndex = [System.Int32]9
@@ -557,7 +421,7 @@ $lbl_license_hwid.Text = [System.String]'Hardware ID'
 #
 #lnk_license_obtainlicense
 #
-$lnk_license_obtainlicense.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]220,[System.Int32]267))
+$lnk_license_obtainlicense.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]170,[System.Int32]272))
 $lnk_license_obtainlicense.Name = [System.String]'lnk_license_obtainlicense'
 $lnk_license_obtainlicense.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]497,[System.Int32]23))
 $lnk_license_obtainlicense.TabIndex = [System.Int32]8
@@ -566,7 +430,7 @@ $lnk_license_obtainlicense.Text = [System.String]'https://developers.innovatrics
 #
 #lbl_license_password
 #
-$lbl_license_password.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]74,[System.Int32]185))
+$lbl_license_password.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]24,[System.Int32]189))
 $lbl_license_password.Name = [System.String]'lbl_license_password'
 $lbl_license_password.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
 $lbl_license_password.TabIndex = [System.Int32]7
@@ -574,14 +438,14 @@ $lbl_license_password.Text = [System.String]'Password'
 #
 #txt_license_password
 #
-$txt_license_password.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]180,[System.Int32]182))
+$txt_license_password.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]130,[System.Int32]186))
 $txt_license_password.Name = [System.String]'txt_license_password'
 $txt_license_password.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]419,[System.Int32]21))
 $txt_license_password.TabIndex = [System.Int32]6
 #
 #btn_license_selectlicensefile
 #
-$btn_license_selectlicensefile.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]605,[System.Int32]371))
+$btn_license_selectlicensefile.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]555,[System.Int32]399))
 $btn_license_selectlicensefile.Name = [System.String]'btn_license_selectlicensefile'
 $btn_license_selectlicensefile.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]112,[System.Int32]30))
 $btn_license_selectlicensefile.TabIndex = [System.Int32]5
@@ -591,14 +455,14 @@ $btn_license_selectlicensefile.UseVisualStyleBackColor = $true
 #txt_license_filepath
 #
 $txt_license_filepath.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]14.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$txt_license_filepath.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]180,[System.Int32]371))
+$txt_license_filepath.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]130,[System.Int32]399))
 $txt_license_filepath.Name = [System.String]'txt_license_filepath'
 $txt_license_filepath.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]419,[System.Int32]30))
 $txt_license_filepath.TabIndex = [System.Int32]4
 #
 #lbl_license_filepath
 #
-$lbl_license_filepath.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]72,[System.Int32]380))
+$lbl_license_filepath.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]22,[System.Int32]408))
 $lbl_license_filepath.Name = [System.String]'lbl_license_filepath'
 $lbl_license_filepath.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
 $lbl_license_filepath.TabIndex = [System.Int32]3
@@ -606,14 +470,14 @@ $lbl_license_filepath.Text = [System.String]'License file path'
 #
 #txt_license_username
 #
-$txt_license_username.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]180,[System.Int32]155))
+$txt_license_username.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]130,[System.Int32]159))
 $txt_license_username.Name = [System.String]'txt_license_username'
 $txt_license_username.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]419,[System.Int32]21))
 $txt_license_username.TabIndex = [System.Int32]2
 #
 #lbl_license_username
 #
-$lbl_license_username.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]74,[System.Int32]158))
+$lbl_license_username.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]24,[System.Int32]162))
 $lbl_license_username.Name = [System.String]'lbl_license_username'
 $lbl_license_username.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
 $lbl_license_username.TabIndex = [System.Int32]1
@@ -792,12 +656,12 @@ $lbl_demolink_restapi_data.TextAlign = [System.Drawing.ContentAlignment]::TopRig
 #lbl_demolink_graphql_data
 #
 $lbl_demolink_graphql_data.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_demolink_graphql_data.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]375,[System.Int32]373))
+$lbl_demolink_graphql_data.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]375,[System.Int32]372))
 $lbl_demolink_graphql_data.Name = [System.String]'lbl_demolink_graphql_data'
-$lbl_demolink_graphql_data.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]232,[System.Int32]23))
-$lbl_demolink_graphql_data.TabIndex = [System.Int32]5
+$lbl_demolink_graphql_data.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]233,[System.Int32]45))
+$lbl_demolink_graphql_data.TabIndex = [System.Int32]21
 $lbl_demolink_graphql_data.TabStop = $true
-$lbl_demolink_graphql_data.Text = [System.String]'http://192.168.101.100:8097'
+$lbl_demolink_graphql_data.Text = [System.String]'http://192.168.101.100:8098'
 $lbl_demolink_graphql_data.TextAlign = [System.Drawing.ContentAlignment]::TopRight
 #
 #lbl_wmstatus_data
@@ -841,7 +705,6 @@ $btn_wmstatus_stop.UseVisualStyleBackColor = $true
 #
 #tab_uninstall
 #
-$tab_uninstall.Controls.Add($img_uninstall)
 $tab_uninstall.Controls.Add($lbl_uninstall)
 $tab_uninstall.Controls.Add($btn_uninstall)
 $tab_uninstall.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]22))
@@ -851,28 +714,19 @@ $tab_uninstall.TabIndex = [System.Int32]6
 $tab_uninstall.Text = [System.String]'Uninstall'
 $tab_uninstall.UseVisualStyleBackColor = $true
 #
-#img_uninstall
-#
-$img_uninstall.BackgroundImage = ([System.Drawing.Image]$resources.'img_uninstall.BackgroundImage')
-$img_uninstall.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]-10,[System.Int32]0))
-$img_uninstall.Name = [System.String]'img_uninstall'
-$img_uninstall.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]861,[System.Int32]257))
-$img_uninstall.TabIndex = [System.Int32]2
-$img_uninstall.TabStop = $false
-#
 #lbl_uninstall
 #
 $lbl_uninstall.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]14.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$lbl_uninstall.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]21,[System.Int32]267))
+$lbl_uninstall.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]167,[System.Int32]68))
 $lbl_uninstall.Name = [System.String]'lbl_uninstall'
-$lbl_uninstall.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]795,[System.Int32]100))
+$lbl_uninstall.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]567,[System.Int32]268))
 $lbl_uninstall.TabIndex = [System.Int32]1
 $lbl_uninstall.Text = [System.String]$resources.'lbl_uninstall.Text'
 #
 #btn_uninstall
 #
 $btn_uninstall.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]12,[System.Drawing.FontStyle]::Bold,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$btn_uninstall.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]307,[System.Int32]380))
+$btn_uninstall.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]303,[System.Int32]355))
 $btn_uninstall.Name = [System.String]'btn_uninstall'
 $btn_uninstall.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]243,[System.Int32]68))
 $btn_uninstall.TabIndex = [System.Int32]0
@@ -892,14 +746,11 @@ $Form1.TopMost = $true
 $pnl_white.ResumeLayout($false)
 ([System.ComponentModel.ISupportInitialize]$img_SmartFaceLogo).EndInit()
 $tab_control01.ResumeLayout($false)
-$tab_welcome.ResumeLayout($false)
-([System.ComponentModel.ISupportInitialize]$img_welcome_image).EndInit()
 $tab_install.ResumeLayout($false)
 $tab_license.ResumeLayout($false)
 $tab_license.PerformLayout()
 $tab_run.ResumeLayout($false)
 $tab_uninstall.ResumeLayout($false)
-([System.ComponentModel.ISupportInitialize]$img_uninstall).EndInit()
 $Form1.ResumeLayout($false)
 Add-Member -InputObject $Form1 -Name pnl_white -Value $pnl_white -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name lbl_documentation -Value $lbl_documentation -MemberType NoteProperty
@@ -907,12 +758,6 @@ Add-Member -InputObject $Form1 -Name lbl_evaluationDemo -Value $lbl_evaluationDe
 Add-Member -InputObject $Form1 -Name lnk_documentation -Value $lnk_documentation -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name img_SmartFaceLogo -Value $img_SmartFaceLogo -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name tab_control01 -Value $tab_control01 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name tab_welcome -Value $tab_welcome -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name lbl_welcome_info03 -Value $lbl_welcome_info03 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name btn_welcome_continue -Value $btn_welcome_continue -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name lbl_welcome_info01 -Value $lbl_welcome_info01 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name img_welcome_image -Value $img_welcome_image -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name lbl_welcome_info02 -Value $lbl_welcome_info02 -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name tab_install -Value $tab_install -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name lbl_install_prerequisities_info03 -Value $lbl_install_prerequisities_info03 -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name lnk_install_prerequisities_hyperv -Value $lnk_install_prerequisities_hyperv -MemberType NoteProperty
@@ -922,11 +767,7 @@ Add-Member -InputObject $Form1 -Name lnk_install_prerequisities_multipass -Value
 Add-Member -InputObject $Form1 -Name lnk_install_prerequisities_chocolatey -Value $lnk_install_prerequisities_chocolatey -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name lbl_install_prerequisities_info02 -Value $lbl_install_prerequisities_info02 -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name lbl_install_yourcomputer -Value $lbl_install_yourcomputer -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name lbl_install_lfis_info -Value $lbl_install_lfis_info -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name lbl_install_allinone_info -Value $lbl_install_allinone_info -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name lbl_install_choose -Value $lbl_install_choose -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name rdb_install_lfis -Value $rdb_install_lfis -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name rdb_install_allinone -Value $rdb_install_allinone -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name Button4 -Value $Button4 -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name tab_license -Value $tab_license -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name lbl_license_info2 -Value $lbl_license_info2 -MemberType NoteProperty
@@ -968,7 +809,6 @@ Add-Member -InputObject $Form1 -Name Label22 -Value $Label22 -MemberType NotePro
 Add-Member -InputObject $Form1 -Name btn_wmstatus_start -Value $btn_wmstatus_start -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name btn_wmstatus_stop -Value $btn_wmstatus_stop -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name tab_uninstall -Value $tab_uninstall -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name img_uninstall -Value $img_uninstall -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name lbl_uninstall -Value $lbl_uninstall -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name btn_uninstall -Value $btn_uninstall -MemberType NoteProperty
 }
