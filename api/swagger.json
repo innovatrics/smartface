@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.27.0"
+    "version": "v5_4.28.0.7116"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, All",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -171,7 +171,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, All",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -405,6 +405,72 @@
         }
       }
     },
+    "/api/v1/Detect": {
+      "post": {
+        "tags": [
+          "Detection"
+        ],
+        "summary": "Detects pedestrians and objects on the image",
+        "description": "Supported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote",
+        "requestBody": {
+          "description": "Detection Request",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetectionRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetectionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetectionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetectionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns all detected pedestrians and objects on image.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request Timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/EdgeStreams/{id}": {
       "get": {
         "tags": [
@@ -507,7 +573,7 @@
           "EdgeStream"
         ],
         "summary": "Creates a new EdgeStream.",
-        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    Balanced, All, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
+        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    Balanced, All, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:<br />\r\n\r\n    Balanced, All, MatchedOnly",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -571,7 +637,7 @@
           "EdgeStream"
         ],
         "summary": "Updates the specified EdgeStream.",
-        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    Balanced, All, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
+        "description": "Supported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:<br />\r\n\r\n    Balanced, All, MatchedOnly\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:<br />\r\n\r\n    Balanced, All, MatchedOnly",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -3934,69 +4000,6 @@
             }
           }
         }
-      },
-      "put": {
-        "tags": [
-          "SetupWatchlistAutoLearn"
-        ],
-        "summary": "Updates the watchlist autolearn config with specified values.",
-        "requestBody": {
-          "description": "The new watchlist autolearn configuration.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Watchlist autolearn config was updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Watchlist autolearn config was not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/api/v1/Tracklet/{id}": {
@@ -4855,124 +4858,6 @@
             }
           }
         }
-      },
-      "post": {
-        "tags": [
-          "Watchlist"
-        ],
-        "summary": "Creates a new watchlist.",
-        "description": "When setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
-        "requestBody": {
-          "description": "Request containing watchlist name and threshold.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistCreateRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistCreateRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistCreateRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistCreateRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Watchlist was created successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Watchlist"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "There was a conflict while creating the new watchlist.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Watchlist"
-        ],
-        "summary": "Upserts the watchlist.",
-        "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.<br />\r\nWhen setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
-        "requestBody": {
-          "description": "Request containing watchlist properties.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistUpsertRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistUpsertRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistUpsertRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistUpsertRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Watchlist was updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Watchlist"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/api/v1/Watchlists/{id}": {
@@ -5002,38 +4887,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "The watchlist with given id was not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Watchlist"
-        ],
-        "summary": "Deletes a watchlist by its id.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id of the watchlist.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The watchlist with given id was deleted successfully."
           },
           "404": {
             "description": "The watchlist with given id was not found.",
@@ -5129,7 +4982,7 @@
         "tags": [
           "Watchlist"
         ],
-        "summary": "Searches the specified watchlists for matches with the given image.",
+        "summary": "Searches for matching watchlist members by provided image of face/s.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:<br />\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote",
         "requestBody": {
           "description": "Request containing searching image and ids of watchlists to be searched.",
@@ -5166,6 +5019,91 @@
                   "items": {
                     "$ref": "#/components/schemas/SearchInWatchlistResponse"
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Watchlists with specified ids were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Detected face did not pass validation and is not suitable to perform search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Watchlists/SearchByTemplate": {
+      "post": {
+        "tags": [
+          "Watchlist"
+        ],
+        "summary": "Searches for matching watchlist members by provided face template/s.",
+        "requestBody": {
+          "description": "Request containing face template and ids of watchlists to be searched.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchInWatchlistByTemplateRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchInWatchlistByTemplateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchInWatchlistByTemplateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchInWatchlistByTemplateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the match results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchInWatchlistByTemplateResponse"
                 }
               }
             }
@@ -5268,123 +5206,6 @@
             }
           }
         }
-      },
-      "post": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Creates a new watchlist member.",
-        "requestBody": {
-          "description": "Request specifying watchlist member properties.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Watchlist member was created successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WatchlistMember"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "There was a conflict while creating the new watchlist member.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Upserts the watchlist member.",
-        "description": "If the watchlist member with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist member with specified Id exists, it updates it.",
-        "requestBody": {
-          "description": "Request specifying which watchlist member should be updated and how to update it.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Watchlist member was updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WatchlistMember"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/api/v1/WatchlistMembers/{id}": {
@@ -5414,38 +5235,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "The watchlist member with given id was not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Deletes a watchlist member by its id.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id of the watchlist member.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The watchlist member with given id was deleted successfully."
           },
           "404": {
             "description": "The watchlist member with given id was not found.",
@@ -5535,488 +5324,10 @@
           }
         }
       }
-    },
-    "/api/v1/WatchlistMembers/LinkToWatchlist": {
-      "post": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Links specified watchlist members to a given watchlist.",
-        "requestBody": {
-          "description": "Request specifying watchlist member ids and watchlist id",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "Watchlist members were successfully linked to the watchlist."
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The watchlist or watchlist members were not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/WatchlistMembers/UnlinkFromWatchlist": {
-      "post": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Unlinks specified watchlist members for a given watchlist.",
-        "requestBody": {
-          "description": "Request specifying watchlist member ids and watchlist id",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "Watchlist members were successfully unlinked from the watchlist."
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The watchlist or watchlist members were not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/WatchlistMembers/Register": {
-      "post": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Registers a watchlist member.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any",
-        "requestBody": {
-          "description": "Request specifying watchlist member register details.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Watchlist members was registered successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WatchlistMemberWithRelatedData"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "408": {
-            "description": "Request has timed out.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "There was a conflict during the registration of the watchlist member.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/WatchlistMembers/{id}/AddFaceFromSystem": {
-      "post": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Adds a specified face to a given watchlist member.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The watchlist member id.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Request specifying face id to add.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The face was successfully added to the watchlist member."
-          },
-          "404": {
-            "description": "The face or watchlist member were not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "There was a conflict adding the specified face to the watchlist member.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/WatchlistMembers/{id}/AddNewFace": {
-      "post": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Adds a specified face to a given watchlist member.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The watchlist member id.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The image with face to add with configuration.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddNewFaceRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddNewFaceRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddNewFaceRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddNewFaceRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "The created face which was added to the watchlist member.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Face"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The watchlist member were not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "408": {
-            "description": "Request has timed out.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "There was a conflict adding the new face to the watchlist member.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/WatchlistMembers/{id}/RemoveFace": {
-      "post": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Removes a face from a watchlist member.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The watchlist member id.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Request specifying face id to remove.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The face was successfully removed from watchlist member."
-          },
-          "404": {
-            "description": "The face or watchlist member was not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The sent request was not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "408": {
-            "description": "Request has timed out.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "AddNewFaceRequest": {
-        "required": [
-          "imageData"
-        ],
-        "type": "object",
-        "properties": {
-          "imageData": {
-            "$ref": "#/components/schemas/RegistrationImageData"
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
-          },
-          "faceDetectorResourceId": {
-            "type": "string"
-          },
-          "templateGeneratorResourceId": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
       "AttributeType": {
         "enum": [
           "Hat",
@@ -6598,6 +5909,44 @@
         },
         "additionalProperties": false
       },
+      "CropCoordinates": {
+        "type": "object",
+        "properties": {
+          "cropLeftTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomY": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "DbCleanupConfig": {
         "required": [
           "cleanupAmount",
@@ -6691,6 +6040,58 @@
         },
         "additionalProperties": false
       },
+      "DetectionRequest": {
+        "required": [
+          "image",
+          "objectDetectorResourceId",
+          "pedestrianDetectorResourceId"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "pedestrianDetectorResourceId": {
+            "type": "string",
+            "default": "none"
+          },
+          "pedestrianDetectorConfig": {
+            "$ref": "#/components/schemas/PedestrianDetectorConfigCreateRequest"
+          },
+          "objectDetectorResourceId": {
+            "type": "string",
+            "default": "none"
+          },
+          "objectDetectorConfig": {
+            "$ref": "#/components/schemas/ObjectDetectorConfigCreateRequest"
+          },
+          "includeCrops": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetectionResponse": {
+        "type": "object",
+        "properties": {
+          "pedestrians": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PedestrianInformation"
+            },
+            "nullable": true
+          },
+          "objects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ObjectInformation"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "EdgeStream": {
         "required": [
           "clientId",
@@ -6698,6 +6099,7 @@
           "faceSaveStrategy",
           "id",
           "name",
+          "objectSaveStrategy",
           "saveFrameImageData",
           "settings",
           "spoofDetectorConfig",
@@ -6739,6 +6141,9 @@
           },
           "settings": {
             "$ref": "#/components/schemas/EdgeStreamSettings"
+          },
+          "objectSaveStrategy": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -6790,6 +6195,11 @@
           },
           "settings": {
             "$ref": "#/components/schemas/EdgeStreamSettingsCreateRequest"
+          },
+          "objectSaveStrategy": {
+            "type": "string",
+            "default": "Balanced",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7517,10 +6927,14 @@
           "faceIdentification",
           "faceLivenessPassive",
           "fullFrame",
-          "messaging"
+          "messaging",
+          "visualCodeDetection"
         ],
         "type": "object",
         "properties": {
+          "visualCodeDetection": {
+            "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionSettings"
+          },
           "faceDetection": {
             "$ref": "#/components/schemas/EdgeStreamFaceDetectionSettings"
           },
@@ -7556,6 +6970,9 @@
           "faceDetection": {
             "$ref": "#/components/schemas/EdgeStreamFaceDetectionSettingsCreateRequest"
           },
+          "visualCodeDetection": {
+            "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionSettingsCreateRequest"
+          },
           "faceExtraction": {
             "$ref": "#/components/schemas/EdgeStreamFaceExtractionSettingsCreateRequest"
           },
@@ -7588,6 +7005,9 @@
         ],
         "type": "object",
         "properties": {
+          "visualCodeDetection": {
+            "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionSettingsUpdateRequest"
+          },
           "faceDetection": {
             "$ref": "#/components/schemas/EdgeStreamFaceDetectionSettingsUpdateRequest"
           },
@@ -7710,6 +7130,186 @@
           },
           "settings": {
             "$ref": "#/components/schemas/EdgeStreamSettingsUpdateRequest"
+          },
+          "objectSaveStrategy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamVisualCodeDetectionSettings": {
+        "required": [
+          "boundingBoxExtension",
+          "enable",
+          "maxDetections",
+          "tracking"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean"
+          },
+          "maxDetections": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "boundingBoxExtension": {
+            "type": "number",
+            "format": "float"
+          },
+          "tracking": {
+            "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionTrackingSettings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamVisualCodeDetectionSettingsCreateRequest": {
+        "required": [
+          "boundingBoxExtension",
+          "enable",
+          "maxDetections",
+          "tracking"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": false
+          },
+          "maxDetections": {
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+          },
+          "boundingBoxExtension": {
+            "type": "number",
+            "format": "float",
+            "default": 1.2
+          },
+          "tracking": {
+            "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionTrackingSettingsCreateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamVisualCodeDetectionSettingsUpdateRequest": {
+        "required": [
+          "boundingBoxExtension",
+          "enable",
+          "maxDetections",
+          "tracking"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": false
+          },
+          "maxDetections": {
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+          },
+          "boundingBoxExtension": {
+            "type": "number",
+            "format": "float",
+            "default": 1.2
+          },
+          "tracking": {
+            "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionTrackingSettingsUpdateRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamVisualCodeDetectionTrackingSettings": {
+        "required": [
+          "inputThreshold",
+          "maxFramesLost",
+          "outputThreshold",
+          "stability"
+        ],
+        "type": "object",
+        "properties": {
+          "outputThreshold": {
+            "type": "number",
+            "format": "float"
+          },
+          "inputThreshold": {
+            "type": "number",
+            "format": "float"
+          },
+          "stability": {
+            "type": "number",
+            "format": "float"
+          },
+          "maxFramesLost": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamVisualCodeDetectionTrackingSettingsCreateRequest": {
+        "required": [
+          "inputThreshold",
+          "maxFramesLost",
+          "outputThreshold",
+          "stability"
+        ],
+        "type": "object",
+        "properties": {
+          "inputThreshold": {
+            "type": "number",
+            "format": "float",
+            "default": 6000
+          },
+          "outputThreshold": {
+            "type": "number",
+            "format": "float",
+            "default": 6000
+          },
+          "stability": {
+            "type": "number",
+            "format": "float",
+            "default": 85
+          },
+          "maxFramesLost": {
+            "type": "integer",
+            "format": "int32",
+            "default": 25
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamVisualCodeDetectionTrackingSettingsUpdateRequest": {
+        "required": [
+          "inputThreshold",
+          "maxFramesLost",
+          "outputThreshold",
+          "stability"
+        ],
+        "type": "object",
+        "properties": {
+          "inputThreshold": {
+            "type": "number",
+            "format": "float",
+            "default": 6000
+          },
+          "outputThreshold": {
+            "type": "number",
+            "format": "float",
+            "default": 6000
+          },
+          "stability": {
+            "type": "number",
+            "format": "float",
+            "default": 85
+          },
+          "maxFramesLost": {
+            "type": "integer",
+            "format": "int32",
+            "default": 25
           }
         },
         "additionalProperties": false
@@ -8448,32 +8048,6 @@
         ],
         "type": "string"
       },
-      "FaceWatchlistMemberLinkingRequest": {
-        "required": [
-          "faceId"
-        ],
-        "type": "object",
-        "properties": {
-          "faceId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FaceWatchlistMemberRemoveRequest": {
-        "required": [
-          "faceId"
-        ],
-        "type": "object",
-        "properties": {
-          "faceId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
       "FailReason": {
         "type": "object",
         "properties": {
@@ -9135,6 +8709,36 @@
         },
         "additionalProperties": false
       },
+      "ObjectInformation": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "objectOrderOnFrameForType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cropImage": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "quality": {
+            "type": "number",
+            "format": "double"
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropCoordinates": {
+            "$ref": "#/components/schemas/CropCoordinates"
+          }
+        },
+        "additionalProperties": false
+      },
       "ObjectTypesForDetection": {
         "type": "object",
         "properties": {
@@ -9613,6 +9217,32 @@
         },
         "additionalProperties": false
       },
+      "PedestrianInformation": {
+        "type": "object",
+        "properties": {
+          "pedestrianOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cropImage": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "quality": {
+            "type": "number",
+            "format": "double"
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropCoordinates": {
+            "$ref": "#/components/schemas/CropCoordinates"
+          }
+        },
+        "additionalProperties": false
+      },
       "PedestrianPagedCollection": {
         "required": [
           "items",
@@ -10044,145 +9674,6 @@
         },
         "additionalProperties": false
       },
-      "RegisterWatchlistMemberRequest": {
-        "required": [
-          "id",
-          "images",
-          "watchlistIds"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "default": ""
-          },
-          "images": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RegistrationImageData"
-            }
-          },
-          "watchlistIds": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "default": [
-              "sample_watchlist_id"
-            ]
-          },
-          "faceDetectorConfig": {
-            "$ref": "#/components/schemas/FaceDetectorConfig"
-          },
-          "faceDetectorResourceId": {
-            "type": "string",
-            "default": "cpu"
-          },
-          "templateGeneratorResourceId": {
-            "type": "string",
-            "default": "cpu"
-          },
-          "keepAutoLearnPhotos": {
-            "type": "boolean",
-            "default": false
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "note": {
-            "type": "string",
-            "nullable": true
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Label"
-            },
-            "default": null,
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegistrationImageData": {
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "faceId": {
-            "type": "string",
-            "format": "uuid",
-            "default": null,
-            "nullable": true
-          },
-          "data": {
-            "type": "string",
-            "format": "byte",
-            "default": ""
-          }
-        },
-        "additionalProperties": false
-      },
-      "SearchByImageMatchResult": {
-        "required": [
-          "displayName",
-          "fullName",
-          "labels",
-          "previewColor",
-          "score",
-          "watchlistDisplayName",
-          "watchlistFullName",
-          "watchlistId",
-          "watchlistMemberId"
-        ],
-        "type": "object",
-        "properties": {
-          "score": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "watchlistMemberId": {
-            "type": "string",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "watchlistDisplayName": {
-            "type": "string"
-          },
-          "watchlistFullName": {
-            "type": "string"
-          },
-          "watchlistId": {
-            "type": "string",
-            "nullable": true
-          },
-          "previewColor": {
-            "type": "string"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Label"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
       "SearchByImageSpoofResult": {
         "type": "object",
         "properties": {
@@ -10259,6 +9750,54 @@
         },
         "additionalProperties": false
       },
+      "SearchInWatchlistByTemplateRequest": {
+        "required": [
+          "template"
+        ],
+        "type": "object",
+        "properties": {
+          "template": {
+            "type": "string",
+            "format": "byte"
+          },
+          "watchlistIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "sample_watchlist_id"
+            ],
+            "nullable": true
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32",
+            "default": 40
+          },
+          "maxResultCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchInWatchlistByTemplateResponse": {
+        "required": [
+          "matchResults"
+        ],
+        "type": "object",
+        "properties": {
+          "matchResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchResult"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "SearchInWatchlistRequest": {
         "required": [
           "image"
@@ -10316,6 +9855,11 @@
           },
           "spoofCheckConfig": {
             "$ref": "#/components/schemas/WatchlistSpoofCheckConfig"
+          },
+          "faceValidationMode": {
+            "type": "string",
+            "default": "none",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -10360,7 +9904,7 @@
           "matchResults": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SearchByImageMatchResult"
+              "$ref": "#/components/schemas/SearchResult"
             }
           },
           "spoofCheckResult": {
@@ -10497,6 +10041,58 @@
           "faceOrder": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchResult": {
+        "required": [
+          "displayName",
+          "fullName",
+          "labels",
+          "previewColor",
+          "score",
+          "watchlistDisplayName",
+          "watchlistFullName",
+          "watchlistId",
+          "watchlistMemberId"
+        ],
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "watchlistMemberId": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "watchlistDisplayName": {
+            "type": "string"
+          },
+          "watchlistFullName": {
+            "type": "string"
+          },
+          "watchlistId": {
+            "type": "string",
+            "nullable": true
+          },
+          "previewColor": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            }
           }
         },
         "additionalProperties": false
@@ -11448,36 +11044,6 @@
         },
         "additionalProperties": false
       },
-      "WatchlistCreateRequest": {
-        "required": [
-          "displayName",
-          "fullName"
-        ],
-        "type": "object",
-        "properties": {
-          "displayName": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string"
-          },
-          "fullName": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string"
-          },
-          "threshold": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "format": "int32"
-          },
-          "previewColor": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "WatchlistLivenessSpoofCheck": {
         "type": "object",
         "properties": {
@@ -11509,6 +11075,7 @@
           "id",
           "labels",
           "note",
+          "totpEnabled",
           "updatedAt"
         ],
         "type": "object",
@@ -11531,6 +11098,9 @@
               "$ref": "#/components/schemas/Label"
             }
           },
+          "totpEnabled": {
+            "type": "boolean"
+          },
           "id": {
             "type": "string"
           },
@@ -11541,35 +11111,6 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistMemberCreateRequest": {
-        "type": "object",
-        "properties": {
-          "displayName": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "note": {
-            "type": "string",
-            "nullable": true
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Label"
-            },
             "nullable": true
           }
         },
@@ -11612,120 +11153,6 @@
           "nextPage": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistMemberUpsertRequest": {
-        "required": [
-          "id"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "displayName": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "note": {
-            "type": "string",
-            "nullable": true
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Label"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistMemberWithRelatedData": {
-        "required": [
-          "createdAt",
-          "displayName",
-          "faces",
-          "fullName",
-          "id",
-          "labels",
-          "note",
-          "updatedAt",
-          "watchlists"
-        ],
-        "type": "object",
-        "properties": {
-          "watchlists": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Watchlist"
-            }
-          },
-          "faces": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Face"
-            }
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "note": {
-            "type": "string",
-            "nullable": true
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Label"
-            }
-          },
-          "id": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistMembersLinkRequest": {
-        "required": [
-          "watchlistId",
-          "watchlistMembersIds"
-        ],
-        "type": "object",
-        "properties": {
-          "watchlistId": {
-            "type": "string"
-          },
-          "watchlistMembersIds": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         },
         "additionalProperties": false
@@ -11860,40 +11287,6 @@
           "keepEvaluatingConditionsAfterFirstFail": {
             "type": "boolean",
             "default": false
-          }
-        },
-        "additionalProperties": false
-      },
-      "WatchlistUpsertRequest": {
-        "required": [
-          "displayName",
-          "fullName",
-          "id"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "displayName": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string"
-          },
-          "fullName": {
-            "maxLength": 200,
-            "minLength": 0,
-            "type": "string"
-          },
-          "threshold": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "integer",
-            "format": "int32"
-          },
-          "previewColor": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

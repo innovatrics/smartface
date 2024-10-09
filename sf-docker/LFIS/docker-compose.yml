@@ -1,5 +1,6 @@
 version: '3.4'
 services:
+
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
@@ -11,6 +12,7 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -27,6 +29,7 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -45,6 +48,7 @@ services:
       - Database__DbEngine
       - ConnectionStrings__CoreDbContext
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -62,6 +66,7 @@ services:
       - RabbitMQ__VirtualHost
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
     volumes:
@@ -90,6 +95,7 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
@@ -134,6 +140,7 @@ services:
       - Hosting__Host
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       - AppSettings__Log_RabbitMq_Enabled
@@ -142,5 +149,5 @@ services:
 
 networks:
   default:
-    external:
-      name: sf-network
+    name: sf-network
+    external: true
