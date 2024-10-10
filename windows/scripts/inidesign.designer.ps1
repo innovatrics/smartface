@@ -618,7 +618,7 @@ $lbl_demolink_restapi.add_Click($Label25_Click)
 $lbl_demolink_graphql.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]15.75,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
 $lbl_demolink_graphql.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]45,[System.Int32]371))
 $lbl_demolink_graphql.Name = [System.String]'lbl_demolink_graphql'
-$lbl_demolink_graphql.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]245,[System.Int32]23))
+$lbl_demolink_graphql.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]245,[System.Int32]45))
 $lbl_demolink_graphql.TabIndex = [System.Int32]9
 $lbl_demolink_graphql.Text = [System.String]'SmartFace GraphQL API'
 #
@@ -743,6 +743,7 @@ $Form1.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
 $Form1.MaximizeBox = $false
 $Form1.Text = [System.String]'SmartFace Demo'
 $Form1.TopMost = $true
+$Form1.FormBorderStyle= 'FixedSingle'
 $pnl_white.ResumeLayout($false)
 ([System.ComponentModel.ISupportInitialize]$img_SmartFaceLogo).EndInit()
 $tab_control01.ResumeLayout($false)
