@@ -551,7 +551,7 @@ function RunUI
 	#
 	#lbl_documentation
 	#
-	$lbl_documentation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]599,[System.Int32]62))
+	$lbl_documentation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]595,[System.Int32]62))
 	$lbl_documentation.Name = [System.String]'lbl_documentation'
 	$lbl_documentation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]216,[System.Int32]16))
 	$lbl_documentation.TabIndex = [System.Int32]11
@@ -569,13 +569,22 @@ function RunUI
 	#
 	#lnk_documentation
 	#
-	$lnk_documentation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]599,[System.Int32]78))
+	$lnk_documentation.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]595,[System.Int32]78))
 	$lnk_documentation.Name = [System.String]'lnk_documentation'
-	$lnk_documentation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]248,[System.Int32]23))
+	$lnk_documentation.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]252,[System.Int32]23))
 	$lnk_documentation.TabIndex = [System.Int32]9
 	$lnk_documentation.TabStop = $true
-	$lnk_documentation.Text = [System.String]'http://developer.innovatrics.com/smartface'
-	$lnk_documentation.add_LinkClicked($lnk_documentation_LinkClicked)
+	$lnk_documentation.Text = [System.String]'https://developers.innovatrics.com/smartface'
+	$lnk_documentation.Links.Add(0, 45, "https://developers.innovatrics.com/smartface")
+	$lnk_documentation.Add_LinkClicked({
+		param($sender, $e)
+		
+		# Get the URL from the link data
+		$url = $e.Link.LinkData.ToString()
+	
+		# Open the URL in the default browser
+		$null = Start-Process $url
+	})
 	#
 	#img_SmartFaceLogo
 	#
@@ -645,6 +654,16 @@ function RunUI
 	$lnk_install_prerequisities_hyperv.TabIndex = [System.Int32]17
 	$lnk_install_prerequisities_hyperv.TabStop = $true
 	$lnk_install_prerequisities_hyperv.Text = [System.String]'https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v'
+	$lnk_install_prerequisities_hyperv.Links.Add(0, 95, "https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v")
+	$lnk_install_prerequisities_hyperv.Add_LinkClicked({
+		param($sender, $e)
+		
+		# Get the URL from the link data
+		$url = $e.Link.LinkData.ToString()
+	
+		# Open the URL in the default browser
+		$null = Start-Process $url
+	})
 	#
 	#lbl_install_prerequisities
 	#
@@ -677,6 +696,16 @@ function RunUI
 	$lnk_install_prerequisities_multipass.TabIndex = [System.Int32]14
 	$lnk_install_prerequisities_multipass.TabStop = $true
 	$lnk_install_prerequisities_multipass.Text = [System.String]'https://multipass.run/'
+	$lnk_install_prerequisities_multipass.Links.Add(0, 23, "https://multipass.run")
+	$lnk_install_prerequisities_multipass.Add_LinkClicked({
+		param($sender, $e)
+		
+		# Get the URL from the link data
+		$url = $e.Link.LinkData.ToString()
+	
+		# Open the URL in the default browser
+		$null = Start-Process $url
+	})
 	#
 	#lnk_install_prerequisities_chocolatey
 	#
@@ -686,6 +715,16 @@ function RunUI
 	$lnk_install_prerequisities_chocolatey.TabIndex = [System.Int32]13
 	$lnk_install_prerequisities_chocolatey.TabStop = $true
 	$lnk_install_prerequisities_chocolatey.Text = [System.String]'https://chocolatey.org/'
+	$lnk_install_prerequisities_chocolatey.Links.Add(0, 23, "https://chocolatey.org")
+	$lnk_install_prerequisities_chocolatey.Add_LinkClicked({
+		param($sender, $e)
+		
+		# Get the URL from the link data
+		$url = $e.Link.LinkData.ToString()
+	
+		# Open the URL in the default browser
+		$null = Start-Process $url
+	})
 	#
 	#lbl_install_prerequisities_info02
 	#
