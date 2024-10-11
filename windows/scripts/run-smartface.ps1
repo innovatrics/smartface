@@ -7,6 +7,15 @@ $totalMemory = 0
 $totalMemoryGB = 0
 $cpuCores = 0
 
+$minHwMemory = 8
+$minHwCores = 4
+
+$checkMinReq = $false
+$checkOs = $false
+$checkChoco = $false
+$checkHyperV = $false
+$checkMultipass = $false
+
 # Function to initiate the tool and analyze the current Hardware
 function Initialization {
 
@@ -23,6 +32,38 @@ function Initialization {
 	$global:totalMemoryGB = [math]::round($totalMemory / 1GB, 2)
 	Write-Output "Total RAM: $totalMemoryGB GB"
 
+	if($totalMemoryGB -ge $minHwMemory -and $cpuCores -ge $minHwCores)
+	{
+		Write-Host "Memory and CPU core requirements are fullfilled." -ForegroundColor Green
+		$global:checkMinReq = $true
+	}
+	else 
+	{
+		Write-Error "Memory and CPU core requirements are NOT fullfilled. Minimum requirements are ${minHwCores} cores and ${minHwMemory}GB RAM."
+		$global:checkMinReq = $false
+	}
+
+	Write-Output "Initialization. Operating system..."
+
+	# Get the operating system information using Get-CimInstance
+	$os = Get-CimInstance -ClassName Win32_OperatingSystem
+
+	# Output the OS version and edition
+	Write-Host "Operating System Version: $($os.Version)"
+	Write-Host "Operating System Name: $($os.Caption)"
+
+	
+	# Output the OS name (Caption) and check if it contains "Home"
+	if ($os.Caption -like "*Home*") {
+		Write-Error "This script requires Windows Professional or Server edition."
+	} else {
+		Write-Host "You are running a valid Windows Pro or Server edition." -ForegroundColor Green
+		$global:checkOs = $true
+	}
+
+	checkForChocolatey
+	checkForHyperV
+	checkForMultipass
 }
 
 # Function to reset the Multipass to have a fresh start
@@ -30,6 +71,54 @@ function Restart-Multipass {
 	Write-Host "Restarting Multipass"
 	net stop multipass
 	net start multipass
+}
+
+function checkForHyperV
+{
+	# Check if Hyper-V is installed using Get-CimInstance
+	$hyperVFeature = Get-CimInstance -ClassName Win32_OptionalFeature | Where-Object { $_.Name -eq "Microsoft-Hyper-V-All" }
+
+	if ($hyperVFeature -and $hyperVFeature.InstallState -eq 1) {
+		Write-Host "Hyper-V is installed and enabled."
+		$global:checkHyperV = $true
+
+	} elseif ($hyperVFeature -and $hyperVFeature.InstallState -eq 2) {
+		Write-Host "Hyper-V is installed but disabled."
+		$global:checkHyperV = $false
+	} else {
+		Write-Host "Hyper-V is not installed."
+		$global:checkHyperV = $false
+	}
+
+}
+
+function checkForChocolatey
+{
+    if (-Not (Get-Command choco.exe -ErrorAction SilentlyContinue)) 
+	{
+        Write-Output "Chocolatey is NOT installed."
+		$global:checkChoco = $false
+	}
+	else 
+	{
+		Write-Output "Chocolatey is installed."
+		$global:checkChoco = $true
+	}
+	
+}
+
+function checkForMultipass
+{
+	Write-Output "Checking for Multipass installation..."
+    if (-Not (Get-Command multipass.exe -ErrorAction SilentlyContinue)) {
+        Write-Output "Multipass is NOT installed."
+		$global:checkMultipass = $false
+	}
+	else 
+	{
+		Write-Output "Multipass is installed."
+		$global:checkMultipass = $true
+	}
 }
 
 # Function to check if Chocolatey is installed
@@ -295,6 +384,21 @@ function Test-IsAdmin {
     return $currentUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
+# Function to allow programmatic tab selection
+function Select-Tab {
+    param (
+        [System.Windows.Forms.TabControl]$tabControl, # The TabControl object
+        [System.Windows.Forms.TabPage]$tabPage        # The TabPage to select
+    )
+
+    # Temporarily allow programmatic tab selection
+    $global:allowSelectionChange = $true
+    # Set the desired tab as the selected tab
+    $tabControl.SelectedTab = $tabPage
+    # Reset the flag after the selection is done
+    $global:allowSelectionChange = $false
+}
+
 function RunUI
 {
     Write-Host ""
@@ -493,6 +597,16 @@ function RunUI
 	$tab_control01.SelectedIndex = [System.Int32]0
 	$tab_control01.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]846,[System.Int32]490))
 	$tab_control01.TabIndex = [System.Int32]9
+	$tab_control01.add_Selecting({
+			param($sender, $e)
+		
+			# Prevent user interaction by canceling the event unless it's a programmatic change
+			if (-not $allowSelectionChange) {
+				$e.Cancel = $true
+			}
+			
+		})
+
 	#
 	#tab_install
 	#
@@ -539,13 +653,13 @@ function RunUI
 	$lbl_install_prerequisities.Name = [System.String]'lbl_install_prerequisities'
 	$lbl_install_prerequisities.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]252,[System.Int32]108))
 	$lbl_install_prerequisities.TabIndex = [System.Int32]16
-	$lbl_install_prerequisities.Text = [System.String]'Prerequisities:
+	$lbl_install_prerequisities.Text = [System.String]"Prerequisities met:
 
-	Windows version .... Check
-	Hyper-V ............ Check
-	Chocolatey ......... Check
-	Multipass .......... Check
-	CPU and RAM ........ Check'
+	Windows version .... $global:checkOs
+	Hyper-V ............ $global:checkHyperV
+	Chocolatey ......... $global:checkChoco
+	Multipass .......... $global:checkMultipass
+	CPU and RAM ........ $global:checkMinReq"
 	#
 	#lbl_install_prerequisities_info01
 	#
@@ -587,8 +701,7 @@ function RunUI
 	$lbl_install_yourcomputer.Name = [System.String]'lbl_install_yourcomputer'
 	$lbl_install_yourcomputer.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]455,[System.Int32]37))
 	$lbl_install_yourcomputer.TabIndex = [System.Int32]11
-	$lbl_install_yourcomputer.Text = [System.String]'Your computer has X CPU cores and Y GB of Ram. Please ensure your host computer has the resources available for the SmartFace Evaluation DEMO.
-	'
+	$lbl_install_yourcomputer.Text = "Your computer has $minHwCores CPU cores and $minHwMemory GB of RAM. Please ensure your host computer has the resources available for the SmartFace Evaluation DEMO."
 	#
 	#lbl_install_allinone_info
 	#
@@ -615,7 +728,11 @@ function RunUI
 	$Button4.TabIndex = [System.Int32]2
 	$Button4.Text = [System.String]'Install SmartFace'
 	$Button4.UseVisualStyleBackColor = $true
-	$Button4.add_Click($Button4_Click)
+	$Button4.Add_Click({
+		 # Call the reusable function to select the Settings tab
+		 Select-Tab -tabControl $tab_control01 -tabPage $tab_license
+	})
+
 	#
 	#tab_license
 	#
@@ -643,6 +760,8 @@ function RunUI
 	$tab_license.TabIndex = [System.Int32]3
 	$tab_license.Text = [System.String]'Credentials and license'
 	$tab_license.UseVisualStyleBackColor = $true
+
+
 	#
 	#lbl_license_info2
 	#
