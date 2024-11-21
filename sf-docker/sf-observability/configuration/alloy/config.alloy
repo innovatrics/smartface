@@ -139,7 +139,7 @@ loki.source.docker "flog_scrape" {
 
 loki.write "default" {
 	endpoint {
-		url = "http://loki:3100/loki/api/v1/push"
+		url = sys.env("LOKI_URL")
 	}
 	external_labels = {
         hostname = sys.env("HOSTNAME"),
@@ -323,7 +323,7 @@ prometheus.scrape "appmetrics" {
 
 prometheus.remote_write "metrics_service" {
     endpoint {
-        url = "http://prometheus:9090/api/v1/write"
+        url = sys.env("PROMETHEUS_URL")
 
         // basic_auth {
         //   username = "admin"

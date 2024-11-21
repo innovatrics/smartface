@@ -70,6 +70,9 @@ services:
       - |
         export HOSTNAME=$$(cat /etc/hostname)
         /bin/alloy run --server.http.listen-addr=0.0.0.0:12345 --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+    environment:
+      - LOKI_URL=http://loki:3100/loki/api/v1/push
+      - PROMETHEUS_URL=http://prometheus:9090/api/v1/write
     volumes:
       - ./configuration/alloy/config.alloy:/etc/alloy/config.alloy
       - /var/run/docker.sock:/var/run/docker.sock:ro
