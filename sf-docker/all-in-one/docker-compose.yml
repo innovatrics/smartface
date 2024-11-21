@@ -3,9 +3,13 @@ services:
   sf-base:
     image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFBase
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFBase
     ports:
       - 2406:2406
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -31,7 +35,11 @@ services:
   sf-group:
     image: ${REGISTRY}sf-grouping:${SF_VERSION}
     container_name: SFGroup
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFGroup
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -57,6 +65,10 @@ services:
   sf-streamdatadbworker:
     image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
     container_name: SFStreamDataDbWorker
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318  
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -82,9 +94,13 @@ services:
   sf-cam-1:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam1
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFCam1
     ports:
       - 30001:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -114,9 +130,13 @@ services:
   sf-cam-2:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam2
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFCam2
     ports:
       - 30002:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -146,9 +166,13 @@ services:
   sf-cam-3:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam3
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFCam3
     ports:
       - 30003:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -178,9 +202,13 @@ services:
   sf-cam-4:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam4
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFCam4
     ports:
       - 30004:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -210,9 +238,13 @@ services:
   sf-cam-5:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam5
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFCam5
     ports:
       - 30005:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -243,7 +275,11 @@ services:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    labels:
+      scrapeMetrics: true
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -272,9 +308,13 @@ services:
   api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
+    labels:
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8098:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -308,9 +348,13 @@ services:
   sf-graphql-api:
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
     container_name: SFGraphQLApi
+    labels:
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -339,9 +383,13 @@ services:
   odata-api:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     container_name: SFODataApi
+    labels:
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8099:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -453,6 +501,10 @@ services:
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     container_name: SFExtractCpu
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -516,6 +568,10 @@ services:
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -588,6 +644,10 @@ services:
   video-reader:
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
     container_name: SFVideoReader
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
