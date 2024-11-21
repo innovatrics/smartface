@@ -329,6 +329,12 @@ prometheus.remote_write "metrics_service" {
         //   username = "admin"
         //   password = "admin"
         // }
+
+		write_relabel_config  {
+			action        = "replace"
+			target_label  = "hostname"
+			replacement   = sys.env("HOSTNAME")
+    	}
     }
 }
 
