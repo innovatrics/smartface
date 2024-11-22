@@ -3,6 +3,7 @@ version: "3.6"
 services:
   obsminio:
     image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
+    profiles: [singlenode, multinode-aggregator]
     command: server /data --console-address ":9001"
     expose:
       - 9000
@@ -16,6 +17,7 @@ services:
 
   obsminio_createbuckets:
     image: minio/mc
+    profiles: [singlenode, multinode-aggregator]
     depends_on:
       obsminio:
         condition: service_started
@@ -30,6 +32,7 @@ services:
       observability:
   
   grafana:
+    profiles: [singlenode, multinode-aggregator]
     image: grafana/grafana:10.1.4
     ports:
       - 9900:3000
@@ -48,6 +51,7 @@ services:
   
   loki:
     image: grafana/loki:2.9.1
+    profiles: [singlenode, multinode-aggregator]
     depends_on:
       obsminio:
         condition: service_started
@@ -65,6 +69,7 @@ services:
   
   alloy:
     image: grafana/alloy:v1.5.0
+    profiles: [singlenode, multinode-scraper]
     entrypoint: [ "/bin/sh","-c" ]
     command:
       - |
@@ -87,6 +92,7 @@ services:
   # Jaeger tracing as configured here is solely for debug purposes. No data is stored!
   jaeger:
     image: "jaegertracing/all-in-one:1.39.0"
+    profiles: [singlenode, multinode-scraper, multinode-aggregator]
     command: ["--memory.max-traces=5000"]
     expose:
       - 5778
@@ -108,6 +114,7 @@ services:
   
   nodeexporter:
     image: prom/node-exporter:v1.6.1
+    profiles: [singlenode, multinode-scraper]
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
@@ -125,6 +132,7 @@ services:
   
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.2
+    profiles: [singlenode, multinode-scraper]
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -138,6 +146,7 @@ services:
   
   prometheus:
     image: prom/prometheus:v2.47.0
+    profiles: [singlenode, multinode-aggregator]
     volumes:
       - ./configuration/prometheus:/etc/prometheus
       - prometheus_data:/prometheus
