@@ -1,0 +1,325 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "P5352325FF2011060"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 17,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "P5352325FF2011060"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  vo.\"TrackletId\" AS TrackletId,\r\n  vo.\"ProcessedAt\" AS time, \r\n  vo.\"Size\" AS Size\r\nFROM core.\"VisualObjects\" vo\r\nJOIN core.\"Streams\" s ON vo.\"StreamId\" = s.\"Id\"\r\nWHERE $__timeFilter(vo.\"ProcessedAt\") AND s.\"Id\" = '$streamId'\r\nORDER BY time DESC\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "FaceSize",
+      "transformations": [
+        {
+          "id": "partitionByValues",
+          "options": {
+            "fields": [
+              "trackletid"
+            ]
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "P5352325FF2011060"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 10,
+            "axisSoftMin": -10,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 10,
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "P5352325FF2011060"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "WITH \r\n    tmp AS (\r\n        SELECT \r\n            vo.\"TrackletId\" AS TrackletId, \r\n            vo.\"ProcessedAt\" AS ProcessedAt, \r\n            SQRT(vo.\"AreaOnFrame\"*1920*1080) AS Size2,\r\n            LAG(SQRT(vo.\"AreaOnFrame\"*1920*1080)) OVER (PARTITION BY vo.\"TrackletId\" ORDER BY vo.\"ProcessedAt\") AS PreviousSize2,\r\n            LAG(vo.\"ProcessedAt\") OVER (PARTITION BY vo.\"TrackletId\" ORDER BY vo.\"ProcessedAt\") AS PreviousProcessedAt  \r\n            FROM core.\"VisualObjects\" vo\r\n            JOIN core.\"Streams\" s ON vo.\"StreamId\" = s.\"Id\"\r\n            WHERE $__timeFilter(vo.\"ProcessedAt\") AND s.\"Id\" = '$streamId'\r\n            --WHERE '2024-02-20 11:24:21' <= vo.\"ProcessedAt\" AND vo.\"ProcessedAt\" < '2024-02-20 11:24:30' AND s.\"Id\" = 'f5b129f3-621c-459d-bf72-5c6b7052b1c1'\r\n    ), \r\n    tmp2 AS (\r\n        SELECT \r\n            TrackletId,\r\n            ProcessedAt,\r\n            Size2,\r\n            CASE \r\n                WHEN EXTRACT(EPOCH FROM (ProcessedAt - PreviousProcessedAt)) = 0 THEN NULL\r\n                ELSE 1000 * 1000 * (1/PreviousSize2 - 1/Size2) / NULLIF(EXTRACT(EPOCH FROM (ProcessedAt - PreviousProcessedAt)) * 1000, 0)\r\n            END AS Speed2\r\n        FROM  tmp\r\n    ),\r\n    tmp3 AS (\r\n        SELECT\r\n            *,\r\n            (SELECT AVG(Speed2) FROM tmp2 x WHERE x.TrackletId = tmp2.TrackletId AND x.ProcessedAt < tmp2.ProcessedAt) AS Speed2Avg\r\n        FROM tmp2\r\n    ),\r\n    tmp4 AS (\r\n        SELECT\r\n            TrackletId,\r\n            ProcessedAt,\r\n            (1000) / (Size2 * Speed2) AS TimeToAsymptote,\r\n            (1000) / (Size2 * Speed2Avg) AS TimeToAsymptoteAvg\r\n        FROM tmp3\r\n    )\r\nSELECT * FROM tmp4;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "TimeToAsymptote",
+      "transformations": [
+        {
+          "id": "partitionByValues",
+          "options": {
+            "fields": [
+              "trackletid"
+            ]
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "SFTeam",
+          "value": "28573556-69d3-4504-b035-2f2c47083179"
+        },
+        "datasource": {
+          "type": "postgres",
+          "uid": "P5352325FF2011060"
+        },
+        "definition": "select  \"Name\" as __text, \"Id\" as __value\nfrom core.\"Streams\"",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Stream",
+        "multi": false,
+        "name": "streamId",
+        "options": [],
+        "query": "select  \"Name\" as __text, \"Id\" as __value\nfrom core.\"Streams\"",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "1s",
+      "5s",
+      "10s",
+      "30s"
+    ]
+  },
+  "timezone": "",
+  "title": "AC Dashboard P1",
+  "uid": "a2ddbec9-1acc-454f-86f9-0f76338b1fad",
+  "version": 1,
+  "weekStart": ""
+}
