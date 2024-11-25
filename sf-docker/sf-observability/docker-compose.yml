@@ -29,6 +29,7 @@ services:
         condition: service_started
     entrypoint: >
       /bin/sh -c "
+      sleep 10;
       /usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;
       /usr/bin/mc mb obsminio/loki;
       /usr/bin/mc policy set public obsminio/loki;
@@ -55,7 +56,6 @@ services:
       - GF_AUTH_DISABLE_LOGIN_FORM=true
     networks:
       observability:
-      sf-network:
     restart: unless-stopped
   
   loki:
@@ -110,7 +110,7 @@ services:
       service: common
       file: docker-compose-common.yml
     image: "jaegertracing/all-in-one:1.39.0"
-    profiles: [singlenode, multinode-scraper, multinode-aggregator]
+    profiles: [singlenode, multinode-scraper]
     command: ["--memory.max-traces=5000"]
     expose:
       - 5778
@@ -189,12 +189,11 @@ services:
       - '--web.enable-remote-write-receiver'
     user: root
     expose:
-      - 9090
+      - 9902
     ports:
       - 9902:9090
     networks:
       observability:
-      sf-network:
     restart: unless-stopped
 
 volumes:
