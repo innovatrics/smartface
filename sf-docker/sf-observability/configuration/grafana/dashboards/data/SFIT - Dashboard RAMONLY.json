@@ -26,7 +26,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 1860,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 7,
   "links": [
     {
       "icon": "external link",
@@ -65,7 +65,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<div style=\"background-color:orange\">\r\n<font size=\"50\">SRV-BA-6D RAM</font>\r\n</div>",
+        "content": "<div style=\"background-color:orange\">\r\n<font size=\"50\">$hostname</font>\r\n</div>",
         "mode": "html"
       },
       "pluginVersion": "10.1.4",
@@ -143,8 +143,10 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "node_time_seconds{instance=\"$node\",job=\"$job\"} - node_boot_time_seconds{instance=\"$node\",job=\"$job\"}",
+          "editorMode": "code",
+          "expr": "node_time_seconds{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"} - node_boot_time_seconds{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"}",
           "intervalFactor": 1,
+          "range": true,
           "refId": "A",
           "step": 240
         }
@@ -227,7 +229,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "(sum by(instance) (irate(node_cpu_seconds_total{instance=\"$node\",job=\"$job\", mode!=\"idle\"}[$__rate_interval])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])))) * 100",
+          "expr": "(sum by(instance) (irate(node_cpu_seconds_total{hostname=\"$hostname\", instance=\"$node\",job=\"$job\", mode!=\"idle\"}[$__rate_interval])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"}[$__rate_interval])))) * 100",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "",
@@ -304,10 +306,12 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "((node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"} - node_memory_MemFree_bytes{instance=\"$node\",job=\"$job\"}) / (node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"} )) * 100",
+          "editorMode": "code",
+          "expr": "((node_memory_MemTotal_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"} - node_memory_MemFree_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"}) / (node_memory_MemTotal_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"} )) * 100",
           "format": "time_series",
           "hide": true,
           "intervalFactor": 1,
+          "range": true,
           "refId": "A",
           "step": 240
         },
@@ -316,10 +320,12 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "100 - ((node_memory_MemAvailable_bytes{instance=\"$node\",job=\"$job\"} * 100) / node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"})",
+          "editorMode": "code",
+          "expr": "100 - ((node_memory_MemAvailable_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"} * 100) / node_memory_MemTotal_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"})",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
+          "range": true,
           "refId": "B",
           "step": 240
         }
@@ -385,7 +391,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"}",
+          "expr": "node_memory_MemTotal_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"}",
           "range": true,
           "refId": "A"
         }
@@ -467,8 +473,10 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "((node_memory_SwapTotal_bytes{instance=\"$node\",job=\"$job\"} - node_memory_SwapFree_bytes{instance=\"$node\",job=\"$job\"}) / (node_memory_SwapTotal_bytes{instance=\"$node\",job=\"$job\"} )) * 100",
+          "editorMode": "code",
+          "expr": "((node_memory_SwapTotal_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"} - node_memory_SwapFree_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"}) / (node_memory_SwapTotal_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"} )) * 100",
           "intervalFactor": 1,
+          "range": true,
           "refId": "A",
           "step": 240
         }
@@ -537,7 +545,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "sum(rabbitmq_queue_messages_ready * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
+          "expr": "sum(rabbitmq_queue_messages_ready * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{hostname=\"$hostname\", rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "range": true,
           "refId": "A"
         }
@@ -636,7 +644,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "sum(rabbitmq_queue_messages_ready * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "expr": "sum(rabbitmq_queue_messages_ready * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{hostname=\"$hostname\", rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "range": true,
           "refId": "A"
         }
@@ -718,9 +726,11 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$node\",job=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"} * 100) / node_filesystem_size_bytes{instance=\"$node\",job=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"})",
+          "editorMode": "code",
+          "expr": "100 - ((node_filesystem_avail_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"} * 100) / node_filesystem_size_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"})",
           "format": "time_series",
           "intervalFactor": 1,
+          "range": true,
           "refId": "A",
           "step": 240
         }
@@ -1149,9 +1159,11 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "irate(node_disk_reads_completed_total{instance=\"$node\",job=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "editorMode": "code",
+          "expr": "irate(node_disk_reads_completed_total{hostname=\"$hostname\", instance=\"$node\",job=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
           "intervalFactor": 4,
           "legendFormat": "{{device}} - Reads completed",
+          "range": true,
           "refId": "A",
           "step": 240
         },
@@ -1160,9 +1172,11 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "irate(node_disk_writes_completed_total{instance=\"$node\",job=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
+          "editorMode": "code",
+          "expr": "irate(node_disk_writes_completed_total{hostname=\"$hostname\", instance=\"$node\",job=\"$job\",device=~\"$diskdevices\"}[$__rate_interval])",
           "intervalFactor": 1,
           "legendFormat": "{{device}} - Writes completed",
+          "range": true,
           "refId": "B",
           "step": 240
         }
@@ -1240,8 +1254,10 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "node_memory_SwapTotal_bytes{instance=\"$node\",job=\"$job\"}",
+          "editorMode": "code",
+          "expr": "node_memory_SwapTotal_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\"}",
           "intervalFactor": 1,
+          "range": true,
           "refId": "A",
           "step": 240
         }
@@ -1310,7 +1326,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "sum(rabbitmq_queue_messages_unacked * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
+          "expr": "sum(rabbitmq_queue_messages_unacked * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{hostname=\"$hostname\", rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "range": true,
           "refId": "A"
         }
@@ -1409,7 +1425,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "sum(rabbitmq_queue_messages_unacked * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "expr": "sum(rabbitmq_queue_messages_unacked * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{hostname=\"$hostname\", rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "range": true,
           "refId": "A"
         }
@@ -1491,10 +1507,12 @@
             "type": "prometheus",
             "uid": "provisioned-prometheus"
           },
-          "expr": "node_filesystem_size_bytes{instance=\"$node\",job=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"}",
+          "editorMode": "code",
+          "expr": "node_filesystem_size_bytes{hostname=\"$hostname\", instance=\"$node\",job=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
+          "range": true,
           "refId": "A",
           "step": 240
         }
@@ -1664,7 +1682,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "container_memory_usage_bytes{composeproject=\"sf_docker\"}",
+          "expr": "container_memory_usage_bytes{hostname=\"$hostname\", composeproject=\"sf_docker\"}",
           "legendFormat": "{{dockerservice}}",
           "range": true,
           "refId": "A"
@@ -1844,7 +1862,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "container_memory_usage_bytes{composeproject=\"sf_dependencies\"}",
+          "expr": "container_memory_usage_bytes{hostname=\"$hostname\", composeproject=\"sf_dependencies\"}",
           "legendFormat": "{{dockerservice}}",
           "range": true,
           "refId": "A"
@@ -1875,7 +1893,7 @@
           "text": "Prometheus",
           "value": "provisioned-prometheus"
         },
-        "hide": 0,
+        "hide": 2,
         "includeAll": false,
         "label": "datasource",
         "multi": false,
@@ -1899,7 +1917,7 @@
           "uid": "provisioned-prometheus"
         },
         "definition": "",
-        "hide": 0,
+        "hide": 2,
         "includeAll": false,
         "label": "Job",
         "multi": false,
@@ -1929,7 +1947,7 @@
           "uid": "provisioned-prometheus"
         },
         "definition": "label_values(node_uname_info{job=\"$job\"}, instance)",
-        "hide": 0,
+        "hide": 2,
         "includeAll": false,
         "label": "Host:",
         "multi": false,
@@ -1981,7 +1999,7 @@
           "uid": "provisioned-prometheus"
         },
         "definition": "label_values(rabbitmq_identity_info,namespace)",
-        "hide": 0,
+        "hide": 2,
         "includeAll": false,
         "label": "Namespace",
         "multi": false,
@@ -1999,16 +2017,17 @@
       },
       {
         "current": {
+          "isNone": true,
           "selected": false,
-          "text": "rabbit@5c8699a9926f",
-          "value": "rabbit@5c8699a9926f"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "type": "prometheus",
           "uid": "provisioned-prometheus"
         },
         "definition": "label_values(rabbitmq_identity_info{namespace=\"$namespace\"},rabbitmq_cluster)",
-        "hide": 0,
+        "hide": 2,
         "includeAll": false,
         "label": "RabbitMQ Cluster",
         "multi": false,
@@ -2022,6 +2041,33 @@
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "sface-staging-1u",
+          "value": "sface-staging-1u"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "provisioned-prometheus"
+        },
+        "definition": "label_values(hostname)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Hostname",
+        "multi": false,
+        "name": "hostname",
+        "options": [],
+        "query": {
+          "query": "label_values(hostname)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
         "type": "query"
       }
     ]
@@ -2056,8 +2102,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "SRV-BA-6D-RAMONLY",
+  "title": "SFIT - Dashboard RAMONLY",
   "uid": "b1bcf8b6-d1bf-484b-927a-25e9bf277d70",
-  "version": 21,
+  "version": 1,
   "weekStart": ""
 }

@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
+  "id": 5,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -123,7 +123,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "container_memory_usage_bytes{composeproject=\"sf_docker\", composeservice=~\"$service\"}",
+          "expr": "container_memory_usage_bytes{composeproject=\"sf_docker\", composeservice=~\"$service\", hostname=\"$hostname\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "legendFormat": "{{id}}",
@@ -349,17 +349,44 @@
         "skipUrlSync": false,
         "sort": 5,
         "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "sface-staging-1u",
+          "value": "sface-staging-1u"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "provisioned-prometheus"
+        },
+        "definition": "label_values(hostname)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Hostname",
+        "multi": false,
+        "name": "hostname",
+        "options": [],
+        "query": {
+          "query": "label_values(hostname)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Service Resources - overtime",
   "uid": "fadba43b-765d-4516-9c98-b5de78a1c68d",
-  "version": 12,
+  "version": 1,
   "weekStart": ""
 }
