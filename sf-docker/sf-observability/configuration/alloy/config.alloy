@@ -180,7 +180,7 @@ prometheus.relabel "cadvisor" {
 	forward_to      = [prometheus.remote_write.metrics_service.receiver]
 
 	rule {
-		source_labels = ["__meta_docker_container_label_application"]
+		source_labels = ["container_label_application"]
 		target_label  = "application"
 		replacement   = "${1}"
 	}
@@ -288,7 +288,6 @@ discovery.relabel "appmetrics" {
 		source_labels = ["__meta_docker_container_label_application"]
 		target_label  = "application"
 		replacement   = "${1}"
-		action        = "keep"
 	}
 
 	rule {
@@ -337,7 +336,7 @@ discovery.relabel "appmetrics" {
 
 prometheus.scrape "appmetrics" {
 	targets 		= discovery.relabel.appmetrics.output
-	forward_to      = [prometheus.relabel.cadvisor.receiver]
+	forward_to      = [prometheus.remote_write.metrics_service.receiver]
 }
 
 prometheus.remote_write "metrics_service" {
