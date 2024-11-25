@@ -48,7 +48,7 @@ discovery.relabel "flog_scrape" {
 
 	rule {
 		source_labels = ["__meta_docker_container_label_application"]
-		target_label  = application
+		target_label  = "application"
 		replacement   = "${1}"
 	}
 
@@ -181,7 +181,7 @@ prometheus.relabel "cadvisor" {
 
 	rule {
 		source_labels = ["__meta_docker_container_label_application"]
-		target_label  = application
+		target_label  = "application"
 		replacement   = "${1}"
 	}
 
@@ -286,7 +286,7 @@ discovery.relabel "appmetrics" {
 
 	rule {
 		source_labels = ["__meta_docker_container_label_application"]
-		target_label  = application
+		target_label  = "application"
 		replacement   = "${1}"
 		action        = "keep"
 	}
