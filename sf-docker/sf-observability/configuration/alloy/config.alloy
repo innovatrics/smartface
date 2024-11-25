@@ -47,6 +47,12 @@ discovery.relabel "flog_scrape" {
 	targets = []
 
 	rule {
+		source_labels = ["__meta_docker_container_label_application"]
+		target_label  = application
+		replacement   = ${1}
+	}
+
+	rule {
 		source_labels = ["__meta_docker_container_name"]
 		regex         = "/(.*)"
 		target_label  = "container"
@@ -174,6 +180,12 @@ prometheus.relabel "cadvisor" {
 	forward_to      = [prometheus.remote_write.metrics_service.receiver]
 
 	rule {
+		source_labels = ["__meta_docker_container_label_application"]
+		target_label  = application
+		replacement   = ${1}
+	}
+
+	rule {
 		source_labels = ["container_label_com_docker_compose_project"]
 		target_label  = "composeproject"
 		replacement   = "${1}"
@@ -271,6 +283,13 @@ discovery.docker "containers" {
 
 discovery.relabel "appmetrics" {
 	targets = discovery.docker.containers.targets
+
+	rule {
+		source_labels = ["__meta_docker_container_label_application"]
+		target_label  = application
+		replacement   = ${1}
+		action        = "keep"
+	}
 
 	rule {
 		source_labels = ["__meta_docker_container_label_scrapeMetrics"]
