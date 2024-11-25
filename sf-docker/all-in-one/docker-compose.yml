@@ -1,6 +1,9 @@
 version: "3.4"
 services:
   sf-base:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFBase
     labels:
@@ -33,6 +36,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-group:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-grouping:${SF_VERSION}
     container_name: SFGroup
     labels:
@@ -63,6 +69,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-streamdatadbworker:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
     container_name: SFStreamDataDbWorker
     labels:
@@ -92,6 +101,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-cam-1:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam1
     labels:
@@ -128,6 +140,9 @@ services:
     #runtime: nvidia
 
   sf-cam-2:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam2
     labels:
@@ -164,6 +179,9 @@ services:
     #runtime: nvidia
 
   sf-cam-3:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam3
     labels:
@@ -200,6 +218,9 @@ services:
     #runtime: nvidia
 
   sf-cam-4:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam4
     labels:
@@ -236,6 +257,9 @@ services:
     #runtime: nvidia
 
   sf-cam-5:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam5
     labels:
@@ -272,6 +296,9 @@ services:
     #runtime: nvidia
 
   sf-cam-nx:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
@@ -306,6 +333,9 @@ services:
     #runtime: nvidia
 
   api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
     labels:
@@ -346,6 +376,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-graphql-api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
     container_name: SFGraphQLApi
     labels:
@@ -381,6 +414,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   odata-api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     container_name: SFODataApi
     labels:
@@ -415,6 +451,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   detector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
     restart: unless-stopped
@@ -437,6 +476,9 @@ services:
     #runtime: nvidia
 
   pedestrian-detector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
     container_name: SFPedestrianDetectCpu
     restart: unless-stopped
@@ -459,6 +501,9 @@ services:
     #runtime: nvidia
 
   object-detector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-object-detector:${SF_VERSION}
     container_name: SFObjectDetectorCpu
     restart: unless-stopped
@@ -479,6 +524,9 @@ services:
     #runtime: nvidia
 
   pedestrian-extractor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
     container_name: SFPedestrianExtractorCpu
     restart: unless-stopped
@@ -499,6 +547,9 @@ services:
     #runtime: nvidia
 
   extractor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     container_name: SFExtractCpu
     labels:
@@ -525,6 +576,9 @@ services:
     #runtime: nvidia
 
   matcher:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
     restart: unless-stopped
@@ -546,6 +600,9 @@ services:
     cpuset: "0"
 
   face-matcher:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
     container_name: SFFaceMatcher
     restart: unless-stopped
@@ -566,6 +623,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   liveness:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
     labels:
@@ -592,6 +652,9 @@ services:
     #runtime: nvidia
 
   video-aggregator:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
     container_name: SFVideoDataAggregator
     restart: unless-stopped
@@ -617,6 +680,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   video-collector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-collector:${SF_VERSION}
     container_name: SFVideoDataCollector
     restart: unless-stopped
@@ -642,6 +708,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   video-reader:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
     container_name: SFVideoReader
     labels:
@@ -668,6 +737,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   edge-stream-processor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     container_name: SFEdgeStreamProcessor
     restart: unless-stopped
@@ -688,6 +760,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   edge-streams-state-synchronizer:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
     container_name: SFEdgeStreamsStateSynchronizer
     restart: unless-stopped
@@ -714,6 +789,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   access-controller:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     container_name: SFAccessController
     ports:
@@ -737,6 +815,9 @@ services:
     env_file: .env.sfac
 
   sf-station:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-station:${SFS_VERSION}
     container_name: SFStation
     restart: unless-stopped

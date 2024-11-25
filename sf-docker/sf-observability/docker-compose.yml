@@ -2,6 +2,9 @@ version: "3.6"
 
 services:
   obsminio:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
     profiles: [singlenode, multinode-aggregator]
     command: server /data --console-address ":9001"
@@ -16,6 +19,9 @@ services:
     restart: unless-stopped
 
   obsminio_createbuckets:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: minio/mc
     profiles: [singlenode, multinode-aggregator]
     depends_on:
@@ -32,6 +38,9 @@ services:
       observability:
   
   grafana:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     profiles: [singlenode, multinode-aggregator]
     image: grafana/grafana:10.1.4
     ports:
@@ -50,6 +59,9 @@ services:
     restart: unless-stopped
   
   loki:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: grafana/loki:2.9.1
     profiles: [singlenode, multinode-aggregator]
     depends_on:
@@ -68,6 +80,9 @@ services:
     restart: unless-stopped
   
   alloy:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: grafana/alloy:v1.5.0
     profiles: [singlenode, multinode-scraper]
     entrypoint: [ "/bin/sh","-c" ]
@@ -91,6 +106,9 @@ services:
 
   # Jaeger tracing as configured here is solely for debug purposes. No data is stored!
   jaeger:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: "jaegertracing/all-in-one:1.39.0"
     profiles: [singlenode, multinode-scraper, multinode-aggregator]
     command: ["--memory.max-traces=5000"]
@@ -113,6 +131,9 @@ services:
     restart: unless-stopped
   
   nodeexporter:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: prom/node-exporter:v1.6.1
     profiles: [singlenode, multinode-scraper]
     volumes:
@@ -131,6 +152,9 @@ services:
     restart: unless-stopped
   
   cadvisor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: gcr.io/cadvisor/cadvisor:v0.47.2
     profiles: [singlenode, multinode-scraper]
     volumes:
@@ -145,6 +169,9 @@ services:
     restart: unless-stopped
   
   prometheus:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: prom/prometheus:v2.47.0
     profiles: [singlenode, multinode-aggregator]
     volumes:
