@@ -44,14 +44,4 @@ datasources:
     access: proxy
     url: http://prometheus:9090
     editable: false
-  
-  - name: PostgreSQL DB
-    uid: 'provisioned-pgsql'
-    type: postgres
-    url: pgsql:5432
-    database: smartface
-    user: postgres
-    secureJsonData:
-      password: 'Test1234'
-    jsonData:
-      sslmode: 'disable'
+    

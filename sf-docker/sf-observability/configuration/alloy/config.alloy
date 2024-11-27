@@ -343,12 +343,7 @@ prometheus.remote_write "metrics_service" {
     endpoint {
         url = sys.env("PROMETHEUS_URL")
 
-        // basic_auth {
-        //   username = "admin"
-        //   password = "admin"
-        // }
-
-		write_relabel_config  {
+        write_relabel_config  {
 			action        = "replace"
 			target_label  = "hostname"
 			replacement   = sys.env("HOSTNAME")
