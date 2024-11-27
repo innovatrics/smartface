@@ -99,101 +99,82 @@ services:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   sf-cam-1:
     extends:
-      service: common
+      service: sf-cam
       file: docker-compose-common.yml
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam1
     labels:
       scrapeMetrics: true
     command: --serviceName SFCam1
     ports:
       - 30001:${CameraDefaults__PreviewPort}
-    expose:
-      - 4318
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-    #runtime: nvidia
   sf-cam-2:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam2
     command: --serviceName SFCam2
     ports:
       - 30002:${CameraDefaults__PreviewPort}
   sf-cam-3:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam3
     command: --serviceName SFCam3
     ports:
       - 30003:${CameraDefaults__PreviewPort}
   sf-cam-4:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam4
     command: --serviceName SFCam4
     ports:
       - 30004:${CameraDefaults__PreviewPort}
   sf-cam-5:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam5
     command: --serviceName SFCam5
     ports:
       - 30005:${CameraDefaults__PreviewPort}
   sf-cam-6:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam6
     command: --serviceName SFCam6
     ports:
       - 30006:${CameraDefaults__PreviewPort}
   sf-cam-7:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam7
     command: --serviceName SFCam7
     ports:
       - 30007:${CameraDefaults__PreviewPort}
   sf-cam-8:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam8
     command: --serviceName SFCam8
     ports:
       - 30008:${CameraDefaults__PreviewPort}
   sf-cam-9:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam9
     command: --serviceName SFCam9
     ports:
       - 30009:${CameraDefaults__PreviewPort}
   sf-cam-10:
     extends:
-      service: sf-cam-1
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam10
     command: --serviceName SFCam10
     ports:
