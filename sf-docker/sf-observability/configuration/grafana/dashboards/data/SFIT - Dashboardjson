@@ -26,6 +26,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 1860,
   "graphTooltip": 0,
+  "id": 3,
   "links": [
     {
       "icon": "external link",
@@ -1578,7 +1579,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "100 * sum(irate(container_cpu_usage_seconds_total{hostname=\"$hostname\", composeproject=\"sf_docker\"}[1m])) by (composeservice)",
+          "expr": "100 * sum(irate(container_cpu_usage_seconds_total{hostname=\"$hostname\", application=\"smartface\"}[1m])) by (composeservice)",
           "legendFormat": "{{dockerservice}}",
           "range": true,
           "refId": "A"
@@ -1647,7 +1648,7 @@
             "uid": "provisioned-prometheus"
           },
           "editorMode": "code",
-          "expr": "100 * sum(irate(container_cpu_usage_seconds_total{hostname=\"$hostname\", composeproject=\"sf_dependencies\"}[1m])) by (composeservice)",
+          "expr": "100 * sum(irate(container_cpu_usage_seconds_total{hostname=\"$hostname\", application=\"smartface_dependencies\"}[1m])) by (composeservice)",
           "legendFormat": "{{dockerservice}}",
           "range": true,
           "refId": "A"
@@ -1665,7 +1666,7 @@
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "Prometheus",
           "value": "provisioned-prometheus"
         },
@@ -1684,7 +1685,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "node",
           "value": "node"
         },
@@ -1714,7 +1715,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "nodeexporter:9100",
           "value": "nodeexporter:9100"
         },
@@ -1821,7 +1822,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "sface-staging-1u",
           "value": "sface-staging-1u"
         },

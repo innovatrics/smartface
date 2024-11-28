@@ -69,69 +69,8 @@ discovery.relabel "flog_scrape" {
 	}
 
 	rule {
-		source_labels = ["__meta_docker_container_label_com_docker_compose_project"]
-		target_label  = "composeproject"
-	}
-
-	rule {
 		source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
 		target_label  = "composeservice"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^docker$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^sf-docker$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^all-in-one$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^LFIS$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^multi-camera$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^multi-server$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^rapid-video-processing$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^single-camera$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
 	}
 }
 
@@ -186,12 +125,6 @@ prometheus.relabel "cadvisor" {
 	}
 
 	rule {
-		source_labels = ["container_label_com_docker_compose_project"]
-		target_label  = "composeproject"
-		replacement   = "${1}"
-	}
-
-	rule {
 		source_labels = ["container_label_com_docker_compose_service"]
 		target_label  = "composeservice"
 		replacement   = "${1}"
@@ -202,62 +135,6 @@ prometheus.relabel "cadvisor" {
 		regex         = "(.+);(.+)"
 		target_label  = "dockerservice"
 		replacement   = "${1}_${2}"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^docker$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^sf-docker$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^all-in-one$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^LFIS$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^multi-camera$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^multi-server$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^rapid-video-processing$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^single-camera$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
 	}
 
 	rule {
@@ -308,29 +185,9 @@ discovery.relabel "appmetrics" {
 	}
 
 	rule {
-		source_labels = ["__meta_docker_container_label_com_docker_compose_project"]
-		target_label  = "composeproject"
-		replacement   = "${1}"
-	}
-
-	rule {
 		source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
 		target_label  = "composeservice"
 		replacement   = "${1}"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^docker$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
-	}
-
-	rule {
-		source_labels = ["composeproject"]
-		regex         = "^sf-docker$"
-		target_label  = "composeproject"
-		replacement   = "sf_docker"
 	}
 }
 
