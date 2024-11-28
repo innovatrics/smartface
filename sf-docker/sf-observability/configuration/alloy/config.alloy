@@ -1,0 +1,210 @@
+logging {
+  level  = "info"
+  format = "logfmt"
+}
+
+discovery.docker "flog_scrape" {
+	host             = "unix:///var/run/docker.sock"
+	refresh_interval = "5s"
+}
+
+loki.process "flog_scrape" {
+	forward_to = [loki.write.default.receiver]
+
+	stage.docker { }
+
+	stage.json {
+		expressions = {
+			jsonParsable  = "\"@t\"",
+			levelNonInfo  = "\"@l\"",
+			serviceName   = "ServiceName",
+			sourceContext = "SourceContext",
+		}
+	}
+
+	stage.template {
+		source   = "level"
+		template = "{{ or .levelNonInfo \"Information\" }}"
+	}
+
+	stage.template {
+		source   = "structured"
+		template = "{{ if .jsonParsable }}true{{ else }}false{{ end }}"
+	}
+
+	stage.labels {
+		values = {
+			level         = null,
+			serviceName   = null,
+			sourceContext = null,
+			structured    = null,
+			tenantId      = null,
+		}
+	}
+}
+
+discovery.relabel "flog_scrape" {
+	targets = []
+
+	rule {
+		source_labels = ["__meta_docker_container_label_application"]
+		target_label  = "application"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_docker_container_name"]
+		regex         = "/(.*)"
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_docker_container_log_stream"]
+		target_label  = "logstream"
+	}
+
+	rule {
+		source_labels = ["__meta_docker_container_label_monitoringGroup"]
+		target_label  = "monitoringGroup"
+	}
+
+	rule {
+		source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
+		target_label  = "composeservice"
+	}
+}
+
+loki.source.docker "flog_scrape" {
+	host             = "unix:///var/run/docker.sock"
+	targets          = discovery.docker.flog_scrape.targets
+	forward_to       = [loki.process.flog_scrape.receiver]
+	relabel_rules    = discovery.relabel.flog_scrape.rules
+	refresh_interval = "5s"
+}
+
+loki.write "default" {
+	endpoint {
+		url = sys.env("LOKI_URL")
+	}
+	external_labels = {
+        hostname = sys.env("HOSTNAME"),
+    }
+}
+
+discovery.relabel "cadvisor" {
+	targets = [{
+		__address__ = "cadvisor:8080",
+	}]
+
+	rule {
+		regex  = "^instance$"
+		action = "labeldrop"
+	}
+
+	rule {
+		regex  = "^cadvisor_version_info$"
+		action = "labeldrop"
+	}
+}
+
+prometheus.scrape "cadvisor" {
+	targets         = discovery.relabel.cadvisor.output
+	forward_to      = [prometheus.relabel.cadvisor.receiver]
+	job_name        = "cadvisor"
+	scrape_interval = "5s"
+	scrape_timeout  = "5s"
+}
+
+prometheus.relabel "cadvisor" {
+	forward_to      = [prometheus.remote_write.metrics_service.receiver]
+
+	rule {
+		source_labels = ["container_label_application"]
+		target_label  = "application"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["container_label_com_docker_compose_service"]
+		target_label  = "composeservice"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["container_label_com_docker_compose_project", "container_label_com_docker_compose_service"]
+		regex         = "(.+);(.+)"
+		target_label  = "dockerservice"
+		replacement   = "${1}_${2}"
+	}
+
+	rule {
+		regex  = "^container_label_(.*)"
+		action = "labeldrop"
+	}
+}
+
+prometheus.scrape "node" {
+	targets = [{
+		__address__ = "nodeexporter:9100",
+	}]
+	forward_to      = [prometheus.remote_write.metrics_service.receiver]
+	job_name        = "node"
+	scrape_interval = "1s"
+	scrape_timeout  = "1s"
+}
+
+discovery.docker "containers" {
+	host = "unix:///var/run/docker.sock"
+	port = 4318
+}
+
+discovery.relabel "appmetrics" {
+	targets = discovery.docker.containers.targets
+
+	rule {
+		source_labels = ["__meta_docker_container_label_application"]
+		target_label  = "application"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_docker_container_label_scrapeMetrics"]
+		regex         = "^true$"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_docker_port_private"]
+		regex         = "^4318$"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
+		target_label  = "composeservice"
+		replacement   = "${1}"
+	}
+}
+
+prometheus.scrape "appmetrics" {
+	targets 		= discovery.relabel.appmetrics.output
+	forward_to      = [prometheus.remote_write.metrics_service.receiver]
+}
+
+prometheus.remote_write "metrics_service" {
+    endpoint {
+        url = sys.env("PROMETHEUS_URL")
+
+        write_relabel_config  {
+			action        = "replace"
+			target_label  = "hostname"
+			replacement   = sys.env("HOSTNAME")
+    	}
+    }
+}
+

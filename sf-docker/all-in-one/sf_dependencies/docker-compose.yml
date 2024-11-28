@@ -14,6 +14,9 @@ services:
       #- /var/lib/smartface/mssql:/var/opt/mssql
 
   pgsql:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: "postgres:14.3"
     container_name: pgsql
     ports:
@@ -26,6 +29,9 @@ services:
       #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
   
   pgadmin:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: "dpage/pgadmin4:6.10"
     container_name: pgadmin
     environment:
@@ -35,6 +41,9 @@ services:
       - "7070:80"
   
   rabbitmq:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: "rabbitmq:3.12.11-management"
     container_name: rmq
     ports:
@@ -53,6 +62,9 @@ services:
     restart: unless-stopped
 
   minio:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
     container_name: minio
     command: server /data --console-address ":9001"
@@ -66,6 +78,9 @@ services:
 
   # Jaeger tracikng is solely for debug purposes. No data is stored!
   jaeger:
+   extends:
+      service: common
+      file: docker-compose-common.yml 
    image: "jaegertracing/all-in-one:1.35.0"
    container_name: jaeger
    restart: unless-stopped

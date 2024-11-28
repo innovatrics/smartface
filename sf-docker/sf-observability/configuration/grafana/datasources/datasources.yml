@@ -1,0 +1,47 @@
+﻿apiVersion: 1
+
+datasources:
+  - name: Loki
+    type: loki
+    uid: 'provisioned-loki'
+    access: proxy
+    url: http://loki:3100
+    version: 1
+    editable: false
+    isDefault: true
+
+  - name: Jaeger
+    type: jaeger
+    uid: 'provisioned-jaeger'
+    url: http://jaeger:16686/
+    jsonData:
+      tracesToLogs:
+        datasourceUid: 'provisioned-loki'
+        tags: ['job', 'instance', 'pod', 'namespace']
+        mappedTags:
+          - key: 'service.name'
+            value: 'service'
+        mapTagNamesEnabled: false
+        spanStartTimeShift: '1h'
+        spanEndTimeShift: '1h'
+        filterByTraceID: false
+        filterBySpanID: false
+      #tracesToMetrics:
+      #  datasourceUid: 'prom'
+      #  tags:
+      #    - key: 'service.name'
+      #      value: 'service'
+      #    - key: 'job'
+      #  queries:
+      #    - name: 'Sample query'
+      #      query: 'sum(rate(tempo_spanmetrics_latency_bucket{$__tags}[5m]))'
+    #secureJsonData:
+    #  basicAuthPassword: abcdefgh
+  
+  - name: Prometheus
+    type: prometheus
+    uid: 'provisioned-prometheus'
+    access: proxy
+    url: http://prometheus:9090
+    editable: false
+    

@@ -1,0 +1,4 @@
+services:
+  common:
+    labels:
+      application: smartface_observability
