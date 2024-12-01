@@ -1,0 +1,30 @@
+version: '3'
+services:
+  pgsql:
+    image: "postgres:14.3"
+    container_name: pgsql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Test1234
+    restart: unless-stopped
+    volumes:
+      - pgsqldata:/var/lib/postgresql/data
+      #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
+  
+  pgadmin:
+    image: "dpage/pgadmin4:6.10"
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: Test1234
+    ports:
+      - "7070:80"
+  
+volumes:
+  pgsqldata:
+
+networks:
+  default:
+    external:
+      name: HighAvailabilityClusterNetwork
