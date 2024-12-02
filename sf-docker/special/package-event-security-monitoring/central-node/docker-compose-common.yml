@@ -1,0 +1,15 @@
+services:
+  common:
+    labels:
+      application: smartface
+  
+  common-rabbit:
+    extends:
+      service: common
+    environment:
+      RabbitMQ__Hostname:
+      RabbitMQ__Username:
+      RabbitMQ__Password:
+      RabbitMQ__Port:
+      RabbitMQ__VirtualHost:
+      RabbitMQ__UseSsl:

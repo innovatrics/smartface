@@ -1,8 +1,13 @@
 version: "3.4"
 services:
   sf-base:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFBase
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFBase
     logging:
       driver: "json-file"
@@ -35,8 +40,13 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-streamdatadbworker:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
     container_name: SFStreamDataDbWorker
+    labels:
+      scrapeMetrics: true
     logging:
       driver: "json-file"
       options:
@@ -66,8 +76,13 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
+    labels:
+      scrapeMetrics: true
     logging:
       driver: "json-file"
       options:
@@ -107,8 +122,13 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-graphql-api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
     container_name: SFGraphQLApi
+    labels:
+      scrapeMetrics: true
     logging:
       driver: "json-file"
       options:
@@ -143,8 +163,13 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   odata-api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     container_name: SFODataApi
+    labels:
+      scrapeMetrics: true
     logging:
       driver: "json-file"
       options:
@@ -179,6 +204,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   detector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
     logging:
@@ -207,8 +235,13 @@ services:
     #runtime: nvidia
 
   extractor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     container_name: SFExtractCpu
+    labels:
+      scrapeMetrics: true
     logging:
       driver: "json-file"
       options:
@@ -235,6 +268,9 @@ services:
     #runtime: nvidia
 
   matcher:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
     logging:
@@ -262,6 +298,9 @@ services:
     cpuset: "0"
 
   face-matcher:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
     container_name: SFFaceMatcher
     logging:
@@ -288,8 +327,13 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   liveness:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
+    labels:
+      scrapeMetrics: true
     logging:
       driver: "json-file"
       options:
@@ -316,6 +360,9 @@ services:
     #runtime: nvidia
 
   edge-stream-processor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     container_name: SFEdgeStreamProcessor
     logging:
@@ -344,6 +391,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   edge-streams-state-synchronizer:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
     container_name: SFEdgeStreamsStateSynchronizer
     logging:
@@ -376,6 +426,9 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   access-controller:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     container_name: SFAccessController
     logging:
@@ -405,6 +458,9 @@ services:
     env_file: .env.sfac
 
   sf-station:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-station:${SFS_VERSION}
     container_name: SFStation
     logging:
@@ -419,6 +475,9 @@ services:
     env_file: .env.sfstation
 
   access-control-connector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}integrations-access-control-connector
     restart: unless-stopped
     env_file: .env.actrlcon

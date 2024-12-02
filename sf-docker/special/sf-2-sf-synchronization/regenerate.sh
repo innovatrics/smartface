@@ -1,13 +1,15 @@
 # If yq is not present on the machine, you can run this script using docker image mikefarah/yq by running following command from sf-docker directory
 # docker run -it --rm -v ${PWD}:/workdir --entrypoint /bin/sh mikefarah/yq ./special/sf-2-sf-synchronization/regenerate.sh
 
-THISDIR=$(dirname "$0")
-DOCKERDIR=$(dirname $(dirname $THISDIR))
+THISFILE=$(readlink -f "$0")
+THISDIR=$(dirname "$THISFILE")
+DOCKERDIR=$(dirname $(dirname "$THISDIR"))
 
 cp $DOCKERDIR/all-in-one/.env $THISDIR/leader/.env
 cp $DOCKERDIR/all-in-one/.env.sfac $THISDIR/leader/.env.sfac
 cp $DOCKERDIR/all-in-one/.env.sfstation $THISDIR/leader/.env.sfstation
 cp $DOCKERDIR/all-in-one/run.sh $THISDIR/leader/run.sh
+cp $DOCKERDIR/all-in-one/docker-compose-common.yml $THISDIR/leader/docker-compose-common.yml
 cat $DOCKERDIR/all-in-one/docker-compose.yml \
     | yq -P '
         with (.services.db-synchronization-leader;
@@ -45,6 +47,7 @@ cp $DOCKERDIR/all-in-one/.env $THISDIR/follower/.env
 cp $DOCKERDIR/all-in-one/.env.sfac $THISDIR/follower/.env.sfac
 cp $DOCKERDIR/all-in-one/.env.sfstation $THISDIR/follower/.env.sfstation
 cp $DOCKERDIR/all-in-one/run.sh $THISDIR/follower/run.sh
+cp $DOCKERDIR/all-in-one/docker-compose-common.yml $THISDIR/follower/docker-compose-common.yml
 cat $DOCKERDIR/all-in-one/docker-compose.yml \
     | yq -P '
         with (.services.api; .environment |= . + "FeatureManagement__ReadOnlyWatchlists=true" ) |

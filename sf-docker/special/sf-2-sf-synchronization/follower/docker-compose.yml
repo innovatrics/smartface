@@ -1,11 +1,18 @@
 version: "3.4"
 services:
   sf-base:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFBase
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFBase
     ports:
       - 2406:2406
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -28,9 +35,16 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   sf-group:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-grouping:${SF_VERSION}
     container_name: SFGroup
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFGroup
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -53,8 +67,15 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   sf-streamdatadbworker:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
     container_name: SFStreamDataDbWorker
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -77,176 +98,99 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   sf-cam-1:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam1
+    labels:
+      scrapeMetrics: true
     command: --serviceName SFCam1
     ports:
       - 30001:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
   sf-cam-2:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam2
     command: --serviceName SFCam2
     ports:
       - 30002:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
   sf-cam-3:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam3
     command: --serviceName SFCam3
     ports:
       - 30003:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
   sf-cam-4:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam4
     command: --serviceName SFCam4
     ports:
       - 30004:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
   sf-cam-5:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     container_name: SFCam5
     command: --serviceName SFCam5
     ports:
       - 30005:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+  sf-cam-6:
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
+    container_name: SFCam6
+    command: --serviceName SFCam6
+    ports:
+      - 30006:${CameraDefaults__PreviewPort}
+  sf-cam-7:
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
+    container_name: SFCam7
+    command: --serviceName SFCam7
+    ports:
+      - 30007:${CameraDefaults__PreviewPort}
+  sf-cam-8:
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
+    container_name: SFCam8
+    command: --serviceName SFCam8
+    ports:
+      - 30008:${CameraDefaults__PreviewPort}
+  sf-cam-9:
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
+    container_name: SFCam9
+    command: --serviceName SFCam9
+    ports:
+      - 30009:${CameraDefaults__PreviewPort}
+  sf-cam-10:
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
+    container_name: SFCam10
+    command: --serviceName SFCam10
+    ports:
+      - 30010:${CameraDefaults__PreviewPort}
   sf-cam-nx:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
-
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    labels:
+      scrapeMetrics: true
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -267,18 +211,23 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
-
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+      # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+      #runtime: nvidia
   api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
+    labels:
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8098:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -310,11 +259,18 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   sf-graphql-api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
     container_name: SFGraphQLApi
+    labels:
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -340,11 +296,18 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   odata-api:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     container_name: SFODataApi
+    labels:
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8099:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -369,6 +332,9 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   detector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
     restart: unless-stopped
@@ -384,14 +350,15 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+      # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+      #runtime: nvidia
   pedestrian-detector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
     container_name: SFPedestrianDetectCpu
     restart: unless-stopped
@@ -407,14 +374,15 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+      # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+      #runtime: nvidia
   object-detector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-object-detector:${SF_VERSION}
     container_name: SFObjectDetectorCpu
     restart: unless-stopped
@@ -434,6 +402,9 @@ services:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     #runtime: nvidia
   pedestrian-extractor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
     container_name: SFPedestrianExtractorCpu
     restart: unless-stopped
@@ -451,10 +422,17 @@ services:
       # - Gpu__GpuEnabled=true
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
-    #runtime: nvidia
+      #runtime: nvidia
   extractor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     container_name: SFExtractCpu
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -468,14 +446,15 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+      # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+      #runtime: nvidia
   matcher:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
     restart: unless-stopped
@@ -496,6 +475,9 @@ services:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     cpuset: "0"
   face-matcher:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
     container_name: SFFaceMatcher
     restart: unless-stopped
@@ -515,8 +497,15 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   liveness:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -530,14 +519,15 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+      # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+      #runtime: nvidia
   video-aggregator:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
     container_name: SFVideoDataAggregator
     restart: unless-stopped
@@ -562,6 +552,9 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   video-collector:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-collector:${SF_VERSION}
     container_name: SFVideoDataCollector
     restart: unless-stopped
@@ -586,8 +579,15 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   video-reader:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
     container_name: SFVideoReader
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -607,6 +607,9 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   edge-stream-processor:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     container_name: SFEdgeStreamProcessor
     restart: unless-stopped
@@ -626,6 +629,9 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   edge-streams-state-synchronizer:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
     container_name: SFEdgeStreamsStateSynchronizer
     restart: unless-stopped
@@ -651,6 +657,9 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
   access-controller:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     container_name: SFAccessController
     ports:
@@ -673,6 +682,9 @@ services:
       - AppSettings__Log_JsonConsole_Enabled
     env_file: .env.sfac
   sf-station:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-station:${SFS_VERSION}
     container_name: SFStation
     restart: unless-stopped
@@ -681,6 +693,35 @@ services:
     env_file: .env.sfstation
     environment:
       - FeatureManagement__ReadOnlyWatchlists=true
+  db-synchronization-leader:
+    image: ${REGISTRY}sf-db-synchronization-leader:${SF_VERSION}
+    container_name: SFDbSynchronizationLeader
+    ports:
+      - 8100:${Hosting__Port}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__StreamsPort
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - Hosting__Host
+      - Hosting__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - Authentication__UseAuthentication
+      - Authentication__IgnoreHttpsIssuerCheck
+      - Authentication__Authority
+      - Authentication__Audience
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
   db-synchronization-follower:
     image: ${REGISTRY}sf-db-synchronization-follower:${SF_VERSION}
     container_name: SFDbSynchronizationFollower
