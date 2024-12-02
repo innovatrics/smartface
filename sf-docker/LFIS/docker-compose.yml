@@ -1,129 +1,55 @@
-version: '3.4'
 services:
-
   detector:
     extends:
-      service: common
+      service: common-rabbitmq
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-detector:${SF_VERSION}
-    container_name: SFDetectCpu
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   extractor:
     extends:
-      service: common
+      service: common-rabbitmq
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
-    container_name: SFExtractCpu
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
 
   matcher:
     extends:
-      service: common
+      service: common-rabbitmq-db
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
-    container_name: SFWatchlistMatcher
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - Database__DbEngine
-      - ConnectionStrings__CoreDbContext
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
     cpuset: "0"
 
   liveness:
     extends:
-      service: common
+      service: common-rabbitmq
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
-    container_name: SFLiveness
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
 
   watchlist-api:
     extends:
-      service: common
+      service: common-rabbitmq-db-s3-scrapeMetrics
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-api:${SF_VERSION}
-    container_name: SFWatchlistApi
-    labels:
-      scrapeMetrics: true
     ports:
-      # we forward the configured ports to default SF ports
-      - 8098:${Hosting__Port}
+      - 8098:80
     environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - MQTT__Hostname
-      - MQTT__Username
-      - MQTT__Password
-      - MQTT__Port
-      - MQTT__UseSsl
-      - Database__DbEngine
-      - ConnectionStrings__CoreDbContext
-      - Hosting__Host
-      - Hosting__Port
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-      - FeatureManagement__Watchlist=true
-      - FeatureManagement__Full=false
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+      MQTT__Hostname:
+      MQTT__Username:
+      MQTT__Password:
+      MQTT__Port:
+      MQTT__UseSsl:
+      Hosting__Host: http://+
+      Hosting__Port: 80
+      CameraDefaults__PreviewPort:
+      FeatureManagement__Watchlist: true
+      FeatureManagement__Full: false
 
   sf-station:
     extends:
@@ -138,39 +64,23 @@ services:
 
   sf-graphql-api:
     extends:
-      service: common
+      service: common-rabbitmq-db
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
-    container_name: SFGraphQLApi
     labels:
       scrapeMetrics: true
     ports:
-      # we forward the configured ports to default SF ports
-      - 8097:${Hosting__Port}
-    restart: unless-stopped
+      - 8097:80
+    expose:
+      - 4318
     environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - MQTT__Hostname
-      - MQTT__Username
-      - MQTT__Password
-      - MQTT__Port
-      - MQTT__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - Hosting__Host
-      - Hosting__Port
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - AppSettings__Log_RabbitMq_Enabled
-    volumes:
-      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+      MQTT__Hostname:
+      MQTT__Username:
+      MQTT__Password:
+      MQTT__Port:
+      MQTT__UseSsl:
+      Hosting__Host: http://+
+      Hosting__Port: 80
 
 networks:
   default:

@@ -2,3 +2,47 @@ services:
   common:
     labels:
       application: smartface
+    environment:
+      AppSettings__Log_JsonConsole_Enabled:
+      AppSettings__USE_JAEGER_APP_SETTINGS:
+      JAEGER_AGENT_HOST:
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic:ro
+    restart: unless-stopped
+
+  common-rabbitmq:
+    extends:
+      service: common
+    environment:
+      RabbitMQ__Hostname:
+      RabbitMQ__Username:
+      RabbitMQ__Password:
+      RabbitMQ__Port:
+      RabbitMQ__StreamsPort:
+      RabbitMQ__VirtualHost:
+      RabbitMQ__UseSsl:
+
+  common-rabbitmq-db:
+    extends:
+      service: common-rabbit
+    environment:
+      ConnectionStrings__CoreDbContext:
+      Database__DbEngine:
+  
+  common-rabbitmq-db-s3:
+    extends:
+      service: common-rabbit-db
+    environment:
+      S3Bucket__Endpoint:
+      S3Bucket__BucketName:
+      S3Bucket__AccessKey:
+      S3Bucket__SecretKey:
+      NoSqlDataStorageDisabled:
+
+  common-rabbitmq-db-s3-scrapeMetrics:
+    extends:
+      service: common-rabbit-db-s3
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318

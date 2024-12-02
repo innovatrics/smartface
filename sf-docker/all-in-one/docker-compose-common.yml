@@ -47,14 +47,6 @@ services:
     expose:
       - 4318
 
-  # common-rabbitmq-db-s3-mqtt: .
-  # common-rabbitmq-db-mqtt: ..
-  # common-rabbitmq-mqtt: .
-  # common-rabbitmq-s3: ..
-  # common-rabbitmq-scrapeMetrics: 
-  # common-rabbitmq-db-scrapeMetrics: .
-  # common-rabbitmq-db-s3-scrapeMetrics: .....
-
   sf-cam:
     extends:
       service: common-rabbit-db-s3

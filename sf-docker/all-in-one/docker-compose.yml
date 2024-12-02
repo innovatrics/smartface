@@ -79,16 +79,15 @@ services:
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-api:${SF_VERSION}
     ports:
-      # we forward the configured ports to default SF ports
-      - 8098:${Hosting__Port}
+      - 8098:80
     environment:
       MQTT__Hostname:
       MQTT__Username:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host:
-      Hosting__Port:
+      Hosting__Host: http://+
+      Hosting__Port: 80
       CameraDefaults__PreviewPort:
 
   sf-graphql-api:
@@ -99,8 +98,7 @@ services:
     labels:
       scrapeMetrics: true
     ports:
-      # we forward the configured ports to default SF ports
-      - 8097:${Hosting__Port}
+      - 8097:80
     expose:
       - 4318
     environment:
@@ -109,8 +107,8 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host:
-      Hosting__Port:
+      Hosting__Host: http://+
+      Hosting__Port: 80
 
   odata-api:
     extends:
@@ -118,11 +116,10 @@ services:
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     ports:
-      # we forward the configured ports to default SF ports
-      - 8099:${Hosting__Port}
+      - 8099:80
     environment:
-      Hosting__Host:
-      Hosting__Port:
+      Hosting__Host: http://+
+      Hosting__Port: 80
 
   detector:
     extends:
@@ -244,7 +241,7 @@ services:
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     environment:
-      - NoSqlDataStorageDisabled
+      NoSqlDataStorageDisabled:
 
   edge-streams-state-synchronizer:
     extends:
@@ -265,15 +262,14 @@ services:
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     ports:
-      # we forward the configured ports to default SF ports
-      - 5050:${Hosting__Port}
+      - 5050:80
     environment:
       MQTT__Hostname:
       MQTT__Username:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Kestrel__EndPoints__Http__Url: ${Hosting__Host}:${Hosting__Port}
+      Kestrel__EndPoints__Http__Url: http://+:80
     env_file: .env.sfac
 
   sf-station:
