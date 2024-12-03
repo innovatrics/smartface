@@ -41,8 +41,6 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host: http://+
-      Hosting__Port: 80
       CameraDefaults__PreviewPort:
     logging:
       driver: "json-file"
@@ -68,8 +66,6 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host: http://+
-      Hosting__Port: 80
     logging:
       driver: "json-file"
       options:
@@ -84,9 +80,6 @@ services:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     ports:
       - 8099:80
-    environment:
-      Hosting__Host: http://+
-      Hosting__Port: 80
     logging:
       driver: "json-file"
       options:

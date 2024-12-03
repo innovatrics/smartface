@@ -35,8 +35,6 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host: http://+
-      Hosting__Port: 80
       CameraDefaults__PreviewPort:
 
   sf-graphql-api:
@@ -56,8 +54,6 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host: http://+
-      Hosting__Port: 80
 
   odata-api:
     extends:
@@ -66,9 +62,6 @@ services:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     ports:
       - 8099:80
-    environment:
-      Hosting__Host: http://+
-      Hosting__Port: 80
 
   detector:
     extends:
@@ -126,10 +119,8 @@ services:
       file: docker-compose-common.yml
     image: ${REGISTRY}sf-db-synchronization-leader:${SF_VERSION}
     ports:
-      - 8100:${Hosting__Port}
+      - 8100:80
     environment:
-      Hosting__Host:
-      Hosting__Port:
       S3Bucket__Endpoint:
       S3Bucket__BucketName:
       S3Bucket__AccessKey:

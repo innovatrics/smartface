@@ -45,8 +45,6 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host: http://+
-      Hosting__Port: 80
       CameraDefaults__PreviewPort:
       FeatureManagement__Watchlist: true
       FeatureManagement__Full: false
@@ -79,8 +77,6 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host: http://+
-      Hosting__Port: 80
 
 networks:
   default:

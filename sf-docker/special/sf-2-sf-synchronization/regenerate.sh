@@ -10,38 +10,7 @@ cp $DOCKERDIR/all-in-one/.env.sfac $THISDIR/leader/.env.sfac
 cp $DOCKERDIR/all-in-one/.env.sfstation $THISDIR/leader/.env.sfstation
 cp $DOCKERDIR/all-in-one/run.sh $THISDIR/leader/run.sh
 cp $DOCKERDIR/all-in-one/docker-compose-common.yml $THISDIR/leader/docker-compose-common.yml
-cat $DOCKERDIR/all-in-one/docker-compose.yml \
-    | yq -P '
-        with (.services.db-synchronization-leader;
-            .image = "${REGISTRY}sf-db-synchronization-leader:${SF_VERSION}"
-            | .container_name = "SFDbSynchronizationLeader"
-            | .ports = [ "8100:${Hosting__Port}" ]
-            | .restart = "unless-stopped"
-            | .environment = [ 
-                "RabbitMQ__Hostname",
-                "RabbitMQ__Username",
-                "RabbitMQ__Password",
-                "RabbitMQ__Port",
-                "RabbitMQ__StreamsPort",
-                "RabbitMQ__VirtualHost",
-                "RabbitMQ__UseSsl",
-                "Hosting__Host",
-                "Hosting__Port",
-                "AppSettings__Log_RollingFile_Enabled=false",
-                "AppSettings__USE_JAEGER_APP_SETTINGS",
-                "AppSettings__Log_JsonConsole_Enabled",
-                "JAEGER_AGENT_HOST",
-                "S3Bucket__Endpoint",
-                "S3Bucket__BucketName",
-                "S3Bucket__AccessKey",
-                "S3Bucket__SecretKey",
-                "Authentication__UseAuthentication",
-                "Authentication__IgnoreHttpsIssuerCheck",
-                "Authentication__Authority",
-                "Authentication__Audience" ]
-            | .volumes = [ "./iengine.lic:/etc/innovatrics/iengine.lic" ]
-        )
-    ' > $THISDIR/leader/docker-compose.yml
+cp $DOCKERDIR/all-in-one/docker-compose.yml $THISDIR/leader/docker-compose.yml
 
 cp $DOCKERDIR/all-in-one/.env $THISDIR/follower/.env
 cp $DOCKERDIR/all-in-one/.env.sfac $THISDIR/follower/.env.sfac
@@ -50,39 +19,27 @@ cp $DOCKERDIR/all-in-one/run.sh $THISDIR/follower/run.sh
 cp $DOCKERDIR/all-in-one/docker-compose-common.yml $THISDIR/follower/docker-compose-common.yml
 cat $DOCKERDIR/all-in-one/docker-compose.yml \
     | yq -P '
-        with (.services.api; .environment |= . + "FeatureManagement__ReadOnlyWatchlists=true" ) |
-        with (.services.sf-station;
-            .environment = []
-            | .environment |= . + "FeatureManagement__ReadOnlyWatchlists=true" ) |
-        with (.services.db-synchronization-follower;
-            .image = "${REGISTRY}sf-db-synchronization-follower:${SF_VERSION}"
-            | .container_name = "SFDbSynchronizationFollower"
-            | .ports = [ "8100:${Hosting__Port}" ]
-            | .restart = "unless-stopped"
-            | .environment = [ 
-                "RabbitMQ__Hostname",
-                "RabbitMQ__Username",
-                "RabbitMQ__Password",
-                "RabbitMQ__Port",
-                "RabbitMQ__StreamsPort",
-                "RabbitMQ__VirtualHost",
-                "RabbitMQ__UseSsl",
-                "ConnectionStrings__CoreDbContext",
-                "Database__DbEngine",
-                "AppSettings__Log_RollingFile_Enabled=false",
-                "AppSettings__USE_JAEGER_APP_SETTINGS",
-                "AppSettings__Log_JsonConsole_Enabled",
-                "JAEGER_AGENT_HOST",
-                "S3Bucket__Endpoint",
-                "S3Bucket__BucketName",
-                "S3Bucket__AccessKey",
-                "S3Bucket__SecretKey",
-                "Leader__Address",
-                "ClientAuthentication__UseAuthentication",
-                "ClientAuthentication__TokenEndpoint",
-                "ClientAuthentication__ClientId",
-                "ClientAuthentication__ClientSecret",
-                "ClientAuthentication__Audience" ]
-            | .volumes = [ "./iengine.lic:/etc/innovatrics/iengine.lic" ]
+        with (.services.api.environment; .FeatureManagement__ReadOnlyWatchlists = "true" )
+        | with (.services.sf-station.environment; .FeatureManagement__ReadOnlyWatchlists = "true" )
+        | del .services.db-synchronization-leader
+        | with (.services.db-synchronization-follower;
+            with (.extends;
+                .service = "common-rabbitmq-db-s3"
+                | .file = "docker-compose-common.yml" )
+            | .image = "${REGISTRY}sf-db-synchronization-follower:${SF_VERSION}"
+            | with (.environment;
+                .Leader__Address = "" 
+                | .Leader__Address tag = "!!null"
+                | .ClientAuthentication__UseAuthentication = "" 
+                | .ClientAuthentication__UseAuthentication tag = "!!null"
+                | .ClientAuthentication__TokenEndpoint = "" 
+                | .ClientAuthentication__TokenEndpoint tag = "!!null"
+                | .ClientAuthentication__ClientId = "" 
+                | .ClientAuthentication__ClientId tag = "!!null"
+                | .ClientAuthentication__ClientSecret = "" 
+                | .ClientAuthentication__ClientSecret tag = "!!null"
+                | .ClientAuthentication__Audience = "" 
+                | .ClientAuthentication__Audience tag = "!!null"
+                )
         )
     ' > $THISDIR/follower/docker-compose.yml

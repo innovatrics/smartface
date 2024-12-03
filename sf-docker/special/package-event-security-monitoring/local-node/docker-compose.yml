@@ -34,8 +34,6 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host: http://+
-      Hosting__Port: 80
       CameraDefaults__PreviewPort:
       FeatureManagement__ReadOnlyWatchlists: true
 
@@ -56,8 +54,6 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Hosting__Host: http://+
-      Hosting__Port: 80
 
   odata-api:
     extends:
@@ -66,9 +62,6 @@ services:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     ports:
       - 8099:80
-    environment:
-      Hosting__Host: http://+
-      Hosting__Port: 80
 
   detector:
     extends:
@@ -216,8 +209,6 @@ services:
       ClientAuthentication__ClientId:
       ClientAuthentication__ClientSecret:
       ClientAuthentication__Audience:
-      Hosting__Host: http://+
-      Hosting__Port: 80
 
 networks:
   default:
