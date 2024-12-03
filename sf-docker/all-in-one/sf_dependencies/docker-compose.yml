@@ -60,6 +60,10 @@ services:
       - ./etc_rmq/:/etc/rabbitmq/external
       - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped
+    networks:
+      default:
+        aliases:
+          - rmq
 
   minio:
     extends:

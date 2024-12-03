@@ -274,7 +274,7 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
-      Kestrel__EndPoints__Http__Url: http://+:80
+      Kestrel__EndPoints__Http__Url: http://0.0.0.0:80
     env_file: .env.sfac
     networks:
       default:
