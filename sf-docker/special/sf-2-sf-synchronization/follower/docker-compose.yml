@@ -29,6 +29,10 @@ services:
     command: --serviceName SFCam1
     ports:
       - 30001:${CameraDefaults__PreviewPort}
+    networks:
+      default:
+        aliases:
+          - SFCam1
   sf-cam-2:
     extends:
       service: sf-cam
@@ -36,6 +40,10 @@ services:
     command: --serviceName SFCam2
     ports:
       - 30002:${CameraDefaults__PreviewPort}
+    networks:
+      default:
+        aliases:
+          - SFCam2
   sf-cam-3:
     extends:
       service: sf-cam
@@ -43,6 +51,10 @@ services:
     command: --serviceName SFCam3
     ports:
       - 30003:${CameraDefaults__PreviewPort}
+    networks:
+      default:
+        aliases:
+          - SFCam3
   sf-cam-4:
     extends:
       service: sf-cam
@@ -50,6 +62,10 @@ services:
     command: --serviceName SFCam4
     ports:
       - 30004:${CameraDefaults__PreviewPort}
+    networks:
+      default:
+        aliases:
+          - SFCam4
   sf-cam-5:
     extends:
       service: sf-cam
@@ -57,6 +73,10 @@ services:
     command: --serviceName SFCam5
     ports:
       - 30005:${CameraDefaults__PreviewPort}
+    networks:
+      default:
+        aliases:
+          - SFCam5
   sf-cam-nx:
     extends:
       service: sf-cam
