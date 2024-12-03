@@ -7,6 +7,10 @@ services:
     command: --serviceName SFBase
     ports:
       - 2406:2406
+    networks:
+      default:
+        aliases:
+          - SFBase
   sf-group:
     extends:
       service: common-rabbitmq-db-s3-scrapeMetrics
@@ -79,6 +83,10 @@ services:
       MQTT__UseSsl:
       CameraDefaults__PreviewPort:
       FeatureManagement__ReadOnlyWatchlists: "true"
+    networks:
+      default:
+        aliases:
+          - SFApi
   sf-graphql-api:
     extends:
       service: common-rabbitmq-db
@@ -96,6 +104,10 @@ services:
       MQTT__Password:
       MQTT__Port:
       MQTT__UseSsl:
+    networks:
+      default:
+        aliases:
+          - SFGraphQLApi
   odata-api:
     extends:
       service: common-rabbitmq-db-s3-scrapeMetrics
@@ -103,6 +115,10 @@ services:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     ports:
       - 8099:80
+    networks:
+      default:
+        aliases:
+          - SFODataApi
   detector:
     extends:
       service: common-rabbitmq
@@ -240,6 +256,10 @@ services:
       MQTT__UseSsl:
       Kestrel__EndPoints__Http__Url: http://+:80
     env_file: .env.sfac
+    networks:
+      default:
+        aliases:
+          - SFAccessController
   sf-station:
     extends:
       service: common
