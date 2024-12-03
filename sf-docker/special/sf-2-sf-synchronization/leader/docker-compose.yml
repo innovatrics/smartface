@@ -1,713 +1,296 @@
-version: "3.4"
 services:
   sf-base:
+    extends:
+      service: common-rabbitmq-db-s3-scrapeMetrics
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-base:${SF_VERSION}
-    container_name: SFBase
     command: --serviceName SFBase
     ports:
       - 2406:2406
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
   sf-group:
+    extends:
+      service: common-rabbitmq-db-s3-scrapeMetrics
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-grouping:${SF_VERSION}
-    container_name: SFGroup
     command: --serviceName SFGroup
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
   sf-streamdatadbworker:
+    extends:
+      service: common-rabbitmq-db-s3-scrapeMetrics
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
-    container_name: SFStreamDataDbWorker
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
   sf-cam-1:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam1
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     command: --serviceName SFCam1
     ports:
       - 30001:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
 
   sf-cam-2:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam2
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     command: --serviceName SFCam2
     ports:
       - 30002:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
 
   sf-cam-3:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam3
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     command: --serviceName SFCam3
     ports:
       - 30003:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
 
   sf-cam-4:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam4
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     command: --serviceName SFCam4
     ports:
       - 30004:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
 
   sf-cam-5:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
-    container_name: SFCam5
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     command: --serviceName SFCam5
     ports:
       - 30005:${CameraDefaults__PreviewPort}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - GstPipelineTemplate
-
-    # - Gpu__GpuNeuralRuntime=Tensor
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
 
   sf-cam-nx:
-    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    extends:
+      service: sf-cam
+      file: docker-compose-common.yml
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
-
-    container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    # - Gpu__GpuNeuralRuntime=Tensor
-
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    #environment:
+    #  Gpu__GpuNeuralRuntime: Tensor
+    #volumes:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
+    #runtime: nvidia
 
   api:
+    extends:
+      service: common-rabbitmq-db-s3-scrapeMetrics
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-api:${SF_VERSION}
-    container_name: SFApi
     ports:
-      # we forward the configured ports to default SF ports
-      - 8098:${Hosting__Port}
-    restart: unless-stopped
+      - 8098:80
     environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - MQTT__Hostname
-      - MQTT__Username
-      - MQTT__Password
-      - MQTT__Port
-      - MQTT__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - Hosting__Host
-      - Hosting__Port
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-      - CameraDefaults__PreviewPort
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-  sf-graphql-api:
-    image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
-    container_name: SFGraphQLApi
-    ports:
-      # we forward the configured ports to default SF ports
-      - 8097:${Hosting__Port}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - MQTT__Hostname
-      - MQTT__Username
-      - MQTT__Password
-      - MQTT__Port
-      - MQTT__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - Hosting__Host
-      - Hosting__Port
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - AppSettings__Log_RabbitMq_Enabled
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-  odata-api:
-    image: ${REGISTRY}sf-odata-api:${SF_VERSION}
-    container_name: SFODataApi
-    ports:
-      # we forward the configured ports to default SF ports
-      - 8099:${Hosting__Port}
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - Hosting__Host
-      - Hosting__Port
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-  detector:
-    image: ${REGISTRY}sf-detector:${SF_VERSION}
-    container_name: SFDetectCpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
+      MQTT__Hostname:
+      MQTT__Username:
+      MQTT__Password:
+      MQTT__Port:
+      MQTT__UseSsl:
+      CameraDefaults__PreviewPort:
 
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+  sf-graphql-api:
+    extends:
+      service: common-rabbitmq-db
+      file: docker-compose-common.yml
+    image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
+    labels:
+      scrapeMetrics: true
+    ports:
+      - 8097:80
+    expose:
+      - 4318
+    environment:
+      MQTT__Hostname:
+      MQTT__Username:
+      MQTT__Password:
+      MQTT__Port:
+      MQTT__UseSsl:
+
+  odata-api:
+    extends:
+      service: common-rabbitmq-db-s3-scrapeMetrics
+      file: docker-compose-common.yml
+    image: ${REGISTRY}sf-odata-api:${SF_VERSION}
+    ports:
+      - 8099:80
+
+  detector:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
+    image: ${REGISTRY}sf-detector:${SF_VERSION}
+    #environment:
+    # Gpu__GpuEnabled: true
+    # Gpu__GpuNeuralRuntime: Tensor
+    #volumes:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
+    #runtime: nvidia
 
   pedestrian-detector:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
-    container_name: SFPedestrianDetectCpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    #environment:
+    # Gpu__GpuEnabled: true
+    # Gpu__GpuNeuralRuntime: Tensor
+    #volumes:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
+    #runtime: nvidia
 
   object-detector:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-object-detector:${SF_VERSION}
-    container_name: SFObjectDetectorCpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      # - Gpu__GpuEnabled=true
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    #environment:
+    # Gpu__GpuEnabled: true
     #runtime: nvidia
-  pedestrian-extractor:
-    image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
-    container_name: SFPedestrianExtractorCpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      # - Gpu__GpuEnabled=true
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-    #runtime: nvidia
-  extractor:
-    image: ${REGISTRY}sf-extractor:${SF_VERSION}
-    container_name: SFExtractCpu
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
 
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+  pedestrian-extractor:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
+    image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
+    #environment:
+    # Gpu__GpuEnabled: true
+    #runtime: nvidia
+
+  extractor:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
+    image: ${REGISTRY}sf-extractor:${SF_VERSION}
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
+    #environment:
+    # Gpu__GpuEnabled: true
+    # Gpu__GpuNeuralRuntime: Tensor
+    #volumes:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
+    #runtime: nvidia
 
   matcher:
+    extends:
+      service: common-rabbitmq-db
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
-    container_name: SFWatchlistMatcher
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
     cpuset: "0"
-  face-matcher:
-    image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
-    container_name: SFFaceMatcher
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-  liveness:
-    image: ${REGISTRY}sf-liveness:${SF_VERSION}
-    container_name: SFLiveness
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
 
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+  face-matcher:
+    extends:
+      service: common-rabbitmq-db
+      file: docker-compose-common.yml
+    image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
+
+  liveness:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
+    image: ${REGISTRY}sf-liveness:${SF_VERSION}
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
+    #environment:
+    #   - Gpu__GpuEnabled=true
+    #   - Gpu__GpuNeuralRuntime=Tensor
+    #volumes:
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
+    #runtime: nvidia
 
   video-aggregator:
+    extends:
+      service: common-rabbitmq-db-s3
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
-    container_name: SFVideoDataAggregator
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
   video-collector:
+    extends:
+      service: common-rabbitmq-db-s3
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-collector:${SF_VERSION}
-    container_name: SFVideoDataCollector
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
   video-reader:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
-    container_name: SFVideoReader
-    restart: unless-stopped
+    labels:
+      scrapeMetrics: true
+    expose:
+      - 4318
     environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - JAEGER_AGENT_HOST
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+      S3Bucket__Endpoint:
+      S3Bucket__BucketName:
+      S3Bucket__AccessKey:
+      S3Bucket__SecretKey:
+
   edge-stream-processor:
+    extends:
+      service: common-rabbitmq-db
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
-    container_name: SFEdgeStreamProcessor
-    restart: unless-stopped
     environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__Log_RabbitMq_Enabled
-      - NoSqlDataStorageDisabled
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+      NoSqlDataStorageDisabled:
+
   edge-streams-state-synchronizer:
+    extends:
+      service: common-rabbitmq-db
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
-    container_name: SFEdgeStreamsStateSynchronizer
-    restart: unless-stopped
     environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - RabbitMQ__StreamsPort
-      - MQTT__Hostname
-      - MQTT__Username
-      - MQTT__Password
-      - MQTT__Port
-      - MQTT__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__Log_RabbitMq_Enabled
-      - Rpc__TimeoutMs
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+      MQTT__Hostname:
+      MQTT__Username:
+      MQTT__Password:
+      MQTT__Port:
+      MQTT__UseSsl:
+      Rpc__TimeoutMs:
+
   access-controller:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
-    container_name: SFAccessController
     ports:
-      # we forward the configured ports to default SF ports
-      - 5050:${Hosting__Port}
-    restart: unless-stopped
+      - 5050:80
     environment:
-      - RabbitMq__HostName=${RabbitMQ__Hostname}
-      - RabbitMq__UserName=${RabbitMQ__Username}
-      - RabbitMq__Password=${RabbitMQ__Password}
-      - RabbitMq__Port=${RabbitMQ__Port}
-      - RabbitMq__VirtualHost=${RabbitMQ__VirtualHost}
-      - RabbitMq__UseSsl=${RabbitMQ__UseSsl}
-      - MQTT__Hostname
-      - MQTT__Username
-      - MQTT__Password
-      - MQTT__Port
-      - MQTT__UseSsl
-      - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
-      - AppSettings__Log_JsonConsole_Enabled
+      MQTT__Hostname:
+      MQTT__Username:
+      MQTT__Password:
+      MQTT__Port:
+      MQTT__UseSsl:
+      Kestrel__EndPoints__Http__Url: http://+:80
     env_file: .env.sfac
+
   sf-station:
+    extends:
+      service: common
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-station:${SFS_VERSION}
-    container_name: SFStation
-    restart: unless-stopped
     ports:
       - 8000:8000
     env_file: .env.sfstation
+
   db-synchronization-leader:
+    extends:
+      service: common-rabbitmq
+      file: docker-compose-common.yml
     image: ${REGISTRY}sf-db-synchronization-leader:${SF_VERSION}
-    container_name: SFDbSynchronizationLeader
     ports:
-      - 8100:${Hosting__Port}
-    restart: unless-stopped
+      - 8100:80
     environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__StreamsPort
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - Hosting__Host
-      - Hosting__Port
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - AppSettings__Log_JsonConsole_Enabled
-      - JAEGER_AGENT_HOST
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - Authentication__UseAuthentication
-      - Authentication__IgnoreHttpsIssuerCheck
-      - Authentication__Authority
-      - Authentication__Audience
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
+      S3Bucket__Endpoint:
+      S3Bucket__BucketName:
+      S3Bucket__AccessKey:
+      S3Bucket__SecretKey:
+      Authentication__UseAuthentication:
+      Authentication__IgnoreHttpsIssuerCheck:
+      Authentication__Authority:
+      Authentication__Audience:
+
 networks:
   default:
     name: sf-network
