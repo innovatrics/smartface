@@ -24,14 +24,14 @@ services:
 
   common-rabbitmq-db:
     extends:
-      service: common-rabbit
+      service: common-rabbitmq
     environment:
       ConnectionStrings__CoreDbContext:
       Database__DbEngine:
   
   common-rabbitmq-db-s3:
     extends:
-      service: common-rabbit-db
+      service: common-rabbitmq-db
     environment:
       S3Bucket__Endpoint:
       S3Bucket__BucketName:
@@ -41,7 +41,7 @@ services:
 
   common-rabbitmq-db-s3-scrapeMetrics:
     extends:
-      service: common-rabbit-db-s3
+      service: common-rabbitmq-db-s3
     labels:
       scrapeMetrics: true
     expose:
@@ -49,7 +49,7 @@ services:
 
   sf-cam:
     extends:
-      service: common-rabbit-db-s3
+      service: common-rabbitmq-db-s3
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     labels:
       scrapeMetrics: true
