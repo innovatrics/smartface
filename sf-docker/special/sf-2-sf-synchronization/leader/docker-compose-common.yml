@@ -58,7 +58,6 @@ services:
     expose:
       - 4318
     environment:
-      SF_FACE_TEMPLATE_COMPATIBILITY_VERSION: 1.40
       #GstPipelineTemplate:
       #Gpu__GpuNeuralRuntime=Tensor:
     #volumes:
