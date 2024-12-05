@@ -1,4 +1,3 @@
-version: "3.4"
 services:
   sf-base:
     image: ${REGISTRY}sf-base:${SF_VERSION}
