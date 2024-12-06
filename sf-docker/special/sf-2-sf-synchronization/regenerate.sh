@@ -1,8 +1,9 @@
 # If yq is not present on the machine, you can run this script using docker image mikefarah/yq by running following command from sf-docker directory
 # docker run -it --rm -v ${PWD}:/workdir --entrypoint /bin/sh mikefarah/yq ./special/sf-2-sf-synchronization/regenerate.sh
 
-THISDIR=$(dirname "$0")
-DOCKERDIR=$(dirname $(dirname $THISDIR))
+THISFILE=$(readlink -f "$0")
+THISDIR=$(dirname "$THISFILE")
+DOCKERDIR=$(dirname $(dirname "$THISDIR"))
 
 cp $DOCKERDIR/all-in-one/.env $THISDIR/leader/.env
 cp $DOCKERDIR/all-in-one/.env.sfac $THISDIR/leader/.env.sfac
@@ -13,6 +14,7 @@ cat $DOCKERDIR/all-in-one/docker-compose.yml \
         with (.services.db-synchronization-leader;
             .image = "${REGISTRY}sf-db-synchronization-leader:${SF_VERSION}"
             | .container_name = "SFDbSynchronizationLeader"
+            | .labels.application = "smartface"
             | .ports = [ "8100:${Hosting__Port}" ]
             | .restart = "unless-stopped"
             | .environment = [ 
@@ -54,7 +56,7 @@ cat $DOCKERDIR/all-in-one/docker-compose.yml \
         with (.services.db-synchronization-follower;
             .image = "${REGISTRY}sf-db-synchronization-follower:${SF_VERSION}"
             | .container_name = "SFDbSynchronizationFollower"
-            | .ports = [ "8100:${Hosting__Port}" ]
+            | .labels.application = "smartface"
             | .restart = "unless-stopped"
             | .environment = [ 
                 "RabbitMQ__Hostname",

@@ -1,6 +1,4 @@
-version: '3.4'
 services:
-
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
