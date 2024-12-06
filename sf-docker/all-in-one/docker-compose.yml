@@ -123,7 +123,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -161,7 +160,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -199,7 +197,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -237,7 +234,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
@@ -275,7 +271,6 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:

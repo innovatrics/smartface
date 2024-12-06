@@ -120,15 +120,12 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-2:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam2
@@ -159,15 +156,12 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-3:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam3
@@ -198,15 +192,12 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-4:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam4
@@ -237,15 +228,12 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-5:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam5
@@ -276,19 +264,15 @@ services:
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
-      - SF_FACE_TEMPLATE_COMPATIBILITY_VERSION=1.40
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-nx:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
-
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
     labels:
       application: smartface
@@ -316,12 +300,10 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
-
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
@@ -450,13 +432,11 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   pedestrian-detector:
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
     container_name: SFPedestrianDetectCpu
@@ -475,13 +455,11 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   object-detector:
     image: ${REGISTRY}sf-object-detector:${SF_VERSION}
     container_name: SFObjectDetectorCpu
@@ -545,13 +523,11 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
@@ -616,13 +592,11 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   video-aggregator:
     image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
     container_name: SFVideoDataAggregator
