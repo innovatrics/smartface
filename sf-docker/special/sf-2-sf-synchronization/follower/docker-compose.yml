@@ -1,11 +1,15 @@
-version: "3.4"
 services:
   sf-base:
     image: ${REGISTRY}sf-base:${SF_VERSION}
     container_name: SFBase
+    labels:
+      application: smartface
+      scrapeMetrics: true
     command: --serviceName SFBase
     ports:
       - 2406:2406
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -30,7 +34,12 @@ services:
   sf-group:
     image: ${REGISTRY}sf-grouping:${SF_VERSION}
     container_name: SFGroup
+    labels:
+      application: smartface
+      scrapeMetrics: true
     command: --serviceName SFGroup
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -55,6 +64,11 @@ services:
   sf-streamdatadbworker:
     image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
     container_name: SFStreamDataDbWorker
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -79,9 +93,14 @@ services:
   sf-cam-1:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam1
+    labels:
+      application: smartface
+      scrapeMetrics: true
     command: --serviceName SFCam1
     ports:
       - 30001:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -102,19 +121,22 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-2:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam2
+    labels:
+      application: smartface
+      scrapeMetrics: true
     command: --serviceName SFCam2
     ports:
       - 30002:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -135,19 +157,22 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-3:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam3
+    labels:
+      application: smartface
+      scrapeMetrics: true
     command: --serviceName SFCam3
     ports:
       - 30003:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -168,19 +193,22 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-4:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam4
+    labels:
+      application: smartface
+      scrapeMetrics: true
     command: --serviceName SFCam4
     ports:
       - 30004:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -201,19 +229,22 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-5:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     container_name: SFCam5
+    labels:
+      application: smartface
+      scrapeMetrics: true
     command: --serviceName SFCam5
     ports:
-      - 30005:${CameraDefaults__PreviewPort}
+      - 30001:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -234,19 +265,21 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
-
     # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   sf-cam-nx:
     image: ${REGISTRY}sf-cam:${SF_VERSION}
     # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
-
     container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    labels:
+      application: smartface
+      scrapeMetrics: true
     command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -267,18 +300,21 @@ services:
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
-
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFApi
+    labels:
+      application: smartface
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8098:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -312,9 +348,14 @@ services:
   sf-graphql-api:
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
     container_name: SFGraphQLApi
+    labels:
+      application: smartface
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -342,9 +383,14 @@ services:
   odata-api:
     image: ${REGISTRY}sf-odata-api:${SF_VERSION}
     container_name: SFODataApi
+    labels:
+      application: smartface
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8099:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -371,6 +417,8 @@ services:
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -384,16 +432,16 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   pedestrian-detector:
     image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
     container_name: SFPedestrianDetectCpu
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -407,16 +455,16 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   object-detector:
     image: ${REGISTRY}sf-object-detector:${SF_VERSION}
     container_name: SFObjectDetectorCpu
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -436,6 +484,8 @@ services:
   pedestrian-extractor:
     image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
     container_name: SFPedestrianExtractorCpu
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -455,6 +505,11 @@ services:
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     container_name: SFExtractCpu
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -468,16 +523,16 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -498,6 +553,8 @@ services:
   face-matcher:
     image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
     container_name: SFFaceMatcher
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -517,6 +574,11 @@ services:
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -530,16 +592,16 @@ services:
       - AppSettings__USE_JAEGER_APP_SETTINGS
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
-    # - Gpu__GpuNeuralRuntime=Tensor
-
+      # - Gpu__GpuNeuralRuntime=Tensor
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
-  #runtime: nvidia
-
+    #runtime: nvidia
   video-aggregator:
     image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
     container_name: SFVideoDataAggregator
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -564,6 +626,8 @@ services:
   video-collector:
     image: ${REGISTRY}sf-video-collector:${SF_VERSION}
     container_name: SFVideoDataCollector
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -588,6 +652,11 @@ services:
   video-reader:
     image: ${REGISTRY}sf-video-reader:${SF_VERSION}
     container_name: SFVideoReader
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -609,6 +678,8 @@ services:
   edge-stream-processor:
     image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
     container_name: SFEdgeStreamProcessor
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -628,6 +699,8 @@ services:
   edge-streams-state-synchronizer:
     image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
     container_name: SFEdgeStreamsStateSynchronizer
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -653,6 +726,8 @@ services:
   access-controller:
     image: ${REGISTRY}sf-access-controller:${AC_VERSION}
     container_name: SFAccessController
+    labels:
+      application: smartface
     ports:
       # we forward the configured ports to default SF ports
       - 5050:${Hosting__Port}
@@ -675,6 +750,8 @@ services:
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
     container_name: SFStation
+    labels:
+      application: smartface
     restart: unless-stopped
     ports:
       - 8000:8000
@@ -684,8 +761,8 @@ services:
   db-synchronization-follower:
     image: ${REGISTRY}sf-db-synchronization-follower:${SF_VERSION}
     container_name: SFDbSynchronizationFollower
-    ports:
-      - 8100:${Hosting__Port}
+    labels:
+      application: smartface
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
