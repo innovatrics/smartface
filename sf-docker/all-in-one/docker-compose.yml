@@ -822,7 +822,7 @@ services:
       - 8000:8000
     env_file: .env.sfstation
     volumes:
-      - "lic-volume:/etc/innovatrics/"
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
 
 networks:
   default:
