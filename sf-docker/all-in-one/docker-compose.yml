@@ -495,6 +495,46 @@ services:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     #runtime: nvidia
 
+  palm-detector:
+    image: ${REGISTRY}sf-palm-detector:${SF_VERSION}
+    container_name: SFPalmDetectCpu
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  palm-extractor:
+    image: ${REGISTRY}sf-palm-extractor:${SF_VERSION}
+    container_name: SFPalmExtractCpu
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
   pedestrian-extractor:
     image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
     container_name: SFPedestrianExtractorCpu
@@ -781,6 +821,8 @@ services:
     ports:
       - 8000:8000
     env_file: .env.sfstation
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
 
 networks:
   default:

@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.28.0.7116"
+    "version": "v5_4.29.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -4000,6 +4000,69 @@
             }
           }
         }
+      },
+      "put": {
+        "tags": [
+          "SetupWatchlistAutoLearn"
+        ],
+        "summary": "Updates the watchlist autolearn config with specified values.",
+        "requestBody": {
+          "description": "The new watchlist autolearn configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Watchlist autolearn config was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Watchlist autolearn config was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/Tracklet/{id}": {
@@ -4858,6 +4921,124 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Watchlist"
+        ],
+        "summary": "Creates a new watchlist.",
+        "description": "When setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
+        "requestBody": {
+          "description": "Request containing watchlist name and threshold.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistCreateRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistCreateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistCreateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Watchlist was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Watchlist"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "There was a conflict while creating the new watchlist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Watchlist"
+        ],
+        "summary": "Upserts the watchlist.",
+        "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.<br />\r\nWhen setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
+        "requestBody": {
+          "description": "Request containing watchlist properties.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistUpsertRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistUpsertRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistUpsertRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistUpsertRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Watchlist was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Watchlist"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/Watchlists/{id}": {
@@ -4887,6 +5068,38 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "The watchlist with given id was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Watchlist"
+        ],
+        "summary": "Deletes a watchlist by its id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the watchlist.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The watchlist with given id was deleted successfully."
           },
           "404": {
             "description": "The watchlist with given id was not found.",
@@ -5141,6 +5354,160 @@
         }
       }
     },
+    "/api/v1/Watchlists/SearchByPalm": {
+      "post": {
+        "tags": [
+          "Watchlist"
+        ],
+        "summary": "Searches for matching watchlist members by provided image of palm/s.",
+        "description": "Supported values for ```PalmDetectorResourceId``` are:<br />\r\n            \r\n    cpu",
+        "requestBody": {
+          "description": "Request containing searching image and ids of watchlists to be searched.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchByPalmInWatchlistRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchByPalmInWatchlistRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchByPalmInWatchlistRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchByPalmInWatchlistRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the match results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SearchByPalmInWatchlistResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Watchlists with specified ids were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Watchlists/SearchByPalmTemplate": {
+      "post": {
+        "tags": [
+          "Watchlist"
+        ],
+        "summary": "Searches for matching watchlist members by provided palm template/s.",
+        "requestBody": {
+          "description": "Request containing palm template and ids of watchlists to be searched.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchByPalmInWatchlistByTemplateRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchByPalmInWatchlistByTemplateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchByPalmInWatchlistByTemplateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchByPalmInWatchlistByTemplateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the match results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchByPalmInWatchlistByTemplateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Watchlists with specified ids were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/WatchlistMembers": {
       "get": {
         "tags": [
@@ -5206,6 +5573,123 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Creates a new watchlist member.",
+        "requestBody": {
+          "description": "Request specifying watchlist member properties.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Watchlist member was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WatchlistMember"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "There was a conflict while creating the new watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Upserts the watchlist member.",
+        "description": "If the watchlist member with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist member with specified Id exists, it updates it.",
+        "requestBody": {
+          "description": "Request specifying which watchlist member should be updated and how to update it.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Watchlist member was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WatchlistMember"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/WatchlistMembers/{id}": {
@@ -5235,6 +5719,38 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "The watchlist member with given id was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Deletes a watchlist member by its id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the watchlist member.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The watchlist member with given id was deleted successfully."
           },
           "404": {
             "description": "The watchlist member with given id was not found.",
@@ -5324,10 +5840,994 @@
           }
         }
       }
+    },
+    "/api/v1/WatchlistMembers/{id}/Palms": {
+      "get": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Retrieves palms for given watchlist member id as a paged collection.",
+        "description": "Page number, page size and sorting order can be specified. You can also show total items count.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the watchlist member.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Ascending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ShowTotalCount",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the found palms.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PalmPagedCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/LinkToWatchlist": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Links specified watchlist members to a given watchlist.",
+        "requestBody": {
+          "description": "Request specifying watchlist member ids and watchlist id",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Watchlist members were successfully linked to the watchlist."
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The watchlist or watchlist members were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/UnlinkFromWatchlist": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Unlinks specified watchlist members for a given watchlist.",
+        "requestBody": {
+          "description": "Request specifying watchlist member ids and watchlist id",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Watchlist members were successfully unlinked from the watchlist."
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The watchlist or watchlist members were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/Register": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Registers a watchlist member.",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:<br />\r\n\r\n    cpu",
+        "requestBody": {
+          "description": "Request specifying watchlist member register details.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Watchlist members was registered successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WatchlistMemberWithRelatedData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "There was a conflict during the registration of the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Detected face did not pass validation and is not suitable for use.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/AddFaceFromSystem": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Adds a specified face to a given watchlist member.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request specifying face id to add.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The face was successfully added to the watchlist member."
+          },
+          "404": {
+            "description": "The face or watchlist member were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "There was a conflict adding the specified face to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Face did not pass validation and is not suitable for use.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/AddNewFace": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Adds a specified face to a given watchlist member.",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:<br />\r\n            \r\n    cpu, gpu, any",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The image with face to add with configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewFaceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created face which was added to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Face"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The watchlist member were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "There was a conflict adding the new face to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Face did not pass validation and is not suitable for use.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/AddNewPalm": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Adds a specified palm to a given watchlist member.",
+        "description": "Supported values for ```PalmDetectorResourceId``` are:<br />\r\n            \r\n    cpu",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The image with palm to add with configuration.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewPalmRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewPalmRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewPalmRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNewPalmRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created palm which was added to the watchlist member.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Palm"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The watchlist member were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/AddPalmFromSystem": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Adds a specified palm to a given watchlist member.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request specifying palm id to add.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PalmWatchlistMemberLinkingRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PalmWatchlistMemberLinkingRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PalmWatchlistMemberLinkingRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PalmWatchlistMemberLinkingRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The palm was successfully added to the watchlist member."
+          },
+          "404": {
+            "description": "The palm or watchlist member were not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/RemoveFace": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Removes a face from a watchlist member.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request specifying face id to remove.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The face was successfully removed from watchlist member."
+          },
+          "404": {
+            "description": "The face or watchlist member was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request has timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/RemovePalm": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Removes a palm from a watchlist member.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request specifying palm id to remove.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PalmWatchlistMemberRemoveRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PalmWatchlistMemberRemoveRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PalmWatchlistMemberRemoveRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PalmWatchlistMemberRemoveRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The palm was successfully removed from watchlist member."
+          },
+          "404": {
+            "description": "The palm or watchlist member was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sent request was not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request Timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/Totp/CreateAndStoreTotpSecret": {
+      "post": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Creates a new TOTP secret for the watchlist member.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The watchlist member id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "TOTP secret was successfully generated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TotpSecretResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The watchlist member was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/Totp/QrCode": {
+      "get": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Generates current valid TOTP code encoded as QR code image for requested member.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "withQuietZones",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns QR code image with encoded information for TOTP validation",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AddNewFaceRequest": {
+        "required": [
+          "imageData"
+        ],
+        "type": "object",
+        "properties": {
+          "imageData": {
+            "$ref": "#/components/schemas/FaceRegistrationImageData"
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string"
+          },
+          "templateGeneratorResourceId": {
+            "type": "string"
+          },
+          "faceValidationMode": {
+            "type": "string",
+            "default": "predefined",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddNewPalmRequest": {
+        "required": [
+          "imageData"
+        ],
+        "type": "object",
+        "properties": {
+          "imageData": {
+            "$ref": "#/components/schemas/PalmRegistrationImageData"
+          },
+          "palmDetectorConfig": {
+            "$ref": "#/components/schemas/PalmDetectorConfig"
+          },
+          "palmDetectorResourceId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "AttributeType": {
         "enum": [
           "Hat",
@@ -6836,6 +8336,7 @@
         "required": [
           "allowEmptyMessages",
           "enable",
+          "identifiedOnly",
           "interval",
           "strategy"
         ],
@@ -6852,6 +8353,9 @@
             "format": "int32"
           },
           "allowEmptyMessages": {
+            "type": "boolean"
+          },
+          "identifiedOnly": {
             "type": "boolean"
           }
         },
@@ -6879,6 +8383,10 @@
             "default": 250
           },
           "allowEmptyMessages": {
+            "type": "boolean",
+            "default": false
+          },
+          "identifiedOnly": {
             "type": "boolean",
             "default": false
           }
@@ -6909,6 +8417,10 @@
           "allowEmptyMessages": {
             "type": "boolean",
             "default": false
+          },
+          "identifiedOnly": {
+            "type": "boolean",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7983,6 +9495,26 @@
         },
         "additionalProperties": false
       },
+      "FaceRegistrationImageData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "faceId": {
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "format": "byte",
+            "default": ""
+          }
+        },
+        "additionalProperties": false
+      },
       "FaceSearchDetectorConfig": {
         "type": "object",
         "properties": {
@@ -8047,6 +9579,37 @@
           "AutoLearn"
         ],
         "type": "string"
+      },
+      "FaceWatchlistMemberLinkingRequest": {
+        "required": [
+          "faceId",
+          "faceValidationMode"
+        ],
+        "type": "object",
+        "properties": {
+          "faceId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "faceValidationMode": {
+            "type": "string",
+            "default": "predefined"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceWatchlistMemberRemoveRequest": {
+        "required": [
+          "faceId"
+        ],
+        "type": "object",
+        "properties": {
+          "faceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
       },
       "FailReason": {
         "type": "object",
@@ -8833,6 +10396,215 @@
           "detectKnife": {
             "type": "boolean",
             "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Palm": {
+        "required": [
+          "createdAt",
+          "cropLeftBottomX",
+          "cropLeftBottomY",
+          "cropLeftTopX",
+          "cropLeftTopY",
+          "cropRightBottomX",
+          "cropRightBottomY",
+          "cropRightTopX",
+          "cropRightTopY",
+          "frameId",
+          "id",
+          "imageDataId",
+          "processedAt",
+          "quality",
+          "size",
+          "trackletId",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "trackletId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "quality": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imageDataId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "frameId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "processedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cropLeftTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PalmDetectorConfig": {
+        "type": "object",
+        "properties": {
+          "minPalmSize": {
+            "type": "integer",
+            "format": "int32",
+            "default": 200
+          },
+          "maxPalmSize": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1200
+          },
+          "maxPalms": {
+            "type": "integer",
+            "format": "int32",
+            "default": 20
+          },
+          "confidenceThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "default": 5000
+          }
+        },
+        "additionalProperties": false
+      },
+      "PalmPagedCollection": {
+        "required": [
+          "items",
+          "nextPage",
+          "pageNumber",
+          "pageSize",
+          "previousPage",
+          "totalItemsCount"
+        ],
+        "type": "object",
+        "properties": {
+          "totalItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Palm"
+            }
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PalmRegistrationImageData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "palmId": {
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "format": "byte",
+            "default": ""
+          }
+        },
+        "additionalProperties": false
+      },
+      "PalmWatchlistMemberLinkingRequest": {
+        "required": [
+          "palmId"
+        ],
+        "type": "object",
+        "properties": {
+          "palmId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PalmWatchlistMemberRemoveRequest": {
+        "required": [
+          "palmId"
+        ],
+        "type": "object",
+        "properties": {
+          "palmId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -9674,6 +11446,119 @@
         },
         "additionalProperties": false
       },
+      "RegisterWatchlistMemberRequest": {
+        "required": [
+          "id",
+          "images",
+          "watchlistIds"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "default": ""
+          },
+          "images": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RegistrationImageData"
+            }
+          },
+          "watchlistIds": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "sample_watchlist_id"
+            ]
+          },
+          "faceDetectorConfig": {
+            "$ref": "#/components/schemas/FaceDetectorConfig"
+          },
+          "faceDetectorResourceId": {
+            "type": "string",
+            "default": "cpu",
+            "nullable": true
+          },
+          "templateGeneratorResourceId": {
+            "type": "string",
+            "default": "cpu",
+            "nullable": true
+          },
+          "keepAutoLearnPhotos": {
+            "type": "boolean",
+            "default": false
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "default": null,
+            "nullable": true
+          },
+          "faceValidationMode": {
+            "type": "string",
+            "default": "predefined",
+            "nullable": true
+          },
+          "palmDetectorResourceId": {
+            "type": "string",
+            "default": "cpu",
+            "nullable": true
+          },
+          "palmDetectorConfig": {
+            "$ref": "#/components/schemas/PalmDetectorConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegistrationImageData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "modality": {
+            "type": "string",
+            "default": "Face",
+            "nullable": true
+          },
+          "faceId": {
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "nullable": true
+          },
+          "palmId": {
+            "type": "string",
+            "format": "uuid",
+            "default": null,
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "format": "byte",
+            "default": ""
+          }
+        },
+        "additionalProperties": false
+      },
       "SearchByImageSpoofResult": {
         "type": "object",
         "properties": {
@@ -9688,6 +11573,158 @@
           },
           "nearbyLivenessSpoofCheck": {
             "$ref": "#/components/schemas/WatchlistLivenessSpoofCheck"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchByPalmInWatchlistByTemplateRequest": {
+        "required": [
+          "template"
+        ],
+        "type": "object",
+        "properties": {
+          "template": {
+            "type": "string",
+            "format": "byte"
+          },
+          "watchlistIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "sample_watchlist_id"
+            ],
+            "nullable": true
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32",
+            "default": 75
+          },
+          "maxResultCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchByPalmInWatchlistByTemplateResponse": {
+        "required": [
+          "matchResults"
+        ],
+        "type": "object",
+        "properties": {
+          "matchResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchResult"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchByPalmInWatchlistRequest": {
+        "required": [
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "watchlistIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "sample_watchlist_id"
+            ],
+            "nullable": true
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32",
+            "default": 75
+          },
+          "maxResultCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          },
+          "palmDetectorConfig": {
+            "$ref": "#/components/schemas/PalmDetectorConfig"
+          },
+          "palmDetectorResourceId": {
+            "type": "string",
+            "default": "cpu"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchByPalmInWatchlistResponse": {
+        "required": [
+          "cropLeftBottomX",
+          "cropLeftBottomY",
+          "cropLeftTopX",
+          "cropLeftTopY",
+          "cropRightBottomX",
+          "cropRightBottomY",
+          "cropRightTopX",
+          "cropRightTopY",
+          "matchResults",
+          "quality",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "matchResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchResult"
+            }
+          },
+          "quality": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightTopY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropLeftBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomX": {
+            "type": "number",
+            "format": "double"
+          },
+          "cropRightBottomY": {
+            "type": "number",
+            "format": "double"
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -10262,6 +12299,40 @@
             "type": "string"
           },
           "nearbyLivenessConditions": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TotpSecretResponse": {
+        "required": [
+          "algorithm",
+          "digits",
+          "issuer",
+          "period",
+          "secret",
+          "watchlistMemberIdentifier"
+        ],
+        "type": "object",
+        "properties": {
+          "secret": {
+            "type": "string"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "period": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "algorithm": {
+            "type": "string"
+          },
+          "watchlistMemberIdentifier": {
+            "type": "string"
+          },
+          "issuer": {
             "type": "string"
           }
         },
@@ -10970,6 +13041,7 @@
           "displayName",
           "fullName",
           "id",
+          "palmThreshold",
           "previewColor",
           "threshold",
           "updatedAt"
@@ -10983,6 +13055,10 @@
             "type": "string"
           },
           "threshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "palmThreshold": {
             "type": "integer",
             "format": "int32"
           },
@@ -11040,6 +13116,43 @@
           "faceMaskConfidenceThreshold": {
             "type": "number",
             "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistCreateRequest": {
+        "required": [
+          "displayName",
+          "fullName"
+        ],
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "fullName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "threshold": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "palmThreshold": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "previewColor": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -11116,6 +13229,35 @@
         },
         "additionalProperties": false
       },
+      "WatchlistMemberCreateRequest": {
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "WatchlistMemberPagedCollection": {
         "required": [
           "items",
@@ -11153,6 +13295,131 @@
           "nextPage": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistMemberUpsertRequest": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistMemberWithRelatedData": {
+        "required": [
+          "createdAt",
+          "displayName",
+          "faces",
+          "fullName",
+          "id",
+          "labels",
+          "note",
+          "totpEnabled",
+          "updatedAt",
+          "watchlists"
+        ],
+        "type": "object",
+        "properties": {
+          "watchlists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Watchlist"
+            }
+          },
+          "faces": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Face"
+            }
+          },
+          "palms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Palm"
+            },
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            }
+          },
+          "totpEnabled": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistMembersLinkRequest": {
+        "required": [
+          "watchlistId",
+          "watchlistMembersIds"
+        ],
+        "type": "object",
+        "properties": {
+          "watchlistId": {
+            "type": "string"
+          },
+          "watchlistMembersIds": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": false
@@ -11287,6 +13554,47 @@
           "keepEvaluatingConditionsAfterFirstFail": {
             "type": "boolean",
             "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "WatchlistUpsertRequest": {
+        "required": [
+          "displayName",
+          "fullName",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "fullName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "threshold": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "palmThreshold": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "previewColor": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
