@@ -249,7 +249,7 @@ services:
       scrapeMetrics: true
     command: --serviceName SFCam5
     ports:
-      - 30001:${CameraDefaults__PreviewPort}
+      - 30005:${CameraDefaults__PreviewPort}
     expose:
       - 4318
     restart: unless-stopped
