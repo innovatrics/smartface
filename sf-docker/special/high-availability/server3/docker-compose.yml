@@ -1,0 +1,263 @@
+version: "3.4"
+services:
+  sf-group:
+    image: ${REGISTRY}sf-grouping:${SF_VERSION}
+    container_name: SFGroup
+    command: --serviceName SFGroup
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  sf-cam-7:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam7
+    command: --serviceName SFCam7
+    ports:
+      - 30007:${CameraDefaults__PreviewPort}
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  detector:
+    image: ${REGISTRY}sf-detector:${SF_VERSION}
+    container_name: SFDetectCpu
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  pedestrian-detector:
+    image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
+    container_name: SFPedestrianDetectCpu
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  extractor:
+    image: ${REGISTRY}sf-extractor:${SF_VERSION}
+    container_name: SFExtractCpu
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  matcher:
+    image: ${REGISTRY}sf-matcher:${SF_VERSION}
+    container_name: SFWatchlistMatcher
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    cpuset: "0"
+
+  face-matcher:
+    image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
+    container_name: SFFaceMatcher
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  liveness:
+    image: ${REGISTRY}sf-liveness:${SF_VERSION}
+    container_name: SFLiveness
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  video-aggregator:
+    image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
+    container_name: SFVideoDataAggregator
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  video-collector:
+    image: ${REGISTRY}sf-video-collector:${SF_VERSION}
+    container_name: SFVideoDataCollector
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  video-reader:
+    image: ${REGISTRY}sf-video-reader:${SF_VERSION}
+    container_name: SFVideoReader
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - JAEGER_AGENT_HOST
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  body-parts-detector:
+    image: ${REGISTRY}sf-body-parts-detector:${SF_VERSION}
+    container_name: SFBodyPartsDetectCpu
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__USE_JAEGER_APP_SETTINGS
+      - JAEGER_AGENT_HOST
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  edge-stream-processor:
+    image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
+    container_name: SFEdgeStreamProcessor
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+networks:
+  default:
+    external:
+      name: HighAvailabilityClusterNetwork
