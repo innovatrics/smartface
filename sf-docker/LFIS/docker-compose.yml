@@ -107,7 +107,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   object-detector:
-    image: ${REGISTRY}sf-object-detector:${VERSION}
+    image: ${REGISTRY}sf-object-detector:${SF_VERSION}
     container_name: SFObjectDetectorCpu
     environment:
       - RabbitMQ__Hostname
@@ -121,7 +121,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   palm-detector:
-    image: ${REGISTRY}sf-palm-detector:${VERSION}
+    image: ${REGISTRY}sf-palm-detector:${SF_VERSION}
     container_name: SFPalmDetectCpu
     environment:
       - RabbitMQ__Hostname
@@ -135,7 +135,7 @@ services:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   palm-extractor:
-    image: ${REGISTRY}sf-palm-extractor:${VERSION}
+    image: ${REGISTRY}sf-palm-extractor:${SF_VERSION}
     container_name: SFPalmExtractCpu
     environment:
       - RabbitMQ__Hostname
