@@ -118,7 +118,7 @@ services:
       - AppSettings__Log_RabbitMq_Enabled
       - JAEGER_AGENT_HOST 
     volumes:
-      - "lic-volume:/etc/innovatrics/"
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   palm-detector:
     image: ${REGISTRY}sf-palm-detector:${VERSION}
@@ -132,7 +132,7 @@ services:
       - AppSettings__Log_RabbitMq_Enabled
       - JAEGER_AGENT_HOST
     volumes:
-      - "lic-volume:/etc/innovatrics/"
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   palm-extractor:
     image: ${REGISTRY}sf-palm-extractor:${VERSION}
@@ -146,7 +146,7 @@ services:
       - AppSettings__Log_RabbitMq_Enabled
       - JAEGER_AGENT_HOST
     volumes:
-      - "lic-volume:/etc/innovatrics/"
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
@@ -156,7 +156,7 @@ services:
       - 8000:8000
     env_file: .env.sfstation
     volumes:
-      - "lic-volume:/etc/innovatrics/"
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-graphql-api:
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
