@@ -123,6 +123,7 @@ services:
     profiles: [singlenode, multinode-scraper]
     command: ["--memory.max-traces=5000"]
     expose:
+      - 4317
       - 5778
       - 16686
       - 14268
