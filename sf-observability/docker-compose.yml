@@ -36,7 +36,7 @@ services:
     entrypoint: >
       /bin/sh -c "
       sleep 10;
-      /usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;
+      /usr/bin/mc alias set obsminio http://obsminio:9000 minioadmin minioadmin;
       /usr/bin/mc mb obsminio/loki;
       /usr/bin/mc policy set public obsminio/loki;
       exit 0;
