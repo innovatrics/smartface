@@ -119,7 +119,7 @@ services:
     extends:
       service: common
       file: docker-compose-common.yml
-    image: "jaegertracing/all-in-one:1.39.0"
+    image: "jaegertracing/all-in-one:1.70.0"
     profiles: [singlenode, multinode-scraper]
     command: ["--memory.max-traces=5000"]
     expose:
