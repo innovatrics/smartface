@@ -2,6 +2,8 @@ services:
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
+    labels:
+      application: smartface
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -11,14 +13,21 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   extractor:
     image: ${REGISTRY}sf-extractor:${SF_VERSION}
     container_name: SFExtractCpu
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -28,14 +37,18 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   matcher:
     image: ${REGISTRY}sf-matcher:${SF_VERSION}
     container_name: SFWatchlistMatcher
+    labels:
+      application: smartface
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -47,8 +60,10 @@ services:
       - ConnectionStrings__CoreDbContext
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     cpuset: "0"
@@ -56,6 +71,11 @@ services:
   liveness:
     image: ${REGISTRY}sf-liveness:${SF_VERSION}
     container_name: SFLiveness
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318  
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -65,14 +85,21 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   watchlist-api:
     image: ${REGISTRY}sf-api:${SF_VERSION}
     container_name: SFWatchlistApi
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
     ports:
       # we forward the configured ports to default SF ports
       - 8098:${Hosting__Port}
@@ -94,8 +121,6 @@ services:
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
@@ -103,12 +128,18 @@ services:
       - NoSqlDataStorageDisabled
       - FeatureManagement__Watchlist=true
       - FeatureManagement__Full=false
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   object-detector:
     image: ${REGISTRY}sf-object-detector:${SF_VERSION}
     container_name: SFObjectDetectorCpu
+    labels:
+      application: smartface
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -116,13 +147,18 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - AppSettings__Log_RabbitMq_Enabled
-      - JAEGER_AGENT_HOST 
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   palm-detector:
     image: ${REGISTRY}sf-palm-detector:${SF_VERSION}
     container_name: SFPalmDetectCpu
+    labels:
+      application: smartface
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -130,13 +166,18 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - AppSettings__Log_RabbitMq_Enabled
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   palm-extractor:
     image: ${REGISTRY}sf-palm-extractor:${SF_VERSION}
     container_name: SFPalmExtractCpu
+    labels:
+      application: smartface
     environment:
       - RabbitMQ__Hostname
       - RabbitMQ__Username
@@ -144,13 +185,18 @@ services:
       - RabbitMQ__Port
       - AppSettings__Log-RollingFile-Enabled
       - AppSettings__Log_RabbitMq_Enabled
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
   sf-station:
     image: ${REGISTRY}sf-station:${SFS_VERSION}
     container_name: SFStation
+    labels:
+      application: smartface
     restart: unless-stopped
     ports:
       - 8000:8000
@@ -161,9 +207,14 @@ services:
   sf-graphql-api:
     image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
     container_name: SFGraphQLApi
+    labels:
+      application: smartface
+      scrapeMetrics: true
     ports:
       # we forward the configured ports to default SF ports
       - 8097:${Hosting__Port}
+    expose:
+      - 4318
     restart: unless-stopped
     environment:
       - RabbitMQ__Hostname
@@ -183,9 +234,10 @@ services:
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
-      - AppSettings__Log_RabbitMq_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 

@@ -36,7 +36,7 @@ services:
     entrypoint: >
       /bin/sh -c "
       sleep 10;
-      /usr/bin/mc config host add obsminio http://obsminio:9000 minioadmin minioadmin;
+      /usr/bin/mc alias set obsminio http://obsminio:9000 minioadmin minioadmin;
       /usr/bin/mc mb obsminio/loki;
       /usr/bin/mc policy set public obsminio/loki;
       exit 0;
@@ -119,10 +119,11 @@ services:
     extends:
       service: common
       file: docker-compose-common.yml
-    image: "jaegertracing/all-in-one:1.39.0"
+    image: "jaegertracing/all-in-one:1.70.0"
     profiles: [singlenode, multinode-scraper]
     command: ["--memory.max-traces=5000"]
     expose:
+      - 4317
       - 5778
       - 16686
       - 14268
@@ -216,5 +217,5 @@ volumes:
 networks:
   observability:
   sf-network:
-    external:
-      name: sf-network
+    name: sf-network
+    external: true

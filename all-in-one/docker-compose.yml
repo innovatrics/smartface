@@ -22,13 +22,15 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -53,13 +55,15 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -83,13 +87,15 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -116,8 +122,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
@@ -125,6 +129,10 @@ services:
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -153,8 +161,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
@@ -162,6 +168,10 @@ services:
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -190,8 +200,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
@@ -199,6 +207,10 @@ services:
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -227,8 +239,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
@@ -236,6 +246,10 @@ services:
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -264,8 +278,6 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
@@ -273,6 +285,10 @@ services:
       - NoSqlDataStorageDisabled
     # - GstPipelineTemplate
     # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -300,14 +316,16 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
     # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -343,14 +361,16 @@ services:
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
       - CameraDefaults__PreviewPort
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -384,9 +404,11 @@ services:
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - AppSettings__Log_RabbitMq_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -415,13 +437,15 @@ services:
       - Hosting__Port
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -440,10 +464,12 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -464,10 +490,12 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -488,9 +516,11 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     #runtime: nvidia
@@ -510,8 +540,10 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -530,8 +562,10 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -550,9 +584,11 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     #runtime: nvidia
@@ -575,10 +611,12 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -601,8 +639,10 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     cpuset: "0"
@@ -624,8 +664,10 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -647,10 +689,12 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -673,13 +717,15 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -700,13 +746,15 @@ services:
       - Database__DbEngine
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
-      - JAEGER_AGENT_HOST
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
       - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -728,12 +776,14 @@ services:
       - RabbitMQ__UseSsl
       - AppSettings__Log_RollingFile_Enabled=false
       - AppSettings__Log_JsonConsole_Enabled
-      - AppSettings__USE_JAEGER_APP_SETTINGS
       - S3Bucket__Endpoint
       - S3Bucket__BucketName
       - S3Bucket__AccessKey
       - S3Bucket__SecretKey
-      - JAEGER_AGENT_HOST
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
@@ -756,6 +806,10 @@ services:
       - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__Log_RabbitMq_Enabled
       - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -784,6 +838,10 @@ services:
       - AppSettings__Log_JsonConsole_Enabled
       - AppSettings__Log_RabbitMq_Enabled
       - Rpc__TimeoutMs
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -810,6 +868,10 @@ services:
       - MQTT__UseSsl
       - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
       - AppSettings__Log_JsonConsole_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     env_file: .env.sfac
 
   sf-station:
