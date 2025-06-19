@@ -12363,7 +12363,9 @@
             "items": {
               "type": "string"
             },
-            "default": "none"
+            "default": [
+              "none"
+            ]
           },
           "spoofCheckConfig": {
             "$ref": "#/components/schemas/PalmSpoofCheckConfig"
