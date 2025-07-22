@@ -1,0 +1,892 @@
+services:
+  sf-base:
+    image: ${REGISTRY}sf-base:${SF_VERSION}
+    container_name: SFBase
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    command: --serviceName SFBase
+    ports:
+      - 2406:2406
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  sf-group:
+    image: ${REGISTRY}sf-grouping:${SF_VERSION}
+    container_name: SFGroup
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    command: --serviceName SFGroup
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  sf-streamdatadbworker:
+    image: ${REGISTRY}sf-streamdatadbworker:${SF_VERSION}
+    container_name: SFStreamDataDbWorker
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318  
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  sf-cam-1:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam1
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    command: --serviceName SFCam1
+    ports:
+      - 30001:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-2:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam2
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    command: --serviceName SFCam2
+    ports:
+      - 30002:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-3:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam3
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    command: --serviceName SFCam3
+    ports:
+      - 30003:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-4:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam4
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    command: --serviceName SFCam4
+    ports:
+      - 30004:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-5:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    container_name: SFCam5
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    command: --serviceName SFCam5
+    ports:
+      - 30005:${CameraDefaults__PreviewPort}
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - GstPipelineTemplate
+    # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  sf-cam-nx:
+    image: ${REGISTRY}sf-cam:${SF_VERSION}
+    # Guid needs to match ServiceInstallNames.NX_TEST_CAMERA_GUID
+    container_name: 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    command: --serviceName 53b4d78e-323f-4a0f-aa6d-99c464448b6d
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+    # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  api:
+    image: ${REGISTRY}sf-api:${SF_VERSION}
+    container_name: SFApi
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    ports:
+      # we forward the configured ports to default SF ports
+      - 8098:${Hosting__Port}
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - Hosting__Host
+      - Hosting__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - CameraDefaults__PreviewPort
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  sf-graphql-api:
+    image: ${REGISTRY}sf-graphql-api:${SF_VERSION}
+    container_name: SFGraphQLApi
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    ports:
+      # we forward the configured ports to default SF ports
+      - 8097:${Hosting__Port}
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - Hosting__Host
+      - Hosting__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  odata-api:
+    image: ${REGISTRY}sf-odata-api:${SF_VERSION}
+    container_name: SFODataApi
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    ports:
+      # we forward the configured ports to default SF ports
+      - 8099:${Hosting__Port}
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - Hosting__Host
+      - Hosting__Port
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  detector:
+    image: ${REGISTRY}sf-detector:${SF_VERSION}
+    container_name: SFDetectCpu
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  pedestrian-detector:
+    image: ${REGISTRY}sf-pedestrian-detector:${SF_VERSION}
+    container_name: SFPedestrianDetectCpu
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  object-detector:
+    image: ${REGISTRY}sf-object-detector:${SF_VERSION}
+    container_name: SFObjectDetectorCpu
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      # - Gpu__GpuEnabled=true
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    #runtime: nvidia
+
+  palm-detector:
+    image: ${REGISTRY}sf-palm-detector:${SF_VERSION}
+    container_name: SFPalmDetectCpu
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  palm-extractor:
+    image: ${REGISTRY}sf-palm-extractor:${SF_VERSION}
+    container_name: SFPalmExtractCpu
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  pedestrian-extractor:
+    image: ${REGISTRY}sf-pedestrian-extractor:${SF_VERSION}
+    container_name: SFPedestrianExtractorCpu
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      # - Gpu__GpuEnabled=true
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    #runtime: nvidia
+
+  extractor:
+    image: ${REGISTRY}sf-extractor:${SF_VERSION}
+    container_name: SFExtractCpu
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  matcher:
+    image: ${REGISTRY}sf-matcher:${SF_VERSION}
+    container_name: SFWatchlistMatcher
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    cpuset: "0"
+
+  face-matcher:
+    image: ${REGISTRY}sf-face-matcher:${SF_VERSION}
+    container_name: SFFaceMatcher
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  liveness:
+    image: ${REGISTRY}sf-liveness:${SF_VERSION}
+    container_name: SFLiveness
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      # - Gpu__GpuEnabled=true
+      # - Gpu__GpuNeuralRuntime=Tensor
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+    # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
+    #runtime: nvidia
+
+  video-aggregator:
+    image: ${REGISTRY}sf-video-aggregator:${SF_VERSION}
+    container_name: SFVideoDataAggregator
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  video-collector:
+    image: ${REGISTRY}sf-video-collector:${SF_VERSION}
+    container_name: SFVideoDataCollector
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  video-reader:
+    image: ${REGISTRY}sf-video-reader:${SF_VERSION}
+    container_name: SFVideoReader
+    labels:
+      application: smartface
+      scrapeMetrics: true
+    expose:
+      - 4318
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - S3Bucket__Endpoint
+      - S3Bucket__BucketName
+      - S3Bucket__AccessKey
+      - S3Bucket__SecretKey
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - "./iengine.lic:/etc/innovatrics/iengine.lic"
+
+  edge-stream-processor:
+    image: ${REGISTRY}sf-edge-stream-processor:${SF_VERSION}
+    container_name: SFEdgeStreamProcessor
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+      - NoSqlDataStorageDisabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  edge-streams-state-synchronizer:
+    image: ${REGISTRY}sf-edge-streams-state-synchronizer:${SF_VERSION}
+    container_name: SFEdgeStreamsStateSynchronizer
+    labels:
+      application: smartface
+    restart: unless-stopped
+    environment:
+      - RabbitMQ__Hostname
+      - RabbitMQ__Username
+      - RabbitMQ__Password
+      - RabbitMQ__Port
+      - RabbitMQ__VirtualHost
+      - RabbitMQ__UseSsl
+      - RabbitMQ__StreamsPort
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
+      - ConnectionStrings__CoreDbContext
+      - Database__DbEngine
+      - AppSettings__Log_RollingFile_Enabled=false
+      - AppSettings__Log_JsonConsole_Enabled
+      - AppSettings__Log_RabbitMq_Enabled
+      - Rpc__TimeoutMs
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+  access-controller:
+    image: ${REGISTRY}sf-access-controller:${AC_VERSION}
+    container_name: SFAccessController
+    labels:
+      application: smartface
+    ports:
+      # we forward the configured ports to default SF ports
+      - 5050:${Hosting__Port}
+    restart: unless-stopped
+    environment:
+      - RabbitMq__HostName=${RabbitMQ__Hostname}
+      - RabbitMq__UserName=${RabbitMQ__Username}
+      - RabbitMq__Password=${RabbitMQ__Password}
+      - RabbitMq__Port=${RabbitMQ__Port}
+      - RabbitMq__VirtualHost=${RabbitMQ__VirtualHost}
+      - RabbitMq__UseSsl=${RabbitMQ__UseSsl}
+      - MQTT__Hostname
+      - MQTT__Username
+      - MQTT__Password
+      - MQTT__Port
+      - MQTT__UseSsl
+      - Kestrel__EndPoints__Http__Url=${Hosting__Host}:${Hosting__Port}
+      - AppSettings__Log_JsonConsole_Enabled
+      - Tracing__Enabled
+      - OTEL_TRACES_SAMPLER
+      - OTEL_TRACES_SAMPLER_ARG
+      - OTEL_EXPORTER_OTLP_ENDPOINT
+    env_file: .env.sfac
+
+  sf-station:
+    image: ${REGISTRY}sf-station:${SFS_VERSION}
+    container_name: SFStation
+    labels:
+      application: smartface
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    env_file: .env.sfstation
+    volumes:
+      - ./iengine.lic:/etc/innovatrics/iengine.lic
+
+networks:
+  default:
+    name: sf-network
+    external: true

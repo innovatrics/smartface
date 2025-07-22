@@ -1,0 +1,78 @@
+version: '3'
+services:
+  #mssql:
+  #  image: "mcr.microsoft.com/mssql/server:2019-latest"
+  #  container_name: mssql
+  #  ports:
+  #    - "1433:1433"
+  #  environment:
+  #    - ACCEPT_EULA=Y
+  #    - SA_PASSWORD=Test1234
+  #  restart: unless-stopped
+  #  volumes:
+  #    - mssqldata:/var/opt/mssql
+      #- /var/lib/smartface/mssql:/var/opt/mssql
+      #- /var/lib/smartface/mssql:/var/opt/mssql
+
+  pgsql:
+    image: "postgres:14.3"
+    container_name: pgsql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Test1234
+    restart: unless-stopped
+    volumes:
+      - pgsqldata:/var/lib/postgresql/data
+      #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
+
+  pgadmin:
+    image: "dpage/pgadmin4:6.10"
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: Test1234
+    ports:
+      - "7070:80"
+
+  rabbitmq:
+    image: "rabbitmq:3.12.11-management"
+    container_name: rmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "1883:1883"
+      - "5552:5552/tcp"
+    environment:
+      RABBITMQ_NODENAME: rabbit@rmq
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/external/rabbitmq.conf
+      RABBITMQ_ENABLED_PLUGINS_FILE: /etc/rabbitmq/external/enabled_plugins
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: -rabbitmq_stream advertised_host rmq      
+    volumes:
+      - ./etc_rmq/:/etc/rabbitmq/external
+      - rmqdata:/var/lib/rabbitmq
+    restart: unless-stopped
+
+  minio:
+    image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
+    container_name: minio
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    restart: unless-stopped
+    volumes:
+      - miniodata:/data
+      #- /var/lib/smartface/miniodata:/data
+
+volumes:
+  mssqldata:
+  pgsqldata:
+  miniodata:
+  rmqdata:
+
+
+networks:
+  default:
+    name: sf-network
+    external: true
