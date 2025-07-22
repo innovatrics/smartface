@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.32.0.8317"
+    "version": "v5_4.33.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -573,7 +573,7 @@
           "EdgeStream"
         ],
         "summary": "Creates a new EdgeStream.",
-        "description": "Supported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None",
+        "description": "Supported values for ```FaceSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -637,7 +637,7 @@
           "EdgeStream"
         ],
         "summary": "Updates the specified EdgeStream.",
-        "description": "Supported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```FaceSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None",
+        "description": "Supported values for ```FaceSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -5505,6 +5505,16 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Detected palm did not pass validation and is not suitable to perform search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -6193,7 +6203,7 @@
             }
           },
           "422": {
-            "description": "Detected face did not pass validation and is not suitable for use.",
+            "description": "Detected face or palm did not pass validation and is not suitable for use.",
             "content": {
               "application/json": {
                 "schema": {
@@ -6505,6 +6515,16 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Detected palm did not pass validation and is not suitable to perform search.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -6577,6 +6597,16 @@
           },
           "409": {
             "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Detected palm did not pass validation and is not suitable to perform search.",
             "content": {
               "application/json": {
                 "schema": {
@@ -6830,6 +6860,11 @@
           },
           "palmDetectorResourceId": {
             "type": "string"
+          },
+          "palmValidationMode": {
+            "type": "string",
+            "default": "predefined",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7719,6 +7754,7 @@
           "objectSaveStrategy",
           "palmSpoofDetectorConfig",
           "palmSpoofDetectorResourceIds",
+          "pedestrianSaveStrategy",
           "saveFrameImageData",
           "settings",
           "spoofDetectorConfig",
@@ -7760,6 +7796,10 @@
           },
           "faceSaveStrategy": {
             "type": "string"
+          },
+          "pedestrianSaveStrategy": {
+            "type": "string",
+            "nullable": true
           },
           "spoofDetectorConfig": {
             "$ref": "#/components/schemas/SpoofDetectorConfig"
@@ -7808,6 +7848,11 @@
           "faceSaveStrategy": {
             "type": "string",
             "default": "FirstFace, BestFace",
+            "nullable": true
+          },
+          "pedestrianSaveStrategy": {
+            "type": "string",
+            "default": "Balanced",
             "nullable": true
           },
           "spoofDetectorResourceIds": {
@@ -9164,6 +9209,10 @@
           },
           "faceSaveStrategy": {
             "type": "string"
+          },
+          "pedestrianSaveStrategy": {
+            "type": "string",
+            "nullable": true
           },
           "spoofDetectorResourceIds": {
             "type": "array",
@@ -10949,6 +10998,7 @@
       },
       "Palm": {
         "required": [
+          "confidence",
           "createdAt",
           "cropLeftBottomX",
           "cropLeftBottomY",
@@ -10973,6 +11023,10 @@
           "trackletId": {
             "type": "string",
             "format": "uuid"
+          },
+          "confidence": {
+            "type": "integer",
+            "format": "int32"
           },
           "quality": {
             "type": "integer",
@@ -11283,6 +11337,11 @@
           "palmId": {
             "type": "string",
             "format": "uuid"
+          },
+          "palmValidationMode": {
+            "type": "string",
+            "default": "predefined",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -12209,6 +12268,11 @@
             "default": "predefined",
             "nullable": true
           },
+          "palmValidationMode": {
+            "type": "string",
+            "default": "predefined",
+            "nullable": true
+          },
           "palmDetectorResourceId": {
             "type": "string",
             "default": "cpu",
@@ -12369,12 +12433,18 @@
           },
           "spoofCheckConfig": {
             "$ref": "#/components/schemas/PalmSpoofCheckConfig"
+          },
+          "palmValidationMode": {
+            "type": "string",
+            "default": "none",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
       "SearchByPalmInWatchlistResponse": {
         "required": [
+          "confidence",
           "cropLeftBottomX",
           "cropLeftBottomY",
           "cropLeftTopX",
@@ -12400,6 +12470,10 @@
             "$ref": "#/components/schemas/PalmSpoofCheckResponse"
           },
           "quality": {
+            "type": "number",
+            "format": "double"
+          },
+          "confidence": {
             "type": "number",
             "format": "double"
           },
