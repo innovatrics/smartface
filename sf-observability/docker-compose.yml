@@ -111,7 +111,7 @@ services:
       - 12345:12345
     networks:
       observability:
-      sf-network:
+      app-network:
     restart: unless-stopped
 
   # Jaeger tracing as configured here is solely for debug purposes. No data is stored!
@@ -135,7 +135,7 @@ services:
     ports:
       - "9903:16686"
     networks:
-      sf-network:
+      app-network:
         aliases:
           - jaeger
       observability:
@@ -216,6 +216,6 @@ volumes:
 
 networks:
   observability:
-  sf-network:
+  app-network:
     name: sf-network
     external: true
