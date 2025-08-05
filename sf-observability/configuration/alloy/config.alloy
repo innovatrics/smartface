@@ -208,3 +208,53 @@ prometheus.remote_write "metrics_service" {
     }
 }
 
+otelcol.receiver.otlp "default" {
+	grpc { endpoint = "0.0.0.0:4317" }
+	http { endpoint = "0.0.0.0:4318" }
+	output {
+		metrics = [otelcol.processor.resourcedetection.docker_metadata.input]
+	}
+}
+
+otelcol.processor.resourcedetection "docker_metadata" {
+	detectors = ["docker", "env", "system"]
+	timeout   = "2s"
+
+	docker { }
+
+	output {
+		metrics = [otelcol.processor.attributes.otel_metrics.input]
+	}
+}
+
+otelcol.processor.attributes "otel_metrics" {
+	action {
+		key    = "hostname"
+		action = "insert"
+		value  = sys.env("HOSTNAME")
+	}
+	action {
+		key            = "container"
+		action         = "upsert"
+		from_attribute = "container.name"
+	}
+	action {
+		key            = "service"
+		action         = "upsert"
+		from_attribute = "com.docker.compose.service"
+	}
+
+	output {
+		metrics = [otelcol.processor.batch.otel_metrics.input]
+	}
+}
+
+otelcol.exporter.prometheus "to_prom" {
+	forward_to = [prometheus.remote_write.metrics_service.receiver]
+}
+
+otelcol.processor.batch "otel_metrics" {
+	output {
+		metrics = [otelcol.exporter.prometheus.to_prom.input]
+	}
+}
