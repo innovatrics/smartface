@@ -109,6 +109,8 @@ services:
       - /etc/hostname:/etc/hostname:ro
     ports:
       - 12345:12345
+      - 4318:4318
+      - 4317:4317
     networks:
       observability:
       app-network:
