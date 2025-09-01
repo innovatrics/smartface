@@ -31,6 +31,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -64,6 +67,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -96,6 +102,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -133,6 +142,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -172,6 +184,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -211,6 +226,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -250,6 +268,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -289,6 +310,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -326,6 +350,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -371,6 +398,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -409,6 +439,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -446,6 +479,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -470,6 +506,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -496,6 +535,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -521,6 +563,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     #runtime: nvidia
@@ -544,6 +589,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -566,6 +614,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -589,6 +640,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     #runtime: nvidia
@@ -617,6 +671,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -643,6 +700,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     cpuset: "0"
@@ -668,6 +728,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -695,6 +758,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
@@ -726,6 +792,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -755,6 +824,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -784,6 +856,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
 
@@ -810,6 +885,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -842,6 +920,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
@@ -872,6 +953,9 @@ services:
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
+      - OTEL_METRICS_EXPORTER
+      - OTEL_EXPORTER_PROMETHEUS_HOST
+      - OTEL_EXPORTER_PROMETHEUS_PORT
     env_file: .env.sfac
 
   sf-station:
