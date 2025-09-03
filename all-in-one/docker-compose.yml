@@ -401,6 +401,26 @@ services:
       - OTEL_METRICS_EXPORTER
       - OTEL_EXPORTER_PROMETHEUS_HOST
       - OTEL_EXPORTER_PROMETHEUS_PORT
+      - FaceValidation__Size__Min
+      - FaceValidation__Size__Max
+      - FaceValidation__AreaOnFrame__Min
+      - FaceValidation__AreaOnFrame__Max
+      - FaceValidation__TemplateQuality__Min
+      - FaceValidation__TemplateQuality__Max
+      - FaceValidation__FaceQuality__Min
+      - FaceValidation__FaceQuality__Max
+      - FaceValidation__YawAngle__Min
+      - FaceValidation__YawAngle__Max
+      - FaceValidation__PitchAngle__Min
+      - FaceValidation__PitchAngle__Max
+      - FaceValidation__RollAngle__Min
+      - FaceValidation__RollAngle__Max
+      - FaceValidation__Brightness__Min
+      - FaceValidation__Brightness__Max
+      - FaceValidation__Sharpness__Min
+      - FaceValidation__Sharpness__Max
+      - PalmValidation__PalmQuality__Min
+      - PalmValidation__PalmQuality__Max
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
