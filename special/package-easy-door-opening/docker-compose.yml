@@ -256,6 +256,7 @@ services:
       - JAEGER_AGENT_HOST
       # - Gpu__GpuEnabled=true
       # - Gpu__GpuNeuralRuntime=Tensor
+      - Extraction__TemplateQualityErrorThreshold=10
     volumes:
       - "./iengine.lic:/etc/innovatrics/iengine.lic"
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"

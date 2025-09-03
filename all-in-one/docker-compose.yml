@@ -694,6 +694,7 @@ services:
       - OTEL_METRICS_EXPORTER
       - OTEL_EXPORTER_PROMETHEUS_HOST
       - OTEL_EXPORTER_PROMETHEUS_PORT
+      - Extraction__TemplateQualityErrorThreshold=10
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
     # - "/var/tmp/innovatrics/tensor-rt:/var/tmp/innovatrics/tensor-rt"
