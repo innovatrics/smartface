@@ -109,7 +109,7 @@ $COMPOSE_COMMAND down --remove-orphans
 
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
-    docker exec mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Test1234 -Q "CREATE DATABASE SmartFace" || true
+    docker run --rm --network sf-network -it mcr.microsoft.com/mssql-tools /opt/mssql-tools/bin/sqlcmd -S mssql,1433 -U sa -P Test1234 -Q "CREATE DATABASE SmartFace" || true
     # run database migration to current version
     docker run --rm --name admin_migration --volume $(pwd)/iengine.lic:/etc/innovatrics/iengine.lic --network sf-network ${SF_ADMIN_IMAGE} \
         run-migration \
