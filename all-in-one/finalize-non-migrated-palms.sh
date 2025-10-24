@@ -21,4 +21,5 @@ docker run --rm --name sf_admin \
     -c "$(getvalue ConnectionStrings__CoreDbContext)" \
     -dbe "$(getvalue Database__DbEngine)"
 
-echo "Done. You can start the services again with docker compose up -d"
+echo "Done"
+echo "You can start the services again with docker compose up -d"
