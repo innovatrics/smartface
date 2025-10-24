@@ -94,10 +94,8 @@ docker run --rm --name sf_admin \
 
 echo "Stopping spawned containers"
 
-# Stop all containers with names prefixed by sf_migration_
-for c in $(docker ps -aq --filter "name=^/sf_migration_"); do
-  docker stop "$c" 2>/dev/null || true
-done
+# Stop all containers with names prefixed by sf_migration_ in parallel and wait for all of them to finish
+docker ps -aq --filter "name=^/sf_migration_" | xargs -r -P 0 -n 1 docker stop 2>/dev/null || true
 
 echo "Calling set-state-error-non-migrated-palms command with dry-run to see what was not migrated successfully"
 
