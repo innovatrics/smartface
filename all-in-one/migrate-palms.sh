@@ -92,6 +92,8 @@ docker run --rm --name sf_admin \
   -s3-f "$(getvalue S3Bucket__Folder)" \
   --parallelism 4
 
+echo "Stopping spawned containers"
+
 # Stop all containers with names prefixed by sf_migration_
 for c in $(docker ps -aq --filter "name=^/sf_migration_"); do
   docker stop "$c" 2>/dev/null || true
