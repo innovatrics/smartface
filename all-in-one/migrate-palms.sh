@@ -58,7 +58,7 @@ done
 for i in $(seq 1 $PALM_EXTRACTORS_COUNT)
 do
   echo "Spawning palm extractor container"
-  
+
   docker run -d --rm --name sf_migration_palm_extractor_$i \
     --env RabbitMQ__Hostname="$(getvalue RabbitMQ__Hostname)" \
     --env RabbitMQ__Username="$(getvalue RabbitMQ__Username)" \
@@ -85,11 +85,11 @@ docker run --rm --name sf_admin \
   -rmq-vhost "$(getvalue RabbitMQ__VirtualHost)" \
   -rmq-p "$(getvalue RabbitMQ__Port)" \
   -rmq-use-ssl "$(getvalue RabbitMQ__UseSsl)" \
-  -s3-e "$(getvalue S3__Endpoint)" \
-  -s3-bn "$(getvalue S3__BucketName)" \
-  -s3-ak "$(getvalue S3__AccessKey)" \
-  -s3-sk "$(getvalue S3__SecretKey)" \
-  -s3-f "$(getvalue S3__Folder)" \
+  -s3-e "$(getvalue S3Bucket__Endpoint)" \
+  -s3-bn "$(getvalue S3Bucket__BucketName)" \
+  -s3-ak "$(getvalue S3Bucket__AccessKey)" \
+  -s3-sk "$(getvalue S3Bucket__SecretKey)" \
+  -s3-f "$(getvalue S3Bucket__Folder)" \
   --parallelism 4
 
 # Stop all containers with names prefixed by sf_migration_
