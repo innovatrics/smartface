@@ -109,6 +109,5 @@ docker run --rm --name sf_admin \
     -dbe "$(getvalue Database__DbEngine)" \
     --dry-run
 
-echo "To finalize migration for some palms that cannot be migrated, run script ./finalize-non-migrated-palms.sh"
-echo "WARNING: Do this only if you are confident that the palms cannot be migrated and you want to mark them as error state"
 echo "WARNING: If there were some transient erros like RPC timeouts or other errors, do not finalize the migration and try to migrate again"
+echo "To finalize migration for palms that cannot be migrated, run script ./finalize-non-migrated-palms.sh"
