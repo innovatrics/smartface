@@ -43,7 +43,7 @@ echo "Spawning palm detector and extractor containers for migration"
 
 for i in $(seq 1 $PALM_DETECTORS_COUNT)
 do
-  docker run --rm --name sf_migration_palm_detector_$i \
+  docker run -d --rm --name sf_migration_palm_detector_$i \
     --env RabbitMQ__Hostname="$(getvalue RabbitMQ__Hostname)" \
     --env RabbitMQ__Username="$(getvalue RabbitMQ__Username)" \
     --env RabbitMQ__Password="$(getvalue RabbitMQ__Password)" \
@@ -55,7 +55,7 @@ done
 
 for i in $(seq 1 $PALM_EXTRACTORS_COUNT)
 do
-  docker run --rm --name sf_migration_palm_extractor_$i \
+  docker run -d --rm --name sf_migration_palm_extractor_$i \
     --env RabbitMQ__Hostname="$(getvalue RabbitMQ__Hostname)" \
     --env RabbitMQ__Username="$(getvalue RabbitMQ__Username)" \
     --env RabbitMQ__Password="$(getvalue RabbitMQ__Password)" \
