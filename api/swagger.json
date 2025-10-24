@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.34.0"
+    "version": "v5_4.35.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceId``` are:\r\n            \r\n    none, liveness_any_remote\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -131,7 +131,8 @@
                 "$ref": "#/components/schemas/CameraUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -171,7 +172,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceId``` are:\r\n\r\n    none, liveness_any_remote\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -195,7 +196,8 @@
                 "$ref": "#/components/schemas/CameraCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -412,6 +414,20 @@
         ],
         "summary": "Detects pedestrians and objects on the image",
         "description": "Supported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "95e1fd45-a3d3-4be0-a762-453ae6187d2e"
+          }
+        ],
         "requestBody": {
           "description": "Detection Request",
           "content": {
@@ -435,7 +451,8 @@
                 "$ref": "#/components/schemas/DetectionRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -597,7 +614,8 @@
                 "$ref": "#/components/schemas/EdgeStreamCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -661,7 +679,8 @@
                 "$ref": "#/components/schemas/EdgeStreamUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -739,7 +758,8 @@
                 "$ref": "#/components/schemas/EdgeStreamWatchlistSynchronizationRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -987,7 +1007,8 @@
                 "$ref": "#/components/schemas/FaceSearchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1040,6 +1061,20 @@
         ],
         "summary": "Checks liveness of one face on the given image.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\n \r\n```SpoofCheckConfig.KeepEvaluatingConditionsAfterFirstFail``` is used\r\n\r\n to evaluate all conditions supplied with ``` Nearby/Distant LivenessConditions ```.\r\n\r\n When ```true``` it can have slight performance impact, because all conditions are evaluated \r\n",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "afd28e66-734e-4b06-b285-02702aa73977"
+          }
+        ],
         "requestBody": {
           "description": "Request containing reference image to be checked and configuration.",
           "content": {
@@ -1063,7 +1098,8 @@
                 "$ref": "#/components/schemas/SpoofCheckRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1129,7 +1165,8 @@
                 "$ref": "#/components/schemas/VerificationRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1624,7 +1661,8 @@
                 "$ref": "#/components/schemas/SearchInIndividualsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1690,7 +1728,8 @@
                 "$ref": "#/components/schemas/SplitIndividualsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1756,7 +1795,8 @@
                 "$ref": "#/components/schemas/MergeIndividualsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1927,7 +1967,8 @@
                 "$ref": "#/components/schemas/LiveGroupingCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1968,6 +2009,7 @@
         ],
         "summary": "Updates the specified live grouping.",
         "requestBody": {
+          "description": "New live grouping configuration.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -1989,7 +2031,8 @@
                 "$ref": "#/components/schemas/LiveGroupingUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2327,7 +2370,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -2397,7 +2441,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -2467,7 +2512,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -2537,7 +2583,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -2573,6 +2620,20 @@
         ],
         "summary": "Checks liveness of one palm on the given image.",
         "description": "Supported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    liveness_any_remote\r\n \r\n",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "ca901da6-de71-4d3f-a2df-77795b64076b"
+          }
+        ],
         "requestBody": {
           "description": "Request containing reference palm image to be checked and configuration.",
           "content": {
@@ -2596,7 +2657,8 @@
                 "$ref": "#/components/schemas/PalmSpoofCheckRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2909,7 +2971,8 @@
                 "$ref": "#/components/schemas/RecordGroupingCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -2972,7 +3035,8 @@
                 "$ref": "#/components/schemas/RecordGrouping"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3269,7 +3333,8 @@
                 "$ref": "#/components/schemas/UploadedImageRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -3413,7 +3478,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -3483,7 +3549,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -3579,7 +3646,8 @@
                 "$ref": "#/components/schemas/VideoDataStorageConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3682,7 +3750,8 @@
                 "$ref": "#/components/schemas/DbCleanupConfigUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3785,7 +3854,8 @@
                 "$ref": "#/components/schemas/FeaturesConfigUpdateRequestFeaturesConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3889,7 +3959,8 @@
                 "$ref": "#/components/schemas/PreviewConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3992,7 +4063,8 @@
                 "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4095,7 +4167,8 @@
                 "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4496,7 +4569,8 @@
                 "$ref": "#/components/schemas/VideoRecordUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4560,7 +4634,8 @@
                 "$ref": "#/components/schemas/VideoRecordCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -4836,7 +4911,8 @@
                 "$ref": "#/components/schemas/VideoRecordTagsUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5017,7 +5093,8 @@
                 "$ref": "#/components/schemas/WatchlistCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -5081,7 +5158,8 @@
                 "$ref": "#/components/schemas/WatchlistUpsertRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5263,6 +5341,20 @@
         ],
         "summary": "Searches for matching watchlist members by provided image of face/s.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "9e4b846f-18eb-47b6-a0a0-a33ed6d3763c"
+          }
+        ],
         "requestBody": {
           "description": "Request containing searching image and ids of watchlists to be searched.",
           "content": {
@@ -5286,7 +5378,8 @@
                 "$ref": "#/components/schemas/SearchInWatchlistRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5351,6 +5444,20 @@
           "Watchlist"
         ],
         "summary": "Searches for matching watchlist members by provided face template/s.",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "7cd8c52a-0888-4eea-ad6e-6bb51750c33e"
+          }
+        ],
         "requestBody": {
           "description": "Request containing face template and ids of watchlists to be searched.",
           "content": {
@@ -5374,7 +5481,8 @@
                 "$ref": "#/components/schemas/SearchInWatchlistByTemplateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5427,6 +5535,20 @@
         ],
         "summary": "Searches for matching watchlist members by provided image of palm/s.",
         "description": "Supported values for ```PalmDetectorResourceId``` are:\r\n\r\n            \r\n    cpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    none, liveness_any_remote",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "ac1e34d7-a733-42cb-82ed-7c4c267a665b"
+          }
+        ],
         "requestBody": {
           "description": "Request containing searching image and ids of watchlists to be searched.",
           "content": {
@@ -5450,7 +5572,8 @@
                 "$ref": "#/components/schemas/SearchByPalmInWatchlistRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5525,6 +5648,20 @@
           "Watchlist"
         ],
         "summary": "Searches for matching watchlist members by provided palm template/s.",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0429783f-f1f3-4d27-b33e-37e9b1483be5"
+          }
+        ],
         "requestBody": {
           "description": "Request containing palm template and ids of watchlists to be searched.",
           "content": {
@@ -5548,7 +5685,8 @@
                 "$ref": "#/components/schemas/SearchByPalmInWatchlistByTemplateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5698,7 +5836,8 @@
                 "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -5762,7 +5901,8 @@
                 "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6042,7 +6182,8 @@
                 "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6100,7 +6241,8 @@
                 "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6135,7 +6277,7 @@
           "WatchlistMember"
         ],
         "summary": "Registers a watchlist member.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined\r\nSupported values for ```PalmSide``` are:\r\n\r\n\r\n    Left, Right, Unspecified",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined\r\n\r\nSupported values for ```PalmSide``` are:\r\n\r\n\r\n    Left, Right, Unspecified\r\n\r\nSupported values for ```Modality``` are:\r\n\r\n\r\n    Face, Palm",
         "requestBody": {
           "description": "Request specifying watchlist member register details.",
           "content": {
@@ -6159,7 +6301,8 @@
                 "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -6266,7 +6409,8 @@
                 "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6356,7 +6500,8 @@
                 "$ref": "#/components/schemas/AddNewFaceRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -6463,7 +6608,8 @@
                 "$ref": "#/components/schemas/AddNewPalmRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -6569,7 +6715,8 @@
                 "$ref": "#/components/schemas/PalmWatchlistMemberLinkingRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6658,7 +6805,8 @@
                 "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6737,7 +6885,8 @@
                 "$ref": "#/components/schemas/PalmWatchlistMemberRemoveRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
