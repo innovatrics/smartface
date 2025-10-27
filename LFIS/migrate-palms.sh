@@ -7,12 +7,12 @@ getvalue() {
 }
 
 # load version and registry from .env
-VERSION="$(getvalue SF_VERSION)"
+SF_VERSION="$(getvalue SF_VERSION)"
 REGISTRY="$(getvalue REGISTRY)"
 
-SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
-SF_PALM_DETECTOR_IMAGE=${REGISTRY}sf-palm-detector:${VERSION}
-SF_PALM_EXTRACTOR_IMAGE=${REGISTRY}sf-palm-extractor:${VERSION}
+SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${SF_VERSION}
+SF_PALM_DETECTOR_IMAGE=${REGISTRY}sf-palm-detector:${SF_VERSION}
+SF_PALM_EXTRACTOR_IMAGE=${REGISTRY}sf-palm-extractor:${SF_VERSION}
 
 # stop all services before migration
 docker compose down --remove-orphans
