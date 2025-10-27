@@ -14,21 +14,8 @@ SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
 SF_PALM_DETECTOR_IMAGE=${REGISTRY}sf-palm-detector:${VERSION}
 SF_PALM_EXTRACTOR_IMAGE=${REGISTRY}sf-palm-extractor:${VERSION}
 
-# check docker compose command presence
-COMPOSE_COMMAND="docker compose"
-set +e
-$COMPOSE_COMMAND version
-
-if [ $? -ne 0 ]; then
-    COMPOSE_COMMAND="docker-compose"
-    $COMPOSE_COMMAND version
-    if [ $? -ne 0 ]; then
-        error_exit "No compose command found. Please install docker compose"
-    fi
-fi
-
 # stop all services before migration
-$COMPOSE_COMMAND down --remove-orphans
+docker compose down --remove-orphans
 
 # Set the number of palm detector containers to run (default is 3)
 PALM_DETECTORS_COUNT=${PALM_DETECTORS_COUNT:-3}

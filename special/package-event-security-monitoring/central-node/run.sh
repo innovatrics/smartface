@@ -50,21 +50,6 @@ if [ ! -f iengine.lic ]; then
     error_exit "License file not found. Please make sure that the license file is present in the current directory."
 fi
 
-COMPOSE_COMMAND="docker compose"
-
-set +e
-
-$COMPOSE_COMMAND version
-
-if [ $? -ne 0 ]; then
-    COMPOSE_COMMAND="docker-compose"
-    $COMPOSE_COMMAND version
-    if [ $? -ne 0 ]; then
-        error_exit "No compose command found. Please install docker compose"
-    fi
-fi
-
-set -e
 # sf-network is used so that sf-dependencies and sf containers can communicate
 # this can fail if the network already exists, but we don't mind that
 docker network create sf-network || true
@@ -72,7 +57,7 @@ docker network create sf-network || true
 # start dependencies of SF - PgSql, RMQ and minio
 chmod go+rx sf_dependencies/etc_rmq
 chmod go+r sf_dependencies/etc_rmq/*
-$COMPOSE_COMMAND -f sf_dependencies/docker-compose.yml up -d
+docker compose -f sf_dependencies/docker-compose.yml up -d
 
 # sleep to wait for the dependencies to start up
 sleep 10
@@ -105,7 +90,7 @@ docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_user_tags mqtt administra
 docker exec -it rmq /opt/rabbitmq/sbin/rabbitmqctl set_permissions -p "/" mqtt ".*" ".*" ".*" || true
 
 # stop smartface core services before migration
-$COMPOSE_COMMAND down --remove-orphans
+docker compose down --remove-orphans
 
 if [[ "$DB_ENGINE" == "MsSql" ]]; then
     # create SmartFace database in MsSql
@@ -143,4 +128,4 @@ docker run --rm --name s3-bucket-create --network sf-network ${SF_ADMIN_IMAGE} \
 ./create-wl-stream-generation.sh
 
 # finally start SF images
-$COMPOSE_COMMAND up -d --force-recreate
+docker compose up -d --force-recreate
