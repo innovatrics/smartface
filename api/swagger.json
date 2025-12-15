@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.37.0"
+    "version": "v5_4.38.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceId``` are:\r\n            \r\n    none, liveness_any_remote\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceId``` are:\r\n            \r\n    none, liveness_any_remote\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -172,7 +172,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceId``` are:\r\n\r\n    none, liveness_any_remote\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceId``` are:\r\n\r\n    none, liveness_any_remote\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -418,14 +418,14 @@
           {
             "name": "X-Session-Id",
             "in": "header",
-            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
             "schema": {
               "maxLength": 36,
               "minLength": 1,
               "type": "string",
               "format": "uuid"
             },
-            "example": "c56f706e-6a13-4215-8ebc-8af2b7b105c7"
+            "example": "d121d394-5f6e-47ef-ba91-ddbfcc884267"
           }
         ],
         "requestBody": {
@@ -590,7 +590,7 @@
           "EdgeStream"
         ],
         "summary": "Creates a new EdgeStream.",
-        "description": "Supported values for ```FaceSaveStrategy``` are:\r\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n\r\nSupported values for ```PalmSpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_any_remote",
+        "description": "Supported values for ```FaceSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n\r\nSupported values for ```PalmSpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_any_remote",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -655,7 +655,7 @@
           "EdgeStream"
         ],
         "summary": "Updates the specified EdgeStream.",
-        "description": "Supported values for ```FaceSaveStrategy``` are:\r\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_any_remote",
+        "description": "Supported values for ```FaceSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\n\r\n\r\n    Balanced, All, MatchedOnly, None\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_any_remote",
         "requestBody": {
           "description": "New EdgeStream configuration.",
           "content": {
@@ -716,13 +716,26 @@
         }
       }
     },
+    "/api/v1/EdgeStreams/Settings/Synchronize": {
+      "post": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Synchronize settings stored in platform database to MQTT.",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
     "/api/v1/EdgeStreams/{id}/WatchlistSynchronization": {
       "put": {
         "tags": [
           "EdgeStream"
         ],
         "summary": "Sets the watchlist synchronization for the specified EdgeStream.",
-        "description": "Supported values for ```watchlistSyncOption``` are: \r\n\r\n\r\n    None, All, Selected",
+        "description": "Supported values for ```watchlistSyncOption``` are: \n\r\n\r\n    None, All, Selected",
         "parameters": [
           {
             "name": "id",
@@ -983,7 +996,7 @@
           "Face"
         ],
         "summary": "Searches for similar stored faces based on the given image.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any",
         "requestBody": {
           "description": "Request containing reference image to be searched.",
           "content": {
@@ -1060,19 +1073,19 @@
           "Face"
         ],
         "summary": "Checks liveness of one face on the given image.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\n \r\n```SpoofCheckConfig.KeepEvaluatingConditionsAfterFirstFail``` is used\r\n\r\n to evaluate all conditions supplied with ``` Nearby/Distant LivenessConditions ```.\r\n\r\n When ```true``` it can have slight performance impact, because all conditions are evaluated \r\n",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\n\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\n \n```SpoofCheckConfig.KeepEvaluatingConditionsAfterFirstFail``` is used\r\n\r\n to evaluate all conditions supplied with ``` Nearby/Distant LivenessConditions ```.\r\n\r\n When ```true``` it can have slight performance impact, because all conditions are evaluated \n",
         "parameters": [
           {
             "name": "X-Session-Id",
             "in": "header",
-            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
             "schema": {
               "maxLength": 36,
               "minLength": 1,
               "type": "string",
               "format": "uuid"
             },
-            "example": "98f161b2-351d-41d9-a41c-dd3bdb5e3a15"
+            "example": "32ea7be8-8302-4ed5-b539-4b43bbceee0c"
           }
         ],
         "requestBody": {
@@ -1141,7 +1154,7 @@
           "Face"
         ],
         "summary": "Calculates confidence that two faces on sent photos belong to the same person.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n            \r\n    cpu, gpu, any",
         "requestBody": {
           "description": "Request containing images with faces to be compared",
           "content": {
@@ -1637,7 +1650,7 @@
           "Individual"
         ],
         "summary": "Searches for individuals by image in the specified grouping.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n            \r\n    cpu, gpu, any",
         "requestBody": {
           "description": "Request containing image, grouping id and resources.",
           "content": {
@@ -2619,19 +2632,19 @@
           "Palms"
         ],
         "summary": "Checks liveness of one palm on the given image.",
-        "description": "Supported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    liveness_any_remote\r\n \r\n",
+        "description": "Supported values for ```PalmDetectorResourceId``` are:\n\r\n\r\n    cpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\n\r\n            \r\n    liveness_any_remote\r\n \n",
         "parameters": [
           {
             "name": "X-Session-Id",
             "in": "header",
-            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
             "schema": {
               "maxLength": 36,
               "minLength": 1,
               "type": "string",
               "format": "uuid"
             },
-            "example": "08a3f5df-70ad-4182-b6f1-7564ad7c105c"
+            "example": "31245e19-3a67-444b-b1f4-9d19f933b5a8"
           }
         ],
         "requestBody": {
@@ -3297,7 +3310,7 @@
           "RecordGrouping"
         ],
         "summary": "Uploads the image to a specified record grouping.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any",
         "parameters": [
           {
             "name": "groupingId",
@@ -5134,7 +5147,7 @@
           "Watchlist"
         ],
         "summary": "Upserts the watchlist.",
-        "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.\r\n\r\nWhen setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
+        "description": "If the watchlist with specified Id does not exist, it creates it with the requested Id.\r\nIf the watchlist with specified Id exists, it updates it.\n\r\nWhen setting ```PreviewColor```, hexadecimal format is necessary to use, e.g. ```#012abc``` or ```#01a```.",
         "requestBody": {
           "description": "Request containing watchlist properties.",
           "content": {
@@ -5340,19 +5353,19 @@
           "Watchlist"
         ],
         "summary": "Searches for matching watchlist members by provided image of face/s.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\n\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\nSupported values for ```FaceValidationMode``` are:\n\r\n            \r\n    none, predefined",
         "parameters": [
           {
             "name": "X-Session-Id",
             "in": "header",
-            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
             "schema": {
               "maxLength": 36,
               "minLength": 1,
               "type": "string",
               "format": "uuid"
             },
-            "example": "f3c20e13-63ad-465e-8fb3-2c3e3f3a53e2"
+            "example": "fb73befb-45a1-4c66-b9e7-110f7d809449"
           }
         ],
         "requestBody": {
@@ -5448,14 +5461,14 @@
           {
             "name": "X-Session-Id",
             "in": "header",
-            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
             "schema": {
               "maxLength": 36,
               "minLength": 1,
               "type": "string",
               "format": "uuid"
             },
-            "example": "3e4fd419-386f-458c-8db6-77ef92674f6d"
+            "example": "c6d1394b-7890-4134-bfa2-a044fcbc1083"
           }
         ],
         "requestBody": {
@@ -5534,19 +5547,19 @@
           "Watchlist"
         ],
         "summary": "Searches for matching watchlist members by provided image of palm/s.",
-        "description": "Supported values for ```PalmDetectorResourceId``` are:\r\n\r\n            \r\n    cpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    none, liveness_any_remote",
+        "description": "Supported values for ```PalmDetectorResourceId``` are:\n\r\n            \r\n    cpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\n\r\n            \r\n    none, liveness_any_remote",
         "parameters": [
           {
             "name": "X-Session-Id",
             "in": "header",
-            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
             "schema": {
               "maxLength": 36,
               "minLength": 1,
               "type": "string",
               "format": "uuid"
             },
-            "example": "cee7d587-d2a1-4505-8ac6-f176d8332a88"
+            "example": "70be183c-6e79-4ece-9d72-64a8841edd83"
           }
         ],
         "requestBody": {
@@ -5652,14 +5665,14 @@
           {
             "name": "X-Session-Id",
             "in": "header",
-            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
             "schema": {
               "maxLength": 36,
               "minLength": 1,
               "type": "string",
               "format": "uuid"
             },
-            "example": "be947400-e309-40ee-8e97-ec45ec82b527"
+            "example": "350610ce-4669-4cf4-b5fa-af2aebcb2783"
           }
         ],
         "requestBody": {
@@ -6277,7 +6290,7 @@
           "WatchlistMember"
         ],
         "summary": "Registers a watchlist member.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined\r\n\r\nSupported values for ```PalmSide``` are:\r\n\r\n\r\n    Left, Right, Unspecified\r\n\r\nSupported values for ```Modality``` are:\r\n\r\n\r\n    Face, Palm",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\n\r\n\r\n    cpu\r\nSupported values for ```FaceValidationMode``` are:\n\r\n            \r\n    none, predefined\r\n\r\nSupported values for ```PalmSide``` are:\n\r\n\r\n    Left, Right, Unspecified\r\n\r\nSupported values for ```Modality``` are:\n\r\n\r\n    Face, Palm",
         "requestBody": {
           "description": "Request specifying watchlist member register details.",
           "content": {
@@ -6374,7 +6387,7 @@
           "WatchlistMember"
         ],
         "summary": "Adds a specified face to a given watchlist member.",
-        "description": "Supported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined",
+        "description": "Supported values for ```FaceValidationMode``` are:\n\r\n            \r\n    none, predefined",
         "parameters": [
           {
             "name": "id",
@@ -6465,7 +6478,7 @@
           "WatchlistMember"
         ],
         "summary": "Adds a specified face to a given watchlist member.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\n\r\n            \r\n    cpu, gpu, any\r\nSupported values for ```FaceValidationMode``` are:\n\r\n            \r\n    none, predefined",
         "parameters": [
           {
             "name": "id",
@@ -6573,7 +6586,7 @@
           "WatchlistMember"
         ],
         "summary": "Adds a specified palm to a given watchlist member.",
-        "description": "Supported values for ```PalmDetectorResourceId``` are:\r\n\r\n            \r\n    cpu\r\nSupported values for ```PalmSide``` are:\r\n\r\n\r\n    Left, Right, Unspecified",
+        "description": "Supported values for ```PalmDetectorResourceId``` are:\n\r\n            \r\n    cpu\r\nSupported values for ```PalmSide``` are:\n\r\n\r\n    Left, Right, Unspecified",
         "parameters": [
           {
             "name": "id",
