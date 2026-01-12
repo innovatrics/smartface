@@ -30,4 +30,23 @@ docker compose up -d
 ```
 
 ### Face templates migration
-> **Note:** TBD
+
+1. To start migration of face templates, execute
+```
+./migrate-faces.sh
+```
+
+This will stop the current compose services, spawn the required face detector and extractor services, and run the migration CLI command. After this, you should see output regarding the success rate of migration and also a list of watchlist members for which template migration was not possible. You should store this output to handle those members' faces manually by requesting reenrollment of their faces.
+> **Note:** It is possible that there were some transient errors while running this script (e.g. some RPC calls may timeout). In that case, it is safe to run this command again.
+> **Note:** You can override the default model version (53) by setting `FACE_MODEL_VERSION` before running the script.
+
+2. To finalize migration, execute
+```
+./finalize-non-migrated-faces.sh
+```
+This will force the remaining faces that were not possible to migrate to be set to error state and thus be skipped by our matchers at startup.
+
+3. You should be able to run compose services successfully again (e.g. by executing)
+```
+docker compose up -d
+```
