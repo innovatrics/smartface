@@ -37,7 +37,14 @@ docker compose up -d
 ```
 
 This will stop the current compose services, spawn the required face detector and extractor services, and run the migration CLI command. After this, you should see output regarding the success rate of migration and also a list of watchlist members for which template migration was not possible. You should store this output to handle those members' faces manually by requesting reenrollment of their faces.
-> **Note:** It is possible that there were some transient errors while running this script (e.g. some RPC calls may timeout). In that case, it is safe to run this command again.
+
+> **Note (1):** You can override the default template model version (`53`) by setting `FACE_MODEL_VERSION` env variable before running the script. Possible values are:
+ - `52` (`fast`)
+ - `53` (`balanced`)
+ - `54` (`accurate`)
+ - `55` (`accurate_server`)
+
+> **Note (2):** It is possible that there were some transient errors while running this script (e.g. some RPC calls may timeout). In that case, it is safe to run this command again.
 > **Note:** You can override the default model version (53) by setting `FACE_MODEL_VERSION` before running the script.
 
 2. To finalize migration, execute
