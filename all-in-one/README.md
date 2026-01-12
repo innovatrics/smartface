@@ -1,4 +1,4 @@
-# SmartFace All-in-One
+# SmartFace Lightweight Facial Identification Service
 
 ## Deployment
 1. Install `Docker` and `docker compose` on the host machine.
@@ -7,10 +7,6 @@
 4. Obtain license for your hwid from our Customer Portal https://customerportal.innovatrics.com/
 5. Copy the license file `iengine.lic` to the root of this directory.
 6. Run `run.sh` script. The run scripts contain comments which should clarify the steps needed to start everything
-
-
-## Biometric templates migration
-Compatibility of biometric templates (for faces and palms) can sometimes break when updating to a newer version. This will result in some services not being able to start because they check compatibility at startup. You will see this in the logs of stopped containers. In those cases, we provide the possibility to migrate those templates to a newer version by calling a CLI command. Migration may not migrate all of the templates to the newer version because it requires re-detection of objects from saved crops, which is not guaranteed to always be possible (because previous detection was done on the full frame and possibly with a different detection model). But the vast majority of data should be possible to migrate just fine.
 
 ### Palm templates migration
 
@@ -34,4 +30,30 @@ docker compose up -d
 ```
 
 ### Face templates migration
-> **Note:** TBD
+
+1. To start migration of face templates, execute
+```
+./migrate-faces.sh
+```
+
+This will stop the current compose services, spawn the required face detector and extractor services, and run the migration CLI command. After this, you should see output regarding the success rate of migration and also a list of watchlist members for which template migration was not possible. You should store this output to handle those members' faces manually by requesting reenrollment of their faces.
+
+> **Note (1):** You can override the default template model version (`53`) by setting `FACE_MODEL_VERSION` env variable before running the script. Possible values are:
+ - `52` (`fast`)
+ - `53` (`balanced`)
+ - `54` (`accurate`)
+ - `55` (`accurate_server`)
+
+> **Note (2):** It is possible that there were some transient errors while running this script (e.g. some RPC calls may timeout). In that case, it is safe to run this command again.
+> **Note:** You can override the default model version (53) by setting `FACE_MODEL_VERSION` before running the script.
+
+2. To finalize migration, execute
+```
+./finalize-non-migrated-faces.sh
+```
+This will force the remaining faces that were not possible to migrate to be set to error state and thus be skipped by our matchers at startup.
+
+3. You should be able to run compose services successfully again (e.g. by executing)
+```
+docker compose up -d
+```
