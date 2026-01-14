@@ -96,7 +96,8 @@ docker run --rm --name sf_admin \
     set-state-error-non-migrated-faces \
     -c "$(getvalue ConnectionStrings__CoreDbContext)" \
     -dbe "$(getvalue Database__DbEngine)" \
-    --dry-run
+    --dry-run \
+    --face-model-version "${FACE_MODEL_VERSION}"
 
 echo "WARNING: If there were some transient errors like RPC timeouts or other errors, do not finalize the migration and try to migrate again"
 echo "To finalize migration for faces that cannot be migrated, run script ./finalize-non-migrated-faces.sh"
