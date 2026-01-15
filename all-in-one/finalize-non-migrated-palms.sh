@@ -13,7 +13,7 @@ SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
 
 echo "Calling set-state-error-non-migrated-palms command to mark palms that cannot be migrated to error state"
 
-docker run --rm --name sf_admin \
+docker run --rm -it --name sf_admin \
     --volume "$(pwd)/iengine.lic:/etc/innovatrics/iengine.lic" \
     --network sf-network \
     "${SF_ADMIN_IMAGE}" \

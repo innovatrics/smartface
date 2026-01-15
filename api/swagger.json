@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.39.0"
+    "version": "v5_4.40.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -425,7 +425,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "b8578db3-31ae-4a35-9179-cceae84c0fa3"
+            "example": "44a8cd41-534f-46c8-be0b-1d3d8e842185"
           }
         ],
         "requestBody": {
@@ -1085,7 +1085,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "6a35249f-702d-466f-b159-0044337cd7b8"
+            "example": "41e005b9-0405-4d48-a4bc-2e286a4c0d7b"
           }
         ],
         "requestBody": {
@@ -2644,7 +2644,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "b0d5d60a-05f4-4a22-ba2c-d19e7849807e"
+            "example": "fd2a7684-15a7-4391-a1d0-461da849aaa6"
           }
         ],
         "requestBody": {
@@ -5365,7 +5365,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "ab9f8637-3400-419d-82cf-ea6b6621e081"
+            "example": "1114ab30-f826-4b59-93ce-38ec56cebac0"
           }
         ],
         "requestBody": {
@@ -5468,7 +5468,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "c3086b61-6e94-44db-875f-964bdec3739e"
+            "example": "f9bdb2c4-87b6-46da-be48-d8d5edbcd916"
           }
         ],
         "requestBody": {
@@ -5559,7 +5559,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "dbc32d52-8423-445c-9e4b-c6be37290abc"
+            "example": "71ed1306-86aa-4688-8549-b3a8198d6388"
           }
         ],
         "requestBody": {
@@ -5672,7 +5672,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "bddbadce-42d7-4a8b-883d-1022c9b4148b"
+            "example": "3eedf8b6-5a3c-4db4-b3c7-7f4a71a2a67d"
           }
         ],
         "requestBody": {
@@ -6290,7 +6290,7 @@
           "WatchlistMember"
         ],
         "summary": "Registers a watchlist member.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined\r\n\r\nSupported values for ```PalmSide``` are:\r\n\r\n\r\n    Left, Right, Unspecified\r\n\r\nSupported values for ```Modality``` are:\r\n\r\n\r\n    Face, Palm",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n\r\n    none, predefined\r\n\r\nSupported values for ```PalmSide``` are:\r\n\r\n\r\n    Left, Right, Unspecified\r\n\r\nSupported values for ```Modality``` are:\r\n\r\n\r\n    Face, Palm",
         "requestBody": {
           "description": "Request specifying watchlist member register details.",
           "content": {
@@ -6387,7 +6387,7 @@
           "WatchlistMember"
         ],
         "summary": "Adds a specified face to a given watchlist member.",
-        "description": "Supported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined",
+        "description": "Supported values for ```FaceValidationMode``` are:\r\n\r\n\r\n    none, predefined",
         "parameters": [
           {
             "name": "id",
