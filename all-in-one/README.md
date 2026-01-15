@@ -1,4 +1,4 @@
-# SmartFace Lightweight Facial Identification Service
+# SmartFace All-in-One
 
 ## Deployment
 1. Install `Docker` and `docker compose` on the host machine.
@@ -45,7 +45,6 @@ This will stop the current compose services, spawn the required face detector an
  - `55` (`accurate_server`)
 
 > **Note (2):** It is possible that there were some transient errors while running this script (e.g. some RPC calls may timeout). In that case, it is safe to run this command again.
-> **Note:** You can override the default model version (53) by setting `FACE_MODEL_VERSION` before running the script.
 
 2. To finalize migration, execute
 ```
