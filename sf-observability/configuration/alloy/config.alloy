@@ -214,7 +214,7 @@ otelcol.receiver.otlp "traces" {
   }
 
   output {
-    traces = [otelcol.exporter.otlp.jaeger.input]
+    traces = [otelcol.processor.batch.traces.input]
   }
 }
 
@@ -229,16 +229,6 @@ otelcol.exporter.otlp "jaeger" {
     endpoint = "jaeger:4317"
     tls {
       insecure = true
-    }
-  }
-}
-
-otelcol.service "traces" {
-  pipelines {
-    traces {
-      receivers  = [otelcol.receiver.otlp.traces.input]
-      processors = [otelcol.processor.batch.traces.input]
-      exporters  = [otelcol.exporter.otlp.jaeger.input]
     }
   }
 }
