@@ -109,6 +109,7 @@ services:
       - /etc/hostname:/etc/hostname:ro
     ports:
       - 12345:12345
+      - 4317:4317
     networks:
       observability:
       app-network:
@@ -141,27 +142,6 @@ services:
       observability:
     restart: unless-stopped
 
-  otel-collector:
-    extends:
-      service: common
-      file: docker-compose-common.yml
-    image: "otel/opentelemetry-collector-contrib:latest"
-    profiles: [singlenode, multinode-scraper]
-    depends_on:
-      - jaeger
-    command: ["--config=/etc/otelcol/config.yaml"]
-    volumes:
-      - ./configuration/otel/otel-collector.yaml:/etc/otelcol/config.yaml:ro
-    ports:
-      - "4317:4317"
-      - "4318:4318"
-      - "8888:8888"
-      - "13133:13133"
-    networks:
-      app-network:
-      observability:
-    restart: unless-stopped
-  
   nodeexporter:
     extends:
       service: common

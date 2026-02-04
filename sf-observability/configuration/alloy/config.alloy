@@ -208,3 +208,38 @@ prometheus.remote_write "metrics_service" {
     }
 }
 
+otelcol.receiver.otlp "traces" {
+  grpc {
+    endpoint = "0.0.0.0:4317"
+  }
+
+  output {
+    traces = [otelcol.exporter.otlp.jaeger.input]
+  }
+}
+
+otelcol.processor.batch "traces" {
+  output {
+    traces = [otelcol.exporter.otlp.jaeger.input]
+  }
+}
+
+otelcol.exporter.otlp "jaeger" {
+  client {
+    endpoint = "jaeger:4317"
+    tls {
+      insecure = true
+    }
+  }
+}
+
+otelcol.service "traces" {
+  pipelines {
+    traces {
+      receivers  = [otelcol.receiver.otlp.traces.input]
+      processors = [otelcol.processor.batch.traces.input]
+      exporters  = [otelcol.exporter.otlp.jaeger.input]
+    }
+  }
+}
+
