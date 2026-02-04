@@ -5,6 +5,8 @@ configs:
     file: ./configuration/prometheus/prometheus.yml
   alloy_config:
     file: ./configuration/alloy/config.alloy
+  jaeger_config:
+    file: ./configuration/jaeger/jaeger.yaml
 
 services:
   obsminio:
@@ -122,7 +124,9 @@ services:
       file: docker-compose-common.yml
     image: "jaegertracing/jaeger:latest"
     profiles: [singlenode, multinode-scraper]
-    command: ["--config=/etc/jaeger/jaeger.yaml"]
+    configs:
+      - jaeger_config
+    command: ["--config=/jaeger_config"]
     expose:
       - 16686
       - 14250
@@ -133,8 +137,6 @@ services:
       - 4318
     ports:
       - "9903:16686"
-    volumes:
-      - ./configuration/jaeger/jaeger.yaml:/etc/jaeger/jaeger.yaml:ro
     networks:
       app-network:
         aliases:
