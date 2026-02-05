@@ -5,6 +5,8 @@ configs:
     file: ./configuration/prometheus/prometheus.yml
   alloy_config:
     file: ./configuration/alloy/config.alloy
+  jaeger_config:
+    file: ./configuration/jaeger/jaeger.yaml
 
 services:
   obsminio:
@@ -109,6 +111,7 @@ services:
       - /etc/hostname:/etc/hostname:ro
     ports:
       - 12345:12345
+      - 4317:4317
     networks:
       observability:
       app-network:
@@ -119,19 +122,19 @@ services:
     extends:
       service: common
       file: docker-compose-common.yml
-    image: "jaegertracing/all-in-one:1.71.0"
+    image: "jaegertracing/jaeger:latest"
     profiles: [singlenode, multinode-scraper]
-    command: ["--memory.max-traces=5000"]
+    configs:
+      - jaeger_config
+    command: ["--config=/jaeger_config"]
     expose:
-      - 4317
-      - 5778
       - 16686
-      - 14268
       - 14250
-      - 9411
-      - 5775
-      - 6831
-      - 6832
+      - 14268
+      - 6831/udp
+      - 6832/udp
+      - 4317
+      - 4318
     ports:
       - "9903:16686"
     networks:
@@ -140,7 +143,7 @@ services:
           - jaeger
       observability:
     restart: unless-stopped
-  
+
   nodeexporter:
     extends:
       service: common
