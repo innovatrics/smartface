@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: sf-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d:ro
+      - ../certs:/etc/nginx/certs:ro
+
+networks:
+  default:
+    name: sf-network
+    external: true

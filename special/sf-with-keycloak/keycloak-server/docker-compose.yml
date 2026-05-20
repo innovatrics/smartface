@@ -1,23 +1,25 @@
 version: "3.7"
 services:
-  # Keycloak-server
   keycloak-server:
-    # see https://hub.docker.com/r/jboss/keycloak/
     image: quay.io/keycloak/keycloak:16.1.1
+    container_name: keycloak-server
+    restart: unless-stopped
     ports:
       - 8080:8080
     environment:
-      # This will be admin access to Keycloak admin console at:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_FRONTEND_URL=https://presales-demo-1u.ba.innovatrics.net/auth
+      - PROXY_ADDRESS_FORWARDING=true
     volumes:
-      # Mount `keycloak-realm` config, that will be imported into Keycloak upon start
       - ./realm-export.json:/tmp/realm-export.json
     command:
-      # We need to import our pre-prepared `keycloak-realm`. Official way is to set env variable KEYCLOAK_IMPORT,
-      # but that doesn't work for us. We need to overwrite `master` realm, that already exist in empty Keycloak.
-      # So we need to use `OVERWRITE_EXISTING` option.
       - -Dkeycloak.migration.action=import
       - -Dkeycloak.migration.provider=singleFile
       - -Dkeycloak.migration.file=/tmp/realm-export.json
       - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+
+networks:
+  default:
+    name: sf-network
+    external: true
