@@ -1,7 +1,7 @@
 # SmartFace to SmartFace Watchlist synchronization
 
 In this setup, you can have one *Leader* SmartFace instance and multiple "Follower" SmartFace instances. 
-Changes in Watchlists and Watchlist members are automatically syncrhonized from *Leader* to all 
+Changes in Watchlists and Watchlist members are automatically synchronized from *Leader* to all 
 *Followers*. This setup is especially useful when the SmartFace instances are geographically separated 
 and are required to work independently even in case of connection errors.
 

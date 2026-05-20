@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.34.0"
+    "version": "v5_4.40.1"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -107,7 +107,7 @@
           "Camera"
         ],
         "summary": "Updates the specified camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n \r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceId``` are:\r\n            \r\n    none, liveness_any_remote\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -131,7 +131,8 @@
                 "$ref": "#/components/schemas/CameraUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -171,7 +172,7 @@
           "Camera"
         ],
         "summary": "Creates a new camera.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    none, cpu, gpu, accurate_cpu, accurate_gpu, cpu_remote, gpu_remote, any_remote, accurate_cpu_remote, accurate_gpu_remote, accurate_any_remote\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, cpu_remote, gpu_remote, any_remote, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```SpoofDetectorResourceIds``` are:\r\n            \r\n    none, liveness_distant_cpu_remote, liveness_distant_gpu_remote, liveness_distant_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote, liveness_nearby_any_remote\r\n            \r\nSupported values for ```PedestrianExtractorResourceId``` are:\r\n\r\n    cpu, gpu, any, none\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n    none, cpu\r\n\r\nSupported values for ```PalmTemplateGeneratorResourceId``` are:\r\n\r\n    cpu\r\n            \r\nSupported values for ```PalmSpoofDetectorResourceId``` are:\r\n\r\n    none, liveness_any_remote\r\n            \r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n            \r\nSupported values for ```FaceSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly\r\n            \r\nSupported values for ```PedestrianSaveStrategy``` are:\r\n            \r\n    Balanced, None, All\r\n            \r\nSupported values for ```ObjectSaveStrategy``` are:\r\n            \r\n    Balanced, None, All, MatchedOnly",
         "requestBody": {
           "description": "New camera configuration.",
           "content": {
@@ -195,7 +196,8 @@
                 "$ref": "#/components/schemas/CameraCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -412,6 +414,20 @@
         ],
         "summary": "Detects pedestrians and objects on the image",
         "description": "Supported values for ```PedestrianDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote\r\n\r\nSupported values for ```ObjectDetectorResourceId``` are:\r\n\r\n    none, sfe_object_cpu_remote, sfe_object_gpu_remote, sfe_object_any_remote",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "44a8cd41-534f-46c8-be0b-1d3d8e842185"
+          }
+        ],
         "requestBody": {
           "description": "Detection Request",
           "content": {
@@ -435,7 +451,8 @@
                 "$ref": "#/components/schemas/DetectionRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -597,7 +614,8 @@
                 "$ref": "#/components/schemas/EdgeStreamCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -661,7 +679,8 @@
                 "$ref": "#/components/schemas/EdgeStreamUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -693,6 +712,19 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/v1/EdgeStreams/Settings/Synchronize": {
+      "post": {
+        "tags": [
+          "EdgeStream"
+        ],
+        "summary": "Synchronize settings stored in platform database to MQTT.",
+        "responses": {
+          "204": {
+            "description": "No Content"
           }
         }
       }
@@ -739,7 +771,8 @@
                 "$ref": "#/components/schemas/EdgeStreamWatchlistSynchronizationRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -987,7 +1020,8 @@
                 "$ref": "#/components/schemas/FaceSearchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1040,6 +1074,20 @@
         ],
         "summary": "Checks liveness of one face on the given image.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\n \r\n```SpoofCheckConfig.KeepEvaluatingConditionsAfterFirstFail``` is used\r\n\r\n to evaluate all conditions supplied with ``` Nearby/Distant LivenessConditions ```.\r\n\r\n When ```true``` it can have slight performance impact, because all conditions are evaluated \r\n",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "41e005b9-0405-4d48-a4bc-2e286a4c0d7b"
+          }
+        ],
         "requestBody": {
           "description": "Request containing reference image to be checked and configuration.",
           "content": {
@@ -1063,7 +1111,8 @@
                 "$ref": "#/components/schemas/SpoofCheckRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1129,7 +1178,8 @@
                 "$ref": "#/components/schemas/VerificationRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1624,7 +1674,8 @@
                 "$ref": "#/components/schemas/SearchInIndividualsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1690,7 +1741,8 @@
                 "$ref": "#/components/schemas/SplitIndividualsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1756,7 +1808,8 @@
                 "$ref": "#/components/schemas/MergeIndividualsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1927,7 +1980,8 @@
                 "$ref": "#/components/schemas/LiveGroupingCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1968,6 +2022,7 @@
         ],
         "summary": "Updates the specified live grouping.",
         "requestBody": {
+          "description": "New live grouping configuration.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -1989,7 +2044,8 @@
                 "$ref": "#/components/schemas/LiveGroupingUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2327,7 +2383,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -2397,7 +2454,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -2467,7 +2525,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -2537,7 +2596,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -2573,6 +2633,20 @@
         ],
         "summary": "Checks liveness of one palm on the given image.",
         "description": "Supported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    liveness_any_remote\r\n \r\n",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "fd2a7684-15a7-4391-a1d0-461da849aaa6"
+          }
+        ],
         "requestBody": {
           "description": "Request containing reference palm image to be checked and configuration.",
           "content": {
@@ -2596,7 +2670,8 @@
                 "$ref": "#/components/schemas/PalmSpoofCheckRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2909,7 +2984,8 @@
                 "$ref": "#/components/schemas/RecordGroupingCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -2972,7 +3048,8 @@
                 "$ref": "#/components/schemas/RecordGrouping"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3269,7 +3346,8 @@
                 "$ref": "#/components/schemas/UploadedImageRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -3413,7 +3491,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -3483,7 +3562,8 @@
                 "$ref": "#/components/schemas/LinkInputRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -3579,7 +3659,8 @@
                 "$ref": "#/components/schemas/VideoDataStorageConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3682,7 +3763,8 @@
                 "$ref": "#/components/schemas/DbCleanupConfigUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3785,7 +3867,8 @@
                 "$ref": "#/components/schemas/FeaturesConfigUpdateRequestFeaturesConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3889,7 +3972,8 @@
                 "$ref": "#/components/schemas/PreviewConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3992,7 +4076,8 @@
                 "$ref": "#/components/schemas/SearchSessionsCleanupConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4095,7 +4180,8 @@
                 "$ref": "#/components/schemas/WatchlistAutoLearnConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4496,7 +4582,8 @@
                 "$ref": "#/components/schemas/VideoRecordUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4560,7 +4647,8 @@
                 "$ref": "#/components/schemas/VideoRecordCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -4836,7 +4924,8 @@
                 "$ref": "#/components/schemas/VideoRecordTagsUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5017,7 +5106,8 @@
                 "$ref": "#/components/schemas/WatchlistCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -5081,7 +5171,8 @@
                 "$ref": "#/components/schemas/WatchlistUpsertRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5263,6 +5354,20 @@
         ],
         "summary": "Searches for matching watchlist members by provided image of face/s.",
         "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n            \r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n            \r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    none,\r\n    liveness_distant_any_remote, liveness_distant_cpu_remote, liveness_distant_gpu_remote\r\n    liveness_nearby_any_remote, liveness_nearby_cpu_remote, liveness_nearby_gpu_remote\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "1114ab30-f826-4b59-93ce-38ec56cebac0"
+          }
+        ],
         "requestBody": {
           "description": "Request containing searching image and ids of watchlists to be searched.",
           "content": {
@@ -5286,7 +5391,8 @@
                 "$ref": "#/components/schemas/SearchInWatchlistRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5351,6 +5457,20 @@
           "Watchlist"
         ],
         "summary": "Searches for matching watchlist members by provided face template/s.",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "f9bdb2c4-87b6-46da-be48-d8d5edbcd916"
+          }
+        ],
         "requestBody": {
           "description": "Request containing face template and ids of watchlists to be searched.",
           "content": {
@@ -5374,7 +5494,8 @@
                 "$ref": "#/components/schemas/SearchInWatchlistByTemplateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5427,6 +5548,20 @@
         ],
         "summary": "Searches for matching watchlist members by provided image of palm/s.",
         "description": "Supported values for ```PalmDetectorResourceId``` are:\r\n\r\n            \r\n    cpu\r\n            \r\nSupported values for ```SpoofDetectorResourceId``` are:\r\n\r\n            \r\n    none, liveness_any_remote",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "71ed1306-86aa-4688-8549-b3a8198d6388"
+          }
+        ],
         "requestBody": {
           "description": "Request containing searching image and ids of watchlists to be searched.",
           "content": {
@@ -5450,7 +5585,8 @@
                 "$ref": "#/components/schemas/SearchByPalmInWatchlistRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5525,6 +5661,20 @@
           "Watchlist"
         ],
         "summary": "Searches for matching watchlist members by provided palm template/s.",
+        "parameters": [
+          {
+            "name": "X-Session-Id",
+            "in": "header",
+            "description": "All <b>TCS Transaction(s)</b> that this action creates will have their <code>SessionId</code> set to the value from this header.\r\nIf no value is provided, the <code>SessionId</code> will be set to the <code>TransactionId</code>.                ",
+            "schema": {
+              "maxLength": 36,
+              "minLength": 1,
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "3eedf8b6-5a3c-4db4-b3c7-7f4a71a2a67d"
+          }
+        ],
         "requestBody": {
           "description": "Request containing palm template and ids of watchlists to be searched.",
           "content": {
@@ -5548,7 +5698,8 @@
                 "$ref": "#/components/schemas/SearchByPalmInWatchlistByTemplateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5698,7 +5849,8 @@
                 "$ref": "#/components/schemas/WatchlistMemberCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -5762,7 +5914,8 @@
                 "$ref": "#/components/schemas/WatchlistMemberUpsertRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6042,7 +6195,8 @@
                 "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6100,7 +6254,8 @@
                 "$ref": "#/components/schemas/WatchlistMembersLinkRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6135,7 +6290,7 @@
           "WatchlistMember"
         ],
         "summary": "Registers a watchlist member.",
-        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n            \r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined\r\nSupported values for ```PalmSide``` are:\r\n\r\n\r\n    Left, Right, Unspecified",
+        "description": "Supported values for ```FaceDetectorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any, accurate_cpu, accurate_gpu, accurate_any\r\n\r\nSupported values for ```TemplateGeneratorResourceId``` are:\r\n\r\n\r\n    cpu, gpu, any\r\n\r\nSupported values for ```PalmDetectorResourceId``` are:\r\n\r\n\r\n    cpu\r\nSupported values for ```FaceValidationMode``` are:\r\n\r\n\r\n    none, predefined\r\n\r\nSupported values for ```PalmSide``` are:\r\n\r\n\r\n    Left, Right, Unspecified\r\n\r\nSupported values for ```Modality``` are:\r\n\r\n\r\n    Face, Palm",
         "requestBody": {
           "description": "Request specifying watchlist member register details.",
           "content": {
@@ -6159,7 +6314,8 @@
                 "$ref": "#/components/schemas/RegisterWatchlistMemberRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -6231,7 +6387,7 @@
           "WatchlistMember"
         ],
         "summary": "Adds a specified face to a given watchlist member.",
-        "description": "Supported values for ```FaceValidationMode``` are:\r\n\r\n            \r\n    none, predefined",
+        "description": "Supported values for ```FaceValidationMode``` are:\r\n\r\n\r\n    none, predefined",
         "parameters": [
           {
             "name": "id",
@@ -6266,7 +6422,8 @@
                 "$ref": "#/components/schemas/FaceWatchlistMemberLinkingRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6356,7 +6513,8 @@
                 "$ref": "#/components/schemas/AddNewFaceRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -6463,7 +6621,8 @@
                 "$ref": "#/components/schemas/AddNewPalmRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -6569,7 +6728,8 @@
                 "$ref": "#/components/schemas/PalmWatchlistMemberLinkingRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6658,7 +6818,8 @@
                 "$ref": "#/components/schemas/FaceWatchlistMemberRemoveRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6737,7 +6898,8 @@
                 "$ref": "#/components/schemas/PalmWatchlistMemberRemoveRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -6808,6 +6970,87 @@
             "description": "The watchlist member was not found.",
             "content": {
               "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/WatchlistMembers/{id}/Totp/QrCode": {
+      "get": {
+        "tags": [
+          "WatchlistMember"
+        ],
+        "summary": "Generates current valid TOTP code encoded as QR code image for requested member.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "withQuietZones",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns QR code image with encoded information for TOTP validation",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -7816,6 +8059,145 @@
         },
         "additionalProperties": false
       },
+      "EdgeStreamApiFaceDetectionCropSettings": {
+        "required": [
+          "enable",
+          "imageFormat",
+          "imageQuality",
+          "maxSize"
+        ],
+        "type": "object",
+        "properties": {
+          "maxSize": {
+            "type": "number",
+            "format": "float",
+            "default": 50
+          },
+          "sizeExtension": {
+            "type": "number",
+            "format": "float",
+            "default": 2
+          },
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float",
+            "default": 90
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamApiPalmDetectionCropSettings": {
+        "required": [
+          "enable",
+          "imageFormat",
+          "imageQuality",
+          "maxSize",
+          "sizeExtension"
+        ],
+        "type": "object",
+        "properties": {
+          "maxSize": {
+            "type": "number",
+            "format": "float",
+            "default": 288
+          },
+          "sizeExtension": {
+            "type": "number",
+            "format": "float",
+            "default": 1.25
+          },
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float",
+            "default": 90
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamApiPedestrianDetectionCropSettings": {
+        "required": [
+          "enable",
+          "imageFormat",
+          "imageQuality",
+          "maxSize",
+          "sizeExtension"
+        ],
+        "type": "object",
+        "properties": {
+          "maxSize": {
+            "type": "number",
+            "format": "float",
+            "default": 100
+          },
+          "sizeExtension": {
+            "type": "number",
+            "format": "float",
+            "default": 1
+          },
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float",
+            "default": 90
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdgeStreamApiVisualCodeDetectionCropSettings": {
+        "required": [
+          "enable",
+          "imageFormat",
+          "imageQuality",
+          "maxSize",
+          "sizeExtension"
+        ],
+        "type": "object",
+        "properties": {
+          "maxSize": {
+            "type": "number",
+            "format": "float",
+            "default": 100
+          },
+          "sizeExtension": {
+            "type": "number",
+            "format": "float",
+            "default": 1.25
+          },
+          "enable": {
+            "type": "boolean",
+            "default": true
+          },
+          "imageFormat": {
+            "$ref": "#/components/schemas/EdgeStreamImageFormat"
+          },
+          "imageQuality": {
+            "type": "number",
+            "format": "float",
+            "default": 90
+          }
+        },
+        "additionalProperties": false
+      },
       "EdgeStreamCreateRequest": {
         "required": [
           "clientId",
@@ -7892,18 +8274,23 @@
         },
         "additionalProperties": false
       },
-      "EdgeStreamFaceDetectionCropSettings": {
+      "EdgeStreamDetectionCropSettings": {
         "required": [
           "enable",
           "imageFormat",
           "imageQuality",
-          "maxSize"
+          "maxSize",
+          "sizeExtension"
         ],
         "type": "object",
         "properties": {
           "enable": {
             "type": "boolean"
           },
+          "sizeExtension": {
+            "type": "number",
+            "format": "float"
+          },
           "maxSize": {
             "type": "number",
             "format": "float"
@@ -7914,64 +8301,6 @@
           "imageQuality": {
             "type": "number",
             "format": "float"
-          }
-        },
-        "additionalProperties": false
-      },
-      "EdgeStreamFaceDetectionCropSettingsCreateRequest": {
-        "required": [
-          "enable",
-          "imageFormat",
-          "imageQuality",
-          "maxSize"
-        ],
-        "type": "object",
-        "properties": {
-          "enable": {
-            "type": "boolean",
-            "default": true
-          },
-          "maxSize": {
-            "type": "number",
-            "format": "float",
-            "default": 50
-          },
-          "imageFormat": {
-            "$ref": "#/components/schemas/EdgeStreamImageFormat"
-          },
-          "imageQuality": {
-            "type": "number",
-            "format": "float",
-            "default": 90
-          }
-        },
-        "additionalProperties": false
-      },
-      "EdgeStreamFaceDetectionCropSettingsUpdateRequest": {
-        "required": [
-          "enable",
-          "imageFormat",
-          "imageQuality",
-          "maxSize"
-        ],
-        "type": "object",
-        "properties": {
-          "enable": {
-            "type": "boolean",
-            "default": true
-          },
-          "maxSize": {
-            "type": "number",
-            "format": "float",
-            "default": 50
-          },
-          "imageFormat": {
-            "$ref": "#/components/schemas/EdgeStreamImageFormat"
-          },
-          "imageQuality": {
-            "type": "number",
-            "format": "float",
-            "default": 90
           }
         },
         "additionalProperties": false
@@ -8017,7 +8346,7 @@
             "$ref": "#/components/schemas/EdgeStreamFaceDetectionTrackingSettings"
           },
           "crop": {
-            "$ref": "#/components/schemas/EdgeStreamFaceDetectionCropSettings"
+            "$ref": "#/components/schemas/EdgeStreamDetectionCropSettings"
           }
         },
         "additionalProperties": false
@@ -8060,7 +8389,7 @@
             "$ref": "#/components/schemas/EdgeStreamFaceDetectionTrackingSettingsCreateRequest"
           },
           "crop": {
-            "$ref": "#/components/schemas/EdgeStreamFaceDetectionCropSettingsCreateRequest"
+            "$ref": "#/components/schemas/EdgeStreamApiFaceDetectionCropSettings"
           }
         },
         "additionalProperties": false
@@ -8103,7 +8432,7 @@
             "$ref": "#/components/schemas/EdgeStreamFaceDetectionTrackingSettingsUpdateRequest"
           },
           "crop": {
-            "$ref": "#/components/schemas/EdgeStreamFaceDetectionCropSettingsUpdateRequest"
+            "$ref": "#/components/schemas/EdgeStreamApiFaceDetectionCropSettings"
           }
         },
         "additionalProperties": false
@@ -8623,6 +8952,7 @@
       "EdgeStreamPalmDetectionSettings": {
         "required": [
           "boundingBoxExtension",
+          "crop",
           "enable",
           "maxDetections",
           "tracking"
@@ -8638,17 +8968,20 @@
           },
           "boundingBoxExtension": {
             "type": "number",
-            "format": "float"
+            "format": "float",
+            "deprecated": true
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamPalmDetectionTrackingSettings"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamDetectionCropSettings"
           }
         },
         "additionalProperties": false
       },
       "EdgeStreamPalmDetectionSettingsCreateRequest": {
         "required": [
-          "boundingBoxExtension",
           "enable",
           "maxDetections",
           "tracking"
@@ -8667,17 +9000,20 @@
           "boundingBoxExtension": {
             "type": "number",
             "format": "float",
-            "default": 1.25
+            "default": 1.25,
+            "deprecated": true
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamPalmDetectionTrackingSettingsCreateRequest"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamApiPalmDetectionCropSettings"
           }
         },
         "additionalProperties": false
       },
       "EdgeStreamPalmDetectionSettingsUpdateRequest": {
         "required": [
-          "boundingBoxExtension",
           "enable",
           "maxDetections",
           "tracking"
@@ -8696,10 +9032,14 @@
           "boundingBoxExtension": {
             "type": "number",
             "format": "float",
-            "default": 1.25
+            "default": 1.25,
+            "deprecated": true
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamPalmDetectionTrackingSettingsUpdateRequest"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamApiPalmDetectionCropSettings"
           }
         },
         "additionalProperties": false
@@ -8835,6 +9175,7 @@
       },
       "EdgeStreamPedestrianDetectionSettings": {
         "required": [
+          "crop",
           "enable",
           "maxDetections",
           "tracking"
@@ -8850,6 +9191,9 @@
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamPedestrianDetectionTrackingSettings"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamDetectionCropSettings"
           }
         },
         "additionalProperties": false
@@ -8873,6 +9217,9 @@
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamPedestrianDetectionTrackingSettingsCreateRequest"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamApiPedestrianDetectionCropSettings"
           }
         },
         "additionalProperties": false
@@ -8896,6 +9243,9 @@
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamPedestrianDetectionTrackingSettingsUpdateRequest"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamApiPedestrianDetectionCropSettings"
           }
         },
         "additionalProperties": false
@@ -9247,6 +9597,7 @@
       "EdgeStreamVisualCodeDetectionSettings": {
         "required": [
           "boundingBoxExtension",
+          "crop",
           "enable",
           "maxDetections",
           "tracking"
@@ -9262,17 +9613,20 @@
           },
           "boundingBoxExtension": {
             "type": "number",
-            "format": "float"
+            "format": "float",
+            "deprecated": true
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionTrackingSettings"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamDetectionCropSettings"
           }
         },
         "additionalProperties": false
       },
       "EdgeStreamVisualCodeDetectionSettingsCreateRequest": {
         "required": [
-          "boundingBoxExtension",
           "enable",
           "maxDetections",
           "tracking"
@@ -9291,17 +9645,20 @@
           "boundingBoxExtension": {
             "type": "number",
             "format": "float",
-            "default": 1.2
+            "default": 1.25,
+            "deprecated": true
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionTrackingSettingsCreateRequest"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamApiVisualCodeDetectionCropSettings"
           }
         },
         "additionalProperties": false
       },
       "EdgeStreamVisualCodeDetectionSettingsUpdateRequest": {
         "required": [
-          "boundingBoxExtension",
           "enable",
           "maxDetections",
           "tracking"
@@ -9320,10 +9677,14 @@
           "boundingBoxExtension": {
             "type": "number",
             "format": "float",
-            "default": 1.2
+            "default": 1.25,
+            "deprecated": true
           },
           "tracking": {
             "$ref": "#/components/schemas/EdgeStreamVisualCodeDetectionTrackingSettingsUpdateRequest"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/EdgeStreamApiVisualCodeDetectionCropSettings"
           }
         },
         "additionalProperties": false
@@ -12108,6 +12469,29 @@
         },
         "additionalProperties": false
       },
+      "PrivacyData": {
+        "required": [
+          "includeMatchedImageInEvents",
+          "saveMatchedImages",
+          "saveRegistrationImages"
+        ],
+        "type": "object",
+        "properties": {
+          "saveRegistrationImages": {
+            "type": "boolean",
+            "default": true
+          },
+          "saveMatchedImages": {
+            "type": "boolean",
+            "default": true
+          },
+          "includeMatchedImageInEvents": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -12285,6 +12669,9 @@
           },
           "palmDetectorConfig": {
             "$ref": "#/components/schemas/PalmDetectorConfig"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/PrivacyData"
           }
         },
         "additionalProperties": false
@@ -14015,6 +14402,7 @@
           "id",
           "labels",
           "note",
+          "privacy",
           "totpEnabled",
           "updatedAt"
         ],
@@ -14040,6 +14428,9 @@
           },
           "totpEnabled": {
             "type": "boolean"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/PrivacyData"
           },
           "id": {
             "type": "string"
@@ -14081,6 +14472,9 @@
               "$ref": "#/components/schemas/Label"
             },
             "nullable": true
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/PrivacyData"
           }
         },
         "additionalProperties": false
@@ -14158,6 +14552,9 @@
               "$ref": "#/components/schemas/Label"
             },
             "nullable": true
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/PrivacyData"
           }
         },
         "additionalProperties": false
@@ -14171,6 +14568,7 @@
           "id",
           "labels",
           "note",
+          "privacy",
           "totpEnabled",
           "updatedAt",
           "watchlists"
@@ -14216,6 +14614,9 @@
           },
           "totpEnabled": {
             "type": "boolean"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/PrivacyData"
           },
           "id": {
             "type": "string"
