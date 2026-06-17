@@ -18,17 +18,9 @@ VECTOR_DB_ENDPOINT=${VECTOR_DB_ENDPOINT:-http://milvus:19530}
 # Number of watchlist members loaded per SQL database paging batch.
 BATCH_SIZE=${BATCH_SIZE:-1000}
 
-# Optional behaviour toggles (set the env variable to "true" to enable).
-# DRY_RUN       - verify the connections and report what would be synced without writing anything.
-# FORCE_REWRITE - drop and recreate the embedding collections before indexing (destructive, required
-#                 when the collections already exist).
-OPTIONAL_ARGS=()
-if [ "${DRY_RUN}" = "true" ]; then
-  OPTIONAL_ARGS+=(--dry-run)
-fi
-if [ "${FORCE_REWRITE}" = "true" ]; then
-  OPTIONAL_ARGS+=(--force-rewrite)
-fi
+# Any additional arguments passed to this script are forwarded as-is to the
+# sync-embeddings-to-vector-db command. Example:
+#   ./sync-embeddings-to-vector-db.sh --dry-run --force-rewrite
 
 # Ensure the Milvus vector database is running before syncing.
 echo "Starting Milvus vector database"
@@ -44,6 +36,6 @@ docker run --rm --name sf_admin \
   -dbe "$(getvalue Database__DbEngine)" \
   --vector-db-endpoint "${VECTOR_DB_ENDPOINT}" \
   --batch-size "${BATCH_SIZE}" \
-  "${OPTIONAL_ARGS[@]}"
+  "$@"
 
 echo "Done"
