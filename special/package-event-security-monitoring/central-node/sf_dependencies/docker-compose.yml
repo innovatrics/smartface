@@ -14,7 +14,7 @@ services:
       #- /var/lib/smartface/pgsql:/var/lib/postgresql/data
 
   rabbitmq:
-    image: "rabbitmq:3.12.11-management"
+    image: "rabbitmq:4.3.2-management"
     container_name: rmq
     ports:
       - "15672:15672"
