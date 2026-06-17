@@ -141,6 +141,7 @@ services:
       - FeatureManagement__Watchlist=true
       - FeatureManagement__Full=false
       - Tracing__Enabled
+      - VectorDB__Provider
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT

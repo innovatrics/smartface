@@ -35,7 +35,7 @@ services:
       - "7070:80"
   
   rabbitmq:
-    image: "rabbitmq:3.12.11-management"
+    image: "rabbitmq:4.3.2-management"
     container_name: rmq
     ports:
       - "15672:15672"
@@ -51,18 +51,6 @@ services:
       - ./etc_rmq/:/etc/rabbitmq/external
       - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped
-
-  minio:
-    image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
-    container_name: minio
-    command: server /data --console-address ":9001"
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    restart: unless-stopped
-    volumes:
-      - miniodata:/data
-      #- /var/lib/smartface/miniodata:/data
 
   # Jaeger tracikng is solely for debug purposes. No data is stored!
   jaeger:
@@ -83,7 +71,6 @@ services:
 volumes:
   mssqldata:
   pgsqldata:
-  miniodata:
   rmqdata:
 
 networks:

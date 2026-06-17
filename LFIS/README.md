@@ -56,3 +56,32 @@ This will force the remaining faces that were not possible to migrate to be set 
 ```
 docker compose up -d
 ```
+
+### Syncing embeddings to the vector database
+
+SmartFace can optionally store face and palm embeddings in a vector database (Milvus) for matching. The SQL database remains the source of truth; the vector database is populated from it. A Milvus service (together with its `milvus-etcd` dependency) is bundled in `sf_dependencies/docker-compose.yml` and starts together with the other dependencies.
+
+1. To sync the embeddings currently stored in the SQL database into the vector database, execute
+```
+./sync-embeddings-to-vector-db.sh
+```
+
+This starts the bundled Milvus service (if it is not already running) and runs the `sync-embeddings-to-vector-db` CLI command, which reads the face and palm embeddings from the SQL database and indexes them into the vector database. It does not stop the running SmartFace services.
+
+> **Note:** The vector database is partitioned into one database per tenant. The command reports how many embeddings were indexed per tenant.
+
+2. The script can be customized with the following environment variables:
+ - `VECTOR_DB_ENDPOINT` — the vector database endpoint to populate. Default: `http://milvus:19530` (the bundled Milvus service).
+ - `BATCH_SIZE` — number of watchlist members loaded per SQL database paging batch. Default: `1000`.
+ - `DRY_RUN` — set to `true` to verify the SQL and vector database connections and report how many embeddings would be indexed, without writing anything.
+ - `FORCE_REWRITE` — set to `true` to drop and recreate the embedding collections before indexing. This is required when the collections already exist. It is destructive: the collections are dropped before indexing begins, so an interrupted run can leave them empty. Since the SQL database remains the source of truth, the collections can always be rebuilt by re-running the script.
+
+For example, to preview a sync without writing anything:
+```
+DRY_RUN=true ./sync-embeddings-to-vector-db.sh
+```
+
+And to re-sync into already populated collections:
+```
+FORCE_REWRITE=true ./sync-embeddings-to-vector-db.sh
+```

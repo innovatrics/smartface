@@ -36,7 +36,7 @@ services:
       - "7070:80"
 
   rabbitmq:
-    image: "rabbitmq:3.12.11-management"
+    image: "rabbitmq:4.3.2-management"
     container_name: rmq
     ports:
       - "15672:15672"
@@ -53,23 +53,99 @@ services:
       - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped
 
-  minio:
-    image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
-    container_name: minio
-    command: server /data --console-address ":9001"
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    restart: unless-stopped
+  seaweedfs:
+    image: "chrislusf/seaweedfs:4.16"
+    container_name: seaweedfs
+    configs:
+      - source: seaweedfs_s3_json
+        target: /etc/seaweedfs/s3.json
+    # Bypass image's /entrypoint.sh wrapper which chowns /data and drops to
+    # the seaweed user; we keep the previous root-run behaviour so persistent
+    # /data volumes from earlier runs don't need a recursive chown.
+    entrypoint: ["/usr/bin/weed"]
+    command: server -s3 -s3.config=/etc/seaweedfs/s3.json -filer=true -dir=/data -master.volumeSizeLimitMB=1024 -volume.max=500
+    environment:
+      # Prevents SeaweedFS from trying to replicate volumes; single-node setup has no replica targets
+      WEED_MASTER_VOLUME_GROWTH_COPY_1: "1"
     volumes:
-      - miniodata:/data
-      #- /var/lib/smartface/miniodata:/data
+      - seaweedfs_data:/data
+    ports:
+      - "8333:8333" # S3 API Gateway
+    restart: unless-stopped
+
+  milvus-etcd:
+    image: "quay.io/coreos/etcd:v3.5.25"
+    container_name: milvus-etcd
+    command: etcd -advertise-client-urls=http://milvus-etcd:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+    environment:
+      - ETCD_AUTO_COMPACTION_MODE=revision
+      - ETCD_AUTO_COMPACTION_RETENTION=1000
+      - ETCD_QUOTA_BACKEND_BYTES=4294967296
+      - ETCD_SNAPSHOT_COUNT=50000
+    volumes:
+      - milvus_etcd_data:/etcd
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "etcdctl", "endpoint", "health"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  milvus:
+    image: "milvusdb/milvus:v2.6.16"
+    container_name: milvus
+    command: ["milvus", "run", "standalone"]
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      ETCD_ENDPOINTS: milvus-etcd:2379
+      # Milvus uses the bundled SeaweedFS instance as its S3 storage backend.
+      MINIO_ADDRESS: seaweedfs
+      MINIO_PORT: 8333
+      MINIO_ACCESS_KEY_ID: admin
+      MINIO_SECRET_ACCESS_KEY: admin
+      MQ_TYPE: woodpecker
+      # Embeddings are partitioned into one Milvus database per tenant, so allow many databases.
+      ROOTCOORD_MAXDATABASENUM: 1024
+    volumes:
+      - milvus_data:/var/lib/milvus
+    ports:
+      - "19530:19530"
+      - "19531:9091"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      start_period: 90s
+      timeout: 20s
+      retries: 3
+    depends_on:
+      - "milvus-etcd"
+      - "seaweedfs"
 
 volumes:
   mssqldata:
   pgsqldata:
-  miniodata:
   rmqdata:
+  seaweedfs_data:
+  milvus_etcd_data:
+  milvus_data:
+
+configs:
+  seaweedfs_s3_json:
+    content: |
+      {
+        "identities": [
+          {
+            "name": "admin",
+            "credentials": [
+              { "accessKey": "admin", "secretKey": "admin" }
+            ],
+            "actions": ["Read", "Write", "List", "Tagging", "Admin"],
+            "buckets": ["*"]
+          }
+        ]
+      }
 
 
 networks:

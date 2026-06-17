@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "SmartFace REST API",
-    "version": "v5_4.40.1"
+    "version": "v5_4.41.0"
   },
   "paths": {
     "/api/v1/Cameras/{id}": {
@@ -425,7 +425,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "44a8cd41-534f-46c8-be0b-1d3d8e842185"
+            "example": "c962433c-b884-4f65-b79a-3b079e888efd"
           }
         ],
         "requestBody": {
@@ -1085,7 +1085,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "41e005b9-0405-4d48-a4bc-2e286a4c0d7b"
+            "example": "a93f5989-67d6-4c6b-ba82-d032027bf818"
           }
         ],
         "requestBody": {
@@ -2644,7 +2644,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "fd2a7684-15a7-4391-a1d0-461da849aaa6"
+            "example": "8721d53a-139f-43e5-9238-c5fc32d9a667"
           }
         ],
         "requestBody": {
@@ -5256,7 +5256,7 @@
         ],
         "responses": {
           "204": {
-            "description": "The watchlist with given id was deleted successfully."
+            "description": "The delete operation accepted. The watchlist with given id will be deleted in the background."
           },
           "404": {
             "description": "The watchlist with given id was not found.",
@@ -5365,7 +5365,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "1114ab30-f826-4b59-93ce-38ec56cebac0"
+            "example": "509d537e-8c18-4895-a672-dec5edb23fed"
           }
         ],
         "requestBody": {
@@ -5468,7 +5468,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "f9bdb2c4-87b6-46da-be48-d8d5edbcd916"
+            "example": "035505e7-62cd-4438-9db3-348198439b0a"
           }
         ],
         "requestBody": {
@@ -5559,7 +5559,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "71ed1306-86aa-4688-8549-b3a8198d6388"
+            "example": "3dd46a82-4d69-48a6-98d0-9c9730591d17"
           }
         ],
         "requestBody": {
@@ -5672,7 +5672,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "3eedf8b6-5a3c-4db4-b3c7-7f4a71a2a67d"
+            "example": "bc011b04-528a-48a1-b61a-36d13b188fbd"
           }
         ],
         "requestBody": {
@@ -6978,87 +6978,6 @@
           }
         }
       }
-    },
-    "/api/v1/WatchlistMembers/{id}/Totp/QrCode": {
-      "get": {
-        "tags": [
-          "WatchlistMember"
-        ],
-        "summary": "Generates current valid TOTP code encoded as QR code image for requested member.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "withQuietZones",
-            "in": "query",
-            "description": "",
-            "schema": {
-              "type": "boolean",
-              "default": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns QR code image with encoded information for TOTP validation",
-            "content": {
-              "image/png": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -8089,6 +8008,12 @@
             "type": "number",
             "format": "float",
             "default": 90
+          },
+          "imageIntervalMs": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8124,6 +8049,12 @@
             "type": "number",
             "format": "float",
             "default": 90
+          },
+          "imageIntervalMs": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8159,6 +8090,12 @@
             "type": "number",
             "format": "float",
             "default": 90
+          },
+          "imageIntervalMs": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8194,6 +8131,12 @@
             "type": "number",
             "format": "float",
             "default": 90
+          },
+          "imageIntervalMs": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8278,6 +8221,7 @@
         "required": [
           "enable",
           "imageFormat",
+          "imageIntervalMs",
           "imageQuality",
           "maxSize",
           "sizeExtension"
@@ -8301,6 +8245,11 @@
           "imageQuality": {
             "type": "number",
             "format": "float"
+          },
+          "imageIntervalMs": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8853,6 +8802,7 @@
         "required": [
           "allowEmptyMessages",
           "enable",
+          "fullFrameIntervalMs",
           "identifiedOnly",
           "interval",
           "strategy"
@@ -8874,6 +8824,11 @@
           },
           "identifiedOnly": {
             "type": "boolean"
+          },
+          "fullFrameIntervalMs": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8906,6 +8861,12 @@
           "identifiedOnly": {
             "type": "boolean",
             "default": false
+          },
+          "fullFrameIntervalMs": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8937,6 +8898,11 @@
           },
           "identifiedOnly": {
             "type": "boolean",
+            "nullable": true
+          },
+          "fullFrameIntervalMs": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },
