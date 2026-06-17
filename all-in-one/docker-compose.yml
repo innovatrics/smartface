@@ -465,46 +465,6 @@ services:
     volumes:
       - ./iengine.lic:/etc/innovatrics/iengine.lic
 
-  odata-api:
-    image: ${REGISTRY}sf-odata-api:${SF_VERSION}
-    container_name: SFODataApi
-    labels:
-      application: smartface
-      scrapeMetrics: true
-    ports:
-      # we forward the configured ports to default SF ports
-      - 8099:${Hosting__Port}
-    expose:
-      - 4318
-    restart: unless-stopped
-    environment:
-      - RabbitMQ__Hostname
-      - RabbitMQ__Username
-      - RabbitMQ__Password
-      - RabbitMQ__Port
-      - RabbitMQ__VirtualHost
-      - RabbitMQ__UseSsl
-      - ConnectionStrings__CoreDbContext
-      - Database__DbEngine
-      - Hosting__Host
-      - Hosting__Port
-      - AppSettings__Log_RollingFile_Enabled=false
-      - AppSettings__Log_JsonConsole_Enabled
-      - S3Bucket__Endpoint
-      - S3Bucket__BucketName
-      - S3Bucket__AccessKey
-      - S3Bucket__SecretKey
-      - NoSqlDataStorageDisabled
-      - Tracing__Enabled
-      - OTEL_TRACES_SAMPLER
-      - OTEL_TRACES_SAMPLER_ARG
-      - OTEL_EXPORTER_OTLP_ENDPOINT
-      - OTEL_METRICS_EXPORTER
-      - OTEL_EXPORTER_PROMETHEUS_HOST
-      - OTEL_EXPORTER_PROMETHEUS_PORT
-    volumes:
-      - ./iengine.lic:/etc/innovatrics/iengine.lic
-
   detector:
     image: ${REGISTRY}sf-detector:${SF_VERSION}
     container_name: SFDetectCpu
