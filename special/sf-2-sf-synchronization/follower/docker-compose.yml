@@ -343,6 +343,7 @@ services:
       - NoSqlDataStorageDisabled
       - CameraDefaults__PreviewPort
       - Tracing__Enabled
+      - VectorDB__Provider
       - OTEL_TRACES_SAMPLER
       - OTEL_TRACES_SAMPLER_ARG
       - OTEL_EXPORTER_OTLP_ENDPOINT
