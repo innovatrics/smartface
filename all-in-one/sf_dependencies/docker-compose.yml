@@ -61,25 +61,31 @@ services:
       - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped
 
-  minio:
+  # SeaweedFS replaces MinIO as the S3-compatible blob storage (temporary workaround).
+  seaweedfs:
     extends:
       service: common
       file: docker-compose-common.yml
-    image: "minio/minio:RELEASE.2022-06-02T02-11-04Z"
-    container_name: minio
-    command: server /data --console-address ":9001"
+    image: "chrislusf/seaweedfs:4.16"
+    container_name: seaweedfs
+    # Bypass the image entrypoint (chowns /data and drops to the seaweed user) and run as root, like MinIO did.
+    entrypoint: ["/usr/bin/weed"]
+    command: server -s3 -s3.config=/etc/seaweedfs/s3.json -filer=true -dir=/data -master.volumeSizeLimitMB=1024 -volume.max=500
+    environment:
+      # single-node setup: never try to replicate volumes
+      WEED_MASTER_VOLUME_GROWTH_COPY_1: "1"
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "8333:8333" # S3 API
     restart: unless-stopped
     volumes:
-      - miniodata:/data
-      #- /var/lib/smartface/miniodata:/data
+      - ./etc_seaweedfs/:/etc/seaweedfs
+      - seaweedfsdata:/data
+      #- /var/lib/smartface/seaweedfsdata:/data
 
 volumes:
   mssqldata:
   pgsqldata:
-  miniodata:
+  seaweedfsdata:
   rmqdata:
 
 networks:

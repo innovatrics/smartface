@@ -54,7 +54,7 @@ fi
 # this can fail if the network already exists, but we don't mind that
 docker network create sf-network || true
 
-# start dependencies of SF - PgSql, RMQ and minio
+# start dependencies of SF - PgSql, RMQ and SeaweedFS (S3)
 chmod go+rx sf_dependencies/etc_rmq
 chmod go+r sf_dependencies/etc_rmq/*
 docker compose -f sf_dependencies/docker-compose.yml up -d
@@ -79,7 +79,7 @@ SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
 DB_ENGINE="$(getvalue Database__DbEngine)"
 
 # set correct hostname to sfstation env file
-sed -i "s/S3_PUBLIC_ENDPOINT=.*/S3_PUBLIC_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
+sed -i "s/S3_PUBLIC_ENDPOINT=.*/S3_PUBLIC_ENDPOINT=http:\/\/$(hostname):8333/g" .env.sfstation
 
 echo $VERSION
 echo $REGISTRY

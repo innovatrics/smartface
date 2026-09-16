@@ -1,0 +1,12 @@
+{
+  "identities": [
+    {
+      "name": "smartface",
+      "credentials": [
+        { "accessKey": "minioadmin", "secretKey": "minioadmin" }
+      ],
+      "actions": ["Read", "Write", "List", "Tagging", "Admin"],
+      "buckets": ["*"]
+    }
+  ]
+}
