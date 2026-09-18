@@ -13,7 +13,7 @@ services:
     extends:
       service: common
       file: docker-compose-common.yml
-    image: "minio/minio:RELEASE.2025-06-13T11-33-47Z"
+    image: "quay.io/minio/minio:RELEASE.2025-06-13T11-33-47Z"
     profiles: [singlenode, multinode-aggregator]
     command: server /data --console-address ":9001"
     expose:
@@ -30,7 +30,7 @@ services:
     extends:
       service: common
       file: docker-compose-common.yml
-    image: minio/mc
+    image: quay.io/minio/mc
     profiles: [singlenode, multinode-aggregator]
     depends_on:
       obsminio:
