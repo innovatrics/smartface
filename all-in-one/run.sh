@@ -54,7 +54,7 @@ fi
 # this can fail if the network already exists, but we don't mind that
 docker network create sf-network || true
 
-# start dependencies of SF - PgSql, RMQ and minio
+# start dependencies of SF - PgSql, RMQ and SeaweedFS
 chmod go+rx sf_dependencies/etc_rmq
 chmod go+r sf_dependencies/etc_rmq/*
 docker compose -f sf_dependencies/docker-compose.yml up -d
@@ -79,7 +79,7 @@ SF_ADMIN_IMAGE=${REGISTRY}sf-admin:${VERSION}
 DB_ENGINE="$(getvalue Database__DbEngine)"
 
 # set correct hostname to sfstation env file
-sed -i "s/S3_PUBLIC_ENDPOINT=.*/S3_PUBLIC_ENDPOINT=http:\/\/$(hostname):9000/g" .env.sfstation
+sed -i "s/S3_PUBLIC_ENDPOINT=.*/S3_PUBLIC_ENDPOINT=http:\/\/$(hostname):8333/g" .env.sfstation
 
 echo $VERSION
 echo $REGISTRY
@@ -120,8 +120,10 @@ else
     error_exit "Unknown DB engine: ${DB_ENGINE}!"
 fi
 
+# create the S3 bucket; on re-runs SeaweedFS reports the existing bucket as BucketAlreadyExists
+# (MinIO answered BucketAlreadyOwnedByYou, which sf-admin treats as success), so do not stop the script
 docker run --rm --name s3-bucket-create --network sf-network ${SF_ADMIN_IMAGE} \
-    ensure-s3-bucket-exists --endpoint "$(getvalue S3Bucket__Endpoint)" --access-key "$(getvalue S3Bucket__AccessKey)" --secret-key  "$(getvalue S3Bucket__SecretKey)" --bucket-name "$(getvalue S3Bucket__BucketName)"
+    ensure-s3-bucket-exists --endpoint "$(getvalue S3Bucket__Endpoint)" --access-key "$(getvalue S3Bucket__AccessKey)" --secret-key  "$(getvalue S3Bucket__SecretKey)" --bucket-name "$(getvalue S3Bucket__BucketName)" || true
 
 ############### NOTE ###############
 # Uncomment line below if you are interested in watchlists synchronization from SmartFace platform to edge cameras
