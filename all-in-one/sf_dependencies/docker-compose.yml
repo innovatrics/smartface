@@ -61,28 +61,53 @@ services:
       - rmqdata:/var/lib/rabbitmq
     restart: unless-stopped
 
-  minio:
+  seaweedfs:
     extends:
       service: common
       file: docker-compose-common.yml
-    image: "quay.io/minio/minio:RELEASE.2022-06-02T02-11-04Z"
-    container_name: minio
-    command: server /data --console-address ":9001"
+    image: "chrislusf/seaweedfs:4.16"
+    container_name: seaweedfs
+    # Bypass image's /entrypoint.sh wrapper which chowns /data and drops to
+    # the seaweed user; we keep the previous root-run behaviour so persistent
+    # /data volumes from earlier runs don't need a recursive chown.
+    entrypoint: ["/usr/bin/weed"]
+    command: server -s3 -s3.config=/etc/seaweedfs/s3.json -filer=true -dir=/data -master.volumeSizeLimitMB=1024 -volume.max=500
+    environment:
+      # Prevents SeaweedFS from trying to replicate volumes; single-node setup has no replica targets
+      WEED_MASTER_VOLUME_GROWTH_COPY_1: "1"
+    configs:
+      - source: seaweedfs_s3_json
+        target: /etc/seaweedfs/s3.json
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "8333:8333" # S3 API
     restart: unless-stopped
     volumes:
-      - miniodata:/data
-      #- /var/lib/smartface/miniodata:/data
+      - seaweedfsdata:/data
+      #- /var/lib/smartface/seaweedfsdata:/data
 
 volumes:
   mssqldata:
   pgsqldata:
-  miniodata:
+  seaweedfsdata:
   rmqdata:
 
 networks:
   default:
     name: sf-network
     external: true
+
+configs:
+  seaweedfs_s3_json:
+    content: |-
+      {
+        "identities": [
+          {
+            "name": "admin",
+            "credentials": [
+              { "accessKey": "admin", "secretKey": "admin" }
+            ],
+            "actions": ["Read", "Write", "List", "Tagging", "Admin"],
+            "buckets": ["*"]
+          }
+        ]
+      }
